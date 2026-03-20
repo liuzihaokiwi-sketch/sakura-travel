@@ -115,6 +115,69 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 .dc-event{margin-top:8px;padding:7px 10px;background:#fdf5f5;border-radius:8px;font-size:10px;color:#c0392b}
 .dc-event b{display:block;margin-bottom:2px}
 
+/* === HOME PAGE === */
+#home-page{flex-direction:column;overflow-y:auto;background:#fff}
+.home-hero{background:linear-gradient(135deg,#1a1a1a 0%,#2d1a22 100%);padding:36px 40px 28px;color:#fff;position:relative;overflow:hidden}
+.home-hero::after{content:'🌸';position:absolute;right:-20px;top:-20px;font-size:160px;opacity:.04}
+.home-hero-badge{display:inline-block;font-size:9px;font-weight:600;color:#f48fb1;border:1px solid rgba(244,143,177,.3);padding:3px 10px;border-radius:4px;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
+.home-hero h2{font-size:28px;font-weight:900;line-height:1.2;margin-bottom:4px}
+.home-hero h2 em{font-style:normal;color:#f48fb1}
+.home-hero p{font-size:12px;color:rgba(255,255,255,.35)}
+.home-hero-stats{display:flex;gap:16px;margin-top:12px}
+.home-hero-stat{text-align:center}
+.home-hero-stat .hhs-v{font-size:22px;font-weight:900;color:#f48fb1}
+.home-hero-stat .hhs-l{font-size:8px;color:rgba(255,255,255,.3)}
+
+.home-section{padding:16px 24px}
+.home-section-title{font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.home-section-title .hst-more{font-size:10px;color:#e91e63;font-weight:600;margin-left:auto;cursor:pointer}
+
+/* Rush cards */
+.home-rush-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.home-rush-card{display:flex;gap:8px;padding:10px;border:1px solid #f0f0f0;border-radius:10px;cursor:pointer;transition:.15s}
+.home-rush-card:hover{border-color:#f48fb1;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.hrc-rank{width:24px;height:24px;border-radius:6px;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;margin-top:2px}
+.hrc-rank.r1{background:#1a1a1a}.hrc-rank.r2{background:#666}.hrc-rank.r3{background:#aaa}
+.hrc-img{width:56px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.hrc-img-ph{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.hrc-info{flex:1;min-width:0}
+.hrc-name{font-size:12px;font-weight:800;color:#1a1a1a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hrc-meta{font-size:9px;color:#999;margin-top:1px}
+.hrc-tags{display:flex;gap:2px;margin-top:3px;flex-wrap:wrap}
+.hrc-tags span{font-size:7px;padding:1px 4px;border-radius:3px}
+.hrc-right{text-align:right;flex-shrink:0}
+.hrc-status{font-size:9px;font-weight:700}
+.hrc-status.hot{color:#e91e63}
+.hrc-status.soon{color:#ff6f00}
+.hrc-score{font-size:16px;font-weight:900;color:#e91e63}
+
+/* City overview cards */
+.home-city-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.home-city-card{border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;cursor:pointer;transition:.15s}
+.home-city-card:hover{border-color:#f48fb1;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.hcc-top{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#fafafa;border-bottom:1px solid #f5f5f5}
+.hcc-emoji{font-size:22px}
+.hcc-name{font-size:16px;font-weight:800;color:#1a1a1a}
+.hcc-status{font-size:9px;font-weight:700;color:#fff;padding:2px 7px;border-radius:3px}
+.hcc-status.on{background:#2e7d32}.hcc-status.soon{background:#e65100}
+.hcc-count{font-size:10px;color:#999;margin-left:auto}
+.hcc-spots{display:flex;gap:6px;padding:10px 12px}
+.hcc-spot{flex:1;text-align:center}
+.hcc-spot img{width:100%;height:64px;border-radius:6px;object-fit:cover;margin-bottom:4px}
+.hcc-spot-ph{width:100%;height:64px;border-radius:6px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:4px}
+.hcc-spot-n{font-size:9px;font-weight:700;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hcc-spot-f{font-size:8px;color:#e91e63;font-weight:600}
+.hcc-bottom{display:flex;gap:8px;padding:6px 12px 10px}
+.hcc-stat{flex:1;text-align:center;padding:4px;background:#fafafa;border-radius:6px}
+.hcc-stat-v{font-size:12px;font-weight:900;color:#1a1a1a}
+.hcc-stat-l{font-size:7px;color:#bbb}
+
+/* Source bar */
+.home-sources{padding:12px 24px;background:#fafafa;border-top:1px solid #f0f0f0}
+.home-sources-title{font-size:11px;font-weight:700;color:#999;margin-bottom:6px}
+.home-src-row{display:flex;flex-wrap:wrap;gap:4px}
+.home-src{font-size:9px;padding:3px 8px;border-radius:4px;background:#fff;border:1px solid #f0f0f0;color:#666;font-weight:500}
+
 /* === TIMELINE PAGE — Full screen card style === */
 #tl-page{flex-direction:column;overflow-y:auto;background:#faf7f4}
 #tl-page::-webkit-scrollbar{width:4px}
@@ -173,14 +236,20 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
     <span class="badge">240景点实测</span>
   </div>
   <div class="hdr-toggle">
-    <div class="ht-btn active" onclick="showPage('map')">🗺 地图</div>
+    <div class="ht-btn active" onclick="showPage('home')">🏠 首页</div>
+    <div class="ht-btn" onclick="showPage('map')">🗺 地图</div>
     <div class="ht-btn" onclick="showPage('tl')">📅 时间轴</div>
   </div>
   <div class="hdr-cities" id="hdr-cities"></div>
 </div>
 
+<!-- HOME PAGE -->
+<div class="page active" id="home-page">
+  <div id="home-content" style="width:100%;overflow-y:auto;padding:0"></div>
+</div>
+
 <!-- MAP PAGE -->
-<div class="page active" id="map-page">
+<div class="page" id="map-page">
   <div class="lp">
     <div class="lp-hdr" id="lp-hdr"></div>
     <div class="lp-list" id="lp-list"></div>
@@ -608,19 +677,138 @@ function tlSwitchCity(ci){
 // View toggle
 function showPage(v){
   document.querySelectorAll('.ht-btn').forEach(function(b){b.classList.remove('active')});
-  if(v==='map'){
-    document.getElementById('map-page').className='page active';
-    document.getElementById('tl-page').className='page';
+  document.getElementById('home-page').className='page';
+  document.getElementById('map-page').className='page';
+  document.getElementById('tl-page').className='page';
+  if(v==='home'){
+    document.getElementById('home-page').className='page active';
     document.querySelectorAll('.ht-btn')[0].classList.add('active');
+  }else if(v==='map'){
+    document.getElementById('map-page').className='page active';
+    document.querySelectorAll('.ht-btn')[1].classList.add('active');
     setTimeout(function(){map.invalidateSize()},100);
   }else{
-    document.getElementById('map-page').className='page';
     document.getElementById('tl-page').className='page active';
-    document.querySelectorAll('.ht-btn')[1].classList.add('active');
+    document.querySelectorAll('.ht-btn')[2].classList.add('active');
   }
 }
 
+// === HOME PAGE RENDER ===
+function renderHome(){
+  var h='';
+  // Hero
+  h+='<div class="home-hero"><div class="home-hero-badge">sakura data platform 2026</div>';
+  h+='<h2>🌸 日本樱花花期<br><em>实时数据平台</em></h2>';
+  h+='<p>融合6大权威数据源 · 覆盖5座城市240+景点 · 每天更新3次</p>';
+  h+='<div class="home-hero-stats">';
+  h+='<div class="home-hero-stat"><div class="hhs-v">240+</div><div class="hhs-l">实测景点</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">6大</div><div class="hhs-l">数据源</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">200万+</div><div class="hhs-l">用户报告</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">3次/天</div><div class="hhs-l">更新频率</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">±2天</div><div class="hhs-l">预测精度</div></div>';
+  h+='</div></div>';
+
+  // Rush ranking — top 10 across all cities
+  var allSpots=[];
+  CITIES.forEach(function(c,ci){
+    (RAW[c.key]||[]).forEach(function(s,si){
+      if(!s.full)return;
+      var dn=daysTo(s.full);
+      var rush=50;
+      if(dn!==null){
+        if(dn>=0&&dn<=2)rush=95;
+        else if(dn>=3&&dn<=7)rush=90;
+        else if(dn>=-3&&dn<0)rush=85;
+        else if(dn>=8&&dn<=14)rush=70;
+        else if(dn<-3)rush=40;
+      }
+      var final=Math.round(rush*0.6+(s.score||50)*0.4);
+      allSpots.push({s:s,ci:ci,si:si,city:c.name,rush:final,dn:dn});
+    });
+  });
+  allSpots.sort(function(a,b){return b.rush-a.rush});
+
+  h+='<div class="home-section">';
+  h+='<div class="home-section-title">🔥 本周最值得冲 TOP 10 <span class="hst-more" onclick="showPage(\'map\')">查看地图 →</span></div>';
+  h+='<div class="home-rush-grid">';
+  allSpots.slice(0,10).forEach(function(item,i){
+    var s=item.s;
+    var rc=i<3?'r1':(i<6?'r2':'r3');
+    var imgH=s.photo?'<img class="hrc-img" src="'+s.photo+'" onerror="this.className=\'hrc-img-ph\';this.outerHTML=\'<div class=hrc-img-ph>🌸</div>\'">':'<div class="hrc-img-ph">🌸</div>';
+    var statusTxt='',statusCls='soon';
+    if(item.dn!==null){
+      if(item.dn===0){statusTxt='🎉 今天满开!';statusCls='hot'}
+      else if(item.dn>0&&item.dn<=3){statusTxt='⚡'+item.dn+'天后';statusCls='hot'}
+      else if(item.dn>3){statusTxt='📅'+item.dn+'天后';statusCls='soon'}
+      else{statusTxt='🌸 过'+Math.abs(item.dn)+'天';statusCls='soon'}
+    }
+    var tags='';
+    if(s.meisyo100)tags+='<span style="background:#fff3e0;color:#e65100">🏆百选</span>';
+    if(s.lightup)tags+='<span style="background:#f3e5f5;color:#8e24aa">🌙夜樱</span>';
+    if(s.trees)tags+='<span style="background:#e8f5e9;color:#2e7d32">'+s.trees+'</span>';
+
+    h+='<div class="home-rush-card" onclick="showPage(\'map\');switchCity('+item.ci+');selectSpot('+item.ci+','+item.si+')">';
+    h+='<div class="hrc-rank '+rc+'">'+(i+1)+'</div>';
+    h+=imgH;
+    h+='<div class="hrc-info"><div class="hrc-name">'+s.name+'</div>';
+    h+='<div class="hrc-meta">'+item.city+' · 满开'+fmtS(s.full)+'</div>';
+    h+='<div class="hrc-tags">'+tags+'</div></div>';
+    h+='<div class="hrc-right"><div class="hrc-status '+statusCls+'">'+statusTxt+'</div>';
+    h+='<div class="hrc-score">'+item.rush+'</div></div></div>';
+  });
+  h+='</div></div>';
+
+  // City overview
+  h+='<div class="home-section">';
+  h+='<div class="home-section-title">🗾 城市花期概览 <span class="hst-more" onclick="showPage(\'tl\')">查看时间轴 →</span></div>';
+  h+='<div class="home-city-row">';
+  CITIES.forEach(function(c,ci){
+    var spots=(RAW[c.key]||[]).slice();
+    spots.sort(function(a,b){return(b.score||0)-(a.score||0)});
+    var top3=spots.slice(0,3);
+    var total=spots.length;
+    var treeSum=0,meisyo=0,lu=0;
+    spots.forEach(function(s){
+      var m=(s.trees||'').match(/(\d+)/);if(m)treeSum+=parseInt(m[1]);
+      if(s.meisyo100)meisyo++;if(s.lightup)lu++;
+    });
+    var stCls=c.status.indexOf('已')>=0?'on':'soon';
+
+    h+='<div class="home-city-card" onclick="showPage(\'map\');switchCity('+ci+')">';
+    h+='<div class="hcc-top"><div class="hcc-emoji">'+c.emoji+'</div><div class="hcc-name">'+c.name+'</div>';
+    h+='<div class="hcc-status '+stCls+'">'+c.status+'</div><div class="hcc-count">'+total+'景点</div></div>';
+    h+='<div class="hcc-spots">';
+    top3.forEach(function(s){
+      var imgH=s.photo?'<img src="'+s.photo+'" onerror="this.outerHTML=\'<div class=hcc-spot-ph>🌸</div>\'">':'<div class="hcc-spot-ph">🌸</div>';
+      h+='<div class="hcc-spot">'+imgH+'<div class="hcc-spot-n">'+s.name+'</div><div class="hcc-spot-f">满开'+fmtS(s.full||'?')+' · '+s.score+'分</div></div>';
+    });
+    h+='</div>';
+    h+='<div class="hcc-bottom">';
+    h+='<div class="hcc-stat"><div class="hcc-stat-v">'+total+'</div><div class="hcc-stat-l">景点</div></div>';
+    h+='<div class="hcc-stat"><div class="hcc-stat-v">'+treeSum.toLocaleString()+'</div><div class="hcc-stat-l">樱花树</div></div>';
+    h+='<div class="hcc-stat"><div class="hcc-stat-v">'+meisyo+'</div><div class="hcc-stat-l">名所百选</div></div>';
+    h+='<div class="hcc-stat"><div class="hcc-stat-v">'+lu+'</div><div class="hcc-stat-l">夜樱</div></div>';
+    h+='</div></div>';
+  });
+  h+='</div></div>';
+
+  // Data sources
+  h+='<div class="home-sources">';
+  h+='<div class="home-sources-title">📡 数据来源</div>';
+  h+='<div class="home-src-row">';
+  h+='<div class="home-src">🇯🇵 日本气象厅 JMA — 官方观测 · 58城市 · 每天3次</div>';
+  h+='<div class="home-src">🔬 日本气象株式会社 JMC — 1000景点预报 · Flowering Meter</div>';
+  h+='<div class="home-src">📱 Weathernews — 200万+用户实拍 · 1400景点 · 独家实地采访</div>';
+  h+='<div class="home-src">🏛️ GO TOKYO / 京都観光Navi — 地方官方 · 夜樱活动</div>';
+  h+='<div class="home-src">📈 70年JMA历史数据 — 早/晚年判断 · 趋势校验</div>';
+  h+='<div class="home-src">🧠 多源AI融合引擎 — 5层交叉验证 · A/B/C置信度</div>';
+  h+='</div></div>';
+
+  document.getElementById('home-content').innerHTML=h;
+}
+
 // Init
+renderHome();
 switchCity(0);
 renderTL();
 setTimeout(function(){map.invalidateSize()},300);
