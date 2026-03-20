@@ -116,7 +116,7 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 .dc-event b{display:block;margin-bottom:2px}
 
 /* === HOME PAGE === */
-#home-page{flex-direction:column;overflow-y:auto;background:#fff}
+#home-page{flex-direction:column;overflow:hidden;background:#fff}
 .home-hero{background:linear-gradient(135deg,#1a1a1a 0%,#2d1a22 100%);padding:36px 40px 28px;color:#fff;position:relative;overflow:hidden}
 .home-hero::after{content:'🌸';position:absolute;right:-20px;top:-20px;font-size:160px;opacity:.04}
 .home-hero-badge{display:inline-block;font-size:9px;font-weight:600;color:#f48fb1;border:1px solid rgba(244,143,177,.3);padding:3px 10px;border-radius:4px;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
@@ -332,6 +332,7 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
     <div class="ht-btn active" onclick="showPage('home')">🏠 首页</div>
     <div class="ht-btn" onclick="showPage('map')">🗺 地图</div>
     <div class="ht-btn" onclick="showPage('tl')">📅 时间轴</div>
+    <div class="ht-btn" onclick="showPage('custom')" style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;border-radius:6px;animation:fcb-pulse 2s infinite">✨ 免费定制</div>
   </div>
   <div class="hdr-cities" id="hdr-cities"></div>
 </div>
@@ -357,6 +358,127 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 <!-- TIMELINE PAGE -->
 <div class="page" id="tl-page">
   <div class="tl-wrap" id="tl-wrap"></div>
+</div>
+
+<!-- CUSTOM SERVICE PAGE -->
+<div class="page" id="custom-page" style="flex-direction:column;overflow-y:auto;background:#fdfaf7">
+  <div style="max-width:960px;margin:0 auto;padding:24px 32px;width:100%">
+
+    <!-- Hero -->
+    <div style="background:linear-gradient(135deg,#1a1208 0%,#2d1f0a 50%,#3d2810 100%);border-radius:16px;padding:36px 40px;color:#fff;position:relative;overflow:hidden;margin-bottom:20px">
+      <div style="position:absolute;right:-20px;top:-20px;font-size:140px;opacity:.04">✈️</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;font-size:13px;font-weight:900;padding:4px 16px;border-radius:6px">🎁 免费体验</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.3)">每人1次 · 不满意不收费</span>
+      </div>
+      <div style="font-size:28px;font-weight:900;line-height:1.3;margin-bottom:6px">你的专属赏樱行程<br><span style="color:#f7931e">从一天免费攻略开始</span></div>
+      <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6">告诉我出发日期和城市 → 我们基于240景点实时数据为你定制 → 满意再付费定制完整行程</div>
+    </div>
+
+    <!-- 我们是谁 -->
+    <div style="background:#fff;border-radius:14px;border:1px solid #f0e8e0;padding:24px 28px;margin-bottom:16px">
+      <div style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:12px;display:flex;align-items:center;gap:8px">🇯🇵 为什么选我们</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="padding:14px 16px;border-radius:10px;background:#fef9f2;border:1px solid #f5ead8">
+          <div style="font-size:13px;font-weight:700;color:#d35400;margin-bottom:4px">🏠 长期旅居日本</div>
+          <div style="font-size:11px;color:#777;line-height:1.5">我们不是「线上做攻略」，是<b style="color:#d35400">实际住在日本</b>的旅行达人。每条路线都是我们亲自走过、亲自验证的，踩过的坑比你吃过的拉面还多。</div>
+        </div>
+        <div style="padding:14px 16px;border-radius:10px;background:#fef9f2;border:1px solid #f5ead8">
+          <div style="font-size:13px;font-weight:700;color:#d35400;margin-bottom:4px">📸 保证出片效果</div>
+          <div style="font-size:11px;color:#777;line-height:1.5">每个景点标注<b style="color:#d35400">最佳拍摄时段和小众机位</b>，告诉你几点去人最少、哪个角度最美。不是去了才发现全是人头。</div>
+        </div>
+        <div style="padding:14px 16px;border-radius:10px;background:#fef9f2;border:1px solid #f5ead8">
+          <div style="font-size:13px;font-weight:700;color:#d35400;margin-bottom:4px">🎯 差异化体验</div>
+          <div style="font-size:11px;color:#777;line-height:1.5">不只是热门打卡点。我们会推荐<b style="color:#d35400">当地人才知道的隐藏樱花路</b>、限定版夜樱活动、屋台小吃街，让你的朋友圈跟别人不一样。</div>
+        </div>
+        <div style="padding:14px 16px;border-radius:10px;background:#fef9f2;border:1px solid #f5ead8">
+          <div style="font-size:13px;font-weight:700;color:#d35400;margin-bottom:4px">🧠 数据+人工双保险</div>
+          <div style="font-size:11px;color:#777;line-height:1.5">AI算出最优动线，但<b style="color:#d35400">每份行程都经过人工审核</b>。确保餐厅没闭店、景点没维修、交通没停运，240个景点实时花期数据加持。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 服务内容 -->
+    <div style="background:#fff;border-radius:14px;border:1px solid #f0e8e0;padding:24px 28px;margin-bottom:16px">
+      <div style="font-size:16px;font-weight:800;color:#1a1a1a;margin-bottom:12px">🎯 我们帮你搞定什么</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">✈️</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">机票比价</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">20+渠道对比<br>含里程票/转机组合<br>平均省30-50%</div>
+        </div>
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">🏨</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">酒店策略</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">景点步行范围<br>可免费取消<br>民宿/温泉旅馆多方案</div>
+        </div>
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">🗺️</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">行程规划</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">花期数据+交通动线<br>精确到几点去哪<br>不走回头路</div>
+        </div>
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">🍣</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">美食推荐</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">Tabelog 3.5+高分<br>标注人均/预约/排队<br>含隐藏居酒屋</div>
+        </div>
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">🚃</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">交通方案</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">自动算Pass值不值<br>10+交通券对比<br>附购买教程</div>
+        </div>
+        <div style="text-align:center;padding:16px 12px;border-radius:10px;background:linear-gradient(180deg,#fff5ee,#fff);border:1px solid #f5ead8">
+          <div style="font-size:28px;margin-bottom:6px">📸</div>
+          <div style="font-size:13px;font-weight:800;color:#1a1a1a">出片攻略</div>
+          <div style="font-size:10px;color:#999;margin-top:3px;line-height:1.4">最佳拍摄时段<br>小众机位推荐<br>错峰路线避人流</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 流程 + 微信 -->
+    <div style="background:linear-gradient(135deg,#1a1208,#2d1f0a);border-radius:14px;padding:28px 32px;color:#fff;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-20px;bottom:-20px;font-size:100px;opacity:.03">🌸</div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:16px">📋 怎么开始</div>
+      <div style="display:flex;gap:12px;margin-bottom:20px;align-items:center;justify-content:center">
+        <div style="text-align:center;padding:12px 16px;background:rgba(247,147,30,.1);border:1px solid rgba(247,147,30,.2);border-radius:10px;flex:1">
+          <div style="font-size:20px;margin-bottom:4px">1️⃣</div>
+          <div style="font-size:12px;font-weight:700;color:#f7931e">加微信</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.3)">备注「樱花」</div>
+        </div>
+        <div style="font-size:18px;color:rgba(255,255,255,.15)">→</div>
+        <div style="text-align:center;padding:12px 16px;background:rgba(247,147,30,.1);border:1px solid rgba(247,147,30,.2);border-radius:10px;flex:1">
+          <div style="font-size:20px;margin-bottom:4px">2️⃣</div>
+          <div style="font-size:12px;font-weight:700;color:#f7931e">告知日期城市</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.3)">几号到/去哪/几个人</div>
+        </div>
+        <div style="font-size:18px;color:rgba(255,255,255,.15)">→</div>
+        <div style="text-align:center;padding:12px 16px;background:rgba(247,147,30,.1);border:1px solid rgba(247,147,30,.2);border-radius:10px;flex:1">
+          <div style="font-size:20px;margin-bottom:4px">3️⃣</div>
+          <div style="font-size:12px;font-weight:700;color:#f7931e">免费获取1天攻略</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.3)">景点+餐厅+交通全包</div>
+        </div>
+        <div style="font-size:18px;color:rgba(255,255,255,.15)">→</div>
+        <div style="text-align:center;padding:12px 16px;background:rgba(247,147,30,.1);border:1px solid rgba(247,147,30,.2);border-radius:10px;flex:1">
+          <div style="font-size:20px;margin-bottom:4px">4️⃣</div>
+          <div style="font-size:12px;font-weight:700;color:#f7931e">满意再定制全程</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.3)">不满意不收费</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 20px">
+        <div style="flex:1">
+          <div style="font-size:10px;color:rgba(255,255,255,.3)">加微信 · 备注「樱花」</div>
+          <div style="font-size:22px;font-weight:900;color:#f7931e;margin-top:2px;user-select:all">Kiwi_iloveu_O-o</div>
+        </div>
+        <button onclick="navigator.clipboard.writeText('Kiwi_iloveu_O-o');this.textContent='✅ 已复制!';var b=this;setTimeout(function(){b.textContent='📋 复制微信号'},1500)" style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">📋 复制微信号</button>
+      </div>
+      <div style="display:flex;gap:20px;margin-top:10px;justify-content:center">
+        <span style="font-size:10px;color:rgba(255,255,255,.25)">🔒 不满意不收费</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.25)">🌸 已服务200+用户</span>
+        <span style="font-size:10px;color:rgba(255,255,255,.25)">🇯🇵 旅居日本团队</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="footer">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
@@ -769,10 +891,14 @@ function tlSwitchCity(ci){
 
 // View toggle
 function showPage(v){
-  document.querySelectorAll('.ht-btn').forEach(function(b){b.classList.remove('active')});
+  document.querySelectorAll('.ht-btn').forEach(function(b){b.classList.remove('active');b.style.background='';b.style.color=''});
   document.getElementById('home-page').className='page';
   document.getElementById('map-page').className='page';
   document.getElementById('tl-page').className='page';
+  document.getElementById('custom-page').className='page';
+  // Re-apply custom btn style
+  var customBtn=document.querySelectorAll('.ht-btn')[3];
+  if(customBtn){customBtn.style.background='linear-gradient(135deg,#ff6b35,#f7931e)';customBtn.style.color='#fff'}
   if(v==='home'){
     document.getElementById('home-page').className='page active';
     document.querySelectorAll('.ht-btn')[0].classList.add('active');
@@ -780,9 +906,12 @@ function showPage(v){
     document.getElementById('map-page').className='page active';
     document.querySelectorAll('.ht-btn')[1].classList.add('active');
     setTimeout(function(){map.invalidateSize()},100);
-  }else{
+  }else if(v==='tl'){
     document.getElementById('tl-page').className='page active';
     document.querySelectorAll('.ht-btn')[2].classList.add('active');
+  }else if(v==='custom'){
+    document.getElementById('custom-page').className='page active';
+    if(customBtn){customBtn.classList.add('active');customBtn.style.background='linear-gradient(135deg,#ff6b35,#f7931e)'}
   }
 }
 
@@ -945,94 +1074,6 @@ function renderHome(){
   h+='<div class="home-src">🧠 多源AI融合引擎 — 5层交叉验证 · A/B/C置信度</div>';
   h+='</div></div>';
 
-  // === CTA: 定制旅行服务引流 ===
-  h+='<div class="cta-section">';
-
-  // Dark hero
-  h+='<div class="cta-hero">';
-  h+='<div class="cta-hero-badge">Custom Travel Service</div>';
-  h+='<h2>看完花期数据，<em>下一步怎么办？</em></h2>';
-  h+='<p>机票酒店怎么订最划算？行程怎么排不绕路？这些问题我们全帮你搞定。</p>';
-  h+='</div>';
-
-  // Pain points
-  h+='<div class="cta-pains">';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fce4ec">✈️</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">樱花季机票太贵了，动辄大几千</div>';
-  h+='<div class="cta-pain-a">我们对比<b>20+航司/OTA渠道</b>，帮你筛出同日期<b>性价比最高</b>的航班方案，含转机组合和里程票机会，平均省<b>30%-50%</b></div>';
-  h+='<div class="cta-pain-tag">✅ 机票比价优化</div></div></div>';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#f3e5f5">🏨</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">满开周酒店全满/溢价3倍怎么办</div>';
-  h+='<div class="cta-pain-a">根据你的花期窗口，推荐<b>景点步行范围内</b>的高性价比住宿，提前锁定<b>可免费取消</b>房源，含民宿/温泉旅馆/商务酒店多方案</div>';
-  h+='<div class="cta-pain-tag">✅ 酒店策略推荐</div></div></div>';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#e8f5e9">🗺️</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">景点太多不知道怎么排行程</div>';
-  h+='<div class="cta-pain-a">基于<b>实时花期数据</b>+地理位置+交通动线，AI自动生成<b>不走回头路</b>的每日行程，精确到<b>几点到哪个公园</b>，最美时段不错过</div>';
-  h+='<div class="cta-pain-tag">✅ 智能行程规划</div></div></div>';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fff3e0">🍣</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">想吃地道美食但不知道选哪家</div>';
-  h+='<div class="cta-pain-a">精选<b>Tabelog 3.5+</b>评分餐厅，按行程动线就近推荐，标注<b>人均价格/是否需预约/排队时长</b>，包含隐藏居酒屋和当地人爱去的店</div>';
-  h+='<div class="cta-pain-tag">✅ 美食精准推荐</div></div></div>';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#e3f2fd">🚃</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">交通Pass怎么买最省？要买JR Pass吗</div>';
-  h+='<div class="cta-pain-a">根据你的行程自动计算<b>是否值得买Pass</b>，对比JR全国/关西/东京地铁等<b>10+交通券</b>，给出最省钱组合，附购买教程</div>';
-  h+='<div class="cta-pain-tag">✅ 交通省钱方案</div></div></div>';
-
-  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fce4ec">📸</div><div class="cta-pain-body">';
-  h+='<div class="cta-pain-q">去了热门景点全是人头怎么拍照</div>';
-  h+='<div class="cta-pain-a">每个景点标注<b>最佳拍摄时段</b>（通常早7点前人最少），推荐<b>小众机位</b>和错峰路线，避开旅游团高峰时段</div>';
-  h+='<div class="cta-pain-tag">✅ 拍照攻略</div></div></div>';
-
-  h+='</div>'; // end cta-pains
-
-  // Solutions grid
-  h+='<div class="cta-solutions">';
-  h+='<div class="cta-sol-title">🎯 一站式解决你的赏樱旅行难题</div>';
-  h+='<div class="cta-sol-grid">';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">🌸</div><div class="cta-sol-name">花期精准追踪</div><div class="cta-sol-desc">实时数据告诉你<br>哪天去哪个公园最美</div></div>';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">✈️</div><div class="cta-sol-name">特价机票筛选</div><div class="cta-sol-desc">多渠道比价<br>找到最划算的飞行方案</div></div>';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">🏨</div><div class="cta-sol-name">酒店性价比排序</div><div class="cta-sol-desc">景点附近优质住宿<br>免费取消灵活预订</div></div>';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">🗓️</div><div class="cta-sol-name">每日行程编排</div><div class="cta-sol-desc">AI动线优化<br>不走回头路不浪费时间</div></div>';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">🍜</div><div class="cta-sol-name">美食餐厅推荐</div><div class="cta-sol-desc">Tabelog高分店<br>按行程就近安排</div></div>';
-  h+='<div class="cta-sol"><div class="cta-sol-icon">🚃</div><div class="cta-sol-name">交通方案优化</div><div class="cta-sol-desc">Pass计算器<br>帮你选最省钱的交通券</div></div>';
-  h+='</div></div>';
-
-  // CTA box
-  h+='<div class="cta-box">';
-  h+='<div class="cta-box-left">';
-  h+='<div class="cta-box-title">加微信，<em>免费生成一天攻略</em></div>';
-  h+='<div class="cta-box-sub">告诉我你的<b>出行日期和人数</b>，AI 10分钟内生成一天详细行程<br>包含景点·餐厅·交通·花期状态，<b>满意再付费定制完整行程</b></div>';
-  h+='<div class="cta-box-steps">';
-  h+='<div class="cta-step"><div class="cta-step-num">1</div>加微信</div>';
-  h+='<div class="cta-step-arrow">→</div>';
-  h+='<div class="cta-step"><div class="cta-step-num">2</div>告知日期</div>';
-  h+='<div class="cta-step-arrow">→</div>';
-  h+='<div class="cta-step"><div class="cta-step-num">3</div>免费获取1天攻略</div>';
-  h+='<div class="cta-step-arrow">→</div>';
-  h+='<div class="cta-step"><div class="cta-step-num">4</div>满意再定制全程</div>';
-  h+='</div>';
-  h+='</div>';
-  h+='<div class="cta-box-right">';
-  h+='<div class="cta-wechat-card">';
-  h+='<div class="cta-wechat-label">微信号</div>';
-  h+='<div class="cta-wechat-id">Kiwi_iloveu_O-o</div>';
-  h+='<button class="cta-wechat-copy" onclick="navigator.clipboard.writeText(\'Kiwi_iloveu_O-o\');this.textContent=\'✅ 已复制!\';var b=this;setTimeout(function(){b.textContent=\'📋 复制微信号\'},1500)">📋 复制微信号</button>';
-  h+='</div>';
-  h+='<div class="cta-trust">';
-  h+='<div class="cta-trust-item">🔒 不满意不收费</div>';
-  h+='<div class="cta-trust-item">⚡ 10分钟出攻略</div>';
-  h+='<div class="cta-trust-item">🌸 已服务200+用户</div>';
-  h+='</div>';
-  h+='</div>';
-  h+='</div>';
-
-  h+='</div>'; // end cta-section
-
   document.getElementById('home-content').innerHTML=h;
 }
 
@@ -1044,15 +1085,15 @@ setTimeout(function(){map.invalidateSize()},300);
 </script>
 
 <!-- FLOATING CTA BUTTON — visible on all pages -->
-<div class="float-cta" id="float-cta" onclick="toggleCTA()">
-  <div class="float-cta-btn">
-    <span class="fcb-icon">✈️</span>
-    <span>定制<span class="fcb-highlight">赏樱行程</span></span>
-    <span class="fcb-badge">免费试</span>
+<div class="float-cta" id="float-cta" onclick="showPage('custom')">
+  <div class="float-cta-btn" style="background:linear-gradient(135deg,#ff6b35,#f7931e);border:2px solid rgba(255,255,255,.2);padding:14px 24px;border-radius:28px;box-shadow:0 4px 20px rgba(247,147,30,.4)">
+    <span class="fcb-icon" style="font-size:20px">✈️</span>
+    <span style="color:#fff;font-size:14px;font-weight:800">免费定制<span style="opacity:.7;font-weight:500;font-size:11px;margin-left:4px">赏樱行程</span></span>
+    <span class="fcb-badge" style="background:#fff;color:#ff6b35;font-size:10px;padding:2px 8px">🎁 免费</span>
   </div>
 </div>
 
-<div class="float-cta-panel" id="float-cta-panel">
+<div class="float-cta-panel" id="float-cta-panel" style="display:none">
   <div class="fcp-hdr">
     <h3>🌸 定制你的<em>赏樱行程</em></h3>
     <p>告诉我出发日期，10分钟给你一天攻略 · 免费试</p>
