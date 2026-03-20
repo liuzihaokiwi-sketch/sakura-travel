@@ -1,0 +1,191 @@
+{#
+  实用信息汇总页（签证/天气/货币/交通/紧急电话）
+  变量：
+    city_codes     - 涉及城市列表（如 ['tokyo', 'osaka']）
+    cities_zh      - 城市中文名列表
+    travel_info    - dict（可选，覆盖默认值）：
+      visa_zh / weather_zh / currency_zh / transport_zh / emergency_zh
+#}
+
+{# 默认实用信息 #}
+{% set DEFAULT_INFO = {
+  'visa': {
+    'icon': '🛂',
+    'title': '签证须知',
+    'content': '<strong>中国大陆护照</strong>：需提前申请日本旅游签证（个人旅游/团签）<br>
+                建议出发前 2-4 周办理，所需材料：护照、照片、行程单、存款证明<br>
+                签证费用约 ¥200-400（人民币）'
+  },
+  'weather': {
+    'icon': '🌸',
+    'title': '气候参考',
+    'content': '<strong>春季（3-5月）</strong>：樱花季，10-20°C，建议轻薄外套<br>
+                <strong>夏季（6-9月）</strong>：高温多湿，30°C+，备防晒和雨具<br>
+                <strong>秋季（10-11月）</strong>：红叶季，15-25°C，最舒适<br>
+                <strong>冬季（12-2月）</strong>：寒冷干燥，东京 3-10°C'
+  },
+  'currency': {
+    'icon': '💴',
+    'title': '货币与支付',
+    'content': '日本以<strong>现金</strong>为主，建议出发前兑换日元<br>
+                汇率参考：1 CNY ≈ 20 JPY（以实时为准）<br>
+                便利店 ATM（7-Eleven/LAWSON）可用银联/Visa 取款<br>
+                部分景点/餐厅已支持支付宝/微信支付'
+  },
+  'transport': {
+    'icon': '🚄',
+    'title': '境内交通',
+    'content': '<strong>IC 卡</strong>（Suica/PASMO）：地铁/公交/便利店通用，强烈推荐<br>
+                <strong>JR Pass</strong>：多城市旅行可考虑，需在国内提前购买<br>
+                <strong>地铁</strong>：城市内首选，准时高效，有中文指引<br>
+                <strong>出租车</strong>：贵但舒适，推荐深夜/行李多时使用'
+  },
+  'transport_cards': {
+    'icon': '🚃',
+    'title': '交通卡详解',
+    'subsections': [
+      {
+        'name': 'Suica / PASMO',
+        'icon': '🟢',
+        'tips': [
+          '购买：各大车站自动售票机，或 Apple Pay / Google Pay 开通虚拟卡',
+          '充值：车站售票机（现金）或 iPhone/Android 直接充值',
+          '使用范围：全国地铁/JR/公交/便利店/自动贩卖机/部分餐厅',
+          '押金：￥500（退卡时退还）',
+          '推荐充值：首次充值 ¥3000-5000 日元'
+        ]
+      },
+      {
+        'name': 'JR Pass',
+        'icon': '🔵',
+        'tips': [
+          '7日券约 ¥3,500 | 14日券约 ¥5,500 | 21日券约 ¥7,000（人民币）',
+          '含：新干线（除 Nozomi/Mizuho）+ JR 普通线 + 成田特快',
+          '须在国内提前购买（日本当地只能买价格更高的版本）',
+          '是否划算：估算总乘车票价，超过 Pass 才值',
+          '东京→大阪单程约 ¥14,000，往返已超 7 日券价格'
+        ]
+      },
+      {
+        'name': '东京地铁通票',
+        'icon': '🟡',
+        'tips': [
+          '东京Metro 1日券：¥800 | 2日券：¥1,200 | 3日券：¥1,500',
+          '仅限东京 Metro 9条线路（不含 JR、都营地铁）',
+          '密集观光日（如涩谷→上野→浅草→秋叶原）最划算',
+          '与 Suica 可同时携带，按场景切换使用'
+        ]
+      },
+      {
+        'name': '关西周游卡',
+        'icon': '🟣',
+        'tips': [
+          '2日券约 ¥4,480 | 3日券约 ¥5,600（含大阪/京都/神户/奈良地铁）',
+          '额外含部分景点门票折扣',
+          '适合短时间密集游览关西多城市的旅客'
+        ]
+      },
+      {
+        'name': '机场→市区',
+        'icon': '🟠',
+        'tips': [
+          '成田机场：京成Skyliner（41分/¥2,570）| NEX成田特快（55分/¥3,070）| 利木津巴士（80-120分/¥1,300）',
+          '羽田机场：京急线（30分/¥410）| 东京单轨电车（20分/¥510）| 利木津巴士（40-70分/¥1,200）',
+          '关西机场：Haruka 特急（75分/¥2,980）| 利木津巴士（50-90分/¥1,550）',
+          '建议：行李多选巴士（直达酒店），时间紧选铁路（更准时）'
+        ]
+      }
+    ]
+  },
+  'emergency': {
+    'icon': '🚨',
+    'title': '紧急联系',
+    'content': '<strong>紧急报警</strong>：110（警察）<br>
+                <strong>急救/火警</strong>：119<br>
+                <strong>中国大使馆</strong>（东京）：+81-3-3403-3380<br>
+                <strong>中国驻大阪总领馆</strong>：+81-6-6445-9481<br>
+                <strong>旅游咨询热线</strong>：+81-3-5321-3077'
+  }
+} %}
+
+<section class="tips-page">
+
+  <h2 class="tips-page__title">旅行实用指南</h2>
+
+  <div class="tips-grid">
+
+    {# 签证 #}
+    {% with info = travel_info.visa if travel_info and travel_info.visa else DEFAULT_INFO.visa %}
+    <div class="tips-item">
+      <div class="tips-item__icon">{{ info.icon }}</div>
+      <div class="tips-item__title">{{ info.title }}</div>
+      <div class="tips-item__content">{{ info.content | safe }}</div>
+    </div>
+    {% endwith %}
+
+    {# 天气 #}
+    {% with info = travel_info.weather if travel_info and travel_info.weather else DEFAULT_INFO.weather %}
+    <div class="tips-item">
+      <div class="tips-item__icon">{{ info.icon }}</div>
+      <div class="tips-item__title">{{ info.title }}</div>
+      <div class="tips-item__content">{{ info.content | safe }}</div>
+    </div>
+    {% endwith %}
+
+    {# 货币 #}
+    {% with info = travel_info.currency if travel_info and travel_info.currency else DEFAULT_INFO.currency %}
+    <div class="tips-item">
+      <div class="tips-item__icon">{{ info.icon }}</div>
+      <div class="tips-item__title">{{ info.title }}</div>
+      <div class="tips-item__content">{{ info.content | safe }}</div>
+    </div>
+    {% endwith %}
+
+    {# 交通 #}
+    {% with info = travel_info.transport if travel_info and travel_info.transport else DEFAULT_INFO.transport %}
+    <div class="tips-item">
+      <div class="tips-item__icon">{{ info.icon }}</div>
+      <div class="tips-item__title">{{ info.title }}</div>
+      <div class="tips-item__content">{{ info.content | safe }}</div>
+    </div>
+    {% endwith %}
+
+    {# 紧急电话 #}
+    {% with info = travel_info.emergency if travel_info and travel_info.emergency else DEFAULT_INFO.emergency %}
+    <div class="tips-item">
+      <div class="tips-item__icon">{{ info.icon }}</div>
+      <div class="tips-item__title">{{ info.title }}</div>
+      <div class="tips-item__content">{{ info.content | safe }}</div>
+    </div>
+    {% endwith %}
+
+  </div>
+
+  {# ── 交通卡详解（扩充 C6.1）── #}
+  {% set tc = DEFAULT_INFO.transport_cards %}
+  <div class="transport-cards-section">
+    <h3 class="transport-cards-section__title">{{ tc.icon }} {{ tc.title }}</h3>
+    <div class="transport-cards-grid">
+      {% for sub in tc.subsections %}
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">{{ sub.icon }}</span>
+          <span class="transport-card-block__name">{{ sub.name }}</span>
+        </div>
+        <ul class="transport-card-block__list">
+        {% for tip in sub.tips %}
+          <li class="transport-card-block__item">{{ tip }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# 页脚版权 #}
+  <div style="margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--color-border);
+              font-size: 11px; color: var(--color-muted); text-align: center;">
+    本攻略由 Travel AI 智能生成 · 信息仅供参考，出行前请以官方渠道为准
+  </div>
+
+</section>

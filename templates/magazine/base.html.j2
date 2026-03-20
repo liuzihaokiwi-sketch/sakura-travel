@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-scene="{{ scene | default('general') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ title | default('日本旅行攻略') }}">
+  <title>{{ title | default('日本旅行攻略') }}</title>
+
+  {# ── Google Fonts（Noto Serif SC + Noto Sans SC）── #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  {# ── CSS 变量 + 主题样式（内联，兼容 WeasyPrint）── #}
+  <style>
+    {% include 'magazine/css/variables.css' %}
+    {% include 'magazine/css/magazine_clean.css' %}
+
+    {# 额外的页面级样式 #}
+    {{ extra_css | default('') }}
+  </style>
+</head>
+<body>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,1432 @@
+[
+  {
+    "region": "chugoku",
+    "prefecture": null,
+    "city": null,
+    "name": "Chugoku",
+    "url": "/en/destinations/chugoku/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310531"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "hiroshima",
+    "city": null,
+    "name": "Hiroshima",
+    "url": "/en/destinations/chugoku/hiroshima/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310541"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "hiroshima",
+    "city": "hiroshima-city",
+    "name": "Hiroshima City",
+    "url": "/en/destinations/chugoku/hiroshima/hiroshima-city/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310544"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "okayama",
+    "city": null,
+    "name": "Okayama",
+    "url": "/en/destinations/chugoku/okayama/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310546"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "okayama",
+    "city": "kurashiki",
+    "name": "Kurashiki",
+    "url": "/en/destinations/chugoku/okayama/kurashiki/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310548"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "okayama",
+    "city": "okayama-and-around",
+    "name": "Okayama & Around",
+    "url": "/en/destinations/chugoku/okayama/okayama-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310550"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "shimane",
+    "city": null,
+    "name": "Shimane",
+    "url": "/en/destinations/chugoku/shimane/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310552"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "shimane",
+    "city": "matsue-and-around",
+    "name": "Matsue & Around",
+    "url": "/en/destinations/chugoku/shimane/matsue-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310554"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "shimane",
+    "city": "oki",
+    "name": "Oki",
+    "url": "/en/destinations/chugoku/shimane/oki/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310556"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "tottori",
+    "city": null,
+    "name": "Tottori",
+    "url": "/en/destinations/chugoku/tottori/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310557"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "tottori",
+    "city": "tottori-and-around",
+    "name": "Tottori & Around",
+    "url": "/en/destinations/chugoku/tottori/tottori-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310559"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "yamaguchi",
+    "city": null,
+    "name": "Yamaguchi",
+    "url": "/en/destinations/chugoku/yamaguchi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310561"
+  },
+  {
+    "region": "chugoku",
+    "prefecture": "yamaguchi",
+    "city": "shimonoseki",
+    "name": "Shimonoseki",
+    "url": "/en/destinations/chugoku/yamaguchi/shimonoseki/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310562"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": null,
+    "city": null,
+    "name": "Hokkaido",
+    "url": "/en/destinations/hokkaido/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310566"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": null,
+    "name": "Hokkaido",
+    "url": "/en/destinations/hokkaido/hokkaido/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310568"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": "asahikawa-and-hokkaido-north",
+    "name": "Asahikawa & Hokkaido North",
+    "url": "/en/destinations/hokkaido/hokkaido/asahikawa-and-hokkaido-north/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310570"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": "hakodate-and-hokkaido-south",
+    "name": "Hakodate & Hokkaido South",
+    "url": "/en/destinations/hokkaido/hokkaido/hakodate-and-hokkaido-south/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310572"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": "kushiro-and-hokkaido-east",
+    "name": "Kushiro & Hokkaido East",
+    "url": "/en/destinations/hokkaido/hokkaido/kushiro-and-hokkaido-east/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310574"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": "niseko-and-nearby-ski-resorts",
+    "name": "Niseko & Nearby Ski Resorts",
+    "url": "/en/destinations/hokkaido/hokkaido/niseko-and-nearby-ski-resorts/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310576"
+  },
+  {
+    "region": "hokkaido",
+    "prefecture": "hokkaido",
+    "city": "sapporo-and-around",
+    "name": "Sapporo & Around",
+    "url": "/en/destinations/hokkaido/hokkaido/sapporo-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310578"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": null,
+    "city": null,
+    "name": "Hokuriku Shinetsu",
+    "url": "/en/destinations/hokuriku-shinetsu/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310580"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "fukui",
+    "city": null,
+    "name": "Fukui",
+    "url": "/en/destinations/hokuriku-shinetsu/fukui/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310582"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "fukui",
+    "city": "fukui-and-around",
+    "name": "Fukui & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/fukui/fukui-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310584"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "ishikawa",
+    "city": null,
+    "name": "Ishikawa",
+    "url": "/en/destinations/hokuriku-shinetsu/ishikawa/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310585"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "ishikawa",
+    "city": "kanazawa-and-around",
+    "name": "Kanazawa & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/ishikawa/kanazawa-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310587"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": null,
+    "name": "Nagano",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310589"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "karuizawa",
+    "name": "Karuizawa",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/karuizawa/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310591"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "kiso",
+    "name": "Kiso",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/kiso/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310592"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "matsumoto-and-around",
+    "name": "Matsumoto & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/matsumoto-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310595"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "nagano-and-around",
+    "name": "Nagano & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/nagano-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310596"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "suwa",
+    "name": "Suwa",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/suwa/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310598"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "nagano",
+    "city": "the-nagano-alps",
+    "name": "The Nagano Alps",
+    "url": "/en/destinations/hokuriku-shinetsu/nagano/the-nagano-alps/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310601"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "niigata",
+    "city": null,
+    "name": "Niigata",
+    "url": "/en/destinations/hokuriku-shinetsu/niigata/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310603"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "niigata",
+    "city": "niigata-city-and-around",
+    "name": "Niigata City & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/niigata/niigata-city-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310605"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "niigata",
+    "city": "sado-island",
+    "name": "Sado Isl&",
+    "url": "/en/destinations/hokuriku-shinetsu/niigata/sado-island/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310607"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "toyama",
+    "city": null,
+    "name": "Toyama",
+    "url": "/en/destinations/hokuriku-shinetsu/toyama/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310609"
+  },
+  {
+    "region": "hokuriku-shinetsu",
+    "prefecture": "toyama",
+    "city": "toyama-and-around",
+    "name": "Toyama & Around",
+    "url": "/en/destinations/hokuriku-shinetsu/toyama/toyama-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310611"
+  },
+  {
+    "region": "kansai",
+    "prefecture": null,
+    "city": null,
+    "name": "Kansai",
+    "url": "/en/destinations/kansai/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310612"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "hyogo",
+    "city": null,
+    "name": "Hyogo",
+    "url": "/en/destinations/kansai/hyogo/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310614"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "hyogo",
+    "city": "himeji-and-around",
+    "name": "Himeji & Around",
+    "url": "/en/destinations/kansai/hyogo/himeji-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310616"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "hyogo",
+    "city": "kobe-and-around",
+    "name": "Kobe & Around",
+    "url": "/en/destinations/kansai/hyogo/kobe-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310618"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "kyoto",
+    "city": null,
+    "name": "Kyoto",
+    "url": "/en/destinations/kansai/kyoto/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310619"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "kyoto",
+    "city": "around-kyoto-station",
+    "name": "Around Kyoto Station",
+    "url": "/en/destinations/kansai/kyoto/around-kyoto-station/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310621"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "kyoto",
+    "city": "central-kyoto",
+    "name": "Central Kyoto",
+    "url": "/en/destinations/kansai/kyoto/central-kyoto/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310623"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "kyoto",
+    "city": "gion-and-higashiyama",
+    "name": "Gion & Higashiyama",
+    "url": "/en/destinations/kansai/kyoto/gion-and-higashiyama/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310625"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "nara",
+    "city": null,
+    "name": "Nara",
+    "url": "/en/destinations/kansai/nara/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310627"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "nara",
+    "city": "nara-city-and-around",
+    "name": "Nara City & Around",
+    "url": "/en/destinations/kansai/nara/nara-city-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310628"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "nara",
+    "city": "nara-park-and-around",
+    "name": "Nara Park & Around",
+    "url": "/en/destinations/kansai/nara/nara-park-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310630"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "osaka",
+    "city": null,
+    "name": "Osaka",
+    "url": "/en/destinations/kansai/osaka/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310632"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "osaka",
+    "city": "dotonbori-and-shinsaibashi",
+    "name": "Dotonbori & Shinsaibashi",
+    "url": "/en/destinations/kansai/osaka/dotonbori-and-shinsaibashi/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310635"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "osaka",
+    "city": "osaka-bay-area",
+    "name": "Osaka Bay Area",
+    "url": "/en/destinations/kansai/osaka/osaka-bay-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310637"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "osaka",
+    "city": "osaka-castle-and-around",
+    "name": "Osaka Castle & Around",
+    "url": "/en/destinations/kansai/osaka/osaka-castle-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310639"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "shiga",
+    "city": null,
+    "name": "Shiga",
+    "url": "/en/destinations/kansai/shiga/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310640"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "shiga",
+    "city": "koga-and-shigaraki",
+    "name": "Koga & Shigaraki",
+    "url": "/en/destinations/kansai/shiga/koga-and-shigaraki/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310642"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "shiga",
+    "city": "omihachiman-area",
+    "name": "Omihachiman Area",
+    "url": "/en/destinations/kansai/shiga/omihachiman-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310644"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "shiga",
+    "city": "otsu-area",
+    "name": "Otsu Area",
+    "url": "/en/destinations/kansai/shiga/otsu-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310646"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "wakayama",
+    "city": null,
+    "name": "Wakayama",
+    "url": "/en/destinations/kansai/wakayama/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310647"
+  },
+  {
+    "region": "kansai",
+    "prefecture": "wakayama",
+    "city": "hongu",
+    "name": "Hongu",
+    "url": "/en/destinations/kansai/wakayama/hongu/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310649"
+  },
+  {
+    "region": "kanto",
+    "prefecture": null,
+    "city": null,
+    "name": "Kanto",
+    "url": "/en/destinations/kanto/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310650"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "chiba",
+    "city": null,
+    "name": "Chiba",
+    "url": "/en/destinations/kanto/chiba/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310652"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "gunma",
+    "city": null,
+    "name": "Gunma",
+    "url": "/en/destinations/kanto/gunma/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310654"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "gunma",
+    "city": "maebashi-and-akagi",
+    "name": "Maebashi & Akagi",
+    "url": "/en/destinations/kanto/gunma/maebashi-and-akagi/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310655"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "gunma",
+    "city": "minakami-area",
+    "name": "Minakami Area",
+    "url": "/en/destinations/kanto/gunma/minakami-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310657"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "ibaraki",
+    "city": null,
+    "name": "Ibaraki",
+    "url": "/en/destinations/kanto/ibaraki/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310659"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "kanagawa",
+    "city": null,
+    "name": "Kanagawa",
+    "url": "/en/destinations/kanto/kanagawa/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310661"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "kanagawa",
+    "city": "hakone-and-around",
+    "name": "Hakone & Around",
+    "url": "/en/destinations/kanto/kanagawa/hakone-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310663"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "kanagawa",
+    "city": "yokohama-and-around",
+    "name": "Yokohama & Around",
+    "url": "/en/destinations/kanto/kanagawa/yokohama-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310665"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "saitama",
+    "city": null,
+    "name": "Saitama",
+    "url": "/en/destinations/kanto/saitama/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310666"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "saitama",
+    "city": "new-urban-center-area",
+    "name": "New Urban Center Area",
+    "url": "/en/destinations/kanto/saitama/new-urban-center-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310668"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tochigi",
+    "city": null,
+    "name": "Tochigi",
+    "url": "/en/destinations/kanto/tochigi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310670"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tochigi",
+    "city": "nikko-area",
+    "name": "Nikko Area",
+    "url": "/en/destinations/kanto/tochigi/nikko-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310673"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tochigi",
+    "city": "utsunomiya-area",
+    "name": "Utsunomiya Area",
+    "url": "/en/destinations/kanto/tochigi/utsunomiya-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310675"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tokyo",
+    "city": null,
+    "name": "Tokyo",
+    "url": "/en/destinations/kanto/tokyo/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310677"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tokyo",
+    "city": "ginza-and-nihombashi",
+    "name": "Ginza & Nihombashi",
+    "url": "/en/destinations/kanto/tokyo/ginza-and-nihombashi/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310679"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tokyo",
+    "city": "roppongi-and-akasaka-area",
+    "name": "Roppongi & Akasaka Area",
+    "url": "/en/destinations/kanto/tokyo/roppongi-and-akasaka-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310680"
+  },
+  {
+    "region": "kanto",
+    "prefecture": "tokyo",
+    "city": "tokyo-islands",
+    "name": "Tokyo Isl&S",
+    "url": "/en/destinations/kanto/tokyo/tokyo-islands/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310682"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": null,
+    "city": null,
+    "name": "Kyushu",
+    "url": "/en/destinations/kyushu/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310684"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "fukuoka",
+    "city": null,
+    "name": "Fukuoka",
+    "url": "/en/destinations/kyushu/fukuoka/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310686"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "fukuoka",
+    "city": "around-fukuoka",
+    "name": "Around Fukuoka",
+    "url": "/en/destinations/kyushu/fukuoka/around-fukuoka/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310688"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "fukuoka",
+    "city": "fukuoka-city",
+    "name": "Fukuoka City",
+    "url": "/en/destinations/kyushu/fukuoka/fukuoka-city/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310690"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kagoshima",
+    "city": null,
+    "name": "Kagoshima",
+    "url": "/en/destinations/kyushu/kagoshima/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310691"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kagoshima",
+    "city": "amami-oshima-and-nearby-islands",
+    "name": "Amami Oshima & Nearby Isl&S",
+    "url": "/en/destinations/kyushu/kagoshima/amami-oshima-and-nearby-islands/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310693"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kagoshima",
+    "city": "kagoshima-and-around",
+    "name": "Kagoshima & Around",
+    "url": "/en/destinations/kyushu/kagoshima/kagoshima-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310695"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kagoshima",
+    "city": "yakushima",
+    "name": "Yakushima",
+    "url": "/en/destinations/kyushu/kagoshima/yakushima/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310697"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kumamoto",
+    "city": null,
+    "name": "Kumamoto",
+    "url": "/en/destinations/kyushu/kumamoto/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310699"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "kumamoto",
+    "city": "kumamoto",
+    "name": "Kumamoto",
+    "url": "/en/destinations/kyushu/kumamoto/kumamoto/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310700"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "miyazaki",
+    "city": null,
+    "name": "Miyazaki",
+    "url": "/en/destinations/kyushu/miyazaki/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310702"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "miyazaki",
+    "city": "miyazaki",
+    "name": "Miyazaki",
+    "url": "/en/destinations/kyushu/miyazaki/miyazaki/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310703"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "miyazaki",
+    "city": "miyazaki-surf-sports",
+    "name": "Miyazaki Surf Sports",
+    "url": "/en/destinations/kyushu/miyazaki/miyazaki-surf-sports/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310705"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "nagasaki",
+    "city": null,
+    "name": "Nagasaki",
+    "url": "/en/destinations/kyushu/nagasaki/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310707"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "nagasaki",
+    "city": "nagasaki-city-and-around",
+    "name": "Nagasaki City & Around",
+    "url": "/en/destinations/kyushu/nagasaki/nagasaki-city-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310709"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "nagasaki",
+    "city": "nagasaki-islands",
+    "name": "Nagasaki Isl&S",
+    "url": "/en/destinations/kyushu/nagasaki/nagasaki-islands/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310711"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "oita",
+    "city": null,
+    "name": "Oita",
+    "url": "/en/destinations/kyushu/oita/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310712"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "oita",
+    "city": "beppu-and-yufuin-around",
+    "name": "Beppu & Yufuin Around",
+    "url": "/en/destinations/kyushu/oita/beppu-and-yufuin-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310714"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "saga",
+    "city": null,
+    "name": "Saga",
+    "url": "/en/destinations/kyushu/saga/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310716"
+  },
+  {
+    "region": "kyushu",
+    "prefecture": "saga",
+    "city": "arita-and-imari-area",
+    "name": "Arita & Imari Area",
+    "url": "/en/destinations/kyushu/saga/arita-and-imari-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310718"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": null,
+    "city": null,
+    "name": "Okinawa",
+    "url": "/en/destinations/okinawa/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310726"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": "okinawa",
+    "city": null,
+    "name": "Okinawa",
+    "url": "/en/destinations/okinawa/okinawa/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310728"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": "okinawa",
+    "city": "ishigaki-island-and-around",
+    "name": "Ishigaki Isl& & Around",
+    "url": "/en/destinations/okinawa/okinawa/ishigaki-island-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310730"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": "okinawa",
+    "city": "miyako-island",
+    "name": "Miyako Isl&",
+    "url": "/en/destinations/okinawa/okinawa/miyako-island/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310801"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": "okinawa",
+    "city": "naha-and-the-main-island",
+    "name": "Naha & The Main Isl&",
+    "url": "/en/destinations/okinawa/okinawa/naha-and-the-main-island/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310811"
+  },
+  {
+    "region": "okinawa",
+    "prefecture": "okinawa",
+    "city": "the-kerama-islands",
+    "name": "The Kerama Isl&S",
+    "url": "/en/destinations/okinawa/okinawa/the-kerama-islands/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310814"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": null,
+    "city": null,
+    "name": "Shikoku",
+    "url": "/en/destinations/shikoku/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310822"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "ehime",
+    "city": null,
+    "name": "Ehime",
+    "url": "/en/destinations/shikoku/ehime/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310825"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "ehime",
+    "city": "matsuyama-and-around",
+    "name": "Matsuyama & Around",
+    "url": "/en/destinations/shikoku/ehime/matsuyama-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310827"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "kagawa",
+    "city": null,
+    "name": "Kagawa",
+    "url": "/en/destinations/shikoku/kagawa/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310829"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "kagawa",
+    "city": "setouchi-islands",
+    "name": "Setouchi Isl&S",
+    "url": "/en/destinations/shikoku/kagawa/setouchi-islands/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310831"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "kagawa",
+    "city": "takamatsu-area",
+    "name": "Takamatsu Area",
+    "url": "/en/destinations/shikoku/kagawa/takamatsu-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310833"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "kochi",
+    "city": null,
+    "name": "Kochi",
+    "url": "/en/destinations/shikoku/kochi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310834"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "kochi",
+    "city": "kochi-and-around",
+    "name": "Kochi & Around",
+    "url": "/en/destinations/shikoku/kochi/kochi-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310839"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "tokushima",
+    "city": null,
+    "name": "Tokushima",
+    "url": "/en/destinations/shikoku/tokushima/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310840"
+  },
+  {
+    "region": "shikoku",
+    "prefecture": "tokushima",
+    "city": "tokushima-city",
+    "name": "Tokushima City",
+    "url": "/en/destinations/shikoku/tokushima/tokushima-city/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310842"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": null,
+    "city": null,
+    "name": "Tohoku",
+    "url": "/en/destinations/tohoku/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310844"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "akita",
+    "city": null,
+    "name": "Akita",
+    "url": "/en/destinations/tohoku/akita/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310845"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "akita",
+    "city": "akita-and-around",
+    "name": "Akita & Around",
+    "url": "/en/destinations/tohoku/akita/akita-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310847"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "akita",
+    "city": "shirakami-area",
+    "name": "Shirakami Area",
+    "url": "/en/destinations/tohoku/akita/shirakami-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310855"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "aomori",
+    "city": null,
+    "name": "Aomori",
+    "url": "/en/destinations/tohoku/aomori/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310857"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "aomori",
+    "city": "aomori-city-and-around",
+    "name": "Aomori City & Around",
+    "url": "/en/destinations/tohoku/aomori/aomori-city-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310859"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "aomori",
+    "city": "lake-towada-and-around",
+    "name": "Lake Towada & Around",
+    "url": "/en/destinations/tohoku/aomori/lake-towada-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310861"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "fukushima",
+    "city": null,
+    "name": "Fukushima",
+    "url": "/en/destinations/tohoku/fukushima/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310862"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "fukushima",
+    "city": "aizuwakamatsu-and-oze",
+    "name": "Aizuwakamatsu & Oze",
+    "url": "/en/destinations/tohoku/fukushima/aizuwakamatsu-and-oze/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310864"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "fukushima",
+    "city": "fukushima-city",
+    "name": "Fukushima City",
+    "url": "/en/destinations/tohoku/fukushima/fukushima-city/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310866"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "iwate",
+    "city": null,
+    "name": "Iwate",
+    "url": "/en/destinations/tohoku/iwate/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310868"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "iwate",
+    "city": "hachimantai-area",
+    "name": "Hachimantai Area",
+    "url": "/en/destinations/tohoku/iwate/hachimantai-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310869"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "iwate",
+    "city": "morioka-and-around",
+    "name": "Morioka & Around",
+    "url": "/en/destinations/tohoku/iwate/morioka-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310871"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "miyagi",
+    "city": null,
+    "name": "Miyagi",
+    "url": "/en/destinations/tohoku/miyagi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310873"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "miyagi",
+    "city": "sendai-area",
+    "name": "Sendai Area",
+    "url": "/en/destinations/tohoku/miyagi/sendai-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310874"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "miyagi",
+    "city": "zao-area",
+    "name": "Zao Area",
+    "url": "/en/destinations/tohoku/miyagi/zao-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310876"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "yamagata",
+    "city": null,
+    "name": "Yamagata",
+    "url": "/en/destinations/tohoku/yamagata/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310878"
+  },
+  {
+    "region": "tohoku",
+    "prefecture": "yamagata",
+    "city": "tsuruoka-and-sakata",
+    "name": "Tsuruoka & Sakata",
+    "url": "/en/destinations/tohoku/yamagata/tsuruoka-and-sakata/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310880"
+  },
+  {
+    "region": "tokai",
+    "prefecture": null,
+    "city": null,
+    "name": "Tokai",
+    "url": "/en/destinations/tokai/",
+    "level": "region",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310881"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "aichi",
+    "city": null,
+    "name": "Aichi",
+    "url": "/en/destinations/tokai/aichi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310883"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "aichi",
+    "city": "nagoya-station-and-around",
+    "name": "Nagoya Station & Around",
+    "url": "/en/destinations/tokai/aichi/nagoya-station-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310885"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "gifu",
+    "city": null,
+    "name": "Gifu",
+    "url": "/en/destinations/tokai/gifu/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310888"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "gifu",
+    "city": "gifu-and-around",
+    "name": "Gifu & Around",
+    "url": "/en/destinations/tokai/gifu/gifu-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310890"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "gifu",
+    "city": "takayama-and-around",
+    "name": "Takayama & Around",
+    "url": "/en/destinations/tokai/gifu/takayama-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310891"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "mie",
+    "city": null,
+    "name": "Mie",
+    "url": "/en/destinations/tokai/mie/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310893"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "mie",
+    "city": "ise-bay-area",
+    "name": "Ise Bay Area",
+    "url": "/en/destinations/tokai/mie/ise-bay-area/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310895"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "shizuoka",
+    "city": null,
+    "name": "Shizuoka",
+    "url": "/en/destinations/tokai/shizuoka/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310896"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "shizuoka",
+    "city": "hamamatsu-and-around",
+    "name": "Hamamatsu & Around",
+    "url": "/en/destinations/tokai/shizuoka/hamamatsu-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310898"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "yamanashi",
+    "city": null,
+    "name": "Yamanashi",
+    "url": "/en/destinations/tokai/yamanashi/",
+    "level": "prefecture",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310899"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "yamanashi",
+    "city": "kiyosato-and-around",
+    "name": "Kiyosato & Around",
+    "url": "/en/destinations/tokai/yamanashi/kiyosato-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310901"
+  },
+  {
+    "region": "tokai",
+    "prefecture": "yamanashi",
+    "city": "mt-fuji-and-around",
+    "name": "Mt Fuji & Around",
+    "url": "/en/destinations/tokai/yamanashi/mt-fuji-and-around/",
+    "level": "city",
+    "source": "jnto",
+    "crawled_at": "2026-03-19T14:43:49.310903"
+  }
+]

@@ -1,0 +1,134 @@
+{#
+  实体卡片模板（在 day_card.html.j2 中通过 {% include %} 调用）
+  上下文变量（item dict）：
+    item.entity_name     - 实体中文名
+    item.entity_name_ja  - 实体日文名（可选）
+    item.entity_type     - poi / restaurant / hotel
+    item.item_type       - 同上
+    item.image_url       - 图片 URL（已由 renderer 处理 fallback）
+    item.copy_zh         - AI 生成的一句话描述
+    item.tips_zh         - AI 生成的旅行 Tips
+    item.tags            - list[str] 标签列表
+    item.rating          - Google 评分（float/str）
+    item.opening_hours_zh - 营业时间（str，可选）
+    item.duration_min    - 建议游览时长（int，可选）
+    item.maps_url        - Google Maps 链接
+    item.travel_time_zh  - 与上一个景点的交通时间（str，可选）
+    item.admission_fee_jpy - 门票价格（int，可选）
+    item.is_optional     - 是否可选（bool）
+#}
+
+{# 实体图标映射 #}
+{% set TYPE_ICON = {
+  'poi':        '🏛️',
+  'restaurant': '🍽️',
+  'hotel':      '🏨',
+  'shrine':     '⛩️',
+  'temple':     '🏯',
+  'park':       '🌸',
+  'museum':     '🖼️',
+} %}
+
+{% set icon = TYPE_ICON.get(item.entity_type, TYPE_ICON.get(item.item_type, '📍')) %}
+
+<div class="entity-card page-break-avoid {% if item.is_optional %}entity-card--optional{% endif %}">
+
+  {# ── 图片区域 ── #}
+  <div class="entity-card__img-wrap {% if not item.image_url %}entity-card__img-wrap--placeholder{% endif %}">
+    {% if item.image_url %}
+      <img class="entity-card__img"
+           src="{{ item.image_url }}"
+           alt="{{ item.entity_name | default('') }}"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    {% else %}
+      <div class="entity-card__img-icon">{{ icon }}</div>
+    {% endif %}
+  </div>
+
+  {# ── 正文区域 ── #}
+  <div class="entity-card__body">
+
+    {# 标题行 #}
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">{{ item.entity_name | default('未知地点') }}</div>
+        {% if item.entity_name_ja %}
+        <div class="entity-card__name-ja">{{ item.entity_name_ja }}</div>
+        {% endif %}
+      </div>
+      {% if item.rating %}
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>{{ item.rating }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    {# 一句话描述 #}
+    {% if item.copy_zh %}
+    <p class="entity-card__copy">{{ item.copy_zh }}</p>
+    {% endif %}
+
+    {# 标签徽章 #}
+    {% if item.tags %}
+    <div class="entity-card__tags">
+      {% for tag in item.tags[:6] %}
+      <span class="tag-badge">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {# 实用信息 #}
+    <div class="entity-card__meta">
+      {% if item.opening_hours_zh %}
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🕐</span>
+        <span>{{ item.opening_hours_zh }}</span>
+      </div>
+      {% endif %}
+
+      {% if item.duration_min %}
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 {{ item.duration_min }} 分钟</span>
+      </div>
+      {% endif %}
+
+      {% if item.admission_fee_jpy is not none %}
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        {% if item.admission_fee_jpy == 0 %}
+        <span>免费入场</span>
+        {% else %}
+        <span>门票 ¥{{ item.admission_fee_jpy }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if item.travel_time_zh %}
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>{{ item.travel_time_zh }}</span>
+      </div>
+      {% endif %}
+
+      {% if item.maps_url %}
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="{{ item.maps_url }}" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+    {# Tips #}
+    {% if item.tips_zh %}
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>{{ item.tips_zh }}
+    </div>
+    {% endif %}
+
+  </div>
+</div>

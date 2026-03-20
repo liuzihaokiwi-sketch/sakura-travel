@@ -1,0 +1,196 @@
+{#
+  酒店推荐报告（详细版，¥128+）
+  变量：
+    hotels         - list[dict]，每项包含：
+      name_zh      - 中文名
+      name_en      - 英文名（可选）
+      name_ja      - 日文名（可选）
+      area         - 区域
+      star_rating  - 星级（int）
+      price_min_jpy- 最低价日元/晚
+      price_min_cny- 最低价人民币/晚
+      booking_score- Booking 评分（float，/10）
+      google_rating- Google 评分（float，/5）
+      image_url    - 图片（可选）
+      area_pros    - 区域优势（str）
+      area_cons    - 区域劣势（str）
+      why_recommend- 为什么推荐（str）
+      booking_url  - Booking 链接
+      agoda_url    - Agoda 链接（可选）
+      jalan_url    - Jalan 链接（可选）
+    city_codes     - 城市列表
+#}
+
+<section class="guide-page hotel-report page-break-before">
+
+  <div class="guide-page__header guide-page__header--hotel">
+    <div class="guide-page__header-icon">🏨</div>
+    <h2 class="guide-page__title">酒店深度推荐报告</h2>
+    <p class="guide-page__subtitle">从区域分析到平台比价，为你找到最适合这次旅行的住宿</p>
+  </div>
+
+  {# ── 对比总表 ── #}
+  {% if hotels and hotels|length > 1 %}
+  <div class="hotel-compare-table page-break-avoid">
+    <div class="hotel-compare-table__title">⚖️ 酒店对比一览</div>
+    <div class="hotel-compare-scroll">
+      <table class="hotel-compare">
+        <thead>
+          <tr>
+            <th>酒店名称</th>
+            <th>区域</th>
+            <th>星级</th>
+            <th>Booking评分</th>
+            <th>参考价/晚</th>
+            <th>推荐指数</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for hotel in hotels %}
+          <tr {% if loop.first %}class="hotel-compare__best-row"{% endif %}>
+            <td class="hotel-compare__name">
+              {{ hotel.name_zh }}
+              {% if loop.first %}<span class="best-badge">推荐</span>{% endif %}
+            </td>
+            <td>{{ hotel.area | default('-') }}</td>
+            <td>{% for i in range(hotel.star_rating | default(3)) %}★{% endfor %}</td>
+            <td>
+              {% if hotel.booking_score %}
+              <span class="score-pill score-pill--{{ 'green' if hotel.booking_score >= 8.5 else ('yellow' if hotel.booking_score >= 7.5 else 'red') }}">
+                {{ hotel.booking_score }}
+              </span>
+              {% else %}-{% endif %}
+            </td>
+            <td>
+              ¥{{ "{:,}".format(hotel.price_min_jpy) }}
+              {% if hotel.price_min_cny %}<br><small>≈ ￥{{ hotel.price_min_cny }}</small>{% endif %}
+            </td>
+            <td>
+              {% set stars = (hotel.booking_score / 2) | round | int if hotel.booking_score else 3 %}
+              {% for i in range(stars) %}⭐{% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── 每家酒店详情卡片 ── #}
+  {% set display_hotels = hotels if hotels else [
+    {'name_zh': '示例：东京湾希尔顿酒店', 'area': '台场', 'star_rating': 5,
+     'price_min_jpy': 18000, 'price_min_cny': 900, 'booking_score': 8.7, 'google_rating': 4.4,
+     'area_pros': '台场海湾景观，远离闹市，安静舒适，购物中心相邻', 'area_cons': '距新宿/浅草约30分钟，交通稍偏',
+     'why_recommend': '海湾日出景观无可替代，亲子家庭首选，游泳池+健身房设施完善，直连Diver City商场'}
+  ] %}
+
+  {% for hotel in display_hotels %}
+  <div class="hotel-detail-card page-break-avoid">
+
+    {# 图片区域 #}
+    {% if hotel.image_url %}
+    <div class="hotel-detail-card__img-wrap">
+      <img src="{{ hotel.image_url }}" alt="{{ hotel.name_zh }}" class="hotel-detail-card__img"
+           onerror="this.parentNode.style.display='none'">
+    </div>
+    {% else %}
+    <div class="hotel-detail-card__img-placeholder">
+      <span>🏨</span>
+    </div>
+    {% endif %}
+
+    <div class="hotel-detail-card__content">
+
+      {# 标题行 #}
+      <div class="hotel-detail-card__header">
+        <div>
+          <div class="hotel-detail-card__name">{{ hotel.name_zh }}</div>
+          {% if hotel.name_en %}<div class="hotel-detail-card__name-en">{{ hotel.name_en }}</div>{% endif %}
+          {% if hotel.name_ja %}<div class="hotel-detail-card__name-ja">{{ hotel.name_ja }}</div>{% endif %}
+        </div>
+        <div class="hotel-detail-card__ratings">
+          {% if hotel.booking_score %}
+          <div class="rating-badge rating-badge--booking">
+            <span class="rating-badge__platform">Booking</span>
+            <span class="rating-badge__score">{{ hotel.booking_score }}</span>
+            <span class="rating-badge__max">/10</span>
+          </div>
+          {% endif %}
+          {% if hotel.google_rating %}
+          <div class="rating-badge rating-badge--google">
+            <span class="rating-badge__platform">Google</span>
+            <span class="rating-badge__score">★ {{ hotel.google_rating }}</span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {# 基本信息 #}
+      <div class="hotel-detail-card__info-row">
+        <span class="hotel-info-chip">📍 {{ hotel.area | default('东京') }}</span>
+        <span class="hotel-info-chip">
+          {% for i in range(hotel.star_rating | default(4)) %}★{% endfor %} 酒店
+        </span>
+        <span class="hotel-info-chip hotel-info-chip--price">
+          ¥{{ "{:,}".format(hotel.price_min_jpy) }}/晚起
+          {% if hotel.price_min_cny %}≈ ￥{{ hotel.price_min_cny }}{% endif %}
+        </span>
+      </div>
+
+      {# 区域分析 #}
+      {% if hotel.area_pros or hotel.area_cons %}
+      <div class="hotel-area-analysis">
+        <div class="hotel-area-analysis__title">📌 区域分析</div>
+        <div class="hotel-area-analysis__cols">
+          {% if hotel.area_pros %}
+          <div class="hotel-area-col hotel-area-col--pros">
+            <div class="hotel-area-col__label">✅ 优势</div>
+            <div class="hotel-area-col__text">{{ hotel.area_pros }}</div>
+          </div>
+          {% endif %}
+          {% if hotel.area_cons %}
+          <div class="hotel-area-col hotel-area-col--cons">
+            <div class="hotel-area-col__label">⚠️ 注意</div>
+            <div class="hotel-area-col__text">{{ hotel.area_cons }}</div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      {# 为什么推荐 #}
+      {% if hotel.why_recommend %}
+      <div class="hotel-why-recommend">
+        <div class="hotel-why-recommend__icon">💬</div>
+        <div class="hotel-why-recommend__content">
+          <div class="hotel-why-recommend__title">为什么推荐这家？</div>
+          <div class="hotel-why-recommend__text">{{ hotel.why_recommend }}</div>
+        </div>
+      </div>
+      {% endif %}
+
+      {# 预订链接 #}
+      {% if hotel.booking_url or hotel.agoda_url or hotel.jalan_url %}
+      <div class="hotel-booking-links">
+        {% if hotel.booking_url %}
+        <a href="{{ hotel.booking_url }}" class="booking-link booking-link--booking" target="_blank">Booking.com 查价</a>
+        {% endif %}
+        {% if hotel.agoda_url %}
+        <a href="{{ hotel.agoda_url }}" class="booking-link booking-link--agoda" target="_blank">Agoda 查价</a>
+        {% endif %}
+        {% if hotel.jalan_url %}
+        <a href="{{ hotel.jalan_url }}" class="booking-link booking-link--jalan" target="_blank">Jalan 查价</a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="guide-page__footer">
+    本酒店推荐由 Travel AI 智能生成 · 价格随日期浮动，以预订时平台显示价格为准
+  </div>
+
+</section>

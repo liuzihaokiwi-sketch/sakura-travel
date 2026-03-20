@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+from functools import lru_cache
+from typing import List, Literal, Optional, Union
+
+from pydantic import field_validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore",
+    )
+
+    # ── App ───────────────────────────────────────────────────
+    app_env: Literal["development", "staging", "production"] = "development"
+    app_debug: bool = False
+    secret_key: str = "change_me_in_production"
+    allowed_origins: List[str] = ["http://localhost:3000", "http://localhost:8000"]
+
+    # ── Database ──────────────────────────────────────────────
+    # SQLite 示例: sqlite+aiosqlite:///./japan_ai.db
+    # PostgreSQL 示例: postgresql+asyncpg://user:pass@localhost:5432/japan_ai
+    database_url: str = "sqlite+aiosqlite:///./japan_ai.db"
+    postgres_user: str = "japan_ai"
+    postgres_password: str = "japan_ai_dev"
+    postgres_db: str = "japan_ai"
+
+    # ── Redis ─────────────────────────────────────────────────
+    redis_url: str = "redis://localhost:6379/0"
+
+    # ── External APIs ─────────────────────────────────────────
+    google_places_api_key: str = ""
+    openai_api_key: str = ""
+    openai_base_url: str = "https://api.openai.com/v1"
+    ai_base_url: str = "https://api.openai.com/v1"   # 中转站地址
+
+    # Amadeus 机票特价监控
+    amadeus_client_id: str = ""
+    amadeus_client_secret: str = ""
+
+    # 通知渠道
+    wecom_webhook_url: str = ""      # 企业微信机器人
+    smtp_host: str = ""
+    smtp_user: str = ""
+    smtp_password: str = ""
+    alert_email: str = ""
+    ai_model: str = "claude-opus-4-6"
+    ai_model_strong: str = "claude-opus-4-6"
+    serpapi_key: str = ""
+
+    # ── Snapshot TTL (days) ───────────────────────────────────
+    snapshot_ttl_hotel_offer: int = 1
+    snapshot_ttl_flight_offer: int = 1
+    snapshot_ttl_poi_opening: int = 7
+    snapshot_ttl_weather: int = 1
+
+    # ── Worker ────────────────────────────────────────────────
+    worker_max_jobs: int = 10
+    job_retry_max: int = 3
+    job_retry_delay_secs: int = 10
+
+    @field_validator("allowed_origins", mode="before")
+    @classmethod
+    def parse_origins(cls, v: Union[str, list]) -> List[str]:
+        if isinstance(v, str):
+            import json
+            try:
+                return json.loads(v)
+            except Exception:
+                return [origin.strip() for origin in v.split(",")]
+        return v
+
+    @property
+    def is_production(self) -> bool:
+        return self.app_env == "production"
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+
+settings = get_settings()

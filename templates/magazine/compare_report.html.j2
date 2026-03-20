@@ -1,0 +1,178 @@
+{#
+  比价报告模板（¥888+）
+  变量：
+    flight_comparison   - dict：
+      route             - '上海→东京'
+      date              - 出发日期
+      cabin             - 舱位
+      platforms         - list[dict]: {name, price_cny, url, highlight}
+      best_platform     - 最优平台名
+      best_price_cny    - 最优价格
+    hotel_comparison    - list[dict]，每家酒店×多平台：
+      hotel_name        - 酒店名
+      dates             - 入住日期
+      room_type         - 房型
+      platforms         - list[dict]: {name, price_cny_per_night, url, highlight}
+      best_platform     - 最优平台名
+      best_price_cny    - 最优每晚价格
+    total_original_cny  - 原价合计（所有项目各平台最高价之和）
+    total_optimized_cny - 优化后合计
+    total_savings_cny   - 节省金额
+    savings_percent     - 节省比例（0-100的整数）
+#}
+
+<section class="guide-page compare-report page-break-before">
+
+  <div class="guide-page__header guide-page__header--compare">
+    <div class="guide-page__header-icon">💹</div>
+    <h2 class="guide-page__title">价格比对报告</h2>
+    <p class="guide-page__subtitle">聚合多平台实时报价，为你找到最优价格组合</p>
+  </div>
+
+  {# ── 机票比价 ── #}
+  {% if flight_comparison %}
+  <div class="compare-section page-break-avoid">
+    <div class="compare-section__title">
+      <span class="compare-section__icon">✈️</span>
+      机票价格对比
+    </div>
+    <div class="compare-section__meta">
+      {{ flight_comparison.route | default('') }}
+      {% if flight_comparison.date %} · {{ flight_comparison.date }}{% endif %}
+      {% if flight_comparison.cabin %} · {{ flight_comparison.cabin }}{% endif %}
+    </div>
+    <div class="price-matrix">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>平台</th>
+            <th>价格（人民币/人）</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for platform in flight_comparison.platforms | default([
+            {'name': 'Google Flights', 'price_cny': 2850, 'highlight': True},
+            {'name': 'Skyscanner', 'price_cny': 2980, 'highlight': False},
+            {'name': '携程', 'price_cny': 3120, 'highlight': False},
+            {'name': '去哪儿', 'price_cny': 3050, 'highlight': False}
+          ]) %}
+          <tr {% if platform.highlight %}class="price-table__best-row"{% endif %}>
+            <td class="price-table__platform">{{ platform.name }}</td>
+            <td class="price-table__price">
+              ¥{{ "{:,}".format(platform.price_cny) }}
+              {% if platform.highlight %}<span class="best-price-label">最低价</span>{% endif %}
+            </td>
+            <td>
+              {% if platform.highlight %}
+              <span class="status-badge status-badge--green">✓ 推荐</span>
+              {% else %}
+              <span class="status-badge status-badge--gray">可选</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if platform.url %}
+              <a href="{{ platform.url }}" class="price-table__link" target="_blank">查看 →</a>
+              {% else %}
+              <span class="price-table__link-placeholder">—</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-section__tip">
+      💡 建议在 <strong>{{ flight_comparison.best_platform | default('Google Flights') }}</strong> 购买，
+      最低价 <strong>¥{{ "{:,}".format(flight_comparison.best_price_cny | default(2850)) }}</strong>/人
+    </div>
+  </div>
+  {% endif %}
+
+  {# ── 酒店比价 ── #}
+  {% if hotel_comparison %}
+  <div class="compare-section page-break-avoid">
+    <div class="compare-section__title">
+      <span class="compare-section__icon">🏨</span>
+      酒店价格对比
+    </div>
+    {% for hotel in hotel_comparison %}
+    <div class="hotel-compare-block">
+      <div class="hotel-compare-block__name">
+        {{ hotel.hotel_name }}
+        {% if hotel.dates %}<span class="hotel-compare-block__dates">{{ hotel.dates }}</span>{% endif %}
+        {% if hotel.room_type %}<span class="hotel-compare-block__room">{{ hotel.room_type }}</span>{% endif %}
+      </div>
+      <div class="price-matrix">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>平台</th>
+              <th>价格（人民币/晚）</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for platform in hotel.platforms | default([
+              {'name': 'Booking.com', 'price_cny_per_night': 580, 'highlight': True},
+              {'name': 'Agoda', 'price_cny_per_night': 620, 'highlight': False},
+              {'name': 'Jalan', 'price_cny_per_night': 610, 'highlight': False},
+              {'name': '携程', 'price_cny_per_night': 680, 'highlight': False}
+            ]) %}
+            <tr {% if platform.highlight %}class="price-table__best-row"{% endif %}>
+              <td class="price-table__platform">{{ platform.name }}</td>
+              <td class="price-table__price">
+                ¥{{ "{:,}".format(platform.price_cny_per_night) }}/晚
+                {% if platform.highlight %}<span class="best-price-label">最低价</span>{% endif %}
+              </td>
+              <td>
+                {% if platform.highlight %}
+                <span class="status-badge status-badge--green">✓ 推荐</span>
+                {% else %}
+                <span class="status-badge status-badge--gray">可选</span>
+                {% endif %}
+              </td>
+              <td>
+                {% if platform.url %}
+                <a href="{{ platform.url }}" class="price-table__link" target="_blank">查看 →</a>
+                {% else %}
+                <span class="price-table__link-placeholder">—</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {# ── 节省汇总 ── #}
+  {% set orig = total_original_cny | default(12680) %}
+  {% set opt = total_optimized_cny | default(10240) %}
+  {% set saved = total_savings_cny | default(orig - opt) %}
+  {% set pct = savings_percent | default(((saved / orig) * 100) | round | int) %}
+
+  <div class="savings-highlight page-break-avoid">
+    <div class="savings-highlight__title">💰 优化方案总节省</div>
+    <div class="savings-highlight__amount">¥{{ "{:,}".format(saved) }}</div>
+    <div class="savings-highlight__detail">
+      原价合计 ¥{{ "{:,}".format(orig) }} → 优化后 ¥{{ "{:,}".format(opt) }}
+      <span class="savings-highlight__pct">节省 {{ pct }}%</span>
+    </div>
+    <div class="savings-highlight__bar">
+      <div class="savings-bar">
+        <div class="savings-bar__fill" style="width: {{ pct }}%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guide-page__footer">
+    本比价报告由 Travel AI 实时聚合生成 · 价格随时间变化，建议尽快锁定
+  </div>
+
+</section>

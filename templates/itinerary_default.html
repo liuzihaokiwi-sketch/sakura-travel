@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本旅行行程 · {{ total_days }}天</title>
+<style>
+  :root {
+    --red: #c0392b; --gold: #d4a017; --ink: #1a1a1a; --muted: #6b6b6b;
+    --bg: #faf9f7; --card: #ffffff; --border: #e8e0d5;
+    --poi-color: #2c5f8a; --restaurant-color: #7b3f00;
+    --hotel-color: #2d6a4f; --free-color: #8e44ad; --transit-color: #555;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei",sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  .cover {
+    background: linear-gradient(135deg, #c0392b 0%, #922b21 50%, #1a1a2e 100%);
+    color: #fff; padding: 60px 40px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cover::before { content: "🗾"; font-size: 200px; position: absolute; top: -40px; right: -20px; opacity: 0.08; }
+  .cover-tag { display: inline-block; border: 1px solid rgba(255,255,255,0.4); padding: 4px 14px; border-radius: 20px; font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; color: rgba(255,255,255,0.8); }
+  .cover h1 { font-size: 36px; font-weight: 700; margin-bottom: 10px; }
+  .cover-meta { font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .cover-badges { margin-top: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 6px 16px; border-radius: 20px; font-size: 13px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+  .city-header { display: flex; align-items: center; gap: 12px; margin: 40px 0 8px; }
+  .city-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .city-name { font-size: 22px; font-weight: 700; }
+  .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .day-header { background: linear-gradient(90deg, #f5f0ea, var(--card)); padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--border); }
+  .day-number { font-size: 28px; font-weight: 800; color: var(--red); line-height: 1; }
+  .day-number span { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .day-info { flex: 1; }
+  .day-theme { font-size: 16px; font-weight: 600; }
+  .day-date { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .day-cost { font-size: 13px; color: var(--gold); font-weight: 600; }
+  .timeline { padding: 0 20px 16px; }
+  .tl-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--border); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-item.optional { opacity: 0.65; }
+  .tl-time { width: 52px; text-align: right; font-size: 13px; color: var(--muted); flex-shrink: 0; padding-top: 2px; }
+  .tl-dot-col { display: flex; flex-direction: column; align-items: center; width: 20px; flex-shrink: 0; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 4px; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-dot.poi { background: var(--poi-color); }
+  .tl-dot.restaurant { background: var(--restaurant-color); }
+  .tl-dot.hotel { background: var(--hotel-color); }
+  .tl-dot.free_time { background: var(--free-color); }
+  .tl-dot.transit, .tl-dot.note { background: var(--transit-color); }
+  .tl-body { flex: 1; min-width: 0; }
+  .tl-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .type-badge { font-size: 11px; padding: 1px 7px; border-radius: 10px; font-weight: 400; color: #fff; flex-shrink: 0; }
+  .type-badge.poi { background: var(--poi-color); }
+  .type-badge.restaurant { background: var(--restaurant-color); }
+  .type-badge.hotel { background: var(--hotel-color); }
+  .type-badge.free_time { background: var(--free-color); }
+  .type-badge.transit, .type-badge.note { background: var(--transit-color); }
+  .tl-note { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .tl-meta { font-size: 12px; color: #999; margin-top: 3px; display: flex; gap: 12px; }
+  .tl-cost { color: var(--gold); }
+  .tl-maps { font-size: 12px; color: var(--poi-color); text-decoration: none; margin-top: 3px; display: inline-block; }
+  .tl-maps:hover { text-decoration: underline; }
+  .optional-tag { font-size: 11px; color: #aaa; border: 1px solid #ddd; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
+  .footer { text-align: center; padding: 32px; color: #aaa; font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+  .footer strong { color: var(--red); }
+  @media (max-width: 600px) { .cover { padding: 40px 20px; } .cover h1 { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-tag">AI 定制行程</div>
+  <h1>🌸 日本旅行 · {{ total_days }} 天精华游</h1>
+  <div class="cover-meta">
+    {% if days and days[0].date %}{{ days[0].date }} 出发 · {% endif %}预算：{{ budget_level_zh }}
+  </div>
+  <div class="cover-badges">
+    {% for city_code in cities %}
+    <div class="badge">{{ {"tokyo":"🗼 东京","osaka":"🏯 大阪","kyoto":"⛩️ 京都","sapporo":"❄️ 札幌","fukuoka":"🌊 福冈","naha":"🌺 冲绳","hakone":"🗻 箱根","hiroshima":"🕊️ 广岛"}.get(city_code, city_code) }}</div>
+    {% endfor %}
+    {% if estimated_total_cost_jpy %}<div class="badge">💴 约 ¥{{ "{:,}".format(estimated_total_cost_jpy) }}</div>{% endif %}
+  </div>
+</div>
+
+<div class="container">
+{% set ns = namespace(last_city="") %}
+{% for day in days %}
+
+  {% if day.city_code != ns.last_city %}
+  <div class="city-header">
+    <div class="city-dot">{{ {"tokyo":"东","osaka":"阪","kyoto":"京","sapporo":"札","fukuoka":"福","naha":"沖","hakone":"箱","hiroshima":"广"}.get(day.city_code, "市") }}</div>
+    <div class="city-name">{{ day.city_name_zh }}</div>
+  </div>
+  {% set ns.last_city = day.city_code %}
+  {% endif %}
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-number">D{{ day.day_number }}<span>天</span></div>
+      <div class="day-info">
+        <div class="day-theme">{{ day.day_theme or (day.city_name_zh + " 一日游") }}</div>
+        {% if day.date %}<div class="day-date">📅 {{ day.date }}</div>{% endif %}
+      </div>
+      {% if day.estimated_cost_jpy %}<div class="day-cost">💴 约 ¥{{ "{:,}".format(day.estimated_cost_jpy) }}</div>{% endif %}
+    </div>
+    <div class="timeline">
+    {% for item in day.timeline %}
+      <div class="tl-item {% if item.is_optional %}optional{% endif %}">
+        <div class="tl-time">{{ item.start_time }}</div>
+        <div class="tl-dot-col">
+          <div class="tl-dot {{ item.item_type }}"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-badge {{ item.item_type }}">{{ {"poi":"景点","restaurant":"餐厅","hotel":"住宿","free_time":"自由","transit":"交通","note":"备注"}.get(item.item_type, item.item_type) }}</span>
+            {% if item.entity_name %}{{ item.entity_name }}{% endif %}
+            {% if item.is_optional %}<span class="optional-tag">可选</span>{% endif %}
+          </div>
+          {% if item.notes_zh %}<div class="tl-note">{{ item.notes_zh }}</div>{% endif %}
+          <div class="tl-meta">
+            <span>⏱ {{ item.duration_min }} 分钟</span>
+            {% if item.estimated_cost_jpy %}<span class="tl-cost">💴 ¥{{ "{:,}".format(item.estimated_cost_jpy) }}</span>{% endif %}
+          </div>
+          {% if item.maps_url %}<a class="tl-maps" href="{{ item.maps_url }}" target="_blank">📍 Google Maps →</a>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+<div class="footer">
+  由 <strong>Japan Travel AI</strong> 生成 · plan_id: {{ plan_id }}<br>
+  行程仅供参考，以官方公告为准
+</div>
+</body>
+</html>

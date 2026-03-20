@@ -1,0 +1,61 @@
+{#
+  封面页模板
+  变量：
+    cover_image_url  - 封面大图 URL（可选，无则用渐变占位）
+    title_zh         - 攻略标题，如"东京经典5日"
+    tagline_zh       - 副标题/标语
+    total_days       - 天数
+    cities_zh        - 城市列表，如 ["东京"]
+    scene            - 场景（couple / family / solo / general）
+    route_label_zh   - 路线标签，如"东京经典线"
+#}
+<section class="cover page-break-avoid">
+
+  {# 背景图 #}
+  <div class="cover__bg {% if not cover_image_url %}cover__bg--placeholder{% endif %}"
+       {% if cover_image_url %}style="background-image: url('{{ cover_image_url }}');"{% endif %}>
+  </div>
+
+  {# 遮罩 #}
+  <div class="cover__overlay"></div>
+
+  {# 内容区域 #}
+  <div class="cover__content">
+
+    {# 眉线 #}
+    <div class="cover__eyebrow">Japan Travel Guide · 日本深度攻略</div>
+
+    {# 分隔线 #}
+    <div class="cover__divider"></div>
+
+    {# 主标题 #}
+    <h1 class="cover__title">{{ title_zh | default('日本旅行攻略') }}</h1>
+
+    {# 副标题 #}
+    {% if tagline_zh %}
+    <p class="cover__tagline">{{ tagline_zh }}</p>
+    {% endif %}
+
+    {# 元信息徽章 #}
+    <div class="cover__meta">
+      <span class="cover__badge">
+        📅 {{ total_days | default(5) }} 天
+      </span>
+      {% for city in cities_zh | default([]) %}
+      <span class="cover__badge">
+        📍 {{ city }}
+      </span>
+      {% endfor %}
+      {% if scene and scene != 'general' %}
+      <span class="cover__badge">
+        {%- if scene == 'couple' -%}💑 情侣出行
+        {%- elif scene == 'family' -%}👨‍👩‍👧 亲子家庭
+        {%- elif scene == 'solo' -%}🎒 独自旅行
+        {%- else -%}✨ {{ scene }}
+        {%- endif -%}
+      </span>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,42 @@
+{#
+  住宿区域指南卡片（在 day_card.html.j2 中通过 {% include %} 调用）
+  上下文变量（item dict）：
+    item.notes_zh        - 住宿区域说明文字（如"推荐住宿：浅草 / 上野区域"）
+    item.hotel_area_zh   - 区域名称（如"浅草·上野"）
+    item.hotel_options   - list[dict] 酒店推荐（可选）
+      each: {name, price_range_zh, note}
+#}
+
+<div class="hotel-area-card page-break-avoid">
+
+  <div class="hotel-area-card__icon">🏨</div>
+
+  <h3 class="hotel-area-card__title">
+    今晚住宿：{{ item.hotel_area_zh | default('推荐区域') }}
+  </h3>
+
+  <p class="hotel-area-card__subtitle">
+    以下区域交通便利，适合当日行程动线
+  </p>
+
+  {% if item.notes_zh %}
+  <p class="hotel-area-card__desc">{{ item.notes_zh }}</p>
+  {% endif %}
+
+  {% if item.hotel_options %}
+  <div class="hotel-area-card__options">
+    {% for hotel in item.hotel_options %}
+    <div class="hotel-option">
+      <div class="hotel-option__name">{{ hotel.name }}</div>
+      {% if hotel.price_range_zh %}
+      <div class="hotel-option__price">{{ hotel.price_range_zh }}</div>
+      {% endif %}
+      {% if hotel.note %}
+      <div class="hotel-option__note">{{ hotel.note }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</div>

@@ -1,0 +1,12 @@
+sites:
+  - site_id: "tokyo_hanami_guide"
+    url: "https://www.gotokyo.org/en/story/guide/hanami-guide/index.html"
+    spot_name: "东京赏樱指南（示例）"
+    city_name: "东京"
+    item_selector: null
+
+  - site_id: "gunma_cherry_forecast"
+    url: "https://www.visit-gunma.jp/en/discover/stories-and-guides/2026-cherry-blossom-forecast/"
+    spot_name: "群马赏樱点（示例）"
+    city_name: "群马"
+    item_selector: null

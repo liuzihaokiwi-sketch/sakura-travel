@@ -1,0 +1,401 @@
+{
+  "template_code": "tokyo_sakura_7d",
+  "name_zh": "东京樱花季7日",
+  "city_code": "tokyo",
+  "total_days": 7,
+  "season": "spring",
+  "season_highlight": "sakura",
+  "best_months": [3, 4],
+  "scene_variants": {
+    "couple": {
+      "slot_overrides": {
+        "evening": { "tags_boost": ["romantic", "nightview", "sakura_illumination"] },
+        "afternoon": { "tags_boost": ["sakura", "photography_scenic", "garden"] }
+      }
+    },
+    "family": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["family_kids", "park", "sakura"] },
+        "afternoon": { "tags_boost": ["family_kids", "interactive", "nature"] }
+      }
+    },
+    "solo": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["culture", "temple", "sakura", "photography_scenic"] },
+        "afternoon": { "tags_boost": ["sakura", "garden", "museum"] }
+      }
+    },
+    "senior": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["garden", "sakura", "temple"], "duration_factor": 1.3 },
+        "afternoon": { "tags_boost": ["park", "nature", "sakura"], "duration_factor": 1.3 }
+      }
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme_zh": "新宿御苑 — 千本樱的震撼",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d1_morning",
+          "time": "09:00",
+          "duration_min": 150,
+          "tags_required": ["sakura", "garden", "park"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿御苑：1000+棵樱花树，早到避开人潮。染井吉野/大岛樱/枝垂樱次第开放"
+        },
+        {
+          "slot_id": "d1_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿站周边午餐"
+        },
+        {
+          "slot_id": "d1_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "fashion"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿东口购物 / 伊势丹百货"
+        },
+        {
+          "slot_id": "d1_evening",
+          "time": "17:30",
+          "duration_min": 90,
+          "tags_required": ["sakura", "nightview", "illumination"],
+          "area_hint": "nakameguro",
+          "fallback_entity_id": null,
+          "note_zh": "中目黑樱花夜景：目黑川两岸灯光樱隧道（18:00亮灯）"
+        },
+        {
+          "slot_id": "d1_dinner",
+          "time": "19:30",
+          "duration_min": 75,
+          "tags_required": ["restaurant", "izakaya"],
+          "area_hint": "nakameguro",
+          "fallback_entity_id": null,
+          "note_zh": "中目黑居酒屋晚餐"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme_zh": "上野・隅田川 — 经典花见",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d2_morning",
+          "time": "08:30",
+          "duration_min": 120,
+          "tags_required": ["sakura", "park", "hanami"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野公园：1000+棵樱花树，带张野餐垫感受最正宗的花见文化"
+        },
+        {
+          "slot_id": "d2_lunch",
+          "time": "11:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野阿美横丁小吃 / 周边午餐"
+        },
+        {
+          "slot_id": "d2_afternoon1",
+          "time": "13:00",
+          "duration_min": 90,
+          "tags_required": ["museum", "art", "culture"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "东京国立博物馆（春季特别展+庭园樱花开放）"
+        },
+        {
+          "slot_id": "d2_afternoon2",
+          "time": "15:30",
+          "duration_min": 90,
+          "tags_required": ["sakura", "waterfront", "park"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "隅田川公园樱花步道：晴空塔+樱花的经典构图"
+        },
+        {
+          "slot_id": "d2_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["temple", "shrine", "history"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "浅草寺夜景 + 仲见世通散步"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme_zh": "千鸟ヶ淵・靖国神社 — 皇居护城河畔",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d3_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["sakura", "park", "palace", "boat"],
+          "area_hint": "imperial_palace",
+          "fallback_entity_id": null,
+          "note_zh": "千鸟ヶ淵划船赏樱：护城河+樱花隧道，东京最美樱花景点之一。建议早到排队"
+        },
+        {
+          "slot_id": "d3_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese"],
+          "area_hint": "kudanshita",
+          "fallback_entity_id": null,
+          "note_zh": "九段下周边午餐"
+        },
+        {
+          "slot_id": "d3_afternoon",
+          "time": "13:30",
+          "duration_min": 120,
+          "tags_required": ["palace", "garden", "history"],
+          "area_hint": "imperial_palace",
+          "fallback_entity_id": null,
+          "note_zh": "皇居东御苑散步（免费入场，周一闭园）"
+        },
+        {
+          "slot_id": "d3_evening",
+          "time": "16:30",
+          "duration_min": 120,
+          "tags_required": ["shopping", "luxury", "department_store"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座购物 + 下午茶"
+        },
+        {
+          "slot_id": "d3_dinner",
+          "time": "19:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "sushi", "japanese"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座晚餐"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "theme_zh": "涩谷・代代木 — 潮流与花见野餐",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d4_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["sakura", "park", "hanami"],
+          "area_hint": "yoyogi",
+          "fallback_entity_id": null,
+          "note_zh": "代代木公园花见野餐：买好便当和饮料，铺上野餐垫享受春日"
+        },
+        {
+          "slot_id": "d4_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "cafe", "trendy"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "原宿表参道网红午餐"
+        },
+        {
+          "slot_id": "d4_afternoon",
+          "time": "13:30",
+          "duration_min": 120,
+          "tags_required": ["shrine", "sakura", "culture"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "明治神宫参拝 + 竹下通逛街"
+        },
+        {
+          "slot_id": "d4_evening",
+          "time": "17:00",
+          "duration_min": 60,
+          "tags_required": ["nightview", "observation"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷SKY观景台：俯瞰涩谷十字路口 + 远眺富士山"
+        },
+        {
+          "slot_id": "d4_dinner",
+          "time": "19:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "yakiniku"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷烤肉晚餐"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "theme_zh": "镰仓日归 — 海边古都赏樱",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d5_morning",
+          "time": "08:30",
+          "duration_min": 120,
+          "tags_required": ["temple", "sakura", "history"],
+          "area_hint": "kamakura",
+          "fallback_entity_id": null,
+          "note_zh": "�的上高德院（镰仓大佛）+ 长谷寺：樱花与大佛同框"
+        },
+        {
+          "slot_id": "d5_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "seafood"],
+          "area_hint": "kamakura",
+          "fallback_entity_id": null,
+          "note_zh": "镰仓小町通吻仔鱼丼"
+        },
+        {
+          "slot_id": "d5_afternoon",
+          "time": "13:30",
+          "duration_min": 120,
+          "tags_required": ["temple", "garden", "sakura"],
+          "area_hint": "kamakura",
+          "fallback_entity_id": null,
+          "note_zh": "�的�的ヶ岡八幡宮：镰仓最重要的神社，参道樱花大道"
+        },
+        {
+          "slot_id": "d5_afternoon2",
+          "time": "16:00",
+          "duration_min": 90,
+          "tags_required": ["beach", "nature", "train"],
+          "area_hint": "enoshima",
+          "fallback_entity_id": null,
+          "note_zh": "江之电沿海岸线回程：灌篮高手取景地打卡"
+        },
+        {
+          "slot_id": "d5_dinner",
+          "time": "19:00",
+          "duration_min": 75,
+          "tags_required": ["restaurant", "japanese"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "回到东京市区晚餐"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "theme_zh": "吉祥寺・井之头公园 — 本地人的花见秘境",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d6_morning",
+          "time": "09:30",
+          "duration_min": 120,
+          "tags_required": ["sakura", "park", "pond", "boat"],
+          "area_hint": "kichijoji",
+          "fallback_entity_id": null,
+          "note_zh": "井之头恩赐公园：划船穿过樱花隧道，比新宿御苑人少很多"
+        },
+        {
+          "slot_id": "d6_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "cafe"],
+          "area_hint": "kichijoji",
+          "fallback_entity_id": null,
+          "note_zh": "吉祥寺口琴横丁小吃街 / 周边咖啡厅"
+        },
+        {
+          "slot_id": "d6_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "electronics", "otaku"],
+          "area_hint": "akihabara",
+          "fallback_entity_id": null,
+          "note_zh": "秋叶原动漫/电器购物"
+        },
+        {
+          "slot_id": "d6_evening",
+          "time": "17:30",
+          "duration_min": 90,
+          "tags_required": ["sakura", "nightview", "illumination"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野公园夜樱：灯笼亮起，另一种味道"
+        },
+        {
+          "slot_id": "d6_dinner",
+          "time": "19:30",
+          "duration_min": 75,
+          "tags_required": ["restaurant", "ramen"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野拉面晚餐"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "theme_zh": "六本木・东京塔 — 优雅收尾",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d7_morning",
+          "time": "09:30",
+          "duration_min": 90,
+          "tags_required": ["sakura", "garden", "temple"],
+          "area_hint": "roppongi",
+          "fallback_entity_id": null,
+          "note_zh": "毛利庭园+六本木Hills：小而精的庭园樱花，与东京塔同框"
+        },
+        {
+          "slot_id": "d7_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "international"],
+          "area_hint": "roppongi",
+          "fallback_entity_id": null,
+          "note_zh": "六本木午餐"
+        },
+        {
+          "slot_id": "d7_afternoon",
+          "time": "13:30",
+          "duration_min": 120,
+          "tags_required": ["sakura", "park", "photography_scenic"],
+          "area_hint": "shiba",
+          "fallback_entity_id": null,
+          "note_zh": "芝公园：樱花+东京塔，经典春日明信片构图。旁边增上寺也值得一看"
+        },
+        {
+          "slot_id": "d7_souvenir",
+          "time": "16:00",
+          "duration_min": 90,
+          "tags_required": ["shopping", "souvenir", "duty_free"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座/东京站一番街采购手信，樱花季限定伴手礼"
+        },
+        {
+          "slot_id": "d7_dinner",
+          "time": "18:00",
+          "duration_min": 75,
+          "tags_required": ["restaurant", "japanese", "farewell"],
+          "area_hint": "tokyo_station",
+          "fallback_entity_id": null,
+          "note_zh": "东京站周边告别晚餐"
+        }
+      ]
+    }
+  ]
+}

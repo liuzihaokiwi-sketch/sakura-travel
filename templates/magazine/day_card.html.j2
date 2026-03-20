@@ -1,0 +1,88 @@
+{#
+  每日行程卡片模板
+  变量：
+    day         - dict:
+      day_number    - 第几天（int）
+      city_name_zh  - 当日城市名（如"东京"）
+      day_theme     - 当日主题（如"东京历史文化"）
+      day_summary_zh - 区域说明（如"浅草·上野"）
+      timeline      - list[dict]，见 entity_card.html.j2
+      transport_notes_zh - 当日交通说明
+#}
+<section class="day-section page-break-avoid">
+
+  {# 日期标题 #}
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">{{ day.day_number }}</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        {% if day.day_theme %}{{ day.day_theme }}{% else %}第 {{ day.day_number }} 天{% endif %}
+      </h2>
+      <p class="day-subtitle">
+        📍 {{ day.city_name_zh | default('东京') }}
+        {% if day.day_summary_zh %} · {{ day.day_summary_zh }}{% endif %}
+      </p>
+    </div>
+  </div>
+
+  {# 时间轴 #}
+  <div class="timeline">
+    {% for item in day.timeline | default([]) %}
+      {% if item.item_type in ('poi', 'restaurant', 'hotel') %}
+        {# 实体卡片条目 #}
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            {% if item.start_time %}
+            <div class="timeline-time">{{ item.start_time }}</div>
+            {% endif %}
+          </div>
+          <div class="timeline-right">
+            {% include 'magazine/entity_card.html.j2' %}
+          </div>
+        </div>
+
+      {% elif item.item_type == 'transport' %}
+        {# 交通段 #}
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot timeline-dot--muted"></div>
+          </div>
+          <div class="timeline-right">
+            <div class="transport-block">
+              <span class="transport-block__icon">🚃</span>
+              <span>{{ item.notes_zh | default('交通前往下一站') }}</span>
+              {% if item.duration_min %}
+              <span style="margin-left:auto;">约 {{ item.duration_min }} 分钟</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      {% elif item.item_type == 'hotel_area' %}
+        {# 住宿区域 #}
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot timeline-dot--muted"></div>
+          </div>
+          <div class="timeline-right">
+            {% include 'magazine/hotel_area.html.j2' %}
+          </div>
+        </div>
+
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {# 当日交通说明 #}
+  {% if day.transport_notes_zh %}
+  <div class="transport-block" style="margin-top: 12px;">
+    <span class="transport-block__icon">ℹ️</span>
+    <span>{{ day.transport_notes_zh }}</span>
+  </div>
+  {% endif %}
+
+</section>

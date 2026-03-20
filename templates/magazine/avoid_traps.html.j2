@@ -1,0 +1,365 @@
+{#
+  避坑指南页
+  变量：
+    tier        - 套餐等级（'basic'/'deep'）
+    city_codes  - 城市列表
+    scene       - 场景（如 sakura/couple 等）
+#}
+
+<section class="guide-page avoid-traps-guide page-break-before">
+
+  <div class="guide-page__header guide-page__header--warning">
+    <div class="guide-page__header-icon">⚠️</div>
+    <h2 class="guide-page__title">避坑指南</h2>
+    <p class="guide-page__subtitle">前车之鉴，少走弯路，把时间花在值得的地方</p>
+  </div>
+
+  <div class="guide-modules">
+
+    {# ── 基础版：通用避坑 ── #}
+
+    {# 交通坑 #}
+    <div class="guide-module guide-module--trap page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🚃</span>
+        <h3 class="guide-module__title">交通那些坑</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>JR Pass 买了用不上，白花 3000+ 人民币</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>7天只去东京或只去关西，JR Pass 通常不划算！先算清你的行程会坐几次新干线，总票价超过 Pass 价格再买。去 Hyperdia 逐段算票价再决定。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>没注意末班车时间，深夜被困</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本末班电车一般在 23:30-00:30 之间，没赶上就只能打出租车（起步约¥730，深夜加价30%）。行程安排到深夜时，提前确认末班车时间。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>搞不清 JR 和地铁的区别，重复买票</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>东京有多家地铁公司（东京Metro、都营地铁、JR）互不通用。一日券只能用在对应线路，买之前确认你的行程是否真的会用到该线路的所有区域。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>成田机场买利木津巴士去市区，堵车堵了2小时</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>进东京市区优先选京成Skyliner（41分钟/¥2570）或成田特快N'EX（55分钟/¥3070），比巴士快1-2小时，虽贵但值。行李多的情况下巴士直达酒店才划算。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 餐饮坑 #}
+    <div class="guide-module guide-module--trap page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🍜</span>
+        <h3 class="guide-module__title">餐饮那些坑</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>景区门口的餐厅，人均¥200还难吃</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>浅草、清水寺、金阁寺附近的餐厅普遍贵50-100%且质量一般。离开主路走一条街，同等水准的饭价格打6折。用Tabelog找评分3.5+的店。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>排队2小时的网红店，进去发现就那样</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>排队名店有两种：确实值得排（一兰、秋叶原的某些拉面）和纯靠网红效应（价格贵体验差）。前者提前查好评价，后者不如找相似但无需排队的店。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>居酒屋被收「桌费」（お通し），莫名其妙多付钱</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>お通し（约¥300-600/人）是日本居酒屋文化的一部分，相当于"座位费"，是合法收费。进店前确认或坦然接受。如果觉得不划算，选没有お通し的餐厅。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>点了菜才发现套餐里有吃不到的食材</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>进餐厅前用Google翻译拍摄菜单（离线日文包提前下载）；不确定食材直接问服务员比划或用翻译APP；许多店有英文/中文菜单可索取。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 购物坑 #}
+    <div class="guide-module guide-module--trap page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🛍️</span>
+        <h3 class="guide-module__title">购物那些坑</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>在机场买了一大堆，结果国内海关超额被征税</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>个人携带免税额为¥5000人民币（超出部分按税率缴税）。机场购物价格一般比市区贵10-20%，且免税退税比市区复杂。精华放在市区，机场只买你错过的伴手礼。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>药妆店只去松本清，结果没比较被坑了</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>同一商品在松本清、Don Quijote、AINZ价格可能相差10-20%。核心购物清单提前查好，进店时用APP对比价格再买。热门药妆（花王/资生堂）Don Quijote通常最便宜。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>没搞清楚免税规则，明明买够了却没退税</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本免税（消費税免除）：单店消费满¥5000（税前）、出示护照、在日30天内离境。注意：食品和非食品分开计算；部分小店不支持免税；购物时主动问"免税できますか"。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 住宿坑 #}
+    <div class="guide-module guide-module--trap page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🏨</span>
+        <h3 class="guide-module__title">住宿那些坑</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>标注"车站旁"的酒店，步行要25分钟</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本"徒歩○○分"是按80米/分钟计算，标注15分钟就是1.2公里。预订前用Google Maps实测步行时间，尤其是带大行李时。10分钟以内才是真的近。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>预订了"双人间"，进去发现是两张单人床推在一起</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本酒店房型分ダブル（双人大床）和ツイン（双单床）。情侣预订选ダブル（Double）；朋友/家人选ツイン（Twin）。不清楚可在备注里写明要求。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>退房时间太早（10点），行程安排很被动</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本多数酒店退房10:00-11:00，入住15:00-16:00。行程安排：到达日下午入住；离开日行李寄存前台再出去玩（大部分酒店免费寄存到当天）；也可付费延迟退房。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 景点坑 #}
+    <div class="guide-module guide-module--trap page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🏛️</span>
+        <h3 class="guide-module__title">景点那些坑</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>周一安排了很多博物馆，结果全部关门</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>日本大量博物馆、美术馆周一闭馆（国定假日的周一则顺延至周二）。行程规划时把博物馆安排在周二至周日，周一换为公园、神社、逛街等不受影响的项目。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>想去伏见稻荷山顶，早上8点到发现已经人山人海</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>热门景点（伏见稻荷、岚山竹林、筑地市场）需要早鸟打卡：早上6:30-7:30到场，人少光线好，拍出来的照片也漂亮。中午12点后基本是人海，且光线刺眼。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>宫崎骏博物馆/teamLab临时排队，现场买不到票</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>预约制景点（三鷹の森美術館、teamLab、猫猫咖啡厅等）必须提前1-2个月在官网/KKday/Klook购票，现场基本无票可买。旺季更要早动手。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 坑</span>
+              <span>每个景点单独买票，加起来比通票贵了¥2000</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>很多景点有组合券（如奈良多景点联票、箱根周游券）。行程确定后，查找对应区域的联票，只要使用2-3个景点就能回本。东京迪士尼/USJ建议提前在国内购买，优惠更多。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ── 深度版：城市/季节特有坑（tier == 'deep' 才显示） ── #}
+    {% if tier in ['deep', 'premium'] %}
+
+    <div class="guide-module guide-module--trap guide-module--premium page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🗺️</span>
+        <h3 class="guide-module__title">各城市特有坑</h3>
+        <span class="guide-module__premium-badge">深度版</span>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-city-traps">
+          <div class="guide-city-trap">
+            <div class="guide-city-trap__city">🗼 东京</div>
+            <div class="trap-list trap-list--compact">
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 新宿站出口走错，在地下室转了30分钟</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 新宿站有200个出口，提前截图目的地最近的出口号码。南口/东口/西口是大方向，细分出口用Google Maps导航跟着走。</div>
+              </div>
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 台场购物搭乘彩虹巴士，花了两小时绕了一圈</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 台场去回用百合海鸥号（ゆりかもめ）最方便，从新桥出发约25分钟。Aqua City/Diver City商场连着走，不用来回坐车。</div>
+              </div>
+            </div>
+          </div>
+          <div class="guide-city-trap">
+            <div class="guide-city-trap__city">⛩️ 京都</div>
+            <div class="trap-list trap-list--compact">
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 租自行车逛京都，到处都是上坡骑得很累</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 京都市区基本平坦，适合骑车。但嵯峨野/岚山一带有坡，建议租电动自行车。东山景区景点密集，步行效率最高，骑车反而要找停车位。</div>
+              </div>
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 住在京都站附近，坐公交去祇园要40分钟</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 京都公交经常堵车，高峰期可能比步行还慢。东山一带景点（清水寺/祇园/八坂神社）步行效率最高；岚山用地铁嵯峨嵐山线；伏见稻荷用JR奈良线。</div>
+              </div>
+            </div>
+          </div>
+          <div class="guide-city-trap">
+            <div class="guide-city-trap__city">🦙 大阪</div>
+            <div class="trap-list trap-list--compact">
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 道顿堀排队2小时吃网红章鱼烧，被打脸</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 章鱼烧在大阪到处都有，且水准基本一致。回避门口排队的网红店，选没人排队的本地老店（找Tabelog评分3.3+），价格相当，体验更好。</div>
+              </div>
+              <div class="trap-item trap-item--compact">
+                <div class="trap-item__wrong"><span class="trap-item__wrong-label">❌</span> 住在难波，发现到处买的东西心斋桥更便宜</div>
+                <div class="trap-item__right"><span class="trap-item__right-label">✅</span> 大阪购物：难波和心斋桥连在一起（步行5分钟），Don Quijote心斋桥店是亚洲最大，价格有优势。电子产品去日本桥（大阪版秋叶原）比家电量贩店更便宜。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide-module guide-module--trap guide-module--premium page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🌸</span>
+        <h3 class="guide-module__title">季节特有坑</h3>
+        <span class="guide-module__premium-badge">深度版</span>
+      </div>
+      <div class="guide-module__body">
+        <div class="trap-list">
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 樱花季</span>
+              <span>3月底订了机票，以为能赶上樱花，结果花已全谢</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>东京樱花满开通常在3月下旬至4月上旬，但每年误差1-2周。建议行程安排在3月25日-4月10日之间，出发前一周查当年预测。去日本气象协会或Sakura Forecast查最新开花进度。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 红叶季</span>
+              <span>11月初去京都追红叶，结果还是绿叶</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>京都红叶最佳通常在11月下旬至12月上旬，东京则在11月下旬。避免11月上旬就去。提前查当年红叶预测，不同景点（东福寺/岚山/永观堂）高峰期略有差异。</span>
+            </div>
+          </div>
+          <div class="trap-item">
+            <div class="trap-item__wrong">
+              <span class="trap-item__wrong-label">❌ 盂兰盆节（8月）</span>
+              <span>以为8月是淡季，结果酒店贵且景区拥挤</span>
+            </div>
+            <div class="trap-item__right">
+              <span class="trap-item__right-label">✅ 正确做法</span>
+              <span>8月13-15日是日本盂兰盆节（お盆），日本人大量回乡或国内旅游。此期间机票酒店价格飙升，景区拥挤程度不亚于樱花季。如要在8月出行，避开这三天或提前2个月预订。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endif %}
+
+  </div>
+
+  <div class="guide-page__footer">
+    本攻略由 Travel AI 智能生成 · 内容基于真实用户经验整理，以实际情况为准
+  </div>
+
+</section>

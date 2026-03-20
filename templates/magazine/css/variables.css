@@ -1,0 +1,83 @@
+/* ── 杂志渲染系统 CSS 变量（Magazine Clean 主题）──────────────────────────── */
+
+:root {
+  /* ── 颜色体系 ─────────────────────────────────────────────── */
+  --color-bg:          #FAFAF8;   /* 暖白底色 */
+  --color-text:        #2C2C2C;   /* 深灰正文 */
+  --color-accent:      #C0392B;   /* 朱红强调（日式） */
+  --color-accent-2:    #2C6E49;   /* 深绿次要强调 */
+  --color-muted:       #8C8C8C;   /* 浅灰辅助文字 */
+  --color-border:      #E8E4DC;   /* 边框/分割线 */
+  --color-card-bg:     #FFFFFF;   /* 卡片白底 */
+  --color-tag-bg:      #F3EEE8;   /* 标签徽章背景 */
+  --color-timeline:    #D4C5B0;   /* 时间轴线颜色 */
+  --color-overlay:     rgba(0, 0, 0, 0.45); /* 封面图遮罩 */
+
+  /* ── 字体 ─────────────────────────────────────────────────── */
+  --font-serif:   'Noto Serif SC', 'Source Han Serif SC', 'STSong', serif;
+  --font-sans:    'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono:    'Tabular Numbers', 'SF Mono', monospace;
+
+  /* ── 字号 ─────────────────────────────────────────────────── */
+  --fs-cover-title:   48px;
+  --fs-cover-sub:     18px;
+  --fs-section-title: 28px;
+  --fs-day-title:     20px;
+  --fs-entity-name:   16px;
+  --fs-body:          14px;
+  --fs-caption:       12px;
+  --fs-tag:           11px;
+
+  /* ── 字重 ─────────────────────────────────────────────────── */
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+
+  /* ── 行高 ─────────────────────────────────────────────────── */
+  --lh-title:   1.25;
+  --lh-body:    1.8;
+  --lh-caption: 1.5;
+
+  /* ── 间距 ─────────────────────────────────────────────────── */
+  --spacing-xs:   4px;
+  --spacing-sm:   8px;
+  --spacing-md:   16px;
+  --spacing-lg:   24px;
+  --spacing-xl:   40px;
+  --spacing-xxl:  64px;
+
+  /* ── 页面（PDF 打印） ─────────────────────────────────────── */
+  --page-margin:       20mm;
+  --page-margin-cover: 0;
+
+  /* ── 圆角 ─────────────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+
+  /* ── 阴影 ─────────────────────────────────────────────────── */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+  /* ── 时间轴 ─────────────────────────────────────────────────── */
+  --timeline-width:    48px;
+  --timeline-dot-size: 10px;
+  --timeline-line-w:   2px;
+
+  /* ── 图片比例 ─────────────────────────────────────────────── */
+  --entity-img-ratio:    56.25%; /* 16:9 */
+  --cover-img-ratio:     100vh;
+}
+
+/* ── 场景变体覆盖（情侣版）── */
+[data-scene="couple"] {
+  --color-accent:   #B5476A;   /* 玫瑰红 */
+  --color-accent-2: #6B4C8C;   /* 薰衣草紫 */
+}
+
+/* ── 场景变体覆盖（家庭版）── */
+[data-scene="family"] {
+  --color-accent:   #E67E22;   /* 温暖橙 */
+  --color-accent-2: #27AE60;   /* 活力绿 */
+}

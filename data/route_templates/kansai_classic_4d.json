@@ -1,0 +1,215 @@
+{
+  "template_code": "kansai_classic_4d",
+  "name_zh": "关西精华4日",
+  "city_code": "osaka",
+  "total_days": 4,
+  "scene_variants": {
+    "couple": {
+      "slot_overrides": {
+        "evening": { "tags_boost": ["romantic", "nightview"] }
+      }
+    },
+    "family": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["family_kids", "theme_park"] }
+      }
+    },
+    "solo": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["temple", "culture"] }
+      }
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme_zh": "大阪道顿堀 — 吃货首日",
+      "city_code": "osaka",
+      "time_blocks": [
+        {
+          "slot_id": "d1_morning",
+          "time": "10:00",
+          "duration_min": 90,
+          "tags_required": ["castle", "history", "park"],
+          "area_hint": "osaka_castle",
+          "fallback_entity_id": null,
+          "note_zh": "大阪城"
+        },
+        {
+          "slot_id": "d1_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "takoyaki", "street_food"],
+          "area_hint": "dotonbori",
+          "fallback_entity_id": null,
+          "note_zh": "道顿堀章鱼烧"
+        },
+        {
+          "slot_id": "d1_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "fashion", "street"],
+          "area_hint": "shinsaibashi",
+          "fallback_entity_id": null,
+          "note_zh": "心斋桥商店街购物"
+        },
+        {
+          "slot_id": "d1_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "izakaya", "street_food"],
+          "area_hint": "dotonbori",
+          "fallback_entity_id": null,
+          "note_zh": "道顿堀夜晚美食"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme_zh": "京都古寺 — 一日深度游",
+      "city_code": "kyoto",
+      "time_blocks": [
+        {
+          "slot_id": "d2_morning",
+          "time": "08:30",
+          "duration_min": 90,
+          "tags_required": ["shrine", "torii", "mountain"],
+          "area_hint": "fushimi",
+          "fallback_entity_id": null,
+          "note_zh": "伏见稻荷大社"
+        },
+        {
+          "slot_id": "d2_morning2",
+          "time": "10:30",
+          "duration_min": 60,
+          "tags_required": ["temple", "world_heritage"],
+          "area_hint": "higashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "清水寺"
+        },
+        {
+          "slot_id": "d2_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "higashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "二年坂周边午餐"
+        },
+        {
+          "slot_id": "d2_afternoon",
+          "time": "14:30",
+          "duration_min": 90,
+          "tags_required": ["bamboo", "nature", "temple"],
+          "area_hint": "arashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "岚山竹林"
+        },
+        {
+          "slot_id": "d2_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "kaiseki"],
+          "area_hint": "kyoto_center",
+          "fallback_entity_id": null,
+          "note_zh": "京都怀石晚餐"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme_zh": "奈良日归 — 小鹿与大佛",
+      "city_code": "nara",
+      "time_blocks": [
+        {
+          "slot_id": "d3_morning",
+          "time": "09:30",
+          "duration_min": 90,
+          "tags_required": ["deer_park", "nature", "park"],
+          "area_hint": "nara_park",
+          "fallback_entity_id": null,
+          "note_zh": "奈良公园喂鹿"
+        },
+        {
+          "slot_id": "d3_morning2",
+          "time": "11:30",
+          "duration_min": 60,
+          "tags_required": ["temple", "world_heritage"],
+          "area_hint": "nara_park",
+          "fallback_entity_id": null,
+          "note_zh": "东大寺"
+        },
+        {
+          "slot_id": "d3_lunch",
+          "time": "13:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese"],
+          "area_hint": "nara_center",
+          "fallback_entity_id": null,
+          "note_zh": "奈良午餐"
+        },
+        {
+          "slot_id": "d3_afternoon",
+          "time": "15:00",
+          "duration_min": 90,
+          "tags_required": ["shopping", "souvenir", "traditional"],
+          "area_hint": "nara_center",
+          "fallback_entity_id": null,
+          "note_zh": "奈良町传统购物"
+        },
+        {
+          "slot_id": "d3_evening",
+          "time": "18:30",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "street_food"],
+          "area_hint": "osaka_namba",
+          "fallback_entity_id": null,
+          "note_zh": "返回大阪难波晚餐"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "theme_zh": "大阪收尾 — 黑门・临空城",
+      "city_code": "osaka",
+      "time_blocks": [
+        {
+          "slot_id": "d4_morning",
+          "time": "09:00",
+          "duration_min": 90,
+          "tags_required": ["market", "street_food", "seafood"],
+          "area_hint": "kuromon",
+          "fallback_entity_id": null,
+          "note_zh": "黑门市场扫街"
+        },
+        {
+          "slot_id": "d4_lunch",
+          "time": "11:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "sushi"],
+          "area_hint": "kuromon",
+          "fallback_entity_id": null,
+          "note_zh": "黑门海鲜午餐"
+        },
+        {
+          "slot_id": "d4_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "duty_free", "outlet"],
+          "area_hint": "rinku",
+          "fallback_entity_id": null,
+          "note_zh": "临空城 Outlet 采购"
+        },
+        {
+          "slot_id": "d4_evening",
+          "time": "17:00",
+          "duration_min": 60,
+          "tags_required": ["souvenir", "duty_free"],
+          "area_hint": "osaka_namba",
+          "fallback_entity_id": null,
+          "note_zh": "手信最终采购"
+        }
+      ]
+    }
+  ]
+}

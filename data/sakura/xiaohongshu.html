@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>小红书图文 - 日本樱花数据平台</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 20px}
+.page{width:1080px;height:1440px;position:relative;overflow:hidden;border-radius:8px;box-shadow:0 4px 30px rgba(0,0,0,.12);flex-shrink:0}
+
+/* ========== PAGE 1: 数据实力 ========== */
+.p1{background:linear-gradient(170deg,#fff5f7 0%,#fce4ec 25%,#f8bbd0 60%,#f06292 100%)}
+.p1 .deco{position:absolute;font-size:260px;opacity:.04}
+.p1 .deco1{top:-60px;right:-40px;transform:rotate(15deg)}
+.p1 .deco2{bottom:-40px;left:-30px;transform:rotate(-25deg)}
+.p1 .deco3{top:40%;left:-60px;font-size:180px;transform:rotate(30deg)}
+
+.p1-top{padding:60px 60px 0;text-align:center;position:relative;z-index:1}
+.p1-badge{display:inline-block;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);padding:8px 24px;border-radius:24px;font-size:16px;font-weight:700;color:#c2185b;letter-spacing:2px;margin-bottom:24px}
+.p1-title{font-size:64px;font-weight:900;color:#880e4f;line-height:1.15;margin-bottom:16px}
+.p1-title em{font-style:normal;background:linear-gradient(135deg,#e91e63,#ad1457);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.p1-sub{font-size:22px;color:#ad1457;line-height:1.6;margin-bottom:40px}
+
+.p1-nums{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:0 60px;position:relative;z-index:1}
+.p1-num{background:rgba(255,255,255,.65);backdrop-filter:blur(12px);border-radius:20px;padding:28px 20px;text-align:center;border:1px solid rgba(255,255,255,.8)}
+.p1-num .pn-icon{font-size:36px;margin-bottom:8px}
+.p1-num .pn-val{font-size:48px;font-weight:900;color:#880e4f}
+.p1-num .pn-label{font-size:16px;color:#ad1457;font-weight:600;margin-top:4px}
+
+.p1-sources{padding:30px 60px 0;position:relative;z-index:1}
+.p1-sources h3{font-size:20px;color:#880e4f;font-weight:800;margin-bottom:14px;text-align:center}
+.src-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.src-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);padding:10px 18px;border-radius:14px;font-size:14px;font-weight:600;color:#555;border:1px solid rgba(255,255,255,.9)}
+.src-pill .sp-flag{font-size:18px}
+
+.p1-bottom{position:absolute;bottom:40px;left:0;right:0;text-align:center;z-index:1}
+.p1-bottom p{font-size:15px;color:rgba(136,14,79,.5);font-weight:600}
+
+/* ========== PAGE 2: 地图展示 ========== */
+.p2{background:#fff}
+.p2-header{padding:40px 50px 20px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);text-align:center}
+.p2-header h2{font-size:42px;font-weight:900;color:#880e4f;margin-bottom:8px}
+.p2-header p{font-size:18px;color:#ad1457}
+.p2-mock{margin:20px 40px;border-radius:16px;overflow:hidden;border:3px solid #f0d0d0;height:900px;position:relative;background:#f5f3f0}
+.p2-mock-top{display:flex;height:100%}
+.p2-left{width:260px;background:#fff;border-right:2px solid #f5e0e0;padding:16px;overflow:hidden}
+.p2-left h4{font-size:15px;color:#c2185b;font-weight:800;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #fce4ec}
+.p2-spot{display:flex;align-items:flex-start;gap:8px;padding:8px;border-radius:10px;margin-bottom:6px;background:#fef8f8;border:1px solid #fce4ec}
+.p2-spot .ps-rank{width:22px;height:22px;border-radius:50%;background:#e91e63;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.p2-spot .ps-rank.gold{background:linear-gradient(135deg,#f9a825,#ff8f00)}
+.p2-spot .ps-info{flex:1}
+.p2-spot .ps-name{font-size:13px;font-weight:700;color:#333}
+.p2-spot .ps-meta{font-size:10px;color:#999;margin-top:2px}
+.p2-spot .ps-score{font-size:10px;color:#fff;background:#e91e63;padding:1px 6px;border-radius:6px;display:inline-block;margin-top:3px}
+.p2-map{flex:1;position:relative;background:linear-gradient(135deg,#e8f5e9 0%,#f1f8e9 50%,#e0f2f1 100%)}
+.p2-map-label{position:absolute;font-size:11px;font-weight:700;color:#333;background:rgba(255,255,255,.85);padding:3px 8px;border-radius:8px;border:1px solid #f0d0d0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.p2-map-dot{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.p2-map-lmk{position:absolute;font-size:24px;text-shadow:0 1px 3px rgba(0,0,0,.15)}
+.p2-right{width:220px;background:#fff;border-left:2px solid #f5e0e0;padding:14px}
+.p2-right-photo{width:100%;height:120px;border-radius:10px;background:linear-gradient(135deg,#f8bbd0,#f48fb1);display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:10px}
+.p2-right h4{font-size:16px;font-weight:800;color:#333;margin-bottom:4px}
+.p2-right .pr-score{display:inline-flex;align-items:center;gap:4px;background:#e91e63;color:#fff;font-size:13px;font-weight:800;padding:4px 12px;border-radius:10px;margin-bottom:8px}
+.p2-right .pr-row{display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid #f5f0eb}
+.p2-right .pr-label{color:#999}
+.p2-right .pr-val{color:#333;font-weight:600}
+.p2-right .pr-desc{font-size:11px;color:#666;line-height:1.6;margin-top:8px;padding:8px;background:#fef8f8;border-radius:8px}
+.p2-right .pr-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.p2-right .pr-tags span{font-size:9px;padding:2px 7px;border-radius:6px;background:#fce4ec;color:#c2185b}
+.p2-footer{text-align:center;padding:14px;font-size:13px;color:#aaa}
+
+/* ========== PAGE 3: TOP景点 ========== */
+.p3{background:linear-gradient(180deg,#fff 0%,#fff5f7 100%)}
+.p3-header{padding:40px 50px 20px;text-align:center}
+.p3-header h2{font-size:42px;font-weight:900;color:#880e4f;margin-bottom:8px}
+.p3-header p{font-size:18px;color:#999}
+.p3-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 40px}
+.p3-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #f5e0e0;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.p3-card-photo{height:140px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.p3-card-photo.tokyo{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.p3-card-photo.kyoto{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
+.p3-card-photo.osaka{background:linear-gradient(135deg,#e3f2fd,#bbdefb)}
+.p3-card-photo.nagoya{background:linear-gradient(135deg,#fff3e0,#ffe0b2)}
+.p3-card-photo.hiroshima{background:linear-gradient(135deg,#f3e5f5,#e1bee7)}
+.p3-card-score{position:absolute;top:10px;right:10px;background:#e91e63;color:#fff;font-size:14px;font-weight:800;padding:4px 10px;border-radius:10px}
+.p3-card-city{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px}
+.p3-card-body{padding:14px}
+.p3-card-name{font-size:18px;font-weight:800;color:#333;margin-bottom:4px}
+.p3-card-meta{font-size:11px;color:#999;margin-bottom:6px}
+.p3-card-reason{font-size:11px;color:#666;line-height:1.5}
+.p3-card-tags{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+.p3-card-tags span{font-size:9px;padding:2px 7px;border-radius:6px;background:#fce4ec;color:#c2185b;font-weight:600}
+.p3-footer{text-align:center;padding:20px;font-size:14px;color:#aaa}
+
+/* ========== PAGE 4: 引流 ========== */
+.p4{background:linear-gradient(170deg,#fce4ec 0%,#f8bbd0 40%,#f06292 80%,#e91e63 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px}
+.p4 .deco{position:absolute;font-size:200px;opacity:.06}
+.p4 .deco1{top:-40px;left:-30px;transform:rotate(-15deg)}
+.p4 .deco2{bottom:-30px;right:-20px;transform:rotate(20deg)}
+.p4-icon{font-size:100px;margin-bottom:20px;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.p4 h2{font-size:56px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;text-shadow:0 2px 20px rgba(136,14,79,.3)}
+.p4 .p4-sub{font-size:24px;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:40px;max-width:800px}
+.p4-features{display:flex;gap:20px;margin-bottom:50px;flex-wrap:wrap;justify-content:center}
+.p4-feat{background:rgba(255,255,255,.2);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:20px 24px;text-align:center;width:200px}
+.p4-feat .pf-icon{font-size:32px;margin-bottom:6px}
+.p4-feat .pf-text{font-size:14px;color:#fff;font-weight:700;line-height:1.4}
+.p4-url{background:rgba(255,255,255,.95);border-radius:20px;padding:24px 48px;margin-bottom:20px}
+.p4-url .pu-label{font-size:14px;color:#999;margin-bottom:6px}
+.p4-url .pu-link{font-size:22px;font-weight:800;color:#c2185b;word-break:break-all}
+.p4-tip{font-size:16px;color:rgba(255,255,255,.7);margin-top:16px;line-height:1.6}
+.p4-arrow{font-size:60px;color:rgba(255,255,255,.5);margin-bottom:10px;animation:bounce2 1.5s infinite}
+@keyframes bounce2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.p4-qr{width:180px;height:180px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#999;margin:20px auto;border:3px solid rgba(255,255,255,.5)}
+
+</style>
+</head>
+<body>
+
+<!-- ====== PAGE 1: 数据实力 ====== -->
+<div class="page p1">
+  <div class="deco deco1">🌸</div>
+  <div class="deco deco2">🌸</div>
+  <div class="deco deco3">🌸</div>
+  
+  <div class="p1-top">
+    <div class="p1-badge">🔬 DATA-DRIVEN SAKURA TRACKING</div>
+    <h1 class="p1-title">日本樱花什么时候去<br>我们有<em>最准的答案</em></h1>
+    <p class="p1-sub">融合 6 大权威数据源 · 交叉验证每一个景点的花期</p>
+  </div>
+
+  <div class="p1-nums">
+    <div class="p1-num">
+      <div class="pn-icon">🌸</div>
+      <div class="pn-val">240+</div>
+      <div class="pn-label">实测赏樱景点</div>
+    </div>
+    <div class="p1-num">
+      <div class="pn-icon">📡</div>
+      <div class="pn-val">6 大</div>
+      <div class="pn-label">权威数据源</div>
+    </div>
+    <div class="p1-num">
+      <div class="pn-icon">📸</div>
+      <div class="pn-val">200万+</div>
+      <div class="pn-label">用户花期报告</div>
+    </div>
+    <div class="p1-num">
+      <div class="pn-icon">🔄</div>
+      <div class="pn-val">3次/天</div>
+      <div class="pn-label">数据更新频率</div>
+    </div>
+  </div>
+
+  <div class="p1-sources">
+    <h3>数据来源</h3>
+    <div class="src-row">
+      <div class="src-pill"><span class="sp-flag">🇯🇵</span> 日本气象厅 JMA</div>
+      <div class="src-pill"><span class="sp-flag">🔬</span> 日本气象株式会社</div>
+      <div class="src-pill"><span class="sp-flag">📱</span> Weathernews</div>
+      <div class="src-pill"><span class="sp-flag">🏛️</span> GO TOKYO</div>
+      <div class="src-pill"><span class="sp-flag">⛩️</span> 京都観光Navi</div>
+      <div class="src-pill"><span class="sp-flag">📈</span> 70年历史记录</div>
+    </div>
+  </div>
+
+  <div class="p1-bottom">
+    <p>← 左滑查看我们的实时花期地图 →</p>
+  </div>
+</div>
+
+<!-- ====== PAGE 2: 网站地图展示 ====== -->
+<div class="page p2">
+  <div class="p2-header">
+    <h2>🗺 实时樱花花期地图</h2>
+    <p>每个点都是一个真实景点 · 颜色代表花期阶段</p>
+  </div>
+  <div class="p2-mock">
+    <div class="p2-mock-top">
+      <!-- 左侧排行 -->
+      <div class="p2-left">
+        <h4>🌸 东京 · 热门景点</h4>
+        <div class="p2-spot">
+          <div class="ps-rank gold">1</div>
+          <div class="ps-info">
+            <div class="ps-name">上野恩賜公園</div>
+            <div class="ps-meta">约800本 · 名所百选</div>
+            <div class="ps-score">推荐度 97</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank gold">2</div>
+          <div class="ps-info">
+            <div class="ps-name">新宿御苑</div>
+            <div class="ps-meta">约900本 · 名所百选</div>
+            <div class="ps-score">推荐度 96</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank gold">3</div>
+          <div class="ps-info">
+            <div class="ps-name">千鳥ヶ淵緑道</div>
+            <div class="ps-meta">约230本 · 划船赏樱</div>
+            <div class="ps-score">推荐度 95</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank">4</div>
+          <div class="ps-info">
+            <div class="ps-name">靖国神社</div>
+            <div class="ps-meta">约500本 · 标本木</div>
+            <div class="ps-score">推荐度 93</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank">5</div>
+          <div class="ps-info">
+            <div class="ps-name">井の頭恩賜公園</div>
+            <div class="ps-meta">约400本 · 名所百选</div>
+            <div class="ps-score">推荐度 92</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank">6</div>
+          <div class="ps-info">
+            <div class="ps-name">隅田公園</div>
+            <div class="ps-meta">约600本 · 晴空塔</div>
+            <div class="ps-score">推荐度 91</div>
+          </div>
+        </div>
+        <div class="p2-spot">
+          <div class="ps-rank">7</div>
+          <div class="ps-info">
+            <div class="ps-name">六義園</div>
+            <div class="ps-meta">枝垂樱名所 · 夜樱</div>
+            <div class="ps-score">推荐度 90</div>
+          </div>
+        </div>
+      </div>
+      <!-- 中间地图模拟 -->
+      <div class="p2-map">
+        <div class="p2-map-lmk" style="top:26%;left:72%">🗼</div>
+        <div class="p2-map-lmk" style="top:18%;left:55%">🚉</div>
+        <div class="p2-map-lmk" style="top:40%;left:30%">🏙️</div>
+        <div class="p2-map-lmk" style="top:60%;left:45%">🛕</div>
+        
+        <div class="p2-map-dot" style="top:15%;left:48%;background:#f48fb1"></div>
+        <div class="p2-map-label" style="top:12%;left:52%">上野恩賜公園</div>
+        
+        <div class="p2-map-dot" style="top:35%;left:25%;background:#81c784"></div>
+        <div class="p2-map-label" style="top:32%;left:29%">新宿御苑</div>
+        
+        <div class="p2-map-dot" style="top:28%;left:45%;background:#f48fb1"></div>
+        <div class="p2-map-label" style="top:25%;left:49%">千鳥ヶ淵</div>
+        
+        <div class="p2-map-dot" style="top:25%;left:42%;background:#e91e63"></div>
+        
+        <div class="p2-map-dot" style="top:50%;left:35%;background:#81c784"></div>
+        <div class="p2-map-label" style="top:47%;left:39%">井の頭公園</div>
+        
+        <div class="p2-map-dot" style="top:18%;left:65%;background:#f48fb1"></div>
+        <div class="p2-map-label" style="top:15%;left:69%">隅田公園</div>
+        
+        <div class="p2-map-dot" style="top:22%;left:52%;background:#c2185b"></div>
+        <div class="p2-map-label" style="top:19%;left:56%">六義園 <span style="background:#e91e63;color:#fff;padding:1px 5px;border-radius:4px;font-size:9px">90</span></div>
+        
+        <div class="p2-map-dot" style="top:42%;left:55%;background:#81c784"></div>
+        <div class="p2-map-dot" style="top:55%;left:60%;background:#f8bbd0"></div>
+        <div class="p2-map-dot" style="top:65%;left:50%;background:#81c784"></div>
+        <div class="p2-map-dot" style="top:70%;left:38%;background:#f8bbd0"></div>
+        <div class="p2-map-dot" style="top:30%;left:60%;background:#e91e63"></div>
+        <div class="p2-map-dot" style="top:80%;left:55%;background:#81c784"></div>
+        
+        <!-- 图例 -->
+        <div style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,.9);padding:10px 14px;border-radius:10px;font-size:11px;line-height:1.8">
+          <div style="font-weight:800;margin-bottom:4px">花期阶段</div>
+          <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#81c784;margin-right:4px"></span>花苞期</div>
+          <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f48fb1;margin-right:4px"></span>即将开放</div>
+          <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e91e63;margin-right:4px"></span>开花中</div>
+          <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#c2185b;margin-right:4px"></span>满开最佳</div>
+          <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#9c27b0;margin-right:4px"></span>飘落中</div>
+        </div>
+        <div style="position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,.9);padding:8px 12px;border-radius:10px;font-size:11px">
+          <div>🚉 车站 &nbsp; 🗼 地标 &nbsp; 🛕 神社</div>
+        </div>
+      </div>
+      <!-- 右侧详情 -->
+      <div class="p2-right">
+        <div class="p2-right-photo">🌸</div>
+        <h4>上野恩賜公園</h4>
+        <div class="pr-score">🏆 推荐度 97</div>
+        <div class="pr-row"><span class="pr-label">开花</span><span class="pr-val">3月20日</span></div>
+        <div class="pr-row"><span class="pr-label">半开</span><span class="pr-val">3月25日</span></div>
+        <div class="pr-row"><span class="pr-label">满开</span><span class="pr-val">3月29日</span></div>
+        <div class="pr-row"><span class="pr-label">飘落</span><span class="pr-val">4月5日</span></div>
+        <div class="pr-row"><span class="pr-label">樱花树</span><span class="pr-val">约800本</span></div>
+        <div class="pr-desc">东京最经典赏樱地，800棵樱花树沿不忍池绽放，名所百选级别。</div>
+        <div class="pr-tags">
+          <span>🏆 名所百选</span>
+          <span>🌙 夜樱</span>
+          <span>🚉 JR上野站</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p2-footer">↑ 这就是我们的实时花期地图，每天更新 3 次</div>
+</div>
+
+<!-- ====== PAGE 3: TOP景点一览 ====== -->
+<div class="page p3">
+  <div class="p3-header">
+    <h2>🏆 五大城市 · 最值得冲的景点</h2>
+    <p>基于规模、口碑、出片度、历史评价综合排名</p>
+  </div>
+  <div class="p3-grid">
+    <!-- 东京 -->
+    <div class="p3-card">
+      <div class="p3-card-photo tokyo">🗼🌸
+        <div class="p3-card-score">97</div>
+        <div class="p3-card-city">东京 TOP1</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">上野恩賜公園</div>
+        <div class="p3-card-meta">约800本 · 满开 3/29 · 名所百选</div>
+        <div class="p3-card-reason">东京赏樱圣地，不忍池畔800棵樱花盛开，小红书/马蜂窝/JNTO全推荐的TOP1。</div>
+        <div class="p3-card-tags"><span>🏆 名所百选</span><span>🌙 夜樱</span></div>
+      </div>
+    </div>
+    <!-- 京都 -->
+    <div class="p3-card">
+      <div class="p3-card-photo kyoto">⛩️🌸
+        <div class="p3-card-score">98</div>
+        <div class="p3-card-city">京都 TOP1</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">嵐山</div>
+        <div class="p3-card-meta">1500本 · 满开 4/3 · 名所百选</div>
+        <div class="p3-card-reason">渡月桥+1500棵樱花，京都最美春景。台湾/小红书攻略必推，出片率极高。</div>
+        <div class="p3-card-tags"><span>🏆 名所百选</span><span>📸 出片圣地</span></div>
+      </div>
+    </div>
+    <!-- 大阪 -->
+    <div class="p3-card">
+      <div class="p3-card-photo osaka">🏯🌸
+        <div class="p3-card-score">98</div>
+        <div class="p3-card-city">大阪 TOP1</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">大阪城公園</div>
+        <div class="p3-card-meta">约3000本 · 满开 4/1 · 名所百选</div>
+        <div class="p3-card-reason">3000棵樱花围绕天守阁，大阪最壮观的赏樱地，名所百选+规模第一。</div>
+        <div class="p3-card-tags"><span>🏆 名所百选</span><span>🌳 3000本</span></div>
+      </div>
+    </div>
+    <!-- 名古屋 -->
+    <div class="p3-card">
+      <div class="p3-card-photo nagoya">🏯🌸
+        <div class="p3-card-score">95</div>
+        <div class="p3-card-city">名古屋 TOP1</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">名古屋城</div>
+        <div class="p3-card-meta">约900本 · 满开 3/31 · 天守阁</div>
+        <div class="p3-card-reason">金鯱闪耀的天守阁下，900棵樱花盛放，还有壮观的夜樱灯光秀。</div>
+        <div class="p3-card-tags"><span>🌙 夜樱</span><span>🏯 天守阁</span></div>
+      </div>
+    </div>
+    <!-- 广岛 -->
+    <div class="p3-card">
+      <div class="p3-card-photo hiroshima">☮️🌸
+        <div class="p3-card-score">95</div>
+        <div class="p3-card-city">广岛 TOP1</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">千光寺公園</div>
+        <div class="p3-card-meta">1500本 · 满开 4/3 · 名所百选</div>
+        <div class="p3-card-reason">尾道绝景，1500棵樱花俯瞰濑户内海，被评为日本赏樱绝景TOP级。</div>
+        <div class="p3-card-tags"><span>🏆 名所百选</span><span>🌊 海景</span></div>
+      </div>
+    </div>
+    <!-- 特别推荐 -->
+    <div class="p3-card">
+      <div class="p3-card-photo osaka" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9)">💎🌸
+        <div class="p3-card-score">96</div>
+        <div class="p3-card-city">特别推荐</div>
+      </div>
+      <div class="p3-card-body">
+        <div class="p3-card-name">造幣局 桜の通り抜け</div>
+        <div class="p3-card-meta">340品种 · 大阪 · 130年历史</div>
+        <div class="p3-card-reason">130年历史的560m八重樱通道，只开放一周！340个品种集中展示，全球独一无二。</div>
+        <div class="p3-card-tags"><span>🏆 名所百选</span><span>⏰ 限时开放</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="p3-footer">基于小红书 · 马蜂窝 · JNTO · 台湾攻略 · 名所百选 综合排名</div>
+</div>
+
+<!-- ====== PAGE 4: 引流 ====== -->
+<div class="page p4">
+  <div class="deco deco1">🌸</div>
+  <div class="deco deco2">🌸</div>
+  
+  <div class="p4-icon">🌸</div>
+  <h2>别再翻攻略了<br>直接看实时花期</h2>
+  <p class="p4-sub">240+ 景点 · 实时花期地图 · 推荐度排名<br>精确到每一个公园、每一条河、每一座神社</p>
+  
+  <div class="p4-features">
+    <div class="p4-feat">
+      <div class="pf-icon">🗺</div>
+      <div class="pf-text">实时地图<br>一眼看到分布</div>
+    </div>
+    <div class="p4-feat">
+      <div class="pf-icon">🏆</div>
+      <div class="pf-text">推荐度排名<br>最值得去的在前</div>
+    </div>
+    <div class="p4-feat">
+      <div class="pf-icon">📅</div>
+      <div class="pf-text">花期时间轴<br>精确到日</div>
+    </div>
+    <div class="p4-feat">
+      <div class="pf-icon">🌙</div>
+      <div class="pf-text">夜樱 · 樱花祭<br>全收录</div>
+    </div>
+  </div>
+
+  <div class="p4-arrow">👇</div>
+  
+  <div class="p4-url">
+    <div class="pu-label">👆 复制链接到浏览器打开</div>
+    <div class="pu-link">sakura.travel-ai.cc</div>
+  </div>
+  
+  <div class="p4-tip">
+    免费使用 · 每天更新 3 次 · 樱花季全程覆盖<br>
+    <span style="font-size:20px;opacity:.8">收藏🌟这条笔记，出发前再看一次</span>
+  </div>
+</div>
+
+</body>
+</html>

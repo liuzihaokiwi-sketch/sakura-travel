@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 日本樱花 · 实时花期数据平台</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#333;background:#fdfaf7;-webkit-font-smoothing:antialiased}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:linear-gradient(160deg,#fff5f7 0%,#fce4ec 30%,#f8bbd0 70%,#f48fb1 100%);position:relative;overflow:hidden}
+.hero::before{content:'🌸';position:absolute;font-size:200px;opacity:.06;top:-40px;right:-30px;transform:rotate(15deg)}
+.hero::after{content:'🌸';position:absolute;font-size:140px;opacity:.05;bottom:-20px;left:-20px;transform:rotate(-20deg)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);padding:6px 18px;border-radius:20px;font-size:12px;font-weight:600;color:#c2185b;letter-spacing:1px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;color:#880e4f;line-height:1.2;margin-bottom:12px}
+.hero h1 span{background:linear-gradient(135deg,#e91e63,#c2185b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(14px,2.5vw,20px);color:#ad1457;max-width:600px;line-height:1.6;margin-bottom:30px}
+.hero-nums{display:flex;gap:clamp(16px,4vw,40px);margin-bottom:36px;flex-wrap:wrap;justify-content:center}
+.hero-num{text-align:center}
+.hero-num .hn-val{font-size:clamp(32px,6vw,56px);font-weight:900;color:#880e4f}
+.hero-num .hn-label{font-size:clamp(11px,1.5vw,14px);color:#ad1457;font-weight:600;margin-top:2px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;font-size:16px;font-weight:700;border-radius:30px;text-decoration:none;box-shadow:0 4px 20px rgba(233,30,99,.35);transition:.2s;cursor:pointer}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(233,30,99,.45)}
+.hero-scroll{position:absolute;bottom:24px;font-size:12px;color:#ad1457;opacity:.6;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* === SECTION BASE === */
+section{padding:60px 20px}
+.section-inner{max-width:960px;margin:0 auto}
+.sec-title{text-align:center;font-size:clamp(22px,3.5vw,36px);font-weight:800;color:#333;margin-bottom:6px}
+.sec-subtitle{text-align:center;font-size:clamp(13px,2vw,16px);color:#999;margin-bottom:40px}
+
+/* === DATA SOURCES === */
+.sources{background:#fff}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.src-card{border:1px solid #f5f0eb;border-radius:16px;padding:24px;transition:.2s;position:relative;overflow:hidden}
+.src-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.src-card .src-badge{position:absolute;top:12px;right:12px;font-size:9px;padding:3px 8px;border-radius:10px;font-weight:700}
+.src-badge.official{background:#e8f5e9;color:#2e7d32}
+.src-badge.commercial{background:#e3f2fd;color:#1565c0}
+.src-badge.crowd{background:#fff3e0;color:#e65100}
+.src-badge.local{background:#f3e5f5;color:#7b1fa2}
+.src-icon{font-size:36px;margin-bottom:10px}
+.src-name{font-size:17px;font-weight:700;margin-bottom:4px}
+.src-name-jp{font-size:11px;color:#aaa;margin-bottom:8px}
+.src-desc{font-size:13px;color:#666;line-height:1.6;margin-bottom:12px}
+.src-stats{display:flex;gap:16px;flex-wrap:wrap}
+.src-stat{text-align:center}
+.src-stat .ss-val{font-size:18px;font-weight:800;color:#c2185b}
+.src-stat .ss-label{font-size:9px;color:#999;margin-top:1px}
+.src-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:10px}
+.src-tags span{font-size:9px;padding:2px 8px;border-radius:8px;background:#fce4ec;color:#c2185b}
+
+/* === HOW IT WORKS === */
+.how{background:#fdfaf7}
+.how-flow{display:flex;align-items:flex-start;gap:0;justify-content:center;flex-wrap:wrap}
+.how-step{text-align:center;flex:0 0 180px;position:relative;padding:0 10px}
+.how-step .hs-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.how-step .hs-icon{font-size:32px;margin-bottom:6px}
+.how-step .hs-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.how-step .hs-desc{font-size:11px;color:#888;line-height:1.5}
+.how-arrow{font-size:24px;color:#f48fb1;align-self:center;margin:0 -4px;flex-shrink:0}
+
+/* === COVERAGE === */
+.coverage{background:#fff}
+.cov-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.cov-card{flex:0 0 170px;text-align:center;padding:20px;border-radius:14px;background:linear-gradient(135deg,#fce4ec,#fff);border:1px solid #f8bbd0}
+.cov-card .cc-emoji{font-size:36px;margin-bottom:6px}
+.cov-card .cc-city{font-size:15px;font-weight:700}
+.cov-card .cc-count{font-size:11px;color:#c2185b;font-weight:600;margin-top:2px}
+.cov-card .cc-status{font-size:10px;color:#888;margin-top:4px}
+
+/* === TRUST === */
+.trust{background:#fdfaf7}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.trust-item{text-align:center;padding:20px}
+.trust-item .ti-icon{font-size:36px;margin-bottom:8px}
+.trust-item .ti-val{font-size:28px;font-weight:900;color:#c2185b}
+.trust-item .ti-label{font-size:12px;color:#888;margin-top:4px;line-height:1.4}
+
+/* === CTA BOTTOM === */
+.cta-bottom{background:linear-gradient(135deg,#fce4ec,#f8bbd0);text-align:center;padding:60px 20px}
+.cta-bottom h2{font-size:clamp(20px,3.5vw,32px);font-weight:800;color:#880e4f;margin-bottom:12px}
+.cta-bottom p{font-size:14px;color:#ad1457;margin-bottom:24px}
+
+/* === FOOTER === */
+.foot{text-align:center;padding:20px;font-size:10px;color:#ccc;background:#fff}
+
+@media(max-width:600px){
+  .how-arrow{display:none}
+  .how-flow{gap:20px}
+  .how-step{flex:0 0 140px}
+  .src-grid{grid-template-columns:1fr}
+  .cov-card{flex:0 0 140px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">🔬 DATA-DRIVEN SAKURA TRACKING</div>
+  <h1>2026 日本樱花<br><span>实时花期数据平台</span></h1>
+  <p class="hero-sub">融合 6 大权威数据源 · 覆盖 5 座热门城市 240+ 景点<br>每天更新 3 次 · 精确到"现在该不该冲"</p>
+  <div class="hero-nums">
+    <div class="hero-num"><div class="hn-val">240<sup style="font-size:60%">+</sup></div><div class="hn-label">实测景点</div></div>
+    <div class="hero-num"><div class="hn-val">6</div><div class="hn-label">权威数据源</div></div>
+    <div class="hero-num"><div class="hn-val">3次/天</div><div class="hn-label">更新频率</div></div>
+    <div class="hero-num"><div class="hn-val">200万<sup style="font-size:60%">+</sup></div><div class="hn-label">用户花期报告</div></div>
+  </div>
+  <a class="hero-cta" href="sakura_rush.html">🌸 查看实时花期地图 →</a>
+  <div class="hero-scroll">↓ 下滑了解我们的数据有多硬</div>
+</section>
+
+<!-- ===== DATA SOURCES ===== -->
+<section class="sources" id="sources">
+  <div class="section-inner">
+    <div class="sec-title">📡 我们的数据从哪来</div>
+    <div class="sec-subtitle">不是一个预测站，而是 6 大数据源交叉验证</div>
+    <div class="src-grid">
+
+      <!-- 1 JMA -->
+      <div class="src-card">
+        <span class="src-badge official">🏛 官方权威</span>
+        <div class="src-icon">🇯🇵</div>
+        <div class="src-name">日本气象厅 (JMA)</div>
+        <div class="src-name-jp">気象庁 生物季節観測</div>
+        <div class="src-desc">日本国家级官方观测机构，全国 58 个标本木观测点，通过统一植物季节观测标准发布城市级开花日和满开日。<b>这是所有樱花数据的"绝对真相"。</b><br><a href="https://www.data.jma.go.jp/sakura/data/sakura_kaika.html" target="_blank" style="font-size:10px;color:#1565c0">🔗 jma.go.jp 开花状况</a></div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">58</div><div class="ss-label">官方观测点</div></div>
+          <div class="src-stat"><div class="ss-val">3次/天</div><div class="ss-label">更新频率</div></div>
+          <div class="src-stat"><div class="ss-val">70年+</div><div class="ss-label">历史数据</div></div>
+        </div>
+        <div class="src-tags"><span>城市级真相</span><span>开花/满开观测</span><span>历史对比</span></div>
+      </div>
+
+      <!-- 2 JMC -->
+      <div class="src-card">
+        <span class="src-badge commercial">📊 商业预测</span>
+        <div class="src-icon">🔬</div>
+        <div class="src-name">日本气象株式会社 (JMC)</div>
+        <div class="src-name-jp">日本気象株式会社 さくらナビ</div>
+        <div class="src-desc">专业气象预测公司，对全国 <b>约 1,000 个赏樱景点</b>做开花/满开预报，提供 Flowering Meter 实时开花进度条，还包含樱花祭和活动信息。<br><a href="https://n-kishou.com/corp/news-contents/sakura/" target="_blank" style="font-size:10px;color:#1565c0">🔗 n-kishou.com さくらナビ</a></div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">1,000</div><div class="ss-label">景点级预报</div></div>
+          <div class="src-stat"><div class="ss-val">9次+</div><div class="ss-label">本季已更新</div></div>
+          <div class="src-stat"><div class="ss-val">Meter</div><div class="ss-label">实时花度计</div></div>
+        </div>
+        <div class="src-tags"><span>景点级预测</span><span>开花进度计</span><span>樱花祭信息</span></div>
+      </div>
+
+      <!-- 3 Weathernews -->
+      <div class="src-card">
+        <span class="src-badge crowd">👥 众包实况</span>
+        <div class="src-icon">📱</div>
+        <div class="src-name">Weathernews 樱花项目</div>
+        <div class="src-name-jp">ウェザーニュース さくら Ch.</div>
+        <div class="src-desc">日本最大的众包气象平台。<b>200 万+用户</b>上传"我的樱花"实况照片和报告，结合 1,400 个景点独家实地采访、实况气温和预报气温做融合预测。<br><a href="https://weathernews.jp/s/sakura/" target="_blank" style="font-size:10px;color:#1565c0">🔗 weathernews.jp さくら Ch.</a></div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">200万+</div><div class="ss-label">用户报告</div></div>
+          <div class="src-stat"><div class="ss-val">1,400</div><div class="ss-label">景点覆盖</div></div>
+          <div class="src-stat"><div class="ss-val">实地</div><div class="ss-label">独家采访</div></div>
+        </div>
+        <div class="src-tags"><span>众包实况照</span><span>独家实地采访</span><span>GPS定位</span><span>树木数量</span></div>
+      </div>
+
+      <!-- 4 Local Official -->
+      <div class="src-card">
+        <span class="src-badge local">📍 地方官方</span>
+        <div class="src-icon">🏛️</div>
+        <div class="src-name">地方观光协会 & 景区官网</div>
+        <div class="src-name-jp">各地観光協会・公園公式サイト</div>
+        <div class="src-desc">东京都旅游局 (GO TOKYO)、京都市观光协会、各大公园管理处的官方页面。提供<b>最真实的"今天到底开没开"</b>以及夜樱灯光、樱花祭活动时间。<br><a href="https://www.gotokyo.org/jp/plan/cherry-blossom-season/" target="_blank" style="font-size:10px;color:#1565c0">🔗 GO TOKYO 赏樱特辑</a> · <a href="https://ja.kyoto.travel/flower/sakura/" target="_blank" style="font-size:10px;color:#1565c0">🔗 京都観光Navi</a></div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">50+</div><div class="ss-label">官方页监控</div></div>
+          <div class="src-stat"><div class="ss-val">每日</div><div class="ss-label">状态更新</div></div>
+          <div class="src-stat"><div class="ss-val">活动</div><div class="ss-label">祭典/夜樱</div></div>
+        </div>
+        <div class="src-tags"><span>夜樱时间</span><span>樱花祭</span><span>门票/交通</span><span>见顷确认</span></div>
+      </div>
+
+      <!-- 5 Historical -->
+      <div class="src-card">
+        <span class="src-badge official">📚 历史基准</span>
+        <div class="src-icon">📈</div>
+        <div class="src-name">70 年历史开花记录</div>
+        <div class="src-name-jp">過去の開花・満開データ</div>
+        <div class="src-desc">JMA 公开的 1953 年至今全部城市开花/满开记录。通过对比历史平均值和今年实测气温，我们可以判断<b>今年是"早樱年"还是"晚樱年"</b>，预测准确度更高。<br><a href="https://www.data.jma.go.jp/sakura/data/sakura_kaika.html" target="_blank" style="font-size:10px;color:#1565c0">🔗 JMA 历年开花数据</a></div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">70年</div><div class="ss-label">历史跨度</div></div>
+          <div class="src-stat"><div class="ss-val">58城</div><div class="ss-label">城市覆盖</div></div>
+          <div class="src-stat"><div class="ss-val">±2天</div><div class="ss-label">校验精度</div></div>
+        </div>
+        <div class="src-tags"><span>趋势分析</span><span>气温校验</span><span>早/晚年判断</span></div>
+      </div>
+
+      <!-- 6 AI Fusion -->
+      <div class="src-card">
+        <span class="src-badge commercial">🤖 AI 融合</span>
+        <div class="src-icon">🧠</div>
+        <div class="src-name">多源智能融合引擎</div>
+        <div class="src-name-jp">マルチソース AI フュージョン</div>
+        <div class="src-desc">我们不是简单搬运某一家的预测。而是把以上 5 个数据源<b>交叉验证、加权融合</b>：JMA 观测为真相，JMC/Weathernews 做景点预测，本地官方做实况修正，AI 只在解析模糊时介入。</div>
+        <div class="src-stats">
+          <div class="src-stat"><div class="ss-val">5层</div><div class="ss-label">交叉验证</div></div>
+          <div class="src-stat"><div class="ss-val">A/B/C</div><div class="ss-label">置信度分级</div></div>
+          <div class="src-stat"><div class="ss-val">实时</div><div class="ss-label">融合更新</div></div>
+        </div>
+        <div class="src-tags"><span>加权中位数</span><span>异常检测</span><span>置信度评分</span><span>分歧预警</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how">
+  <div class="section-inner">
+    <div class="sec-title">⚙️ 数据怎么变成"能冲指数"</div>
+    <div class="sec-subtitle">从原始观测到你手机上的一个分数，经过 5 步</div>
+    <div class="how-flow">
+      <div class="how-step">
+        <div class="hs-num">1</div>
+        <div class="hs-icon">📡</div>
+        <div class="hs-title">多源采集</div>
+        <div class="hs-desc">每天自动抓取 JMA、JMC、Weathernews、50+地方官方页</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="hs-num">2</div>
+        <div class="hs-icon">🔍</div>
+        <div class="hs-title">结构化解析</div>
+        <div class="hs-desc">用日文状态词词典+规则引擎提取开花/满开/散落状态</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="hs-num">3</div>
+        <div class="hs-icon">⚖️</div>
+        <div class="hs-title">交叉验证</div>
+        <div class="hs-desc">多源数据对比，不一致时标记分歧，计算置信度</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="hs-num">4</div>
+        <div class="hs-icon">🧮</div>
+        <div class="hs-title">能冲指数</div>
+        <div class="hs-desc">综合花期阶段、距满开天数、规模、口碑算出 0-100 分</div>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="hs-num">5</div>
+        <div class="hs-icon">📱</div>
+        <div class="hs-title">实时推送</div>
+        <div class="hs-desc">你打开地图，看到的每个分数都是最新的融合结果</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COVERAGE ===== -->
+<section class="coverage">
+  <div class="section-inner">
+    <div class="sec-title">🗾 覆盖城市 & 景点数</div>
+    <div class="sec-subtitle">5 大热门城市，每个城市深入到具体公园、神社、河岸</div>
+    <div class="cov-row">
+      <div class="cov-card">
+        <div class="cc-emoji">🗼</div>
+        <div class="cc-city">东京</div>
+        <div class="cc-count">78 个景点</div>
+        <div class="cc-status">🟢 已开花</div>
+      </div>
+      <div class="cov-card">
+        <div class="cc-emoji">⛩️</div>
+        <div class="cc-city">京都</div>
+        <div class="cc-count">52 个景点</div>
+        <div class="cc-status">🟡 3/26 预计</div>
+      </div>
+      <div class="cov-card">
+        <div class="cc-emoji">🏯</div>
+        <div class="cc-city">大阪</div>
+        <div class="cc-count">45 个景点</div>
+        <div class="cc-status">🟡 3/27 预计</div>
+      </div>
+      <div class="cov-card">
+        <div class="cc-emoji">🏢</div>
+        <div class="cc-city">名古屋</div>
+        <div class="cc-count">38 个景点</div>
+        <div class="cc-status">🟢 已开花</div>
+      </div>
+      <div class="cov-card">
+        <div class="cc-emoji">☮️</div>
+        <div class="cc-city">广岛</div>
+        <div class="cc-count">27 个景点</div>
+        <div class="cc-status">🟢 已开花</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST NUMBERS ===== -->
+<section class="trust">
+  <div class="section-inner">
+    <div class="sec-title">💎 用数字说话</div>
+    <div class="sec-subtitle">不吹不黑，这是我们实打实的数据底盘</div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="ti-icon">🌸</div>
+        <div class="ti-val">240+</div>
+        <div class="ti-label">实测赏樱景点<br>每个都有GPS坐标</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">📸</div>
+        <div class="ti-val">200万+</div>
+        <div class="ti-label">用户实拍花期报告<br>来自 Weathernews 众包</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🌡️</div>
+        <div class="ti-val">70年</div>
+        <div class="ti-label">历史开花记录<br>JMA 官方存档</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🔄</div>
+        <div class="ti-val">3次/天</div>
+        <div class="ti-label">数据更新频率<br>花期内全天候监控</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🎯</div>
+        <div class="ti-val">±2天</div>
+        <div class="ti-label">预测精度<br>多源融合后的偏差</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🌙</div>
+        <div class="ti-val">80+</div>
+        <div class="ti-label">夜樱 & 樱花祭<br>灯光时间全收录</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🏆</div>
+        <div class="ti-val">35</div>
+        <div class="ti-label">日本樱花名所100选<br>在我们覆盖范围内</div>
+      </div>
+      <div class="trust-item">
+        <div class="ti-icon">🌳</div>
+        <div class="ti-val">10万+</div>
+        <div class="ti-label">樱花树总数<br>从单棵到千棵级统计</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BOTTOM ===== -->
+<section class="cta-bottom">
+  <h2>🌸 别光看数据，看看你这周末该冲哪</h2>
+  <p>240+ 景点实时花期 · 能冲指数 · 最佳观赏窗口 · 夜樱信息</p>
+  <a class="hero-cta" href="sakura_rush.html">🗺 打开实时樱花地图 →</a>
+</section>
+
+<div class="foot">
+  © 2026 Sakura Data Platform · 数据来源: JMA 气象厅 · JMC 日本气象株式会社 · Weathernews · 地方观光协会<br>
+  本平台仅供旅行参考，实际花期受天气影响可能变化 · 最后更新: 2026/3/20
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+{
+  "template_code": "kansai_classic_7d",
+  "name_zh": "关西经典7日",
+  "city_code": "osaka",
+  "total_days": 7,
+  "scene_variants": {
+    "couple": {
+      "slot_overrides": {
+        "evening": { "tags_boost": ["romantic", "bar", "nightview"] },
+        "afternoon": { "tags_boost": ["temple", "garden"] }
+      }
+    },
+    "family": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["family_kids", "theme_park"] },
+        "afternoon": { "tags_boost": ["family_kids", "interactive"] }
+      }
+    },
+    "senior": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["garden", "temple", "nature", "onsen"] },
+        "afternoon": { "tags_boost": ["tea_ceremony", "traditional", "zen"] }
+      },
+      "filter_exclude_tags": { "nightlife": 3 }
+    },
+    "solo": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["temple", "shrine", "wabi_sabi"] }
+      }
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme_zh": "大阪初体验 — 道顿堀・心斋桥",
+      "city_code": "osaka",
+      "time_blocks": [
+        {
+          "slot_id": "d1_morning",
+          "time": "10:00",
+          "duration_min": 90,
+          "tags_required": ["castle", "history", "park"],
+          "area_hint": "osaka_castle",
+          "fallback_entity_id": null,
+          "note_zh": "大阪城公园"
+        },
+        {
+          "slot_id": "d1_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "ramen"],
+          "area_hint": "shinsaibashi",
+          "fallback_entity_id": null,
+          "note_zh": "心斋桥拉面午餐"
+        },
+        {
+          "slot_id": "d1_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "fashion", "street"],
+          "area_hint": "shinsaibashi",
+          "fallback_entity_id": null,
+          "note_zh": "心斋桥商店街"
+        },
+        {
+          "slot_id": "d1_evening",
+          "time": "18:00",
+          "duration_min": 120,
+          "tags_required": ["street_food", "izakaya", "entertainment"],
+          "area_hint": "dotonbori",
+          "fallback_entity_id": null,
+          "note_zh": "道顿堀美食扫街"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme_zh": "大阪深度 — 黑门市场・天王寺",
+      "city_code": "osaka",
+      "time_blocks": [
+        {
+          "slot_id": "d2_morning",
+          "time": "09:00",
+          "duration_min": 90,
+          "tags_required": ["market", "street_food", "seafood"],
+          "area_hint": "kuromon",
+          "fallback_entity_id": null,
+          "note_zh": "黑门市场早市"
+        },
+        {
+          "slot_id": "d2_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "sushi"],
+          "area_hint": "kuromon",
+          "fallback_entity_id": null,
+          "note_zh": "黑门周边海鲜午餐"
+        },
+        {
+          "slot_id": "d2_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["temple", "garden", "park"],
+          "area_hint": "tennoji",
+          "fallback_entity_id": null,
+          "note_zh": "天王寺公园 & 四天王寺"
+        },
+        {
+          "slot_id": "d2_evening",
+          "time": "17:30",
+          "duration_min": 60,
+          "tags_required": ["nightview", "observation"],
+          "area_hint": "tennoji",
+          "fallback_entity_id": null,
+          "note_zh": "阿倍野 Harukas 展望台"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme_zh": "奈良日归 — 鹿苑与古都",
+      "city_code": "nara",
+      "time_blocks": [
+        {
+          "slot_id": "d3_morning",
+          "time": "09:30",
+          "duration_min": 120,
+          "tags_required": ["deer_park", "nature", "park"],
+          "area_hint": "nara_park",
+          "fallback_entity_id": null,
+          "note_zh": "奈良公园喂鹿"
+        },
+        {
+          "slot_id": "d3_morning2",
+          "time": "11:30",
+          "duration_min": 60,
+          "tags_required": ["temple", "shrine", "world_heritage"],
+          "area_hint": "nara_park",
+          "fallback_entity_id": null,
+          "note_zh": "东大寺大佛殿"
+        },
+        {
+          "slot_id": "d3_lunch",
+          "time": "13:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "nara_center",
+          "fallback_entity_id": null,
+          "note_zh": "奈良传统午餐"
+        },
+        {
+          "slot_id": "d3_afternoon",
+          "time": "15:00",
+          "duration_min": 90,
+          "tags_required": ["shrine", "world_heritage", "history"],
+          "area_hint": "kasuga",
+          "fallback_entity_id": null,
+          "note_zh": "春日大社"
+        },
+        {
+          "slot_id": "d3_evening",
+          "time": "18:30",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "izakaya"],
+          "area_hint": "osaka_namba",
+          "fallback_entity_id": null,
+          "note_zh": "返回大阪难波晚餐"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "theme_zh": "京都寺院 — 岚山・金阁寺",
+      "city_code": "kyoto",
+      "time_blocks": [
+        {
+          "slot_id": "d4_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["bamboo", "nature", "temple"],
+          "area_hint": "arashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "岚山竹林小径"
+        },
+        {
+          "slot_id": "d4_morning2",
+          "time": "11:00",
+          "duration_min": 60,
+          "tags_required": ["temple", "zen", "garden"],
+          "area_hint": "arashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "天龙寺枯山水庭园"
+        },
+        {
+          "slot_id": "d4_lunch",
+          "time": "13:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "tofu"],
+          "area_hint": "arashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "岚山汤豆腐料理"
+        },
+        {
+          "slot_id": "d4_afternoon",
+          "time": "15:00",
+          "duration_min": 90,
+          "tags_required": ["temple", "world_heritage", "gold"],
+          "area_hint": "kinkakuji",
+          "fallback_entity_id": null,
+          "note_zh": "金阁寺"
+        },
+        {
+          "slot_id": "d4_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "kaiseki"],
+          "area_hint": "kyoto_center",
+          "fallback_entity_id": null,
+          "note_zh": "京都怀石料理晚餐"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "theme_zh": "京都精华 — 祗园・伏见稻荷",
+      "city_code": "kyoto",
+      "time_blocks": [
+        {
+          "slot_id": "d5_morning",
+          "time": "07:30",
+          "duration_min": 120,
+          "tags_required": ["shrine", "torii", "mountain"],
+          "area_hint": "fushimi",
+          "fallback_entity_id": null,
+          "note_zh": "伏见稻荷大社（避开人潮）"
+        },
+        {
+          "slot_id": "d5_morning2",
+          "time": "10:30",
+          "duration_min": 60,
+          "tags_required": ["temple", "zen", "world_heritage"],
+          "area_hint": "higashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "清水寺"
+        },
+        {
+          "slot_id": "d5_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "higashiyama",
+          "fallback_entity_id": null,
+          "note_zh": "产宁坂/二年坂周边午餐"
+        },
+        {
+          "slot_id": "d5_afternoon",
+          "time": "14:30",
+          "duration_min": 120,
+          "tags_required": ["geisha", "traditional_street", "shopping"],
+          "area_hint": "gion",
+          "fallback_entity_id": null,
+          "note_zh": "祗园花见小路漫步"
+        },
+        {
+          "slot_id": "d5_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "ramen"],
+          "area_hint": "kyoto_center",
+          "fallback_entity_id": null,
+          "note_zh": "京都拉面晚餐"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "theme_zh": "京都慢游 — 哲学之道・南禅寺",
+      "city_code": "kyoto",
+      "time_blocks": [
+        {
+          "slot_id": "d6_morning",
+          "time": "08:30",
+          "duration_min": 90,
+          "tags_required": ["temple", "zen", "garden"],
+          "area_hint": "nanzenji",
+          "fallback_entity_id": null,
+          "note_zh": "南禅寺 & 水路阁（绝佳拍照点）"
+        },
+        {
+          "slot_id": "d6_morning2",
+          "time": "10:30",
+          "duration_min": 90,
+          "tags_required": ["nature", "garden", "walk"],
+          "area_hint": "philosopher_path",
+          "fallback_entity_id": null,
+          "note_zh": "哲学之道散步"
+        },
+        {
+          "slot_id": "d6_lunch",
+          "time": "12:30",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "cafe", "japanese"],
+          "area_hint": "kyoto_center",
+          "fallback_entity_id": null,
+          "note_zh": "町家咖啡午餐"
+        },
+        {
+          "slot_id": "d6_afternoon",
+          "time": "14:30",
+          "duration_min": 90,
+          "tags_required": ["market", "shopping", "traditional"],
+          "area_hint": "nishiki",
+          "fallback_entity_id": null,
+          "note_zh": "锦市场（京都的厨房）"
+        },
+        {
+          "slot_id": "d6_evening",
+          "time": "17:30",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "kaiseki"],
+          "area_hint": "kyoto_center",
+          "fallback_entity_id": null,
+          "note_zh": "京都告别怀石晚餐"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "theme_zh": "神户半日 — 异人馆・神户牛收官",
+      "city_code": "kobe",
+      "time_blocks": [
+        {
+          "slot_id": "d7_morning",
+          "time": "09:30",
+          "duration_min": 90,
+          "tags_required": ["history", "western_style", "view"],
+          "area_hint": "kitano",
+          "fallback_entity_id": null,
+          "note_zh": "北野异人馆街"
+        },
+        {
+          "slot_id": "d7_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "chinese", "street_food"],
+          "area_hint": "nankinmachi",
+          "fallback_entity_id": null,
+          "note_zh": "南京町中华美食"
+        },
+        {
+          "slot_id": "d7_afternoon",
+          "time": "14:00",
+          "duration_min": 90,
+          "tags_required": ["port", "waterfront", "shopping"],
+          "area_hint": "kobe_harbor",
+          "fallback_entity_id": null,
+          "note_zh": "神户港 Harborland 散步购物"
+        },
+        {
+          "slot_id": "d7_evening",
+          "time": "17:00",
+          "duration_min": 90,
+          "tags_required": ["souvenir", "beef", "restaurant"],
+          "area_hint": "kobe_center",
+          "fallback_entity_id": null,
+          "note_zh": "神户牛排收官晚餐 + 手信"
+        }
+      ]
+    }
+  ]
+}

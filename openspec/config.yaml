@@ -1,0 +1,31 @@
+schema: spec-driven
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+# Example:
+context: |
+  项目：日本国际旅行攻略 AI 产品
+  技术栈：Python FastAPI + Next.js + PostgreSQL + Redis + Celery
+  模板渲染：WeasyPrint / Paged.js
+  AI 调度：LangGraph / 自研 Orchestrator
+  搜索：Meilisearch / PostgreSQL pgvector
+  
+  商业模型：
+    - 引流款（19.9~29.9）：模板化标准化攻略，覆盖日本大部分地区，秀肌肉建立信任
+    - 利润款（69~199）：主题/半定制攻略，支持用户输入，含餐厅酒店精选+避坑指南
+    - 高客单：人工审核版、会员订阅版、场景版（亲子/动漫/温泉/滑雪/豪华）
+  
+  核心架构：实体数据层 → 评分层 → 行程编排层 → 审核层 → 模板输出层
+  先建数据底座+评分系统，再用 AI 辅助生成各价位产品
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+rules:
+  proposal:
+    - 必须说明该模块在产品价位梯度中的作用
+    - 必须标注 MVP 优先级
+  tasks:
+    - 每个任务不超过 4 小时
+    - 标注依赖关系

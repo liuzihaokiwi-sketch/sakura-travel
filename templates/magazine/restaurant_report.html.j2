@@ -1,0 +1,167 @@
+{#
+  餐厅推荐报告模板
+  变量：
+    restaurants   - list[dict]，每项包含：
+      name_zh     - 中文名
+      name_ja     - 日文名（可选）
+      day_number  - 第几天（可选）
+      meal_type   - 'lunch' / 'dinner' / 'breakfast'
+      tabelog_score - Tabelog 评分（float）
+      google_rating - Google 评分（float，可选）
+      budget_jpy  - 人均日元（int）
+      budget_cny  - 人均人民币（int，可选）
+      cuisine     - 菜系（str）
+      area        - 区域（str）
+      description - 一句话推荐（str）
+      maps_url    - Google Maps 链接（可选）
+      image_url   - 图片（可选）
+      is_reserve_required - 是否需要预约（bool）
+    city_codes    - 城市列表
+    total_days    - 总天数
+#}
+
+<section class="guide-page restaurant-report page-break-before">
+
+  <div class="guide-page__header guide-page__header--food">
+    <div class="guide-page__header-icon">🍽️</div>
+    <h2 class="guide-page__title">餐厅推荐报告</h2>
+    <p class="guide-page__subtitle">精选每日午餐与晚餐，兼顾口味与性价比，每一顿都值得期待</p>
+  </div>
+
+  {% if restaurants %}
+  {# 按天分组 #}
+  {% set ns = namespace(current_day=0) %}
+  {% for rest in restaurants %}
+
+    {% if rest.day_number and rest.day_number != ns.current_day %}
+      {% if ns.current_day > 0 %}</div>{% endif %}
+      {% set ns.current_day = rest.day_number %}
+      <div class="restaurant-day-group page-break-avoid">
+        <div class="restaurant-day-header">
+          <span class="restaurant-day-label">DAY {{ rest.day_number }}</span>
+        </div>
+    {% endif %}
+
+    <div class="restaurant-card page-break-avoid">
+      <div class="restaurant-card__meal-badge restaurant-card__meal-badge--{{ rest.meal_type | default('lunch') }}">
+        {% if rest.meal_type == 'breakfast' %}🌅 早餐
+        {% elif rest.meal_type == 'dinner' %}🌙 晚餐
+        {% else %}☀️ 午餐
+        {% endif %}
+      </div>
+
+      <div class="restaurant-card__body">
+        {# 左侧图片 #}
+        {% if rest.image_url %}
+        <div class="restaurant-card__img-wrap">
+          <img src="{{ rest.image_url }}" alt="{{ rest.name_zh }}" class="restaurant-card__img"
+               onerror="this.parentNode.style.display='none'">
+        </div>
+        {% endif %}
+
+        {# 右侧内容 #}
+        <div class="restaurant-card__content">
+          <div class="restaurant-card__header">
+            <div class="restaurant-card__names">
+              <div class="restaurant-card__name">{{ rest.name_zh }}</div>
+              {% if rest.name_ja %}
+              <div class="restaurant-card__name-ja">{{ rest.name_ja }}</div>
+              {% endif %}
+            </div>
+            <div class="restaurant-card__scores">
+              {% if rest.tabelog_score %}
+              <div class="restaurant-card__score restaurant-card__score--tabelog">
+                <span class="score-platform">食べログ</span>
+                <span class="score-value">{{ "%.2f"|format(rest.tabelog_score) }}</span>
+              </div>
+              {% endif %}
+              {% if rest.google_rating %}
+              <div class="restaurant-card__score restaurant-card__score--google">
+                <span class="score-platform">Google</span>
+                <span class="score-value">★ {{ rest.google_rating }}</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="restaurant-card__meta-row">
+            {% if rest.cuisine %}
+            <span class="restaurant-meta-tag">{{ rest.cuisine }}</span>
+            {% endif %}
+            {% if rest.area %}
+            <span class="restaurant-meta-tag restaurant-meta-tag--area">📍 {{ rest.area }}</span>
+            {% endif %}
+            {% if rest.is_reserve_required %}
+            <span class="restaurant-meta-tag restaurant-meta-tag--reserve">📅 需预约</span>
+            {% endif %}
+          </div>
+
+          {% if rest.description %}
+          <p class="restaurant-card__desc">{{ rest.description }}</p>
+          {% endif %}
+
+          <div class="restaurant-card__footer">
+            <div class="restaurant-card__budget">
+              <span class="budget-label">人均</span>
+              <span class="budget-jpy">¥{{ "{:,}".format(rest.budget_jpy) }}</span>
+              {% if rest.budget_cny %}
+              <span class="budget-cny">≈ ￥{{ rest.budget_cny }}</span>
+              {% endif %}
+            </div>
+            {% if rest.maps_url %}
+            <a href="{{ rest.maps_url }}" class="restaurant-card__map-link" target="_blank">🗺️ 查看地图</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+  {% if ns.current_day > 0 %}</div>{% endif %}
+
+  {% else %}
+  {# 无数据时的占位示例 #}
+  <div class="restaurant-day-group">
+    <div class="restaurant-day-header">
+      <span class="restaurant-day-label">DAY 1</span>
+    </div>
+    <div class="restaurant-card page-break-avoid">
+      <div class="restaurant-card__meal-badge restaurant-card__meal-badge--lunch">☀️ 午餐</div>
+      <div class="restaurant-card__body">
+        <div class="restaurant-card__content">
+          <div class="restaurant-card__header">
+            <div class="restaurant-card__names">
+              <div class="restaurant-card__name">浅草今半（本店）</div>
+              <div class="restaurant-card__name-ja">浅草今半</div>
+            </div>
+            <div class="restaurant-card__scores">
+              <div class="restaurant-card__score restaurant-card__score--tabelog">
+                <span class="score-platform">食べログ</span>
+                <span class="score-value">3.85</span>
+              </div>
+            </div>
+          </div>
+          <div class="restaurant-card__meta-row">
+            <span class="restaurant-meta-tag">寿喜烧</span>
+            <span class="restaurant-meta-tag restaurant-meta-tag--area">📍 浅草</span>
+            <span class="restaurant-meta-tag restaurant-meta-tag--reserve">📅 需预约</span>
+          </div>
+          <p class="restaurant-card__desc">百年老铺，以黑毛和牛寿喜烧著称。午间套餐性价比高，浅草购物后的犒劳首选。</p>
+          <div class="restaurant-card__footer">
+            <div class="restaurant-card__budget">
+              <span class="budget-label">人均</span>
+              <span class="budget-jpy">¥4,000</span>
+              <span class="budget-cny">≈ ￥200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="guide-page__footer">
+    本餐厅推荐由 Travel AI 智能生成 · 评分与价格以实际为准，热门餐厅建议提前预约
+  </div>
+
+</section>

@@ -1,0 +1,91 @@
+{#
+  酒店推荐报告（简单版）
+  变量：
+    hotels      - list[dict]，3-5 家，包含：
+      name_zh   - 中文名
+      name_en   - 英文名（可选）
+      area      - 区域
+      star_rating - 星级（int）
+      price_min_jpy - 最低价日元/晚
+      price_min_cny - 最低价人民币/晚（可选）
+      one_liner - 一行说明（str）
+      booking_url - Booking 链接（可选）
+    city_codes  - 城市列表
+#}
+
+<section class="guide-page hotel-list-simple page-break-before">
+
+  <div class="guide-page__header guide-page__header--hotel">
+    <div class="guide-page__header-icon">🏨</div>
+    <h2 class="guide-page__title">酒店推荐</h2>
+    <p class="guide-page__subtitle">精选位置好、性价比高的住宿，让你每晚回到一个舒适的家</p>
+  </div>
+
+  <div class="hotel-simple-list">
+    {% if hotels %}
+    {% for hotel in hotels %}
+    <div class="hotel-simple-item page-break-avoid">
+      <div class="hotel-simple-item__rank">{{ loop.index }}</div>
+      <div class="hotel-simple-item__content">
+        <div class="hotel-simple-item__header">
+          <div class="hotel-simple-item__name">{{ hotel.name_zh }}</div>
+          {% if hotel.star_rating %}
+          <div class="hotel-simple-item__stars">
+            {% for i in range(hotel.star_rating) %}★{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% if hotel.name_en %}
+        <div class="hotel-simple-item__name-en">{{ hotel.name_en }}</div>
+        {% endif %}
+        <div class="hotel-simple-item__meta">
+          <span class="hotel-meta-tag">📍 {{ hotel.area | default('市中心') }}</span>
+          <span class="hotel-meta-price">
+            从 ¥{{ "{:,}".format(hotel.price_min_jpy) }}/晚
+            {% if hotel.price_min_cny %}≈ ￥{{ hotel.price_min_cny }}{% endif %}
+          </span>
+        </div>
+        {% if hotel.one_liner %}
+        <p class="hotel-simple-item__desc">{{ hotel.one_liner }}</p>
+        {% endif %}
+        {% if hotel.booking_url %}
+        <a href="{{ hotel.booking_url }}" class="hotel-simple-item__link" target="_blank">查看详情 →</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    {# 示例数据 #}
+    {% for item in [
+      {'rank': 1, 'name': '浅草温泉旅馆', 'area': '浅草', 'stars': 4, 'price': '¥12,000起', 'desc': '和风旅馆，附带天然温泉，距雷门步行5分钟'},
+      {'rank': 2, 'name': '新宿格兰贝尔酒店', 'area': '新宿', 'stars': 4, 'price': '¥9,800起', 'desc': '交通枢纽旁，购物娱乐最方便，房间设计现代舒适'},
+      {'rank': 3, 'name': '涩谷 Excel Hotel 东急', 'area': '涩谷', 'stars': 4, 'price': '¥11,000起', 'desc': '直连涩谷站，Hikarie 商场连通，夜景绝佳'}
+    ] %}
+    <div class="hotel-simple-item page-break-avoid">
+      <div class="hotel-simple-item__rank">{{ item.rank }}</div>
+      <div class="hotel-simple-item__content">
+        <div class="hotel-simple-item__header">
+          <div class="hotel-simple-item__name">{{ item.name }}</div>
+          <div class="hotel-simple-item__stars">★★★★</div>
+        </div>
+        <div class="hotel-simple-item__meta">
+          <span class="hotel-meta-tag">📍 {{ item.area }}</span>
+          <span class="hotel-meta-price">{{ item.price }}/晚</span>
+        </div>
+        <p class="hotel-simple-item__desc">{{ item.desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="guide-tip-box guide-tip-box--blue" style="margin-top: 24px;">
+    💡 <strong>预订建议：</strong>旺季（樱花季/红叶季）建议提前 2-3 个月预订，热门酒店容易售罄。对比 Booking.com、Agoda、Jalan 多个平台，价格可能相差 10-20%。
+  </div>
+
+  <div class="guide-page__footer">
+    本酒店推荐由 Travel AI 智能生成 · 价格为参考价，以预订时实际报价为准
+  </div>
+
+</section>

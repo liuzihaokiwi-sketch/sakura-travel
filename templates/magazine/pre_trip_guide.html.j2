@@ -1,0 +1,384 @@
+{#
+  出行前准备攻略页
+  变量：
+    guide_data  - dict（可选，覆盖默认值）
+    city_codes  - 城市列表
+    scene       - 场景（如 sakura/couple/family 等）
+#}
+
+<section class="guide-page pre-trip-guide page-break-before">
+
+  <div class="guide-page__header">
+    <div class="guide-page__header-icon">✈️</div>
+    <h2 class="guide-page__title">出行前准备攻略</h2>
+    <p class="guide-page__subtitle">出发前 2-4 周，按清单逐项确认，安心享受日本之旅</p>
+  </div>
+
+  <div class="guide-modules">
+
+    {# ── 模块 1: 证件与签证 ── #}
+    <div class="guide-module guide-module--docs page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">📋</span>
+        <h3 class="guide-module__title">证件与签证</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-module__intro">
+          日本签证需提前办理，中国大陆居民通常需要签证，请勿临时抱佛脚。
+        </div>
+        <div class="guide-checklist">
+          <div class="guide-checklist__group">
+            <div class="guide-checklist__group-title">签证类型</div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--blue"></span>
+              <span><strong>单次旅游签</strong>：最常见，有效期3个月，停留15天或90天</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--blue"></span>
+              <span><strong>多次签</strong>（3年/5年/10年）：频繁赴日者申请，需满足条件</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--blue"></span>
+              <span><strong>团体签</strong>：随旅行社申请，较简便，但自由度低</span>
+            </div>
+          </div>
+          <div class="guide-checklist__group">
+            <div class="guide-checklist__group-title">所需材料清单</div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>有效护照（有效期距出发日至少6个月，留有空白页）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>近期白底证件照（2张，4cm×3cm）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>签证申请表（日本驻华大使馆官方表格）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>在职证明或营业执照（证明稳定收入）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>银行流水（近3-6个月，余额建议 3-5 万以上）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>行程单（含机票预订、酒店预订）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--green"></span>
+              <span>户口本复印件（如有配偶/儿童同行需附）</span>
+            </div>
+          </div>
+          <div class="guide-checklist__group">
+            <div class="guide-checklist__group-title">时间线</div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--orange"></span>
+              <span>出发前 <strong>4-6 周</strong>：准备材料，预约递签</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--orange"></span>
+              <span>出发前 <strong>2-3 周</strong>：递交申请，等待出签（一般5-7工作日）</span>
+            </div>
+            <div class="guide-checklist__item">
+              <span class="guide-checklist__dot guide-checklist__dot--orange"></span>
+              <span>樱花/红叶旺季建议提前 <strong>2 个月</strong>操作，机票和酒店也同步预订</span>
+            </div>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--blue">
+          💡 <strong>小贴士：</strong>材料齐全时，北京/上海/广州等地使馆出签率极高，无需担心被拒签。电子签目前仅限部分城市试点，请关注官方公告。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 2: 机票须知 ── #}
+    <div class="guide-module guide-module--flight page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">✈️</span>
+        <h3 class="guide-module__title">机票须知</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-compare-table">
+          <div class="guide-compare-col">
+            <div class="guide-compare-col__title guide-compare-col__title--blue">💺 廉价航空（LCC）</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 价格低，特价票常见</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 直飞，节省时间</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 行李额需另购（约 ¥100-200/件）</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 改签/退票手续复杂</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 餐食需额外付费</div>
+            <div class="guide-compare-col__tip">代表：春秋航空、吉祥航空、Air Japan</div>
+          </div>
+          <div class="guide-compare-col">
+            <div class="guide-compare-col__title guide-compare-col__title--green">🌟 全服务航空</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 免费托运行李（23kg）</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 机上餐食、娱乐</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 改签灵活，里程积累</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 价格高出 30-80%</div>
+            <div class="guide-compare-col__tip">代表：国航、东航、全日空、日航</div>
+          </div>
+        </div>
+        <div class="guide-info-list">
+          <div class="guide-info-item">
+            <span class="guide-info-label">🧳 行李额</span>
+            <span class="guide-info-value">廉航通常仅限7kg手提；购买行李额一般比机场便宜50%；建议提前购买</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">📲 值机</span>
+            <span class="guide-info-value">提前24-48小时网上值机，选靠窗座位早行动；到机场建议提前2.5-3小时</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">🔄 转机</span>
+            <span class="guide-info-value">中转首尔/香港可能便宜，但转机时间建议3小时以上，避免误机风险</span>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--green">
+          💡 <strong>省钱技巧：</strong>提前60-90天购票最便宜；樱花季（3月底-4月初）机票需提前4个月+预订，否则会翻倍。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 3: 货币与支付 ── #}
+    <div class="guide-module guide-module--money page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">💴</span>
+        <h3 class="guide-module__title">货币与支付</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-module__intro">
+          日本整体仍以现金为主，建议出发前兑换足够日元，参考 <strong>1 CNY ≈ 20 JPY</strong>（以实时汇率为准）。
+        </div>
+        <div class="guide-info-list">
+          <div class="guide-info-item">
+            <span class="guide-info-label">💱 换汇渠道</span>
+            <span class="guide-info-value">国内银行（汇率略差但方便）；日本当地邮局/银行（汇率较好）；便利店 ATM（7-Eleven、LAWSON，支持银联、Visa、Mastercard取款，手续费约 ¥110/次）</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">💳 IC 交通卡</span>
+            <span class="guide-info-value">Suica / PASMO 预充值，用于地铁/公交/便利店，强烈推荐；出发前可在手机上开通虚拟 Suica（iPhone/Android）</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">📱 移动支付</span>
+            <span class="guide-info-value">大城市商圈、药妆店支持支付宝/微信支付；景区内餐厅、神社、小店多为现金only</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">💰 建议携带现金</span>
+            <span class="guide-info-value">7天行程建议准备 <strong>5-8 万日元</strong>（约 ¥2500-4000）现金备用，避免刷卡限制</span>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--orange">
+          ⚠️ <strong>注意：</strong>外币兑换优先选银行，汇率更合理。机场汇兑柜台汇率一般最差，尽量避免。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 4: 通讯与网络 ── #}
+    <div class="guide-module guide-module--network page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">📱</span>
+        <h3 class="guide-module__title">通讯与网络</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-compare-table guide-compare-table--3col">
+          <div class="guide-compare-col">
+            <div class="guide-compare-col__title guide-compare-col__title--blue">📶 日本 SIM 卡</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 本地号码，独立流量</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 网速快，信号好</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 仅数据卡不能打电话</div>
+            <div class="guide-compare-col__tip">推荐：IIJmio、楽天、UQ Mobile；国内平台可预购</div>
+          </div>
+          <div class="guide-compare-col">
+            <div class="guide-compare-col__title guide-compare-col__title--green">📡 随身 WiFi</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 多设备共用</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 无需换卡，家人共享</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 需随身携带，电量有限</div>
+            <div class="guide-compare-col__tip">推荐：租租车WiFi、万国漫游；机场取还</div>
+          </div>
+          <div class="guide-compare-col">
+            <div class="guide-compare-col__title guide-compare-col__title--purple">🌐 eSIM</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 无需实体卡，即买即用</div>
+            <div class="guide-compare-col__item guide-compare-col__item--pro">✅ 支持双卡，国内卡保留</div>
+            <div class="guide-compare-col__item guide-compare-col__item--con">❌ 需要支持eSIM的手机</div>
+            <div class="guide-compare-col__tip">推荐：Airalo、Ubigi；iPhone XS及以上支持</div>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--blue">
+          💡 <strong>推荐方案：</strong>独自旅行或情侣选 eSIM/SIM 卡最方便；三口以上家庭选随身 WiFi 更划算。提前在国内淘宝购买，机场激活即用。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 5: 行李打包清单 ── #}
+    <div class="guide-module guide-module--luggage page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🧳</span>
+        <h3 class="guide-module__title">行李打包清单</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-packing-grid">
+          <div class="guide-packing-category">
+            <div class="guide-packing-category__title guide-packing-category__title--green">✅ 必带物品</div>
+            <div class="guide-packing-item">护照 + 签证（检查有效期）</div>
+            <div class="guide-packing-item">日元现金（建议5-8万）</div>
+            <div class="guide-packing-item">银行卡（Visa/Mastercard/银联）</div>
+            <div class="guide-packing-item">电话卡/eSIM/随身WiFi</div>
+            <div class="guide-packing-item">充电宝（不超过20000mAh，不可托运）</div>
+            <div class="guide-packing-item">多功能转换插头（日本用A型双扁插）</div>
+            <div class="guide-packing-item">常备药（肠胃药、感冒药、创可贴）</div>
+            <div class="guide-packing-item">雨伞（轻便折叠伞）</div>
+          </div>
+          <div class="guide-packing-category">
+            <div class="guide-packing-category__title guide-packing-category__title--blue">🌸 季节性物品（春季）</div>
+            <div class="guide-packing-item">轻薄外套 + 保暖内层（早晚温差大）</div>
+            <div class="guide-packing-item">防晒霜 SPF50+（樱花赏花时间长）</div>
+            <div class="guide-packing-item">防花粉口罩（日本春季花粉季）</div>
+            <div class="guide-packing-item">舒适步行鞋（每天1-2万步）</div>
+            <div class="guide-packing-item">可折叠环保袋（购物/超市用）</div>
+            <div class="guide-packing-item">防敏感眼药水（花粉过敏备用）</div>
+          </div>
+          <div class="guide-packing-category">
+            <div class="guide-packing-category__title guide-packing-category__title--orange">❌ 不用带/日本有卖</div>
+            <div class="guide-packing-item">洗发水/沐浴露（酒店均提供）</div>
+            <div class="guide-packing-item">吹风机（酒店标配）</div>
+            <div class="guide-packing-item">拖鞋（日式酒店提供）</div>
+            <div class="guide-packing-item">太多衣服（药妆店/UNIQLO平价购买）</div>
+            <div class="guide-packing-item">大量零食（便利店超全）</div>
+          </div>
+          <div class="guide-packing-category">
+            <div class="guide-packing-category__title guide-packing-category__title--red">⚠️ 限重注意</div>
+            <div class="guide-packing-item">廉航手提 7kg（托运额另购）</div>
+            <div class="guide-packing-item">充电宝只能手提，不可托运</div>
+            <div class="guide-packing-item">液体超过100ml需托运</div>
+            <div class="guide-packing-item">买回程前留出购物余量</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 6: 交通卡与通票 ── #}
+    <div class="guide-module guide-module--transport page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🚃</span>
+        <h3 class="guide-module__title">交通卡与通票</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-info-list">
+          <div class="guide-info-item">
+            <span class="guide-info-label">🟢 Suica/PASMO</span>
+            <span class="guide-info-value">充值式 IC 卡，全国通用；手机端可绑 Apple Pay / Google Pay；适合城市内移动，购买地：各大车站自动售票机</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">🔵 JR Pass</span>
+            <span class="guide-info-value">新干线+JR线无限次乘坐（含成田特快），多城市必备；7日券约 ¥3500 | 14日券约 ¥5500；须在<strong>国内</strong>提前购买</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">🟡 地铁一日券</span>
+            <span class="guide-info-value">东京地铁1-3日券（¥800/1200/1500），当日无限乘坐东京Metro全线；适合密集观光日</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">🟠 机场交通</span>
+            <span class="guide-info-value">成田机场：成田特快（N'EX）约55分/¥3070 | 京成Skyliner约41分/¥2570 | 利木津巴士约80-120分/¥1300；羽田机场：京急线约30分/¥410</span>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--green">
+          💡 <strong>选购建议：</strong>仅去东京选 Suica；多城市（东京+京都+大阪）选 JR Pass；7天行程在东京通常不划算买 Pass，按需购票更省。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 7: 医疗与保险 ── #}
+    <div class="guide-module guide-module--health page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">🏥</span>
+        <h3 class="guide-module__title">医疗与保险</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-info-list">
+          <div class="guide-info-item">
+            <span class="guide-info-label">🛡️ 旅行保险</span>
+            <span class="guide-info-value">强烈建议购买：医疗报销（重要！日本医疗费极贵，普通感冒就诊约 ¥5000 起）、行李损失、航班延误；推荐：众安、太平洋、人保，约 ¥50-150/人/周</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">🏨 看病流程</span>
+            <span class="guide-info-value">轻微不适先去药妆店（松本清等）自购药；需就诊找「内科/クリニック」；出示保险卡，结束后索取诊断书用于报销</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">💊 常备药建议</span>
+            <span class="guide-info-value">肠胃药（腹泻/消化不良）、感冒药、止痛药、过敏药、创可贴；日本药妆店也有售，但标注为日文，买国内熟悉的更放心</span>
+          </div>
+          <div class="guide-info-item">
+            <span class="guide-info-label">📞 紧急电话</span>
+            <span class="guide-info-value">警察：110 | 急救/火警：119 | 中国大使馆（东京）：+81-3-3403-3380 | 保险报案：见保单背面</span>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--red">
+          ⚠️ <strong>重要：</strong>日本医疗费极高，外国人无法使用国民健康保险，一次感冒就诊费用约 ¥800-1500，手术或住院动辄数万元。旅行险是必须的，不是可选的。
+        </div>
+      </div>
+    </div>
+
+    {# ── 模块 8: 必备 APP ── #}
+    <div class="guide-module guide-module--apps page-break-avoid">
+      <div class="guide-module__header">
+        <span class="guide-module__icon">📲</span>
+        <h3 class="guide-module__title">必备 APP</h3>
+      </div>
+      <div class="guide-module__body">
+        <div class="guide-app-grid">
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🗺️</div>
+            <div class="guide-app-item__name">Google Maps</div>
+            <div class="guide-app-item__desc">导航首选，日本公交路线准确，支持离线地图</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🚃</div>
+            <div class="guide-app-item__name">乘换案内</div>
+            <div class="guide-app-item__desc">日本最准确的电车查询，含时刻表和票价</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🌐</div>
+            <div class="guide-app-item__name">Google 翻译</div>
+            <div class="guide-app-item__desc">拍照翻译菜单神器，离线日文包提前下载</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🍽️</div>
+            <div class="guide-app-item__name">Tabelog</div>
+            <div class="guide-app-item__desc">日本最权威的餐厅评分平台，找好餐厅必用</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🏨</div>
+            <div class="guide-app-item__name">Jalan / 一休</div>
+            <div class="guide-app-item__desc">日本本地酒店预订，价格和评价更真实</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🛍️</div>
+            <div class="guide-app-item__name">免税助手</div>
+            <div class="guide-app-item__desc">购物退税计算，消费满 5000 日元可退税</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🎫</div>
+            <div class="guide-app-item__name">KKday / Klook</div>
+            <div class="guide-app-item__desc">景点门票/体验预约，部分项目提前预订省钱</div>
+          </div>
+          <div class="guide-app-item">
+            <div class="guide-app-item__icon">🌡️</div>
+            <div class="guide-app-item__name">tenki.jp</div>
+            <div class="guide-app-item__desc">日本最准确的天气预报，支持台风追踪</div>
+          </div>
+        </div>
+        <div class="guide-tip-box guide-tip-box--blue">
+          💡 <strong>出发前检查：</strong>所有 APP 在国内下载好；离线地图和翻译语言包提前下载；出行当天确认充电宝已充满。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="guide-page__footer">
+    本攻略由 Travel AI 智能生成 · 信息仅供参考，以官方渠道为准
+  </div>
+
+</section>

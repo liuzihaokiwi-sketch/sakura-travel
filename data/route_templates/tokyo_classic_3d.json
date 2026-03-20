@@ -1,0 +1,154 @@
+{
+  "template_code": "tokyo_classic_3d",
+  "name_zh": "东京精华3日",
+  "city_code": "tokyo",
+  "total_days": 3,
+  "scene_variants": {
+    "couple": {
+      "slot_overrides": {
+        "evening": { "tags_boost": ["romantic", "nightview", "bar"] }
+      }
+    },
+    "family": {
+      "slot_overrides": {
+        "afternoon": { "tags_boost": ["family_kids", "theme_park"] }
+      }
+    },
+    "solo": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["museum", "culture"] }
+      }
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme_zh": "浅草・秋叶原 — 传统与现代",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d1_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["temple", "shrine", "history"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "浅草寺 + 仲见世商店街"
+        },
+        {
+          "slot_id": "d1_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "浅草传统日料"
+        },
+        {
+          "slot_id": "d1_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "electronics", "otaku"],
+          "area_hint": "akihabara",
+          "fallback_entity_id": null,
+          "note_zh": "秋叶原电器城"
+        },
+        {
+          "slot_id": "d1_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "izakaya", "japanese"],
+          "area_hint": "akihabara",
+          "fallback_entity_id": null,
+          "note_zh": "居酒屋晚餐"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme_zh": "涩谷・新宿 — 都市精华",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d2_morning",
+          "time": "09:30",
+          "duration_min": 90,
+          "tags_required": ["shopping", "fashion", "youth"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "原宿表参道"
+        },
+        {
+          "slot_id": "d2_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "cafe"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "表参道午餐"
+        },
+        {
+          "slot_id": "d2_afternoon",
+          "time": "14:00",
+          "duration_min": 90,
+          "tags_required": ["nightview", "observation", "shopping"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷 Sky 观景台 + 购物"
+        },
+        {
+          "slot_id": "d2_evening",
+          "time": "18:00",
+          "duration_min": 120,
+          "tags_required": ["park", "garden", "nightview"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿御苑夜景 / 都庁展望台"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme_zh": "银座・上野 — 艺术与购物",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d3_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["museum", "art", "culture"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野博物馆"
+        },
+        {
+          "slot_id": "d3_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "sushi", "japanese"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座寿司"
+        },
+        {
+          "slot_id": "d3_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "luxury", "department_store"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座购物"
+        },
+        {
+          "slot_id": "d3_evening",
+          "time": "17:00",
+          "duration_min": 60,
+          "tags_required": ["souvenir", "duty_free"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "手信采购"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-03-20",
+  "cities": [
+    {
+      "city_name": "東京",
+      "bloom_date": "2026-03-19",
+      "bloom_observed": true,
+      "city_stage": "starting",
+      "best_viewing_window": "2026-03-26 ~ 2026-04-02",
+      "confidence": 100,
+      "rush_score": 38,
+      "spots": [
+        {
+          "name_ja": "上野恩賜公園",
+          "name_zh": "上野公园",
+          "nightlit": true,
+          "festival": "3/20-4/7",
+          "crowd": "high",
+          "photo": 4,
+          "good_for": [
+            "couple",
+            "family",
+            "photo"
+          ],
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "新宿御苑",
+          "name_zh": "新宿御苑",
+          "nightlit": false,
+          "festival": null,
+          "crowd": "medium",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "solo",
+            "photo"
+          ],
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "千鳥ヶ淵",
+          "name_zh": "千鸟渊",
+          "nightlit": true,
+          "festival": "3/25-4/6",
+          "crowd": "high",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "photo"
+          ],
+          "special": "boat",
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "目黒川",
+          "name_zh": "目黑川",
+          "nightlit": true,
+          "festival": "3/22-4/10",
+          "crowd": "very_high",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "nightview"
+          ],
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "代々木公園",
+          "name_zh": "代代木公园",
+          "nightlit": false,
+          "festival": null,
+          "crowd": "medium",
+          "photo": 3,
+          "good_for": [
+            "family",
+            "picnic"
+          ],
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "隅田公園",
+          "name_zh": "隅田公园",
+          "nightlit": true,
+          "festival": "3/18-4/7",
+          "crowd": "medium",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "photo"
+          ],
+          "special": "skytree",
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "井の頭恩賜公園",
+          "name_zh": "井之头公园",
+          "nightlit": true,
+          "festival": "3/24-4/6",
+          "crowd": "low",
+          "photo": 4,
+          "good_for": [
+            "couple",
+            "solo",
+            "avoid_crowd"
+          ],
+          "special": "boat",
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        },
+        {
+          "name_ja": "芝公園",
+          "name_zh": "芝公园",
+          "nightlit": false,
+          "festival": null,
+          "crowd": "low",
+          "photo": 5,
+          "good_for": [
+            "photo"
+          ],
+          "special": "tokyo_tower",
+          "best_viewing": "2026-03-26 ~ 2026-04-02",
+          "rush_score": 38,
+          "stage": "starting",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "city_name": "京都",
+      "bloom_date": "2026-03-26",
+      "bloom_observed": false,
+      "city_stage": "bud",
+      "best_viewing_window": "2026-04-02 ~ 2026-04-09",
+      "confidence": 70,
+      "rush_score": 12,
+      "spots": [
+        {
+          "name_ja": "清水寺",
+          "name_zh": "清水寺",
+          "nightlit": true,
+          "festival": "3/25-4/6",
+          "crowd": "very_high",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "photo"
+          ],
+          "best_viewing": "2026-04-02 ~ 2026-04-09",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        },
+        {
+          "name_ja": "嵐山",
+          "name_zh": "岚山",
+          "nightlit": true,
+          "festival": "3/20-4/10",
+          "crowd": "high",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "family",
+            "photo"
+          ],
+          "best_viewing": "2026-04-02 ~ 2026-04-09",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        },
+        {
+          "name_ja": "醍醐寺",
+          "name_zh": "醍醐寺",
+          "nightlit": true,
+          "festival": "3/28-4/6",
+          "crowd": "medium",
+          "photo": 5,
+          "good_for": [
+            "couple",
+            "photo",
+            "culture"
+          ],
+          "best_viewing": "2026-04-02 ~ 2026-04-09",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        },
+        {
+          "name_ja": "哲学の道",
+          "name_zh": "哲学之道",
+          "nightlit": false,
+          "festival": null,
+          "crowd": "medium",
+          "photo": 4,
+          "good_for": [
+            "solo",
+            "couple"
+          ],
+          "best_viewing": "2026-04-02 ~ 2026-04-09",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        }
+      ]
+    },
+    {
+      "city_name": "大阪",
+      "bloom_date": "2026-03-27",
+      "bloom_observed": false,
+      "city_stage": "bud",
+      "best_viewing_window": "2026-04-03 ~ 2026-04-10",
+      "confidence": 70,
+      "rush_score": 12,
+      "spots": [
+        {
+          "name_ja": "大阪城公園",
+          "name_zh": "大阪城公园",
+          "nightlit": true,
+          "festival": "3/22-4/12",
+          "crowd": "high",
+          "photo": 5,
+          "good_for": [
+            "family",
+            "photo"
+          ],
+          "best_viewing": "2026-04-03 ~ 2026-04-10",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        },
+        {
+          "name_ja": "造幣局",
+          "name_zh": "造币局",
+          "nightlit": true,
+          "festival": "4/5-4/11",
+          "crowd": "very_high",
+          "photo": 4,
+          "good_for": [
+            "photo"
+          ],
+          "special": "late_bloom",
+          "best_viewing": "2026-04-03 ~ 2026-04-10",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        },
+        {
+          "name_ja": "万博記念公園",
+          "name_zh": "万博纪念公园",
+          "nightlit": false,
+          "festival": "3/20-4/7",
+          "crowd": "medium",
+          "photo": 3,
+          "good_for": [
+            "family",
+            "picnic"
+          ],
+          "best_viewing": "2026-04-03 ~ 2026-04-10",
+          "rush_score": 12,
+          "stage": "bud",
+          "confidence": 70
+        }
+      ]
+    }
+  ]
+}

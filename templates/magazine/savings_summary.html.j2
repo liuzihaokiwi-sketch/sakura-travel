@@ -1,0 +1,117 @@
+{#
+  省钱汇总页（单页版，¥888+ 套餐末页）
+  变量：
+    savings_items     - list[dict]：
+      category        - '机票' / '酒店' / '交通卡' 等
+      original_cny    - 原价（人民币）
+      optimized_cny   - 优化后价格
+      savings_cny     - 节省金额
+      savings_tip     - 节省方式说明（str）
+    total_original_cny  - 总原价
+    total_optimized_cny - 总优化价格
+    total_savings_cny   - 总节省金额
+    savings_percent     - 节省比例
+    generated_at        - 生成时间
+#}
+
+<section class="guide-page savings-summary page-break-before">
+
+  <div class="savings-summary__hero">
+    <div class="savings-summary__hero-label">Travel AI 为您节省</div>
+    <div class="savings-summary__hero-amount">
+      ¥{{ "{:,}".format(total_savings_cny | default(2440)) }}
+    </div>
+    <div class="savings-summary__hero-sub">
+      相当于节省了 {{ savings_percent | default(19) }}% 的旅行费用
+    </div>
+  </div>
+
+  {# ── 分项对比 ── #}
+  <div class="savings-breakdown">
+    <div class="savings-breakdown__title">📊 分项节省明细</div>
+
+    {% set display_items = savings_items if savings_items else [
+      {'category': '✈️ 机票', 'original_cny': 6200, 'optimized_cny': 5700, 'savings_cny': 500,
+       'savings_tip': 'Google Flights 比携程便宜 ¥500/人（2人）'},
+      {'category': '🏨 酒店（7晚）', 'original_cny': 7000, 'optimized_cny': 5740, 'savings_cny': 1260,
+       'savings_tip': 'Booking.com 比 Agoda 平均便宜 ¥180/晚'},
+      {'category': '🚃 交通卡', 'original_cny': 800, 'optimized_cny': 480, 'savings_cny': 320,
+       'savings_tip': '东京地铁3日券 vs 逐次买票，节省 ¥320'},
+      {'category': '🎫 景点门票', 'original_cny': 1200, 'optimized_cny': 840, 'savings_cny': 360,
+       'savings_tip': '提前在 KKday 购买组合券，比现场单买便宜 30%'}
+    ] %}
+
+    <div class="savings-table">
+      <div class="savings-table__header">
+        <span class="savings-table__col-category">项目</span>
+        <span class="savings-table__col-original">市场价</span>
+        <span class="savings-table__col-optimized">最优价</span>
+        <span class="savings-table__col-savings">节省</span>
+      </div>
+      {% for item in display_items %}
+      <div class="savings-table__row">
+        <div class="savings-table__col-category">
+          <div class="savings-item__category">{{ item.category }}</div>
+          {% if item.savings_tip %}
+          <div class="savings-item__tip">{{ item.savings_tip }}</div>
+          {% endif %}
+        </div>
+        <div class="savings-table__col-original">
+          <span class="price-original">¥{{ "{:,}".format(item.original_cny) }}</span>
+        </div>
+        <div class="savings-table__col-optimized">
+          <span class="price-optimized">¥{{ "{:,}".format(item.optimized_cny) }}</span>
+        </div>
+        <div class="savings-table__col-savings">
+          <span class="price-savings">-¥{{ "{:,}".format(item.savings_cny) }}</span>
+        </div>
+      </div>
+      {% endfor %}
+
+      {# 合计行 #}
+      <div class="savings-table__total">
+        <span class="savings-table__col-category savings-total-label">合计</span>
+        <span class="savings-table__col-original">
+          <span class="price-original price-original--total">¥{{ "{:,}".format(total_original_cny | default(15200)) }}</span>
+        </span>
+        <span class="savings-table__col-optimized">
+          <span class="price-optimized price-optimized--total">¥{{ "{:,}".format(total_optimized_cny | default(12760)) }}</span>
+        </span>
+        <span class="savings-table__col-savings">
+          <span class="price-savings price-savings--total">-¥{{ "{:,}".format(total_savings_cny | default(2440)) }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {# ── 节省比例可视化 ── #}
+  <div class="savings-visual page-break-avoid">
+    <div class="savings-visual__title">💡 每100元旅行费用，Travel AI 帮你省下</div>
+    <div class="savings-visual__bar-wrap">
+      <div class="savings-visual__bar">
+        <div class="savings-visual__bar-saved" style="width: {{ savings_percent | default(19) }}%">
+          <span class="savings-visual__bar-label">节省 {{ savings_percent | default(19) }}%</span>
+        </div>
+        <div class="savings-visual__bar-spend" style="width: {{ 100 - (savings_percent | default(19)) }}%">
+          <span class="savings-visual__bar-label">实付 {{ 100 - (savings_percent | default(19)) }}%</span>
+        </div>
+      </div>
+    </div>
+    <div class="savings-visual__coins">
+      用节省的钱可以：多住 <strong>{{ ((total_savings_cny | default(2440)) / 300) | round | int }} 天酒店</strong>
+      或 多吃 <strong>{{ ((total_savings_cny | default(2440)) / 100) | round | int }} 顿好饭</strong>
+      或 多带走 <strong>{{ ((total_savings_cny | default(2440)) / 50) | round | int }} 件伴手礼</strong>！
+    </div>
+  </div>
+
+  {% if generated_at %}
+  <div class="savings-summary__timestamp">
+    比价数据生成于 {{ generated_at }} · 价格随时变动，建议尽快预订
+  </div>
+  {% endif %}
+
+  <div class="guide-page__footer">
+    Travel AI 智能比价系统 · 数据仅供参考，以各平台实时报价为准
+  </div>
+
+</section>

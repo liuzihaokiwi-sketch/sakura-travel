@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "matrix_type": "user_type_x_region_score",
+  "score_range": [
+    0,
+    100
+  ],
+  "regions": [
+    {
+      "region_id": "R01",
+      "region_name": "东京都市圈"
+    },
+    {
+      "region_id": "R02",
+      "region_name": "东京近郊文化海滨圈"
+    },
+    {
+      "region_id": "R03",
+      "region_name": "富士箱根伊豆圈"
+    },
+    {
+      "region_id": "R04",
+      "region_name": "关东山岳温泉圈"
+    },
+    {
+      "region_id": "R05",
+      "region_name": "关西经典圈"
+    },
+    {
+      "region_id": "R06",
+      "region_name": "北海道圈"
+    },
+    {
+      "region_id": "R07",
+      "region_name": "东北季节圈"
+    },
+    {
+      "region_id": "R08",
+      "region_name": "北陆深度圈"
+    },
+    {
+      "region_id": "R09",
+      "region_name": "日本阿尔卑斯·飞驒圈"
+    },
+    {
+      "region_id": "R10",
+      "region_name": "濑户内·广岛圈"
+    },
+    {
+      "region_id": "R11",
+      "region_name": "九州温泉火山圈"
+    },
+    {
+      "region_id": "R12",
+      "region_name": "冲绳海岛圈"
+    }
+  ],
+  "user_types": [
+    {
+      "user_type": "first_time_couple",
+      "label": "第一次去日本的情侣"
+    },
+    {
+      "user_type": "first_time_family",
+      "label": "第一次去日本的家庭"
+    },
+    {
+      "user_type": "repeat_couple",
+      "label": "二刷日本情侣"
+    },
+    {
+      "user_type": "repeat_solo",
+      "label": "二刷日本独行侠"
+    },
+    {
+      "user_type": "onsen_focused",
+      "label": "温泉主题用户"
+    },
+    {
+      "user_type": "culture_deep",
+      "label": "文化深度用户"
+    }
+  ],
+  "matrix": {
+    "first_time_couple": {
+      "R01": 92,
+      "R02": 84,
+      "R03": 90,
+      "R04": 75,
+      "R05": 95,
+      "R06": 82,
+      "R07": 55,
+      "R08": 68,
+      "R09": 70,
+      "R10": 72,
+      "R11": 78,
+      "R12": 80
+    },
+    "first_time_family": {
+      "R01": 90,
+      "R02": 85,
+      "R03": 82,
+      "R04": 78,
+      "R05": 93,
+      "R06": 84,
+      "R07": 60,
+      "R08": 65,
+      "R09": 62,
+      "R10": 70,
+      "R11": 80,
+      "R12": 88
+    },
+    "repeat_couple": {
+      "R01": 72,
+      "R02": 76,
+      "R03": 85,
+      "R04": 83,
+      "R05": 78,
+      "R06": 86,
+      "R07": 82,
+      "R08": 92,
+      "R09": 87,
+      "R10": 88,
+      "R11": 90,
+      "R12": 84
+    },
+    "repeat_solo": {
+      "R01": 80,
+      "R02": 78,
+      "R03": 70,
+      "R04": 82,
+      "R05": 81,
+      "R06": 84,
+      "R07": 88,
+      "R08": 86,
+      "R09": 90,
+      "R10": 87,
+      "R11": 85,
+      "R12": 65
+    },
+    "onsen_focused": {
+      "R01": 20,
+      "R02": 45,
+      "R03": 92,
+      "R04": 94,
+      "R05": 68,
+      "R06": 84,
+      "R07": 88,
+      "R08": 90,
+      "R09": 82,
+      "R10": 55,
+      "R11": 96,
+      "R12": 10
+    },
+    "culture_deep": {
+      "R01": 84,
+      "R02": 80,
+      "R03": 60,
+      "R04": 74,
+      "R05": 98,
+      "R06": 68,
+      "R07": 85,
+      "R08": 93,
+      "R09": 86,
+      "R10": 82,
+      "R11": 78,
+      "R12": 72
+    }
+  },
+  "top_recommendations": {
+    "first_time_couple": [
+      "R05",
+      "R01",
+      "R03"
+    ],
+    "first_time_family": [
+      "R05",
+      "R01",
+      "R12"
+    ],
+    "repeat_couple": [
+      "R08",
+      "R11",
+      "R10"
+    ],
+    "repeat_solo": [
+      "R09",
+      "R07",
+      "R10"
+    ],
+    "onsen_focused": [
+      "R11",
+      "R04",
+      "R03"
+    ],
+    "culture_deep": [
+      "R05",
+      "R08",
+      "R09"
+    ]
+  },
+  "notes": [
+    "这些分数用于区域级初筛与排序，适合放在 region recall / re-rank 层；后续仍应叠加 budget、season、flight convenience、days、theme 等更细粒度约束。",
+    "first_time 系列更偏好东京/关西这类首刷稳定区域；onsen_focused 明显偏向箱根、关东山岳温泉、九州与北陆；culture_deep 更偏向关西、北陆与飞驒/阿尔卑斯。"
+  ]
+}

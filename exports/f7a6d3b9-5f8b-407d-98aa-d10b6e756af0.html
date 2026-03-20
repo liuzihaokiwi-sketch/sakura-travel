@@ -1,0 +1,3814 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-scene="family">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="日本旅行攻略">
+  <title>日本旅行攻略</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  
+  <style>
+    /* ── 杂志渲染系统 CSS 变量（Magazine Clean 主题）──────────────────────────── */
+
+:root {
+  /* ── 颜色体系 ─────────────────────────────────────────────── */
+  --color-bg:          #FAFAF8;   /* 暖白底色 */
+  --color-text:        #2C2C2C;   /* 深灰正文 */
+  --color-accent:      #C0392B;   /* 朱红强调（日式） */
+  --color-accent-2:    #2C6E49;   /* 深绿次要强调 */
+  --color-muted:       #8C8C8C;   /* 浅灰辅助文字 */
+  --color-border:      #E8E4DC;   /* 边框/分割线 */
+  --color-card-bg:     #FFFFFF;   /* 卡片白底 */
+  --color-tag-bg:      #F3EEE8;   /* 标签徽章背景 */
+  --color-timeline:    #D4C5B0;   /* 时间轴线颜色 */
+  --color-overlay:     rgba(0, 0, 0, 0.45); /* 封面图遮罩 */
+
+  /* ── 字体 ─────────────────────────────────────────────────── */
+  --font-serif:   'Noto Serif SC', 'Source Han Serif SC', 'STSong', serif;
+  --font-sans:    'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono:    'Tabular Numbers', 'SF Mono', monospace;
+
+  /* ── 字号 ─────────────────────────────────────────────────── */
+  --fs-cover-title:   48px;
+  --fs-cover-sub:     18px;
+  --fs-section-title: 28px;
+  --fs-day-title:     20px;
+  --fs-entity-name:   16px;
+  --fs-body:          14px;
+  --fs-caption:       12px;
+  --fs-tag:           11px;
+
+  /* ── 字重 ─────────────────────────────────────────────────── */
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+
+  /* ── 行高 ─────────────────────────────────────────────────── */
+  --lh-title:   1.25;
+  --lh-body:    1.8;
+  --lh-caption: 1.5;
+
+  /* ── 间距 ─────────────────────────────────────────────────── */
+  --spacing-xs:   4px;
+  --spacing-sm:   8px;
+  --spacing-md:   16px;
+  --spacing-lg:   24px;
+  --spacing-xl:   40px;
+  --spacing-xxl:  64px;
+
+  /* ── 页面（PDF 打印） ─────────────────────────────────────── */
+  --page-margin:       20mm;
+  --page-margin-cover: 0;
+
+  /* ── 圆角 ─────────────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+
+  /* ── 阴影 ─────────────────────────────────────────────────── */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+  /* ── 时间轴 ─────────────────────────────────────────────────── */
+  --timeline-width:    48px;
+  --timeline-dot-size: 10px;
+  --timeline-line-w:   2px;
+
+  /* ── 图片比例 ─────────────────────────────────────────────── */
+  --entity-img-ratio:    56.25%; /* 16:9 */
+  --cover-img-ratio:     100vh;
+}
+
+/* ── 场景变体覆盖（情侣版）── */
+[data-scene="couple"] {
+  --color-accent:   #B5476A;   /* 玫瑰红 */
+  --color-accent-2: #6B4C8C;   /* 薰衣草紫 */
+}
+
+/* ── 场景变体覆盖（家庭版）── */
+[data-scene="family"] {
+  --color-accent:   #E67E22;   /* 温暖橙 */
+  --color-accent-2: #27AE60;   /* 活力绿 */
+}
+    /* ── Magazine Clean 主题样式 ────────────────────────────────────────────────── */
+/* 依赖 variables.css 中定义的 CSS 自定义变量                                   */
+
+/* ── 重置 & 基础 ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── PDF 打印规则 ──────────────────────────────────────────────────────────── */
+@page {
+  size: A4;
+  margin: var(--page-margin);
+}
+
+@page :first {
+  margin: 0;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .page-break { page-break-after: always; }
+  .page-break-avoid { page-break-inside: avoid; }
+}
+
+/* ── 封面页（.cover）────────────────────────────────────────────────────────── */
+.cover {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.cover__bg--placeholder {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.cover__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 1;
+}
+
+.cover__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  color: #fff;
+}
+
+.cover__eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: var(--spacing-md);
+}
+
+.cover__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-cover-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-title);
+  margin-bottom: var(--spacing-md);
+}
+
+.cover__tagline {
+  font-size: var(--fs-cover-sub);
+  font-weight: var(--fw-light);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cover__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.cover__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.cover__divider {
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  margin: var(--spacing-md) 0;
+}
+
+/* ── 日行程卡片（.day-section）──────────────────────────────────────────────── */
+.day-section {
+  padding: var(--spacing-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+  page-break-inside: avoid;
+}
+
+.day-section:last-child {
+  border-bottom: none;
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.day-number {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+.day-number__num {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  font-family: var(--font-mono);
+}
+
+.day-header-text {
+  flex: 1;
+}
+
+.day-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-day-title);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  line-height: var(--lh-title);
+}
+
+.day-subtitle {
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  margin-top: var(--spacing-xs);
+}
+
+/* ── 时间轴（.timeline）─────────────────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--spacing-md);
+  position: relative;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--timeline-width) / 2 - var(--timeline-line-w) / 2);
+  top: calc(var(--timeline-dot-size) + 4px);
+  bottom: 0;
+  width: var(--timeline-line-w);
+  background: var(--color-timeline);
+}
+
+.timeline-left {
+  flex-shrink: 0;
+  width: var(--timeline-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2px;
+}
+
+.timeline-dot {
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.timeline-dot--muted {
+  background: var(--color-timeline);
+}
+
+.timeline-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-top: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.timeline-right {
+  flex: 1;
+  padding-bottom: var(--spacing-lg);
+}
+
+/* ── 实体卡片（.entity-card）──────────────────────────────────────────────── */
+.entity-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  page-break-inside: avoid;
+}
+
+.entity-card__img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: var(--entity-img-ratio);
+  overflow: hidden;
+  background: var(--color-tag-bg);
+}
+
+.entity-card__img-wrap--placeholder {
+  background: linear-gradient(135deg, #e8e0d5 0%, #d4c5b0 100%);
+}
+
+.entity-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.entity-card__img-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: var(--color-muted);
+  opacity: 0.5;
+}
+
+.entity-card__body {
+  padding: var(--spacing-md);
+}
+
+.entity-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.entity-card__name {
+  font-family: var(--font-serif);
+  font-size: var(--fs-entity-name);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  line-height: var(--lh-title);
+  flex: 1;
+}
+
+.entity-card__name-ja {
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  margin-top: 2px;
+}
+
+.entity-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.entity-card__rating-star {
+  color: #F5A623;
+}
+
+.entity-card__copy {
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  margin-bottom: var(--spacing-sm);
+}
+
+.entity-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.tag-badge {
+  display: inline-block;
+  background: var(--color-tag-bg);
+  color: var(--color-accent-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--spacing-xs);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+
+.tag-badge--accent {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.entity-card__meta {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.entity-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+}
+
+.entity-card__meta-icon {
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.entity-card__tips {
+  background: var(--color-tag-bg);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--fs-caption);
+  color: var(--color-text);
+  margin-top: var(--spacing-sm);
+}
+
+.entity-card__tips-label {
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+}
+
+/* ── 交通段（.transport-block）──────────────────────────────────────────────── */
+.transport-block {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-tag-bg);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.transport-block__icon {
+  font-size: 16px;
+}
+
+/* ── 住宿区域指南（.hotel-area-card）────────────────────────────────────────── */
+.hotel-area-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  page-break-inside: avoid;
+}
+
+.hotel-area-card__icon {
+  font-size: 28px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hotel-area-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-day-title);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent-2);
+  margin-bottom: var(--spacing-xs);
+}
+
+.hotel-area-card__subtitle {
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.hotel-area-card__desc {
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  margin-bottom: var(--spacing-md);
+}
+
+.hotel-area-card__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.hotel-option {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+}
+
+.hotel-option__name {
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  margin-bottom: 2px;
+}
+
+.hotel-option__price {
+  font-size: var(--fs-caption);
+  color: var(--color-accent);
+  font-weight: var(--fw-bold);
+}
+
+.hotel-option__note {
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+}
+
+/* ── 实用信息页（.tips-page）────────────────────────────────────────────────── */
+.tips-page {
+  padding: var(--spacing-xl) 0;
+  page-break-before: always;
+}
+
+.tips-page__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-section-title);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.tips-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  page-break-inside: avoid;
+}
+
+.tips-item__icon {
+  font-size: 32px;
+}
+
+.tips-item__title {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+
+.tips-item__content {
+  font-size: var(--fs-caption);
+  color: var(--color-muted);
+  line-height: var(--lh-body);
+}
+
+.tips-item__content strong {
+  color: var(--color-text);
+  font-weight: var(--fw-medium);
+}
+
+/* ── 页面容器 ─────────────────────────────────────────────────────────────── */
+.magazine-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  background: var(--color-bg);
+}
+
+/* ── 节标题 ──────────────────────────────────────────────────────────────── */
+.section-eyebrow {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ── 分隔线 ──────────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--spacing-lg) 0;
+}
+
+.divider--thick {
+  height: 2px;
+  background: var(--color-accent);
+}
+
+/* ── 移动端优化 ──────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --fs-cover-title:  32px;
+    --fs-cover-sub:    15px;
+    --fs-section-title: 22px;
+    --spacing-xl: 28px;
+    --spacing-xxl: 40px;
+  }
+
+  .magazine-container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .day-header {
+    gap: var(--spacing-sm);
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-area-card__options {
+    grid-template-columns: 1fr;
+  }
+}
+
+    
+    
+  </style>
+</head>
+<body>
+
+  
+<div class="magazine-container">
+  
+<section class="cover page-break-avoid">
+
+  
+  <div class="cover__bg "
+       style="background-image: url('/static/city_defaults/tokyo.jpg');">
+  </div>
+
+  
+  <div class="cover__overlay"></div>
+
+  
+  <div class="cover__content">
+
+    
+    <div class="cover__eyebrow">Japan Travel Guide · 日本深度攻略</div>
+
+    
+    <div class="cover__divider"></div>
+
+    
+    <h1 class="cover__title">日本 7 日游</h1>
+
+    
+    
+    <p class="cover__tagline">深度探索，尽享日本之美</p>
+    
+
+    
+    <div class="cover__meta">
+      <span class="cover__badge">
+        📅 7 天
+      </span>
+      
+      <span class="cover__badge">
+        📍 东京
+      </span>
+      
+      
+      <span class="cover__badge">👨‍👩‍👧 亲子家庭</span>
+      
+    </div>
+
+  </div>
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">1</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        浅草・上野 — 历史与下町风情
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="LaQua温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">LaQua温泉</div>
+        
+        <div class="entity-card__name-ja">スパ ラクーア</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.2</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">LaQua温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥3230</span>
+        
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E3%82%B9%E3%83%91%20%E3%83%A9%E3%82%AF%E3%83%BC%E3%82%A2%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="新ばし 星野"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">新ばし 星野</div>
+        
+        <div class="entity-card__name-ja">新ばし 星野</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.68</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">新ばし 星野</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E6%96%B0%E3%81%B0%E3%81%97%20%E6%98%9F%E9%87%8E%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="LaQua温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">LaQua温泉</div>
+        
+        <div class="entity-card__name-ja">スパ ラクーア</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.2</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">LaQua温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 150 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥3230</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E3%82%B9%E3%83%91%20%E3%83%A9%E3%82%AF%E3%83%BC%E3%82%A2%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="日本橋蛎殻町 すぎた"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">日本橋蛎殻町 すぎた</div>
+        
+        <div class="entity-card__name-ja">日本橋蛎殻町 すぎた</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.67</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">日本橋蛎殻町 すぎた</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E6%97%A5%E6%9C%AC%E6%A9%8B%E8%9B%8E%E6%AE%BB%E7%94%BA%20%E3%81%99%E3%81%8E%E3%81%9F%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">2</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        涩谷・原宿 — 潮流与时尚
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="深大寺温泉 汤守之里"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">深大寺温泉 汤守之里</div>
+        
+        <div class="entity-card__name-ja">深大寺温泉 湯守の里</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.3</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">深大寺温泉 汤守之里</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1200</span>
+        
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E6%B7%B1%E5%A4%A7%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E6%B9%AF%E5%AE%88%E3%81%AE%E9%87%8C%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="前野原温泉 さやの湯処"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">前野原温泉 さやの湯処</div>
+        
+        <div class="entity-card__name-ja">前野原温泉 さやの湯処</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.3</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">前野原温泉 さやの湯処</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1000</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 38 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E5%89%8D%E9%87%8E%E5%8E%9F%E6%B8%A9%E6%B3%89%20%E3%81%95%E3%82%84%E3%81%AE%E6%B9%AF%E5%87%A6%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="アカ"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">アカ</div>
+        
+        <div class="entity-card__name-ja">アカ</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.66</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">アカ</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E3%82%A2%E3%82%AB%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="丰岛园 庭之汤"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">丰岛园 庭之汤</div>
+        
+        <div class="entity-card__name-ja">豊島園 庭の湯</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.1</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">丰岛园 庭之汤</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥2310</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E8%B1%8A%E5%B3%B6%E5%9C%92%20%E5%BA%AD%E3%81%AE%E6%B9%AF%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="東麻布 天本"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">東麻布 天本</div>
+        
+        <div class="entity-card__name-ja">東麻布 天本</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.64</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">東麻布 天本</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E6%9D%B1%E9%BA%BB%E5%B8%83%20%E5%A4%A9%E6%9C%AC%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">3</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        新宿・秋叶原 — 繁华与二次元
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="生涯青春之汤 つるつる温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">生涯青春之汤 つるつる温泉</div>
+        
+        <div class="entity-card__name-ja">生涯青春の湯 つるつる温泉</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.2</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">生涯青春之汤 つるつる温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥860</span>
+        
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%94%9F%E6%B6%AF%E9%9D%92%E6%98%A5%E3%81%AE%E6%B9%AF%20%E3%81%A4%E3%82%8B%E3%81%A4%E3%82%8B%E6%B8%A9%E6%B3%89%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="蒼"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">蒼</div>
+        
+        <div class="entity-card__name-ja">蒼</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.63</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">蒼</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E8%92%BC%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="LaQua温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">LaQua温泉</div>
+        
+        <div class="entity-card__name-ja">スパ ラクーア</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.2</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">LaQua温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥3230</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E3%82%B9%E3%83%91%20%E3%83%A9%E3%82%AF%E3%83%BC%E3%82%A2%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="LaQua温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">LaQua温泉</div>
+        
+        <div class="entity-card__name-ja">スパ ラクーア</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.2</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">LaQua温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥3230</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 10 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E3%82%B9%E3%83%91%20%E3%83%A9%E3%82%AF%E3%83%BC%E3%82%A2%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">4</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        台场・六本木 — 现代艺术与海滨
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="竹之汤 草加健康中心"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">竹之汤 草加健康中心</div>
+        
+        <div class="entity-card__name-ja">竹の湯 草加健康センター</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.1</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">竹之汤 草加健康中心</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1650</span>
+        
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%AB%B9%E3%81%AE%E6%B9%AF%20%E8%8D%89%E5%8A%A0%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="鮨 一幸"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">鮨 一幸</div>
+        
+        <div class="entity-card__name-ja">鮨 一幸</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.63</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">鮨 一幸</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E9%AE%A8%20%E4%B8%80%E5%B9%B8%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="前野原温泉 さやの湯処"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">前野原温泉 さやの湯処</div>
+        
+        <div class="entity-card__name-ja">前野原温泉 さやの湯処</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.3</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">前野原温泉 さやの湯処</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 150 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1000</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E5%89%8D%E9%87%8E%E5%8E%9F%E6%B8%A9%E6%B3%89%20%E3%81%95%E3%82%84%E3%81%AE%E6%B9%AF%E5%87%A6%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="鮨 あらい"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">鮨 あらい</div>
+        
+        <div class="entity-card__name-ja">鮨 あらい</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.62</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">鮨 あらい</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E9%AE%A8%20%E3%81%82%E3%82%89%E3%81%84%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">5</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        银座・皇居 — 优雅经典
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="稻城天然温泉 季乃彩"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">稻城天然温泉 季乃彩</div>
+        
+        <div class="entity-card__name-ja">稲城天然温泉 季乃彩</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.1</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">稻城天然温泉 季乃彩</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥900</span>
+        
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%A8%B2%E5%9F%8E%E5%A4%A9%E7%84%B6%E6%B8%A9%E6%B3%89%20%E5%AD%A3%E4%B9%83%E5%BD%A9%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="鮨 さいとう"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">鮨 さいとう</div>
+        
+        <div class="entity-card__name-ja">鮨 さいとう</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.62</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">鮨 さいとう</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E9%AE%A8%20%E3%81%95%E3%81%84%E3%81%A8%E3%81%86%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="蒲田黑汤温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">蒲田黑汤温泉</div>
+        
+        <div class="entity-card__name-ja">蒲田黒湯温泉</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.0</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">蒲田黑汤温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥780</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E8%92%B2%E7%94%B0%E9%BB%92%E6%B9%AF%E6%B8%A9%E6%B3%89%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="竹之汤温泉"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">竹之汤温泉</div>
+        
+        <div class="entity-card__name-ja">竹の湯</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.0</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">竹之汤温泉</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥520</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 34 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%AB%B9%E3%81%AE%E6%B9%AF%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">6</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        镰仓日归 — 海滨古都
+      </h2>
+      <p class="day-subtitle">
+        📍 kamakura
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+    
+<section class="day-section page-break-avoid">
+
+  
+  <div class="day-header">
+    <div class="day-number">
+      <span style="font-size:10px;">DAY</span>
+      <span class="day-number__num">7</span>
+    </div>
+    <div class="day-header-text">
+      <h2 class="day-title">
+        丰洲・东京站 — 美食收尾
+      </h2>
+      <p class="day-subtitle">
+        📍 东京
+        
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="timeline">
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="松川"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">松川</div>
+        
+        <div class="entity-card__name-ja">松川</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.61</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">松川</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 90 分钟</span>
+      </div>
+      
+
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E6%9D%BE%E5%B7%9D%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="蛇骨汤"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">蛇骨汤</div>
+        
+        <div class="entity-card__name-ja">蛇骨湯</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.0</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">蛇骨汤</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥520</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E8%9B%87%E9%AA%A8%E6%B9%AF%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="銀座 しのはら"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">銀座 しのはら</div>
+        
+        <div class="entity-card__name-ja">銀座 しのはら</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>4.60</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">銀座 しのはら</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E9%8A%80%E5%BA%A7%20%E3%81%97%E3%81%AE%E3%81%AF%E3%82%89%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="竹之汤 草加健康中心"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">竹之汤 草加健康中心</div>
+        
+        <div class="entity-card__name-ja">竹の湯 草加健康センター</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>3.9</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">竹之汤 草加健康中心</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 120 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1650</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 30 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%AB%B9%E3%81%AE%E6%B9%AF%20%E8%8D%89%E5%8A%A0%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+      
+        
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-dot"></div>
+            
+          </div>
+          <div class="timeline-right">
+            
+
+
+
+
+
+
+<div class="entity-card page-break-avoid ">
+
+  
+  <div class="entity-card__img-wrap ">
+    
+      <img class="entity-card__img"
+           src="/static/city_defaults/tokyo.jpg"
+           alt="竹之汤 草加健康中心"
+           loading="lazy"
+           onerror="this.parentNode.classList.add('entity-card__img-wrap--placeholder'); this.style.display='none';">
+    
+  </div>
+
+  
+  <div class="entity-card__body">
+
+    
+    <div class="entity-card__header">
+      <div>
+        <div class="entity-card__name">竹之汤 草加健康中心</div>
+        
+        <div class="entity-card__name-ja">竹の湯 草加健康センター</div>
+        
+      </div>
+      
+      <div class="entity-card__rating">
+        <span class="entity-card__rating-star">★</span>
+        <span>3.9</span>
+      </div>
+      
+    </div>
+
+    
+    
+    <p class="entity-card__copy">竹之汤 草加健康中心</p>
+    
+
+    
+    
+
+    
+    <div class="entity-card__meta">
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">⏱️</span>
+        <span>建议游览 60 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">💴</span>
+        
+        <span>门票 ¥1650</span>
+        
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🚃</span>
+        <span>交通约 10 分钟</span>
+      </div>
+      
+
+      
+      <div class="entity-card__meta-row">
+        <span class="entity-card__meta-icon">🗺️</span>
+        <a href="https://maps.google.com/?q=%E7%AB%B9%E3%81%AE%E6%B9%AF%20%E8%8D%89%E5%8A%A0%E5%81%A5%E5%BA%B7%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20Japan" target="_blank" style="color: var(--color-accent-2); font-size: 11px;">
+          查看地图
+        </a>
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="entity-card__tips">
+      <span class="entity-card__tips-label">Tips：</span>建议提前查看官方开放时间
+    </div>
+    
+
+  </div>
+</div>
+          </div>
+        </div>
+
+      
+    
+  </div>
+
+  
+  
+
+</section>
+  
+  
+
+
+
+
+<section class="tips-page">
+
+  <h2 class="tips-page__title">旅行实用指南</h2>
+
+  <div class="tips-grid">
+
+    
+    
+    <div class="tips-item">
+      <div class="tips-item__icon">🛂</div>
+      <div class="tips-item__title">签证须知</div>
+      <div class="tips-item__content"><strong>中国大陆护照</strong>：需提前申请日本旅游签证（个人旅游/团签）<br>
+                建议出发前 2-4 周办理，所需材料：护照、照片、行程单、存款证明<br>
+                签证费用约 ¥200-400（人民币）</div>
+    </div>
+    
+
+    
+    
+    <div class="tips-item">
+      <div class="tips-item__icon">🌸</div>
+      <div class="tips-item__title">气候参考</div>
+      <div class="tips-item__content"><strong>春季（3-5月）</strong>：樱花季，10-20°C，建议轻薄外套<br>
+                <strong>夏季（6-9月）</strong>：高温多湿，30°C+，备防晒和雨具<br>
+                <strong>秋季（10-11月）</strong>：红叶季，15-25°C，最舒适<br>
+                <strong>冬季（12-2月）</strong>：寒冷干燥，东京 3-10°C</div>
+    </div>
+    
+
+    
+    
+    <div class="tips-item">
+      <div class="tips-item__icon">💴</div>
+      <div class="tips-item__title">货币与支付</div>
+      <div class="tips-item__content">日本以<strong>现金</strong>为主，建议出发前兑换日元<br>
+                汇率参考：1 CNY ≈ 20 JPY（以实时为准）<br>
+                便利店 ATM（7-Eleven/LAWSON）可用银联/Visa 取款<br>
+                部分景点/餐厅已支持支付宝/微信支付</div>
+    </div>
+    
+
+    
+    
+    <div class="tips-item">
+      <div class="tips-item__icon">🚄</div>
+      <div class="tips-item__title">境内交通</div>
+      <div class="tips-item__content"><strong>IC 卡</strong>（Suica/PASMO）：地铁/公交/便利店通用，强烈推荐<br>
+                <strong>JR Pass</strong>：多城市旅行可考虑，需在国内提前购买<br>
+                <strong>地铁</strong>：城市内首选，准时高效，有中文指引<br>
+                <strong>出租车</strong>：贵但舒适，推荐深夜/行李多时使用</div>
+    </div>
+    
+
+    
+    
+    <div class="tips-item">
+      <div class="tips-item__icon">🚨</div>
+      <div class="tips-item__title">紧急联系</div>
+      <div class="tips-item__content"><strong>紧急报警</strong>：110（警察）<br>
+                <strong>急救/火警</strong>：119<br>
+                <strong>中国大使馆</strong>（东京）：+81-3-3403-3380<br>
+                <strong>中国驻大阪总领馆</strong>：+81-6-6445-9481<br>
+                <strong>旅游咨询热线</strong>：+81-3-5321-3077</div>
+    </div>
+    
+
+  </div>
+
+  
+  
+  <div class="transport-cards-section">
+    <h3 class="transport-cards-section__title">🚃 交通卡详解</h3>
+    <div class="transport-cards-grid">
+      
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">🟢</span>
+          <span class="transport-card-block__name">Suica / PASMO</span>
+        </div>
+        <ul class="transport-card-block__list">
+        
+          <li class="transport-card-block__item">购买：各大车站自动售票机，或 Apple Pay / Google Pay 开通虚拟卡</li>
+        
+          <li class="transport-card-block__item">充值：车站售票机（现金）或 iPhone/Android 直接充值</li>
+        
+          <li class="transport-card-block__item">使用范围：全国地铁/JR/公交/便利店/自动贩卖机/部分餐厅</li>
+        
+          <li class="transport-card-block__item">押金：￥500（退卡时退还）</li>
+        
+          <li class="transport-card-block__item">推荐充值：首次充值 ¥3000-5000 日元</li>
+        
+        </ul>
+      </div>
+      
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">🔵</span>
+          <span class="transport-card-block__name">JR Pass</span>
+        </div>
+        <ul class="transport-card-block__list">
+        
+          <li class="transport-card-block__item">7日券约 ¥3,500 | 14日券约 ¥5,500 | 21日券约 ¥7,000（人民币）</li>
+        
+          <li class="transport-card-block__item">含：新干线（除 Nozomi/Mizuho）+ JR 普通线 + 成田特快</li>
+        
+          <li class="transport-card-block__item">须在国内提前购买（日本当地只能买价格更高的版本）</li>
+        
+          <li class="transport-card-block__item">是否划算：估算总乘车票价，超过 Pass 才值</li>
+        
+          <li class="transport-card-block__item">东京→大阪单程约 ¥14,000，往返已超 7 日券价格</li>
+        
+        </ul>
+      </div>
+      
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">🟡</span>
+          <span class="transport-card-block__name">东京地铁通票</span>
+        </div>
+        <ul class="transport-card-block__list">
+        
+          <li class="transport-card-block__item">东京Metro 1日券：¥800 | 2日券：¥1,200 | 3日券：¥1,500</li>
+        
+          <li class="transport-card-block__item">仅限东京 Metro 9条线路（不含 JR、都营地铁）</li>
+        
+          <li class="transport-card-block__item">密集观光日（如涩谷→上野→浅草→秋叶原）最划算</li>
+        
+          <li class="transport-card-block__item">与 Suica 可同时携带，按场景切换使用</li>
+        
+        </ul>
+      </div>
+      
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">🟣</span>
+          <span class="transport-card-block__name">关西周游卡</span>
+        </div>
+        <ul class="transport-card-block__list">
+        
+          <li class="transport-card-block__item">2日券约 ¥4,480 | 3日券约 ¥5,600（含大阪/京都/神户/奈良地铁）</li>
+        
+          <li class="transport-card-block__item">额外含部分景点门票折扣</li>
+        
+          <li class="transport-card-block__item">适合短时间密集游览关西多城市的旅客</li>
+        
+        </ul>
+      </div>
+      
+      <div class="transport-card-block">
+        <div class="transport-card-block__header">
+          <span class="transport-card-block__icon">🟠</span>
+          <span class="transport-card-block__name">机场→市区</span>
+        </div>
+        <ul class="transport-card-block__list">
+        
+          <li class="transport-card-block__item">成田机场：京成Skyliner（41分/¥2,570）| NEX成田特快（55分/¥3,070）| 利木津巴士（80-120分/¥1,300）</li>
+        
+          <li class="transport-card-block__item">羽田机场：京急线（30分/¥410）| 东京单轨电车（20分/¥510）| 利木津巴士（40-70分/¥1,200）</li>
+        
+          <li class="transport-card-block__item">关西机场：Haruka 特急（75分/¥2,980）| 利木津巴士（50-90分/¥1,550）</li>
+        
+          <li class="transport-card-block__item">建议：行李多选巴士（直达酒店），时间紧选铁路（更准时）</li>
+        
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+
+  
+  <div style="margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--color-border);
+              font-size: 11px; color: var(--color-muted); text-align: center;">
+    本攻略由 Travel AI 智能生成 · 信息仅供参考，出行前请以官方渠道为准
+  </div>
+
+</section>
+</div>
+
+
+</body>
+</html>

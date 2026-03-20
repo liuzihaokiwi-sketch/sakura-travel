@@ -1,0 +1,250 @@
+{
+  "template_code": "tokyo_classic_5d",
+  "name_zh": "东京经典5日",
+  "city_code": "tokyo",
+  "total_days": 5,
+  "scene_variants": {
+    "couple": {
+      "slot_overrides": {
+        "evening": { "tags_boost": ["romantic", "bar", "nightview"] }
+      }
+    },
+    "family": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["family_kids", "theme_park"] },
+        "afternoon": { "tags_boost": ["family_kids", "interactive"] }
+      }
+    },
+    "solo": {
+      "slot_overrides": {
+        "morning": { "tags_boost": ["culture", "temple", "museum"] }
+      }
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme_zh": "浅草・上野 — 历史与下町风情",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d1_morning",
+          "time": "09:00",
+          "duration_min": 120,
+          "tags_required": ["temple", "shrine", "history"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "从浅草寺开始，感受江户风情"
+        },
+        {
+          "slot_id": "d1_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese", "traditional"],
+          "area_hint": "asakusa",
+          "fallback_entity_id": null,
+          "note_zh": "浅草周边传统日料"
+        },
+        {
+          "slot_id": "d1_afternoon",
+          "time": "14:00",
+          "duration_min": 150,
+          "tags_required": ["museum", "art", "culture"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野公园博物馆群"
+        },
+        {
+          "slot_id": "d1_evening",
+          "time": "18:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "izakaya"],
+          "area_hint": "ueno",
+          "fallback_entity_id": null,
+          "note_zh": "上野居酒屋晚餐"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme_zh": "涩谷・原宿 — 潮流文化",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d2_morning",
+          "time": "09:30",
+          "duration_min": 90,
+          "tags_required": ["shopping", "fashion", "youth"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "原宿竹下通潮流探索"
+        },
+        {
+          "slot_id": "d2_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "cafe", "trendy"],
+          "area_hint": "harajuku",
+          "fallback_entity_id": null,
+          "note_zh": "网红咖啡或轻食"
+        },
+        {
+          "slot_id": "d2_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "department_store"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷购物中心"
+        },
+        {
+          "slot_id": "d2_evening",
+          "time": "17:30",
+          "duration_min": 60,
+          "tags_required": ["nightview", "observation"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷天空观景台俯瞰十字路口"
+        },
+        {
+          "slot_id": "d2_dinner",
+          "time": "19:00",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "japanese", "ramen"],
+          "area_hint": "shibuya",
+          "fallback_entity_id": null,
+          "note_zh": "涩谷晚餐"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme_zh": "新宿 — 繁华都市",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d3_morning",
+          "time": "09:00",
+          "duration_min": 90,
+          "tags_required": ["park", "garden", "nature"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿御苑晨间漫步"
+        },
+        {
+          "slot_id": "d3_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "japanese"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿午餐"
+        },
+        {
+          "slot_id": "d3_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "electronics", "otaku"],
+          "area_hint": "akihabara",
+          "fallback_entity_id": null,
+          "note_zh": "秋叶原电器/动漫文化"
+        },
+        {
+          "slot_id": "d3_evening",
+          "time": "18:00",
+          "duration_min": 120,
+          "tags_required": ["nightview", "bar", "entertainment"],
+          "area_hint": "shinjuku",
+          "fallback_entity_id": null,
+          "note_zh": "新宿歌舞伎町夜生活体验"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "theme_zh": "台场・六本木 — 现代东京",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d4_morning",
+          "time": "10:00",
+          "duration_min": 120,
+          "tags_required": ["art", "museum", "modern"],
+          "area_hint": "roppongi",
+          "fallback_entity_id": null,
+          "note_zh": "六本木艺术三角（森美术馆/国立新美术馆）"
+        },
+        {
+          "slot_id": "d4_lunch",
+          "time": "13:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "international"],
+          "area_hint": "roppongi",
+          "fallback_entity_id": null,
+          "note_zh": "六本木国际餐饮"
+        },
+        {
+          "slot_id": "d4_afternoon",
+          "time": "15:00",
+          "duration_min": 150,
+          "tags_required": ["theme_park", "entertainment", "waterfront"],
+          "area_hint": "odaiba",
+          "fallback_entity_id": null,
+          "note_zh": "台场海滨公园 & 购物"
+        },
+        {
+          "slot_id": "d4_evening",
+          "time": "18:30",
+          "duration_min": 90,
+          "tags_required": ["restaurant", "seafood", "waterfront"],
+          "area_hint": "odaiba",
+          "fallback_entity_id": null,
+          "note_zh": "台场海景晚餐"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "theme_zh": "银座・皇居 — 优雅收尾",
+      "city_code": "tokyo",
+      "time_blocks": [
+        {
+          "slot_id": "d5_morning",
+          "time": "09:00",
+          "duration_min": 90,
+          "tags_required": ["palace", "garden", "history"],
+          "area_hint": "imperial_palace",
+          "fallback_entity_id": null,
+          "note_zh": "皇居外苑晨跑/散步"
+        },
+        {
+          "slot_id": "d5_lunch",
+          "time": "12:00",
+          "duration_min": 60,
+          "tags_required": ["restaurant", "sushi", "japanese"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座寿司午餐"
+        },
+        {
+          "slot_id": "d5_afternoon",
+          "time": "14:00",
+          "duration_min": 120,
+          "tags_required": ["shopping", "luxury", "department_store"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "银座精品购物"
+        },
+        {
+          "slot_id": "d5_evening",
+          "time": "17:00",
+          "duration_min": 60,
+          "tags_required": ["souvenir", "duty_free"],
+          "area_hint": "ginza",
+          "fallback_entity_id": null,
+          "note_zh": "手信采购，准备返程"
+        }
+      ]
+    }
+  ]
+}
