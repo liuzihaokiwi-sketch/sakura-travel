@@ -789,17 +789,65 @@ function showPage(v){
 // === HOME PAGE RENDER ===
 function renderHome(){
   var h='';
-  // Hero
-  h+='<div class="home-hero"><div class="home-hero-badge">sakura data platform 2026</div>';
-  h+='<h2>🌸 日本樱花花期<br><em>实时数据平台</em></h2>';
-  h+='<p>融合6大权威数据源 · 覆盖5座城市240+景点 · 每天更新3次</p>';
-  h+='<div class="home-hero-stats">';
+  // Hero — 双列: 左数据 + 右定制服务
+  h+='<div class="home-hero" style="display:flex;gap:0;padding:0;overflow:hidden">';
+
+  // 左列 — 数据平台简介
+  h+='<div style="flex:1;padding:28px 32px;position:relative">';
+  h+='<div class="home-hero-badge">sakura data platform 2026</div>';
+  h+='<h2 style="font-size:20px;margin-top:10px">🌸 日本樱花花期<br><em>实时数据平台</em></h2>';
+  h+='<p style="margin-top:6px">融合6大权威数据源 · 覆盖5座城市240+景点</p>';
+  h+='<div class="home-hero-stats" style="margin-top:12px">';
   h+='<div class="home-hero-stat"><div class="hhs-v">240+</div><div class="hhs-l">实测景点</div></div>';
   h+='<div class="home-hero-stat"><div class="hhs-v">6大</div><div class="hhs-l">数据源</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">200万+</div><div class="hhs-l">用户报告</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">3次/天</div><div class="hhs-l">更新频率</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">±2天</div><div class="hhs-l">预测精度</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">3次/天</div><div class="hhs-l">更新</div></div>';
+  h+='<div class="home-hero-stat"><div class="hhs-v">±2天</div><div class="hhs-l">精度</div></div>';
   h+='</div></div>';
+
+  // 右列 — 免费定制行程服务
+  h+='<div style="width:420px;background:linear-gradient(135deg,#2d1a22,#3d1428);padding:20px 28px;border-left:1px solid rgba(244,143,177,.1);position:relative;overflow:hidden;flex-shrink:0">';
+  h+='<div style="position:absolute;right:-20px;top:-20px;font-size:80px;opacity:.06">✈️</div>';
+
+  // 免费标签
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">';
+  h+='<span style="background:#e91e63;color:#fff;font-size:12px;font-weight:900;padding:3px 12px;border-radius:4px;animation:fcb-pulse 2s infinite">🎁 免费</span>';
+  h+='<span style="font-size:10px;color:rgba(255,255,255,.3)">限时 · 每人1次</span>';
+  h+='</div>';
+
+  h+='<div style="font-size:18px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:8px">告诉我你的出发日期<br><span style="color:#f48fb1">10分钟生成一天攻略</span></div>';
+
+  // 优势列表
+  h+='<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px">';
+
+  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
+  h+='<span style="font-size:14px">✈️</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">机票比价</b> 20+渠道筛最优 省30-50%</span></div>';
+
+  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
+  h+='<span style="font-size:14px">🏨</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">酒店推荐</b> 景点步行圈 免费取消</span></div>';
+
+  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
+  h+='<span style="font-size:14px">🗺️</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">行程规划</b> 基于花期数据 不走回头路</span></div>';
+
+  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
+  h+='<span style="font-size:14px">🍣</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">美食推荐</b> Tabelog 3.5+ 就近安排</span></div>';
+
+  h+='</div>';
+
+  // 微信
+  h+='<div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 14px">';
+  h+='<div style="flex:1"><div style="font-size:8px;color:rgba(255,255,255,.25)">加微信 · 备注「樱花」</div>';
+  h+='<div style="font-size:15px;font-weight:900;color:#f48fb1;margin-top:1px">Kiwi_iloveu_O-o</div></div>';
+  h+='<button onclick="navigator.clipboard.writeText(\'Kiwi_iloveu_O-o\');this.textContent=\'✅ 已复制\';var b=this;setTimeout(function(){b.textContent=\'📋 复制\'},1500)" style="background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer">📋 复制</button>';
+  h+='</div>';
+
+  h+='<div style="display:flex;gap:12px;margin-top:6px;justify-content:center">';
+  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">🔒 不满意不收费</span>';
+  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">⚡ 10分钟出攻略</span>';
+  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">🌸 满意再付费</span>';
+  h+='</div>';
+
+  h+='</div>'; // end right col
+  h+='</div>'; // end hero
 
   // Rush ranking — top 10 across all cities
   var allSpots=[];
