@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — 封底</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #1a0a12; font-family: 'Inter', sans-serif; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+
+  /* 背景图 */
+  .back-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1546436836-07a91091f160?w=1200&q=90');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* 深色渐变叠加 */
+  .back-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(20, 5, 12, 0.65) 0%,
+      rgba(20, 5, 12, 0.40) 30%,
+      rgba(20, 5, 12, 0.55) 65%,
+      rgba(20, 5, 12, 0.92) 100%
+    );
+  }
+
+  /* 顶部细彩条 */
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f7931e, #ec407a, #a855f7, #ec407a, #f7931e);
+    z-index: 10;
+  }
+
+  /* 底部细彩条 */
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f7931e, #ec407a, #a855f7, #ec407a, #f7931e);
+    z-index: 10;
+  }
+
+  /* 主内容区 */
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    padding: 40px;
+  }
+
+  /* 大标语 */
+  .main-phrase {
+    font-size: 52px;
+    line-height: 1.1;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  /* 日文副标 */
+  .jp-phrase {
+    font-size: 22px;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+  }
+
+  /* 分隔装饰 */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .divider-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(247,147,30,0.7));
+  }
+  .divider-line.right { background: linear-gradient(90deg, rgba(247,147,30,0.7), transparent); }
+
+  /* 品牌信息框 */
+  .brand-box {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(247,147,30,0.25);
+    border-radius: 12px;
+    padding: 24px 40px;
+    text-align: center;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  /* 水印 */
+  .watermark {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 7.5px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.12);
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    z-index: 8;
+  }
+
+  /* 页码 */
+  .page-num {
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.12em;
+    z-index: 8;
+  }
+
+  /* 装饰樱花 */
+  .deco-sakura {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.3;
+  }
+
+  /* 底部版权 */
+  .copyright {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.2);
+    z-index: 8;
+  }
+
+  /* 角落装饰框 */
+  .corner-tl { position: absolute; top: 14px; left: 14px; width: 40px; height: 40px; border-top: 1.5px solid rgba(247,147,30,0.4); border-left: 1.5px solid rgba(247,147,30,0.4); z-index:8; }
+  .corner-tr { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-top: 1.5px solid rgba(247,147,30,0.4); border-right: 1.5px solid rgba(247,147,30,0.4); z-index:8; }
+  .corner-bl { position: absolute; bottom: 14px; left: 14px; width: 40px; height: 40px; border-bottom: 1.5px solid rgba(247,147,30,0.4); border-left: 1.5px solid rgba(247,147,30,0.4); z-index:8; }
+  .corner-br { position: absolute; bottom: 14px; right: 14px; width: 40px; height: 40px; border-bottom: 1.5px solid rgba(247,147,30,0.4); border-right: 1.5px solid rgba(247,147,30,0.4); z-index:8; }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- 背景图 -->
+  <div class="back-bg"></div>
+  <div class="back-overlay"></div>
+
+  <!-- 顶底彩条 -->
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+
+  <!-- 角落装饰 -->
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <!-- 装饰樱花 -->
+  <div class="deco-sakura" style="top:18%;left:8%;">🌸</div>
+  <div class="deco-sakura" style="top:22%;right:9%;font-size:16px;">🌸</div>
+  <div class="deco-sakura" style="bottom:30%;left:6%;font-size:16px;">🌸</div>
+  <div class="deco-sakura" style="bottom:28%;right:7%;">🌸</div>
+
+  <!-- 主内容 -->
+  <div class="content">
+
+    <!-- 品牌 LOGO 区 -->
+    <div style="margin-bottom:30px;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(247,147,30,0.4);padding:6px 20px;border-radius:2px;">
+        <span style="color:rgba(247,147,30,0.9);font-size:14px;">✦</span>
+        <span style="font-size:11px;letter-spacing:0.3em;color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;">SAKURA RUSH 2026</span>
+        <span style="color:rgba(247,147,30,0.9);font-size:14px;">✦</span>
+      </div>
+    </div>
+
+    <!-- 主标语 -->
+    <h1 class="playfair main-phrase">
+      旅途愉快
+    </h1>
+
+    <!-- 日文 -->
+    <div class="noto-serif jp-phrase">良い旅を</div>
+
+    <!-- 分隔 -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span style="color:rgba(236,64,122,0.85);font-size:18px;">❀</span>
+      <div class="divider-line right"></div>
+    </div>
+
+    <!-- 品牌信息卡 -->
+    <div class="brand-box">
+      <div class="noto-serif" style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.15em;margin-bottom:14px;">本攻略由</div>
+      <div class="playfair" style="font-size:22px;color:#fff;font-weight:700;letter-spacing:0.08em;margin-bottom:4px;">Sakura Rush 2026</div>
+      <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.1em;margin-bottom:18px;">定制生成 · 仅限本人使用</div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(247,147,30,0.35),transparent);margin-bottom:14px;"></div>
+
+      <div style="margin-bottom:12px;">
+        <div style="font-size:9px;letter-spacing:0.15em;color:rgba(247,147,30,0.7);margin-bottom:6px;font-family:'Inter',sans-serif;">CUSTOMER SERVICE</div>
+        <div class="noto-serif" style="font-size:13px;color:#fff;margin-bottom:4px;">有问题随时微信联系</div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(247,147,30,0.1);border:1px solid rgba(247,147,30,0.3);border-radius:20px;padding:5px 16px;">
+          <span style="font-size:14px;">💬</span>
+          <span style="font-size:13px;font-weight:700;color:#f7931e;letter-spacing:0.05em;font-family:'Inter',sans-serif;">Kiwi_iloveu_O-o</span>
+        </div>
+      </div>
+
+      <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(247,147,30,0.2),transparent);margin-bottom:12px;"></div>
+
+      <div style="display:flex;justify-content:center;gap:20px;">
+        <div style="text-align:center;">
+          <div style="font-size:18px;margin-bottom:3px;">🌸</div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">MARCH 2026</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:18px;margin-bottom:3px;">✦</div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">7 DAYS</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:18px;margin-bottom:3px;">🗼</div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">TOKYO</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部小字 -->
+    <div style="margin-top:28px;text-align:center;">
+      <div style="font-size:9px;letter-spacing:0.15em;color:rgba(255,255,255,0.25);font-family:'Inter',sans-serif;">
+        東京都 · 2026 · 桜の季節 · Customized Exclusively for You
+      </div>
+    </div>
+  </div>
+
+  <!-- 水印 -->
+  <div class="watermark">SAKURA RUSH 2026 · CONFIDENTIAL</div>
+  <div class="page-num">— 15 —</div>
+  <div class="copyright">© 2026 SAKURA RUSH · ALL RIGHTS RESERVED</div>
+</div>
+</body>
+</html>

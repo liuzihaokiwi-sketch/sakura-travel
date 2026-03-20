@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 7 下北·吉祥寺</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #db2777, #ec407a, #f7931e, #ec407a, #db2777); flex-shrink:0; }
+  .day-header { position: relative; height: 70px; flex-shrink: 0; overflow: hidden; }
+  .day-header-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1589987607627-616cfd04ad18?w=1200&q=85'); background-size: cover; background-position: center 40%; }
+  .day-header-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,5,10,0.90) 0%, rgba(20,5,10,0.62) 55%, rgba(20,5,10,0.25) 100%); }
+  .day-header-content { position: relative; z-index: 2; padding: 10px 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(180deg, #db2777, #f7931e, #db2777); opacity: 0.4; }
+  .timeline-item { position: relative; padding: 0 0 9px 18px; }
+  .timeline-dot { position: absolute; left: -10px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #db2777; border: 2px solid #fff; box-shadow: 0 0 0 1.5px rgba(219,39,119,0.4); }
+  .timeline-dot.orange { background: #f7931e; box-shadow: 0 0 0 1.5px rgba(247,147,30,0.4); }
+  .timeline-dot.dark { background: #1c1917; }
+  .time-label { font-size: 10px; font-weight: 600; color: #db2777; letter-spacing: 0.05em; margin-bottom: 1px; font-family: 'Inter', sans-serif; }
+  .item-title { font-size: 12.5px; font-weight: 600; color: #1c1917; margin-bottom: 2px; }
+  .item-desc { font-size: 10px; color: #78716c; line-height: 1.55; }
+  .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .tag { font-size: 8.5px; padding: 1.5px 6px; border-radius: 10px; }
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { background: #fff; border-radius: 8px; border: 1px solid #f0e8df; padding: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .sidebar-title { font-size: 8.5px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .transport-bar { background: linear-gradient(135deg, #fff0f6, #fff8f0); border-top: 1px solid #fbcfe8; padding: 7px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+  .farewell-banner { background: linear-gradient(135deg,#fff0f6,#fff3e0); border: 1.5px solid #fbcfe8; border-radius: 8px; padding: 6px 10px; margin-bottom: 8px; display:flex; align-items:center; gap:8px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(249,168,212,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 07 · APRIL 7, 2026 · LAST DAY</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">下北沢 · 吉祥寺</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">文艺收官 · 井之头公园最终章</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(219,39,119,0.2);border:1px solid rgba(249,168,212,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#f9a8d4;">✈ 最终日 · 机场18:00出发</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);">约 9,000 步 · 轻松收尾</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+    <div style="flex:1;overflow:hidden;">
+
+      <!-- 收尾提示 -->
+      <div class="farewell-banner">
+        <span style="font-size:16px;">✈</span>
+        <div>
+          <div style="font-size:9.5px;font-weight:700;color:#db2777;" class="noto-serif">最终日行程 — 轻松文艺，16:00前抵达机场</div>
+          <div style="font-size:8.5px;color:#78716c;">行李可上午寄存酒店 / 直接托运（大件寄快递到机场¥1,000/件）</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">09:00 👗 下北沢古着</div>
+          <div class="item-title">下北泽 — 东京最文艺的古着圣地</div>
+          <div class="item-desc">下北泽是东京年轻人文艺发源地，小剧场、二手唱片、复古古着店密集。推荐古着店：Flamingo（性价比高）、Haight & Ashbury（质量好）、2nd Street。觅到好货的成就感无与伦比！建议预留¥5,000购物预算。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🕐 1.5小时</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">古着店10:00开门</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">购物 ¥3,000-8,000</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot orange"></div>
+          <div class="time-label" style="color:#f7931e;">10:30 🚃 → 吉祥寺</div>
+          <div class="item-title">井之頭線 → 吉祥寺（2站）</div>
+          <div class="item-desc">从下北泽乘京王井之头线出发，2站即到吉祥寺。下车后直奔井之头公园——这是东京最后一个、也是最适合收尾的赏樱圣地。行李可寄存在吉祥寺站内（¥500/件）。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">🚃 京王井之头线 · 约4分钟</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">车费 ¥130</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">11:00 🌸 井之頭公園</div>
+          <div class="item-title">井之头公园 — 最后的赏樱</div>
+          <div class="item-desc">围绕井之头池约480棵樱花树，是东京市民最爱的野餐赏花地。手划船（¥700/30分钟）在樱花下划行，与千鸟渊同样浪漫却完全不同体验。最终拍照留念地点：神田川水源头小桥，樱花倒影极美。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 最后的樱花</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">免费入园</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 小桥+樱花+倒影</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink" style="background:#ec407a;"></div>
+          <div class="time-label" style="color:#ec407a;">12:30 🍱 最后午餐</div>
+          <div class="item-title">いせや総本店 吉祥寺 — 老铺烤串</div>
+          <div class="item-desc">1928年创业的传奇烤串居酒屋，大排长龙也值得等！烤串¥80-150每串，必点：焼き鳥（烤鸡串）、つくね（鸡肉丸）、豚バラ（猪五花）。Tabelog ⭐ 3.82，在公园散步边等位。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥1,500</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">排队约30分钟</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">老铺必打卡</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">14:00 🛍️ 吉祥寺购物</div>
+          <div class="item-title">LOFT + ユザワヤ + 吉祥寺サンロード</div>
+          <div class="item-desc">最后购物机会：LOFT文具（限定款日记本、和风贴纸）、ユザワヤ手工艺品（刺绣包、和布）、吉祥寺サンロード商店街（各种食品伴手礼）。还没买的茶叶、零食、药妆赶紧清单！</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">🕐 1.5小时</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">购物预算最后冲刺</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot orange"></div>
+          <div class="time-label" style="color:#f7931e;">15:30 ✈ 前往机场</div>
+          <div class="item-title">吉祥寺 → 成田/羽田机场</div>
+          <div class="item-desc">
+            <b>羽田机场：</b>吉祥寺搭京王井之头线至渋谷，换乘东京モノレール约50分钟（建议15:30出发）<br>
+            <b>成田机场：</b>搭JR中央线至新宿，换乘特快成田エクスプレス约90分钟（建议14:30出发）
+          </div>
+          <div class="item-tags">
+            <span class="tag" style="background:#1c1917;color:#fff;">⚠️ 提前3小时到机场</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">免税购物最后机会</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot"></div>
+          <div class="time-label">机场 🌸 最后的告别</div>
+          <div class="item-title">旅途愉快 · さようなら 東京</div>
+          <div class="item-desc">带走的不只是伴手礼，还有樱花花瓣飘落的瞬间、目黑川夜樱的倒影、千鸟渊船上花雨的记忆。期待再会，东京。 良い旅を！</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#db2777;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1589987607627-616cfd04ad18?w=200&q=80" style="width:100%;height:40px;object-fit:cover;border-radius:5px;margin-bottom:4px;" alt="吉祥寺">
+          <div style="font-size:8.5px;font-weight:600;color:#db2777;">① 井之头公园</div>
+          <div style="font-size:8px;color:#78716c;">小桥倒影 · 最终赏樱</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">② 下北泽古着</div>
+          <div style="font-size:8px;color:#78716c;">文艺风穿搭打卡</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">③ いせや烤串</div>
+          <div style="font-size:8px;color:#78716c;">昭和老铺 · 市井气</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div style="font-size:8px;line-height:1.8;">
+          <div style="color:#dc2626;">❌ 最后一天赶购物</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 行程轻松留时间</div>
+          <div style="color:#dc2626;">❌ 成田线等最后班</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 提前2.5小时出发</div>
+          <div style="color:#dc2626;">❌ 忘记申请退税</div>
+          <div style="color:#16a34a;">✅ 消费满¥5,000可退</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#fff0f6,#fff8f0);border-color:#fbcfe8;">
+        <div class="sidebar-title" style="color:#db2777;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:20px;">🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#db2777;margin-top:2px;" class="noto-serif">さようなら</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">井之头<br>最后的樱花</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通</span><span style="color:#1c1917;">¥2,000</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>午餐</span><span style="color:#1c1917;">¥1,500</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>购物(古着)</span><span style="color:#1c1917;">¥5,000</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>伴手礼</span><span style="color:#1c1917;">¥5,000</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#db2777;"><span>合计</span><span>¥13,500</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;color:#a8967e;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约9,000步</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 井之头线 + 成田/羽田线</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">✈ 机场14:30-15:30出发</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 09 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

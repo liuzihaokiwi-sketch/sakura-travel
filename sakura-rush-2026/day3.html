@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 3 新宿·中目黑</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #7c3aed, #ec407a, #7c3aed); flex-shrink:0; }
+  .day-header { position: relative; height: 70px; flex-shrink: 0; overflow: hidden; }
+  .day-header-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1200&q=85'); background-size: cover; background-position: center 40%; }
+  .day-header-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,5,20,0.88) 0%, rgba(15,5,20,0.6) 60%, rgba(15,5,20,0.3) 100%); }
+  .day-header-content { position: relative; z-index: 2; padding: 10px 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(180deg, #7c3aed, #ec407a, #f7931e); opacity: 0.4; }
+  .timeline-item { position: relative; padding: 0 0 9px 18px; }
+  .timeline-dot { position: absolute; left: -10px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #7c3aed; border: 2px solid #fff; box-shadow: 0 0 0 1.5px rgba(124,58,237,0.4); }
+  .timeline-dot.pink { background: #ec407a; box-shadow: 0 0 0 1.5px rgba(236,64,122,0.4); }
+  .timeline-dot.orange { background: #f7931e; box-shadow: 0 0 0 1.5px rgba(247,147,30,0.4); }
+  .timeline-dot.dark { background: #1c1917; }
+  .time-label { font-size: 10px; font-weight: 600; color: #7c3aed; letter-spacing: 0.05em; margin-bottom: 1px; font-family: 'Inter', sans-serif; }
+  .item-title { font-size: 12.5px; font-weight: 600; color: #1c1917; margin-bottom: 2px; }
+  .item-desc { font-size: 10px; color: #78716c; line-height: 1.55; }
+  .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .tag { font-size: 8.5px; padding: 1.5px 6px; border-radius: 10px; font-family: 'Inter', sans-serif; }
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { background: #fff; border-radius: 8px; border: 1px solid #f0e8df; padding: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .sidebar-title { font-size: 8.5px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 5px; font-family: 'Inter', sans-serif; }
+  .transport-bar { background: linear-gradient(135deg, #faf0ff, #fff0f6); border-top: 1px solid #e9d5ff; padding: 7px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+
+  /* 今日亮点：新宿御苑 banner */
+  .highlight-banner {
+    background: linear-gradient(135deg, #f5f0ff, #fce4ec);
+    border: 1.5px solid #e9d5ff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(167,139,250,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 03 · APRIL 3, 2026</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">新宿 · 中目黑</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">昼夜双重精华 · 御苑夜樱</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(124,58,237,0.2);border:1px solid rgba(167,139,250,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#a78bfa;">⭐ 精华日 · 新宿御苑 + 中目黑夜樱</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);">约 11,000 步 · 电车 5 站</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+    <div style="flex:1;overflow:hidden;">
+
+      <!-- 亮点提示 -->
+      <div class="highlight-banner">
+        <span style="font-size:16px;">⭐</span>
+        <div>
+          <div style="font-size:9.5px;font-weight:700;color:#7c3aed;" class="noto-serif">今日精华：新宿御苑 × 中目黑目黑川夜樱</div>
+          <div style="font-size:8.5px;color:#78716c;">东京最高颜值的昼夜双重赏樱体验，请留足时间</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">09:00 🌸 新宿御苑</div>
+          <div class="item-title">新宿御苑 — 东京最美赏樱圣地</div>
+          <div class="item-desc">占地58.3公顷，樱花品种达65种1,100棵，是东京最高品质的赏樱胜地。日本庭园区、英式庭园区各有特色。推荐：从大木户门入场，沿内苑大道走至温室，最后在日本庭园拍倒影。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">🕐 2.5小时</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">门票 ¥500</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">⚠️ 禁止饮酒 / 禁带宠物</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">12:00 🍱 午餐</div>
+          <div class="item-title">つな八 新宿本店 — 老铺天妇罗</div>
+          <div class="item-desc">创业1924年，新宿最具代表性的天妇罗专门店。套餐从¥2,800起，食材随季节变化，春季有蕨菜、桜エビ（樱花虾）等时令食材。Tabelog ⭐ 3.90，建议11:30前到，避免等位。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥3,500</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">建议预约</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">招牌：季節天ぷら膳</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">14:00 🏙️ 歌舞伎町</div>
+          <div class="item-title">东京都庁展望室 → 歌舞伎町TOWER</div>
+          <div class="item-desc">东京都厅45楼展望室完全免费，晴天可见富士山！新宿歌舞伎町TOWER（2023年新开）融合酒店、演艺、餐饮，1楼有GODZILLA头像可合影。龙猫店（DONGURI Republic）在此附近。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">🕐 2小时</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">都厅展望室免费</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 都厅北展望室富士山</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot orange"></div>
+          <div class="time-label" style="color:#f7931e;">17:00 🚃 → 中目黑</div>
+          <div class="item-title">东急东横线 → 中目黑站（3站）</div>
+          <div class="item-desc">换乘东急东横线，从涩谷出发3站即到中目黑。到站后先在車站周边的蔦屋書店（Tsutaya）喝杯咖啡，等天色渐暗（18:00后）再前往目黑川，届时灯光亮起效果最佳。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">🚃 东急东横线 · 约8分钟</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">车费 ¥160</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">18:30 🍜 晚餐</div>
+          <div class="item-title">中目黑 Noodle Stand Tokyo — 限定拉面</div>
+          <div class="item-desc">中目黑网红拉面店，每日限量。鸡白湯（鸡汤底）拉面入口醇厚，搭配自制叉烧肉和半熟蛋。建议提前30分钟排队取号。Tabelog ⭐ 3.84，附近还有茑屋书店可边等边逛。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥1,800</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">📋 需取号等位</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot" style="background:#1c1917;box-shadow:none;border-color:#ec407a;border-width:2px;"></div>
+          <div class="time-label" style="color:#1c1917;">20:00 🌙 目黒川夜樱</div>
+          <div class="item-title">目黒川夜桜ライトアップ — 东京最美夜樱</div>
+          <div class="item-desc">约800米目黑川两岸800棵染井吉野樱在彩灯下绽放，水面倒影如梦如幻。建议从中目黑站向祐天寺方向步行，拍摄最佳点在中目黑站附近桥上，以桥为前景，两岸夜樱为背景。人极多，建议20:30后人群稍散。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 夜樱极品</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">免费观看</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 桥上俯拍川面倒影</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#ec407a;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?w=200&q=80" style="width:100%;height:40px;object-fit:cover;border-radius:5px;margin-bottom:4px;" alt="新宿御苑">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">① 新宿御苑</div>
+          <div style="font-size:8px;color:#78716c;">日本庭园樱花倒影</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#7c3aed;">② 都厅展望室</div>
+          <div style="font-size:8px;color:#78716c;">北展望 · 晴天见富士</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#ec407a;">③ 目黑川夜樱 ⭐</div>
+          <div style="font-size:8px;color:#78716c;">20:00后 · 桥上俯拍</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div style="font-size:8px;line-height:1.8;">
+          <div style="color:#dc2626;">❌ 御苑带酒进园</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 严格禁止饮酒</div>
+          <div style="color:#dc2626;">❌ 太早去中目黑</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 20点后人少好拍</div>
+          <div style="color:#dc2626;">❌ 目黑川带三脚架</div>
+          <div style="color:#16a34a;">✅ 人群密集不适合</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#faf0ff,#fff0f6);border-color:#e9d5ff;">
+        <div class="sidebar-title" style="color:#7c3aed;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:20px;">🌸🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#7c3aed;margin-top:2px;" class="noto-serif">極上</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">御苑 + 目黑川<br>双重満開体験</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通</span><span style="color:#1c1917;">¥700</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>御苑门票</span><span style="color:#1c1917;">¥500</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>餐饮</span><span style="color:#1c1917;">¥5,300</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>购物/咖啡</span><span style="color:#1c1917;">¥1,500</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#7c3aed;"><span>合计</span><span>¥8,000</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;letter-spacing:0.1em;color:#a8967e;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约11,000步</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 东急东横线 + 山手线</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚕 夜间打车约¥1,500</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 05 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

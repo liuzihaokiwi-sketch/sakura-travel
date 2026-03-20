@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 5 六本木·东京塔</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #d97706, #f59e0b, #d97706); flex-shrink:0; }
+  .day-header { position: relative; height: 70px; flex-shrink: 0; overflow: hidden; }
+  .day-header-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=85'); background-size: cover; background-position: center 70%; }
+  .day-header-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,5,0,0.90) 0%, rgba(10,5,0,0.60) 55%, rgba(10,5,0,0.25) 100%); }
+  .day-header-content { position: relative; z-index: 2; padding: 10px 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(180deg, #d97706, #ec407a, #d97706); opacity: 0.4; }
+  .timeline-item { position: relative; padding: 0 0 9px 18px; }
+  .timeline-dot { position: absolute; left: -10px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #d97706; border: 2px solid #fff; box-shadow: 0 0 0 1.5px rgba(217,119,6,0.4); }
+  .timeline-dot.pink { background: #ec407a; box-shadow: 0 0 0 1.5px rgba(236,64,122,0.4); }
+  .timeline-dot.dark { background: #1c1917; }
+  .time-label { font-size: 10px; font-weight: 600; color: #d97706; letter-spacing: 0.05em; margin-bottom: 1px; font-family: 'Inter', sans-serif; }
+  .item-title { font-size: 12.5px; font-weight: 600; color: #1c1917; margin-bottom: 2px; }
+  .item-desc { font-size: 10px; color: #78716c; line-height: 1.55; }
+  .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .tag { font-size: 8.5px; padding: 1.5px 6px; border-radius: 10px; }
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { background: #fff; border-radius: 8px; border: 1px solid #f0e8df; padding: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .sidebar-title { font-size: 8.5px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .transport-bar { background: linear-gradient(135deg, #fffbeb, #fff8f0); border-top: 1px solid #fde68a; padding: 7px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(251,191,36,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 05 · APRIL 5, 2026</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">六本木 · 东京塔</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">高端艺术 · 夜景绝佳</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(217,119,6,0.2);border:1px solid rgba(251,191,36,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#fbbf24;">🌃 毛利庭园樱花 + 东京塔夜景</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);">约 10,000 步 · 电车 4 站</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+    <div style="flex:1;overflow:hidden;">
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">10:00 🎨 六本木Hills</div>
+          <div class="item-title">六本木Hills — 森美術館 + 购物</div>
+          <div class="item-desc">六本木Hills是东京最高端的综合体，53层森美术馆（Mori Art Museum）展出当代艺术，展望台Tokyo City View可360°观景。楼内有Gucci、Prada等高端品牌，适合蜜月血拼。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">🕐 2小时</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">展望台 ¥2,000</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 53F全景 · 樱花 + 东京塔</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">12:00 🌸 毛利庭園</div>
+          <div class="item-title">毛利庭园 — 樱花倒影池</div>
+          <div class="item-desc">六本木Hills附属日式庭园，约200棵染井吉野樱环绕中心水池，高楼与樱花形成强烈反差构图。池中倒影非常适合小镜头，是六本木最出片的免费景点。每年限期开放赏花节活动。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 满开</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">免费入园</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 水面倒影 + 现代摩天楼</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">13:00 🍣 午餐</div>
+          <div class="item-title">鮨さいとう 六本木 — 高端寿司</div>
+          <div class="item-desc">六本木格调最高的寿司店之一，午间握寿司套餐（¥8,000起）食材来自北海道与三重县直供，每日当季更新。Tabelog ⭐ 4.05，需1个月前网上预约，蜜月必体验一次高端割烹。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥10,000+</span>
+            <span class="tag" style="background:#dc2626;color:#fff;">需提前1月预约</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">蜜月必选</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">15:00 🏛️ 国立新美術館</div>
+          <div class="item-title">国立新美術館 — 建筑即艺术</div>
+          <div class="item-desc">黑川纪章设计的波浪形玻璃外墙，是日本最大的展览设施。即使不看展，建筑本身就值得参观。馆内3楼咖啡厅Le Brasserie视野极佳，可点杯咖啡欣赏这座建筑杰作。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">🕐 1.5小时</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">常设展免费 · 特展另购</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">17:30 🌸 芝公園 + 東京鐵塔</div>
+          <div class="item-title">芝公园樱花 → 东京铁塔点灯</div>
+          <div class="item-desc">芝公园是东京塔脚下的免费公园，约200棵樱花树在铁塔底部盛开。每晚18:00铁塔亮灯，在公园内可拍到「樱花前景 + 红色铁塔背景」的完美构图。一大波ins爆款照片就靠这里了！</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 樱花+铁塔</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">公园免费</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 铁塔脚下仰拍</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">19:30 🍻 晚餐</div>
+          <div class="item-title">俺のフレンチ 六本木 — 高性价比法餐</div>
+          <div class="item-desc">"俺の"系列以三星主厨水准 × 居酒屋价格著称，法式料理每道约¥1,000-2,000。推荐：フォアグラ鐵板焼き（铁板鹅肝）、ロブスターのビスク（龙虾浓汤）。Tabelog ⭐ 3.80。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥5,000</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">建议提前预约</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#1c1917;">21:00 🌙 夜景收尾</div>
+          <div class="item-title">东京塔顶层展望台 — 夜东京全景</div>
+          <div class="item-desc">东京塔150米展望台（¥1,200），夜间全东京璀璨灯海尽收眼底。比天空树价格低，人群少，更有昭和怀旧气息。推荐与毛利庭园樱花组合成今晚最强夜景组合。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#1c1917;color:#fff;">150m展望台 ¥1,200</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 夜东京全景</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#d97706;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" style="width:100%;height:40px;object-fit:cover;border-radius:5px;margin-bottom:4px;" alt="东京塔">
+          <div style="font-size:8.5px;font-weight:600;color:#d97706;">① 东京塔×樱花 ⭐</div>
+          <div style="font-size:8px;color:#78716c;">芝公园 · 仰拍铁塔</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">② 毛利庭园水面</div>
+          <div style="font-size:8px;color:#78716c;">正午 · 高楼倒影</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">③ 六本木Hills展望</div>
+          <div style="font-size:8px;color:#78716c;">53F · 360°全景</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div style="font-size:8px;line-height:1.8;">
+          <div style="color:#dc2626;">❌ 高端寿司当天预约</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 提前1个月官网订位</div>
+          <div style="color:#dc2626;">❌ 铁塔内展望台</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 芝公园外拍更美</div>
+          <div style="color:#dc2626;">❌ Hills展望白天去</div>
+          <div style="color:#16a34a;">✅ 夜景或日落最美</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#fffbeb,#fff0f6);border-color:#fde68a;">
+        <div class="sidebar-title" style="color:#d97706;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:20px;">🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#d97706;margin-top:2px;" class="noto-serif">満開</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">毛利庭园<br>芝公园绝美</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通</span><span style="color:#1c1917;">¥700</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>展望台×2</span><span style="color:#1c1917;">¥3,200</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>午餐(寿司)</span><span style="color:#1c1917;">¥10,000</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>晚餐</span><span style="color:#1c1917;">¥5,000</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#d97706;"><span>合计</span><span>¥18,900</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;color:#a8967e;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约10,000步</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 日比谷线 · 4站</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚕 夜间打车约¥1,000</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 07 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

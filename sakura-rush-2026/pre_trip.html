@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — 出行前准备</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #059669, #f7931e, #ec407a, #f7931e, #059669); flex-shrink:0; }
+  .page-header { padding: 12px 24px 8px; border-bottom: 1px solid #f0e8df; display:flex; align-items:flex-end; justify-content:space-between; flex-shrink:0; }
+
+  .check-section { margin-bottom: 9px; }
+  .check-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 3px; margin-bottom: 5px; display:inline-block; font-family: 'Inter', sans-serif; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    font-size: 9.5px;
+    border: 1px solid transparent;
+  }
+  .check-item:hover { background: #f9f5f0; }
+  .check-box {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #d0c8c0;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background: #fff;
+  }
+  .check-done .check-box {
+    background: #f0fdf4;
+    border-color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check-done .check-box::after { content: '✓'; font-size: 9px; color: #16a34a; }
+  .check-text { flex: 1; line-height: 1.5; color: #1c1917; }
+  .check-note { font-size: 8px; color: #78716c; }
+
+  .info-card {
+    background: linear-gradient(135deg, #fff8f0, #fce4ec);
+    border: 1.5px solid #fed7aa;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-top: 8px;
+  }
+
+  .footer-bar { padding: 7px 24px; border-top: 1px solid #f0e8df; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; background: linear-gradient(135deg,#f0fdf4,#fff8f0); }
+  .watermark { position: absolute; bottom: 25px; right: 18px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <div class="page-header">
+    <div>
+      <div style="font-size:9px;letter-spacing:0.25em;color:#a8967e;margin-bottom:4px;font-family:'Inter',sans-serif;">SAKURA RUSH 2026 · PRE-TRIP CHECKLIST</div>
+      <h1 class="playfair" style="font-size:26px;font-weight:700;line-height:1;">出行前准备清单</h1>
+    </div>
+    <div class="noto-serif" style="font-size:11px;color:#a8967e;text-align:right;line-height:1.8;">
+      <div>可打印 · 逐项勾选</div>
+      <div style="color:#059669;">✅ = 已备妥 ⬜ = 待办</div>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div style="display:flex;gap:14px;padding:10px 18px;flex:1;overflow:hidden;">
+
+    <!-- 左列 -->
+    <div style="flex:1;">
+
+      <!-- 证件 -->
+      <div class="check-section">
+        <div class="check-title" style="background:#fff3e0;color:#c2410c;">📄 证件 DOCUMENTS</div>
+        <div class="check-item check-done">
+          <div class="check-box"></div>
+          <div class="check-text">护照 <span class="check-note">（有效期6个月以上，复印件另备一份）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Visit Japan Web 注册完成 <span class="check-note">（日本入境免税预注册，可加快过关）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">机票电子票 / 订酒店确认单 <span class="check-note">（截图备份，无网络时可查阅）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">旅游保险 <span class="check-note">（推荐众安/平安，含意外医疗+行李损失）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">国际信用卡 Visa/Master <span class="check-note">（双币卡，JCB在日本接受度也高）</span></div>
+        </div>
+      </div>
+
+      <!-- 通讯 -->
+      <div class="check-section">
+        <div class="check-title" style="background:#e0f2fe;color:#0369a1;">📱 通讯 TELECOM</div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">日本SIM卡（建议IIJmio / Docomo系）<span class="check-note">（或购买随身WiFi）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Google地图离线下载（东京）<span class="check-note">（无网也可导航，必备！）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">翻译APP（DeepL / Google翻译 / 扫一扫翻译）</div>
+        </div>
+      </div>
+
+      <!-- 交通卡 -->
+      <div class="check-section">
+        <div class="check-title" style="background:#f0fdf4;color:#047857;">🚃 交通 TRANSPORT</div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Suica IC卡充值 ¥5,000 <span class="check-note">（可用手机Apple Pay / Google Pay虚拟充值）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">都営一日乗車券 x 3张 <span class="check-note">（适用都营地铁+巴士，每张¥700）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">鎌倉パス一日券预购 <span class="check-note">（Day 4 镰仓游，¥580，含江之电）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Uber Japan / GO出租车APP下载 <span class="check-note">（夜间安全回酒店必备）</span></div>
+        </div>
+      </div>
+
+      <!-- APP -->
+      <div class="check-section" style="margin-bottom:0;">
+        <div class="check-title" style="background:#f3e8ff;color:#6d28d9;">📲 必备APP</div>
+        <div class="check-item check-done">
+          <div class="check-box"></div>
+          <div class="check-text">Tabelog <span class="check-note">（日本最权威餐厅点评，可在线预约）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Hyperdia / Navitime <span class="check-note">（日本电车换乘查询，比Google Maps准）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Japan Official Travel App <span class="check-note">（官方，含天气/樱花预测/景点）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">Lightroom Mobile <span class="check-note">（拍照修图，出片必备）</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右列 -->
+    <div style="flex:1;">
+
+      <!-- 现金 -->
+      <div class="check-section">
+        <div class="check-title" style="background:#fff3e0;color:#b45309;">💴 现金 CASH</div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">日元现金兑换 ¥30,000–50,000 <span class="check-note">（7天用餐+小额消费，7日游足够）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">备用 ¥10,000 应急金 <span class="check-note">（放在行李内备用，以防钱包被盗）</span></div>
+        </div>
+        <div class="check-item check-done">
+          <div class="check-box"></div>
+          <div class="check-text">确认7-11 ATM / 邮局ATM位置 <span class="check-note">（接受中国银联，提现方便）</span></div>
+        </div>
+      </div>
+
+      <!-- 行李 -->
+      <div class="check-section">
+        <div class="check-title" style="background:#fce4ec;color:#9d174d;">🧳 行李 LUGGAGE</div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">防晒SPF50+ <span class="check-note">（东京4月紫外线已强，樱花季外出时间长）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">折叠雨伞 / 风衣 <span class="check-note">（东京4月偶有阵雨，防风保暖很重要）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">轻便步行鞋 <span class="check-note">（每天10,000步+，好鞋是刚需）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">充电宝 20,000mAh <span class="check-note">（拍照耗电，市内便利店也可买充电线）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">转换插头 <span class="check-note">（日本为A型扁两脚插座，国内电器可直接用）</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <div class="check-text">购物袋（环保袋2-3个）<span class="check-note">（便利店要收袋费，自带最省）</span></div>
+        </div>
+      </div>
+
+      <!-- 日本入境信息 -->
+      <div class="info-card">
+        <div style="font-size:9px;font-weight:700;color:#f7931e;margin-bottom:6px;font-family:'Inter',sans-serif;">🛫 日本入境流程 ENTRY FLOW</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div>① 机上填写入境卡（或 Visit Japan Web 预先填好）</div>
+          <div>② 入境审查（自动通道 / 人工审查），拍照指纹</div>
+          <div>③ 取行李 → 海关申报（无申报物品走绿色通道）</div>
+          <div>④ 免税流程：消费满 ¥5,000（税前）可申请退8%消费税</div>
+          <div style="color:#ec407a;font-weight:600;margin-top:4px;">⚠️ Visit Japan Web 提前注册可大幅缩短通关时间！</div>
+        </div>
+      </div>
+
+      <!-- 紧急联系 -->
+      <div style="background:#fff;border:1.5px solid #e0ddd8;border-radius:8px;padding:8px 10px;margin-top:8px;">
+        <div style="font-size:9px;font-weight:700;color:#1c1917;margin-bottom:5px;">📞 紧急联系</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:1.9;">
+          <div>🚑 急救：<b>119</b> · 🚔 警察：<b>110</b> · 🏥 外国人医疗：03-5285-8181</div>
+          <div>🇨🇳 中国驻日大使馆：+81-3-3403-3380（紧急）</div>
+          <div>💬 旅行顾问 WeChat：<b style="color:#f7931e;">Kiwi_iloveu_O-o</b>（随时可联系）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div style="font-size:9px;color:#a8967e;">
+      ✅ <b style="color:#059669;">出发前3天</b>完成所有勾选 · 将此页打印随行 · 有问题微信：<b style="color:#f7931e;">Kiwi_iloveu_O-o</b>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 14 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 6 千鸟渊·皇居</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #059669, #10b981, #ec407a, #059669); flex-shrink:0; }
+  .day-header { position: relative; height: 70px; flex-shrink: 0; overflow: hidden; }
+  .day-header-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1200&q=85'); background-size: cover; background-position: center 25%; }
+  .day-header-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,20,10,0.90) 0%, rgba(3,20,10,0.62) 55%, rgba(3,20,10,0.25) 100%); }
+  .day-header-content { position: relative; z-index: 2; padding: 10px 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(180deg, #059669, #ec407a, #059669); opacity: 0.45; }
+  .timeline-item { position: relative; padding: 0 0 9px 18px; }
+  .timeline-dot { position: absolute; left: -10px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #059669; border: 2px solid #fff; box-shadow: 0 0 0 1.5px rgba(5,150,105,0.4); }
+  .timeline-dot.pink { background: #ec407a; box-shadow: 0 0 0 1.5px rgba(236,64,122,0.4); }
+  .timeline-dot.dark { background: #1c1917; }
+  .time-label { font-size: 10px; font-weight: 600; color: #059669; letter-spacing: 0.05em; margin-bottom: 1px; font-family: 'Inter', sans-serif; }
+  .item-title { font-size: 12.5px; font-weight: 600; color: #1c1917; margin-bottom: 2px; }
+  .item-desc { font-size: 10px; color: #78716c; line-height: 1.55; }
+  .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .tag { font-size: 8.5px; padding: 1.5px 6px; border-radius: 10px; }
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { background: #fff; border-radius: 8px; border: 1px solid #f0e8df; padding: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .sidebar-title { font-size: 8.5px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .transport-bar { background: linear-gradient(135deg, #ecfdf5, #fff0f6); border-top: 1px solid #a7f3d0; padding: 7px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+  .star-banner { background: linear-gradient(135deg,#ecfdf5,#fce4ec); border: 1.5px solid #a7f3d0; border-radius: 8px; padding: 6px 10px; margin-bottom: 8px; display:flex; align-items:center; gap:8px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(52,211,153,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 06 · APRIL 6, 2026</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">千鸟渊 · 皇居</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">东京最美樱花河道 · 银座奢享</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(5,150,105,0.2);border:1px solid rgba(52,211,153,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#34d399;">⭐ 千鸟渊划船 · 全程最美樱景</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);">约 13,000 步 · 电车 5 站</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+    <div style="flex:1;overflow:hidden;">
+
+      <!-- 精华提示 -->
+      <div class="star-banner">
+        <span style="font-size:16px;">🌸</span>
+        <div>
+          <div style="font-size:9.5px;font-weight:700;color:#059669;" class="noto-serif">今日精华：千鸟渊划船赏樱 — 东京7天最美画面</div>
+          <div style="font-size:8.5px;color:#78716c;">需提前在千鸟渊官方网站预约划船位，满开期名额极紧俏</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">08:30 🌸 千鳥ヶ淵 划船</div>
+          <div class="item-title">千鸟渊绿道 + 手划船 — 东京第一赏樱</div>
+          <div class="item-desc">约700棵染井吉野樱倒映在千鸟渊护城河水面，手划船穿越花瓣雨下的隧道，是东京最具浪漫感的赏樱体验。官方木船¥800/30分钟，每人限时，需提前在千鸟渊公式网站预约（満開期极紧）。绿道步行赏花也很美，全程约700米。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#ecfdf5;color:#047857;">🕐 2小时</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">划船 ¥800/30min</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 船上仰拍花瓣雨 · 超梦幻</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">11:00 🏯 皇居東御苑</div>
+          <div class="item-title">皇居东御苑 — 春景花园</div>
+          <div class="item-desc">皇居免费开放的东御苑，百花齐放。三之丸尚蔵館前的二の丸庭园春季各类花木应季盛开。注意：周一/周五休园，携带护照或身份证件，在大手门领取参观章方可入内。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#ecfdf5;color:#047857;">免费入园</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">⚠️ 周一/五休园</span>
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">需持护照 · 大手门领章</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">12:30 🍣 午餐</div>
+          <div class="item-title">すきやばし次郎 銀座本店 — 传说级寿司</div>
+          <div class="item-desc">被称为"世界最难订位的寿司"，奥巴马前总统曾来此用餐。午间omakase约¥40,000，需至少3个月前电话预约（日语），或选择二店（¥15,000）体验同等水准。如预约不到，推荐同区域的寿司处<br>「鮨 くんい」（¥8,000，Tabelog ⭐ 4.0）。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#1c1917;color:#fff;">传奇级 ⭐4.6</span>
+            <span class="tag" style="background:#dc2626;color:#fff;">人均 ¥40,000</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">蜜月终极体验</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">15:00 💎 銀座</div>
+          <div class="item-title">银座 — 日本最高端购物街</div>
+          <div class="item-desc">日本最奢华的购物街，GINZA SIX（2017开业）集中高端品牌+当代艺术装置。推荐：伊东屋文具（必逛）、资生堂美妆旗舰店（免费试妆）、木村屋总本店（日本最老面包店）。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">🕐 2小时</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">GINZA SIX 免费艺术装置</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">17:30 🐟 筑地 · 豊洲</div>
+          <div class="item-title">筑地场外市场 → 豊洲市场（可选）</div>
+          <div class="item-desc">筑地场外市场依然是最佳海鲜零食集散地：玉子烧（鸡蛋卷）、海胆军舰、新鲜牡蛎应有尽有。豊洲市场需提前预约参观见学，可近距离看金枪鱼拍卖（5:00am早起团，非今日推荐）。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#ecfdf5;color:#047857;">🕐 1.5小时</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">海鲜零食天堂</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">19:30 🍻 晚餐</div>
+          <div class="item-title">銀座 久兵衛 — 东京顶级日本料理</div>
+          <div class="item-desc">银座最具代表性的日本料理老铺，怀石料理套餐（¥15,000起）呈现四季食材的极致美学。适合蜜月纪念晚餐，服务极为细致，会提供专属菜单留存。Tabelog ⭐ 4.12。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥20,000</span>
+            <span class="tag" style="background:#dc2626;color:#fff;">需提前预约</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">蜜月纪念晚餐</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#1c1917;">21:30 🌙 银座夜游</div>
+          <div class="item-title">银座 Bar de Luxe — 高端鸡尾酒</div>
+          <div class="item-desc">银座有东京最精致的小酒吧文化。推荐：STAR BAR GINZA（Tabelog ⭐ 4.1，鸡尾酒¥2,500，bar master Kishimoto精心调制），或Club 21在GINZA SIX内。完美收尾倒数第2天。</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#059669;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?w=200&q=80" style="width:100%;height:40px;object-fit:cover;border-radius:5px;margin-bottom:4px;" alt="千鸟渊">
+          <div style="font-size:8.5px;font-weight:600;color:#059669;">① 千鸟渊划船 ⭐</div>
+          <div style="font-size:8px;color:#78716c;">船上仰拍 · 花瓣如雨</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">② 皇居护城河</div>
+          <div style="font-size:8px;color:#78716c;">清晨 · 倒影长廊</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">③ GINZA SIX艺术</div>
+          <div style="font-size:8px;color:#78716c;">中庭装置 · 时髦感</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div style="font-size:8px;line-height:1.8;">
+          <div style="color:#dc2626;">❌ 千鸟渊当天排队</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 官网提前预约划船</div>
+          <div style="color:#dc2626;">❌ 皇居周一去</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 周一/五闭园注意</div>
+          <div style="color:#dc2626;">❌ 银座逛到疲惫</div>
+          <div style="color:#16a34a;">✅ 筑地留1.5小时</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#ecfdf5,#fce4ec);border-color:#a7f3d0;">
+        <div class="sidebar-title" style="color:#059669;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:20px;">🌸🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#ec407a;margin-top:2px;" class="noto-serif">最佳日</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">千鸟渊<br>7天中最美</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通</span><span style="color:#1c1917;">¥800</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>划船</span><span style="color:#1c1917;">¥1,600</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>午餐</span><span style="color:#1c1917;">¥8,000</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>晚餐+酒吧</span><span style="color:#1c1917;">¥22,500</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#059669;"><span>合计</span><span>¥32,900</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;color:#a8967e;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约13,000步</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 半蔵門线 + 丸之内线</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚕 夜间银座打车约¥1,500</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 08 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Sakura palette */
+  --color-sakura-50: #fef7f7;
+  --color-sakura-100: #fce4ec;
+  --color-sakura-200: #f8bbd0;
+  --color-sakura-300: #f48fb1;
+  --color-sakura-400: #ec407a;
+  --color-sakura-500: #e91e63;
+  --color-sakura-600: #c2185b;
+
+  /* Warm palette */
+  --color-warm-50: #fefaf6;
+  --color-warm-100: #fef3e2;
+  --color-warm-200: #fde4b8;
+  --color-warm-300: #f7931e;
+  --color-warm-400: #ff6b35;
+  --color-warm-500: #d35400;
+
+  /* Fonts */
+  --font-display: "Playfair Display", "Noto Serif SC", serif;
+  --font-sans: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Animations */
+  --animate-sakura-fall: sakuraFall 10s linear infinite;
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    --background: 30 25% 98%;
+    --foreground: 20 14% 8%;
+    --border: 20 6% 90%;
+    --ring: 340 82% 52%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply bg-warm-50 text-stone-900 font-sans antialiased;
+  }
+}
+
+/* Sakura particle keyframes */
+@keyframes sakuraDrift {
+  0% {
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% {
+    transform: translateY(105vh) translateX(100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sakuraFall {
+  0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.sakura-petal {
+  animation: sakuraDrift var(--duration, 10s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}

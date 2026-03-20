@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定制赏樱行程 - 一页版</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        sakura: { 50:'#fef7f7', 100:'#fce4ec', 200:'#f8bbd0', 300:'#f48fb1', 400:'#ec407a', 500:'#e91e63', 600:'#c2185b' },
+        warm: { 50:'#fefaf6', 100:'#fef3e2', 200:'#fde4b8', 300:'#f7931e', 400:'#ff6b35', 500:'#d35400' }
+      },
+      fontFamily: { sans: ['-apple-system','PingFang SC','Hiragino Sans GB','sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+  .card-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.18;transition:opacity .3s}
+  .group:hover .card-bg{opacity:.28}
+  @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(247,147,30,.3)}50%{box-shadow:0 0 16px 4px rgba(247,147,30,.15)}}
+  .glow{animation:pulse-glow 2s infinite}
+</style>
+</head>
+<body class="bg-warm-50 h-screen overflow-hidden font-sans flex flex-col">
+
+  <!-- Top Bar — 极简 -->
+  <header class="bg-white border-b border-stone-200 px-5 py-2.5 flex items-center justify-between flex-shrink-0">
+    <div class="flex items-center gap-3">
+      <span class="text-xl">🌸</span>
+      <span class="text-sm font-black text-stone-900 tracking-tight">定制赏樱行程</span>
+      <span class="text-[10px] text-stone-300">Sakura Custom Travel 2026</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="bg-gradient-to-r from-warm-400 to-warm-300 text-white text-[10px] font-bold px-3 py-1 rounded-full glow">🎁 免费体验</span>
+      <span class="text-[10px] text-stone-400">每人1次 · 不满意不收费</span>
+    </div>
+  </header>
+
+  <!-- Main: 三列布局 -->
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- LEFT: Hero暗色列 + 真实背景图 -->
+    <div class="w-[300px] flex-shrink-0 relative overflow-hidden flex flex-col justify-between">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=60')"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/85"></div>
+      <div class="relative p-7">
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-5 backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="text-xs text-white/50">正在接受预约</span>
+        </div>
+        <h2 class="text-2xl font-black text-white leading-tight mb-2 tracking-tight">
+          别再用AI<br>生成行程了
+        </h2>
+        <p class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-warm-300 to-sakura-300 mb-4">我们比AI好10倍</p>
+        <p class="text-sm text-white/30 leading-relaxed">AI不知道餐厅倒闭了<br>AI不知道哪个角度最美<br>AI不知道当地人去哪里<br><b class="text-white/50">我们住在日本，亲自走过</b></p>
+      </div>
+
+      <!-- 技术底牌 -->
+      <div class="relative p-7 space-y-2.5">
+        <div class="text-xs text-white/35 font-bold mb-2">技术底牌</div>
+        <div class="flex items-center gap-3 bg-white/[.06] border border-white/[.08] rounded-lg px-4 py-2.5 backdrop-blur-sm">
+          <img src="https://img.icons8.com/fluency/48/artificial-intelligence.png" class="w-6 h-6">
+          <div><div class="text-xs font-bold text-warm-300">顶级AI引擎 · $200/月</div><div class="text-[10px] text-white/25">动线优化精确到分钟级</div></div>
+        </div>
+        <div class="flex items-center gap-3 bg-white/[.06] border border-white/[.08] rounded-lg px-4 py-2.5 backdrop-blur-sm">
+          <img src="https://img.icons8.com/fluency/48/combo-chart.png" class="w-6 h-6">
+          <div><div class="text-xs font-bold text-warm-300">240+景点 · 6数据源</div><div class="text-[10px] text-white/25">每天3次 · ±2天精度</div></div>
+        </div>
+        <div class="flex items-center gap-3 bg-white/[.06] border border-white/[.08] rounded-lg px-4 py-2.5 backdrop-blur-sm">
+          <img src="https://img.icons8.com/fluency/48/japan.png" class="w-6 h-6">
+          <div><div class="text-xs font-bold text-warm-300">旅居日本团队</div><div class="text-[10px] text-white/25">人工验证 · 踩坑经验丰富</div></div>
+        </div>
+        <div class="flex items-center gap-3 bg-white/[.06] border border-white/[.08] rounded-lg px-4 py-2.5 backdrop-blur-sm">
+          <img src="https://img.icons8.com/fluency/48/camera.png" class="w-6 h-6">
+          <div><div class="text-xs font-bold text-warm-300">出片保证 · 差异化</div><div class="text-[10px] text-white/25">小众机位 · 隐藏路线</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: 6张卡片 -->
+    <div class="flex-1 p-4 grid grid-cols-3 grid-rows-2 gap-3.5 overflow-hidden">
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">🇯🇵 旅居日本 · 人工验证</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ AI推荐的餐厅已倒闭、景点在维修</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1">我们<b class="text-warm-500">实际住在日本</b>，每条路线亲自走过。餐厅还开不开、景点有没有修——<b class="text-warm-500">实地确认过才推荐</b>。</p>
+        </div>
+      </div>
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">✨ 拒绝审美疲劳</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ 10个人搜出一样的行程，全是人头</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1"><b class="text-warm-500">隐藏樱花路+限定夜樱+屋台小吃街</b>，当地人才知道的地方。<b class="text-warm-500">朋友圈不撞款</b>。</p>
+        </div>
+      </div>
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">🍣 详细菜单 · 真实评价</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ 只有名字没评价，不知道点什么</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1">每家附<b class="text-warm-500">体验评价、招牌菜、人均价格</b>。标注预约/排队。<b class="text-warm-500">Tabelog 3.5+才入选</b>。</p>
+        </div>
+      </div>
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">🌸 240景点 · 实时花期</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ "开花了"≠好看，白跑一趟浪费钱</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1"><b class="text-warm-500">6大数据源+每天3次</b>，精确到每个景点的最佳窗口。<b class="text-warm-500">不浪费一分钱一分钟</b>。</p>
+        </div>
+      </div>
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">📸 保证出片效果</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ 和别人拍的一样，朋友圈没人赞</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1"><b class="text-warm-500">最佳时段+小众机位+错峰路线</b>。几点人最少、哪个角度最美。<b class="text-warm-500">出片率拉满</b>。</p>
+        </div>
+      </div>
+
+      <div class="group relative bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 flex flex-col">
+        <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&q=50')"></div>
+        <div class="relative p-5 flex-1 flex flex-col">
+          <h4 class="text-base font-extrabold text-stone-900 tracking-tight mb-2">💰 全方位省钱避坑</h4>
+          <div class="bg-red-50 border-l-[3px] border-red-400 rounded-r px-3 py-1.5 mb-3"><p class="text-xs text-red-600 font-semibold">❌ 樱花季溢价，机票酒店交通全被坑</p></div>
+          <p class="text-sm text-stone-500 leading-relaxed flex-1"><b class="text-warm-500">20+渠道比价省30-50%</b>。里程票/转机，免费取消房源。<b class="text-warm-500">Pass自动最省方案</b>。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: 流程+微信 -->
+    <div class="w-[240px] flex-shrink-0 bg-white border-l border-stone-100 p-5 flex flex-col justify-between">
+      <div>
+        <div class="text-base font-black text-stone-900 mb-5 tracking-tight">📋 怎么开始</div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warm-400 to-warm-300 text-white text-sm font-black flex items-center justify-center flex-shrink-0 shadow shadow-orange-200/50">1</div>
+            <div><div class="text-sm font-bold text-stone-800">加微信</div><div class="text-xs text-stone-400">备注「樱花」</div></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warm-400 to-warm-300 text-white text-sm font-black flex items-center justify-center flex-shrink-0 shadow shadow-orange-200/50">2</div>
+            <div><div class="text-sm font-bold text-stone-800">告知日期城市</div><div class="text-xs text-stone-400">几号到 / 去哪 / 几人</div></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warm-400 to-warm-300 text-white text-sm font-black flex items-center justify-center flex-shrink-0 shadow shadow-orange-200/50">3</div>
+            <div><div class="text-sm font-bold text-stone-800">免费获取1天攻略</div><div class="text-xs text-stone-400">景点+餐厅+交通全包</div></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warm-400 to-warm-300 text-white text-sm font-black flex items-center justify-center flex-shrink-0 shadow shadow-orange-200/50">4</div>
+            <div><div class="text-sm font-bold text-stone-800">满意再付费</div><div class="text-xs text-stone-400">不满意不收费</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WeChat -->
+      <div>
+        <div class="bg-gradient-to-br from-stone-900 to-stone-800 rounded-xl p-4 mb-3">
+          <div class="text-xs text-white/30 mb-1">加微信 · 备注「樱花」</div>
+          <div class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-warm-300 to-sakura-300 select-all mb-2">Kiwi_iloveu_O-o</div>
+          <button onclick="navigator.clipboard.writeText('Kiwi_iloveu_O-o');this.textContent='✅ 已复制!';var b=this;setTimeout(function(){b.textContent='📋 复制微信号'},1500)"
+            class="w-full bg-gradient-to-r from-warm-400 to-warm-300 text-white font-bold py-2.5 rounded-lg text-sm hover:shadow-lg hover:shadow-orange-500/20 transition-all active:scale-95 cursor-pointer">
+            📋 复制微信号
+          </button>
+        </div>
+        <div class="flex justify-center gap-3">
+          <span class="text-xs text-stone-400">🔒 不满意不收费</span>
+          <span class="text-xs text-stone-400">🌸 已服务200+</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

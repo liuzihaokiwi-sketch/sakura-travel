@@ -12,6 +12,8 @@ from app.api import trips_generate
 from app.api import chat
 from app.api import pois
 from app.api import products
+from app.api import quiz
+from app.api import orders
 from app.api.ops import editorial, entities, ranked
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
@@ -79,6 +81,8 @@ app.include_router(pois.cities_router, tags=["cities"])      # /cities
 app.include_router(entities.router, prefix="/ops", tags=["ops"])
 app.include_router(editorial.router, prefix="/ops", tags=["ops-editorial"])
 app.include_router(ranked.router, prefix="/ops", tags=["ops-ranked"])
+app.include_router(quiz.router, tags=["quiz"])               # /quiz
+app.include_router(orders.router, tags=["orders"])           # /orders
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────

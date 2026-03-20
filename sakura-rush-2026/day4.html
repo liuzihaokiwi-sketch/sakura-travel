@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 4 镰仓一日游</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #0891b2, #06b6d4, #0891b2); flex-shrink:0; }
+  .day-header { position: relative; height: 70px; flex-shrink: 0; overflow: hidden; }
+  .day-header-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=1200&q=85'); background-size: cover; background-position: center 50%; }
+  .day-header-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,10,20,0.88) 0%, rgba(5,10,20,0.6) 60%, rgba(5,10,20,0.2) 100%); }
+  .day-header-content { position: relative; z-index: 2; padding: 10px 24px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1.5px; background: linear-gradient(180deg, #0891b2, #06b6d4, #0891b2); opacity: 0.45; }
+  .timeline-item { position: relative; padding: 0 0 8px 18px; }
+  .timeline-dot { position: absolute; left: -10px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #0891b2; border: 2px solid #fff; box-shadow: 0 0 0 1.5px rgba(8,145,178,0.4); }
+  .timeline-dot.pink { background: #ec407a; box-shadow: 0 0 0 1.5px rgba(236,64,122,0.4); }
+  .timeline-dot.dark { background: #1c1917; }
+  .time-label { font-size: 10px; font-weight: 600; color: #0891b2; letter-spacing: 0.05em; margin-bottom: 1px; font-family: 'Inter', sans-serif; }
+  .item-title { font-size: 12.5px; font-weight: 600; color: #1c1917; margin-bottom: 2px; }
+  .item-desc { font-size: 10px; color: #78716c; line-height: 1.5; }
+  .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+  .tag { font-size: 8.5px; padding: 1.5px 6px; border-radius: 10px; }
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card { background: #fff; border-radius: 8px; border: 1px solid #f0e8df; padding: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .sidebar-title { font-size: 8.5px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 5px; }
+  .transport-bar { background: linear-gradient(135deg, #e0f7fa, #f0f9ff); border-top: 1px solid #b2ebf2; padding: 7px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+  .trip-note { background: linear-gradient(135deg,#e0f7fa,#f0f9ff); border: 1.5px solid #b2ebf2; border-radius: 8px; padding: 6px 10px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(6,182,212,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 04 · APRIL 4, 2026</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">镰仓一日游</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">古都 · 海岸 · 江之电</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(8,145,178,0.2);border:1px solid rgba(6,182,212,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#22d3ee;">🚃 JR横须贺线 约60分钟</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);">约 15,000 步 · 一日远足</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+    <div style="flex:1;overflow:hidden;">
+
+      <!-- 交通说明 -->
+      <div class="trip-note">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:14px;">🚃</span>
+          <div>
+            <div style="font-size:9.5px;font-weight:700;color:#0891b2;" class="noto-serif">出发：東京站 → 镰仓站（JR横须贺线 · 约1小时 · ¥940）</div>
+            <div style="font-size:8.5px;color:#78716c;">8:00出发 · 推荐购买「鎌倉パス」一日券 ¥580，可无限乘坐江之电</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">09:30 ⛩️ 鶴岡八幡宮</div>
+          <div class="item-title">鶴岡八幡宮 — 镰仓最重要的神社</div>
+          <div class="item-desc">创建于1063年，是镰仓幕府的守护神社。参道"若宮大路"两侧植有樱花树，气势恢宏。本宮红色建筑背景与粉色樱花绝美。登台阶俯瞰参道与远山，是镰仓最佳拍摄角度。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">🕐 90分钟</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">免费参拜</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 本殿台阶 + 参道樱花</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">11:00 🛍️ 小町通</div>
+          <div class="item-title">小町通 — 镰仓最热闹的商店街</div>
+          <div class="item-desc">从鶴岡八幡宮步行约3分钟，集中了各种镰仓名产：豆腐大福、镰仓彩玻璃手工艺品、海苔仙贝。必尝：豊島屋的鳩サブレー（鸽子饼干）和らんか咖啡抹茶甜品。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">🕐 60分钟</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">购买伴手礼</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">12:30 🍱 午餐</div>
+          <div class="item-title">HACHI KAMAKURA — 镰仓新派定食</div>
+          <div class="item-desc">镰仓本地人气餐厅，以镰仓野菜入菜的创意日式定食。每日限量菜单随季节更新，春季必有鱼类料理配时令蔬菜。Tabelog ⭐ 3.75，建议11:30占位。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥2,000</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">无需预约，早到即可</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">14:00 🚋 江之电</div>
+          <div class="item-title">江之电 · 镰仓→腰越→江之岛</div>
+          <div class="item-desc">复古小电车沿海岸线行驶，部分路段与普通公路重叠极具特色。在极楽寺站下车可看古朴小站，腰越站附近即是灌篮高手同款路口（镰仓高校前踏切）。建议坐车头感受海风。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">🚋 江之电全线 ¥580/天</span>
+            <span class="tag" style="background:#fff3e0;color:#e07010;">📸 灌篮高手路口 · 与海同框</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">15:30 🌸 長谷寺</div>
+          <div class="item-title">長谷寺 — 山寺樱花 + 海景绝配</div>
+          <div class="item-desc">坐落于山坡的古寺，院内遍植吉野樱、垂枝樱多种，观景台可远眺相模湾。本堂供奉9.18米高木造十一面観音像，为日本最大木造仏像之一。海天一色配樱花，是镰仓最上镜的地方。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">门票 ¥400</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 垂枝樱绝美</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 观景台 · 海景+樱花</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">18:00 🍜 返途晚餐</div>
+          <div class="item-title">藤沢 or 品川站 — 驿内食堂</div>
+          <div class="item-desc">返回途中在藤沢站或品川站觅食（站内eKINGDOM）。推荐：丸亀製麵讚岐乌冬（¥700起）或崎阳轩烧卖弁当（¥950，新横滨/品川皆有售，经典伴手礼）。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥1,000</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">车站便捷用餐</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#1c1917;">19:30 🏨 返回东京</div>
+          <div class="item-title">回程 JR + 酒店休息</div>
+          <div class="item-desc">今天行程最远最累，建议早点回酒店泡个日式温泉浴（酒店有大浴场最好），明日六本木还有硬仗。别忘记给手机充电！</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#0891b2;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&q=80" style="width:100%;height:40px;object-fit:cover;border-radius:5px;margin-bottom:4px;" alt="镰仓">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">① 灌篮高手路口</div>
+          <div style="font-size:8px;color:#78716c;">镰仓高校前 · 海+平交道</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#0891b2;">② 長谷寺观景台</div>
+          <div style="font-size:8px;color:#78716c;">樱花 × 相模湾全景</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">③ 鶴岡参道樱</div>
+          <div style="font-size:8px;color:#78716c;">早晨 · 参道对称构图</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div style="font-size:8px;line-height:1.8;">
+          <div style="color:#dc2626;">❌ 周末去镰仓</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ 工作日人少一半</div>
+          <div style="color:#dc2626;">❌ 不买江之电一日券</div>
+          <div style="color:#16a34a;margin-bottom:3px;">✅ ¥580无限搭乘划算</div>
+          <div style="color:#dc2626;">❌ 灌篮高手路口不等电车</div>
+          <div style="color:#16a34a;">✅ 等电车经过同框</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#e0f7fa,#f0f9ff);border-color:#b2ebf2;">
+        <div class="sidebar-title" style="color:#0891b2;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:20px;">🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#0891b2;margin-top:2px;" class="noto-serif">八分咲</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">鶴岡八幡宮<br>長谷寺垂枝樱</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通(往返)</span><span style="color:#1c1917;">¥2,460</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>江之电一日</span><span style="color:#1c1917;">¥580</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>门票</span><span style="color:#1c1917;">¥400</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>餐饮</span><span style="color:#1c1917;">¥3,000</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#0891b2;"><span>合计</span><span>¥6,440</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;color:#a8967e;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 JR横须贺线 · 往返约120分钟</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚋 江之电一日券</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约15,000步</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 06 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

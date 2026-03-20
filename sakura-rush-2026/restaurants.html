@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — 精选餐厅</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #f7931e, #ec407a, #f7931e); flex-shrink:0; }
+
+  .page-header { padding: 12px 24px 8px; border-bottom: 1px solid #f0e8df; display:flex; align-items:flex-end; justify-content:space-between; flex-shrink:0; }
+
+  /* 分类标题 */
+  .category-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+  }
+
+  /* 餐厅卡片 */
+  .restaurant-card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #f0e8df;
+    padding: 8px 10px;
+    margin-bottom: 7px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  .restaurant-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+  }
+
+  .r-name { font-size: 12px; font-weight: 700; color: #1c1917; margin-bottom: 2px; }
+  .r-score { font-size: 10px; color: #f7931e; }
+  .r-info { font-size: 9px; color: #78716c; line-height: 1.7; }
+  .r-tag { font-size: 8px; padding: 1px 6px; border-radius: 8px; display:inline-block; }
+
+  /* 星星评分 */
+  .stars { color: #f7931e; font-size: 10px; letter-spacing: 1px; }
+
+  .watermark { position: absolute; bottom: 20px; right: 18px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.15); writing-mode: vertical-rl; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+  .footer-bar { padding: 7px 24px; border-top: 1px solid #f0e8df; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; background: linear-gradient(135deg,#fff8f0,#fef3f7); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <div class="page-header">
+    <div>
+      <div style="font-size:9px;letter-spacing:0.25em;color:#a8967e;margin-bottom:4px;font-family:'Inter',sans-serif;">SAKURA RUSH 2026 · DINING GUIDE</div>
+      <h1 class="playfair" style="font-size:26px;font-weight:700;line-height:1;">精选餐厅 · Tabelog 严选</h1>
+    </div>
+    <div class="noto-serif" style="font-size:11px;color:#a8967e;text-align:right;line-height:1.8;">
+      <div>评分均来自 Tabelog</div>
+      <div style="color:#ec407a;">🌸 樱花季推荐</div>
+    </div>
+  </div>
+
+  <!-- 主体：两列布局 -->
+  <div style="display:flex;gap:14px;padding:10px 18px;flex:1;overflow:hidden;">
+
+    <!-- 左列 -->
+    <div style="flex:1;">
+
+      <!-- 寿司 -->
+      <div>
+        <div class="category-title" style="background:#fff3e0;color:#e07010;">🍣 寿司 SUSHI</div>
+        <div class="restaurant-card" style="border-left:3px solid #f7931e;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">すきやばし次郎 銀座本店</div>
+            <span style="font-size:8px;background:#fff3e0;color:#e07010;padding:2px 6px;border-radius:8px;">预约必须</span>
+          </div>
+          <div class="stars">★★★★★</div><span style="font-size:9px;color:#f7931e;"> 4.6</span>
+          <div class="r-info">📍 银座 · 🈵 ¥40,000/人 · 🍱 омакасе握寿司 · ⚠️ 需3个月前预约（日语电话）</div>
+          <div class="r-info" style="color:#ec407a;">招牌：旬の握り · 世界最难预约寿司传奇</div>
+        </div>
+
+        <div class="restaurant-card" style="border-left:3px solid #f7931e;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">鮨さいとう 六本木</div>
+            <span style="font-size:8px;background:#fff3e0;color:#e07010;padding:2px 6px;border-radius:8px;">推荐蜜月</span>
+          </div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 4.1</span>
+          <div class="r-info">📍 六本木 · 🈵 ¥15,000/人 · 🍣 北海道直供食材</div>
+          <div class="r-info" style="color:#ec407a;">招牌：旬握り · 需1月前预约 · 午餐¥8,000起</div>
+        </div>
+      </div>
+
+      <!-- 拉面 -->
+      <div style="margin-top:8px;">
+        <div class="category-title" style="background:#e0f2fe;color:#0369a1;">🍜 拉面 RAMEN</div>
+        <div class="restaurant-card" style="border-left:3px solid #0891b2;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">AFURI 原宿店</div>
+            <span style="font-size:8px;background:#e0f2fe;color:#0369a1;padding:2px 6px;border-radius:8px;">女生最爱</span>
+          </div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.78</span>
+          <div class="r-info">📍 原宿 · 🈵 ¥1,500/人 · 🌿 柚子盐拉面 · 清淡鸡汤底</div>
+          <div class="r-info" style="color:#0891b2;">招牌：柚子塩ラーメン · 柚子香扑鼻 · 可预约</div>
+        </div>
+
+        <div class="restaurant-card" style="border-left:3px solid #0891b2;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">Noodle Stand Tokyo 中目黑</div>
+            <span style="font-size:8px;background:#e0f2fe;color:#0369a1;padding:2px 6px;border-radius:8px;">网红限量</span>
+          </div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.84</span>
+          <div class="r-info">📍 中目黑 · 🈵 ¥1,800/人 · 🐔 鸡白湯 · 每日限量</div>
+          <div class="r-info" style="color:#0891b2;">招牌：鶏白湯そば · 需排队取号</div>
+        </div>
+      </div>
+
+      <!-- 甜品 -->
+      <div style="margin-top:8px;">
+        <div class="category-title" style="background:#fce4ec;color:#c2185b;">🍡 甜品 SWEETS</div>
+        <div class="restaurant-card" style="border-left:3px solid #ec407a;">
+          <div class="r-name" style="margin-bottom:3px;">船桥屋 本店 — 亀戸くず餅</div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.92</span>
+          <div class="r-info">📍 亀戸（浅草附近） · 🈵 ¥800/人 · 江户传统葛饼甜品</div>
+          <div class="r-info" style="color:#ec407a;">招牌：くず餅 · 配黑糖蜜 · 1805年创业</div>
+        </div>
+        <div class="restaurant-card" style="border-left:3px solid #ec407a;">
+          <div class="r-name" style="margin-bottom:3px;">Sarabeth's 东京店 — 热橙子松饼</div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.72</span>
+          <div class="r-info">📍 银座/涩谷 · 🈵 ¥2,500/人 · 🥞 NY名店分店</div>
+          <div class="r-info" style="color:#ec407a;">招牌：Lemon Ricotta Pancake · 早午餐必排</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右列 -->
+    <div style="flex:1;">
+
+      <!-- 烤肉 -->
+      <div>
+        <div class="category-title" style="background:#fff0f9;color:#9d174d;">🥩 烤肉 YAKINIKU</div>
+        <div class="restaurant-card" style="border-left:3px solid #db2777;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">叙々苑 新宿高島屋店</div>
+            <span style="font-size:8px;background:#fff0f9;color:#9d174d;padding:2px 6px;border-radius:8px;">顶级和牛</span>
+          </div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.91</span>
+          <div class="r-info">📍 新宿 · 🈵 ¥8,000/人 · 🐄 A5和牛 · 沙朗/短肋</div>
+          <div class="r-info" style="color:#db2777;">招牌：和牛上ロース · 东京最具口碑烤肉老铺</div>
+        </div>
+        <div class="restaurant-card" style="border-left:3px solid #db2777;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">牛角 涩谷道玄坂店</div>
+            <span style="font-size:8px;background:#fff0f9;color:#9d174d;padding:2px 6px;border-radius:8px;">性价比</span>
+          </div>
+          <div class="stars">★★★☆☆</div><span style="font-size:9px;color:#f7931e;"> 3.55</span>
+          <div class="r-info">📍 涩谷 · 🈵 ¥4,000/人 · 连锁名店 · 食材新鲜</div>
+          <div class="r-info" style="color:#db2777;">招牌：タン塩 + 上カルビ · 建议预约</div>
+        </div>
+      </div>
+
+      <!-- 居酒屋 -->
+      <div style="margin-top:8px;">
+        <div class="category-title" style="background:#f0fdf4;color:#047857;">🍻 居酒屋 IZAKAYA</div>
+        <div class="restaurant-card" style="border-left:3px solid #059669;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">いせや総本店 吉祥寺</div>
+            <span style="font-size:8px;background:#f0fdf4;color:#047857;padding:2px 6px;border-radius:8px;">昭和老铺</span>
+          </div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.82</span>
+          <div class="r-info">📍 吉祥寺 · 🈵 ¥1,500/人 · 1928年创业 · 烤串天堂</div>
+          <div class="r-info" style="color:#059669;">招牌：焼き鳥/つくね · 排队约30min · 无需预约</div>
+        </div>
+        <div class="restaurant-card" style="border-left:3px solid #059669;">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:3px;">
+            <div class="r-name">SOMETARO 浅草 文字烧</div>
+            <span style="font-size:8px;background:#f0fdf4;color:#047857;padding:2px 6px;border-radius:8px;">体验感强</span>
+          </div>
+          <div class="stars">★★★☆☆</div><span style="font-size:9px;color:#f7931e;"> 3.62</span>
+          <div class="r-info">📍 浅草 · 🈵 ¥2,500/人 · 自制文字烧 · 下町情调</div>
+          <div class="r-info" style="color:#059669;">招牌：海鮮もんじゃ · 体验DIY乐趣 · Google可订</div>
+        </div>
+      </div>
+
+      <!-- 天妇罗 -->
+      <div style="margin-top:8px;">
+        <div class="category-title" style="background:#fff3e0;color:#b45309;">🍤 天妇罗 TEMPURA</div>
+        <div class="restaurant-card" style="border-left:3px solid #d97706;">
+          <div class="r-name" style="margin-bottom:3px;">大黒家天麩羅 浅草本店</div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.86</span>
+          <div class="r-info">📍 浅草 · 🈵 ¥2,000/人 · 1887年创业 · 芝麻油天丼</div>
+          <div class="r-info" style="color:#d97706;">招牌：天丼 ¥1,800 · 建议11:30前到</div>
+        </div>
+        <div class="restaurant-card" style="border-left:3px solid #d97706;">
+          <div class="r-name" style="margin-bottom:3px;">つな八 新宿本店</div>
+          <div class="stars">★★★★☆</div><span style="font-size:9px;color:#f7931e;"> 3.90</span>
+          <div class="r-info">📍 新宿 · 🈵 ¥3,500/人 · 1924年创业 · 春季时令食材</div>
+          <div class="r-info" style="color:#d97706;">招牌：季節天ぷら膳 · 强烈推荐预约</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div style="font-size:9px;color:#a8967e;font-family:'Inter',sans-serif;">
+      💡 <b style="color:#f7931e;">预约Tips：</b>高端餐厅建议使用 Tabelog / Eatery 或电话预约 · 樱花季节东京餐厅普遍爆满，请务必提前订位
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 10 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — 酒店推荐</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #f7931e, #ec407a, #7c3aed, #ec407a, #f7931e); flex-shrink:0; }
+  .page-header { padding: 12px 24px 8px; border-bottom: 1px solid #f0e8df; display:flex; align-items:flex-end; justify-content:space-between; flex-shrink:0; }
+  .area-title { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; padding: 3px 12px; border-radius: 3px; margin-bottom: 8px; display:inline-block; }
+  .hotel-card { background: #fff; border-radius: 10px; border: 1px solid #f0e8df; padding: 9px 11px; margin-bottom: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); display:flex; gap:10px; }
+  .hotel-img { width: 60px; height: 55px; border-radius: 6px; object-fit: cover; flex-shrink:0; }
+  .hotel-name { font-size: 11.5px; font-weight: 700; color: #1c1917; margin-bottom: 2px; }
+  .hotel-info { font-size: 9px; color: #78716c; line-height: 1.7; }
+  .stars { color: #f7931e; font-size: 10px; }
+  .price-badge { background: #fff3e0; color: #e07010; font-size: 9px; padding: 1px 8px; border-radius: 10px; font-weight: 600; }
+  .sakura-badge { background: #fce4ec; color: #c2185b; font-size: 8.5px; padding: 1px 7px; border-radius: 10px; }
+  .footer-bar { padding: 7px 24px; border-top: 1px solid #f0e8df; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; background: linear-gradient(135deg,#fff8f0,#fef3f7); }
+  .watermark { position: absolute; bottom: 25px; right: 18px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <div class="page-header">
+    <div>
+      <div style="font-size:9px;letter-spacing:0.25em;color:#a8967e;margin-bottom:4px;font-family:'Inter',sans-serif;">SAKURA RUSH 2026 · HOTELS</div>
+      <h1 class="playfair" style="font-size:26px;font-weight:700;line-height:1;">住宿精选 · 位置 × 性价比</h1>
+    </div>
+    <div class="noto-serif" style="font-size:11px;color:#a8967e;text-align:right;line-height:1.8;">
+      <div>精选4大区域核心酒店</div>
+      <div style="color:#ec407a;">🌸 = 窗外可见樱花</div>
+    </div>
+  </div>
+
+  <!-- 主体：2列 -->
+  <div style="display:flex;gap:14px;padding:10px 18px;flex:1;overflow:hidden;">
+
+    <!-- 左列：新宿 + 涩谷 -->
+    <div style="flex:1;">
+
+      <!-- 新宿区域 -->
+      <div class="area-title" style="background:linear-gradient(135deg,#fff3e0,#fce4ec);color:#e07010;">📍 新宿 SHINJUKU</div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=120&q=80" class="hotel-img" alt="新宿京王">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <div class="hotel-name">Park Hyatt Tokyo 新宿</div>
+            <span class="sakura-badge">🌸 樱花景</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥50,000+/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">地铁站步行5分钟</span>
+          </div>
+          <div class="hotel-info">🏙️ 39-52层高空景观房，《迷失东京》取景地 · 酒吧New York Bar可俯瞰新宿全景 · 代代木公园樱花隐约可见</div>
+          <div class="hotel-info" style="color:#f7931e;">✨ 蜜月首选 · 服务无可挑剔</div>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=120&q=80" class="hotel-img" alt="新宿格兰">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <div class="hotel-name">Keio Plaza Hotel Tokyo</div>
+          </div>
+          <div class="stars">★★★★☆</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥18,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">新宿西口3分钟</span>
+          </div>
+          <div class="hotel-info">🏙️ 位于新宿西口，交通极便利 · 高层房间可看东京都厅 · 设施完善含大浴场</div>
+          <div class="hotel-info" style="color:#059669;">✨ 交通性价比最高 · 推荐行程住宿首选</div>
+        </div>
+      </div>
+
+      <!-- 涩谷区域 -->
+      <div class="area-title" style="background:linear-gradient(135deg,#fce4ec,#f3e8ff);color:#c2185b;margin-top:4px;">📍 涩谷 SHIBUYA</div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?w=120&q=80" class="hotel-img" alt="涩谷酒店">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <div class="hotel-name">Cerulean Tower Tokyu Hotel</div>
+            <span class="sakura-badge">🌸 代代木景</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥30,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">涩谷站步行3分钟</span>
+          </div>
+          <div class="hotel-info">🌆 涩谷标志性高层酒店，高层客房可俯瞰代代木公园樱海 · jazz lounge气氛一流 · 40F展望餐厅</div>
+          <div class="hotel-info" style="color:#ec407a;">✨ 代代木公园樱花景 · 高端涩谷首选</div>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=120&q=80" class="hotel-img" alt="涩谷中档">
+        <div style="flex:1;">
+          <div class="hotel-name">TRUNK(HOTEL) 涩谷</div>
+          <div class="stars">★★★★☆</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥22,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">神宮前3分钟</span>
+          </div>
+          <div class="hotel-info">🎨 社区型设计酒店，Daikanyama附近 · 屋顶酒吧全年开放 · 适合追求个性体验的旅客</div>
+          <div class="hotel-info" style="color:#7c3aed;">✨ 设计感强 · 博主最爱</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右列：浅草 + 银座 -->
+    <div style="flex:1;">
+
+      <!-- 浅草区域 -->
+      <div class="area-title" style="background:linear-gradient(135deg,#fff3e0,#ecfdf5);color:#b45309;">📍 浅草 ASAKUSA</div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=120&q=80" class="hotel-img" alt="浅草酒店">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <div class="hotel-name">THE GATE HOTEL 浅草 by HULIC</div>
+            <span class="sakura-badge">🌸 上野公园景</span>
+          </div>
+          <div class="stars">★★★★☆</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥18,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">浅草站即达</span>
+          </div>
+          <div class="hotel-info">🗼 屋顶酒吧可同框拍晴空塔+隅田川 · 部分房间可远眺上野公园樱海 · 早餐极佳</div>
+          <div class="hotel-info" style="color:#d97706;">✨ 下町文化体验最佳 · 晴空塔倒影景</div>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?w=120&q=80" class="hotel-img" alt="浅草文化">
+        <div style="flex:1;">
+          <div class="hotel-name">KAMINARIMON 浅草 Ryokan</div>
+          <div class="stars">★★★★☆</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥12,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">雷门步行3分钟</span>
+          </div>
+          <div class="hotel-info">🎌 传统町家改造旅馆，提供浴衣体验 · 榻榻米间可俯瞰浅草街景 · 含早饭</div>
+          <div class="hotel-info" style="color:#059669;">✨ 和风体验最正宗 · 性价比极高</div>
+        </div>
+      </div>
+
+      <!-- 银座区域 -->
+      <div class="area-title" style="background:linear-gradient(135deg,#fce4ec,#fff3e0);color:#9d174d;margin-top:4px;">📍 银座 GINZA</div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=120&q=80" class="hotel-img" alt="银座酒店">
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <div class="hotel-name">The Peninsula Tokyo</div>
+            <span class="sakura-badge">🌸 皇居景</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥80,000+/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">有楽町/银座</span>
+          </div>
+          <div class="hotel-info">🏯 俯瞰皇居护城河，满开期可见千鸟渊樱花 · 东京最顶级住宿体验 · 服务殿堂级</div>
+          <div class="hotel-info" style="color:#db2777;">✨ 终极奢华 · 千鸟渊樱花景 · 蜜月终极推荐</div>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="https://images.unsplash.com/photo-1549294413-26f195200c16?w=120&q=80" class="hotel-img" alt="银座中档">
+        <div style="flex:1;">
+          <div class="hotel-name">Mitsui Garden Hotel 銀座</div>
+          <div class="stars">★★★★☆</div>
+          <div style="display:flex;gap:6px;align-items:center;margin-top:3px;">
+            <span class="price-badge">¥20,000/晚</span>
+            <span style="font-size:8.5px;color:#78716c;">银座中央站1分钟</span>
+          </div>
+          <div class="hotel-info">🏙️ 银座最高性价比商务酒店，位置绝佳 · 大浴场设施完善 · 附近筑地步行可达</div>
+          <div class="hotel-info" style="color:#f7931e;">✨ 银座首选中档 · 位置顶级</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div style="font-size:9px;color:#a8967e;">
+      💡 <b style="color:#f7931e;">预订Tips：</b>樱花季（3月底-4月初）酒店需提前3-6个月预订 · 推荐 Booking.com / 一休.com · 带🌸标注代表满开期可赏樱
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 11 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>

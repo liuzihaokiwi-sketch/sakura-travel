@@ -32,8 +32,10 @@ _ROOT = Path(__file__).parent.parent.parent.parent.parent  # /project root
 _TEMPLATES_DIR = _ROOT / "templates"
 _CITY_DEFAULTS_DIR = _ROOT / "data" / "city_defaults"
 
-# 城市默认图片（相对 URL，由 nginx 服务）
-_CITY_DEFAULT_IMAGES: Dict[str, str] = {
+# ── 城市默认图片（Unsplash 可商用，作为 fallback）──────────────────────────────
+# 优先使用本地 /static/city_defaults/ 目录下的图片
+# 如果不存在则使用 Unsplash 外链
+_CITY_DEFAULT_IMAGES_LOCAL: Dict[str, str] = {
     "tokyo":     "/static/city_defaults/tokyo.jpg",
     "osaka":     "/static/city_defaults/osaka.jpg",
     "kyoto":     "/static/city_defaults/kyoto.jpg",
@@ -45,6 +47,38 @@ _CITY_DEFAULT_IMAGES: Dict[str, str] = {
     "hakone":    "/static/city_defaults/hakone.jpg",
     "nikko":     "/static/city_defaults/nikko.jpg",
 }
+
+_CITY_DEFAULT_IMAGES_REMOTE: Dict[str, str] = {
+    "tokyo":     "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+    "osaka":     "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=800&q=80",
+    "kyoto":     "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
+    "sapporo":   "https://images.unsplash.com/photo-1571167366136-b57e07761625?w=800&q=80",
+    "fukuoka":   "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80",
+    "naha":      "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800&q=80",
+    "hiroshima": "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?w=800&q=80",
+    "nagoya":    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=800&q=80",
+    "hakone":    "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+    "nikko":     "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?w=800&q=80",
+}
+
+# 通用日本 fallback（当 city_code 未知时使用）
+_JAPAN_FALLBACK_IMAGE = "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+
+
+def _get_city_default_image(city_code: str) -> Optional[str]:
+    """按优先级获取城市默认图：本地文件 → 远程 Unsplash → 通用日本图"""
+    # 1. 检查本地文件是否存在
+    local_path = _CITY_DEFAULTS_DIR / f"{city_code}.jpg"
+    if local_path.exists():
+        return _CITY_DEFAULT_IMAGES_LOCAL.get(city_code)
+    # 2. 使用远程 Unsplash URL
+    if city_code in _CITY_DEFAULT_IMAGES_REMOTE:
+        return _CITY_DEFAULT_IMAGES_REMOTE[city_code]
+    # 3. 通用 fallback
+    return _JAPAN_FALLBACK_IMAGE
+
+# 兼容旧引用
+_CITY_DEFAULT_IMAGES = _CITY_DEFAULT_IMAGES_LOCAL
 
 _CITY_NAME_ZH = {
     "tokyo": "东京", "osaka": "大阪", "kyoto": "京都",
@@ -87,8 +121,8 @@ async def _get_entity_image(
     except Exception as e:
         logger.warning("查询 entity_media 失败 entity=%s: %s", entity_id, e)
 
-    # fallback 到城市默认图
-    return _CITY_DEFAULT_IMAGES.get(city_code)
+    # fallback: 城市默认图（本地 → Unsplash → 通用日本图）
+    return _get_city_default_image(city_code)
 
 
 # ── 标签提取 ─────────────────────────────────────────────────────────────────

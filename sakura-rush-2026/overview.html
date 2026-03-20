@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — 7日行程总览</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: #fefaf6; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+
+  .top-bar {
+    height: 5px;
+    background: linear-gradient(90deg, #f7931e, #ec407a, #a855f7, #ec407a, #f7931e);
+  }
+
+  /* 页眉 */
+  .page-header {
+    padding: 14px 28px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0e8df;
+    padding-bottom: 10px;
+  }
+
+  /* 日程卡片 */
+  .day-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(247,147,30,0.1);
+    cursor: pointer;
+  }
+  .day-card:last-child { border-bottom: none; }
+
+  .day-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+  }
+
+  /* 东京地图 CSS */
+  .tokyo-map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #f0f7ff 0%, #e8f4ed 50%, #fdf0e8 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid #e8ddd5;
+  }
+
+  /* 地铁线路 */
+  .metro-line {
+    position: absolute;
+    background: rgba(100,150,200,0.3);
+    transform-origin: left center;
+  }
+
+  /* 地点标记 */
+  .map-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    transform: translate(-50%, -50%);
+  }
+  .map-label {
+    position: absolute;
+    font-size: 8.5px;
+    white-space: nowrap;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    background: rgba(255,255,255,0.85);
+    padding: 1px 4px;
+    border-radius: 3px;
+    transform: translateX(-50%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  /* 信息条 */
+  .info-strip {
+    background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+    padding: 10px 20px;
+    display: flex;
+    gap: 0;
+  }
+  .info-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 12px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .info-item:last-child { border-right: none; }
+
+  /* 水印+页码 */
+  .watermark { position: absolute; bottom: 74px; right: 18px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.18); writing-mode: vertical-rl; }
+  .page-num { position: absolute; bottom: 74px; left: 18px; font-size: 8px; color: rgba(100,80,60,0.25); letter-spacing: 0.12em; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <!-- 页眉 -->
+  <div class="page-header">
+    <div>
+      <div style="font-size:9px;letter-spacing:0.25em;color:#a8967e;margin-bottom:4px;font-family:'Inter',sans-serif;">SAKURA RUSH 2026 · FULL ITINERARY</div>
+      <h1 class="playfair" style="font-size:28px;color:#1c1917;font-weight:700;line-height:1;">7日行程总览</h1>
+    </div>
+    <div class="noto-serif" style="font-size:11px;color:#a8967e;text-align:right;line-height:1.7;">
+      <div>东京都 · 2026年春</div>
+      <div style="color:#ec407a;">🌸 樱花满开期</div>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div style="display:flex;gap:16px;padding:14px 20px 10px;height:calc(297mm - 5px - 58px - 75px);">
+
+    <!-- 左侧：7天列表 -->
+    <div style="width:50%;flex-shrink:0;">
+      <div style="font-size:9px;letter-spacing:0.2em;color:#f7931e;margin-bottom:10px;font-family:'Inter',sans-serif;">▎ DAILY SCHEDULE OVERVIEW</div>
+
+      <!-- Day 1 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#f7931e,#e07010);">1</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">浅草 · 上野</span>
+            <span style="font-size:9px;color:#ec407a;background:#fce4ec;padding:1px 6px;border-radius:10px;">🌸 满开</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">浅草寺 → 仲见世商店街 → 上野公园赏樱 → 阿美横丁</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">历史与下町风情 · 约 12,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#ec407a,#c2185b);">2</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">涩谷 · 原宿</span>
+            <span style="font-size:9px;color:#ec407a;background:#fce4ec;padding:1px 6px;border-radius:10px;">🌸 满开</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">明治神宫 → 竹下通 → 涩谷交叉口 → 代代木公园</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">时尚与潮流圣地 · 约 14,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);">3</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">新宿 · 中目黑</span>
+            <span style="font-size:9px;color:#f7931e;background:#fff3e0;padding:1px 6px;border-radius:10px;">⭐ 精华</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">新宿御苑(樱花重点) → 歌舞伎町 → 中目黑目黑川夜樱</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">昼夜双重精华 · 约 11,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#0891b2,#0e7490);">4</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">镰仓一日游</span>
+            <span style="font-size:9px;color:#0891b2;background:#e0f7fa;padding:1px 6px;border-radius:10px;">🚃 外出</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">鹤岗八幡宫 → 小町通 → 江之电 → 灌篮高手路口 → 长谷寺</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">古都海岸风情 · 约 15,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#d97706,#b45309);">5</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">六本木 · 东京塔</span>
+            <span style="font-size:9px;color:#7c3aed;background:#f3e8ff;padding:1px 6px;border-radius:10px;">🌃 夜景</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">六本木Hills → 毛利庭园(樱花) → 东京塔 → 芝公园</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">高端艺术与夜景 · 约 10,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="day-card">
+        <div class="day-num" style="background:linear-gradient(135deg,#059669,#047857);">6</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">千鸟渊 · 皇居</span>
+            <span style="font-size:9px;color:#f7931e;background:#fff3e0;padding:1px 6px;border-radius:10px;">⭐ 精华</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">千鸟渊划船赏樱 → 皇居东御苑 → 银座 → 筑地/丰洲</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">东京最美樱花河道 · 约 13,000 步</div>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="day-card" style="border-bottom:none;">
+        <div class="day-num" style="background:linear-gradient(135deg,#db2777,#9d174d);">7</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+            <span class="noto-serif" style="font-size:12px;font-weight:600;color:#1c1917;">下北 · 吉祥寺</span>
+            <span style="font-size:9px;color:#78716c;background:#f5f5f4;padding:1px 6px;border-radius:10px;">✈ 返程</span>
+          </div>
+          <div style="font-size:10px;color:#78716c;line-height:1.5;">下北泽古着 → 井之头公园(樱花) → 吉祥寺 → 机场</div>
+          <div style="font-size:9px;color:#a8967e;margin-top:2px;">文艺收官之旅 · 约 9,000 步</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：东京地图 -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:9px;letter-spacing:0.2em;color:#f7931e;margin-bottom:0;font-family:'Inter',sans-serif;">▎ TOKYO DISTRICT MAP</div>
+
+      <div class="tokyo-map" style="flex:1;">
+        <!-- 水系背景 -->
+        <div style="position:absolute;left:35%;top:42%;width:30%;height:18%;background:rgba(100,180,240,0.15);border-radius:50%;transform:rotate(-20deg);"></div>
+        <!-- 东京湾 -->
+        <div style="position:absolute;right:0;bottom:0;width:35%;height:40%;background:rgba(100,160,220,0.12);border-radius:60% 0 0 0;"></div>
+
+        <!-- 简化地铁线路 -->
+        <!-- JR山手线（椭圆形） -->
+        <div style="position:absolute;left:32%;top:18%;width:36%;height:55%;border:2.5px solid rgba(180,200,80,0.5);border-radius:50%;"></div>
+
+        <!-- 地名标注 -->
+        <!-- 浅草 Day1 -->
+        <div class="map-dot" style="left:62%;top:25%;background:#f7931e;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:62%;top:18%;color:#e07010;font-weight:700;font-size:9px;">Day1 浅草·上野</div>
+
+        <!-- 原宿/涩谷 Day2 -->
+        <div class="map-dot" style="left:34%;top:50%;background:#ec407a;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:28%;top:56%;color:#c2185b;font-weight:700;font-size:9px;">Day2 涩谷·原宿</div>
+
+        <!-- 新宿 Day3 -->
+        <div class="map-dot" style="left:36%;top:36%;background:#7c3aed;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:22%;top:30%;color:#5b21b6;font-weight:700;font-size:9px;">Day3 新宿·中目黑</div>
+
+        <!-- 镰仓 Day4（右下方） -->
+        <div class="map-dot" style="left:25%;top:82%;background:#0891b2;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:25%;top:87%;color:#0e7490;font-weight:700;font-size:9px;">Day4 镰仓</div>
+
+        <!-- 六本木 Day5 -->
+        <div class="map-dot" style="left:47%;top:55%;background:#d97706;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:56%;top:60%;color:#b45309;font-weight:700;font-size:9px;">Day5 六本木</div>
+
+        <!-- 千鸟渊 Day6 -->
+        <div class="map-dot" style="left:52%;top:38%;background:#059669;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:60%;top:32%;color:#047857;font-weight:700;font-size:9px;">Day6 千鸟渊</div>
+
+        <!-- 吉祥寺 Day7 -->
+        <div class="map-dot" style="left:22%;top:42%;background:#db2777;width:12px;height:12px;"></div>
+        <div class="map-label" style="left:8%;top:36%;color:#9d174d;font-weight:700;font-size:9px;">Day7 吉祥寺</div>
+
+        <!-- 东京站/银座 中心 -->
+        <div style="position:absolute;left:54%;top:44%;width:8px;height:8px;border-radius:50%;background:#1c1917;border:1.5px solid #fff;transform:translate(-50%,-50%);"></div>
+        <div class="map-label" style="left:54%;top:49%;color:#1c1917;font-size:8px;">东京站</div>
+
+        <!-- 羽田机场 -->
+        <div style="position:absolute;left:60%;top:78%;font-size:14px;">✈</div>
+        <div class="map-label" style="left:68%;top:83%;color:#78716c;font-size:8px;">羽田</div>
+
+        <!-- 成田 -->
+        <div style="position:absolute;right:8%;top:10%;font-size:14px;">✈</div>
+        <div class="map-label" style="right:5%;top:16%;color:#78716c;font-size:8px;">成田</div>
+
+        <!-- 指北针 -->
+        <div style="position:absolute;right:10px;top:10px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 1px 4px rgba(0,0,0,0.1);">
+          🧭
+        </div>
+
+        <!-- 图例 -->
+        <div style="position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,0.88);border-radius:6px;padding:5px 8px;font-size:8px;line-height:1.8;">
+          <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:2.5px;background:rgba(180,200,80,0.7);border-radius:1px;"></div><span style="color:#78716c;">JR山手线</span></div>
+          <div style="display:flex;align-items:center;gap:4px;"><div style="width:8px;height:8px;border-radius:50%;background:#ec407a;"></div><span style="color:#78716c;">每日景点</span></div>
+        </div>
+      </div>
+
+      <!-- 樱花窗口提示 -->
+      <div style="background:linear-gradient(135deg,#fff0f6,#fff8f0);border:1px solid #f8bbd0;border-radius:8px;padding:8px 12px;">
+        <div style="font-size:9px;letter-spacing:0.15em;color:#ec407a;margin-bottom:4px;font-family:'Inter',sans-serif;">🌸 SAKURA WINDOW 2026</div>
+        <div style="display:flex;gap:8px;">
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#1c1917;" class="noto-serif">3月25日</div>
+            <div style="font-size:9px;color:#78716c;">开花预测</div>
+          </div>
+          <div style="width:1px;background:#f8bbd0;"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#ec407a;" class="noto-serif">4月1–5日</div>
+            <div style="font-size:9px;color:#78716c;">满开最佳</div>
+          </div>
+          <div style="width:1px;background:#f8bbd0;"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#1c1917;" class="noto-serif">4月12日</div>
+            <div style="font-size:9px;color:#78716c;">散花结束</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部信息条 -->
+  <div class="info-strip">
+    <div class="info-item">
+      <div style="font-size:9px;letter-spacing:0.1em;color:rgba(247,147,30,0.8);margin-bottom:3px;font-family:'Inter',sans-serif;">最佳交通卡</div>
+      <div class="noto-serif" style="font-size:11px;color:#fff;font-weight:500;">Suica + 都营一日券</div>
+      <div style="font-size:8.5px;color:rgba(255,255,255,0.45);">推荐东京单独购买</div>
+    </div>
+    <div class="info-item">
+      <div style="font-size:9px;letter-spacing:0.1em;color:rgba(247,147,30,0.8);margin-bottom:3px;font-family:'Inter',sans-serif;">总预算参考</div>
+      <div class="noto-serif" style="font-size:11px;color:#fff;font-weight:500;">¥8,000 – ¥15,000 / 人/天</div>
+      <div style="font-size:8.5px;color:rgba(255,255,255,0.45);">含餐饮·不含机酒</div>
+    </div>
+    <div class="info-item">
+      <div style="font-size:9px;letter-spacing:0.1em;color:rgba(236,64,122,0.8);margin-bottom:3px;font-family:'Inter',sans-serif;">🌸 樱花最佳窗口</div>
+      <div class="noto-serif" style="font-size:11px;color:#fff;font-weight:500;">4月1日 – 4月7日</div>
+      <div style="font-size:8.5px;color:rgba(255,255,255,0.45);">以当年气象局预报为准</div>
+    </div>
+    <div class="info-item">
+      <div style="font-size:9px;letter-spacing:0.1em;color:rgba(247,147,30,0.8);margin-bottom:3px;font-family:'Inter',sans-serif;">入境要求</div>
+      <div class="noto-serif" style="font-size:11px;color:#fff;font-weight:500;">Visit Japan Web 提前注册</div>
+      <div style="font-size:8.5px;color:rgba(255,255,255,0.45);">免签 · 护照有效期6个月+</div>
+    </div>
+  </div>
+
+  <div class="watermark">SAKURA RUSH 2026</div>
+  <div class="page-num">— 02 —</div>
+</div>
+</body>
+</html>

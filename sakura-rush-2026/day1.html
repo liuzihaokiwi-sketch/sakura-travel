@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SAKURA RUSH 2026 — Day 1 浅草·上野</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 210mm; height: 297mm; overflow: hidden; background: #fefaf6; font-family: 'Inter', sans-serif; color: #1c1917; }
+  .page { width: 210mm; height: 297mm; position: relative; display: flex; flex-direction: column; }
+  .playfair { font-family: 'Playfair Display', serif; }
+  .noto-serif { font-family: 'Noto Serif SC', serif; }
+  .top-bar { height: 5px; background: linear-gradient(90deg, #f7931e, #ec407a, #f7931e); flex-shrink:0; }
+
+  /* 页眉 */
+  .day-header {
+    position: relative;
+    height: 70px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .day-header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=85');
+    background-size: cover;
+    background-position: center 60%;
+  }
+  .day-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,5,5,0.82) 0%, rgba(10,5,5,0.55) 60%, rgba(10,5,5,0.3) 100%);
+  }
+  .day-header-content {
+    position: relative;
+    z-index: 2;
+    padding: 10px 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 时间轴 */
+  .timeline { position: relative; padding-left: 14px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: linear-gradient(180deg, #f7931e, #ec407a, #f7931e);
+    opacity: 0.4;
+  }
+  .timeline-item { position: relative; padding: 0 0 9px 18px; }
+  .timeline-dot {
+    position: absolute;
+    left: -10px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f7931e;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1.5px rgba(247,147,30,0.4);
+  }
+  .timeline-dot.pink { background: #ec407a; box-shadow: 0 0 0 1.5px rgba(236,64,122,0.4); }
+  .timeline-dot.dark { background: #1c1917; box-shadow: 0 0 0 1.5px rgba(28,25,23,0.3); }
+
+  .time-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #f7931e;
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
+    font-family: 'Inter', sans-serif;
+  }
+  .item-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1c1917;
+    margin-bottom: 2px;
+  }
+  .item-desc {
+    font-size: 10px;
+    color: #78716c;
+    line-height: 1.55;
+  }
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 3px;
+  }
+  .tag {
+    font-size: 8.5px;
+    padding: 1.5px 6px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* 右侧边栏 */
+  .sidebar { width: 85px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #f0e8df;
+    padding: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .sidebar-title {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+  }
+  .sidebar-item { font-size: 9px; color: #78716c; line-height: 1.6; }
+
+  /* 底部交通条 */
+  .transport-bar {
+    background: linear-gradient(135deg, #fff8f0, #fef3f7);
+    border-top: 1px solid #f0e8df;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .watermark { position: absolute; top: 50%; right: 16px; font-size: 7.5px; letter-spacing: 0.18em; color: rgba(100,80,60,0.12); writing-mode: vertical-rl; transform: translateY(-50%); pointer-events: none; }
+  .page-num-box { font-size: 8px; color: rgba(100,80,60,0.3); letter-spacing: 0.12em; }
+
+  .photo-spot-img {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <!-- 页眉 -->
+  <div class="day-header">
+    <div class="day-header-bg"></div>
+    <div class="day-header-overlay"></div>
+    <div class="day-header-content">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.25em;color:rgba(247,147,30,0.9);margin-bottom:5px;font-family:'Inter',sans-serif;">DAY 01 · APRIL 1, 2026</div>
+        <h2 class="playfair" style="font-size:22px;color:#fff;font-weight:700;line-height:1.15;">浅草 · 上野</h2>
+        <div class="noto-serif" style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;letter-spacing:0.1em;">历史与下町风情</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="background:rgba(236,64,122,0.2);border:1px solid rgba(236,64,122,0.5);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:6px;">
+          <span style="font-size:10px;color:#ec407a;letter-spacing:0.1em;">🌸 上野公园 · 満開</span>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.5);font-family:'Inter',sans-serif;">约 12,000 步 · 电车 4 站</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div style="display:flex;flex:1;overflow:hidden;padding:10px 16px 0;gap:12px;">
+
+    <!-- 时间轴 -->
+    <div style="flex:1;overflow:hidden;">
+      <div class="timeline">
+
+        <!-- 09:00 浅草寺 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">09:00 🏮 浅草寺</div>
+          <div class="item-title">浅草寺 & 仲见世商店街</div>
+          <div class="item-desc">东京最古老的寺庙，雷门大灯笼是标志性打卡点。清晨人少光线好，拍摄雷门 + 仲见世长廊效果最佳。建议沿仲见世买人形烧、草莓大福作早餐。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">🕐 90分钟</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">免费入场</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 雷门正面 / 早晨7-9时最佳</span>
+          </div>
+        </div>
+
+        <!-- 11:00 午餐 -->
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">11:30 🍣 午餐</div>
+          <div class="item-title">大黒家天麩羅 — 浅草本店</div>
+          <div class="item-desc">创业1887年，天妇罗丼饭名店。招牌天丼（¥1,800）芝麻油香气浓郁，外皮酥脆。Tabelog ⭐ 3.86，营业前排队入场更省时。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥2,000</span>
+            <span class="tag" style="background:#f0fdf4;color:#15803d;">建议11:30前到</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">招牌：天丼</span>
+          </div>
+        </div>
+
+        <!-- 13:30 上野公园 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="time-label">13:30 🌸 上野公園</div>
+          <div class="item-title">上野公园樱花大道</div>
+          <div class="item-desc">约1,200棵染井吉野樱，最壮观的赏樱圣地。从公园入口直走至不忍池，拍摄樱花隧道需走中央大道正中间仰拍。蓝色帆布席位需提前1小时占位。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">🕐 2小时</span>
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">免费</span>
+            <span class="tag" style="background:#e0f2fe;color:#0369a1;">交通：地铁银座线 上野站</span>
+          </div>
+        </div>
+
+        <!-- 16:00 阿美横丁 -->
+        <div class="timeline-item">
+          <div class="timeline-dot dark"></div>
+          <div class="time-label" style="color:#78716c;">16:00 🛒 阿美横丁</div>
+          <div class="item-title">アメヤ横丁 — 下町市集</div>
+          <div class="item-desc">二战后黑市演变成的热闹商街，海鲜、坚果、服装应有尽有。推荐购买：伊藤海苔（礼品）、松阪屋干货、各类干果零食。讨价还价文化在此适用。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">🕐 1小时</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">逛街购物</span>
+          </div>
+        </div>
+
+        <!-- 18:30 晚餐 -->
+        <div class="timeline-item">
+          <div class="timeline-dot pink"></div>
+          <div class="time-label" style="color:#ec407a;">18:30 🍜 晚餐</div>
+          <div class="item-title">捷運餐廳 SOMETARO — 文字烧</div>
+          <div class="item-desc">浅草下町文字烧（もんじゃ焼き）体验餐厅，自己动手铁板烧制，本地居酒屋氛围。推荐：海鲜文字烧+明太子文字烧。Tabelog ⭐ 3.62。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fff3e0;color:#e07010;">人均 ¥2,500</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">需预约（Google可订）</span>
+          </div>
+        </div>
+
+        <!-- 20:00 夜间 -->
+        <div class="timeline-item" style="padding-bottom:0;">
+          <div class="timeline-dot dark" style="background:#1c1917;"></div>
+          <div class="time-label" style="color:#1c1917;">20:00 🌙 夜游吾妻桥</div>
+          <div class="item-title">吾妻桥夜景 + 晴空塔倒影</div>
+          <div class="item-desc">步行至吾妻桥，隅田川对岸可同框拍到晴空塔与樱花。夜间樱花在灯光下呈现粉白色调，是当日收官完美镜头。建议20:00-21:00间拍摄，人群相对较少。</div>
+          <div class="item-tags">
+            <span class="tag" style="background:#fce4ec;color:#c2185b;">🌸 夜樱</span>
+            <span class="tag" style="background:#f5f5f4;color:#57534e;">免费</span>
+            <span class="tag" style="background:#f3e8ff;color:#6d28d9;">📸 与晴空塔同框</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 右侧边栏 -->
+    <div class="sidebar">
+      <!-- 今日拍照点 -->
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#ec407a;">📸 今日出片点</div>
+        <div style="margin-bottom:6px;">
+          <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=200&q=80" class="photo-spot-img" alt="浅草寺雷门" style="border-radius:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">① 雷门正面</div>
+          <div style="font-size:8px;color:#78716c;">早9时 · 低角度仰拍</div>
+        </div>
+        <div style="margin-bottom:6px;border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">② 上野樱花道</div>
+          <div style="font-size:8px;color:#78716c;">午后14-15时 · 仰拍隧道</div>
+        </div>
+        <div style="border-top:1px solid #f0e8df;padding-top:5px;">
+          <div style="font-size:8.5px;font-weight:600;color:#1c1917;">③ 吾妻桥夜景</div>
+          <div style="font-size:8px;color:#78716c;">20:30后 · 晴空塔同框</div>
+        </div>
+      </div>
+
+      <!-- 今日避坑 -->
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#f7931e;">💡 避坑提示</div>
+        <div class="sidebar-item">
+          <div style="color:#dc2626;font-size:8px;">❌ 上午10点后去雷门</div>
+          <div style="color:#16a34a;font-size:8px;margin-bottom:4px;">✅ 8-9点人最少</div>
+          <div style="color:#dc2626;font-size:8px;">❌ 带大行李进上野</div>
+          <div style="color:#16a34a;font-size:8px;margin-bottom:4px;">✅ 投寄到酒店</div>
+          <div style="color:#dc2626;font-size:8px;">❌ 现场买文字烧</div>
+          <div style="color:#16a34a;font-size:8px;">✅ 提前网预约</div>
+        </div>
+      </div>
+
+      <!-- 樱花状态 -->
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#fff0f6,#fff8f0);border-color:#f8bbd0;">
+        <div class="sidebar-title" style="color:#ec407a;">🌸 今日樱花</div>
+        <div style="text-align:center;padding:4px 0;">
+          <div style="font-size:22px;">🌸🌸🌸🌸🌸</div>
+          <div style="font-size:10px;font-weight:700;color:#ec407a;margin-top:2px;" class="noto-serif">満開</div>
+          <div style="font-size:8px;color:#78716c;margin-top:2px;">上野公园<br>最佳赏樱日</div>
+        </div>
+      </div>
+
+      <!-- 今日预算 -->
+      <div class="sidebar-card">
+        <div class="sidebar-title" style="color:#1c1917;">💴 今日预算</div>
+        <div style="font-size:8.5px;color:#78716c;line-height:2;">
+          <div style="display:flex;justify-content:space-between;"><span>交通</span><span style="color:#1c1917;">¥600</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>午餐</span><span style="color:#1c1917;">¥2,000</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>晚餐</span><span style="color:#1c1917;">¥2,500</span></div>
+          <div style="display:flex;justify-content:space-between;"><span>购物</span><span style="color:#1c1917;">¥2,000</span></div>
+          <div style="border-top:1px solid #f0e8df;margin-top:3px;padding-top:3px;display:flex;justify-content:space-between;font-weight:600;color:#f7931e;"><span>合计</span><span>¥7,100</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部交通条 -->
+  <div class="transport-bar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:9px;letter-spacing:0.1em;color:#a8967e;font-family:'Inter',sans-serif;">今日交通</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚶 约12,000步</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚃 银座线 · 4站</span>
+      <span style="color:#e0d5cb;">·</span>
+      <span style="font-size:10px;color:#1c1917;" class="noto-serif">🚕 无需打车</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="page-num-box">— 03 —</div>
+      <div style="font-size:7.5px;letter-spacing:0.15em;color:rgba(100,80,60,0.2);font-family:'Inter',sans-serif;">SAKURA RUSH 2026</div>
+    </div>
+  </div>
+  <div class="watermark">SAKURA RUSH 2026</div>
+</div>
+</body>
+</html>
