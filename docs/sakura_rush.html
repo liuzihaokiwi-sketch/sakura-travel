@@ -367,142 +367,163 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 </div>
 
 <!-- CUSTOM SERVICE PAGE -->
-<div class="page" id="custom-page" style="flex-direction:column;overflow:hidden;background:#0d0b08">
-  <!-- Full-screen one-page layout -->
-  <div style="flex:1;display:flex;gap:0;overflow:hidden">
+<style>
+.cst-page{flex-direction:column;overflow:hidden;background:#faf8f5}
+.cst-hdr{display:flex;align-items:center;gap:16px;padding:16px 28px;background:#fff;border-bottom:1px solid #f0e8e0;flex-shrink:0}
+.cst-hdr h2{font-size:20px;font-weight:900;color:#1a1a1a;letter-spacing:-.5px}
+.cst-hdr h2 em{font-style:normal;color:#d35400}
+.cst-body{flex:1;display:flex;gap:0;overflow:hidden}
+.cst-left{flex:1;padding:14px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;overflow:hidden}
+.cst-card{position:relative;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #f0e8e0}
+.cst-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.12}
+.cst-card-body{position:relative;z-index:1;padding:16px 18px;flex:1;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.97))}
+.cst-card-icon{font-size:28px;margin-bottom:6px}
+.cst-card-title{font-size:15px;font-weight:800;color:#1a1a1a;margin-bottom:2px;letter-spacing:-.3px}
+.cst-card-pain{font-size:11px;color:#c0392b;font-weight:600;margin-bottom:8px;line-height:1.4;padding:4px 8px;background:rgba(231,76,60,.06);border-radius:6px;border-left:3px solid #e74c3c}
+.cst-card-sol{font-size:12px;color:#444;line-height:1.6;flex:1}
+.cst-card-sol b{color:#d35400;font-weight:700}
+.cst-right{width:300px;flex-shrink:0;background:#fff;border-left:1px solid #f0e8e0;padding:20px 22px;display:flex;flex-direction:column;overflow:hidden}
+.cst-tech{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.cst-tech-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fef9f2;border-radius:10px;border:1px solid #f5ead8}
+.cst-tech-icon{font-size:22px;flex-shrink:0}
+.cst-tech-name{font-size:12px;font-weight:800;color:#d35400}
+.cst-tech-desc{font-size:9px;color:#999;margin-top:1px}
+.cst-flow{margin-bottom:14px}
+.cst-flow-title{font-size:12px;font-weight:700;color:#999;margin-bottom:8px}
+.cst-flow-steps{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.cst-flow-step{display:flex;align-items:center;gap:4px;font-size:11px;color:#666}
+.cst-flow-num{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.cst-flow-arrow{color:#ddd;font-size:14px}
+.cst-wechat{background:linear-gradient(135deg,#1a1208,#2d1f0a);border-radius:12px;padding:14px 18px;color:#fff;margin-top:auto}
+.cst-wechat-label{font-size:9px;color:rgba(255,255,255,.3)}
+.cst-wechat-row{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.cst-wechat-id{font-size:17px;font-weight:900;color:#f7931e;user-select:all}
+.cst-wechat-btn{background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;border:none;padding:7px 16px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer}
+.cst-trust{display:flex;gap:10px;justify-content:center;margin-top:8px}
+.cst-trust span{font-size:9px;color:#bbb}
+</style>
+<div class="page cst-page" id="custom-page">
+  <div class="cst-hdr">
+    <span style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;font-size:12px;font-weight:900;padding:5px 16px;border-radius:6px">🎁 免费体验</span>
+    <h2>为什么不直接用AI生成？<em>因为我们做的更好</em></h2>
+  </div>
+  <div class="cst-body">
+    <div class="cst-left">
 
-    <!-- LEFT: 痛点 + 为什么选我们 -->
-    <div style="flex:1;padding:28px 32px;overflow:hidden;display:flex;flex-direction:column;color:#fff;position:relative">
-      <div style="position:absolute;right:-60px;bottom:-60px;font-size:200px;opacity:.02">🌸</div>
-
-      <!-- Title bar -->
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-shrink:0">
-        <span style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:5px">🎁 免费体验</span>
-        <span style="font-size:18px;font-weight:900;color:#fff">为什么不直接用AI生成？</span>
+      <!-- 1: 旅居验证 — 街道背景 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">🇯🇵</div>
+          <div class="cst-card-title">旅居日本 · 人工验证</div>
+          <div class="cst-card-pain">❌ AI推荐的餐厅已倒闭、景点在维修、交通是错的</div>
+          <div class="cst-card-sol">我们<b>实际住在日本</b>，每条路线亲自走过。餐厅是不是还开、景点有没有在修——<b>实地确认过才推荐</b>。踩过的坑比你吃过的拉面还多。</div>
+        </div>
       </div>
 
-      <!-- Pain vs Us grid -->
-      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:hidden">
-
-        <!-- Card 1 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ AI生成的行程</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">推荐的餐厅已经倒闭了、景点在维修、交通线路都是错的</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 我们的方案</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5"><b style="color:#f7931e">旅居日本团队人工验证</b>，每条路线亲自走过。餐厅是不是还开着、景点有没有在修——我们实地确认过</div>
-          </div>
+      <!-- 2: 差异化体验 — 夜樱/灯笼 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">✨</div>
+          <div class="cst-card-title">拒绝审美疲劳</div>
+          <div class="cst-card-pain">❌ 10个人搜出一模一样的行程，去了全是人头</div>
+          <div class="cst-card-sol"><b>隐藏樱花路 + 限定夜樱活动 + 屋台小吃街</b>，让你的行程跟别人不一样。当地人才知道的地方，<b>朋友圈绝对不撞款</b>。</div>
         </div>
-
-        <!-- Card 2 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ 千篇一律的攻略</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">10个人搜出来一模一样的行程，去了全是人头拍不了照</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 差异化个性搭配</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5"><b style="color:#f7931e">隐藏樱花路 + 限定夜樱 + 屋台小吃街</b>，拒绝审美疲劳。让你的朋友圈跟别人不一样</div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ 只会推荐热门店</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">餐厅只有名字没有评价，不知道点什么、要不要预约、排多久</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 详细体验+菜单推荐</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5">每家餐厅附<b style="color:#f7931e">真实体验评价、招牌菜推荐、人均价格、是否需预约</b>。Tabelog 3.5+才入选</div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ 不知道花期状态</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">去了才发现"开花了"不等于好看，白跑一趟浪费时间和钱</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 240景点实时花期数据</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5"><b style="color:#f7931e">6大数据源+每天3次更新</b>，精确到每个景点的最佳窗口。全方位避坑，不让你浪费一分钱</div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ 拍出来全是游客照</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">去了热门景点拍的和别人一样，发朋友圈没人点赞</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 保证出片效果</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5"><b style="color:#f7931e">最佳时段 + 小众机位 + 错峰路线</b>，告诉你几点去人最少、哪个角度最美。朋友圈出片率拉满</div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column">
-          <div style="font-size:10px;color:#e74c3c;font-weight:700;margin-bottom:4px">❌ 机票酒店被坑</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.25);line-height:1.4;margin-bottom:8px">樱花季溢价严重，不知道哪个渠道最划算</div>
-          <div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.06);padding-top:8px">
-            <div style="font-size:10px;color:#f7931e;font-weight:700;margin-bottom:3px">✅ 20+渠道比价省30-50%</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.5);line-height:1.5"><b style="color:#f7931e">机票含里程票/转机组合，酒店锁免费取消房源</b>。交通Pass自动计算最省方案，不浪费一分钱</div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- 3: 美食 — 日料背景 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">🍣</div>
+          <div class="cst-card-title">详细菜单 · 真实评价</div>
+          <div class="cst-card-pain">❌ 只推荐名字没有评价，不知道点啥、要不要预约</div>
+          <div class="cst-card-sol">每家餐厅附<b>真实体验评价、招牌菜推荐、人均价格</b>。标注是否需预约、排队时长。<b>Tabelog 3.5+ 才入选</b>，含隐藏居酒屋。</div>
+        </div>
+      </div>
+
+      <!-- 4: 花期数据 — 樱花特写 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">🌸</div>
+          <div class="cst-card-title">240景点 · 实时花期</div>
+          <div class="cst-card-pain">❌ 去了才发现"开花了"≠好看，白跑一趟浪费钱</div>
+          <div class="cst-card-sol"><b>6大数据源 + 每天3次更新</b>，精确到每个景点的最佳窗口日期。全方位避坑，<b>不让你浪费一分钱一分钟</b>。</div>
+        </div>
+      </div>
+
+      <!-- 5: 出片 — 相机/拍照 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">📸</div>
+          <div class="cst-card-title">保证出片效果</div>
+          <div class="cst-card-pain">❌ 热门景点拍的和别人一样，朋友圈没人点赞</div>
+          <div class="cst-card-sol"><b>最佳拍摄时段 + 小众机位 + 错峰路线</b>。告诉你几点去人最少、哪个角度最美。<b>朋友圈出片率拉满</b>。</div>
+        </div>
+      </div>
+
+      <!-- 6: 省钱 — 飞机/酒店 -->
+      <div class="cst-card">
+        <div class="cst-card-bg" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=60')"></div>
+        <div class="cst-card-body">
+          <div class="cst-card-icon">💰</div>
+          <div class="cst-card-title">全方位省钱避坑</div>
+          <div class="cst-card-pain">❌ 樱花季溢价严重，机票酒店交通都被坑</div>
+          <div class="cst-card-sol"><b>20+渠道比价省30-50%</b>。机票含里程票/转机组合，酒店锁免费取消房源。交通Pass<b>自动计算最省方案</b>。</div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- RIGHT: 技术底牌 + 微信 -->
-    <div style="width:320px;flex-shrink:0;background:linear-gradient(180deg,#1a1510,#0d0b08);border-left:1px solid rgba(247,147,30,.08);padding:28px 24px;display:flex;flex-direction:column;overflow:hidden">
-
-      <!-- Tech stack -->
-      <div style="margin-bottom:16px;flex-shrink:0">
-        <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:10px">🧠 我们的技术底牌</div>
-        <div style="display:flex;flex-direction:column;gap:6px">
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(247,147,30,.06);border:1px solid rgba(247,147,30,.1);border-radius:8px">
-            <span style="font-size:16px">🤖</span>
-            <div><div style="font-size:10px;font-weight:700;color:#f7931e">顶级AI规划引擎</div><div style="font-size:8px;color:rgba(255,255,255,.3)">$200/月专业版 · 动线优化精确到分钟</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(247,147,30,.06);border:1px solid rgba(247,147,30,.1);border-radius:8px">
-            <span style="font-size:16px">📊</span>
-            <div><div style="font-size:10px;font-weight:700;color:#f7931e">240+景点实时数据</div><div style="font-size:8px;color:rgba(255,255,255,.3)">6大数据源 · 每天3次 · ±2天精度</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(247,147,30,.06);border:1px solid rgba(247,147,30,.1);border-radius:8px">
-            <span style="font-size:16px">🇯🇵</span>
-            <div><div style="font-size:10px;font-weight:700;color:#f7931e">旅居日本团队</div><div style="font-size:8px;color:rgba(255,255,255,.3)">每条路线人工验证 · 踩坑经验丰富</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(247,147,30,.06);border:1px solid rgba(247,147,30,.1);border-radius:8px">
-            <span style="font-size:16px">📸</span>
-            <div><div style="font-size:10px;font-weight:700;color:#f7931e">出片保证</div><div style="font-size:8px;color:rgba(255,255,255,.3)">小众机位 · 最佳时段 · 错峰路线</div></div>
-          </div>
+    <!-- RIGHT -->
+    <div class="cst-right">
+      <div style="font-size:14px;font-weight:800;color:#1a1a1a;margin-bottom:12px">🧠 我们的技术底牌</div>
+      <div class="cst-tech">
+        <div class="cst-tech-item">
+          <div class="cst-tech-icon">🤖</div>
+          <div><div class="cst-tech-name">顶级AI规划引擎</div><div class="cst-tech-desc">$200/月专业版 · 动线优化精确到分钟级</div></div>
+        </div>
+        <div class="cst-tech-item">
+          <div class="cst-tech-icon">📊</div>
+          <div><div class="cst-tech-name">240+景点实时花期数据</div><div class="cst-tech-desc">6大数据源 · 每天3次 · 误差±2天</div></div>
+        </div>
+        <div class="cst-tech-item">
+          <div class="cst-tech-icon">🇯🇵</div>
+          <div><div class="cst-tech-name">长期旅居日本团队</div><div class="cst-tech-desc">每条路线人工实地验证 · 踩坑经验丰富</div></div>
+        </div>
+        <div class="cst-tech-item">
+          <div class="cst-tech-icon">📸</div>
+          <div><div class="cst-tech-name">出片保证 · 差异化体验</div><div class="cst-tech-desc">小众机位 · 隐藏路线 · 拒绝千篇一律</div></div>
         </div>
       </div>
 
-      <!-- Flow -->
-      <div style="flex:1;display:flex;flex-direction:column;gap:4px;margin-bottom:12px">
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:2px">📋 怎么开始</div>
-        <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:rgba(255,255,255,.35)">
-          <span style="width:18px;height:18px;border-radius:50%;background:rgba(247,147,30,.15);color:#f7931e;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center">1</span>加微信备注「樱花」
-          <span style="color:rgba(255,255,255,.1)">→</span>
-          <span style="width:18px;height:18px;border-radius:50%;background:rgba(247,147,30,.15);color:#f7931e;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center">2</span>告知日期
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:rgba(255,255,255,.35)">
-          <span style="width:18px;height:18px;border-radius:50%;background:rgba(247,147,30,.15);color:#f7931e;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center">3</span>免费获取1天攻略
-          <span style="color:rgba(255,255,255,.1)">→</span>
-          <span style="width:18px;height:18px;border-radius:50%;background:rgba(247,147,30,.15);color:#f7931e;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center">4</span>满意再付费
+      <div class="cst-flow">
+        <div class="cst-flow-title">📋 怎么开始</div>
+        <div class="cst-flow-steps">
+          <div class="cst-flow-step"><div class="cst-flow-num">1</div>加微信</div>
+          <div class="cst-flow-arrow">→</div>
+          <div class="cst-flow-step"><div class="cst-flow-num">2</div>告知日期</div>
+          <div class="cst-flow-arrow">→</div>
+          <div class="cst-flow-step"><div class="cst-flow-num">3</div>免费1天攻略</div>
+          <div class="cst-flow-arrow">→</div>
+          <div class="cst-flow-step"><div class="cst-flow-num">4</div>满意再付费</div>
         </div>
       </div>
 
-      <!-- WeChat -->
-      <div style="background:rgba(247,147,30,.06);border:1px solid rgba(247,147,30,.12);border-radius:10px;padding:12px 16px;flex-shrink:0">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <div>
-            <div style="font-size:8px;color:rgba(255,255,255,.2)">加微信 · 备注「樱花」</div>
-            <div style="font-size:16px;font-weight:900;color:#f7931e;margin-top:2px;user-select:all">Kiwi_iloveu_O-o</div>
-          </div>
-          <button onclick="navigator.clipboard.writeText('Kiwi_iloveu_O-o');this.textContent='✅';var b=this;setTimeout(function(){b.textContent='📋'},1500)" style="background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;border:none;width:32px;height:32px;border-radius:8px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center">📋</button>
+      <div class="cst-wechat">
+        <div class="cst-wechat-label">加微信 · 备注「樱花」</div>
+        <div class="cst-wechat-row">
+          <div class="cst-wechat-id">Kiwi_iloveu_O-o</div>
+          <button class="cst-wechat-btn" onclick="navigator.clipboard.writeText('Kiwi_iloveu_O-o');this.textContent='✅ 已复制!';var b=this;setTimeout(function(){b.textContent='📋 复制微信号'},1500)">📋 复制微信号</button>
         </div>
       </div>
-
-      <div style="display:flex;gap:8px;margin-top:8px;justify-content:center;flex-shrink:0">
-        <span style="font-size:8px;color:rgba(255,255,255,.15)">🔒 不满意不收费</span>
-        <span style="font-size:8px;color:rgba(255,255,255,.15)">🌸 满意再付费</span>
-        <span style="font-size:8px;color:rgba(255,255,255,.15)">🇯🇵 旅居团队</span>
+      <div class="cst-trust">
+        <span>🔒 不满意不收费</span>
+        <span>🌸 满意再付费</span>
+        <span>🇯🇵 旅居团队</span>
       </div>
     </div>
   </div>
