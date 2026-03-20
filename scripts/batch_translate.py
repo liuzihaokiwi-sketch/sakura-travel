@@ -2,21 +2,12 @@
 """
 scripts/batch_translate.py
 --------------------------
-批量翻译脚本：将数据库中 entity_base 的日文名称翻译为中文。
-
-使用 DeepL 免费 API，翻译结果缓存至 Redis（永不过期）。
+批量翻译实体名称（日文 → 中文），使用 DeepL Free API + Redis 缓存。
 
 用法示例：
-  # 翻译全部城市
-  python scripts/batch_translate.py
-
-  # 仅翻译东京
   python scripts/batch_translate.py --city tokyo
-
-  # 预览模式（不写入数据库）
   python scripts/batch_translate.py --city osaka --dry-run
-
-  # 强制重新翻译（覆盖已有中文名）
+  python scripts/batch_translate.py
   python scripts/batch_translate.py --city kyoto --force
 """
 
@@ -28,7 +19,9 @@ import logging
 import sys
 from pathlib import Path
 
-# 添加项目根目录到 sys.path
+import httpx
+import redis.asyncio as aioredis
+
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
@@ -38,255 +31,152 @@ logging.basicConfig(
 )
 logger = logging.getLogger("batch_translate")
 
-SUPPORTED_CITIES = ["tokyo", "osaka", "kyoto"]
-DEEPL_API_URL = "https://api-free.deepl.com/v2/translate"
+SUPPORTED_CITIES = ["tokyo", "osaka", "kyoto", "hakone", "nikko", "kamakura",
+                     "nara", "hiroshima", "fukuoka", "sapporo", "okinawa", "kobe"]
+
+DEEPL_FREE_URL = "https://api-free.deepl.com/v2/translate"
+DEEPL_PRO_URL = "https://api.deepl.com/v2/translate"
 REDIS_CACHE_PREFIX = "translate:ja:zh"
-BATCH_SIZE = 50  # DeepL 单次请求最大文本数
+BATCH_SIZE = 50
 
 
 async def translate_texts_deepl(
-    texts: list[str],
-    api_key: str,
+    texts: list[str], api_key: str, use_pro: bool = False,
 ) -> list[str]:
-    """
-    调用 DeepL 免费 API 批量翻译日文→中文。
-
-    Args:
-        texts:    待翻译文本列表
-        api_key:  DeepL API Key
-
-    Returns:
-        翻译后文本列表（与输入等长）
-    """
-    import httpx
-
-    if not texts:
-        return []
-
+    url = DEEPL_PRO_URL if use_pro else DEEPL_FREE_URL
     async with httpx.AsyncClient(timeout=30.0) as client:
-        resp = await client.post(
-            DEEPL_API_URL,
-            data={
-                "auth_key": api_key,
-                "text": texts,
-                "source_lang": "JA",
-                "target_lang": "ZH",
-            },
-        )
+        resp = await client.post(url, data={
+            "auth_key": api_key, "text": texts,
+            "source_lang": "JA", "target_lang": "ZH",
+        })
         resp.raise_for_status()
-        data = resp.json()
-        translations = data.get("translations", [])
-        return [t.get("text", "") for t in translations]
-
-
-async def translate_with_cache(
-    text: str,
-    api_key: str,
-    redis_client=None,
-) -> str:
-    """
-    带 Redis 缓存的单条翻译。
-    缓存 key: translate:ja:zh:{text}，永不过期。
-    """
-    if not text or not text.strip():
-        return ""
-
-    cache_key = f"{REDIS_CACHE_PREFIX}:{text}"
-
-    # 尝试读缓存
-    if redis_client is not None:
-        try:
-            cached = await redis_client.get(cache_key)
-            if cached is not None:
-                return cached.decode("utf-8") if isinstance(cached, bytes) else cached
-        except Exception as e:
-            logger.warning("Redis cache read failed: %s", e)
-
-    # 调用 DeepL
-    results = await translate_texts_deepl([text], api_key)
-    translated = results[0] if results else ""
-
-    # 写入缓存（永不过期）
-    if redis_client is not None and translated:
-        try:
-            await redis_client.set(cache_key, translated)
-        except Exception as e:
-            logger.warning("Redis cache write failed: %s", e)
-
-    return translated
+    return [t.get("text", "") for t in resp.json().get("translations", [])]
 
 
 async def batch_translate_with_cache(
-    texts: list[str],
-    api_key: str,
-    redis_client=None,
-) -> list[str]:
-    """
-    批量翻译，优先从 Redis 缓存读取，未命中的统一调用 DeepL。
-    """
-    results = [""] * len(texts)
-    uncached_indices: list[int] = []
-    uncached_texts: list[str] = []
+    texts: list[str], api_key: str,
+    redis_client: aioredis.Redis | None = None, use_pro: bool = False,
+) -> dict[str, str]:
+    result_map: dict[str, str] = {}
+    need_translate: list[str] = []
 
-    # 1. 先从缓存批量查
-    for i, text in enumerate(texts):
+    for text in texts:
         if not text or not text.strip():
-            results[i] = ""
+            result_map[text] = text
             continue
-
-        cache_key = f"{REDIS_CACHE_PREFIX}:{text}"
-        if redis_client is not None:
+        cached = None
+        if redis_client:
             try:
-                cached = await redis_client.get(cache_key)
-                if cached is not None:
-                    results[i] = cached.decode("utf-8") if isinstance(cached, bytes) else cached
-                    continue
+                cached = await redis_client.get(f"{REDIS_CACHE_PREFIX}:{text}")
             except Exception:
                 pass
+        if cached:
+            result_map[text] = cached.decode("utf-8") if isinstance(cached, bytes) else cached
+        else:
+            need_translate.append(text)
 
-        uncached_indices.append(i)
-        uncached_texts.append(text)
+    logger.info(f"缓存命中: {len(texts) - len(need_translate)}, 需翻译: {len(need_translate)}")
 
-    if not uncached_texts:
-        return results
-
-    logger.info(f"  缓存命中 {len(texts) - len(uncached_texts)}/{len(texts)}，需翻译 {len(uncached_texts)} 条")
-
-    # 2. 分批调用 DeepL
-    for batch_start in range(0, len(uncached_texts), BATCH_SIZE):
-        batch = uncached_texts[batch_start:batch_start + BATCH_SIZE]
-        batch_indices = uncached_indices[batch_start:batch_start + BATCH_SIZE]
-
+    for i in range(0, len(need_translate), BATCH_SIZE):
+        batch = need_translate[i: i + BATCH_SIZE]
         try:
-            translated = await translate_texts_deepl(batch, api_key)
-            for j, (idx, text, trans) in enumerate(zip(batch_indices, batch, translated)):
-                results[idx] = trans
-                # 写入缓存（永不过期）
-                if redis_client is not None and trans:
+            translated = await translate_texts_deepl(batch, api_key, use_pro)
+            for orig, trans in zip(batch, translated):
+                result_map[orig] = trans
+                if redis_client and trans:
                     try:
-                        cache_key = f"{REDIS_CACHE_PREFIX}:{text}"
-                        await redis_client.set(cache_key, trans)
+                        await redis_client.set(f"{REDIS_CACHE_PREFIX}:{orig}", trans)
                     except Exception:
                         pass
+            logger.info(f"批次 {i // BATCH_SIZE + 1} 翻译完成: {len(batch)} 条")
         except Exception as e:
-            logger.error(f"  DeepL 翻译批次失败: {e}")
+            logger.error(f"DeepL 翻译失败（批次 {i // BATCH_SIZE + 1}）: {e}")
+            for orig in batch:
+                result_map[orig] = orig
 
-    return results
+    return result_map
 
 
 async def run(args: argparse.Namespace) -> None:
     from app.core.config import settings
     from app.db.session import AsyncSessionLocal
-    from sqlalchemy import select, func
+    from app.db.models.catalog import EntityBase
+    from sqlalchemy import select
 
-    # 检查 DeepL API Key
-    deepl_key = settings.deepl_api_key
-    if not deepl_key:
-        logger.error("未配置 DEEPL_API_KEY，请在 .env 中设置")
+    api_key = settings.deepl_api_key
+    if not api_key or api_key.startswith("your_"):
+        logger.error("❌ 请在 .env 中设置 DEEPL_API_KEY")
         sys.exit(1)
 
-    # 尝试连接 Redis（可选）
     redis_client = None
     try:
-        import redis.asyncio as aioredis
-        redis_client = aioredis.from_url(
-            settings.redis_url,
-            encoding="utf-8",
-            decode_responses=False,
-        )
+        redis_client = aioredis.from_url(settings.redis_url, decode_responses=False)
         await redis_client.ping()
-        logger.info("Redis 连接成功，启用翻译缓存")
-    except Exception as e:
-        logger.warning(f"Redis 连接失败，不使用缓存: {e}")
+        logger.info("✅ Redis 已连接（缓存可用）")
+    except Exception:
+        logger.warning("⚠️ Redis 不可用，本次不使用缓存")
         redis_client = None
 
     async with AsyncSessionLocal() as session:
-        from app.db.models.catalog import EntityBase
-
-        # 构建查询
         stmt = select(EntityBase).where(EntityBase.is_active == True)  # noqa: E712
-
         if args.city:
             stmt = stmt.where(EntityBase.city_code.in_(args.city))
-
         if not args.force:
-            # 仅翻译 name_zh 为空但 name_ja 有值的实体
             stmt = stmt.where(
-                EntityBase.name_ja.isnot(None),
-                EntityBase.name_ja != "",
-                (EntityBase.name_zh.is_(None)) | (EntityBase.name_zh == ""),
+                (EntityBase.name_zh == None) | (EntityBase.name_zh == "")  # noqa: E711
             )
 
-        result = await session.execute(stmt)
-        entities = result.scalars().all()
+        entities = (await session.execute(stmt)).scalars().all()
 
         if not entities:
-            logger.info("没有需要翻译的实体")
+            logger.info("✅ 没有需要翻译的实体")
             return
 
-        logger.info(f"共 {len(entities)} 个实体需要翻译")
+        logger.info(f"待翻译实体: {len(entities)} 条")
 
         if args.dry_run:
-            logger.info("--dry-run 模式，仅预览：")
             for e in entities[:20]:
-                logger.info(f"  [{e.city_code}] {e.entity_type}: {e.name_ja} → (待翻译)")
+                logger.info(f"  [预览] {e.city_code} / {e.entity_type} / {e.name_ja or e.name_local or '?'}")
             if len(entities) > 20:
                 logger.info(f"  ... 还有 {len(entities) - 20} 条")
             return
 
-        # 提取所有日文名
-        ja_names = [e.name_ja or "" for e in entities]
+        entity_map: dict[str, list] = {}
+        for e in entities:
+            name = e.name_ja or e.name_local or ""
+            if name:
+                entity_map.setdefault(name, []).append(e)
 
-        # 批量翻译
-        logger.info("开始批量翻译...")
-        translated_names = await batch_translate_with_cache(ja_names, deepl_key, redis_client)
+        unique_texts = list(entity_map.keys())
+        logger.info(f"去重后待翻译: {len(unique_texts)} 条")
 
-        # 写入数据库
+        translation_map = await batch_translate_with_cache(
+            unique_texts, api_key, redis_client, use_pro=args.pro
+        )
+
         updated = 0
-        for entity, zh_name in zip(entities, translated_names):
-            if zh_name and zh_name.strip():
-                entity.name_zh = zh_name.strip()
+        for ja_name, zh_name in translation_map.items():
+            if ja_name == zh_name:
+                continue
+            for entity in entity_map.get(ja_name, []):
+                entity.name_zh = zh_name
                 updated += 1
 
         await session.commit()
-        logger.info(f"翻译完成 — 更新 {updated}/{len(entities)} 条记录")
+        logger.info(f"✅ 翻译完成 — 更新: {updated} 条实体")
 
-    # 关闭 Redis
     if redis_client:
         await redis_client.aclose()
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="批量翻译实体日文名称为中文（DeepL API）",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__,
-    )
-
-    parser.add_argument(
-        "--city",
-        nargs="+",
-        choices=SUPPORTED_CITIES,
-        metavar="CITY",
-        help=f"目标城市（可多选）: {', '.join(SUPPORTED_CITIES)}。不指定则处理全部城市",
-    )
-
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="仅预览待翻译数量，不实际写入",
-    )
-
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="强制重新翻译所有实体（包括已有中文名的）",
-    )
-
+    parser = argparse.ArgumentParser(description="批量翻译实体名称（日文→中文）")
+    parser.add_argument("--city", nargs="+", choices=SUPPORTED_CITIES, metavar="CITY")
+    parser.add_argument("--force", action="store_true", help="覆盖已有中文名")
+    parser.add_argument("--dry-run", action="store_true", help="预览模式")
+    parser.add_argument("--pro", action="store_true", help="使用 DeepL Pro API")
     return parser
 
 
 if __name__ == "__main__":
-    parser = build_parser()
-    args = parser.parse_args()
-    asyncio.run(run(args))
+    asyncio.run(run(build_parser().parse_args()))
