@@ -1,0 +1,26 @@
+#!/bin/sh
+# Pre-commit hook: 禁止提交 .env 和其他敏感文件
+#
+# 安装方式:
+#   cp hooks/pre-commit .git/hooks/pre-commit
+#   chmod +x .git/hooks/pre-commit
+
+FORBIDDEN_PATTERNS=".env .env.local .env.production .env.*.local *.pem *.key id_rsa"
+
+for pattern in $FORBIDDEN_PATTERNS; do
+    files=$(git diff --cached --name-only | grep -E "^${pattern}$" 2>/dev/null)
+    if [ -n "$files" ]; then
+        echo "❌ 禁止提交敏感文件: $files"
+        echo "   如果确实需要，请使用 git commit --no-verify"
+        exit 1
+    fi
+done
+
+# 检查文件内容中是否包含 API key 硬编码
+if git diff --cached --diff-filter=ACM | grep -qiE "(sk-[a-zA-Z0-9]{20,}|AKIA[0-9A-Z]{16}|ghp_[a-zA-Z0-9]{36})"; then
+    echo "⚠️ 检测到可能的 API Key 硬编码，请检查后再提交"
+    echo "   如果是误报，请使用 git commit --no-verify"
+    exit 1
+fi
+
+exit 0
