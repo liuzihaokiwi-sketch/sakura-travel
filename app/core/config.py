@@ -48,9 +48,16 @@ class Settings(BaseSettings):
     smtp_user: str = ""
     smtp_password: str = ""
     alert_email: str = ""
-    ai_model: str = "claude-opus-4-6"
-    ai_model_strong: str = "claude-opus-4-6"
+    ai_model: str = "gpt-4o"
+    # ── AI 模型分层（Tiered Model Selection）──────────────
+    ai_model_light: str = "gpt-4o-mini"       # Tier 1: 标签/分类/翻译
+    ai_model_standard: str = "gpt-4o"          # Tier 2: 推荐理由/润色
+    ai_model_strong: str = "claude-sonnet"     # Tier 3: 完整行程编排
+
     serpapi_key: str = ""
+    anthropic_api_key: str = ""
+    deepl_api_key: str = ""
+    admin_password: str = "admin123"
 
     # ── Snapshot TTL (days) ───────────────────────────────────
     snapshot_ttl_hotel_offer: int = 1

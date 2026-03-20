@@ -1,314 +1,221 @@
-# Japan Travel AI — Backend
+# 🗾 Japan Travel AI
 
-> 第一性原理架构的日本旅行 AI 规划与交付引擎。
+> 日本旅行 AI 定制服务 — 从问卷到杂志级行程攻略的全自动交付引擎。
 
-## 技术栈
+## ✨ 项目简介
+
+Travel AI 是一个面向中国出境游客的日本旅行定制服务平台。用户通过 3 分钟问卷描述偏好，AI 系统自动生成个性化行程攻略并渲染为杂志级 PDF / H5 交付物。
+
+**核心价值**：用 AI 替代传统旅行社的人工定制流程，将交付周期从 3-5 天缩短到 30 分钟。
+
+## 🛠 技术栈
 
 | 层级 | 技术 |
 |------|------|
-| Web Framework | FastAPI 0.115+ (Python 3.12) |
-| ORM | SQLAlchemy 2.0 async + asyncpg |
-| Database | PostgreSQL 16 + pgvector |
-| 异步任务 | arq (Redis-based) |
-| 迁移管理 | Alembic |
-| 配置管理 | pydantic-settings |
+| **前端** | Next.js 14 (App Router) + TypeScript + Tailwind CSS 4 + Framer Motion |
+| **后端** | FastAPI 0.115+ (Python 3.12) |
+| **ORM** | SQLAlchemy 2.0 async + asyncpg |
+| **数据库** | PostgreSQL 16 + pgvector |
+| **异步任务** | arq (Redis-based) |
+| **迁移管理** | Alembic |
+| **配置管理** | pydantic-settings |
+| **AI** | OpenAI GPT-4o / GPT-4o-mini + Anthropic Claude |
+| **渲染** | Jinja2 模板 + WeasyPrint PDF |
+| **翻译** | DeepL API |
+| **包管理** | hatch (pyproject.toml) / pnpm (web/) |
 
-## 数据架构（三层）
+## 🏗 系统架构
 
 ```
-Layer A – Catalog     : 静态事实（景点/酒店/餐厅基础信息）      8 张表
-Layer B – Snapshots   : 动态快照（实时价格/开放状态/天气）       6 张表
-Layer C – Derived     : 计算结果（评分/行程/渲染/交付物）       13 张表
-Business              : 用户/订单/行程请求/审核工作流            8 张表
-───────────────────────────────────────────────────────────────────
-Total                                                            35 张表
+用户端（Next.js）          管理后台（Next.js /admin）
+     │                           │
+     ▼                           ▼
+FastAPI API Gateway ────── PostgreSQL + Redis
+     │
+     ├── domains/catalog    → 实体数据管理（POI/酒店/餐厅）
+     ├── domains/ranking    → 评分引擎（Base + Context + Editorial）
+     ├── domains/planning   → 行程装配 + AI 文案润色
+     ├── domains/rendering  → 杂志级 HTML/PDF 渲染
+     └── workers/           → arq 异步任务（生成/评分/导出）
 ```
 
-## 本地开发快速启动
+## 💰 三档定价
 
-### 1. 环境准备
+| 套餐 | 价格 | 交付物 |
+|------|------|--------|
+| **免费试用** | ¥0 | 3 日粗略行程 + 预览 |
+| **标准版** | ¥248 | 完整行程 PDF + 1 次精调 |
+| **尊享版** | ¥888 | 完整行程 + 3 次精调 + 人工审核 + 专属客服 |
+
+## 🚀 本地开发环境搭建
+
+### 前置要求
+
+- Python 3.12+
+- Node.js 18+ / pnpm
+- Docker & Docker Compose（PostgreSQL + Redis）
+- API Keys: OpenAI、Google Places（可选）
+
+### 1. 克隆仓库 & 配置环境变量
 
 ```bash
-# 复制环境变量模板
+git clone https://github.com/your-org/travel-ai.git
+cd travel-ai
 cp .env.example .env
-# 编辑 .env，填入真实 API Keys（如 GOOGLE_PLACES_API_KEY）
+# 编辑 .env，填入真实 API Keys
 ```
 
-### 2. 启动 Docker 服务（PostgreSQL + Redis）
+### 2. 启动 Docker 服务
 
 ```bash
 docker compose up -d postgres redis
-# 等待 healthy（约 10s）
-docker compose ps
+docker compose ps  # 确认 healthy
 ```
 
-### 3. 安装 Python 依赖
+### 3. 安装后端依赖
 
 ```bash
 python3 -m pip install -e ".[dev]"
 ```
 
-### 4. 执行数据库迁移（建全量 35 张表）
+### 4. 数据库迁移
 
 ```bash
-# 生成 autogenerate migration（首次）
-alembic revision --autogenerate -m "initial_schema"
-
-# 应用迁移
 alembic upgrade head
 ```
 
-### 5. 启动 API 服务
+### 5. 安装前端依赖
 
 ```bash
+cd web && pnpm install && cd ..
+```
+
+### 6. 启动服务
+
+```bash
+# 终端 1：后端 API
 uvicorn app.main:app --reload
-# API 文档：http://localhost:8000/docs
-# 健康检查：http://localhost:8000/health
-```
 
-### 6. 启动 arq Worker
-
-```bash
-# 新开一个终端
+# 终端 2：arq Worker
 python -m app.workers
+
+# 终端 3：前端
+cd web && pnpm dev
 ```
 
-### 7. 运行测试
+- 后端 API 文档：http://localhost:8000/docs
+- 前端：http://localhost:3000
+- 健康检查：http://localhost:8000/health
+
+## 📋 常用命令
 
 ```bash
-# 单元测试（无需 Docker / PostgreSQL）
-pytest tests/test_snapshots.py -v
-pytest tests/test_score_entities_e2e.py -v   # 评分引擎端到端（SQLite in-memory）
+# ── 数据采集 ──────────────────────────────────
+python3 scripts/crawl.py --city tokyo          # 采集东京数据
+python3 scripts/mark_data_tier.py --city all   # 标记数据层级
 
-# 集成测试（需 Docker + DB）
-pytest tests/test_trip_api.py -v
+# ── AI 标签生成 ───────────────────────────────
+python3 scripts/generate_tags.py --seed-only   # 导入种子标签
+python3 scripts/generate_tags.py --city tokyo  # GPT 批量打标
 
-# 全量测试
-pytest -v
+# ── 翻译 ─────────────────────────────────────
+python3 scripts/batch_translate.py --city tokyo --dry-run  # 预览
+python3 scripts/batch_translate.py --city tokyo            # 执行翻译
+
+# ── 路线模板 ──────────────────────────────────
+python3 scripts/load_route_templates.py
+python3 scripts/prebuild_route_matrix.py --cities tokyo osaka kyoto --top 50
+
+# ── 测试 ─────────────────────────────────────
+pytest tests/ -v                               # 全量测试
+pytest tests/test_snapshots.py -v              # 单元测试
+ruff check app/ scripts/                       # Lint
 ```
 
-### 8. 数据灌入（Phase 0）
-
-> 前置：`.env` 中已配置 `OPENAI_API_KEY`（用于 GPT 标签生成）
-
-```bash
-# 8-1. 采集三城市基础数据
-python3 scripts/crawl.py --city tokyo
-python3 scripts/crawl.py --city osaka
-python3 scripts/crawl.py --city kyoto
-
-# 8-2. 自动标记 data_tier（有 Google Place ID → A，否则 → B）
-python3 scripts/mark_data_tier.py --city all
-
-# 8-3. 导入人工种子标签（人工优先，覆盖 GPT）
-python3 scripts/generate_tags.py --seed-only
-
-# 8-4. GPT-4o-mini 批量生成 9 维主题亲和度标签
-python3 scripts/generate_tags.py --city tokyo
-python3 scripts/generate_tags.py --city osaka
-python3 scripts/generate_tags.py --city kyoto
-
-# 8-5. 手动触发评分任务（通常 crawl.py 结束后自动入队）
-python3 -c "
-import asyncio
-from app.core.queue import enqueue_job
-for city in ['tokyo', 'osaka', 'kyoto']:
-    asyncio.run(enqueue_job('score_entities', city_code=city))
-"
-```
-
-## API 端点概览
-
-### 用户侧
-
-| Method | Path | 描述 |
-|--------|------|------|
-| `GET`  | `/health` | 服务健康检查（DB + Redis） |
-| `POST` | `/trips` | 提交行程请求，返回 202 |
-| `GET`  | `/trips/{id}` | 获取行程详情（含 profile） |
-| `GET`  | `/trips/{id}/status` | 轻量状态轮询 |
-
-### 运营侧（`/ops`）
-
-| Method | Path | 描述 |
-|--------|------|------|
-| `GET`  | `/ops/entities/search` | 按城市/类型/层级搜索实体 |
-| `GET`  | `/ops/entities/ranked` | 按 final_score 降序返回实体 |
-| `POST` | `/ops/entities/{entity_type}/{entity_id}/editorial-score` | 录入 Editorial Boost（-8 ~ +8） |
-| `GET`  | `/ops/entities/{entity_type}/{entity_id}/editorial-history` | 查看 boost 变更历史 |
-| `PATCH`| `/ops/entities/{entity_id}/data-tier` | 手动设置数据层级（S/A/B） |
-
-**`GET /ops/entities/ranked` 参数示例：**
-
-```
-GET /ops/entities/ranked?city_code=tokyo&entity_type=poi&score_profile=general&limit=20
-```
-
-**`POST /ops/entities/poi/{id}/editorial-score` Body 示例：**
-
-```json
-{
-  "boost_value": 3,
-  "note": "编辑推荐：春季樱花期特别上榜",
-  "operator": "editor_alice"
-}
-```
-
-## 异步工作流
-
-```
-POST /trips
-    │
-    ▼
-trip_requests (status=pending)
-    │
-    ▼  [arq job: normalize_trip_profile]
-    │
-    ├── 推导标签规则（family_child → family_friendly 等）
-    ├── 写入 trip_profiles
-    └── trip_requests.status = "profiled"
-```
-
-## 项目结构
+## 📂 目录结构
 
 ```
 travel-ai/
-├── app/                # 应用主体
-│   ├── api/            #   FastAPI routers（用户侧 + 运营侧）
-│   │   └── ops/        #     运营端 API（entities / editorial / ranked）
-│   ├── workers/        #   arq Job handlers（score_entities / normalize 等）
-│   ├── domains/        #   领域逻辑（catalog / ranking / geography / rendering）
+├── app/                     # Python 后端
+│   ├── api/                 #   FastAPI routers
+│   │   └── ops/             #     运营端 API
+│   ├── core/                #   基础设施（config / queue / ai_cache）
 │   ├── db/
-│   │   ├── models/     #     SQLAlchemy ORM（4 个文件，35 张表）
-│   │   ├── migrations/ #     Alembic 迁移脚本
-│   │   └── session.py  #     async session factory
-│   ├── core/           #   基础设施（config / queue / snapshots）
+│   │   ├── models/          #     SQLAlchemy ORM（35 张表）
+│   │   ├── migrations/      #     Alembic 迁移
+│   │   └── session.py       #     async session factory
+│   ├── domains/             #   领域逻辑
+│   │   ├── catalog/         #     实体管理 + GPT 标签
+│   │   ├── ranking/         #     评分引擎
+│   │   ├── planning/        #     行程装配 + 文案润色
+│   │   ├── rendering/       #     杂志级 HTML/PDF 渲染
+│   │   ├── geography/       #     区域路由 + 路线选择
+│   │   └── flights/         #     机票监控
+│   ├── workers/             #   arq 异步 Worker
 │   └── main.py
-├── scripts/            # 运维脚本（crawl / generate_tags / mark_data_tier）
-├── data/               # 种子数据 JSON（region matrix / route binding / affinity seed）
-├── templates/          # Jinja2 模板（邮件/渲染）
-├── tests/              # 测试（单元 + 端到端）
-├── docs/               # 设计文档 & 规划文档
-│   ├── 日本旅行AI后端完整方案_第一性原理版.md   # 底层架构方案
-│   ├── PROJECT_PLAN.md                          # 项目计划 v2.0（分周里程碑）
-│   └── AI_WORK_GUIDE.md                         # AI 协作开发指南
-├── openspec/           # OpenSpec 变更管理
+├── web/                     # Next.js 前端
+│   ├── app/                 #   App Router 页面
+│   │   ├── page.tsx         #     首页
+│   │   ├── quiz/            #     问卷页
+│   │   ├── pricing/         #     价格页
+│   │   ├── plan/[id]/       #     交付页
+│   │   └── admin/           #     管理后台
+│   └── components/          #   共享组件
+├── scripts/                 # 运维脚本
+│   ├── crawl.py             #   数据采集
+│   ├── generate_tags.py     #   GPT 标签生成
+│   ├── batch_translate.py   #   批量翻译
+│   └── hooks/               #   Git hooks
+├── data/                    # 数据目录
+│   ├── seed/                #   永久配置（种子数据 JSON / 路线模板）
+│   ├── crawled/             #   临时爬取数据（gitignore 排除）
+│   └── city_defaults/       #   城市默认图片
+├── templates/               # Jinja2 模板（杂志渲染）
+├── tests/                   # 测试
+├── openspec/                # OpenSpec 变更管理
 ├── docker-compose.yml
-├── Dockerfile
 ├── pyproject.toml
 ├── alembic.ini
 └── README.md
 ```
 
-## 评分架构（三分量）
+## 🔌 API 端点概览
 
-```
-候选实体
-    │
-    ▼ [1] Base Score / System Score（0-100）
-    │   platform_rating   × 0.25  ← Google Rating（归一化）
-    │   review_confidence × 0.15  ← 评价数量置信度
-    │   recency           × 0.15  ← 数据新鲜度
-    │   data_tier_bonus   × 0.20  ← 数据层级（S/A/B）
-    │   has_opening_hours × 0.10  ← 营业时间完整性
-    │   photo_richness    × 0.10  ← 图片丰富度
-    │   homogeneity_penalty       ← 过度同质化惩罚
-    │
-    ▼ [2] Context Score（0-100，可选）
-    │   9 维主题亲和度（由 GPT-4o-mini 生成）× 用户偏好权重
-    │   主题：shopping / food / culture_history / onsen_relaxation /
-    │         nature_outdoors / anime_pop_culture / family_kids /
-    │         nightlife_entertainment / photography_scenic
-    │
-    ▼ [3] Editorial Boost（-8 ~ +8）
-    │   运营人工标注，来自 entity_editor_notes（note_type="editorial_boost"）
-    │
-    └──▶ final_score = base_score + editorial_boost（clamped 0-100）
-         score_breakdown 包含所有分量明细，透明可审计
-```
+### 用户侧
 
-## Phase 1：攻略生成（行程 PDF）
+| Method | Path | 描述 |
+|--------|------|------|
+| `GET` | `/health` | 服务健康检查 |
+| `POST` | `/trips` | 创建行程请求 |
+| `GET` | `/trips/{id}` | 获取行程详情 |
+| `POST` | `/trips/{id}/generate` | 触发行程生成 |
+| `GET` | `/trips/{id}/plan` | 查询行程状态和内容 |
+| `GET` | `/trips/{id}/export/pdf` | 下载 PDF |
 
-Phase 1 在 Phase 0 的数据基础上，新增了完整的行程装配 → 文案润色 → 杂志级 PDF 渲染能力。
+### 运营侧 (`/ops`)
 
-### 行程生成命令
+| Method | Path | 描述 |
+|--------|------|------|
+| `GET` | `/ops/entities/search` | 搜索实体 |
+| `GET` | `/ops/entities/ranked` | 评分排行 |
+| `POST` | `/ops/entities/{type}/{id}/editorial-score` | 设置人工分 |
 
-```bash
-# 生成东京经典 5 日攻略（标准版）
-curl -X POST http://localhost:8000/trips \
-  -H "Content-Type: application/json" \
-  -d '{"sku_id": "standard_128", "city_codes": ["tokyo"]}'
+### 订单管理 (`/orders`)
 
-# 提交问卷（场景 couple）
-curl -X POST http://localhost:8000/trips/{trip_id}/questionnaire \
-  -H "Content-Type: application/json" \
-  -d '{"scene": "couple", "duration_days": 5}'
+| Method | Path | 描述 |
+|--------|------|------|
+| `POST` | `/orders` | 创建订单 |
+| `GET` | `/orders` | 订单列表（支持 status 过滤） |
+| `GET` | `/orders/{id}` | 订单详情 |
 
-# 触发异步生成
-curl -X POST http://localhost:8000/trips/{trip_id}/generate
+## 🤖 AI 模型分层
 
-# 查询生成状态
-curl http://localhost:8000/trips/{trip_id}/plan
+| Tier | 模型 | 用途 | 环境变量 |
+|------|------|------|----------|
+| Light | `gpt-4o-mini` | 标签分类 / 翻译 | `AI_MODEL_LIGHT` |
+| Standard | `gpt-4o` | 文案润色 / 推荐理由 | `AI_MODEL_STANDARD` |
+| Strong | `claude-sonnet` | 完整行程编排 | `AI_MODEL_STRONG` |
 
-# 预览 HTML
-curl http://localhost:8000/trips/{trip_id}/preview
+## 📄 License
 
-# 下载 PDF
-curl http://localhost:8000/trips/{trip_id}/export/pdf -o itinerary.pdf
-```
-
-### 路线模板加载
-
-```bash
-# 首次部署：写入 5 条经典路线模板
-python3 scripts/load_route_templates.py
-
-# 预计算三城市 Top50 景点对的交通时间（Google Routes API / Haversine fallback）
-python3 scripts/prebuild_route_matrix.py --cities tokyo osaka kyoto --top 50
-# 仅东京，步行模式
-python3 scripts/prebuild_route_matrix.py --cities tokyo --top 30 --mode walking
-```
-
-### Phase 1 新增 API 端点
-
-#### 行程规划（`/trips`）
-
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| `POST` | `/trips` | 创建行程（传入 sku_id + city_codes） |
-| `GET`  | `/trips/{id}/profile-questions` | 获取问卷题目 |
-| `POST` | `/trips/{id}/questionnaire` | 提交问卷（scene / duration_days / preferences） |
-| `POST` | `/trips/{id}/generate` | 触发异步行程生成（返回 202） |
-| `GET`  | `/trips/{id}/plan` | 查询行程状态和内容 |
-| `GET`  | `/trips/{id}/preview` | 获取 H5 预览 URL |
-| `GET`  | `/trips/{id}/export/pdf` | 下载 PDF 文件 |
-
-#### 运营侧新增（`/ops`）
-
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| `GET` | `/ops/entities/ranked` | 按城市 + 类型查询评分排行 |
-| `POST` | `/ops/entities/{type}/{id}/editorial-score` | 设置人工分（-8~+8） |
-| `GET` | `/ops/entities/{type}/{id}/editorial-history` | 查看编辑历史 |
-
-### 异步 Worker Job 列表（Phase 1 新增）
-
-| Job 名称 | 触发方 | 说明 |
-|----------|--------|------|
-| `assemble_trip` | POST /trips/{id}/generate | 装配行程（路线模板 + 评分召回） |
-| `enrich_copy` | assemble_trip 完成后 | AI 文案润色（GPT 批量） |
-| `run_guardrails` | enrich_copy 完成后 | 行程质量守卫 |
-| `export_pdf` | POST /trips/{id}/export/pdf | WeasyPrint 异步渲染 PDF |
-| `score_entities` | 数据入库 / 手动触发 | 重新计算评分 |
-
----
-
-## 脚本索引（scripts/）
-
-| 脚本 | 说明 |
-|------|------|
-| `crawl.py` | 城市数据采集（`--city tokyo` / `--all-cities`） |
-| `mark_data_tier.py` | 批量标记 data_tier（`--city all`） |
-| `generate_tags.py` | GPT 标签生成 / 种子数据导入（`--seed-only`） |
-| `load_route_templates.py` | 写入路线模板种子数据（5 条经典路线） |
-| `prebuild_route_matrix.py` | 预计算城市 TopN 实体对交通时间（Google Routes API + fallback） |
+Private — All rights reserved.

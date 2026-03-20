@@ -1,0 +1,32 @@
+# CODEOWNERS — Japan Travel AI
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# 每个路径匹配一个或多个负责人。
+# PR 修改对应文件时，会自动要求这些人 Review。
+
+# ── 后端（Python）────────────────────────────────────
+/app/                           @backend-lead
+/scripts/                       @backend-lead
+/tests/                         @backend-lead
+/pyproject.toml                 @backend-lead
+/alembic.ini                    @backend-lead
+/Dockerfile                     @backend-lead
+/docker-compose.yml             @backend-lead
+
+# ── 前端（Next.js）───────────────────────────────────
+/web/                           @frontend-lead
+
+# ── 数据 & 种子配置 ──────────────────────────────────
+/data/seed/                     @backend-lead
+/templates/                     @frontend-lead
+
+# ── 产品 & 需求管理 ──────────────────────────────────
+/openspec/                      @product-lead
+/docs-human/                    @product-lead
+/docs-ai/                       @backend-lead
+
+# ── 基础设施 & 配置 ──────────────────────────────────
+/.env.example                   @backend-lead
+/.gitignore                     @backend-lead
+/CONTRIBUTING.md                @backend-lead @product-lead
+/README.md                      @backend-lead @product-lead

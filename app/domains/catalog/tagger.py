@@ -117,8 +117,9 @@ async def generate_tags_for_entities(
     entities_json = json.dumps(entity_info, ensure_ascii=False, indent=2)
 
     try:
+        from app.core.config import settings as _settings
         resp = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=_settings.ai_model_light,
             messages=[
                 {"role": "system", "content": _SYSTEM_PROMPT},
                 {"role": "user", "content": _USER_PROMPT_TEMPLATE.format(

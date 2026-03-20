@@ -107,10 +107,14 @@ async def generate_copy(
 
 
 async def _call_gpt(entity: Any, scene: str, editorial_reason: str) -> Dict[str, str]:
-    """调用 OpenAI GPT-4o-mini，返回 {copy_zh, tips_zh}。"""
+    """调用 AI 模型生成文案，返回 {copy_zh, tips_zh}。"""
     from openai import AsyncOpenAI
+    from app.core.config import settings
 
-    client = AsyncOpenAI()  # 从环境变量 OPENAI_API_KEY 读取
+    client = AsyncOpenAI(
+        api_key=settings.openai_api_key,
+        base_url=settings.ai_base_url if settings.ai_base_url else None,
+    )
 
     # 组装 prompt
     name_zh = getattr(entity, "name_zh", "") or ""
@@ -135,7 +139,7 @@ async def _call_gpt(entity: Any, scene: str, editorial_reason: str) -> Dict[str,
     )
 
     response = await client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=settings.ai_model_standard,
         messages=[
             {"role": "system", "content": _SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},

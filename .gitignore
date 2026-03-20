@@ -46,8 +46,12 @@ data/flights_raw/
 data/hotels_raw/
 data/tabelog_raw/
 data/crawled/
+data/raw/
 data/sakura/screenshots/
 data/gf_*.png
+# city_defaults 中可能有大图片
+data/city_defaults/*.jpg
+data/city_defaults/*.png
 
 # ── Database ──────────────────────────────────
 *.db

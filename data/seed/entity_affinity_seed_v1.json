@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "type": "entity_affinity_seed",
+  "entities": [
+    {
+      "entity_name": "浅草寺",
+      "entity_type": "poi",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 3, "food": 3, "culture_history": 5, "onsen_relaxation": 0,
+        "nature_outdoors": 1, "anime_pop_culture": 1, "family_kids": 3,
+        "nightlife_entertainment": 1, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "新宿御苑",
+      "entity_type": "poi",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 1, "food": 1, "culture_history": 3, "onsen_relaxation": 0,
+        "nature_outdoors": 4, "anime_pop_culture": 0, "family_kids": 4,
+        "nightlife_entertainment": 0, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "秋叶原电器街",
+      "entity_type": "poi",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 5, "food": 2, "culture_history": 1, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 5, "family_kids": 2,
+        "nightlife_entertainment": 3, "photography_scenic": 3
+      }
+    },
+    {
+      "entity_name": "道顿堀",
+      "entity_type": "poi",
+      "city": "大阪",
+      "affinity_scores": {
+        "shopping": 4, "food": 5, "culture_history": 2, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 1, "family_kids": 3,
+        "nightlife_entertainment": 5, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "金阁寺",
+      "entity_type": "poi",
+      "city": "京都",
+      "affinity_scores": {
+        "shopping": 1, "food": 1, "culture_history": 5, "onsen_relaxation": 0,
+        "nature_outdoors": 2, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 0, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "伏见稻荷大社",
+      "entity_type": "poi",
+      "city": "京都",
+      "affinity_scores": {
+        "shopping": 2, "food": 1, "culture_history": 5, "onsen_relaxation": 0,
+        "nature_outdoors": 2, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 0, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "富士山五合目",
+      "entity_type": "poi",
+      "city": "富士山",
+      "affinity_scores": {
+        "shopping": 1, "food": 1, "culture_history": 2, "onsen_relaxation": 0,
+        "nature_outdoors": 5, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 0, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "环球影城USJ",
+      "entity_type": "poi",
+      "city": "大阪",
+      "affinity_scores": {
+        "shopping": 4, "food": 4, "culture_history": 0, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 4, "family_kids": 5,
+        "nightlife_entertainment": 2, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "登别地狱谷",
+      "entity_type": "poi",
+      "city": "北海道",
+      "affinity_scores": {
+        "shopping": 0, "food": 1, "culture_history": 2, "onsen_relaxation": 4,
+        "nature_outdoors": 4, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 0, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "美山町合掌村",
+      "entity_type": "poi",
+      "city": "京都近郊",
+      "affinity_scores": {
+        "shopping": 1, "food": 2, "culture_history": 4, "onsen_relaxation": 0,
+        "nature_outdoors": 4, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 0, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "新宿华盛顿酒店",
+      "entity_type": "hotel",
+      "hotel_type": "商务型",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 3, "food": 2, "culture_history": 1, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 2,
+        "nightlife_entertainment": 4, "photography_scenic": 1
+      }
+    },
+    {
+      "entity_name": "京都岚山温泉旅馆",
+      "entity_type": "hotel",
+      "hotel_type": "温泉旅馆型",
+      "city": "京都",
+      "affinity_scores": {
+        "shopping": 1, "food": 4, "culture_history": 4, "onsen_relaxation": 5,
+        "nature_outdoors": 4, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 1, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "大阪难波东横Inn",
+      "entity_type": "hotel",
+      "hotel_type": "经济连锁型",
+      "city": "大阪",
+      "affinity_scores": {
+        "shopping": 4, "food": 4, "culture_history": 1, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 1, "family_kids": 3,
+        "nightlife_entertainment": 3, "photography_scenic": 1
+      }
+    },
+    {
+      "entity_name": "东京迪士尼官方酒店",
+      "entity_type": "hotel",
+      "hotel_type": "主题型",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 3, "food": 3, "culture_history": 0, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 4, "family_kids": 5,
+        "nightlife_entertainment": 2, "photography_scenic": 5
+      }
+    },
+    {
+      "entity_name": "金泽茶屋町精品旅馆",
+      "entity_type": "hotel",
+      "hotel_type": "精品型",
+      "city": "金泽",
+      "affinity_scores": {
+        "shopping": 2, "food": 3, "culture_history": 4, "onsen_relaxation": 0,
+        "nature_outdoors": 1, "anime_pop_culture": 0, "family_kids": 2,
+        "nightlife_entertainment": 1, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "筑地场外市场",
+      "entity_type": "restaurant",
+      "restaurant_type": "海鲜市场",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 3, "food": 5, "culture_history": 3, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 1, "photography_scenic": 4
+      }
+    },
+    {
+      "entity_name": "一兰拉面",
+      "entity_type": "restaurant",
+      "restaurant_type": "连锁",
+      "city": "多城市",
+      "affinity_scores": {
+        "shopping": 0, "food": 4, "culture_history": 1, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 2,
+        "nightlife_entertainment": 2, "photography_scenic": 2
+      }
+    },
+    {
+      "entity_name": "京都怀石料理老铺",
+      "entity_type": "restaurant",
+      "restaurant_type": "高端和食",
+      "city": "京都",
+      "affinity_scores": {
+        "shopping": 0, "food": 5, "culture_history": 4, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 2,
+        "nightlife_entertainment": 1, "photography_scenic": 3
+      }
+    },
+    {
+      "entity_name": "大阪章鱼烧路边摊区",
+      "entity_type": "restaurant",
+      "restaurant_type": "街头小吃",
+      "city": "大阪",
+      "affinity_scores": {
+        "shopping": 1, "food": 5, "culture_history": 2, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 3,
+        "nightlife_entertainment": 3, "photography_scenic": 3
+      }
+    },
+    {
+      "entity_name": "东京烧肉名店",
+      "entity_type": "restaurant",
+      "restaurant_type": "正餐型",
+      "city": "东京",
+      "affinity_scores": {
+        "shopping": 0, "food": 4, "culture_history": 1, "onsen_relaxation": 0,
+        "nature_outdoors": 0, "anime_pop_culture": 0, "family_kids": 2,
+        "nightlife_entertainment": 3, "photography_scenic": 2
+      }
+    }
+  ]
+}
