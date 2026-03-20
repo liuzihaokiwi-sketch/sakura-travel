@@ -340,7 +340,12 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 
 <!-- HOME PAGE -->
 <div class="page active" id="home-page">
-  <div id="home-content" style="width:100%;overflow-y:auto;padding:0"></div>
+  <div id="home-content" style="width:100%;overflow:hidden;padding:0"></div>
+</div>
+
+<!-- RUSH PAGE (本周推荐) -->
+<div class="page" id="rush-page" style="flex-direction:column;overflow-y:auto;background:#fff">
+  <div id="rush-content" style="width:100%;padding:0"></div>
 </div>
 
 <!-- MAP PAGE -->
@@ -913,94 +918,92 @@ function tlSwitchCity(ci){
 
 // View toggle
 function showPage(v){
-  document.querySelectorAll('.ht-btn').forEach(function(b){b.classList.remove('active');b.style.background='';b.style.color=''});
+  var btns=document.querySelectorAll('.ht-btn');
+  btns.forEach(function(b){b.classList.remove('active');b.style.background='';b.style.color=''});
   document.getElementById('home-page').className='page';
+  document.getElementById('rush-page').className='page';
   document.getElementById('map-page').className='page';
   document.getElementById('tl-page').className='page';
   document.getElementById('custom-page').className='page';
-  // Re-apply custom btn style
-  var customBtn=document.querySelectorAll('.ht-btn')[3];
+  // Re-apply custom btn style (index 4)
+  var customBtn=btns[4];
   if(customBtn){customBtn.style.background='linear-gradient(135deg,#ff6b35,#f7931e)';customBtn.style.color='#fff'}
   if(v==='home'){
     document.getElementById('home-page').className='page active';
-    document.querySelectorAll('.ht-btn')[0].classList.add('active');
+    btns[0].classList.add('active');
+  }else if(v==='rush'){
+    document.getElementById('rush-page').className='page active';
+    btns[1].classList.add('active');
   }else if(v==='map'){
     document.getElementById('map-page').className='page active';
-    document.querySelectorAll('.ht-btn')[1].classList.add('active');
+    btns[2].classList.add('active');
     setTimeout(function(){map.invalidateSize()},100);
   }else if(v==='tl'){
     document.getElementById('tl-page').className='page active';
-    document.querySelectorAll('.ht-btn')[2].classList.add('active');
+    btns[3].classList.add('active');
   }else if(v==='custom'){
     document.getElementById('custom-page').className='page active';
     if(customBtn){customBtn.classList.add('active');customBtn.style.background='linear-gradient(135deg,#ff6b35,#f7931e)'}
   }
 }
 
-// === HOME PAGE RENDER ===
+// === HOME PAGE RENDER — 数据可靠性展示 ===
 function renderHome(){
   var h='';
-  // Hero — 双列: 左数据 + 右定制服务
-  h+='<div class="home-hero" style="display:flex;gap:0;padding:0;overflow:hidden">';
-
-  // 左列 — 数据平台简介
-  h+='<div style="flex:1;padding:28px 32px;position:relative">';
-  h+='<div class="home-hero-badge">sakura data platform 2026</div>';
-  h+='<h2 style="font-size:20px;margin-top:10px">🌸 日本樱花花期<br><em>实时数据平台</em></h2>';
-  h+='<p style="margin-top:6px">融合6大权威数据源 · 覆盖5座城市240+景点</p>';
-  h+='<div class="home-hero-stats" style="margin-top:12px">';
-  h+='<div class="home-hero-stat"><div class="hhs-v">240+</div><div class="hhs-l">实测景点</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">6大</div><div class="hhs-l">数据源</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">3次/天</div><div class="hhs-l">更新</div></div>';
-  h+='<div class="home-hero-stat"><div class="hhs-v">±2天</div><div class="hhs-l">精度</div></div>';
+  // Compact hero bar
+  h+='<div style="background:linear-gradient(135deg,#0d0d0d,#1a1018,#2d1a22);padding:20px 28px;color:#fff;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden">';
+  h+='<div style="position:absolute;right:-30px;top:-30px;font-size:120px;opacity:.03">🌸</div>';
+  h+='<div style="flex:1"><div style="font-size:9px;font-weight:600;color:#f48fb1;border:1px solid rgba(244,143,177,.2);padding:2px 10px;border-radius:4px;display:inline-block;margin-bottom:4px;letter-spacing:1px">SAKURA DATA PLATFORM 2026</div>';
+  h+='<div style="font-size:18px;font-weight:900;line-height:1.2">🌸 日本樱花花期 <em>实时数据平台</em></div></div>';
+  h+='<div style="display:flex;gap:16px">';
+  h+='<div style="text-align:center"><div style="font-size:20px;font-weight:900;color:#f48fb1">240+</div><div style="font-size:8px;color:rgba(255,255,255,.2)">景点</div></div>';
+  h+='<div style="text-align:center"><div style="font-size:20px;font-weight:900;color:#f48fb1">6大</div><div style="font-size:8px;color:rgba(255,255,255,.2)">数据源</div></div>';
+  h+='<div style="text-align:center"><div style="font-size:20px;font-weight:900;color:#f48fb1">3次/天</div><div style="font-size:8px;color:rgba(255,255,255,.2)">更新</div></div>';
+  h+='<div style="text-align:center"><div style="font-size:20px;font-weight:900;color:#f48fb1">±2天</div><div style="font-size:8px;color:rgba(255,255,255,.2)">精度</div></div>';
   h+='</div></div>';
 
-  // 右列 — 免费定制行程服务
-  h+='<div style="width:420px;background:linear-gradient(135deg,#2d1a22,#3d1428);padding:20px 28px;border-left:1px solid rgba(244,143,177,.1);position:relative;overflow:hidden;flex-shrink:0">';
-  h+='<div style="position:absolute;right:-20px;top:-20px;font-size:80px;opacity:.06">✈️</div>';
+  // Data sources detailed grid
+  h+='<div style="flex:1;padding:12px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;overflow:hidden">';
 
-  // 免费标签
-  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">';
-  h+='<span style="background:#e91e63;color:#fff;font-size:12px;font-weight:900;padding:3px 12px;border-radius:4px;animation:fcb-pulse 2s infinite">🎁 免费</span>';
-  h+='<span style="font-size:10px;color:rgba(255,255,255,.3)">限时 · 每人1次</span>';
-  h+='</div>';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">🇯🇵</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">日本气象厅 JMA</div><div style="font-size:9px;color:#999">官方权威 · 国家级数据</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6">日本政府官方气象机构，全国<b style="color:#c0392b">58个城市标本木</b>实测观测。开花日/满开日都以JMA为准。历史数据追溯<b style="color:#c0392b">70年</b>，是花期预测的基准线。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">58城市实测</span><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">每天3次</span><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">70年历史</span></div></div>';
 
-  h+='<div style="font-size:18px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:8px">告诉我你的出发日期<br><span style="color:#f48fb1">10分钟生成一天攻略</span></div>';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">📱</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">Weathernews</div><div style="font-size:9px;color:#999">200万用户 · 实地取材</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6"><b style="color:#c0392b">200万+用户</b>上传实时樱花照片和状态报告。专业记者<b style="color:#c0392b">实地走访1400个景点</b>拍摄取材，是目前景点级别覆盖最广的数据源。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#e8f5e9;color:#2e7d32;border-radius:3px">200万用户</span><span style="font-size:8px;padding:2px 6px;background:#e8f5e9;color:#2e7d32;border-radius:3px">1400景点</span><span style="font-size:8px;padding:2px 6px;background:#e8f5e9;color:#2e7d32;border-radius:3px">实拍照片</span></div></div>';
 
-  // 优势列表
-  h+='<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px">';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">🔬</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">JMC 气象株式会社</div><div style="font-size:9px;color:#999">景点级预报 · 专业算法</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6">独有的<b style="color:#c0392b">Flowering Meter</b>技术，对全国<b style="color:#c0392b">1000+景点</b>逐一预报开花/5分/满开/散り日期。比城市级预报更精确到具体公园。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#f3e5f5;color:#7b1fa2;border-radius:3px">1000+景点</span><span style="font-size:8px;padding:2px 6px;background:#f3e5f5;color:#7b1fa2;border-radius:3px">逐景预报</span><span style="font-size:8px;padding:2px 6px;background:#f3e5f5;color:#7b1fa2;border-radius:3px">Flowering Meter</span></div></div>';
 
-  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
-  h+='<span style="font-size:14px">✈️</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">机票比价</b> 20+渠道筛最优 省30-50%</span></div>';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">🏛️</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">地方旅游局官方</div><div style="font-size:9px;color:#999">GO TOKYO · 京都観光Navi</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6">东京/京都/大阪等地方政府旅游局发布的<b style="color:#c0392b">夜樱灯光活动</b>和<b style="color:#c0392b">限定开放信息</b>（如造币局通り抜け）。这些信息其他预测网站不跟踪。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#fff3e0;color:#e65100;border-radius:3px">夜樱活动</span><span style="font-size:8px;padding:2px 6px;background:#fff3e0;color:#e65100;border-radius:3px">限定开放</span><span style="font-size:8px;padding:2px 6px;background:#fff3e0;color:#e65100;border-radius:3px">官方数据</span></div></div>';
 
-  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
-  h+='<span style="font-size:14px">🏨</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">酒店推荐</b> 景点步行圈 免费取消</span></div>';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">📈</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">70年历史数据</div><div style="font-size:9px;color:#999">JMA 1953-2025 · 趋势分析</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6">整合JMA自1953年至今的<b style="color:#c0392b">开花/满开完整记录</b>，判断今年属于早年还是晚年。结合近10年变暖趋势，校验当年预测是否合理。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#e3f2fd;color:#1565c0;border-radius:3px">70年数据</span><span style="font-size:8px;padding:2px 6px;background:#e3f2fd;color:#1565c0;border-radius:3px">趋势校验</span><span style="font-size:8px;padding:2px 6px;background:#e3f2fd;color:#1565c0;border-radius:3px">早晚年判断</span></div></div>';
 
-  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
-  h+='<span style="font-size:14px">🗺️</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">行程规划</b> 基于花期数据 不走回头路</span></div>';
+  h+='<div style="background:#fff;border:1px solid #f0e8e0;border-radius:12px;padding:16px 18px">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:24px">🧠</span><div><div style="font-size:13px;font-weight:800;color:#1a1a1a">多源AI融合 + 人工审核</div><div style="font-size:9px;color:#999">5层交叉验证 · 旅居团队审核</div></div></div>';
+  h+='<div style="font-size:10px;color:#555;line-height:1.6">以上5个数据源经过<b style="color:#c0392b">AI交叉验证+置信度排序</b>，再由<b style="color:#c0392b">长期旅居日本的团队人工筛选</b>确认每个景点信息准确。不是机器堆的数据，是有人把关的数据。</div>';
+  h+='<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap"><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">AI交叉验证</span><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">人工审核</span><span style="font-size:8px;padding:2px 6px;background:#fce4ec;color:#c2185b;border-radius:3px">旅居日本</span></div></div>';
 
-  h+='<div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.04)">';
-  h+='<span style="font-size:14px">🍣</span><span style="font-size:10px;color:rgba(255,255,255,.6)"><b style="color:#f48fb1">美食推荐</b> Tabelog 3.5+ 就近安排</span></div>';
+  h+='</div>'; // end grid
 
-  h+='</div>';
+  document.getElementById('home-content').innerHTML=h;
+}
 
-  // 微信
-  h+='<div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 14px">';
-  h+='<div style="flex:1"><div style="font-size:8px;color:rgba(255,255,255,.25)">加微信 · 备注「樱花」</div>';
-  h+='<div style="font-size:15px;font-weight:900;color:#f48fb1;margin-top:1px">Kiwi_iloveu_O-o</div></div>';
-  h+='<button onclick="navigator.clipboard.writeText(\'Kiwi_iloveu_O-o\');this.textContent=\'✅ 已复制\';var b=this;setTimeout(function(){b.textContent=\'📋 复制\'},1500)" style="background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer">📋 复制</button>';
-  h+='</div>';
-
-  h+='<div style="display:flex;gap:12px;margin-top:6px;justify-content:center">';
-  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">🔒 不满意不收费</span>';
-  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">⚡ 10分钟出攻略</span>';
-  h+='<span style="font-size:8px;color:rgba(255,255,255,.2)">🌸 满意再付费</span>';
-  h+='</div>';
-
-  h+='</div>'; // end right col
-  h+='</div>'; // end hero
-
-  // Rush ranking — top 10 across all cities
+// === RUSH PAGE RENDER — 本周推荐 ===
+function renderRush(){
+  var h='';
+  // Rush ranking
   var allSpots=[];
   CITIES.forEach(function(c,ci){
     (RAW[c.key]||[]).forEach(function(s,si){
@@ -1084,23 +1087,12 @@ function renderHome(){
   });
   h+='</div></div>';
 
-  // Data sources
-  h+='<div class="home-sources">';
-  h+='<div class="home-sources-title">📡 数据来源</div>';
-  h+='<div class="home-src-row">';
-  h+='<div class="home-src">🇯🇵 日本气象厅 JMA — 官方观测 · 58城市 · 每天3次</div>';
-  h+='<div class="home-src">🔬 日本气象株式会社 JMC — 1000景点预报 · Flowering Meter</div>';
-  h+='<div class="home-src">📱 Weathernews — 200万+用户实拍 · 1400景点 · 独家实地采访</div>';
-  h+='<div class="home-src">🏛️ GO TOKYO / 京都観光Navi — 地方官方 · 夜樱活动</div>';
-  h+='<div class="home-src">📈 70年JMA历史数据 — 早/晚年判断 · 趋势校验</div>';
-  h+='<div class="home-src">🧠 多源AI融合引擎 — 5层交叉验证 · A/B/C置信度</div>';
-  h+='</div></div>';
-
-  document.getElementById('home-content').innerHTML=h;
+  document.getElementById('rush-content').innerHTML=h;
 }
 
 // Init
 renderHome();
+renderRush();
 switchCity(0);
 renderTL();
 setTimeout(function(){map.invalidateSize()},300);
