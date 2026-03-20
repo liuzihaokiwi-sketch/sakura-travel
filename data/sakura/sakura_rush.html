@@ -178,6 +178,65 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 .home-src-row{display:flex;flex-wrap:wrap;gap:4px}
 .home-src{font-size:9px;padding:3px 8px;border-radius:4px;background:#fff;border:1px solid #f0f0f0;color:#666;font-weight:500}
 
+/* === CTA SERVICE SECTION === */
+.cta-section{padding:0;background:#fff;border-top:1px solid #f0f0f0}
+.cta-hero{background:linear-gradient(135deg,#1a1a1a 0%,#2d1a22 60%,#3d1428 100%);padding:40px 32px 32px;position:relative;overflow:hidden}
+.cta-hero::before{content:'';position:absolute;top:-40%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,99,.08) 0%,transparent 70%);border-radius:50%}
+.cta-hero::after{content:'✈️ 🏨 🍣 🌸';position:absolute;right:24px;top:16px;font-size:28px;opacity:.15;letter-spacing:8px}
+.cta-hero-badge{display:inline-block;font-size:9px;font-weight:700;color:#f48fb1;border:1px solid rgba(244,143,177,.25);padding:3px 12px;border-radius:4px;margin-bottom:10px;letter-spacing:1.5px;text-transform:uppercase}
+.cta-hero h2{font-size:22px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:4px}
+.cta-hero h2 em{font-style:normal;color:#f48fb1}
+.cta-hero p{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:0}
+
+/* Pain points grid */
+.cta-pains{padding:20px 24px 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.cta-pain{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:12px;border:1px solid #f0f0f0;transition:.2s;background:#fff}
+.cta-pain:hover{border-color:#f48fb1;box-shadow:0 2px 12px rgba(233,30,99,.06)}
+.cta-pain-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cta-pain-body{flex:1;min-width:0}
+.cta-pain-q{font-size:12px;font-weight:700;color:#c0392b;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.cta-pain-q::before{content:'😩';font-size:10px}
+.cta-pain-a{font-size:11px;color:#333;line-height:1.5}
+.cta-pain-a b{color:#e91e63;font-weight:700}
+.cta-pain-tag{display:inline-block;font-size:8px;background:#fce4ec;color:#c2185b;padding:1px 6px;border-radius:3px;margin-top:4px;font-weight:600}
+
+/* Solution highlight */
+.cta-solutions{padding:8px 24px 16px}
+.cta-sol-title{font-size:14px;font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:center}
+.cta-sol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.cta-sol{text-align:center;padding:16px 10px;border-radius:12px;background:#fafafa;border:1px solid #f5f5f5;transition:.15s}
+.cta-sol:hover{background:#fef9f9;border-color:#f8bbd0}
+.cta-sol-icon{font-size:28px;margin-bottom:4px}
+.cta-sol-name{font-size:12px;font-weight:800;color:#1a1a1a}
+.cta-sol-desc{font-size:9px;color:#999;margin-top:2px;line-height:1.4}
+
+/* CTA box */
+.cta-box{margin:0 24px 24px;padding:24px 28px;background:linear-gradient(135deg,#1a1a1a,#2d1a22);border-radius:16px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-50%;right:-20%;width:200px;height:200px;background:radial-gradient(circle,rgba(244,143,177,.1) 0%,transparent 70%);border-radius:50%}
+.cta-box-left{flex:1}
+.cta-box-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:4px}
+.cta-box-title em{font-style:normal;color:#f48fb1}
+.cta-box-sub{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+.cta-box-sub b{color:#f48fb1;font-weight:700}
+.cta-box-steps{display:flex;gap:8px;margin-top:10px}
+.cta-step{display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(255,255,255,.5)}
+.cta-step-num{width:18px;height:18px;border-radius:50%;background:rgba(244,143,177,.15);color:#f48fb1;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.cta-step-arrow{color:rgba(255,255,255,.15);font-size:12px}
+.cta-box-right{flex-shrink:0;text-align:center}
+.cta-wechat-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 20px;backdrop-filter:blur(8px)}
+.cta-wechat-label{font-size:9px;color:rgba(255,255,255,.3);margin-bottom:4px}
+.cta-wechat-id{font-size:16px;font-weight:900;color:#f48fb1;letter-spacing:.5px;user-select:all}
+.cta-wechat-copy{display:inline-block;margin-top:6px;font-size:10px;color:#fff;background:linear-gradient(135deg,#e91e63,#c2185b);padding:5px 16px;border-radius:6px;cursor:pointer;font-weight:700;border:none;transition:.15s}
+.cta-wechat-copy:hover{transform:scale(1.03);box-shadow:0 2px 8px rgba(233,30,99,.3)}
+.cta-wechat-copy:active{transform:scale(.97)}
+.cta-trust{display:flex;justify-content:center;gap:16px;padding:4px 0 8px;margin-top:8px}
+.cta-trust-item{font-size:9px;color:rgba(255,255,255,.25);display:flex;align-items:center;gap:3px}
+
+@media(max-width:800px){
+  .cta-box{flex-direction:column;text-align:center;gap:14px}
+  .cta-box-steps{justify-content:center}
+}
+
 /* === TIMELINE PAGE — Full screen card style === */
 #tl-page{flex-direction:column;overflow-y:auto;background:#faf7f4}
 #tl-page::-webkit-scrollbar{width:4px}
@@ -803,6 +862,94 @@ function renderHome(){
   h+='<div class="home-src">📈 70年JMA历史数据 — 早/晚年判断 · 趋势校验</div>';
   h+='<div class="home-src">🧠 多源AI融合引擎 — 5层交叉验证 · A/B/C置信度</div>';
   h+='</div></div>';
+
+  // === CTA: 定制旅行服务引流 ===
+  h+='<div class="cta-section">';
+
+  // Dark hero
+  h+='<div class="cta-hero">';
+  h+='<div class="cta-hero-badge">Custom Travel Service</div>';
+  h+='<h2>看完花期数据，<em>下一步怎么办？</em></h2>';
+  h+='<p>机票酒店怎么订最划算？行程怎么排不绕路？这些问题我们全帮你搞定。</p>';
+  h+='</div>';
+
+  // Pain points
+  h+='<div class="cta-pains">';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fce4ec">✈️</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">樱花季机票太贵了，动辄大几千</div>';
+  h+='<div class="cta-pain-a">我们对比<b>20+航司/OTA渠道</b>，帮你筛出同日期<b>性价比最高</b>的航班方案，含转机组合和里程票机会，平均省<b>30%-50%</b></div>';
+  h+='<div class="cta-pain-tag">✅ 机票比价优化</div></div></div>';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#f3e5f5">🏨</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">满开周酒店全满/溢价3倍怎么办</div>';
+  h+='<div class="cta-pain-a">根据你的花期窗口，推荐<b>景点步行范围内</b>的高性价比住宿，提前锁定<b>可免费取消</b>房源，含民宿/温泉旅馆/商务酒店多方案</div>';
+  h+='<div class="cta-pain-tag">✅ 酒店策略推荐</div></div></div>';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#e8f5e9">🗺️</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">景点太多不知道怎么排行程</div>';
+  h+='<div class="cta-pain-a">基于<b>实时花期数据</b>+地理位置+交通动线，AI自动生成<b>不走回头路</b>的每日行程，精确到<b>几点到哪个公园</b>，最美时段不错过</div>';
+  h+='<div class="cta-pain-tag">✅ 智能行程规划</div></div></div>';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fff3e0">🍣</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">想吃地道美食但不知道选哪家</div>';
+  h+='<div class="cta-pain-a">精选<b>Tabelog 3.5+</b>评分餐厅，按行程动线就近推荐，标注<b>人均价格/是否需预约/排队时长</b>，包含隐藏居酒屋和当地人爱去的店</div>';
+  h+='<div class="cta-pain-tag">✅ 美食精准推荐</div></div></div>';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#e3f2fd">🚃</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">交通Pass怎么买最省？要买JR Pass吗</div>';
+  h+='<div class="cta-pain-a">根据你的行程自动计算<b>是否值得买Pass</b>，对比JR全国/关西/东京地铁等<b>10+交通券</b>，给出最省钱组合，附购买教程</div>';
+  h+='<div class="cta-pain-tag">✅ 交通省钱方案</div></div></div>';
+
+  h+='<div class="cta-pain"><div class="cta-pain-icon" style="background:#fce4ec">📸</div><div class="cta-pain-body">';
+  h+='<div class="cta-pain-q">去了热门景点全是人头怎么拍照</div>';
+  h+='<div class="cta-pain-a">每个景点标注<b>最佳拍摄时段</b>（通常早7点前人最少），推荐<b>小众机位</b>和错峰路线，避开旅游团高峰时段</div>';
+  h+='<div class="cta-pain-tag">✅ 拍照攻略</div></div></div>';
+
+  h+='</div>'; // end cta-pains
+
+  // Solutions grid
+  h+='<div class="cta-solutions">';
+  h+='<div class="cta-sol-title">🎯 一站式解决你的赏樱旅行难题</div>';
+  h+='<div class="cta-sol-grid">';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">🌸</div><div class="cta-sol-name">花期精准追踪</div><div class="cta-sol-desc">实时数据告诉你<br>哪天去哪个公园最美</div></div>';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">✈️</div><div class="cta-sol-name">特价机票筛选</div><div class="cta-sol-desc">多渠道比价<br>找到最划算的飞行方案</div></div>';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">🏨</div><div class="cta-sol-name">酒店性价比排序</div><div class="cta-sol-desc">景点附近优质住宿<br>免费取消灵活预订</div></div>';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">🗓️</div><div class="cta-sol-name">每日行程编排</div><div class="cta-sol-desc">AI动线优化<br>不走回头路不浪费时间</div></div>';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">🍜</div><div class="cta-sol-name">美食餐厅推荐</div><div class="cta-sol-desc">Tabelog高分店<br>按行程就近安排</div></div>';
+  h+='<div class="cta-sol"><div class="cta-sol-icon">🚃</div><div class="cta-sol-name">交通方案优化</div><div class="cta-sol-desc">Pass计算器<br>帮你选最省钱的交通券</div></div>';
+  h+='</div></div>';
+
+  // CTA box
+  h+='<div class="cta-box">';
+  h+='<div class="cta-box-left">';
+  h+='<div class="cta-box-title">加微信，<em>免费生成一天攻略</em></div>';
+  h+='<div class="cta-box-sub">告诉我你的<b>出行日期和人数</b>，AI 10分钟内生成一天详细行程<br>包含景点·餐厅·交通·花期状态，<b>满意再付费定制完整行程</b></div>';
+  h+='<div class="cta-box-steps">';
+  h+='<div class="cta-step"><div class="cta-step-num">1</div>加微信</div>';
+  h+='<div class="cta-step-arrow">→</div>';
+  h+='<div class="cta-step"><div class="cta-step-num">2</div>告知日期</div>';
+  h+='<div class="cta-step-arrow">→</div>';
+  h+='<div class="cta-step"><div class="cta-step-num">3</div>免费获取1天攻略</div>';
+  h+='<div class="cta-step-arrow">→</div>';
+  h+='<div class="cta-step"><div class="cta-step-num">4</div>满意再定制全程</div>';
+  h+='</div>';
+  h+='</div>';
+  h+='<div class="cta-box-right">';
+  h+='<div class="cta-wechat-card">';
+  h+='<div class="cta-wechat-label">微信号</div>';
+  h+='<div class="cta-wechat-id">Kiwi_iloveu_O-o</div>';
+  h+='<button class="cta-wechat-copy" onclick="navigator.clipboard.writeText(\'Kiwi_iloveu_O-o\');this.textContent=\'✅ 已复制!\';var b=this;setTimeout(function(){b.textContent=\'📋 复制微信号\'},1500)">📋 复制微信号</button>';
+  h+='</div>';
+  h+='<div class="cta-trust">';
+  h+='<div class="cta-trust-item">🔒 不满意不收费</div>';
+  h+='<div class="cta-trust-item">⚡ 10分钟出攻略</div>';
+  h+='<div class="cta-trust-item">🌸 已服务200+用户</div>';
+  h+='</div>';
+  h+='</div>';
+  h+='</div>';
+
+  h+='</div>'; // end cta-section
 
   document.getElementById('home-content').innerHTML=h;
 }
