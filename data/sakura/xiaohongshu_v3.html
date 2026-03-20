@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<title>小红书图文v3 - 2026日本樱花</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;background:#444;display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px}
+.lbl{font-size:11px;color:#aaa;margin-top:8px;letter-spacing:1px}
+.pg{width:1080px;height:1440px;position:relative;overflow:hidden;flex-shrink:0;border-radius:4px}
+
+/* ====== PAGE 1: MEGA INFO PAGE ====== */
+.p1{background:#fff;display:flex;flex-direction:column}
+
+/* P1 Header */
+.p1-hdr{background:linear-gradient(135deg,#0d0d0d 0%,#1a1018 60%,#2d1a22 100%);padding:28px 36px 22px;color:#fff;position:relative;overflow:hidden;flex-shrink:0}
+.p1-hdr::after{content:'🌸';position:absolute;right:-15px;top:-15px;font-size:120px;opacity:.04}
+.p1-hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.p1-badge{font-size:9px;font-weight:600;color:#f48fb1;border:1px solid rgba(244,143,177,.25);padding:3px 10px;border-radius:4px;letter-spacing:1px}
+.p1-date{font-size:9px;color:rgba(255,255,255,.25)}
+.p1-date b{color:#f48fb1;font-size:22px;font-weight:900;margin-right:4px}
+.p1-hdr h1{font-size:32px;font-weight:900;line-height:1.15;margin-bottom:3px}
+.p1-hdr h1 em{font-style:normal;color:#f48fb1}
+.p1-hdr-sub{font-size:11px;color:rgba(255,255,255,.3)}
+.p1-stats{display:flex;gap:16px;margin-top:10px}
+.p1-stat{text-align:center;padding:6px 12px;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.05)}
+.p1-stat-v{font-size:16px;font-weight:900;color:#f48fb1}
+.p1-stat-l{font-size:7px;color:rgba(255,255,255,.2)}
+
+/* P1 City verdicts */
+.p1-cities{padding:10px 20px 6px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;flex-shrink:0}
+.p1-city{padding:10px 12px;border-radius:10px;border:1px solid #f0f0f0}
+.p1-city-top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.p1-city-emoji{font-size:20px}
+.p1-city-name{font-size:14px;font-weight:900;color:#1a1a1a}
+.p1-city-st{font-size:8px;font-weight:700;color:#fff;padding:1px 6px;border-radius:3px}
+.p1-city-st.on{background:#2e7d32}.p1-city-st.soon{background:#e65100}
+.p1-city-verdict{font-size:10px;font-weight:700;color:#333;margin-bottom:3px}
+.p1-city-detail{font-size:8px;color:#888;line-height:1.5}
+.p1-city-detail b{color:#e91e63}
+
+/* P1 TOP spots */
+.p1-top-section{padding:6px 20px 4px;flex-shrink:0}
+.p1-top-title{font-size:14px;font-weight:800;color:#1a1a1a;display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.p1-top-title span{font-size:9px;color:#999;font-weight:500}
+.p1-spots{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.p1-spot{display:flex;gap:8px;padding:8px;border:1px solid #f0f0f0;border-radius:8px;align-items:center}
+.p1-spot-rank{width:22px;height:22px;border-radius:6px;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.p1-spot-rank.g{background:#1a1a1a}.p1-spot-rank.s{background:#888}.p1-spot-rank.b{background:#bbb}
+.p1-spot-photo{width:48px;height:48px;border-radius:6px;object-fit:cover;flex-shrink:0}
+.p1-spot-photo-ph{width:48px;height:48px;border-radius:6px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.p1-spot-info{flex:1;min-width:0}
+.p1-spot-name{font-size:11px;font-weight:800;color:#1a1a1a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p1-spot-meta{font-size:8px;color:#999}
+.p1-spot-reason{font-size:7px;color:#888;margin-top:1px;line-height:1.3;background:#fafafa;padding:2px 4px;border-radius:3px;border-left:2px solid #f48fb1}
+.p1-spot-right{text-align:right;flex-shrink:0}
+.p1-spot-window{font-size:7px;color:#999}
+.p1-spot-window b{color:#c2185b;font-size:9px}
+.p1-spot-score{font-size:16px;font-weight:900;color:#e91e63}
+
+/* P1 Myths strip */
+.p1-myths{padding:6px 20px;display:flex;gap:6px;flex-shrink:0}
+.p1-myth{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #f0f0f0;background:#fef9f9}
+.p1-myth-num{font-size:7px;font-weight:800;color:#e91e63;margin-bottom:2px}
+.p1-myth h4{font-size:10px;font-weight:800;color:#333;line-height:1.3;margin-bottom:2px}
+.p1-myth h4 s{text-decoration:line-through;color:#ccc;font-weight:500}
+.p1-myth p{font-size:7px;color:#888;line-height:1.4}
+.p1-myth p b{color:#c2185b}
+
+/* P1 Footer */
+.p1-ft{padding:6px 20px 10px;background:#fafafa;border-top:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;margin-top:auto}
+.p1-ft-left{font-size:8px;color:#ccc;line-height:1.4}
+.p1-ft-right{font-size:10px;font-weight:700;color:#e91e63}
+
+/* ====== PAGES 2-4: SCREENSHOT OVERLAY ====== */
+.px{position:relative;background:#0d0d0d}
+.px-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.px-chrome{position:absolute;top:0;left:0;right:0;height:24px;background:rgba(245,245,245,.95);display:flex;align-items:center;padding:0 8px;gap:4px;z-index:3}
+.px-dot{width:6px;height:6px;border-radius:50%}
+.px-dot-r{background:#ff5f57}.px-dot-y{background:#febc2e}.px-dot-g{background:#28c840}
+.px-overlay{position:absolute;bottom:0;left:0;right:0;z-index:2;color:#fff}
+.px-fade{background:linear-gradient(transparent 0%,rgba(0,0,0,.75) 35%,rgba(0,0,0,.92) 100%);padding:80px 36px 28px}
+.px-overlay h2{font-size:26px;font-weight:900;line-height:1.2;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.px-overlay h2 em{font-style:normal;color:#f48fb1}
+.px-overlay p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:8px}
+.px-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.px-tags span{font-size:9px;padding:3px 8px;border-radius:5px;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)}
+.px-cta{font-size:12px;font-weight:700;color:rgba(255,255,255,.4);line-height:1.6}
+.px-cta b{color:#f48fb1;font-size:13px}
+.px-tip{font-size:9px;color:rgba(255,255,255,.2);margin-top:6px}
+</style></head>
+<body>
+
+<!-- ==================== PAGE 1: MEGA INFO ==================== -->
+<div class="lbl">PAGE 1 · 主页 — 封面+大盘+TOP8+避坑 全部整合</div>
+<div class="pg p1">
+
+  <div class="p1-hdr">
+    <div class="p1-hdr-top">
+      <div class="p1-badge">SAKURA RUSH INDEX 2026</div>
+      <div class="p1-date"><b>3/20</b>更新</div>
+    </div>
+    <h1>这周末日本樱花<em>最稳的地方</em></h1>
+    <div class="p1-hdr-sub">240景点实测 · 不是普通攻略图 · 是「能冲指数」</div>
+    <div class="p1-stats">
+      <div class="p1-stat"><div class="p1-stat-v">240+</div><div class="p1-stat-l">实测景点</div></div>
+      <div class="p1-stat"><div class="p1-stat-v">6大</div><div class="p1-stat-l">数据源</div></div>
+      <div class="p1-stat"><div class="p1-stat-v">3次/天</div><div class="p1-stat-l">更新频率</div></div>
+      <div class="p1-stat"><div class="p1-stat-v">±2天</div><div class="p1-stat-l">预测精度</div></div>
+    </div>
+  </div>
+
+  <!-- City verdicts -->
+  <div class="p1-cities">
+    <div class="p1-city">
+      <div class="p1-city-top"><div class="p1-city-emoji">🗼</div><div class="p1-city-name">东京</div><div class="p1-city-st on">已开花</div></div>
+      <div class="p1-city-verdict">✅ 可冲，枝垂樱本周满开</div>
+      <div class="p1-city-detail">六义园/小石川 <b>3/22满开</b>，上野/千鸟渊 <b>3/26–29</b> 才最佳。新宿御苑花期最长到<b>4月中</b>。</div>
+    </div>
+    <div class="p1-city">
+      <div class="p1-city-top"><div class="p1-city-emoji">⛩️</div><div class="p1-city-name">京都</div><div class="p1-city-st soon">3/26预计</div></div>
+      <div class="p1-city-verdict">⏳ 御苑枝垂樱已开</div>
+      <div class="p1-city-detail">京都御苑 <b>现在就能看</b>。清水寺/岚山要到 <b>4/1–5</b>。醍醐寺比热门点<b>早3天</b>，月底最佳。</div>
+    </div>
+    <div class="p1-city">
+      <div class="p1-city-top"><div class="p1-city-emoji">🏯</div><div class="p1-city-name">大阪</div><div class="p1-city-st soon">3/27预计</div></div>
+      <div class="p1-city-verdict">🍜 再等一周更壮观</div>
+      <div class="p1-city-detail">大阪城3000棵 <b>4/1满开</b>。万博公园5500棵同期。造币局限定版<b>4/9开放</b>，340品种。</div>
+    </div>
+  </div>
+
+  <!-- TOP 8 -->
+  <div class="p1-top-section">
+    <div class="p1-top-title">🔥 本周最值得冲 TOP 8 <span>能冲指数 = 满开时机60% + 景点推荐度40%</span></div>
+    <div class="p1-spots">
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank g">1</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-09/95956263.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">京都御苑</div>
+          <div class="p1-spot-meta">京都 · 1000本 · 枝垂樱</div>
+          <div class="p1-spot-reason">比京都大部分景点<b>早一周</b>进入最佳</div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/22–28</b></div><div class="p1-spot-score">95</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank g">2</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-03-22/82094479.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">六義園</div>
+          <div class="p1-spot-meta">东京 · 15m巨树 · 夜樱</div>
+          <div class="p1-spot-reason">15m枝垂樱灯光如<b>粉色瀑布</b></div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/22–27</b></div><div class="p1-spot-score">93</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank g">3</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-08/82748630.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">上野恩賜公園</div>
+          <div class="p1-spot-meta">东京 · 800本 · 百选</div>
+          <div class="p1-spot-reason">东京最经典，<b>800棵</b>沿不忍池盛放</div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/26–4/1</b></div><div class="p1-spot-score">93</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank s">4</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-03-17/95286024.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">小石川後楽園</div>
+          <div class="p1-spot-meta">东京 · 庭园 · 枝垂樱</div>
+          <div class="p1-spot-reason">德川家名园，<b>禁止野餐</b>适合安静赏花</div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/22–29</b></div><div class="p1-spot-score">90</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank s">5</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-15/96187134.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">醍醐寺</div>
+          <div class="p1-spot-meta">京都 · 700本 · 秀吉赏樱</div>
+          <div class="p1-spot-reason">比清水寺/岚山<b>早3天</b>满开</div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/30–4/5</b></div><div class="p1-spot-score">92</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank s">6</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-10/82841323.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">井の頭公園</div>
+          <div class="p1-spot-meta">东京 · 400本 · 百选</div>
+          <div class="p1-spot-reason">花瓣铺满湖面<b>比满开还美</b></div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/26–4/1</b></div><div class="p1-spot-score">91</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank b">7</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-06/95804729.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">岩倉五条川</div>
+          <div class="p1-spot-meta">名古屋 · 1200本 · 百选</div>
+          <div class="p1-spot-reason">7.6km粉色隧道，<b>人比东京少很多</b></div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>3/25–4/1</b></div><div class="p1-spot-score">91</div></div>
+      </div>
+
+      <div class="p1-spot">
+        <div class="p1-spot-rank b">8</div>
+        <img class="p1-spot-photo" src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2023-03-28/71035529.jpg" onerror="this.outerHTML='<div class=p1-spot-photo-ph>🌸</div>'">
+        <div class="p1-spot-info">
+          <div class="p1-spot-name">大阪城公園</div>
+          <div class="p1-spot-meta">大阪 · 3000本 · 天守阁</div>
+          <div class="p1-spot-reason">3000棵+天守阁背景，<b>夜樱必打卡</b></div>
+        </div>
+        <div class="p1-spot-right"><div class="p1-spot-window">最佳 <b>4/1–4/7</b></div><div class="p1-spot-score">93</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Myths strip -->
+  <div class="p1-myths">
+    <div class="p1-myth">
+      <div class="p1-myth-num">⚠️ 误区 01</div>
+      <h4><s>城市开花了</s> ≠ 你想去的景点最好看</h4>
+      <p>"东京开花"只是靖国神社标本木开了5朵。上野还要等<b>4–6天</b>。同城市枝垂樱和染井吉野差<b>整整一周</b>。</p>
+    </div>
+    <div class="p1-myth">
+      <div class="p1-myth-num">⚠️ 误区 02</div>
+      <h4><s>满开那天去</s> ≠ 最佳日</h4>
+      <p>满开=80%花苞开，最佳是<b>满开后1-3天</b>。而且要看天气——选<b>晴天无大风</b>的那天去。</p>
+    </div>
+    <div class="p1-myth">
+      <div class="p1-myth-num">⚠️ 误区 03</div>
+      <h4>白天和<span style="color:#e91e63">夜樱</span>完全两种体验</h4>
+      <p>六义园/千鸟渊/目黑川晚上更美。建议<b>白天大公园</b>→<b>傍晚转夜樱点</b>。</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="p1-ft">
+    <div class="p1-ft-left">数据: JMA气象厅 + Weathernews(200万报告) + JMC + 70年历史<br>← 左滑看完整地图和时间轴</div>
+    <div class="p1-ft-right">收藏这页 →</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: MAP SCREENSHOT ==================== -->
+<div class="lbl">PAGE 2 · 地图页截图 — 展示网站地图功能</div>
+<div class="pg px">
+  <img class="px-bg" src="screenshots/tokyo_map.png" onerror="this.style.background='linear-gradient(135deg,#1a2a1a,#2d1a22)'">
+  <div class="px-chrome"><div class="px-dot px-dot-r"></div><div class="px-dot px-dot-y"></div><div class="px-dot px-dot-g"></div></div>
+  <div class="px-overlay"><div class="px-fade">
+    <h2>240个景点<em>实时地图</em></h2>
+    <p>颜色=花期状态 · 点开任意景点看满开日/推荐度/夜樱/照片<br>标注了车站/地标，一眼看懂距离</p>
+    <div class="px-tags">
+      <span>🗺 颜色代表花期状态</span>
+      <span>🚉 标注车站和地标</span>
+      <span>📸 点击看实景照片</span>
+      <span>🏆 推荐度评分</span>
+      <span>🌙 夜樱全标注</span>
+    </div>
+    <div class="px-cta">评论区回「<b>樱花</b>」· 私信发你实时版入口</div>
+  </div></div>
+</div>
+
+<!-- ==================== PAGE 3: TIMELINE SCREENSHOT ==================== -->
+<div class="lbl">PAGE 3 · 时间轴截图 — 展示时间轴功能</div>
+<div class="pg px">
+  <img class="px-bg" src="screenshots/kyoto_tl.png" onerror="this.style.background='linear-gradient(135deg,#1a1a2d,#2d1a22)'">
+  <div class="px-chrome"><div class="px-dot px-dot-r"></div><div class="px-dot px-dot-y"></div><div class="px-dot px-dot-g"></div></div>
+  <div class="px-overlay"><div class="px-fade">
+    <h2>精确到日的<em>花期时间轴</em></h2>
+    <p>按区域分组（岚山/东山/哲学之道…）· 每个景点一张卡<br>实景照片 · 花期进度条 · 中文攻略说明</p>
+    <div class="px-tags">
+      <span>📅 精确到日</span>
+      <span>📍 按区域分组</span>
+      <span>📝 中文说明</span>
+      <span>🌙 夜樱标注</span>
+      <span>🏆 百选标注</span>
+    </div>
+    <div class="px-cta">想看你出发那几天最稳的在哪？<b>私信我「城市+日期」帮你看</b></div>
+  </div></div>
+</div>
+
+<!-- ==================== PAGE 4: CTA ==================== -->
+<div class="lbl">PAGE 4 · 承接页 — 私信引流</div>
+<div class="pg px" style="background:#0d0d0d">
+  <img class="px-bg" src="screenshots/home_page.png" style="opacity:.15" onerror="this.style.opacity='0'">
+  <div style="position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 80px;color:#fff">
+    <div style="font-size:10px;font-weight:600;color:#f48fb1;border:1px solid rgba(244,143,177,.2);padding:4px 14px;border-radius:20px;margin-bottom:28px;letter-spacing:2px">实时更新 · 每天3次</div>
+    <div style="font-size:40px;font-weight:900;line-height:1.25;margin-bottom:12px">告诉我你的出发日期<br><span style="color:#f48fb1">我帮你看到底能不能冲</span></div>
+    <div style="font-size:14px;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:36px;max-width:700px">
+      我把日本 240 个赏樱景点做成了实时追踪<br>
+      你只要告诉我去哪个城市、几号到<br>
+      我直接告诉你最稳的景点和最佳日期
+    </div>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 48px;margin-bottom:24px;backdrop-filter:blur(8px)">
+      <div style="font-size:11px;color:rgba(255,255,255,.25);margin-bottom:6px">评论区回复</div>
+      <div style="font-size:36px;font-weight:900;color:#f48fb1;letter-spacing:1px;margin-bottom:4px">「樱花」</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.2)">私信发你实时版 · 免费</div>
+    </div>
+    <div style="display:flex;gap:24px;margin-top:8px">
+      <div style="font-size:11px;color:rgba(255,255,255,.2)">🌸 覆盖5城市240+景点</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.2)">📊 6大数据源交叉验证</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.2)">🔄 每天更新3次</div>
+    </div>
+  </div>
+</div>
+
+</body></html>

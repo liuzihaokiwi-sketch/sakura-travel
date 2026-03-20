@@ -281,9 +281,43 @@ body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;backg
 
 .footer{text-align:center;padding:8px;font-size:8px;color:#ccc;flex-shrink:0}
 
+/* === FLOATING CTA BAR === */
+.float-cta{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:0;filter:drop-shadow(0 4px 16px rgba(0,0,0,.15));transition:.3s}
+.float-cta-btn{display:flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(135deg,#1a1a1a,#2d1a22);color:#fff;border-radius:24px;cursor:pointer;font-size:12px;font-weight:700;border:1px solid rgba(244,143,177,.2);transition:.2s;white-space:nowrap}
+.float-cta-btn:hover{transform:scale(1.03);box-shadow:0 4px 20px rgba(233,30,99,.25)}
+.float-cta-btn .fcb-icon{font-size:16px}
+.float-cta-btn .fcb-highlight{color:#f48fb1}
+.float-cta-btn .fcb-badge{background:#e91e63;color:#fff;font-size:8px;padding:1px 6px;border-radius:8px;font-weight:800;animation:fcb-pulse 2s infinite}
+@keyframes fcb-pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* Float CTA panel */
+.float-cta-panel{display:none;position:fixed;bottom:60px;right:16px;width:360px;background:#fff;border-radius:16px;border:1px solid #f0e8e0;box-shadow:0 8px 40px rgba(0,0,0,.12);z-index:9999;overflow:hidden;animation:fcp-in .2s}
+@keyframes fcp-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.float-cta-panel.open{display:block}
+.fcp-hdr{background:linear-gradient(135deg,#1a1a1a,#2d1a22);padding:16px 20px;color:#fff;position:relative}
+.fcp-hdr h3{font-size:16px;font-weight:800}
+.fcp-hdr h3 em{font-style:normal;color:#f48fb1}
+.fcp-hdr p{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px}
+.fcp-close{position:absolute;top:12px;right:14px;font-size:16px;color:rgba(255,255,255,.3);cursor:pointer;background:none;border:none}
+.fcp-close:hover{color:#fff}
+.fcp-body{padding:14px 18px}
+.fcp-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f8f4f0}
+.fcp-item:last-child{border-bottom:none}
+.fcp-item-icon{font-size:20px;flex-shrink:0}
+.fcp-item-info{flex:1}
+.fcp-item-title{font-size:12px;font-weight:700;color:#333}
+.fcp-item-desc{font-size:9px;color:#999;margin-top:1px}
+.fcp-wechat{margin-top:10px;padding:14px 16px;background:linear-gradient(135deg,#1a1a1a,#2d1a22);border-radius:12px;text-align:center}
+.fcp-wechat-label{font-size:9px;color:rgba(255,255,255,.3)}
+.fcp-wechat-id{font-size:18px;font-weight:900;color:#f48fb1;margin:4px 0;user-select:all}
+.fcp-wechat-btn{display:inline-block;font-size:10px;color:#fff;background:linear-gradient(135deg,#e91e63,#c2185b);padding:6px 20px;border-radius:8px;cursor:pointer;font-weight:700;border:none;margin-top:4px}
+.fcp-wechat-btn:hover{box-shadow:0 2px 8px rgba(233,30,99,.3)}
+.fcp-wechat-sub{font-size:8px;color:rgba(255,255,255,.2);margin-top:4px}
+
 @media(max-width:800px){
   .lp{width:170px}
   .rp{width:240px}
+  .float-cta-panel{width:calc(100vw - 32px);right:16px}
 }
 </style>
 </head>
@@ -959,6 +993,66 @@ renderHome();
 switchCity(0);
 renderTL();
 setTimeout(function(){map.invalidateSize()},300);
+</script>
+
+<!-- FLOATING CTA BUTTON — visible on all pages -->
+<div class="float-cta" id="float-cta" onclick="toggleCTA()">
+  <div class="float-cta-btn">
+    <span class="fcb-icon">✈️</span>
+    <span>定制<span class="fcb-highlight">赏樱行程</span></span>
+    <span class="fcb-badge">免费试</span>
+  </div>
+</div>
+
+<div class="float-cta-panel" id="float-cta-panel">
+  <div class="fcp-hdr">
+    <h3>🌸 定制你的<em>赏樱行程</em></h3>
+    <p>告诉我出发日期，10分钟给你一天攻略 · 免费试</p>
+    <button class="fcp-close" onclick="toggleCTA()">✕</button>
+  </div>
+  <div class="fcp-body">
+    <div class="fcp-item">
+      <div class="fcp-item-icon">✈️</div>
+      <div class="fcp-item-info"><div class="fcp-item-title">机票比价 · 省30-50%</div><div class="fcp-item-desc">20+渠道比价，含里程票和转机组合</div></div>
+    </div>
+    <div class="fcp-item">
+      <div class="fcp-item-icon">🏨</div>
+      <div class="fcp-item-info"><div class="fcp-item-title">酒店推荐 · 景点步行范围</div><div class="fcp-item-desc">花期窗口锁定免费取消房源</div></div>
+    </div>
+    <div class="fcp-item">
+      <div class="fcp-item-icon">🗺️</div>
+      <div class="fcp-item-info"><div class="fcp-item-title">行程规划 · 不走回头路</div><div class="fcp-item-desc">基于实时花期+交通动线，精确到几点去哪</div></div>
+    </div>
+    <div class="fcp-item">
+      <div class="fcp-item-icon">🍣</div>
+      <div class="fcp-item-info"><div class="fcp-item-title">餐厅推荐 · Tabelog 3.5+</div><div class="fcp-item-desc">按行程就近安排，标注人均/预约/排队</div></div>
+    </div>
+    <div class="fcp-item">
+      <div class="fcp-item-icon">🚃</div>
+      <div class="fcp-item-info"><div class="fcp-item-title">交通方案 · Pass计算器</div><div class="fcp-item-desc">自动算要不要买JR Pass，给最省组合</div></div>
+    </div>
+    <div class="fcp-wechat">
+      <div class="fcp-wechat-label">加微信 · 免费获取1天攻略</div>
+      <div class="fcp-wechat-id">Kiwi_iloveu_O-o</div>
+      <button class="fcp-wechat-btn" onclick="navigator.clipboard.writeText('Kiwi_iloveu_O-o');this.textContent='✅ 已复制!';var b=this;setTimeout(function(){b.textContent='📋 复制微信号'},1500)">📋 复制微信号</button>
+      <div class="fcp-wechat-sub">满意再付费 · 不满意不收费 · 10分钟出攻略</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleCTA(){
+  var p=document.getElementById('float-cta-panel');
+  p.classList.toggle('open');
+}
+// Close panel when clicking outside
+document.addEventListener('click',function(e){
+  var panel=document.getElementById('float-cta-panel');
+  var btn=document.getElementById('float-cta');
+  if(panel.classList.contains('open')&&!panel.contains(e.target)&&!btn.contains(e.target)){
+    panel.classList.remove('open');
+  }
+});
 </script>
 </body>
 </html>
