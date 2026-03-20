@@ -14,6 +14,8 @@ from app.api import pois
 from app.api import products
 from app.api import quiz
 from app.api import orders
+from app.api import modifications
+from app.api import review
 from app.api.ops import editorial, entities, ranked
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
@@ -83,6 +85,8 @@ app.include_router(editorial.router, prefix="/ops", tags=["ops-editorial"])
 app.include_router(ranked.router, prefix="/ops", tags=["ops-ranked"])
 app.include_router(quiz.router, tags=["quiz"])               # /quiz
 app.include_router(orders.router, tags=["orders"])           # /orders
+app.include_router(modifications.router, tags=["modifications"])  # /orders/{id}/modify
+app.include_router(review.router, tags=["admin-reviews"])    # /admin/reviews/*
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────
