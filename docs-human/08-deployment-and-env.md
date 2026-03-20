@@ -1,80 +1,75 @@
 # 部署与环境
 
-## 本地开发环境搭建
-
-### 前置依赖
-- Python 3.11+
-- Node.js 18+
-- PostgreSQL 16（pgvector 扩展）
-- Redis 7
-
-### 快速启动（Docker 方式）
+## 本地开发
 
 ```bash
-# 1. 克隆仓库
-git clone <repo_url> && cd travel-ai
-
-# 2. 复制环境变量
-cp .env.example .env
-# 编辑 .env，填入 OPENAI_API_KEY 等
-
-# 3. 启动基础设施
-docker compose up -d postgres redis
-
-# 4. 启动后端
-pip install -e ".[dev]"
+# 后端
+cp .env.example .env     # 填入 API Keys
+pip install -e ".[dev]"  # Python 依赖
 uvicorn app.main:app --reload --port 8000
 
-# 5. 启动前端
-cd web && npm install && npm run dev
+# 前端
+cd web && pnpm install && pnpm dev  # http://localhost:3000
 
-# 6. 启动 Worker（可选）
-python -m app.workers
+# Worker
+python -m app.workers  # arq 异步任务
+
+# 数据库
+docker compose up -d postgres redis
+alembic upgrade head
 ```
 
-### 全 Docker 方式
-
-```bash
-docker compose up -d
-# API: http://localhost:8000
-# 前端: http://localhost:3000
-```
-
-## 环境变量清单
+## 环境变量（完整清单）
 
 | 变量 | 必填 | 说明 |
-|---|---|---|
-| `DATABASE_URL` | ✅ | PostgreSQL 连接串（asyncpg） |
+|------|------|------|
+| `DATABASE_URL` | ✅ | PostgreSQL 连接串 |
 | `REDIS_URL` | ✅ | Redis 连接串 |
-| `OPENAI_API_KEY` | ✅ | OpenAI API Key（标签/文案/意图解析） |
-| `AI_BASE_URL` | ⚪ | AI API 中转站地址（默认 OpenAI 官方） |
-| `AI_MODEL` | ⚪ | 默认 AI 模型（默认 claude-opus-4-6） |
-| `GOOGLE_PLACES_API_KEY` | ⚪ | Google Places API（实体采集） |
-| `SERPAPI_KEY` | ⚪ | SerpAPI Key（搜索采集） |
-| `AMADEUS_CLIENT_ID` | ⚪ | Amadeus 机票 API |
-| `WECOM_WEBHOOK_URL` | ⚪ | 企业微信机器人通知 |
-| `APP_ENV` | ⚪ | development / staging / production |
-| `SECRET_KEY` | ⚪ | 应用密钥（生产环境必改） |
-| `ALLOWED_ORIGINS` | ⚪ | CORS 允许的来源 |
+| `OPENAI_API_KEY` | ✅ | GPT-4o / GPT-4o-mini |
+| `ANTHROPIC_API_KEY` | 推荐 | Claude（行程编排） |
+| `DEEPL_API_KEY` | 推荐 | 翻译（免费版即可） |
+| `GOOGLE_PLACES_API_KEY` | 可选 | POI 数据采集 |
+| `SERPAPI_KEY` | 可选 | 搜索引擎数据 |
+| `ADMIN_PASSWORD` | ✅ | 管理后台密码 |
+| `WECOM_WEBHOOK_URL` | 推荐 | 企微通知 |
+| `AI_BASE_URL` | 可选 | OpenAI API 中转站 |
+
+## Docker Compose
+
+```yaml
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: japan_ai
+      POSTGRES_PASSWORD: japan_ai_dev
+      POSTGRES_DB: japan_ai
+    ports: ["5432:5432"]
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+```
 
 ## 数据库迁移
 
 ```bash
-# 使用 Alembic
+# 生成迁移
 alembic revision --autogenerate -m "描述"
+
+# 执行迁移
 alembic upgrade head
 
-# 开发模式自动建表（启动时 create_all）
-APP_ENV=development uvicorn app.main:app --reload
+# 回退
+alembic downgrade -1
 ```
 
-## Docker Compose 架构
+## 备份
 
-| 服务 | 镜像 | 端口 |
-|---|---|---|
-| postgres | pgvector/pgvector:pg16 | 5432 |
-| redis | redis:7-alpine | 6379 |
-| api | 自定义 Dockerfile | 8000 |
-| worker | 同 api 镜像 | — |
+```bash
+# 数据库备份
+docker exec -t <postgres_container_id> pg_dump -U japan_ai -F tar japan_ai > japan_ai_backup.tar
 
-数据持久化使用 Docker volumes：`postgres_data`, `redis_data`, `exports_data`。
+# 备份恢复
+docker exec -t <postgres_container_id> pg_restore -U japan_ai -d japan_ai japan_ai_backup.tar
+```

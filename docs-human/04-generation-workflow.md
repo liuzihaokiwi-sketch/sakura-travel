@@ -1,8 +1,55 @@
 # 攻略生成流程
 
-## 概述
+## 生成管线
 
-从用户提交问卷到攻略交付，整个流程由 arq Worker 异步执行，分为 6 个阶段。
+```
+TripRequest (用户问卷数据)
+    │
+    ▼
+1. 路线模板选择 (geography/region_router.py)
+   - 输入：destination + duration_days + travel_style
+   - 从 data/seed/p0_route_skeleton_templates_v1.json 匹配模板
+   - 输出：带 Day 骨架的路线模板 JSON
+    │
+    ▼
+2. 候选实体获取 (catalog/pipeline.py)
+   - 按城市 + 类型查询 entity_base
+   - 过滤 is_active = true
+    │
+    ▼
+3. 评分排序 (ranking/scorer.py)
+   - Base Score: 平台评分/评论数/新鲜度
+   - Context Score: 用户偏好 × 实体亲和度
+   - Editorial Score: 人工加分
+   - 输出：按综合分排序的实体列表
+    │
+    ▼
+4. 行程装配 (planning/assembler.py)
+   - load_template → apply_scene_variant → trim_to_days
+   - fetch_slot_candidates: 为每个时间槽选候选
+   - assemble_trip: 填入实体 + 时间安排
+    │
+    ▼
+5. AI 文案润色 (planning/copywriter.py)
+   - 模型：GPT-4o (ai_model_standard)
+   - 为每个景点/餐厅生成推荐理由（30-50字，"专业判断"口吻）
+    │
+    ▼
+6. 渲染 (rendering/renderer.py)
+   - Jinja2 模板 → 杂志级 HTML
+   - WeasyPrint → PDF 导出
+    │
+    ▼
+7. 审核 → 交付
+```
+
+## 护栏检查（生成后自动校验）
+
+- ✅ 每天景点数 3-6 个（不过满也不太空）
+- ✅ 午餐/晚餐时段有餐厅
+- ✅ 相邻景点间通勤 < 40 分钟
+- ✅ 无重复实体
+- ✅ 关闭的景点不出现
 
 ## 阶段 1：需求标准化 (normalize_trip_profile)
 

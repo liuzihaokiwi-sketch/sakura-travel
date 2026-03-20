@@ -2,61 +2,48 @@
 
 ## 实体类型
 
-系统管理三类核心实体，统一存储在 `entity_base` 表中（CTI 模式）：
+| 类型 | 表 | 数据源 | 示例 |
+|------|------|--------|------|
+| POI（景点） | `entity_base` (type=poi) | OSM + AI 生成 | 浅草寺、新宿御苑 |
+| 餐厅 | `entity_base` (type=restaurant) | Tabelog + AI 生成 | 一兰拉面、叙叙苑 |
+| 酒店 | `entity_base` (type=hotel) | Hotels API + AI 生成 | 星野リゾート |
 
-| 实体类型 | 扩展表 | 关键字段 |
-|---|---|---|
-| POI（景点） | `pois` | 类别、游览时长、门票、最佳季节、拥挤度 |
-| Hotel（酒店） | `hotels` | 类型（商务/旅馆/胶囊）、星级、设施、价格层级 |
-| Restaurant（餐厅） | `restaurants` | 料理类型、Tabelog 评分、米其林星级、预约难度、人均价格 |
-
-每个实体具有多语言名称（中/日/英）、地理坐标、Google Place ID、数据层级（S/A/B）。
-
-## 数据采集来源
-
-| 来源 | 采集方式 | 数据类型 |
-|---|---|---|
-| OpenStreetMap (OSM) | Overpass API | POI 基础信息 |
-| Tabelog | 爬虫 | 餐厅评分/价格 |
-| Google Places | API | 评分/评论数/营业时间 |
-| JNTO 官方 | 爬虫 | 景点官方信息 |
-| 小红书 | Playwright 爬虫 | 用户真实体验 |
-| Claude AI | API 生成 | 离线模式下的实体补全 |
-| 人工编辑 | 后台操作 | Editorial Boost 标注 |
-
-## GPT 标签系统（9 维主题亲和度）
-
-每个实体通过 GPT-4o-mini 生成 9 个维度的亲和度评分（0-100）：
+## 数据采集流程
 
 ```
-shopping / food / culture_history / onsen_relaxation / nature_outdoors
-anime_pop_culture / family_kids / nightlife_entertainment / photography_scenic
+POST /admin/sync/{city}
+  → pipeline.py
+    → 优先使用爬虫（OSM/Tabelog/Google Places）
+    → 网络不通时自动降级到 Claude AI 生成
+    → 写入 entity_base + entity_scores
 ```
 
-标签存储在 `entity_tags` 表中，支持种子 JSON 人工覆盖（`data/entity_affinity_seed_v1.json`）。
+## GPT 标签（9 维主题亲和度）
 
-## 评分引擎
+每个实体有 9 个维度的 0-5 评分：
+`shopping / food / culture_history / onsen_relaxation / nature_outdoors / anime_pop_culture / family_kids / nightlife_entertainment / photography_scenic`
 
-三阶段评分机制：
+- **生成方式**：GPT-4o-mini 批量打标（`scripts/generate_tags.py`）
+- **人工覆盖**：`data/seed/entity_affinity_seed_v1.json` 中的种子数据优先于 GPT
+- **存储**：`entity_tags` 表，`tag_namespace=affinity`，`tag_value={theme}:{score}`
 
-1. **系统基础分 (0-100)**：平台评分 × 评论数量 × 数据新鲜度 × 实体类型特有信号
-2. **上下文分**：根据用户画像（party_type, budget_level, must_have_tags）动态调整
-3. **编辑 Boost (-8 ~ +8)**：人工标注的权重调整，覆盖算法盲区
+## 三层评分引擎
 
-最终得分 = `clamp(base_score + editorial_boost, 0, 100)`
+| 层 | 权重 | 说明 |
+|----|------|------|
+| Base Score | 40% | 平台评分 + 评论数 + 数据新鲜度 + 风险惩罚 |
+| Context Score | 40% | 用户偏好标签 × 实体亲和度标签的加权点积 |
+| Editorial Score | 20% | 人工编辑加分（-3 到 +5） |
 
 ## 数据新鲜度
 
-- 酒店报价快照 TTL: 1 天
-- 航班价格快照 TTL: 1 天
-- 景点开放状态 TTL: 7 天
-- 天气数据 TTL: 1 天
-- AI 文案缓存 TTL: 7 天
+- `entity_scores.updated_at` 距今超过 30 天 → 新鲜度衰减
+- POI 开放时间 TTL: 7 天
+- 酒店报价 TTL: 1 天
+- 航班报价 TTL: 1 天
 
-## 数据层级
+## 翻译
 
-| 层级 | 含义 | 标准 |
-|---|---|---|
-| S | 精品 | Google 评分 ≥ 4.5 + 评论 ≥ 500 + 编辑审核 |
-| A | 优质 | Google 评分 ≥ 4.0 + 评论 ≥ 100 |
-| B | 基础 | 有基本信息但未人工审核 |
+- 工具：DeepL Free API（`scripts/batch_translate.py`）
+- 翻译范围：实体 `name_ja` → `name_zh`
+- 缓存：Redis 永久缓存，key = `translate:ja:zh:{text}`
