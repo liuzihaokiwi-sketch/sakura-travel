@@ -2,353 +2,384 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>小红书图文 - 日本樱花数据平台</title>
+<title>小红书图文 - 2026日本樱花</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 20px}
-.page{width:1080px;height:1440px;position:relative;overflow:hidden;flex-shrink:0;box-shadow:0 4px 30px rgba(0,0,0,.12)}
-.page-label{text-align:center;font-size:14px;color:#999;margin-bottom:-30px;margin-top:10px}
+body{font-family:-apple-system,'PingFang SC','Hiragino Sans GB',sans-serif;background:#ddd;display:flex;flex-direction:column;align-items:center;gap:30px;padding:30px}
+.label{font-size:13px;color:#999;margin-top:10px}
+.page{width:1080px;height:1440px;position:relative;overflow:hidden;flex-shrink:0;box-shadow:0 4px 24px rgba(0,0,0,.1)}
 
-/* ===== PAGE 1: 地图展示 ===== */
-.p1{background:#fff}
-.p1-top{height:780px;position:relative;overflow:hidden}
-.p1-top-bg{width:100%;height:100%;object-fit:cover;display:block}
-.p1-top-overlay{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(255,255,255,.95))}
-.p1-top-badge{position:absolute;top:24px;left:24px;background:rgba(233,30,99,.9);color:#fff;font-size:18px;font-weight:800;padding:8px 20px;border-radius:12px;backdrop-filter:blur(4px)}
-.p1-top-badge2{position:absolute;top:24px;right:24px;background:rgba(0,0,0,.6);color:#fff;font-size:14px;font-weight:600;padding:6px 16px;border-radius:10px}
+/* City page */
+.city-page{background:#fff;display:flex;flex-direction:column}
+.cp-screenshot{width:100%;height:720px;overflow:hidden;position:relative}
+.cp-screenshot img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.cp-screenshot-overlay{position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,#fff)}
+.cp-badge{position:absolute;top:16px;left:16px;background:rgba(233,30,99,.92);color:#fff;font-size:15px;font-weight:800;padding:6px 16px;border-radius:10px;backdrop-filter:blur(4px);z-index:2}
+.cp-badge2{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px;z-index:2}
 
-.p1-bottom{padding:28px 40px;height:660px}
-.p1-title{font-size:36px;font-weight:900;color:#333;margin-bottom:16px;line-height:1.3}
-.p1-title em{font-style:normal;color:#e91e63}
-.p1-desc{font-size:18px;color:#666;line-height:1.7;margin-bottom:20px}
-.p1-features{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
-.p1-feat{background:#fef5f7;border:1px solid #fce4ec;border-radius:14px;padding:16px;text-align:center}
-.p1-feat .pf-icon{font-size:28px;margin-bottom:4px}
-.p1-feat .pf-title{font-size:15px;font-weight:800;color:#c2185b}
-.p1-feat .pf-desc{font-size:12px;color:#999;margin-top:2px}
-.p1-spots{display:flex;gap:12px;overflow:hidden}
-.p1-spot{flex:1;border-radius:12px;overflow:hidden;border:1px solid #f0e0e0}
-.p1-spot img{width:100%;height:100px;object-fit:cover}
-.p1-spot-info{padding:8px 10px}
-.p1-spot-name{font-size:13px;font-weight:700;color:#333}
-.p1-spot-meta{font-size:10px;color:#999;margin-top:2px}
-.p1-spot-score{font-size:10px;color:#fff;background:#e91e63;padding:1px 6px;border-radius:6px;display:inline-block;margin-top:3px}
+.cp-bottom{flex:1;padding:20px 36px 24px;display:flex;flex-direction:column}
+.cp-title{font-size:34px;font-weight:900;color:#333;line-height:1.2;margin-bottom:4px}
+.cp-title em{font-style:normal;color:#e91e63}
+.cp-sub{font-size:15px;color:#888;margin-bottom:14px;line-height:1.5}
+.cp-desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:14px;padding:12px 16px;background:#fef8f8;border-radius:12px;border-left:4px solid #e91e63}
 
-/* ===== PAGE 2: 时间轴+景点 ===== */
-.p2{background:#fff}
-.p2-top{height:720px;position:relative;background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
-.p2-top-title{position:absolute;top:24px;left:24px;z-index:2}
-.p2-top-title h3{font-size:28px;font-weight:900;color:#880e4f}
-.p2-top-title p{font-size:14px;color:#ad1457}
-.p2-timeline{position:absolute;top:80px;left:30px;right:30px;bottom:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tl-card{background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.8);display:flex;flex-direction:column}
-.tl-card img{width:100%;height:110px;object-fit:cover}
-.tl-card-body{padding:10px 12px;flex:1}
-.tl-card-name{font-size:15px;font-weight:800;color:#333}
-.tl-card-city{font-size:10px;color:#fff;background:#ad1457;padding:1px 6px;border-radius:4px;display:inline-block;margin-bottom:4px}
-.tl-card-bar{height:20px;background:#f5f0eb;border-radius:10px;position:relative;margin:6px 0;overflow:hidden}
-.tl-bar-fill{height:100%;border-radius:10px;position:absolute;left:0;top:0}
-.tl-bar-bud{background:#81c784}
-.tl-bar-half{background:#f48fb1}
-.tl-bar-full{background:#e91e63}
-.tl-bar-fall{background:#9c27b0}
-.tl-card-dates{display:flex;justify-content:space-between;font-size:9px;color:#999}
-.tl-card-tags{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap}
-.tl-card-tags span{font-size:8px;padding:1px 5px;border-radius:4px;background:#fce4ec;color:#c2185b}
+.cp-spots-title{font-size:16px;font-weight:800;color:#c2185b;margin-bottom:8px}
+.cp-spots{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.cp-spot-row{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 10px;background:#fdf5f7;border-radius:8px}
+.cp-spot-rank{width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.cp-spot-rank.gold{background:linear-gradient(135deg,#f9a825,#ff8f00)}
+.cp-spot-rank.pink{background:#e91e63}
+.cp-spot-text{font-weight:600;color:#333;flex:1}
+.cp-spot-text span{color:#999;font-weight:400}
 
-.p2-bottom{padding:24px 40px;height:720px}
-.p2-btitle{font-size:32px;font-weight:900;color:#333;margin-bottom:6px}
-.p2-btitle em{font-style:normal;color:#e91e63}
-.p2-bsub{font-size:16px;color:#999;margin-bottom:16px}
-.p2-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.p2-card{border-radius:12px;overflow:hidden;border:1px solid #f0e0e0;background:#fff}
-.p2-card img{width:100%;height:130px;object-fit:cover}
-.p2-card-body{padding:10px}
-.p2-card-name{font-size:14px;font-weight:800;color:#333}
-.p2-card-meta{font-size:10px;color:#999;margin:2px 0 4px}
-.p2-card-reason{font-size:10px;color:#666;line-height:1.5}
-.p2-card-score{position:absolute;top:8px;right:8px;background:#e91e63;color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:8px}
-.p2-card{position:relative}
+.cp-bottom-row{display:flex;gap:12px;margin-top:auto}
+.cp-stat{flex:1;text-align:center;padding:10px;background:#fef5f7;border-radius:10px;border:1px solid #fce4ec}
+.cp-stat .cs-val{font-size:24px;font-weight:900;color:#c2185b}
+.cp-stat .cs-label{font-size:10px;color:#999;margin-top:2px}
 
-/* ===== PAGE 3: 引流+数据实力 ===== */
-.p3{background:linear-gradient(170deg,#fff5f7 0%,#fce4ec 30%,#f8bbd0 70%,#f06292 100%);display:flex;flex-direction:column}
-.p3 .deco{position:absolute;font-size:200px;opacity:.04}
-.p3-top{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 50px;position:relative;z-index:1}
-.p3-icon{font-size:80px;margin-bottom:12px}
-.p3-title{font-size:52px;font-weight:900;color:#880e4f;line-height:1.2;margin-bottom:12px}
-.p3-title em{font-style:normal;background:linear-gradient(135deg,#e91e63,#ad1457);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.p3-sub{font-size:20px;color:#ad1457;line-height:1.6;margin-bottom:24px}
-.p3-nums{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
-.p3-num{background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border-radius:16px;padding:16px 20px;text-align:center;border:1px solid rgba(255,255,255,.8);width:140px}
-.p3-num .pn-val{font-size:32px;font-weight:900;color:#880e4f}
-.p3-num .pn-label{font-size:11px;color:#ad1457;font-weight:600}
-.p3-sources{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px}
-.p3-src{background:rgba(255,255,255,.65);padding:8px 16px;border-radius:12px;font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:4px}
-.p3-cta{background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;font-size:20px;font-weight:800;padding:16px 48px;border-radius:30px;text-decoration:none;box-shadow:0 4px 20px rgba(233,30,99,.35);margin-bottom:12px}
-.p3-url{font-size:18px;font-weight:700;color:#880e4f;margin-bottom:8px}
-.p3-tip{font-size:15px;color:rgba(136,14,79,.5)}
+.cp-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px solid #f5f0eb}
+.cp-footer-left{font-size:10px;color:#bbb}
+.cp-footer-right{font-size:11px;color:#e91e63;font-weight:700}
+
+/* CTA page */
+.cta-page{background:linear-gradient(170deg,#fff5f7 0%,#fce4ec 25%,#f8bbd0 55%,#f06292 85%,#e91e63 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px}
+.cta-page .deco{position:absolute;font-size:180px;opacity:.05}
+.cta-icon{font-size:80px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.1))}
+.cta-title{font-size:48px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px;text-shadow:0 2px 12px rgba(136,14,79,.3)}
+.cta-sub{font-size:20px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:28px;max-width:800px}
+.cta-nums{display:flex;gap:14px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
+.cta-num{background:rgba(255,255,255,.55);backdrop-filter:blur(10px);border-radius:14px;padding:14px 18px;text-align:center;border:1px solid rgba(255,255,255,.7);width:135px}
+.cta-num .cn-val{font-size:28px;font-weight:900;color:#880e4f}
+.cta-num .cn-label{font-size:10px;color:#ad1457;font-weight:600}
+.cta-srcs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:24px}
+.cta-src{background:rgba(255,255,255,.6);padding:7px 14px;border-radius:10px;font-size:12px;font-weight:600;color:#555}
+.cta-box{background:rgba(255,255,255,.92);border-radius:20px;padding:22px 44px;margin-bottom:10px}
+.cta-box .cb-label{font-size:12px;color:#999;margin-bottom:4px}
+.cta-box .cb-url{font-size:20px;font-weight:800;color:#c2185b;word-break:break-all}
+.cta-tip{font-size:14px;color:rgba(255,255,255,.6);margin-top:10px}
+
+.cta-features{display:flex;gap:14px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
+.cta-feat{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px 18px;text-align:center;width:155px}
+.cta-feat .cf-icon{font-size:28px;margin-bottom:4px}
+.cta-feat .cf-text{font-size:12px;color:#fff;font-weight:700;line-height:1.3}
 </style>
 </head>
 <body>
 
-<div class="page-label">第 1 张 · 截图保存</div>
-<div class="page p1">
-  <!-- 上半：网站地图截图模拟 -->
-  <div class="p1-top" style="background:#f5f3f0;display:flex">
-    <!-- 左栏 -->
-    <div style="width:240px;background:#fff;border-right:2px solid #f5e0e0;padding:14px;overflow:hidden">
-      <div style="font-size:14px;font-weight:800;color:#c2185b;border-bottom:2px solid #fce4ec;padding-bottom:6px;margin-bottom:8px">🌸 东京 · 热门TOP</div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#f9a825,#ff8f00);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
-          <div><div style="font-size:12px;font-weight:700">上野恩賜公園</div><div style="font-size:9px;color:#999">800本 · 名所百选</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 97</div></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#f9a825,#ff8f00);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-          <div><div style="font-size:12px;font-weight:700">新宿御苑</div><div style="font-size:9px;color:#999">900本 · 70品种</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 96</div></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#f9a825,#ff8f00);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
-          <div><div style="font-size:12px;font-weight:700">千鳥ヶ淵緑道</div><div style="font-size:9px;color:#999">230本 · 划船赏樱</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 95</div></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:#e91e63;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>
-          <div><div style="font-size:12px;font-weight:700">靖国神社</div><div style="font-size:9px;color:#999">500本 · 标本木</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 93</div></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:#e91e63;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</div>
-          <div><div style="font-size:12px;font-weight:700">井の頭恩賜公園</div><div style="font-size:9px;color:#999">400本 · 名所百选</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 92</div></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;padding:6px;background:#fef8f8;border-radius:8px;border:1px solid #fce4ec">
-          <div style="width:20px;height:20px;border-radius:50%;background:#e91e63;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</div>
-          <div><div style="font-size:12px;font-weight:700">隅田公園</div><div style="font-size:9px;color:#999">600本 · 晴空塔</div><div style="font-size:9px;color:#fff;background:#e91e63;padding:1px 5px;border-radius:4px;display:inline-block;margin-top:2px">推荐 91</div></div>
-        </div>
-      </div>
-    </div>
-    <!-- 中间：地图区域 -->
-    <div style="flex:1;position:relative;background:linear-gradient(135deg,#e8f5e9 0%,#f1f8e9 40%,#e0f2f1 100%)">
-      <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(136,14,79,.85);color:#fff;font-size:14px;font-weight:700;padding:5px 18px;border-radius:10px;z-index:2">🗾 东京 · 78个赏樱景点实时分布</div>
-      <!-- 地标 -->
-      <div style="position:absolute;top:24%;left:70%;font-size:28px;text-shadow:0 2px 4px rgba(0,0,0,.15)">🗼</div>
-      <div style="position:absolute;top:16%;left:52%;font-size:22px">🚉</div>
-      <div style="position:absolute;top:38%;left:28%;font-size:22px">🚉</div>
-      <div style="position:absolute;top:56%;left:42%;font-size:22px">🛕</div>
-      <div style="position:absolute;top:12%;left:68%;font-size:22px">🏙️</div>
-      <!-- 樱花点 -->
-      <div style="position:absolute;top:14%;left:46%;width:14px;height:14px;border-radius:50%;background:#f48fb1;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)"></div>
-      <div style="position:absolute;top:11%;left:50%;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:6px;font-size:10px;font-weight:700;border:1px solid #f0d0d0">上野恩賜公園 <span style="background:#e91e63;color:#fff;padding:0 4px;border-radius:3px;font-size:8px">97</span></div>
-      <div style="position:absolute;top:34%;left:23%;width:14px;height:14px;border-radius:50%;background:#81c784;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)"></div>
-      <div style="position:absolute;top:31%;left:27%;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:6px;font-size:10px;font-weight:700;border:1px solid #f0d0d0">新宿御苑</div>
-      <div style="position:absolute;top:26%;left:43%;width:14px;height:14px;border-radius:50%;background:#f48fb1;border:2px solid #fff"></div>
-      <div style="position:absolute;top:23%;left:47%;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:6px;font-size:10px;font-weight:700;border:1px solid #f0d0d0">千鳥ヶ淵</div>
-      <div style="position:absolute;top:20%;left:62%;width:14px;height:14px;border-radius:50%;background:#c2185b;border:2px solid #fff"></div>
-      <div style="position:absolute;top:17%;left:66%;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:6px;font-size:10px;font-weight:700;border:1px solid #f0d0d0">六義園 <span style="background:#e91e63;color:#fff;padding:0 4px;border-radius:3px;font-size:8px">90</span></div>
-      <div style="position:absolute;top:48%;left:33%;width:12px;height:12px;border-radius:50%;background:#81c784;border:2px solid #fff"></div>
-      <div style="position:absolute;top:60%;left:58%;width:12px;height:12px;border-radius:50%;background:#f8bbd0;border:2px solid #fff"></div>
-      <div style="position:absolute;top:42%;left:55%;width:12px;height:12px;border-radius:50%;background:#e91e63;border:2px solid #fff"></div>
-      <div style="position:absolute;top:70%;left:40%;width:12px;height:12px;border-radius:50%;background:#81c784;border:2px solid #fff"></div>
-      <div style="position:absolute;top:52%;left:72%;width:12px;height:12px;border-radius:50%;background:#f48fb1;border:2px solid #fff"></div>
-      <div style="position:absolute;top:80%;left:50%;width:12px;height:12px;border-radius:50%;background:#81c784;border:2px solid #fff"></div>
-      <div style="position:absolute;top:66%;left:25%;width:12px;height:12px;border-radius:50%;background:#f8bbd0;border:2px solid #fff"></div>
-      <div style="position:absolute;top:30%;left:60%;width:12px;height:12px;border-radius:50%;background:#e91e63;border:2px solid #fff"></div>
-      <!-- 图例 -->
-      <div style="position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.92);padding:10px 14px;border-radius:10px;font-size:10px;line-height:1.8;box-shadow:0 1px 6px rgba(0,0,0,.06)">
-        <div style="font-weight:800;margin-bottom:2px;font-size:11px">🌸 花期阶段</div>
-        <div><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#81c784;margin-right:3px;vertical-align:middle"></span>花苞期</div>
-        <div><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#f48fb1;margin-right:3px;vertical-align:middle"></span>即将开放</div>
-        <div><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#e91e63;margin-right:3px;vertical-align:middle"></span>开花中</div>
-        <div><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#c2185b;margin-right:3px;vertical-align:middle"></span>满开🔥</div>
-        <div><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#9c27b0;margin-right:3px;vertical-align:middle"></span>飘落中</div>
-      </div>
-      <div style="position:absolute;bottom:14px;right:14px;background:rgba(255,255,255,.92);padding:8px 12px;border-radius:10px;font-size:10px">🚉 车站 &nbsp;🗼 地标 &nbsp;🛕 神社</div>
-    </div>
-    <!-- 右栏：景点详情 -->
-    <div style="width:220px;background:#fff;border-left:2px solid #f5e0e0;padding:12px;overflow:hidden">
-      <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-08/82748630.jpg" style="width:100%;height:130px;object-fit:cover;border-radius:10px;margin-bottom:8px">
-      <div style="font-size:16px;font-weight:800;color:#333;margin-bottom:3px">上野恩賜公園</div>
-      <div style="display:inline-flex;align-items:center;gap:3px;background:#e91e63;color:#fff;font-size:12px;font-weight:800;padding:3px 10px;border-radius:8px;margin-bottom:8px">🏆 推荐度 97</div>
-      <div style="font-size:11px;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f5f0eb"><span style="color:#999">开花</span><span style="font-weight:600">3月20日</span></div>
-      <div style="font-size:11px;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f5f0eb"><span style="color:#999">半开</span><span style="font-weight:600">3月25日</span></div>
-      <div style="font-size:11px;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f5f0eb"><span style="color:#999">满开</span><span style="font-weight:600;color:#e91e63">3月29日</span></div>
-      <div style="font-size:11px;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f5f0eb"><span style="color:#999">飘落</span><span style="font-weight:600">4月5日</span></div>
-      <div style="font-size:11px;display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f5f0eb"><span style="color:#999">樱花树</span><span style="font-weight:600">约800本</span></div>
-      <div style="font-size:10px;color:#666;line-height:1.5;margin-top:6px;padding:6px;background:#fef8f8;border-radius:6px">东京最经典赏樱地，800棵樱花树沿不忍池畔盛放，名所百选级别，每年超300万人到访。</div>
-      <div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:6px">
-        <span style="font-size:8px;padding:2px 6px;border-radius:4px;background:#fce4ec;color:#c2185b">🏆 名所百选</span>
-        <span style="font-size:8px;padding:2px 6px;border-radius:4px;background:#fce4ec;color:#c2185b">🌙 夜樱</span>
-        <span style="font-size:8px;padding:2px 6px;border-radius:4px;background:#fce4ec;color:#c2185b">🚉 JR上野</span>
-      </div>
-    </div>
+<div class="label">第 1 张 · 东京 · 截图保存</div>
+<div class="page city-page">
+  <div class="cp-screenshot">
+    <img src="screenshots/tokyo_map.png" alt="东京实时花期地图">
+    <div class="cp-screenshot-overlay"></div>
+    <div class="cp-badge">📍 我们的实时花期地图 · 东京</div>
+    <div class="cp-badge2">78个景点 · 每天更新3次</div>
   </div>
-  <!-- 下半：解说 -->
-  <div class="p1-bottom">
-    <div class="p1-title">🗺 <em>实时樱花地图</em> · 每个点都是真实景点</div>
-    <div class="p1-desc">不是笼统的"东京3月底开花"，而是精确到<b>每一个公园、每一条河、每一座神社</b>的实时花期。颜色代表花期进度，点击就能看详情。</div>
-    <div class="p1-features">
-      <div class="p1-feat"><div class="pf-icon">📍</div><div class="pf-title">240+ 景点</div><div class="pf-desc">每个都有GPS坐标</div></div>
-      <div class="p1-feat"><div class="pf-icon">🎨</div><div class="pf-title">5色花期</div><div class="pf-desc">一眼看懂开放阶段</div></div>
-      <div class="p1-feat"><div class="pf-icon">🏆</div><div class="pf-title">推荐度排名</div><div class="pf-desc">最值得去的在最前</div></div>
-      <div class="p1-feat"><div class="pf-icon">🚉</div><div class="pf-title">地标标注</div><div class="pf-desc">车站/神社/城堡</div></div>
-      <div class="p1-feat"><div class="pf-icon">📸</div><div class="pf-title">实景照片</div><div class="pf-desc">每个景点真实拍摄</div></div>
-      <div class="p1-feat"><div class="pf-icon">🔄</div><div class="pf-title">每天3次更新</div><div class="pf-desc">花期内全天候监控</div></div>
+  <div class="cp-bottom">
+    <div class="cp-title">🗼 <em>东京</em> · 78个赏樱景点全覆盖</div>
+    <div class="cp-sub">状态：已开花 ｜ 数据来源：JMA气象厅 + Weathernews + JMC + 地方观光协会</div>
+    <div class="cp-desc">日本第一赏樱城市，从上野公园到千鳥ヶ淵，从新宿御苑到隅田川，78个赏樱景点遍布23区。</div>
+    
+    <div class="cp-spots-title">🏆 东京 推荐度 TOP 5</div>
+    <div class="cp-spots">
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">1</div>
+        <div class="cp-spot-text">上野恩賜公園 <span>— 800本，不忍池畔名所百选</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">97</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">2</div>
+        <div class="cp-spot-text">新宿御苑 <span>— 900本70品种，摄影圣地</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">96</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">3</div>
+        <div class="cp-spot-text">千鳥ヶ淵緑道 <span>— 划船穿越樱花隧道</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">95</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">4</div>
+        <div class="cp-spot-text">六義園 <span>— 枝垂樱名所，夜樱绝景</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">93</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">5</div>
+        <div class="cp-spot-text">隅田公園 <span>— 晴空塔+樱花经典构图</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">92</div>
+      </div>
     </div>
-    <div class="p1-spots">
-      <div class="p1-spot"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-12/96073438.jpg"><div class="p1-spot-info"><div class="p1-spot-name">嵐山 · 京都</div><div class="p1-spot-meta">1500本 · 名所百选</div><div class="p1-spot-score">98</div></div></div>
-      <div class="p1-spot"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2023-03-28/71035529.jpg"><div class="p1-spot-info"><div class="p1-spot-name">大阪城公園</div><div class="p1-spot-meta">3000本 · 名所百选</div><div class="p1-spot-score">98</div></div></div>
-      <div class="p1-spot"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-09/82788271.jpg"><div class="p1-spot-info"><div class="p1-spot-name">名古屋城</div><div class="p1-spot-meta">900本 · 天守阁</div><div class="p1-spot-score">95</div></div></div>
-      <div class="p1-spot"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-12/96089754.jpg"><div class="p1-spot-info"><div class="p1-spot-name">千光寺 · 广岛</div><div class="p1-spot-meta">1500本 · 名所百选</div><div class="p1-spot-score">95</div></div></div>
+    <div class="cp-bottom-row">
+      <div class="cp-stat"><div class="cs-val">78</div><div class="cs-label">实测景点</div></div>
+      <div class="cp-stat"><div class="cs-val">25,852</div><div class="cs-label">樱花树总数</div></div>
+      <div class="cp-stat"><div class="cs-val">5</div><div class="cs-label">名所百选</div></div>
+      <div class="cp-stat"><div class="cs-val">73</div><div class="cs-label">有夜樱灯光</div></div>
+      <div class="cp-stat"><div class="cs-val">±2天</div><div class="cs-label">预测精度</div></div>
+    </div>
+    <div class="cp-footer">
+      <div class="cp-footer-left">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
+      <div class="cp-footer-right">← 左滑看更多城市 →</div>
     </div>
   </div>
 </div>
 
-<div class="page-label">第 2 张 · 截图保存</div>
-<div class="page p2">
-  <!-- 上半：时间轴展示 -->
-  <div class="p2-top">
-    <div class="p2-top-title"><h3>📅 花期时间轴 · 精确到日</h3><p>从花苞到飘落，每个阶段清清楚楚</p></div>
-    <div class="p2-timeline">
-      <!-- Card 1 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-08/82748630.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">东京 TOP1</div>
-          <div class="tl-card-name">上野恩賜公園</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:25%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:25%;width:20%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:45%;width:30%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:75%;width:25%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/18 花苞</span><span>3/25 半开</span><span>3/29 满开</span><span>4/5 飘落</span></div>
-          <div class="tl-card-tags"><span>🏆 百选</span><span>🌙 夜樱</span><span>800本</span></div>
-        </div>
+<div class="label">第 2 张 · 京都 · 截图保存</div>
+<div class="page city-page">
+  <div class="cp-screenshot">
+    <img src="screenshots/kyoto_map.png" alt="京都实时花期地图">
+    <div class="cp-screenshot-overlay"></div>
+    <div class="cp-badge">📍 我们的实时花期地图 · 京都</div>
+    <div class="cp-badge2">52个景点 · 每天更新3次</div>
+  </div>
+  <div class="cp-bottom">
+    <div class="cp-title">⛩️ <em>京都</em> · 52个赏樱景点全覆盖</div>
+    <div class="cp-sub">状态：3/26预计 ｜ 数据来源：JMA气象厅 + Weathernews + JMC + 地方观光协会</div>
+    <div class="cp-desc">千年古都的樱花有别处看不到的风雅，从嵐山渡月桥到哲学之道，从清水寺到醍醐寺，每个角落都是画。</div>
+    
+    <div class="cp-spots-title">🏆 京都 推荐度 TOP 5</div>
+    <div class="cp-spots">
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">1</div>
+        <div class="cp-spot-text">嵐山 <span>— 1500本+渡月桥，京都TOP1</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">98</div>
       </div>
-      <!-- Card 2 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-12/96073438.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">京都 TOP1</div>
-          <div class="tl-card-name">嵐山</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:30%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:30%;width:20%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:50%;width:25%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:75%;width:25%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/22 花苞</span><span>3/30 半开</span><span>4/3 满开</span><span>4/10 飘落</span></div>
-          <div class="tl-card-tags"><span>🏆 百选</span><span>📸 渡月桥</span><span>1500本</span></div>
-        </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">2</div>
+        <div class="cp-spot-text">清水寺 <span>— 1000本+世界遗产夜樱</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">97</div>
       </div>
-      <!-- Card 3 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2023-03-28/71035529.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">大阪 TOP1</div>
-          <div class="tl-card-name">大阪城公園</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:28%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:28%;width:22%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:50%;width:28%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:78%;width:22%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/22 花苞</span><span>3/29 半开</span><span>4/1 满开</span><span>4/8 飘落</span></div>
-          <div class="tl-card-tags"><span>🏆 百选</span><span>🏯 天守阁</span><span>3000本</span></div>
-        </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">3</div>
+        <div class="cp-spot-text">醍醐寺 <span>— 秀吉醍醐花见，历史感极强</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">96</div>
       </div>
-      <!-- Card 4 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-09/82788271.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">名古屋 TOP1</div>
-          <div class="tl-card-name">名古屋城</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:25%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:25%;width:22%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:47%;width:28%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:75%;width:25%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/20 花苞</span><span>3/27 半开</span><span>3/31 满开</span><span>4/6 飘落</span></div>
-          <div class="tl-card-tags"><span>🌙 夜樱</span><span>🏯 天守阁</span><span>900本</span></div>
-        </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">4</div>
+        <div class="cp-spot-text">哲学の道 <span>— 2km樱花隧道散步路</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">95</div>
       </div>
-      <!-- Card 5 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2022-04-04/61749415.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">京都 TOP2</div>
-          <div class="tl-card-name">清水寺</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:30%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:30%;width:18%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:48%;width:27%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:75%;width:25%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/22 花苞</span><span>3/29 半开</span><span>4/1 满开</span><span>4/7 飘落</span></div>
-          <div class="tl-card-tags"><span>🌙 夜樱</span><span>📸 世界遺産</span><span>1000本</span></div>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="tl-card">
-        <img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-12/96089754.jpg">
-        <div class="tl-card-body">
-          <div class="tl-card-city">广岛 TOP1</div>
-          <div class="tl-card-name">千光寺公園</div>
-          <div class="tl-card-bar">
-            <div class="tl-bar-fill tl-bar-bud" style="left:0;width:28%"></div>
-            <div class="tl-bar-fill tl-bar-half" style="left:28%;width:20%"></div>
-            <div class="tl-bar-fill tl-bar-full" style="left:48%;width:27%"></div>
-            <div class="tl-bar-fill tl-bar-fall" style="left:75%;width:25%"></div>
-          </div>
-          <div class="tl-card-dates"><span>3/22 花苞</span><span>3/30 半开</span><span>4/3 满开</span><span>4/9 飘落</span></div>
-          <div class="tl-card-tags"><span>🏆 百选</span><span>🌊 海景</span><span>1500本</span></div>
-        </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">5</div>
+        <div class="cp-spot-text">京都御苑 <span>— 1000本+枝垂樱最早开</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">94</div>
       </div>
     </div>
-  </div>
-  <!-- 下半：景点推荐 -->
-  <div class="p2-bottom">
-    <div class="p2-btitle">🏆 五大城市 · <em>最值得冲的景点</em></div>
-    <div class="p2-bsub">基于小红书 · 马蜂窝 · JNTO · 台湾攻略 · 名所百选 综合排名</div>
-    <div class="p2-cards">
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2024-04-08/82748630.jpg"><div class="p2-card-score">97</div><div class="p2-card-body"><div class="p2-card-name">上野恩賜公園</div><div class="p2-card-meta">东京TOP1 · 约800本 · 名所百选</div><div class="p2-card-reason">东京赏樱圣地，不忍池畔800棵樱花盛开。小红书/马蜂窝全推荐TOP1。</div></div></div>
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2026-03-19/110015164.jpg"><div class="p2-card-score">96</div><div class="p2-card-body"><div class="p2-card-name">新宿御苑</div><div class="p2-card-meta">东京TOP2 · 约900本 · 70品种</div><div class="p2-card-reason">900棵70个品种，摄影圣地，花期超长，适合慢逛和野餐。</div></div></div>
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-04/95750865.jpg"><div class="p2-card-score">95</div><div class="p2-card-body"><div class="p2-card-name">千鳥ヶ淵緑道</div><div class="p2-card-meta">东京TOP3 · 划船赏樱</div><div class="p2-card-reason">划船穿过樱花隧道，小红书出片率极高的经典场景。</div></div></div>
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-12/96073438.jpg"><div class="p2-card-score">98</div><div class="p2-card-body"><div class="p2-card-name">嵐山</div><div class="p2-card-meta">京都TOP1 · 1500本 · 名所百选</div><div class="p2-card-reason">渡月桥+1500棵樱花，京都最美春景，出片率极高。</div></div></div>
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2023-03-28/71035529.jpg"><div class="p2-card-score">98</div><div class="p2-card-body"><div class="p2-card-name">大阪城公園</div><div class="p2-card-meta">大阪TOP1 · 3000本 · 名所百选</div><div class="p2-card-reason">3000棵+天守阁，大阪最壮观赏樱地。</div></div></div>
-      <div class="p2-card"><img src="https://smtgvs.cdn.weathernews.jp/smart/report/image/2025-04-15/96194531.jpg"><div class="p2-card-score">94</div><div class="p2-card-body"><div class="p2-card-name">造幣局 通り抜け</div><div class="p2-card-meta">大阪 · 130年历史 · 限时1周</div><div class="p2-card-reason">560m八重樱通道，340品种，全球独一无二。</div></div></div>
+    <div class="cp-bottom-row">
+      <div class="cp-stat"><div class="cs-val">52</div><div class="cs-label">实测景点</div></div>
+      <div class="cp-stat"><div class="cs-val">18,129</div><div class="cs-label">樱花树总数</div></div>
+      <div class="cp-stat"><div class="cs-val">4</div><div class="cs-label">名所百选</div></div>
+      <div class="cp-stat"><div class="cs-val">63</div><div class="cs-label">有夜樱灯光</div></div>
+      <div class="cp-stat"><div class="cs-val">±2天</div><div class="cs-label">预测精度</div></div>
+    </div>
+    <div class="cp-footer">
+      <div class="cp-footer-left">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
+      <div class="cp-footer-right">← 左滑看更多城市 →</div>
     </div>
   </div>
 </div>
 
-<div class="page-label">第 3 张 · 截图保存</div>
-<div class="page p3">
-  <div class="deco" style="top:-40px;right:-30px;transform:rotate(15deg)">🌸</div>
-  <div class="deco" style="bottom:-30px;left:-20px;transform:rotate(-20deg)">🌸</div>
-  <div class="p3-top">
-    <div class="p3-icon">🌸</div>
-    <h2 class="p3-title">别再翻攻略了<br>直接看<em>实时花期</em></h2>
-    <p class="p3-sub">融合 6 大权威数据源 · 精确到每一个公园</p>
-    
-    <div class="p3-nums">
-      <div class="p3-num"><div class="pn-val">240+</div><div class="pn-label">实测景点</div></div>
-      <div class="p3-num"><div class="pn-val">6 大</div><div class="pn-label">权威数据源</div></div>
-      <div class="p3-num"><div class="pn-val">200万+</div><div class="pn-label">用户花期报告</div></div>
-      <div class="p3-num"><div class="pn-val">3次/天</div><div class="pn-label">更新频率</div></div>
-    </div>
-    
-    <div class="p3-sources">
-      <div class="p3-src">🇯🇵 日本气象厅 JMA</div>
-      <div class="p3-src">🔬 日本气象株式会社</div>
-      <div class="p3-src">📱 Weathernews 200万+报告</div>
-      <div class="p3-src">🏛️ GO TOKYO 官方</div>
-      <div class="p3-src">⛩️ 京都観光Navi</div>
-      <div class="p3-src">📈 70年历史数据校验</div>
-    </div>
-
-    <div class="p3-cta">🗺 打开实时樱花地图 →</div>
-    <div class="p3-url">🔗 liuzihaokiwi-sketch.github.io/sakura-travel</div>
-    <div class="p3-tip">免费 · 每天更新 · 收藏🌟这条笔记出发前再看</div>
+<div class="label">第 3 张 · 大阪 · 截图保存</div>
+<div class="page city-page">
+  <div class="cp-screenshot">
+    <img src="screenshots/osaka_map.png" alt="大阪实时花期地图">
+    <div class="cp-screenshot-overlay"></div>
+    <div class="cp-badge">📍 我们的实时花期地图 · 大阪</div>
+    <div class="cp-badge2">45个景点 · 每天更新3次</div>
   </div>
+  <div class="cp-bottom">
+    <div class="cp-title">🏯 <em>大阪</em> · 45个赏樱景点全覆盖</div>
+    <div class="cp-sub">状态：3/27预计 ｜ 数据来源：JMA气象厅 + Weathernews + JMC + 地方观光协会</div>
+    <div class="cp-desc">大阪赏樱以规模取胜，大阪城3000棵+天守阁是关西最壮观场景，造幣局限时一周的八重樱通道全球独一无二。</div>
+    
+    <div class="cp-spots-title">🏆 大阪 推荐度 TOP 5</div>
+    <div class="cp-spots">
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">1</div>
+        <div class="cp-spot-text">大阪城公園 <span>— 3000本+天守阁，大阪TOP1</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">98</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">2</div>
+        <div class="cp-spot-text">万博記念公園 <span>— 5500本+太阳之塔</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">96</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">3</div>
+        <div class="cp-spot-text">造幣局 桜の通り抜け <span>— 340品种限时1周</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">94</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">4</div>
+        <div class="cp-spot-text">服部緑地 <span>— 1000本市民赏樱胜地</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">85</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">5</div>
+        <div class="cp-spot-text">花博記念公園 <span>— 1100本大型公园</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">83</div>
+      </div>
+    </div>
+    <div class="cp-bottom-row">
+      <div class="cp-stat"><div class="cs-val">45</div><div class="cs-label">实测景点</div></div>
+      <div class="cp-stat"><div class="cs-val">20,330</div><div class="cs-label">樱花树总数</div></div>
+      <div class="cp-stat"><div class="cs-val">3</div><div class="cs-label">名所百选</div></div>
+      <div class="cp-stat"><div class="cs-val">28</div><div class="cs-label">有夜樱灯光</div></div>
+      <div class="cp-stat"><div class="cs-val">±2天</div><div class="cs-label">预测精度</div></div>
+    </div>
+    <div class="cp-footer">
+      <div class="cp-footer-left">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
+      <div class="cp-footer-right">← 左滑看更多城市 →</div>
+    </div>
+  </div>
+</div>
+
+<div class="label">第 4 张 · 名古屋 · 截图保存</div>
+<div class="page city-page">
+  <div class="cp-screenshot">
+    <img src="screenshots/aichi_map.png" alt="名古屋实时花期地图">
+    <div class="cp-screenshot-overlay"></div>
+    <div class="cp-badge">📍 我们的实时花期地图 · 名古屋</div>
+    <div class="cp-badge2">38个景点 · 每天更新3次</div>
+  </div>
+  <div class="cp-bottom">
+    <div class="cp-title">🏢 <em>名古屋</em> · 38个赏樱景点全覆盖</div>
+    <div class="cp-sub">状态：已开花 ｜ 数据来源：JMA气象厅 + Weathernews + JMC + 地方观光协会</div>
+    <div class="cp-desc">中部地区樱花重镇，名古屋城天守阁下的夜樱、鶴舞公園名所百选、岩倉五条川7.6km河岸1200棵壮观花道。</div>
+    
+    <div class="cp-spots-title">🏆 名古屋 推荐度 TOP 5</div>
+    <div class="cp-spots">
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">1</div>
+        <div class="cp-spot-text">名古屋城 <span>— 900本+天守阁夜樱</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">95</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">2</div>
+        <div class="cp-spot-text">鶴舞公園 <span>— 750本名所百选</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">93</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">3</div>
+        <div class="cp-spot-text">岩倉五条川 <span>— 1200本7.6km河岸</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">92</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">4</div>
+        <div class="cp-spot-text">東山動植物園 <span>— 1300本</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">90</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">5</div>
+        <div class="cp-spot-text">博物館明治村 <span>— 1000本+明治建筑</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">88</div>
+      </div>
+    </div>
+    <div class="cp-bottom-row">
+      <div class="cp-stat"><div class="cs-val">38</div><div class="cs-label">实测景点</div></div>
+      <div class="cp-stat"><div class="cs-val">24,184</div><div class="cs-label">樱花树总数</div></div>
+      <div class="cp-stat"><div class="cs-val">4</div><div class="cs-label">名所百选</div></div>
+      <div class="cp-stat"><div class="cs-val">47</div><div class="cs-label">有夜樱灯光</div></div>
+      <div class="cp-stat"><div class="cs-val">±2天</div><div class="cs-label">预测精度</div></div>
+    </div>
+    <div class="cp-footer">
+      <div class="cp-footer-left">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
+      <div class="cp-footer-right">← 左滑看更多城市 →</div>
+    </div>
+  </div>
+</div>
+
+<div class="label">第 5 张 · 广岛 · 截图保存</div>
+<div class="page city-page">
+  <div class="cp-screenshot">
+    <img src="screenshots/hiroshima_map.png" alt="广岛实时花期地图">
+    <div class="cp-screenshot-overlay"></div>
+    <div class="cp-badge">📍 我们的实时花期地图 · 广岛</div>
+    <div class="cp-badge2">27个景点 · 每天更新3次</div>
+  </div>
+  <div class="cp-bottom">
+    <div class="cp-title">☮️ <em>广岛</em> · 27个赏樱景点全覆盖</div>
+    <div class="cp-sub">状态：已开花 ｜ 数据来源：JMA气象厅 + Weathernews + JMC + 地方观光协会</div>
+    <div class="cp-desc">濑户内海的温柔樱花，千光寺俯瞰尾道绝景，宮島严岛神社世界遗产，平和記念公園的和平之樱令人感动。</div>
+    
+    <div class="cp-spots-title">🏆 广岛 推荐度 TOP 5</div>
+    <div class="cp-spots">
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">1</div>
+        <div class="cp-spot-text">千光寺公園 <span>— 1500本+尾道海景名所百选</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">95</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">2</div>
+        <div class="cp-spot-text">宮島 <span>— 1900本+严岛神社世界遗产</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">93</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank gold">3</div>
+        <div class="cp-spot-text">平和記念公園 <span>— 300本和平象征</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">90</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">4</div>
+        <div class="cp-spot-text">比治山公園 <span>— 1300本展望台</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">85</div>
+      </div>
+      <div class="cp-spot-row">
+        <div class="cp-spot-rank pink">5</div>
+        <div class="cp-spot-text">音戸の瀬戸公園 <span>— 2300本濑户内海</span></div>
+        <div style="font-size:11px;color:#fff;background:#e91e63;padding:2px 7px;border-radius:6px;font-weight:700;flex-shrink:0">84</div>
+      </div>
+    </div>
+    <div class="cp-bottom-row">
+      <div class="cp-stat"><div class="cs-val">27</div><div class="cs-label">实测景点</div></div>
+      <div class="cp-stat"><div class="cs-val">23,750</div><div class="cs-label">樱花树总数</div></div>
+      <div class="cp-stat"><div class="cs-val">2</div><div class="cs-label">名所百选</div></div>
+      <div class="cp-stat"><div class="cs-val">29</div><div class="cs-label">有夜樱灯光</div></div>
+      <div class="cp-stat"><div class="cs-val">±2天</div><div class="cs-label">预测精度</div></div>
+    </div>
+    <div class="cp-footer">
+      <div class="cp-footer-left">数据: Weathernews实地取材 + 气象厅实测 + 200万用户报告 | 2026/3/20</div>
+      <div class="cp-footer-right">← 左滑看更多城市 →</div>
+    </div>
+  </div>
+</div>
+
+<div class="label">第 5 张 · 引流页 · 截图保存</div>
+<div class="page cta-page">
+  <div class="deco" style="top:-30px;right:-20px;transform:rotate(15deg)">🌸</div>
+  <div class="deco" style="bottom:-20px;left:-30px;transform:rotate(-20deg)">🌸</div>
+  
+  <div class="cta-icon">🌸</div>
+  <div class="cta-title">别再翻攻略了<br>直接看实时花期</div>
+  <p class="cta-sub">240+景点 · 精确到每个公园每条河每座神社<br>从花苞到飘落，每天更新3次</p>
+  
+  <div class="cta-nums">
+    <div class="cta-num"><div class="cn-val">240+</div><div class="cn-label">实测景点</div></div>
+    <div class="cta-num"><div class="cn-val">6 大</div><div class="cn-label">权威数据源</div></div>
+    <div class="cta-num"><div class="cn-val">200万+</div><div class="cn-label">用户花期报告</div></div>
+    <div class="cta-num"><div class="cn-val">3次/天</div><div class="cn-label">更新频率</div></div>
+  </div>
+
+  <div class="cta-features">
+    <div class="cta-feat"><div class="cf-icon">🗺</div><div class="cf-text">实时地图<br>颜色看花期</div></div>
+    <div class="cta-feat"><div class="cf-icon">🏆</div><div class="cf-text">推荐度排名<br>最值得去在前</div></div>
+    <div class="cta-feat"><div class="cf-icon">📅</div><div class="cf-text">花期时间轴<br>精确到日</div></div>
+    <div class="cta-feat"><div class="cf-icon">📸</div><div class="cf-text">实景照片<br>真实拍摄</div></div>
+    <div class="cta-feat"><div class="cf-icon">🌙</div><div class="cf-text">夜樱灯光<br>全收录</div></div>
+    <div class="cta-feat"><div class="cf-icon">🚉</div><div class="cf-text">地标标注<br>找路方便</div></div>
+  </div>
+  
+  <div class="cta-srcs">
+    <div class="cta-src">🇯🇵 日本气象厅</div>
+    <div class="cta-src">🔬 日本气象株式会社</div>
+    <div class="cta-src">📱 Weathernews</div>
+    <div class="cta-src">🏛️ GO TOKYO</div>
+    <div class="cta-src">⛩️ 京都観光Navi</div>
+    <div class="cta-src">📈 70年历史数据</div>
+  </div>
+  
+  <div class="cta-box">
+    <div class="cb-label">👆 复制链接到浏览器打开 ↓</div>
+    <div class="cb-url">liuzihaokiwi-sketch.github.io/sakura-travel</div>
+  </div>
+  <div class="cta-tip">免费 · 每天更新 · 收藏🌟这条笔记出发前再看一次</div>
 </div>
 
 </body>
