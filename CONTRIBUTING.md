@@ -1,61 +1,62 @@
-# 贡献指南 (CONTRIBUTING)
+# Contributing to Travel AI
 
-感谢你对 Japan Travel AI 项目的贡献！请遵循以下规范。
-
-## 🔀 Git 工作流
+## Git 工作流
 
 ### 分支命名
 
-| 类型 | 格式 | 示例 |
-|------|------|------|
-| 功能 | `feat/<short-name>` | `feat/admin-dashboard` |
-| 修复 | `fix/<short-name>` | `fix/pdf-font-rendering` |
-| 重构 | `refactor/<short-name>` | `refactor/scoring-engine` |
-| 文档 | `docs/<short-name>` | `docs/api-endpoints` |
-| 热修复 | `hotfix/<short-name>` | `hotfix/env-leak` |
+| 类型 | 命名规范 | 示例 |
+|------|----------|------|
+| 功能开发 | `feature/<name>` | `feature/admin-dashboard` |
+| Bug 修复 | `fix/<name>` | `fix/quiz-validation` |
+| 重构 | `refactor/<name>` | `refactor/repo-cleanup` |
+| 文档 | `docs/<name>` | `docs/api-guide` |
+| 紧急修复 | `hotfix/<name>` | `hotfix/payment-error` |
 
 ### Commit 规范
 
-使用 [Conventional Commits](https://www.conventionalcommits.org/) 格式：
+使用 [Conventional Commits](https://www.conventionalcommits.org/)：
 
 ```
-<type>(<scope>): <subject>
+<type>(<scope>): <description>
 
 [optional body]
 ```
 
-**类型**：`feat` / `fix` / `refactor` / `docs` / `test` / `chore` / `ci`
+**Type**:
+- `feat` — 新功能
+- `fix` — Bug 修复
+- `chore` — 构建/工具/依赖
+- `docs` — 文档
+- `refactor` — 重构
+- `test` — 测试
+- `style` — 格式调整
 
-**作用域**：`api` / `web` / `catalog` / `ranking` / `planning` / `rendering` / `worker` / `scripts` / `config`
+**Scope**: `admin` / `api` / `web` / `scripts` / `db` / `docs`
 
-**示例**：
-
+**示例**:
 ```
-feat(api): add order modification endpoint
-fix(rendering): correct CJK font fallback in PDF
-refactor(catalog): extract tagger into separate module
-docs(readme): update deployment instructions
-chore(deps): bump fastapi to 0.115.5
+feat(admin): add order kanban dashboard
+fix(api): prevent duplicate quiz submissions
+docs: update README with new API endpoints
+chore: archive legacy HTML pages
 ```
 
 ### PR 流程
 
-1. 从 `main` 创建功能分支
-2. 完成开发 + 本地测试通过
-3. 推送分支并创建 Pull Request
-4. PR 标题遵循 commit 规范
-5. 至少 1 人 Review + CI 通过后合并
-6. 合并方式：**Squash and merge**
+1. 从 `main` 拉分支
+2. 开发 + 本地测试
+3. 确保 `ruff check` 和 `pnpm lint` 通过
+4. 提交 PR，描述清楚改了什么和为什么
+5. Code review 后合并到 `main`
 
 ## 🎨 代码风格
 
 ### Python（后端）
 
-- **Linter**: [Ruff](https://docs.astral.sh/ruff/) — 行宽 100，目标 Python 3.12
-- **格式化**: `ruff format app/ scripts/ tests/`
-- **检查**: `ruff check app/ scripts/ tests/`
-- **类型标注**: 鼓励使用，新代码必须添加
-- **Import 排序**: 由 Ruff 自动处理（isort 兼容）
+- **Formatter**: [Ruff](https://docs.astral.sh/ruff/) (`ruff format app/ scripts/`)
+- **Linter**: [Ruff](https://docs.astral.sh/ruff/) (`ruff check app/ scripts/`)
+- 类型标注: 所有公共函数必须有类型标注
+- Docstring: 使用 Google style
 
 ```bash
 # 一键检查 + 修复
@@ -68,7 +69,7 @@ ruff format app/ scripts/
 - **Linter**: ESLint (Next.js 默认配置)
 - **格式化**: Prettier（如有配置）
 - **组件**: 函数组件 + hooks，不使用 class 组件
-- **样式**: Tailwind CSS utility-first，避免自定义 CSS
+- **样式**: Tailwind CSS utility classes，不写自定义 CSS
 
 ```bash
 cd web

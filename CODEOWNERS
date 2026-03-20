@@ -1,32 +1,27 @@
-# CODEOWNERS — Japan Travel AI
-# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-#
-# 每个路径匹配一个或多个负责人。
-# PR 修改对应文件时，会自动要求这些人 Review。
+# CODEOWNERS — 代码所有者
+# 当 PR 修改以下路径时，自动请求对应负责人 review。
+# 格式：<路径模式>  <GitHub 用户名>
 
-# ── 后端（Python）────────────────────────────────────
-/app/                           @backend-lead
-/scripts/                       @backend-lead
-/tests/                         @backend-lead
-/pyproject.toml                 @backend-lead
-/alembic.ini                    @backend-lead
-/Dockerfile                     @backend-lead
-/docker-compose.yml             @backend-lead
+# ── 后端（Python）──────────────────────────────
+app/                      @liuzihaokiwi-sketch
+scripts/                  @liuzihaokiwi-sketch
+/tests/                   @liuzihaokiwi-sketch
+/pyproject.toml           @liuzihaokiwi-sketch
+/alembic.ini              @liuzihaokiwi-sketch
+/Dockerfile               @liuzihaokiwi-sketch
+/docker-compose.yml         @liuzihaokiwi-sketch
 
-# ── 前端（Next.js）───────────────────────────────────
-/web/                           @frontend-lead
+# ── 前端（Next.js）────────────────────────────
+web/                      @liuzihaokiwi-sketch
 
-# ── 数据 & 种子配置 ──────────────────────────────────
-/data/seed/                     @backend-lead
-/templates/                     @frontend-lead
+# ── 数据库模型 & 迁移 ─────────────────────────
+app/db/models/            @liuzihaokiwi-sketch
+app/db/migrations/        @liuzihaokiwi-sketch
 
-# ── 产品 & 需求管理 ──────────────────────────────────
-/openspec/                      @product-lead
-/docs-human/                    @product-lead
-/docs-ai/                       @backend-lead
+# ── 产品文档 & OpenSpec ────────────────────────
+openspec/                 @liuzihaokiwi-sketch
+docs-human/               @liuzihaokiwi-sketch
+docs-ai/                  @liuzihaokiwi-sketch
 
-# ── 基础设施 & 配置 ──────────────────────────────────
-/.env.example                   @backend-lead
-/.gitignore                     @backend-lead
-/CONTRIBUTING.md                @backend-lead @product-lead
-/README.md                      @backend-lead @product-lead
+# ── 基础设施 & 配置 ───────────────────────────
+.env.example              @liuzihaokiwi-sketch

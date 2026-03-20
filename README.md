@@ -207,6 +207,19 @@ travel-ai/
 | `POST` | `/orders` | 创建订单 |
 | `GET` | `/orders` | 订单列表（支持 status 过滤） |
 | `GET` | `/orders/{id}` | 订单详情 |
+| `POST` | `/orders/{id}/modify` | 提交结构化修改请求 |
+| `GET` | `/orders/{id}/modifications` | 查看修改历史 |
+
+### 管理后台 (`/admin`)
+
+| Method | Path | 描述 |
+|--------|------|------|
+| `GET` | `/admin/reviews/pending` | 待审核订单列表 |
+| `GET` | `/admin/reviews/{id}` | 审核详情 |
+| `PATCH` | `/admin/reviews/{id}` | 保存草稿 |
+| `POST` | `/admin/reviews/{id}/publish` | 发布给用户 |
+| `POST` | `/admin/reviews/{id}/reject` | 打回重做 |
+| `POST` | `/admin/sync/{city}` | 一键采集城市数据 |
 
 ## 🤖 AI 模型分层
 
