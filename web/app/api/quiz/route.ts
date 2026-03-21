@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "缺少必填字段" }, { status: 400 });
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("quiz_submissions")
       .insert({
         destination,
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
         styles: styles || [],
         wechat_id: wechat_id.trim(),
         status: "new",
-      } as any)
+      })
       .select("id")
       .single();
 

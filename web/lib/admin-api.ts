@@ -43,37 +43,45 @@ function toOrderItem(q: QuizSubmission): OrderItem {
 // ── Fetch all submissions ────────────────────────────────────────────────────
 
 export async function fetchOrders(status?: string): Promise<OrderItem[]> {
-  let query = supabase
-    .from("quiz_submissions")
-    .select("*")
-    .order("created_at", { ascending: false } as any)
-    .limit(200);
+  try {
+    let query = (supabase as any)
+      .from("quiz_submissions")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(200);
 
-  if (status) {
-    query = query.eq("status", status as any);
-  }
+    if (status) {
+      query = query.eq("status", status);
+    }
 
-  const { data, error } = await query;
+    const { data, error } = await query;
 
-  if (error) {
-    console.error("Failed to fetch submissions:", error);
+    if (error) {
+      console.error("Failed to fetch submissions:", error);
+      return [];
+    }
+
+    return (data || []).map((d: any) => toOrderItem(d));
+  } catch {
     return [];
   }
-
-  return (data || []).map(toOrderItem);
 }
 
 // ── Fetch single submission ──────────────────────────────────────────────────
 
 export async function fetchOrderById(id: string): Promise<OrderItem | null> {
-  const { data, error } = await supabase
-    .from("quiz_submissions")
-    .select("*")
-    .eq("id", id as any)
-    .single();
+  try {
+    const { data, error } = await (supabase as any)
+      .from("quiz_submissions")
+      .select("*")
+      .eq("id", id)
+      .single();
 
-  if (error || !data) return null;
-  return toOrderItem(data);
+    if (error || !data) return null;
+    return toOrderItem(data);
+  } catch {
+    return null;
+  }
 }
 
 // ── Update status ────────────────────────────────────────────────────────────
@@ -83,15 +91,16 @@ export async function updateOrderStatus(
   newStatus: string,
   reason?: string
 ): Promise<boolean> {
-  const { error } = await supabase
-    .from("quiz_submissions")
-    .update({
-      status: newStatus,
-      notes: reason || null,
-    } as any)
-    .eq("id", id as any);
+  try {
+    const { error } = await (supabase as any)
+      .from("quiz_submissions")
+      .update({ status: newStatus, notes: reason || null })
+      .eq("id", id);
 
-  return !error;
+    return !error;
+  } catch {
+    return false;
+  }
 }
 
 // ── Convenience functions ────────────────────────────────────────────────────
