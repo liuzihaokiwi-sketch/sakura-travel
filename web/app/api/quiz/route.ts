@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
         styles: styles || [],
         wechat_id: wechat_id.trim(),
         status: "new",
-      })
+      } as any)
       .select("id")
       .single();
 

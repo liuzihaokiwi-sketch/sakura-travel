@@ -46,11 +46,11 @@ export async function fetchOrders(status?: string): Promise<OrderItem[]> {
   let query = supabase
     .from("quiz_submissions")
     .select("*")
-    .order("created_at", { ascending: false })
+    .order("created_at", { ascending: false } as any)
     .limit(200);
 
   if (status) {
-    query = query.eq("status", status);
+    query = query.eq("status", status as any);
   }
 
   const { data, error } = await query;
@@ -69,7 +69,7 @@ export async function fetchOrderById(id: string): Promise<OrderItem | null> {
   const { data, error } = await supabase
     .from("quiz_submissions")
     .select("*")
-    .eq("id", id)
+    .eq("id", id as any)
     .single();
 
   if (error || !data) return null;
@@ -88,8 +88,8 @@ export async function updateOrderStatus(
     .update({
       status: newStatus,
       notes: reason || null,
-    })
-    .eq("id", id);
+    } as any)
+    .eq("id", id as any);
 
   return !error;
 }
