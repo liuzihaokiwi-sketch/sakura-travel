@@ -63,12 +63,12 @@ function Hero() {
           已为 1,200+ 位旅行者定制行程
         </motion.p>
 
-        {/* 场景化入口短句 */}
+        {/* 场景化入口短句：手机端只显示一条，桌面端两条 */}
         <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 mb-8">
-          <span className="text-xs bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10">
+          <span className="text-[11px] bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10 line-clamp-1">
             🌟 {ENTRY_COPY.first_time.hook} {ENTRY_COPY.first_time.sub}
           </span>
-          <span className="text-xs bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10">
+          <span className="hidden sm:inline-flex text-[11px] bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10 line-clamp-1">
             🗺️ {ENTRY_COPY.experienced.hook} {ENTRY_COPY.experienced.sub}
           </span>
         </motion.div>

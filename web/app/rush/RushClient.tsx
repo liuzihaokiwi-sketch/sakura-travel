@@ -75,7 +75,7 @@ function SpotCard({ spot, rank, onClick }: { spot: Spot; rank: number; onClick: 
   const bloom = getBloomStage(spot);
   return (
     <motion.div variants={fadeInUp} onClick={onClick} className="group bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col">
-      <div className="relative h-32 sm:h-36 overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
+      <div className="relative h-36 sm:h-40 overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
         {spot.photo ? <img src={spot.photo} alt={spot.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /> : <div className="w-full h-full flex items-center justify-center"><span className="text-5xl opacity-20">🌸</span></div>}
         <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-stone-900/70 flex items-center justify-center text-white text-[10px] font-bold">{rank}</div>
         <div className="absolute top-2 right-2 bg-black/60 text-white text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full">{spot.score}</div>
@@ -233,10 +233,10 @@ export default function RushClient({ data }: { data: RushScores }) {
           <p className="text-sm text-stone-400 text-center mb-3">把喜欢的景点变成一份完整的行程方案</p>
           {/* 场景化入口短句 */}
           <div className="flex flex-wrap justify-center gap-2 mb-6">
-            <span className="text-xs bg-rose-50 text-rose-500 px-3 py-1.5 rounded-full border border-rose-100">
+            <span className="text-xs bg-rose-50 text-rose-500 px-3 py-1.5 rounded-full border border-rose-100 line-clamp-1">
               🚅 {ENTRY_COPY.multi_city.hook} {ENTRY_COPY.multi_city.sub}
             </span>
-            <span className="text-xs bg-amber-50 text-amber-600 px-3 py-1.5 rounded-full border border-amber-100">
+            <span className="text-xs bg-amber-50 text-amber-600 px-3 py-1.5 rounded-full border border-amber-100 line-clamp-1">
               📍 {ENTRY_COPY.single_city.hook} {ENTRY_COPY.single_city.sub}
             </span>
           </div>

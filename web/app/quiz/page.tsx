@@ -249,7 +249,7 @@ export default function QuizPage() {
             {(q.type === "single" || q.type === "multi") && (
               <div className={cn(
                 "grid gap-3",
-                q.options.length <= 4 ? "grid-cols-2" : "grid-cols-3"
+                q.options.length <= 3 ? "grid-cols-1" : "grid-cols-2"
               )}>
                 {q.options.map((opt) => (
                   <button

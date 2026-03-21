@@ -142,7 +142,35 @@ export default function PricingClient({ data }: { data: PricingData }) {
             <h2 className="text-lg font-bold text-stone-900">详细对比</h2>
             <p className="text-sm text-stone-400">从你关心的角度看区别</p>
           </div>
-          <div className="overflow-x-auto">
+
+          {/* 手机端 Accordion（< md） */}
+          <div className="block md:hidden divide-y divide-stone-100">
+            {compare_rows.map((row) => (
+              <details key={row.label} className="group">
+                <summary className="flex items-center justify-between px-4 py-3 cursor-pointer list-none select-none">
+                  <span className="text-sm font-medium text-stone-700">{row.label}</span>
+                  <span className="text-stone-400 text-xs transition-transform duration-200 group-open:rotate-45 flex-shrink-0 ml-2">＋</span>
+                </summary>
+                <div className="px-4 pb-3 grid grid-cols-3 gap-2 text-xs">
+                  <div className="text-center">
+                    <p className="text-[10px] text-stone-400 mb-1">{freeTier?.name ?? "免费"}</p>
+                    <p className="text-stone-500">{row.free || "—"}</p>
+                  </div>
+                  <div className="text-center bg-warm-50/50 rounded-lg px-1 py-1">
+                    <p className="text-[10px] text-warm-500 font-bold mb-1">⭐ 推荐</p>
+                    <p className="text-stone-800 font-medium">{row.standard || "—"}</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-[10px] text-stone-400 mb-1">{premiumTier?.name ?? "尊享"}</p>
+                    <p className="text-stone-500">{row.premium || "—"}</p>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          {/* 桌面端 Table（md+） */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-stone-100">

@@ -150,7 +150,7 @@ export function TrialDayHook({
       {/* 亮点预告卡 */}
       <motion.div variants={fadeInUp}>
         <p className="text-xs text-stone-400 mb-2">✨ 后面你会最喜欢的时刻</p>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {displayCards.map((card) => (
             <HighlightPreviewCard
               key={card.dayNum}

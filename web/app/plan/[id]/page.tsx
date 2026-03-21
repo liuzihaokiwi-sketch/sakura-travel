@@ -188,11 +188,12 @@ function PlanContent({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-6 py-8 space-y-8">
+      <div className="max-w-3xl mx-auto px-4 md:px-6 py-8 space-y-8">
         {/* Overview */}
         <motion.section variants={fadeInUp} initial="initial" animate="animate">
           <h2 className="text-lg font-bold text-stone-900 mb-4">📋 行程总览</h2>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="overflow-x-auto scrollbar-hide -mx-1 px-1">
+            <div className="grid grid-cols-7 gap-2 min-w-[340px]">
             {Array.from({ length: totalDays }, (_, i) => {
               const d = plan.days[i];
               const isLocked = isPreview && i > 0;
@@ -216,6 +217,7 @@ function PlanContent({ params }: { params: { id: string } }) {
                 </button>
               );
             })}
+            </div>
           </div>
         </motion.section>
 
