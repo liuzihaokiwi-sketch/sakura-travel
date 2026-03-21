@@ -13,11 +13,11 @@
 
 ## P2 — 规范沉淀
 
-- [ ] **P2-1** 新建 `web/lib/content/mobile-spec.ts`：导出 `MOBILE_RULES`（11条规范）、`GRID_RULES`（选项列数映射）、`BREAKPOINTS`（常量）、`ACCEPTANCE_CHECKLIST`（验收项）
-- [ ] **P2-2** `/custom` 自助微调页固定底部操作区：底部"提交修改"按钮区域加 `fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-stone-100 pb-safe z-30`，主内容区加 `pb-24` 防遮挡
+- [x] **P2-1** 新建 `web/lib/content/mobile-spec.ts` ✅ 11条规范 + GRID_RULES + ACCEPTANCE_CHECKLIST(12项)
+- [x] **P2-2** `/custom` 固定底部操作区 ✅ MobileBottomCTA client 组件 + pb-safe + pb-20 防遮挡
 
 ## 验收
 
 - [x] **QA-1** tsc 零错误；/pricing Accordion 双套渲染代码正确；/quiz `grid-cols-1` for 3选项
 - [x] **QA-2** 首页第二条短句 `hidden sm:inline-flex`，375px 只显示一条
-- [x] **QA-3** pb-safe 标记为后续任务，不阻塞本次上线
+- [x] **QA-3** pb-safe ✅ tailwind.config.js 已注册工具类；preview FloatingCTA + StayTimeCTA 已加

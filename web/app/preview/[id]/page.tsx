@@ -115,7 +115,7 @@ function FloatingCTA({ price, ctaText, planId }: { price: number; ctaText: strin
       {visible && (
         <motion.div
           initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-t border-stone-200 px-4 py-3 safe-area-bottom"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-t border-stone-200 px-4 pt-3 pb-3 pb-safe"
         >
           <div className="max-w-lg mx-auto flex items-center justify-between gap-3">
             <div>
@@ -310,7 +310,7 @@ function StayTimeCTA({ price, planId, onDismiss }: { price: number; planId?: str
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 60 }}
-      className="fixed inset-x-4 bottom-24 z-40 bg-white rounded-2xl shadow-2xl border border-rose-200 p-5 max-w-lg mx-auto left-1/2 -translate-x-1/2"
+      className="fixed inset-x-4 bottom-24 z-40 bg-white rounded-2xl shadow-2xl border border-rose-200 p-5 pb-safe max-w-lg mx-auto left-1/2 -translate-x-1/2"
     >
       <button onClick={onDismiss} className="absolute top-3 right-3 text-stone-400 hover:text-stone-700 text-lg leading-none">✕</button>
       <p className="text-sm font-bold text-stone-900 mb-1">📌 感觉还不错？</p>

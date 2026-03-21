@@ -1,6 +1,7 @@
 import { AdvantageGrid } from "@/components/custom/AdvantageGrid";
 import { ProcessSteps } from "@/components/custom/ProcessSteps";
 import { WeChatCTA } from "@/components/custom/WeChatCTA";
+import { MobileBottomCTA } from "@/components/custom/MobileBottomCTA";
 
 export default function CustomPage() {
   return (
@@ -62,18 +63,21 @@ export default function CustomPage() {
       </div>
 
       {/* Center: Advantage Grid */}
-      <div className="flex-1 flex flex-col p-4 overflow-hidden">
+      <div className="flex-1 flex flex-col p-4 overflow-hidden pb-20 lg:pb-4">
         <h2 className="text-lg font-bold text-stone-900 mb-3 shrink-0">
           🏆 为什么选我们 · <span className="text-warm-400">12项真实优势</span>
         </h2>
         <AdvantageGrid />
       </div>
 
-      {/* Right: Process + CTA */}
+      {/* Right: Process + CTA（桌面端） */}
       <div className="hidden lg:flex w-[230px] shrink-0 flex-col p-4 gap-4 justify-center border-l border-stone-100">
         <ProcessSteps />
         <WeChatCTA />
       </div>
+
+      {/* 手机端固定底部操作区（< lg，client component） */}
+      <MobileBottomCTA />
     </div>
   );
 }

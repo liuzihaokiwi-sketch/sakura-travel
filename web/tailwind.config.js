@@ -57,5 +57,20 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // iOS safe area inset utilities
+    function ({ addUtilities }) {
+      addUtilities({
+        ".pb-safe": {
+          paddingBottom: "env(safe-area-inset-bottom)",
+        },
+        ".pt-safe": {
+          paddingTop: "env(safe-area-inset-top)",
+        },
+        ".mb-safe": {
+          marginBottom: "env(safe-area-inset-bottom)",
+        },
+      });
+    },
+  ],
 };
