@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "description": "三城市季节活动种子数据（东京/京都/大阪）",
+    "version": "1.0",
+    "created": "2026-03-21",
+    "total_records": 36
+  },
+  "seasonal_events": [
+    {"city_code": "tokyo", "area_code": "ueno", "event_name": "上野公園 桜まつり", "event_name_zh": "上野公园樱花祭", "start_date": "03-20", "end_date": "04-10", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "工作日上午10点前人少，周末建议7:00前到"},
+    {"city_code": "tokyo", "area_code": "meguro", "event_name": "目黒川 桜ライトアップ", "event_name_zh": "目黑川樱花夜间灯光", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "18:00-21:00 灯光最美，建议从中目黑站往池尻大桥方向走（逆人流）"},
+    {"city_code": "tokyo", "area_code": "chiyoda", "event_name": "千鳥ヶ淵 桜", "event_name_zh": "千�的之渊樱花", "start_date": "03-25", "end_date": "04-08", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "划船赏樱需排队1-2小时，建议开门即到"},
+    {"city_code": "tokyo", "area_code": "roppongi", "event_name": "六本木ヒルズ 毛利庭園 桜", "event_name_zh": "六本木Hills毛利庭园樱花", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "人相对少的赏樱点，夜景+樱花组合出片"},
+    {"city_code": "tokyo", "area_code": "asakusa", "event_name": "隅田川花火大会", "event_name_zh": "隅田川花火大会", "start_date": "07-27", "end_date": "07-27", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "下午3点前占位，建议穿浴衣。附近餐厅需提前预约"},
+    {"city_code": "tokyo", "area_code": "meiji", "event_name": "明治神宮 紅葉", "event_name_zh": "明治神宫红叶", "start_date": "11-15", "end_date": "12-10", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "外苑银杏大道11月下旬最美，周末人极多"},
+    {"city_code": "tokyo", "area_code": "roppongi", "event_name": "東京ミッドタウン イルミネーション", "event_name_zh": "东京Midtown圣诞灯展", "start_date": "11-15", "end_date": "12-25", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "17:00亮灯，19:00后人流减少"},
+    {"city_code": "tokyo", "area_code": "odaiba", "event_name": "お台場レインボー花火", "event_name_zh": "台场彩虹烟花", "start_date": "12-01", "end_date": "12-25", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "每周六19:00，持续10分钟，配合夜景很出片"},
+    {"city_code": "tokyo", "area_code": "tsukiji", "event_name": "築地本願寺 盆踊り", "event_name_zh": "筑地本愿寺盂兰盆舞", "start_date": "08-01", "end_date": "08-04", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "免费参与跳舞，有屋台美食，体验日本夏日祭典"},
+    {"city_code": "tokyo", "area_code": "shinjuku", "event_name": "新宿御苑 春の特別開園", "event_name_zh": "新宿御苑春季特别开园", "start_date": "03-15", "end_date": "04-20", "crowd_impact": "high", "booking_required": true, "best_timing_tips": "需要网上预约入园，樱花种类多花期长，比上野公园体验好"},
+    {"city_code": "tokyo", "area_code": "shibuya", "event_name": "渋谷ハロウィン", "event_name_zh": "涩谷万圣节", "start_date": "10-28", "end_date": "10-31", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "不建议此期间去涩谷十字路口附近，极度拥挤且有安全隐患"},
+    {"city_code": "tokyo", "area_code": "teamlab", "event_name": "チームラボプラネッツ", "event_name_zh": "TeamLab Planets（常设）", "start_date": "01-01", "end_date": "12-31", "crowd_impact": "high", "booking_required": true, "best_timing_tips": "必须网上预约，建议选工作日下午场。穿短裤（需涉水）"},
+
+    {"city_code": "kyoto", "area_code": "higashiyama", "event_name": "清水寺 夜間拝観 春", "event_name_zh": "清水寺春季夜间参拜", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "18:00开始，建议17:30排队。光柱+樱花绝景"},
+    {"city_code": "kyoto", "area_code": "arashiyama", "event_name": "嵐山 桜", "event_name_zh": "岚山樱花", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "早上8:00前到竹林小径人最少。渡月桥+樱花拍照需排队"},
+    {"city_code": "kyoto", "area_code": "fushimi", "event_name": "伏見稲荷大社 初詣", "event_name_zh": "伏见稻荷大社新年参拜", "start_date": "01-01", "end_date": "01-03", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "新年期间超百万人参拜，建议1月4日后再去"},
+    {"city_code": "kyoto", "area_code": "higashiyama", "event_name": "祇園祭", "event_name_zh": "祗园祭", "start_date": "07-01", "end_date": "07-31", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "宵山（7/14-16）和山鉾巡行（7/17）最热闹。四条/河原町一带极度拥挤"},
+    {"city_code": "kyoto", "area_code": "higashiyama", "event_name": "花灯路 東山", "event_name_zh": "东山花灯路", "start_date": "03-08", "end_date": "03-17", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "18:00亮灯，从八坂神社走到清水寺的路线最美"},
+    {"city_code": "kyoto", "area_code": "tofukuji", "event_name": "東福寺 紅葉", "event_name_zh": "东福寺红叶", "start_date": "11-10", "end_date": "12-05", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "通天桥上看红叶绝景，开门即到可避开人流。11月下旬最佳"},
+    {"city_code": "kyoto", "area_code": "arashiyama", "event_name": "嵐山 紅葉", "event_name_zh": "岚山红叶", "start_date": "11-15", "end_date": "12-10", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "常寂光寺/天龙寺/宝筐院是三大红叶名所，建议预留半天"},
+    {"city_code": "kyoto", "area_code": "kitano", "event_name": "北野天満宮 梅花祭", "event_name_zh": "北野天满宫梅花祭", "start_date": "02-10", "end_date": "03-10", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "2月25日梅花祭当天有艺妓奉茶，非常值得一看"},
+    {"city_code": "kyoto", "area_code": "gion", "event_name": "都をどり", "event_name_zh": "都舞（艺妓春季公演）", "start_date": "04-01", "end_date": "04-30", "crowd_impact": "medium", "booking_required": true, "best_timing_tips": "需提前购票，4000日元起。是看真正艺妓表演的最佳机会"},
+    {"city_code": "kyoto", "area_code": "nijo", "event_name": "二条城 ライトアップ", "event_name_zh": "二条城灯光秀", "start_date": "03-20", "end_date": "04-15", "crowd_impact": "high", "booking_required": true, "best_timing_tips": "需网上购票，投影+樱花的组合非常壮观"},
+
+    {"city_code": "osaka", "area_code": "osaka_castle", "event_name": "大阪城公園 桜", "event_name_zh": "大阪城公园樱花", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "西之丸庭园（收费区）人少质量高，比免费区体验好"},
+    {"city_code": "osaka", "area_code": "minoo", "event_name": "箕面の滝 紅葉", "event_name_zh": "�的面瀑布红叶", "start_date": "11-10", "end_date": "12-05", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "从箕面站步行40分钟到瀑布，途中红叶隧道很美。试试炸红叶天妇罗"},
+    {"city_code": "osaka", "area_code": "namba", "event_name": "道頓堀 イルミネーション", "event_name_zh": "道顿堀圣诞灯饰", "start_date": "11-20", "end_date": "01-10", "crowd_impact": "high", "booking_required": false, "best_timing_tips": "格力高看板+灯饰，夜间出片最佳"},
+    {"city_code": "osaka", "area_code": "tennoji", "event_name": "天王寺公園 てんしば桜", "event_name_zh": "天王寺公园樱花", "start_date": "03-25", "end_date": "04-10", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "比大阪城人少很多，附近有Abeno Harukas展望台"},
+    {"city_code": "osaka", "area_code": "sumiyoshi", "event_name": "住吉大社 初詣", "event_name_zh": "住吉大社新年参拜", "start_date": "01-01", "end_date": "01-03", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "大阪最大的初诣地点，建议1月4日后参拜"},
+    {"city_code": "osaka", "area_code": "namba", "event_name": "十日戎", "event_name_zh": "十日戎（今宫戎神社）", "start_date": "01-09", "end_date": "01-11", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "求商运的节日，难波附近极度拥挤"},
+    {"city_code": "osaka", "area_code": "tenjin", "event_name": "天神祭", "event_name_zh": "天神祭", "start_date": "07-24", "end_date": "07-25", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "日本三大祭之一。7/25船渡御+花火是高潮，沿大川两岸观赏"},
+    {"city_code": "osaka", "area_code": "usj", "event_name": "USJ ハロウィンホラーナイト", "event_name_zh": "USJ万圣节惊魂夜", "start_date": "09-10", "end_date": "11-05", "crowd_impact": "extreme", "booking_required": true, "best_timing_tips": "需Express Pass，否则排队3小时起。周二周三人最少"},
+    {"city_code": "osaka", "area_code": "usj", "event_name": "USJ クリスマス", "event_name_zh": "USJ圣诞活动", "start_date": "11-15", "end_date": "01-05", "crowd_impact": "extreme", "booking_required": true, "best_timing_tips": "霍格沃茨城堡灯光秀是亮点。12月周末人最多"},
+
+    {"city_code": "tokyo", "area_code": "sumida", "event_name": "東京スカイツリー 初日の出", "event_name_zh": "东京晴空塔看初日出", "start_date": "01-01", "end_date": "01-01", "crowd_impact": "extreme", "booking_required": true, "best_timing_tips": "元旦特别开放看日出，需提前1个月抢票"},
+    {"city_code": "kyoto", "area_code": "kurama", "event_name": "鞍馬寺 火祭", "event_name_zh": "�的马火祭", "start_date": "10-22", "end_date": "10-22", "crowd_impact": "extreme", "booking_required": false, "best_timing_tips": "京都三大奇祭之一，18:00开始。叡山电车会极度拥挤"},
+    {"city_code": "osaka", "area_code": "shinsaibashi", "event_name": "御堂筋イルミネーション", "event_name_zh": "御堂筋灯饰大道", "start_date": "11-03", "end_date": "12-31", "crowd_impact": "medium", "booking_required": false, "best_timing_tips": "全长4km的灯饰大道，从淀屋桥走到难波，边走边逛边拍"},
+    {"city_code": "tokyo", "area_code": "yanaka", "event_name": "谷根千 下町散歩", "event_name_zh": "谷根千下町散步（常年）", "start_date": "01-01", "end_date": "12-31", "crowd_impact": "low", "booking_required": false, "best_timing_tips": "避开周末下午。猫街/夕焼けだんだん/谷中银座商店街是三大打卡点"}
+  ]
+}

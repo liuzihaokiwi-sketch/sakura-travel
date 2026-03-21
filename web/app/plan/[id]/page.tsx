@@ -1,18 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { PDF_NOTICE } from "@/lib/content/pricing";
 import { cn } from "@/lib/utils";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
 
-// ── Mock complete plan data ─────────────────────────────────────────────────
-const PLAN = {
+// ── Types ──────────────────────────────────────────────────────────────────
+interface PlanItem {
+  time?: string;
+  icon?: string;
+  place?: string;
+  entity_name?: string;  // backend field
+  reason?: string;
+  copy_zh?: string;      // backend field
+  duration?: string;
+  duration_min?: number; // backend field
+  item_type?: string;
+}
+
+interface PlanDay {
+  num?: number;
+  day_number?: number;   // backend field
+  theme?: string;
+  day_theme?: string;    // backend field
+  items: PlanItem[];
+  tips?: { photo?: string; avoid?: string };
+}
+
+interface PlanData {
+  title?: string;
+  tags?: string[];
+  dates?: string;
+  days: PlanDay[];
+  hotel?: { area?: string; reason?: string; budget?: string };
+  transport?: string;
+  checklist?: string[];
+  // backend fields
+  plan_id?: string;
+  plan_metadata?: Record<string, unknown>;
+}
+
+// ── Mock complete plan data (fallback when API unavailable) ─────────────────
+const MOCK_PLAN: PlanData = {
   title: "东京 7 日 · 樱花季深度行程",
   tags: ["👫 两人出行", "📸 出片优先", "🍣 美食探索", "🌸 樱花季"],
   dates: "2026年3月28日 — 4月3日",
@@ -59,6 +94,32 @@ const PLAN = {
   checklist: ["护照（有效期6个月以上）", "Visit Japan Web 提前注册", "Suica 卡（到达后充值）", "移动WiFi/流量卡", "舒适步行鞋（日均1.5万步）", "充电宝", "常用药品", "日元现金 ¥30,000备用"],
 };
 
+// ── Normalize backend plan to frontend shape ────────────────────────────────
+function normalizePlan(raw: PlanData): PlanData {
+  const days: PlanDay[] = (raw.days || []).map((d) => ({
+    num: d.day_number ?? d.num,
+    theme: d.day_theme ?? d.theme ?? "",
+    items: (d.items || []).map((item) => ({
+      time: item.time ?? "",
+      icon: item.icon ?? (item.item_type === "restaurant" ? "🍽️" : "📍"),
+      place: item.entity_name ?? item.place ?? "",
+      reason: item.copy_zh ?? item.reason ?? "",
+      duration: item.duration ?? (item.duration_min ? `${item.duration_min}min` : ""),
+    })),
+    tips: d.tips,
+  }));
+  const meta = (raw.plan_metadata as Record<string, unknown>) ?? {};
+  return {
+    title: (meta.title as string) ?? raw.title ?? MOCK_PLAN.title,
+    tags: (meta.tags as string[]) ?? raw.tags ?? MOCK_PLAN.tags,
+    dates: (meta.dates as string) ?? raw.dates ?? MOCK_PLAN.dates,
+    days: days.length > 0 ? days : MOCK_PLAN.days,
+    hotel: (meta.hotel as PlanData["hotel"]) ?? raw.hotel ?? MOCK_PLAN.hotel,
+    transport: (meta.transport as string) ?? raw.transport ?? MOCK_PLAN.transport,
+    checklist: (meta.checklist as string[]) ?? raw.checklist ?? MOCK_PLAN.checklist,
+  };
+}
+
 // ── Plan content component ──────────────────────────────────────────────────
 
 function PlanContent({ params }: { params: { id: string } }) {
@@ -67,11 +128,37 @@ function PlanContent({ params }: { params: { id: string } }) {
   const isPreview = mode === "preview";
   const isExport = searchParams.get("export") === "true";
   const [exporting, setExporting] = useState(false);
-
   const [expandedDay, setExpandedDay] = useState(0);
+  const [plan, setPlan] = useState<PlanData>(MOCK_PLAN);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch real plan data from API
+  useEffect(() => {
+    const isMockId = params.id === "demo" || params.id === "preview";
+    if (isMockId) { setLoading(false); return; }
+
+    fetch(`/api/plan/${params.id}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (!data.error) setPlan(normalizePlan(data));
+      })
+      .catch(() => { /* silently use MOCK */ })
+      .finally(() => setLoading(false));
+  }, [params.id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-warm-50">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-warm-300 border-t-warm-500 rounded-full animate-spin mx-auto mb-3" />
+          <p className="text-stone-400 text-sm">正在加载你的行程...</p>
+        </div>
+      </div>
+    );
+  }
 
   // In preview mode, only show Day 1
-  const visibleDays = isPreview ? PLAN.days.slice(0, 1) : PLAN.days;
+  const visibleDays = isPreview ? plan.days.slice(0, 1) : plan.days;
   const totalDays = 7;
 
   return (
@@ -91,10 +178,10 @@ function PlanContent({ params }: { params: { id: string } }) {
           <p className="text-xs tracking-[0.3em] text-white/40 font-mono mb-4">
             {isPreview ? "FREE PREVIEW · DAY 1" : "YOUR TRAVEL PLAN"}
           </p>
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3">{PLAN.title}</h1>
-          <p className="text-white/50 text-sm mb-4">{PLAN.dates}</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3">{plan.title}</h1>
+          <p className="text-white/50 text-sm mb-4">{plan.dates}</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {PLAN.tags.map((t) => (
+            {(plan.tags ?? []).map((t) => (
               <span key={t} className="text-xs bg-white/10 px-3 py-1 rounded-full">{t}</span>
             ))}
           </div>
@@ -107,7 +194,7 @@ function PlanContent({ params }: { params: { id: string } }) {
           <h2 className="text-lg font-bold text-stone-900 mb-4">📋 行程总览</h2>
           <div className="grid grid-cols-7 gap-2">
             {Array.from({ length: totalDays }, (_, i) => {
-              const d = PLAN.days[i];
+              const d = plan.days[i];
               const isLocked = isPreview && i > 0;
               return (
                 <button
@@ -124,7 +211,7 @@ function PlanContent({ params }: { params: { id: string } }) {
                 >
                   <p className="text-xs font-bold text-warm-400">Day {i + 1}</p>
                   <p className="text-[9px] text-stone-400 mt-1 line-clamp-2">
-                    {isLocked ? "🔒" : d?.theme.split("—")[0] || "..."}
+                    {isLocked ? "🔒" : d?.theme?.split("—")[0] || "..."}
                   </p>
                 </button>
               );
@@ -161,16 +248,22 @@ function PlanContent({ params }: { params: { id: string } }) {
             ))}
 
             {/* Tips sidebar */}
-            <div className="grid grid-cols-2 gap-3 mt-2 mb-6">
-              <div className="bg-sakura-50 border border-sakura-100 rounded-xl p-3">
-                <p className="text-xs font-semibold text-sakura-500 mb-1">📸 拍照提示</p>
-                <p className="text-xs text-stone-600">{day.tips.photo}</p>
+            {(day.tips?.photo || day.tips?.avoid) && (
+              <div className="grid grid-cols-2 gap-3 mt-2 mb-6">
+                {day.tips?.photo && (
+                  <div className="bg-sakura-50 border border-sakura-100 rounded-xl p-3">
+                    <p className="text-xs font-semibold text-sakura-500 mb-1">📸 拍照提示</p>
+                    <p className="text-xs text-stone-600">{day.tips.photo}</p>
+                  </div>
+                )}
+                {day.tips?.avoid && (
+                  <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
+                    <p className="text-xs font-semibold text-amber-600 mb-1">⚠️ 避坑提醒</p>
+                    <p className="text-xs text-stone-600">{day.tips.avoid}</p>
+                  </div>
+                )}
               </div>
-              <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
-                <p className="text-xs font-semibold text-amber-600 mb-1">⚠️ 避坑提醒</p>
-                <p className="text-xs text-stone-600">{day.tips.avoid}</p>
-              </div>
-            </div>
+            )}
           </motion.section>
         ))}
 
@@ -240,22 +333,22 @@ function PlanContent({ params }: { params: { id: string } }) {
             {/* Hotel */}
             <section className="bg-white rounded-2xl border border-stone-100 p-6">
               <h2 className="text-lg font-bold text-stone-900 mb-3">🏨 住宿建议</h2>
-              <p className="text-sm text-stone-700 font-medium">{PLAN.hotel.area}</p>
-              <p className="text-xs text-stone-500 mt-1">💡 {PLAN.hotel.reason}</p>
-              <p className="text-xs text-warm-400 mt-2">预算参考：{PLAN.hotel.budget}</p>
+              <p className="text-sm text-stone-700 font-medium">{plan.hotel?.area}</p>
+              <p className="text-xs text-stone-500 mt-1">💡 {plan.hotel?.reason}</p>
+              <p className="text-xs text-warm-400 mt-2">预算参考：{plan.hotel?.budget}</p>
             </section>
 
             {/* Transport */}
             <section className="bg-white rounded-2xl border border-stone-100 p-6">
               <h2 className="text-lg font-bold text-stone-900 mb-3">🚃 交通方案</h2>
-              <p className="text-sm text-stone-600">{PLAN.transport}</p>
+              <p className="text-sm text-stone-600">{plan.transport}</p>
             </section>
 
             {/* Checklist */}
             <section className="bg-white rounded-2xl border border-stone-100 p-6">
               <h2 className="text-lg font-bold text-stone-900 mb-3">✅ 出行准备清单</h2>
               <div className="grid grid-cols-2 gap-2">
-                {PLAN.checklist.map((item) => (
+                {(plan.checklist ?? []).map((item) => (
                   <label key={item} className="flex items-center gap-2 text-sm text-stone-600 cursor-pointer">
                     <input type="checkbox" className="rounded border-stone-300 text-warm-400 focus:ring-warm-300" />
                     <span>{item}</span>
@@ -313,6 +406,25 @@ function PlanContent({ params }: { params: { id: string } }) {
                     </Button>
                   </div>
                 </div>
+
+                {/* PDF 交付说明（折叠式） */}
+                <details className="group rounded-xl border border-stone-100 bg-stone-50 overflow-hidden">
+                  <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-stone-600 hover:bg-stone-100 transition-colors marker:content-none">
+                    <span className="flex items-center gap-2">
+                      <span>📄</span>
+                      <span>{PDF_NOTICE.deliveryPage.heading}</span>
+                    </span>
+                    <span className="text-stone-400 text-xs transition-transform duration-200 group-open:rotate-45">＋</span>
+                  </summary>
+                  <ul className="px-4 pb-4 pt-1 space-y-1.5">
+                    {PDF_NOTICE.deliveryPage.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-xs text-stone-500">
+                        <span className="text-stone-400 flex-shrink-0 mt-0.5">·</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </>
             )}
 

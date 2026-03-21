@@ -58,6 +58,26 @@ class EntityScore(Base):
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
 
+    # ── soft rules v1 新增字段 ──
+    preview_score: Mapped[Optional[float]] = mapped_column(
+        Numeric(5, 2), comment="预览分 0-100"
+    )
+    context_score: Mapped[Optional[float]] = mapped_column(
+        Numeric(5, 2), comment="上下文分 0-100"
+    )
+    soft_rule_score: Mapped[Optional[float]] = mapped_column(
+        Numeric(5, 2), comment="软规则分 0-100"
+    )
+    soft_rule_breakdown: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="软规则维度分详情"
+    )
+    segment_pack_id: Mapped[Optional[str]] = mapped_column(
+        String(50), comment="使用的客群权重包"
+    )
+    stage_pack_id: Mapped[Optional[str]] = mapped_column(
+        String(50), comment="使用的阶段权重包"
+    )
+
     __table_args__ = (
         Index("ix_entity_scores_entity_profile", "entity_id", "score_profile"),
     )
@@ -270,6 +290,11 @@ class ItineraryItem(Base):
     notes_zh: Mapped[Optional[str]] = mapped_column(Text)
     estimated_cost_jpy: Mapped[Optional[int]] = mapped_column(Integer)
     is_optional: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    # ── soft rules v1 新增字段 ──
+    swap_candidates: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="替换候选列表"
+    )
 
     day: Mapped["ItineraryDay"] = relationship("ItineraryDay", back_populates="items")
 

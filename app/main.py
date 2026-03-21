@@ -10,6 +10,8 @@ from sqlalchemy import text
 from app.core.logging_config import setup_logging
 from app.api import trips
 from app.api import trips_generate
+from app.api import trips_preview
+from app.api import trips_tuning
 from app.api import chat
 from app.api import pois
 from app.api import products
@@ -17,6 +19,9 @@ from app.api import quiz
 from app.api import orders
 from app.api import modifications
 from app.api import review
+from app.api import config as config_api
+from app.api import intensity as intensity_api
+from app.api import self_adjustment as self_adjustment_api
 from app.api.ops import editorial, entities, ranked
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
@@ -84,6 +89,8 @@ app.add_middleware(
 app.include_router(chat.router)                              # /chat/*
 app.include_router(trips.router, prefix="/trips", tags=["trips"])
 app.include_router(trips_generate.router, tags=["trips-plan"])
+app.include_router(trips_preview.router, tags=["trips-preview"])
+app.include_router(trips_tuning.router, tags=["self-serve-tuning"])
 app.include_router(products.router, tags=["products"])       # /products
 app.include_router(pois.router, tags=["pois"])               # /pois/*
 app.include_router(pois.cities_router, tags=["cities"])      # /cities
@@ -94,6 +101,9 @@ app.include_router(quiz.router, tags=["quiz"])               # /quiz
 app.include_router(orders.router, tags=["orders"])           # /orders
 app.include_router(modifications.router, tags=["modifications"])  # /orders/{id}/modify
 app.include_router(review.router, tags=["admin-reviews"])    # /admin/reviews/*
+app.include_router(config_api.router, tags=["config"])       # /config/*
+app.include_router(intensity_api.router, tags=["trips-intensity"])  # /trips/{id}/intensity
+app.include_router(self_adjustment_api.router, tags=["self-adjustment"])  # /trips/{id}/alternatives, /swap
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────

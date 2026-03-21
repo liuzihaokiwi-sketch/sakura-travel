@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     await browser.close();
     browser = undefined;
 
-    return new NextResponse(screenshot, {
+    return new NextResponse(screenshot as unknown as BodyInit, {
       status: 200,
       headers: {
         "Content-Type": "image/png",

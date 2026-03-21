@@ -1,0 +1,172 @@
+[
+  {
+    "area_code": "shibuya", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "high", "evening": "very_high", "night": "high"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "very_high", "night": "high"}
+    },
+    "peak_hours": ["15:00-20:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "涩谷十字路口周末全天人多，平日上午相对空"
+  },
+  {
+    "area_code": "shinjuku", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "medium", "evening": "very_high", "night": "very_high"},
+      "weekend": {"morning": "medium", "afternoon": "high", "evening": "very_high", "night": "very_high"}
+    },
+    "peak_hours": ["17:00-22:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "歌舞伎町夜间极度拥挤，西口商务区白天适中"
+  },
+  {
+    "area_code": "asakusa", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "high", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "high", "afternoon": "very_high", "evening": "medium", "night": "low"}
+    },
+    "peak_hours": ["10:00-15:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "浅草寺早上6-7点几乎没人，最佳拍照时间"
+  },
+  {
+    "area_code": "akihabara", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "medium", "evening": "medium", "night": "low"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "high", "night": "medium"}
+    },
+    "peak_hours": ["13:00-18:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "周末下午动漫/电器店极其拥挤"
+  },
+  {
+    "area_code": "ginza", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "medium", "evening": "medium", "night": "low"},
+      "weekend": {"morning": "medium", "afternoon": "high", "evening": "medium", "night": "low"}
+    },
+    "peak_hours": ["12:00-16:00"],
+    "best_visit_time": "weekday_afternoon",
+    "notes": "周末中央通步行者天国，适合逛街但人多"
+  },
+  {
+    "area_code": "ueno", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "medium", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "medium", "afternoon": "high", "evening": "medium", "night": "low"}
+    },
+    "peak_hours": ["11:00-15:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "樱花季公园极度拥挤，博物馆平日上午最佳"
+  },
+  {
+    "area_code": "harajuku_omotesando", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "high", "evening": "medium", "night": "low"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "high", "night": "low"}
+    },
+    "peak_hours": ["13:00-17:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "竹下通周末几乎无法行走"
+  },
+  {
+    "area_code": "tsukiji_toyosu", "city_code": "tokyo",
+    "patterns": {
+      "weekday": {"morning": "high", "afternoon": "medium", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "very_high", "afternoon": "high", "evening": "low", "night": "very_low"}
+    },
+    "peak_hours": ["07:00-11:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "场外市场6点开门，8-10点排队最长"
+  },
+  {
+    "area_code": "dotonbori", "city_code": "osaka",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "high", "evening": "very_high", "night": "high"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "very_high", "night": "very_high"}
+    },
+    "peak_hours": ["17:00-22:00"],
+    "best_visit_time": "weekday_afternoon",
+    "notes": "道顿堀夜间霓虹灯是必拍，但人流极大"
+  },
+  {
+    "area_code": "shinsekai", "city_code": "osaka",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "medium", "evening": "high", "night": "medium"},
+      "weekend": {"morning": "medium", "afternoon": "high", "evening": "very_high", "night": "high"}
+    },
+    "peak_hours": ["17:00-20:00"],
+    "best_visit_time": "weekday_lunch",
+    "notes": "串炸店午餐时段排队30-60分钟"
+  },
+  {
+    "area_code": "umeda", "city_code": "osaka",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "high", "evening": "high", "night": "medium"},
+      "weekend": {"morning": "medium", "afternoon": "high", "evening": "high", "night": "medium"}
+    },
+    "peak_hours": ["12:00-14:00", "17:00-19:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "梅田空中庭园日落前1小时最佳但需排队"
+  },
+  {
+    "area_code": "namba", "city_code": "osaka",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "high", "evening": "very_high", "night": "high"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "very_high", "night": "high"}
+    },
+    "peak_hours": ["15:00-21:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "千日前/心斋桥购物区下午极度拥挤"
+  },
+  {
+    "area_code": "gion", "city_code": "kyoto",
+    "patterns": {
+      "weekday": {"morning": "low", "afternoon": "high", "evening": "medium", "night": "low"},
+      "weekend": {"morning": "medium", "afternoon": "very_high", "evening": "high", "night": "low"}
+    },
+    "peak_hours": ["14:00-17:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "花见小路下午游客密度极高，早晨可拍到无人街景"
+  },
+  {
+    "area_code": "arashiyama", "city_code": "kyoto",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "very_high", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "high", "afternoon": "very_high", "evening": "medium", "night": "very_low"}
+    },
+    "peak_hours": ["10:00-15:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "竹林小径7-8点几乎无人，秋叶季全天爆满"
+  },
+  {
+    "area_code": "kiyomizu", "city_code": "kyoto",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "very_high", "evening": "medium", "night": "very_low"},
+      "weekend": {"morning": "high", "afternoon": "very_high", "evening": "high", "night": "low"}
+    },
+    "peak_hours": ["10:00-16:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "清水寺6点开门，7点前几乎没有游客"
+  },
+  {
+    "area_code": "fushimi_inari", "city_code": "kyoto",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "very_high", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "very_high", "afternoon": "very_high", "evening": "medium", "night": "low"}
+    },
+    "peak_hours": ["09:00-15:00"],
+    "best_visit_time": "weekday_early_morning",
+    "notes": "千本鸟居6点前几乎无人，中午以后密集到无法拍照"
+  },
+  {
+    "area_code": "nishiki_market", "city_code": "kyoto",
+    "patterns": {
+      "weekday": {"morning": "medium", "afternoon": "high", "evening": "low", "night": "very_low"},
+      "weekend": {"morning": "high", "afternoon": "very_high", "evening": "medium", "night": "very_low"}
+    },
+    "peak_hours": ["11:00-14:00"],
+    "best_visit_time": "weekday_morning",
+    "notes": "锦市场通道狭窄，午餐时段几乎无法通行"
+  }
+]

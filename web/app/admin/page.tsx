@@ -211,6 +211,12 @@ export default function AdminDashboard() {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <Link
+              href="/admin/conversion"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
+            >
+              📊 转化看板
+            </Link>
             <span className="text-xs text-slate-400">
               共 {orders.length} 个订单 · 每 30 秒刷新
             </span>

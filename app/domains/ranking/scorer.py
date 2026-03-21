@@ -33,6 +33,13 @@ from app.domains.ranking.rules import (
     SCORE_VERSION,
 )
 
+# ── 三维公式权重（启用 soft_rule_score 时） ────────────────────────────────────
+# 退化公式（无 soft_rule_score）：0.60 × system + 0.40 × context
+# 三维公式：0.45 × system + 0.30 × context + 0.25 × soft_rule
+CANDIDATE_SYSTEM_WEIGHT_3D = 0.45
+CANDIDATE_CONTEXT_WEIGHT_3D = 0.30
+CANDIDATE_SOFT_RULE_WEIGHT_3D = 0.25
+
 
 # ── 输入信号 DataClass ─────────────────────────────────────────────────────────
 
@@ -507,3 +514,136 @@ def apply_editorial_boost(base_score: float, boost: int) -> float:
     """
     clamped_boost = max(EDITORIAL_BOOST_MIN, min(EDITORIAL_BOOST_MAX, boost))
     return round(_clamp(base_score + clamped_boost), 2)
+
+
+# ── Candidate Score（候选排序分 — 三维公式） ──────────────────────────────────
+
+@dataclass
+class CandidateScoreResult:
+    """
+    候选排序分结果，包含三维公式的分项明细。
+
+    三维公式（启用软规则时）：
+      candidate_score = 0.45 × system_score + 0.30 × context_score
+                      + 0.25 × soft_rule_score - risk_penalty
+      final = candidate_score + editorial_boost
+
+    退化公式（无软规则分时）：
+      candidate_score = 0.60 × system_score + 0.40 × context_score
+                      - risk_penalty
+      final = candidate_score + editorial_boost
+    """
+    entity_id: str
+    entity_type: str
+    system_score: float          # 0-100
+    context_score: float         # 0-100
+    soft_rule_score: float | None  # 0-100，None 表示未启用
+    risk_penalty: float          # >= 0
+    editorial_boost: int         # -8 ~ +8
+    candidate_score: float       # 加权后 0-100
+    final_score: float           # candidate + boost, 0-100
+    formula_used: str            # "3d" | "2d"
+    breakdown: dict[str, Any]    # 完整明细
+
+
+def compute_candidate_score(
+    signals: EntitySignals,
+    user_weights: dict[str, float] | None = None,
+    entity_affinity: dict[str, int] | None = None,
+    soft_rule_score: float | None = None,
+    segment_pack_id: str | None = None,
+    stage_pack_id: str | None = None,
+    score_profile: str = "general",
+) -> CandidateScoreResult:
+    """
+    计算候选排序分（三维公式 / 退化二维公式）。
+
+    这是对外暴露的主计算接口，统一了 system_score + context_score + soft_rule_score。
+
+    Args:
+        signals: 实体原始信号
+        user_weights: 用户主题偏好权重（计算 context_score 用）
+        entity_affinity: 实体主题亲和度（计算 context_score 用）
+        soft_rule_score: 软规则分 0-100（传 None 退化到二维公式）
+        segment_pack_id: 客群权重包 ID（记录在 breakdown 中）
+        stage_pack_id: 阶段权重包 ID（记录在 breakdown 中）
+        score_profile: 评分 profile 名称
+
+    Returns:
+        CandidateScoreResult 完整结果
+    """
+    entity_type = signals.entity_type
+
+    # Step 1: system_score（复用已有逻辑）
+    score_result = compute_base_score(signals, score_profile)
+    system_score = score_result.base_score  # 已含 tier_multiplier 和 risk_penalty
+
+    # 但我们需要分离 system_score（不含 risk）和 risk_penalty
+    raw_system = score_result.score_breakdown.get("system_score_adjusted", system_score)
+    risk_penalty = score_result.score_breakdown.get("risk_penalty", 0.0)
+
+    # Step 2: context_score
+    ctx_score = 0.0
+    ctx_breakdown: dict[str, Any] = {}
+    if user_weights and entity_affinity:
+        ctx_score, ctx_breakdown = compute_context_score(user_weights, entity_affinity)
+
+    # Step 3: 选择公式
+    if soft_rule_score is not None:
+        # 三维公式
+        formula = "3d"
+        candidate = (
+            CANDIDATE_SYSTEM_WEIGHT_3D * raw_system
+            + CANDIDATE_CONTEXT_WEIGHT_3D * ctx_score
+            + CANDIDATE_SOFT_RULE_WEIGHT_3D * soft_rule_score
+            - risk_penalty
+        )
+    else:
+        # 退化二维公式
+        formula = "2d"
+        candidate = (
+            CANDIDATE_SYSTEM_WEIGHT * raw_system
+            + CANDIDATE_CONTEXT_WEIGHT * ctx_score
+            - risk_penalty
+        )
+
+    candidate = round(_clamp(candidate), 2)
+
+    # Step 4: editorial boost
+    final = apply_editorial_boost(candidate, signals.editorial_boost)
+
+    # Step 5: breakdown
+    breakdown = {
+        "system_score_raw": round(raw_system, 2),
+        "system_score_breakdown": score_result.score_breakdown.get("dimensions", {}),
+        "tier_multiplier": score_result.score_breakdown.get("tier_multiplier", 1.0),
+        "context_score": round(ctx_score, 2),
+        "context_score_breakdown": ctx_breakdown,
+        "soft_rule_score": round(soft_rule_score, 2) if soft_rule_score is not None else None,
+        "segment_pack_id": segment_pack_id,
+        "stage_pack_id": stage_pack_id,
+        "risk_penalty": round(risk_penalty, 2),
+        "risk_details": score_result.score_breakdown.get("risk_details", {}),
+        "editorial_boost": signals.editorial_boost,
+        "formula": formula,
+        "weights": {
+            "system": CANDIDATE_SYSTEM_WEIGHT_3D if formula == "3d" else CANDIDATE_SYSTEM_WEIGHT,
+            "context": CANDIDATE_CONTEXT_WEIGHT_3D if formula == "3d" else CANDIDATE_CONTEXT_WEIGHT,
+            "soft_rule": CANDIDATE_SOFT_RULE_WEIGHT_3D if formula == "3d" else 0.0,
+        },
+        "score_version": SCORE_VERSION,
+    }
+
+    return CandidateScoreResult(
+        entity_id=str(getattr(signals, "entity_id", "unknown")),
+        entity_type=entity_type,
+        system_score=round(raw_system, 2),
+        context_score=round(ctx_score, 2),
+        soft_rule_score=round(soft_rule_score, 2) if soft_rule_score is not None else None,
+        risk_penalty=round(risk_penalty, 2),
+        editorial_boost=signals.editorial_boost,
+        candidate_score=candidate,
+        final_score=final,
+        formula_used=formula,
+        breakdown=breakdown,
+    )

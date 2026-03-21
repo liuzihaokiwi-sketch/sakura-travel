@@ -64,3 +64,11 @@ export async function publishOrder(id: string): Promise<boolean> {
 export async function rejectOrder(id: string): Promise<boolean> {
   return updateOrderStatus(id, "generating", "admin_reject");
 }
+
+export async function confirmPayment(id: string): Promise<boolean> {
+  return updateOrderStatus(id, "paid", "admin_confirm_payment");
+}
+
+export async function refundOrder(id: string, reason?: string): Promise<boolean> {
+  return updateOrderStatus(id, "refunded", reason || "admin_refund");
+}

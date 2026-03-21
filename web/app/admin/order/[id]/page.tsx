@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { type OrderItem, fetchOrderById, updateOrderStatus } from "@/lib/admin-api";
+import { type OrderItem, fetchOrderById, updateOrderStatus, confirmPayment, refundOrder } from "@/lib/admin-api";
 
 // ── Mock plan data (same structure as /plan/[id]) ────────────────────────────
 const MOCK_PLAN = {
@@ -137,6 +137,35 @@ export default function OrderReviewPage() {
     router.push("/admin");
   };
 
+  const handleConfirmPayment = async () => {
+    if (!confirm("确认已收到用户付款？这将把订单状态改为「已付款」")) return;
+    const ok = await confirmPayment(orderId);
+    if (ok) {
+      // Refresh order data
+      const fresh = await fetchOrderById(orderId);
+      setOrder(fresh);
+      alert("已确认收款 ✓");
+    } else {
+      alert("操作失败，请检查订单状态");
+    }
+  };
+
+  const handleRefund = async () => {
+    const reason = prompt(
+      "退款原因（必填，会记录到订单）：\n\n常用原因：\n• 用户主动取消旅行\n• 方案质量不满意\n• 重复购买\n• 其他"
+    );
+    if (!reason) return;
+    if (!confirm(`确认退款？\n原因：${reason}\n\n💡 退款话术提示：\n"您好，您的订单退款已处理，1-3个工作日内到账，感谢理解～"`)) return;
+    const ok = await refundOrder(orderId, reason);
+    if (ok) {
+      const fresh = await fetchOrderById(orderId);
+      setOrder(fresh);
+      alert("退款已处理 ✓");
+    } else {
+      alert("退款失败，请联系技术支持");
+    }
+  };
+
   const currentDay = MOCK_PLAN.days.find((d) => d.num === selectedDay) || MOCK_PLAN.days[0];
 
   if (loading) {
@@ -174,6 +203,27 @@ export default function OrderReviewPage() {
 
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-400 mr-2">v{versions.length}</span>
+
+          {/* 确认收款（仅 quiz_submitted / preview_sent 状态显示）*/}
+          {order && ["quiz_submitted", "preview_sent"].includes(order.status) && (
+            <button
+              onClick={handleConfirmPayment}
+              className="px-3 py-1.5 text-xs border border-green-300 rounded-lg text-green-700 hover:bg-green-50 transition-colors font-medium"
+            >
+              💰 确认收款
+            </button>
+          )}
+
+          {/* 退款（已付款/生成中/审核中状态才能退）*/}
+          {order && ["paid", "generating", "review", "delivered"].includes(order.status) && (
+            <button
+              onClick={handleRefund}
+              className="px-3 py-1.5 text-xs border border-red-200 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+            >
+              退款
+            </button>
+          )}
+
           <button
             onClick={handleReject}
             className="px-3 py-1.5 text-xs border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors"

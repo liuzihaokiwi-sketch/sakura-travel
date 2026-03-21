@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { PDF_NOTICE } from "@/lib/content/pricing";
 
 // ── Config: 规划师微信号（后续可改为环境变量或 API 获取）──────────────────────
 const PLANNER_WECHAT = "sakura_plan";
@@ -82,6 +83,27 @@ function SubmittedContent() {
               <p className="text-sm text-stone-500 mt-0.5">
                 觉得不错再看完整方案，不满意不花一分钱
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* PDF 交付说明 */}
+        <div className="bg-stone-50 rounded-2xl p-5 mb-6 border border-stone-100">
+          <div className="flex items-start gap-3">
+            <span className="text-xl flex-shrink-0">📄</span>
+            <div>
+              <h3 className="text-sm font-semibold text-stone-800 mb-1">
+                {PDF_NOTICE.successPage.heading}
+              </h3>
+              <p className="text-xs text-stone-500 mb-2">{PDF_NOTICE.successPage.intro}</p>
+              <ul className="space-y-1">
+                {PDF_NOTICE.successPage.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-1.5 text-xs text-stone-500">
+                    <span className="text-stone-400 mt-0.5 flex-shrink-0">·</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

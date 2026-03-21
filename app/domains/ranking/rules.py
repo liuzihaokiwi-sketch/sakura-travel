@@ -22,9 +22,14 @@ SCORE_MAX = 100.0
 
 EntityType = Literal["poi", "hotel", "restaurant"]
 
-# 候选分公式权重
+# 候选分公式权重（二维退化公式）
 CANDIDATE_SYSTEM_WEIGHT = 0.60
 CANDIDATE_CONTEXT_WEIGHT = 0.40
+
+# 候选分公式权重（三维公式 — 启用 soft_rule_score 时）
+CANDIDATE_SYSTEM_WEIGHT_3D = 0.45
+CANDIDATE_CONTEXT_WEIGHT_3D = 0.30
+CANDIDATE_SOFT_RULE_WEIGHT_3D = 0.25
 
 
 # ── 数据类：评分维度 ──────────────────────────────────────────────────────────

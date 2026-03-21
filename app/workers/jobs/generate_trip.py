@@ -1,19 +1,140 @@
 """
 arq Job: generate_trip
-触发行程装配 → 写入 DB → enqueue run_guardrails
+触发行程装配 → AI 文案润色 → 多模型评审 → 发布/重写/转人工
+
+流程：
+    assemble_trip → enrich_itinerary_with_copy
+    → run_review_with_retry
+        → publish  → 标记 delivered，入队渲染
+        → rewrite  → 自动重写受影响天（最多 2 轮）
+        → human    → 标记 review，入队人工审核
 """
 from __future__ import annotations
 
 import logging
 import uuid
+from typing import Any
 
 from app.core.queue import enqueue_job
 from app.db.models.business import TripRequest
 from app.db.session import AsyncSessionLocal as async_session_factory
 from app.domains.planning.assembler import assemble_trip
 from app.domains.planning.assembler import enrich_itinerary_with_copy
+from app.core.quality_gate import run_quality_gate, QualityGateResult
 
 logger = logging.getLogger(__name__)
+
+# Feature flag: 评审流水线开关（关闭时走旧逻辑 run_guardrails）
+REVIEW_PIPELINE_ENABLED = True
+
+
+async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
+    """从 DB 构建评审流水线需要的 plan_json 结构。"""
+    from sqlalchemy import select
+    from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
+    from app.db.models.catalog import EntityBase
+
+    plan = await session.get(ItineraryPlan, plan_id)
+    if not plan:
+        return {"plan_id": str(plan_id), "days": []}
+
+    days_result = await session.execute(
+        select(ItineraryDay)
+        .where(ItineraryDay.plan_id == plan_id)
+        .order_by(ItineraryDay.day_number)
+    )
+    days = days_result.scalars().all()
+
+    plan_json: dict[str, Any] = {
+        "plan_id": str(plan_id),
+        "metadata": plan.plan_metadata or {},
+        "days": [],
+    }
+
+    for day in days:
+        items_result = await session.execute(
+            select(ItineraryItem)
+            .where(ItineraryItem.day_id == day.day_id)
+            .order_by(ItineraryItem.sort_order)
+        )
+        items = items_result.scalars().all()
+
+        day_items = []
+        for item in items:
+            item_dict: dict[str, Any] = {
+                "time": "",  # 从 slot 推断
+                "name": "未知",
+                "entity_type": item.item_type or "poi",
+                "entity_id": str(item.entity_id) if item.entity_id else None,
+            }
+            if item.entity_id:
+                entity = await session.get(EntityBase, item.entity_id)
+                if entity:
+                    item_dict["name"] = entity.name_local or entity.name or "未知"
+                    item_dict["entity_type"] = entity.entity_type or "poi"
+            if item.notes_zh:
+                import json as _json
+                try:
+                    notes = _json.loads(item.notes_zh) if isinstance(item.notes_zh, str) else item.notes_zh
+                    item_dict["recommendation_reason"] = notes.get("copy_zh", "")
+                except Exception:
+                    pass
+            day_items.append(item_dict)
+
+        plan_json["days"].append({
+            "day_number": day.day_number,
+            "city": day.city_code or "",
+            "theme": day.day_theme or "",
+            "items": day_items,
+        })
+
+    return plan_json
+
+
+async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> dict:
+    """构建评审所需的上下文。"""
+    context: dict[str, Any] = {
+        "segment": scene,
+        "travel_date": "未知",
+    }
+
+    # 尝试从 trip 中获取旅行日期
+    if hasattr(trip, "travel_start_date") and trip.travel_start_date:
+        context["travel_date"] = str(trip.travel_start_date)
+
+    # 尝试从 city context 表获取营业限制和季节活动
+    try:
+        from sqlalchemy import select, text
+        result = await session.execute(text(
+            "SELECT entity_id, closed_days, reservation_required "
+            "FROM entity_operating_facts LIMIT 100"
+        ))
+        rows = result.fetchall()
+        if rows:
+            ops_lines = []
+            for row in rows:
+                if row[1]:  # closed_days
+                    ops_lines.append(f"{row[0]}: 定休 {row[1]}")
+                if row[2]:  # reservation_required
+                    ops_lines.append(f"{row[0]}: 需预约")
+            context["operational_context"] = "\n".join(ops_lines[:20])
+    except Exception:
+        pass
+
+    try:
+        from sqlalchemy import select, text
+        result = await session.execute(text(
+            "SELECT event_name, start_date, end_date, crowd_impact "
+            "FROM seasonal_events WHERE is_active = true LIMIT 20"
+        ))
+        rows = result.fetchall()
+        if rows:
+            events = [f"{r[0]} ({r[1]}~{r[2]}, 人流影响: {r[3]})" for r in rows]
+            context["seasonal_events"] = "\n".join(events)
+    except Exception:
+        pass
+
+    return context
 
 
 async def generate_trip(
@@ -24,7 +145,13 @@ async def generate_trip(
     scene: str = "general",
 ) -> dict:
     """
-    arq Job: 触发行程装配。
+    arq Job: 触发行程装配 + 评审。
+
+    完整流程：
+    1. assemble_trip → 装配结构化行程
+    2. enrich_itinerary_with_copy → AI 文案润色
+    3. run_review_with_retry → 多模型评审（并行 4 agent + judge）
+    4. 根据裁决：publish → 渲染 / rewrite → 重写 / human → 人工队列
 
     Args:
         trip_request_id: 行程请求 UUID（字符串）
@@ -44,7 +171,7 @@ async def generate_trip(
         trip.status = "assembling"
         await session.commit()
 
-        # 执行装配
+        # Step 1: 装配
         try:
             plan_id = await assemble_trip(
                 session=session,
@@ -52,20 +179,186 @@ async def generate_trip(
                 template_code=template_code,
                 scene=scene,
             )
-            # AI 文案润色（装配后批量生成描述 + Tips）
+        except Exception as exc:
+            logger.exception("generate_trip 装配失败 trip=%s: %s", trip_id, exc)
+            trip.status = "failed"
+            await session.commit()
+            return {"status": "error", "reason": f"assemble failed: {exc}"}
+
+        # Step 2: AI 文案润色
+        try:
             await enrich_itinerary_with_copy(
                 session=session,
                 plan_id=plan_id,
                 scene=scene,
             )
         except Exception as exc:
-            logger.exception("generate_trip 装配失败 trip=%s: %s", trip_id, exc)
-            trip.status = "failed"
+            logger.warning("文案润色失败（非致命）trip=%s: %s", trip_id, exc)
+
+        # Step 2.5: 质量门控校验（11条 QTY 硬规则）
+        try:
+            plan_json_for_gate = await _build_plan_json(session, plan_id)
+            gate_result: QualityGateResult = await run_quality_gate(plan_json_for_gate, db=session)
+            logger.info(
+                "质量门控结果 trip=%s plan=%s %s",
+                trip_id, plan_id, gate_result.summary(),
+            )
+            if not gate_result.passed:
+                # Hard error → 直接转人工，附上错误信息
+                trip.status = "review"
+                await session.commit()
+                error_summary = "; ".join(gate_result.errors[:5])
+                logger.warning(
+                    "质量门控未通过，转人工审核 trip=%s errors=%s",
+                    trip_id, error_summary,
+                )
+                return {
+                    "status": "ok",
+                    "plan_id": str(plan_id),
+                    "review": "human_quality_gate",
+                    "quality_errors": gate_result.errors,
+                    "quality_warnings": gate_result.warnings,
+                    "quality_score": gate_result.score,
+                }
+        except Exception as exc:
+            logger.warning("质量门控异常（非致命，继续评审）trip=%s: %s", trip_id, exc)
+
+        # Step 3: 多模型评审
+        if not REVIEW_PIPELINE_ENABLED:
+            # 旧逻辑：直接触发 guardrails
+            await enqueue_job("run_guardrails", plan_id=str(plan_id))
+            logger.info("generate_trip 完成（旧流程）plan=%s", plan_id)
+            return {"status": "ok", "plan_id": str(plan_id), "review": "skipped"}
+
+        try:
+            from app.domains.review_ops.pipeline import run_review_with_retry, Verdict
+
+            plan_json = await _build_plan_json(session, plan_id)
+            review_context = await _build_review_context(session, trip, scene)
+
+            # 尝试获取 AI client
+            ai_client = None
+            try:
+                from app.core.ai_client import get_openai_client
+                ai_client = get_openai_client()
+            except Exception:
+                logger.warning("AI client 不可用，评审将使用规则引擎兜底")
+
+            result = await run_review_with_retry(
+                plan_json=plan_json,
+                context=review_context,
+                ai_client=ai_client,
+            )
+
+            # 持久化 T22-T25 四维评审报告（并行，不阻塞主流程）
+            try:
+                from app.core.multi_model_review import (
+                    run_multi_model_review, review_report_to_dict
+                )
+                import json as _json
+                profile = review_context.get("profile", {})
+                mmr = await run_multi_model_review(plan_json, profile, plan_id=str(plan_id))
+                mmr_dict = review_report_to_dict(mmr)
+                from sqlalchemy import text as _text
+                await session.execute(_text("""
+                    INSERT INTO plan_review_reports
+                    (plan_id, overall_score, passed, blocker_count, warning_count,
+                     summary, comments, slot_boundaries)
+                    VALUES (:plan_id, :score, :passed, :blockers, :warnings,
+                            :summary, :comments::jsonb, :boundaries::jsonb)
+                    ON CONFLICT DO NOTHING
+                """), {
+                    "plan_id": str(plan_id),
+                    "score": mmr_dict["overall_score"],
+                    "passed": mmr_dict["passed"],
+                    "blockers": mmr_dict["blocker_count"],
+                    "warnings": mmr_dict["warning_count"],
+                    "summary": mmr_dict["summary"],
+                    "comments": _json.dumps(mmr_dict["comments"], ensure_ascii=False),
+                    "boundaries": _json.dumps(mmr_dict["slot_boundaries"], ensure_ascii=False),
+                })
+                logger.info(
+                    "[T22-T25] 四维评审完成 plan=%s score=%.1f passed=%s",
+                    plan_id, mmr_dict["overall_score"], mmr_dict["passed"],
+                )
+            except Exception as e:
+                logger.warning("[T22-T25] 四维评审失败（非致命）: %s", e)
+
+            # 持久化旧评审结果
+            try:
+                from sqlalchemy import text
+                await session.execute(text("""
+                    INSERT INTO review_pipeline_runs
+                    (plan_id, round, qa_result, user_proxy_result,
+                     ops_proxy_result, tuning_guard_result,
+                     final_verdict, final_reason, total_tokens, total_duration_ms)
+                    VALUES (:plan_id, :round, :qa, :user, :ops, :tuning,
+                            :verdict, :reason, :tokens, :duration)
+                """), {
+                    "plan_id": str(plan_id),
+                    "round": result.round_number,
+                    "qa": str(result.qa_result.raw_output),
+                    "user": str(result.user_proxy_result.raw_output),
+                    "ops": str(result.ops_proxy_result.raw_output),
+                    "tuning": str(result.tuning_guard_result.raw_output),
+                    "verdict": result.final_verdict.value,
+                    "reason": result.final_reason,
+                    "tokens": result.total_tokens,
+                    "duration": result.total_duration_ms,
+                })
+                await session.commit()
+            except Exception as e:
+                logger.warning("评审结果持久化失败（非致命）: %s", e)
+
+            # 根据裁决分流
+            if result.final_verdict == Verdict.PUBLISH:
+                trip.status = "reviewed"
+                await session.commit()
+                await enqueue_job("render_trip", plan_id=str(plan_id))
+                logger.info(
+                    "评审通过 plan=%s (tokens=%d, duration=%dms)",
+                    plan_id, result.total_tokens, result.total_duration_ms,
+                )
+                return {
+                    "status": "ok",
+                    "plan_id": str(plan_id),
+                    "review": "published",
+                    "tokens": result.total_tokens,
+                }
+            elif result.final_verdict == Verdict.HUMAN:
+                trip.status = "review"
+                await session.commit()
+                logger.info(
+                    "评审转人工 plan=%s reason=%s",
+                    plan_id, result.final_reason,
+                )
+                return {
+                    "status": "ok",
+                    "plan_id": str(plan_id),
+                    "review": "human",
+                    "reason": result.final_reason,
+                }
+            else:
+                # REWRITE 已经在 run_review_with_retry 内部处理了
+                # 到这里说明重写后仍然是 human
+                trip.status = "review"
+                await session.commit()
+                return {
+                    "status": "ok",
+                    "plan_id": str(plan_id),
+                    "review": "human_after_rewrite",
+                    "reason": result.final_reason,
+                }
+
+        except Exception as exc:
+            logger.exception("评审流水线异常 trip=%s: %s", trip_id, exc)
+            # 评审失败不阻塞，降级到人工审核
+            trip.status = "review"
             await session.commit()
-            return {"status": "error", "reason": str(exc)}
-
-    # 装配成功 → 触发审核 job
-    await enqueue_job("run_guardrails", plan_id=str(plan_id))
-    logger.info("generate_trip 完成 plan=%s，已入队 run_guardrails", plan_id)
-
-    return {"status": "ok", "plan_id": str(plan_id)}
+            await enqueue_job("run_guardrails", plan_id=str(plan_id))
+            return {
+                "status": "ok",
+                "plan_id": str(plan_id),
+                "review": "fallback_guardrails",
+                "error": str(exc),
+            }

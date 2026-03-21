@@ -1,0 +1,1750 @@
+{
+  "year": 2026,
+  "fetched_at": "2026-03-20T02:45:19.575356+00:00",
+  "bloom_count": 58,
+  "full_bloom_count": 58,
+  "bloom": [
+    {
+      "city_name": "石垣島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": "2026-02-04",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110006+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宮古島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": "2026-01-09",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110186+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "那覇",
+      "prefecture_region": "沖縄県",
+      "bloom_date": "2026-01-18",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110278+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "南大東島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": "2026-03-02",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110363+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福岡",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-22",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110566+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "下関",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-26",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110645+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "大分",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-24",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110722+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "長崎",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-23",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110798+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "佐賀",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-24",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110878+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "熊本",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-22",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.110955+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宮崎",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-23",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111031+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "鹿児島",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-03-26",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111107+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "名瀬",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": "2026-02-01",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111189+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "高松",
+      "prefecture_region": "四国地方",
+      "bloom_date": "2026-03-27",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111384+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "徳島",
+      "prefecture_region": "四国地方",
+      "bloom_date": "2026-03-28",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111460+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "松山",
+      "prefecture_region": "四国地方",
+      "bloom_date": "2026-03-24",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111539+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "高知",
+      "prefecture_region": "四国地方",
+      "bloom_date": "2026-03-16",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111619+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "広島",
+      "prefecture_region": "中国地方",
+      "bloom_date": "2026-03-19",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111821+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "岡山",
+      "prefecture_region": "中国地方",
+      "bloom_date": "2026-03-28",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111897+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "松江",
+      "prefecture_region": "中国地方",
+      "bloom_date": "2026-03-29",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.111973+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "鳥取",
+      "prefecture_region": "中国地方",
+      "bloom_date": "2026-03-29",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112049+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "大阪",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-03-27",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112244+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "彦根",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-04-01",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112319+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "京都",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-03-26",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112404+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "神戸",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-03-27",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112484+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "奈良",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-03-28",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112561+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "和歌山",
+      "prefecture_region": "近畿地方",
+      "bloom_date": "2026-03-24",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112636+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "名古屋",
+      "prefecture_region": "東海地方",
+      "bloom_date": "2026-03-17",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112835+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "静岡",
+      "prefecture_region": "東海地方",
+      "bloom_date": "2026-03-20",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.112966+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "岐阜",
+      "prefecture_region": "東海地方",
+      "bloom_date": "2026-03-16",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113120+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "津",
+      "prefecture_region": "東海地方",
+      "bloom_date": "2026-03-29",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113261+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "東京",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-19",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113485+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "水戸",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-30",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113569+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宇都宮",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-30",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113648+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "前橋",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-29",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113728+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "熊谷",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-27",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113809+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "銚子",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-30",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113888+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "横浜",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-25",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.113966+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "長野",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-04-11",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114048+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "甲府",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": "2026-03-16",
+      "full_bloom_date": null,
+      "bloom_observed": true,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114129+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "新潟",
+      "prefecture_region": "北陸地方",
+      "bloom_date": "2026-04-08",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114427+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "富山",
+      "prefecture_region": "北陸地方",
+      "bloom_date": "2026-04-03",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114525+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "金沢",
+      "prefecture_region": "北陸地方",
+      "bloom_date": "2026-04-03",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114664+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福井",
+      "prefecture_region": "北陸地方",
+      "bloom_date": "2026-04-01",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114766+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "仙台",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-08",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.114997+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "青森",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-22",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115078+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "秋田",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-17",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115157+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "盛岡",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-18",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115233+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "山形",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-13",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115316+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福島",
+      "prefecture_region": "東北地方",
+      "bloom_date": "2026-04-07",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115393+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "札幌",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-01",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115593+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "稚内",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-13",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115672+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "旭川",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-04",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115749+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "網走",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-10",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115825+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "帯広",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-02",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.115929+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "釧路",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-16",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.116006+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "室蘭",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-05-04",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.116080+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "函館",
+      "prefecture_region": "北海道地方",
+      "bloom_date": "2026-04-28",
+      "full_bloom_date": null,
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_kaika.html",
+        "fetched_at": "2026-03-20T02:45:19.116152+00:00",
+        "parser_version": "1.0"
+      }
+    }
+  ],
+  "full_bloom": [
+    {
+      "city_name": "石垣島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-02-18",
+      "bloom_observed": false,
+      "full_bloom_observed": true,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570054+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宮古島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-02-06",
+      "bloom_observed": false,
+      "full_bloom_observed": true,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570164+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "那覇",
+      "prefecture_region": "沖縄県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-02-03",
+      "bloom_observed": false,
+      "full_bloom_observed": true,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570247+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "南大東島",
+      "prefecture_region": "沖縄県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-02-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570323+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福岡",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-03-31",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570514+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "下関",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570590+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "大分",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570665+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "長崎",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570738+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "佐賀",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570811+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "熊本",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-01",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570886+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宮崎",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.570960+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "鹿児島",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571034+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "名瀬",
+      "prefecture_region": "九州地方・山口県",
+      "bloom_date": null,
+      "full_bloom_date": "2026-02-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "ひかんざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571107+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "高松",
+      "prefecture_region": "四国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571298+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "徳島",
+      "prefecture_region": "四国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571371+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "松山",
+      "prefecture_region": "四国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-03",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571445+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "高知",
+      "prefecture_region": "四国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-03-30",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571522+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "広島",
+      "prefecture_region": "中国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-03",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571719+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "岡山",
+      "prefecture_region": "中国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571794+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "松江",
+      "prefecture_region": "中国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571867+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "鳥取",
+      "prefecture_region": "中国地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.571942+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "大阪",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572129+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "彦根",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-08",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572203+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "京都",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572277+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "神戸",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572350+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "奈良",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-04",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572422+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "和歌山",
+      "prefecture_region": "近畿地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-03",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572494+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "名古屋",
+      "prefecture_region": "東海地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572680+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "静岡",
+      "prefecture_region": "東海地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572753+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "岐阜",
+      "prefecture_region": "東海地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572826+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "津",
+      "prefecture_region": "東海地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-03",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.572899+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "東京",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-03-31",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573085+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "水戸",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-06",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573157+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "宇都宮",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-06",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573229+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "前橋",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573301+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "熊谷",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-03",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573374+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "銚子",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-06",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573446+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "横浜",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-01",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573529+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "長野",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-16",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573602+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "甲府",
+      "prefecture_region": "関東甲信地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573675+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "新潟",
+      "prefecture_region": "北陸地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-13",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573864+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "富山",
+      "prefecture_region": "北陸地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-08",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.573946+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "金沢",
+      "prefecture_region": "北陸地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-08",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574017+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福井",
+      "prefecture_region": "北陸地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-07",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574089+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "仙台",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-13",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574278+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "青森",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-26",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574350+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "秋田",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-22",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574426+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "盛岡",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-24",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574508+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "山形",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-18",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574581+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "福島",
+      "prefecture_region": "東北地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-04-11",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574652+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "札幌",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-06",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574836+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "稚内",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-16",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574910+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "旭川",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-07",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.574988+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "網走",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-13",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.575061+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "帯広",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-05",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.575134+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "釧路",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-19",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "えぞやまざくら",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.575206+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "室蘭",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-09",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.575277+00:00",
+        "parser_version": "1.0"
+      }
+    },
+    {
+      "city_name": "函館",
+      "prefecture_region": "北海道地方",
+      "bloom_date": null,
+      "full_bloom_date": "2026-05-02",
+      "bloom_observed": false,
+      "full_bloom_observed": false,
+      "variety": "そめいよしの",
+      "source_meta": {
+        "source_name": "jma_full_bloom_normal",
+        "source_url": "https://www.data.jma.go.jp/sakura/data/sakura_mankai.html",
+        "fetched_at": "2026-03-20T02:45:19.575348+00:00",
+        "parser_version": "1.0"
+      }
+    }
+  ]
+}

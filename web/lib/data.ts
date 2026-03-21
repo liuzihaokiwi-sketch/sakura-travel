@@ -1,18 +1,31 @@
-import { readFileSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 
 // ── Data directory ──────────────────────────────────────────────────────────
-const DATA_DIR = process.env.DATA_DIR || join(process.cwd(), "..", "data", "sakura");
+// Vercel 上 cwd 是 web/，所以 ../data/sakura 找不到
+// 优先用 web/data/sakura（Vercel），fallback 到 ../data/sakura（本地开发）
+const DATA_DIR = process.env.DATA_DIR || (() => {
+  const local = join(process.cwd(), "data", "sakura");
+  const parent = join(process.cwd(), "..", "data", "sakura");
+  return existsSync(local) ? local : parent;
+})();
 
-function readJson<T>(filename: string): T {
-  const raw = readFileSync(join(DATA_DIR, filename), "utf-8");
-  return JSON.parse(raw) as T;
+function readJson<T>(filename: string, fallback: T): T {
+  const fp = join(DATA_DIR, filename);
+  if (!existsSync(fp)) return fallback;
+  try {
+    const raw = readFileSync(fp, "utf-8");
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
 }
 
 // ── Type definitions ────────────────────────────────────────────────────────
 
 export interface Spot {
   name: string;
+  name_ja?: string;
   desc_cn?: string;
   half?: string;
   full?: string;
@@ -23,9 +36,8 @@ export interface Spot {
   namiki?: boolean;
   nightview?: boolean;
   score: number;
-  photo?: string;
+  photo?: string;       // URL 字符串
   region?: string;
-  // extended fields from crawled data
   stage?: string;
   festival?: string;
   crowd?: string;
@@ -67,19 +79,52 @@ const CITY_NAME_MAP: Record<string, { code: string; cn: string }> = {
   "静岡": { code: "shizuoka", cn: "静冈" },
 };
 
-const STAGE_TO_BLOOM: Record<string, string | undefined> = {
-  "starting": "3分咲",
-  "approaching": "5分咲",
-  "full_bloom": "満開",
-  "falling": "桜吹雪",
-  "ended": undefined,
-};
+// ── Build enrichment lookup from weathernews data ───────────────────────────
 
-// ── Helpers: parse best_viewing to approximate full bloom date ───────────────
+interface WnEnrichment {
+  photo?: string;
+  trees?: string;
+  region?: string;
+  desc?: string;
+  namiki?: boolean;
+  meisyo100?: boolean;
+  half?: string;
+  full?: string;
+  fall?: string;
+}
+
+function buildWnLookup(): Record<string, WnEnrichment> {
+  const wnData = readJson<Record<string, any[]>>("weathernews_all_spots.json", {});
+  const lookup: Record<string, WnEnrichment> = {};
+  for (const spots of Object.values(wnData)) {
+    for (const s of spots) {
+      if (!s.name) continue;
+      lookup[s.name] = {
+        photo: typeof s.photo === "string" ? s.photo : undefined,
+        trees: s.trees,
+        region: s.region,
+        desc: s.desc,
+        namiki: s.namiki,
+        meisyo100: s.meisyo100,
+        half: s.half,
+        full: s.full,
+        fall: s.fall,
+      };
+    }
+  }
+  return lookup;
+}
+
+let _wnLookup: Record<string, WnEnrichment> | null = null;
+function getWnLookup(): Record<string, WnEnrichment> {
+  if (!_wnLookup) _wnLookup = buildWnLookup();
+  return _wnLookup;
+}
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
 
 function bestViewingToFullDate(bestViewing?: string): string | undefined {
   if (!bestViewing) return undefined;
-  // Format: "2026-03-26 ~ 2026-04-02" → use midpoint as full bloom
   const parts = bestViewing.split("~").map((s) => s.trim());
   if (parts.length < 2) return undefined;
   const start = new Date(parts[0]);
@@ -92,36 +137,34 @@ function bestViewingToFullDate(bestViewing?: string): string | undefined {
 // ── Data loaders ────────────────────────────────────────────────────────────
 
 export function getRushScores(): RushScores {
-  const raw = readJson<any>("sakura_rush_scores.json");
+  const raw = readJson<any>("sakura_rush_scores.json", { cities: [] });
+  const wnLookup = getWnLookup();
 
-  // Adapt crawled format → frontend format
   const cities: CityData[] = (raw.cities || []).map((c: any) => {
-    const mapped = CITY_NAME_MAP[c.city_name] || { code: c.city_name?.toLowerCase() || "unknown", cn: c.city_name || "未知" };
+    const mapped = CITY_NAME_MAP[c.city_name] || {
+      code: c.city_name?.toLowerCase() || "unknown",
+      cn: c.city_name || "未知",
+    };
 
     const spots: Spot[] = (c.spots || []).map((s: any) => {
-      const fullDate = bestViewingToFullDate(s.best_viewing);
+      // 用日文名从 weathernews 补全字段
+      const wn = wnLookup[s.name_ja] || {};
+
       return {
         name: s.name_zh || s.name_ja || s.name || "未知",
+        name_ja: s.name_ja,
         desc_cn: s.desc_cn,
-        half: fullDate ? (() => {
-          // half bloom ~5 days before full
-          const [m, d] = fullDate.split("/").map(Number);
-          const dt = new Date(2026, m - 1, d - 5);
-          return `${dt.getMonth() + 1}/${dt.getDate()}`;
-        })() : undefined,
-        full: fullDate,
-        fall: fullDate ? (() => {
-          const [m, d] = fullDate.split("/").map(Number);
-          const dt = new Date(2026, m - 1, d + 7);
-          return `${dt.getMonth() + 1}/${dt.getDate()}`;
-        })() : undefined,
-        trees: undefined,
+        half: wn.half || undefined,
+        full: wn.full || undefined,
+        fall: wn.fall || undefined,
+        trees: wn.trees,
         lightup: s.nightlit || false,
-        meisyo100: false,
+        meisyo100: wn.meisyo100 || false,
+        namiki: wn.namiki || false,
         nightview: s.nightlit || false,
         score: s.rush_score || 0,
-        photo: undefined, // numeric photo rating, not a URL
-        region: undefined,
+        photo: wn.photo,
+        region: wn.region,
         stage: s.stage,
         festival: s.festival,
         crowd: s.crowd,
@@ -138,21 +181,19 @@ export function getRushScores(): RushScores {
     } satisfies CityData;
   });
 
-  // Build week label
   const now = new Date();
   const weekNum = Math.ceil(now.getDate() / 7);
   const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-  const weekLabel = `${monthNames[now.getMonth()]}第${weekNum}周`;
 
   return {
     updated_at: raw.generated_at || new Date().toISOString().slice(0, 10),
-    week_label: weekLabel,
+    week_label: `${monthNames[now.getMonth()]}第${weekNum}周`,
     cities,
   };
 }
 
 export function getWeathernewsSpots(): Record<string, Spot[]> {
-  return readJson<Record<string, Spot[]>>("weathernews_all_spots.json");
+  return readJson<Record<string, Spot[]>>("weathernews_all_spots.json", {});
 }
 
 export function getSpotsForCity(cityCode: string): Spot[] {
@@ -161,7 +202,7 @@ export function getSpotsForCity(cityCode: string): Spot[] {
 }
 
 export function getJmaCities(): { bloom_count: number; cities: JmaCity[] } {
-  return readJson("jma/jma_city_truth_2026.json");
+  return readJson("jma/jma_city_truth_2026.json", { bloom_count: 0, cities: [] });
 }
 
 export function getAllCityCodes(): string[] {

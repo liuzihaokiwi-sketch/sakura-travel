@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "description": "交通卡券推荐种子数据",
+    "version": "1.0",
+    "created": "2026-03-21",
+    "total_records": 12
+  },
+  "transport_passes": [
+    {"pass_id": "suica", "pass_name": "Suica", "pass_name_zh": "西瓜卡", "city_scope": ["tokyo", "osaka", "kyoto"], "pass_type": "ic_card", "price_jpy": 500, "price_note": "押金500日元，可退", "valid_days": null, "best_for": "所有城市通用IC卡，便利店/自动贩卖机可用", "buy_where": "JR东日本车站售票机/Apple Pay", "tips_zh": "2024年起实体卡限量，推荐用iPhone/Apple Watch的Suica。充值在任何车站都可以"},
+    {"pass_id": "pasmo", "pass_name": "PASMO", "pass_name_zh": "PASMO卡", "city_scope": ["tokyo"], "pass_type": "ic_card", "price_jpy": 500, "price_note": "押金500日元", "valid_days": null, "best_for": "和Suica功能完全一样，地铁公司发行", "buy_where": "地铁站售票机", "tips_zh": "和Suica二选一即可，没有本质区别"},
+    {"pass_id": "tokyo_subway_24h", "pass_name": "Tokyo Subway 24-hour Ticket", "pass_name_zh": "东京地铁24小时券", "city_scope": ["tokyo"], "pass_type": "day_pass", "price_jpy": 800, "price_note": "24小时内有效", "valid_days": 1, "best_for": "一天坐3次以上地铁就划算", "buy_where": "成田/羽田机场/BIC CAMERA/地铁站", "tips_zh": "只能坐Tokyo Metro和都营地下铁，不能坐JR。适合市区密集行程"},
+    {"pass_id": "tokyo_subway_48h", "pass_name": "Tokyo Subway 48-hour Ticket", "pass_name_zh": "东京地铁48小时券", "city_scope": ["tokyo"], "pass_type": "day_pass", "price_jpy": 1200, "price_note": "48小时内有效", "valid_days": 2, "best_for": "2天市区密集行程最划算", "buy_where": "同24小时券", "tips_zh": "从第一次刷卡开始计时48小时"},
+    {"pass_id": "tokyo_subway_72h", "pass_name": "Tokyo Subway 72-hour Ticket", "pass_name_zh": "东京地铁72小时券", "city_scope": ["tokyo"], "pass_type": "day_pass", "price_jpy": 1500, "price_note": "72小时内有效", "valid_days": 3, "best_for": "3天市区行程性价比最高", "buy_where": "同24小时券", "tips_zh": "东京3-5日游的标配，搭配Suica坐JR线"},
+    {"pass_id": "jr_pass_7", "pass_name": "Japan Rail Pass 7日", "pass_name_zh": "JR Pass 全国7日券", "city_scope": ["tokyo", "osaka", "kyoto"], "pass_type": "rail_pass", "price_jpy": 50000, "price_note": "2023年10月涨价后", "valid_days": 7, "best_for": "东京↔关西往返必买（新干线单程约14000日元）", "buy_where": "网上预订/JR主要车站", "tips_zh": "只有坐2次以上新干线才划算。不能坐Nozomi和Mizuho号（最快车），要坐Hikari或Kodama"},
+    {"pass_id": "jr_pass_14", "pass_name": "Japan Rail Pass 14日", "pass_name_zh": "JR Pass 全国14日券", "city_scope": ["tokyo", "osaka", "kyoto"], "pass_type": "rail_pass", "price_jpy": 80000, "price_note": "2023年10月涨价后", "valid_days": 14, "best_for": "10天以上多城市行程", "buy_where": "同7日券", "tips_zh": "14天一般用不满，算清楚实际新干线次数再决定"},
+    {"pass_id": "icoca", "pass_name": "ICOCA", "pass_name_zh": "ICOCA卡", "city_scope": ["osaka", "kyoto"], "pass_type": "ic_card", "price_jpy": 500, "price_note": "押金500日元", "valid_days": null, "best_for": "关西地区IC卡，和Suica互通", "buy_where": "JR西日本车站售票机", "tips_zh": "如果已有Suica就不需要再买ICOCA"},
+    {"pass_id": "kansai_area_pass_1", "pass_name": "Kansai Area Pass 1日", "pass_name_zh": "关西地区铁路1日券", "city_scope": ["osaka", "kyoto"], "pass_type": "rail_pass", "price_jpy": 2400, "price_note": "外国人专用", "valid_days": 1, "best_for": "大阪↔京都一日往返", "buy_where": "网上预订/关西机场/JR主要车站", "tips_zh": "大阪到京都JR特急单程约580日元，一天往返不一定划算，算清楚再买"},
+    {"pass_id": "kansai_thru_pass_2", "pass_name": "Kansai Thru Pass 2日", "pass_name_zh": "关西周游卡2日券", "city_scope": ["osaka", "kyoto"], "pass_type": "day_pass", "price_jpy": 4480, "price_note": "不含JR", "valid_days": 2, "best_for": "2天内频繁坐私铁/地铁/巴士（不坐JR）", "buy_where": "关西机场/难波站/网上", "tips_zh": "覆盖南海/阪急/阪神/京阪/近铁+地铁+巴士，但不含JR。适合京都市内+岚山+伏见稻荷"},
+    {"pass_id": "kyoto_bus_1day", "pass_name": "京都巴士一日券", "pass_name_zh": "京都巴士一日券", "city_scope": ["kyoto"], "pass_type": "day_pass", "price_jpy": 700, "price_note": "均一区间内", "valid_days": 1, "best_for": "京都市区一天坐3次巴士就回本", "buy_where": "巴士上/地铁站/便利店", "tips_zh": "京都景点大多靠巴士，一日券几乎必买。注意高峰期巴士极挤，金阁寺/清水寺线路尤甚"},
+    {"pass_id": "osaka_amazing_pass_1", "pass_name": "Osaka Amazing Pass 1日", "pass_name_zh": "大阪周游卡1日券", "city_scope": ["osaka"], "pass_type": "day_pass", "price_jpy": 2800, "price_note": "含多个景点免费入场", "valid_days": 1, "best_for": "大阪城/天守阁/梅田展望台/道顿堀游船等35个景点免费", "buy_where": "地铁站/旅游服务中心", "tips_zh": "一天去3个免费景点就回本。但要注意不含USJ。建议搭配天守阁+HEP FIVE摩天轮+道顿堀游船"}
+  ]
+}

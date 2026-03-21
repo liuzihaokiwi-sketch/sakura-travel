@@ -44,6 +44,25 @@ from app.db.models.derived import (  # noqa: F401
     RouteMatrixCache,
     RouteTemplate,
 )
+from app.db.models.soft_rules import (  # noqa: F401
+    AreaProfile,
+    AudienceFit,
+    EditorialSeedOverride,
+    EntityOperatingFact,
+    EntitySoftScore,
+    FeatureFlag,
+    PreviewTriggerScore,
+    ProductConfig,
+    SeasonalEvent,
+    SegmentWeightPack,
+    SoftRuleExplanation,
+    SoftRuleFeedbackLog,
+    StageWeightPack,
+    SwapCandidateSoftScore,
+    TimeslotRule,
+    TransportLink,
+    UserEvent,
+)
 
 __all__ = [
     # Catalog
@@ -59,4 +78,10 @@ __all__ = [
     "EntityScore", "ItineraryPlan", "ItineraryScore", "PlannerRun",
     "CandidateSet", "RouteMatrixCache", "ItineraryDay", "ItineraryItem",
     "RouteTemplate", "RenderTemplate", "ExportJob", "ExportAsset", "PlanArtifact",
+    # Soft Rules
+    "EntitySoftScore", "EditorialSeedOverride", "SoftRuleExplanation",
+    "SegmentWeightPack", "StageWeightPack", "PreviewTriggerScore",
+    "SwapCandidateSoftScore", "SoftRuleFeedbackLog",
+    "AreaProfile", "TimeslotRule", "SeasonalEvent", "TransportLink",
+    "AudienceFit", "EntityOperatingFact", "ProductConfig", "FeatureFlag", "UserEvent",
 ]
