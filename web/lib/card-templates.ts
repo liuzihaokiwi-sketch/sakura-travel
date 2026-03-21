@@ -31,16 +31,16 @@ function FooterCTA() {
   return h("div", {
     style: {
       display: "flex", flexDirection: "column", alignItems: "center",
-      borderTop: `1px solid ${C.divider}`, padding: "36px 40px 32px",
+      borderTop: `1px solid ${C.divider}`, padding: "40px 40px 36px",
       background: C.bgPrimary,
     },
   },
-    h("div", { style: { fontSize: "38px", color: C.textPrimary, fontWeight: 700 } }, BRAND.ctaPrimary),
-    h("div", { style: { fontSize: "32px", color: C.accent, marginTop: "12px", fontWeight: 700 } }, BRAND.ctaSecondary),
-    h("div", { style: { display: "flex", gap: "8px", marginTop: "16px", alignItems: "center" } },
-      h("div", { style: { fontSize: "22px", color: C.textMuted, letterSpacing: "3px" } }, BRAND.title),
-      h("div", { style: { fontSize: "22px", color: C.textLight } }, "·"),
-      h("div", { style: { fontSize: "22px", color: C.textMuted } }, BRAND.subtitle),
+    h("div", { style: { fontSize: "44px", color: C.textPrimary, fontWeight: 800 } }, BRAND.ctaPrimary),
+    h("div", { style: { fontSize: "38px", color: C.accent, marginTop: "14px", fontWeight: 800 } }, BRAND.ctaSecondary),
+    h("div", { style: { display: "flex", gap: "8px", marginTop: "18px", alignItems: "center" } },
+      h("div", { style: { fontSize: "26px", color: C.textMuted, letterSpacing: "3px", fontWeight: 600 } }, BRAND.title),
+      h("div", { style: { fontSize: "26px", color: C.textLight } }, "·"),
+      h("div", { style: { fontSize: "26px", color: C.textMuted, fontWeight: 600 } }, BRAND.subtitle),
     ),
   );
 }
@@ -54,20 +54,20 @@ function BrandHeader({ title, subtitle }: { title: string; subtitle?: string }) 
     },
   },
     h("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "18px" } },
-      h("div", { style: { fontSize: "36px", color: C.bloomFull } }, "✿"),
-      h("div", { style: { fontSize: "28px", color: "rgba(255,255,255,0.4)", letterSpacing: "4px" } }, BRAND.title),
+      h("div", { style: { fontSize: "40px", color: C.bloomFull } }, "✿"),
+      h("div", { style: { fontSize: "32px", color: "rgba(255,255,255,0.4)", letterSpacing: "4px", fontWeight: 700 } }, BRAND.title),
     ),
-    h("div", { style: { fontSize: "64px", fontWeight: 900, color: C.white, textAlign: "center" } }, title),
-    subtitle ? h("div", { style: { fontSize: "34px", color: "rgba(255,255,255,0.5)", marginTop: "12px" } }, subtitle) : null,
+    h("div", { style: { fontSize: "72px", fontWeight: 900, color: C.white, textAlign: "center" } }, title),
+    subtitle ? h("div", { style: { fontSize: "38px", color: "rgba(255,255,255,0.5)", marginTop: "12px", fontWeight: 600 } }, subtitle) : null,
   );
 }
 
 function ScoreBadge({ score, size = "large" }: { score: number; size?: "large" | "small" }) {
-  const fontSize = size === "large" ? "60px" : "42px";
-  const labelSize = size === "large" ? "20px" : "16px";
+  const fontSize = size === "large" ? "72px" : "48px";
+  const labelSize = size === "large" ? "24px" : "20px";
   return h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 } },
     h("div", { style: { fontSize, fontWeight: 900, color: C.accent } }, `${score}`),
-    h("div", { style: { fontSize: labelSize, color: C.textMuted, marginTop: "2px" } }, "推荐指数"),
+    h("div", { style: { fontSize: labelSize, color: C.textMuted, marginTop: "2px", fontWeight: 700 } }, "好看指数"),
   );
 }
 
@@ -75,21 +75,21 @@ function BloomBadge({ spot }: { spot: Spot }) {
   const bloom = getBloomInfo(spot);
   return h("div", {
     style: {
-      display: "flex", alignItems: "center", gap: "8px",
-      background: bloom.color + "20", borderRadius: "10px",
-      padding: "8px 18px",
+      display: "flex", alignItems: "center", gap: "10px",
+      background: bloom.color + "20", borderRadius: "12px",
+      padding: "10px 20px",
     },
   },
-    h("div", { style: { fontSize: "26px" } }, bloom.emoji),
-    h("div", { style: { fontSize: "26px", color: bloom.color, fontWeight: 700 } }, bloom.labelCn),
+    h("div", { style: { fontSize: "30px" } }, bloom.emoji),
+    h("div", { style: { fontSize: "30px", color: bloom.color, fontWeight: 800 } }, bloom.labelCn),
   );
 }
 
 function TagPill({ text, color = C.textSecondary }: { text: string; color?: string }) {
   return h("div", {
     style: {
-      display: "flex", fontSize: "26px", color,
-      background: color + "15", borderRadius: "10px", padding: "6px 16px",
+      display: "flex", fontSize: "30px", color, fontWeight: 600,
+      background: color + "15", borderRadius: "12px", padding: "8px 18px",
     },
   }, text);
 }
@@ -153,8 +153,8 @@ export function createXhsCoverElement(data: TemplateData): React.ReactElement {
           ),
           // Score
           h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 } },
-            h("div", { style: { fontSize: i === 0 ? "68px" : "52px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
-            h("div", { style: { fontSize: "20px", color: C.textMuted, marginTop: "2px" } }, "推荐指数"),
+            h("div", { style: { fontSize: i === 0 ? "76px" : "60px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+            h("div", { style: { fontSize: "22px", color: C.textMuted, marginTop: "2px", fontWeight: 700 } }, "好看指数"),
           ),
         );
       }),
@@ -210,8 +210,8 @@ export function createXhsSpotElement(data: TemplateData, spotIndex = 0): React.R
             style: { display: "flex", padding: "8px 18px", borderRadius: "12px", background: "rgba(245,158,11,0.3)", border: "1px solid rgba(245,158,11,0.6)" },
           }, h("div", { style: { fontSize: "30px", color: C.white } }, "★ 名所百选")) : null,
         ),
-        h("div", { style: { fontSize: "68px", fontWeight: 900, color: C.white, lineHeight: 1.2 } }, spot.name),
-        h("div", { style: { fontSize: "32px", color: "rgba(255,255,255,0.6)", marginTop: "8px" } }, `${data.cityName} · ${spot.region || ""}`),
+        h("div", { style: { fontSize: "76px", fontWeight: 900, color: C.white, lineHeight: 1.2 } }, spot.name),
+        h("div", { style: { fontSize: "36px", color: "rgba(255,255,255,0.6)", marginTop: "8px", fontWeight: 600 } }, `${data.cityName} · ${spot.region || ""}`),
       ),
     ),
     // Info area (bottom 45%)
@@ -223,10 +223,10 @@ export function createXhsSpotElement(data: TemplateData, spotIndex = 0): React.R
     },
       // Score row
       h("div", { style: { display: "flex", alignItems: "center", gap: "20px", marginBottom: "24px" } },
-        h("div", { style: { fontSize: "96px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+        h("div", { style: { fontSize: "108px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
         h("div", { style: { display: "flex", flexDirection: "column" } },
-          h("div", { style: { fontSize: "30px", color: C.textMuted } }, "推荐指数 / 100"),
-          h("div", { style: { fontSize: "26px", color: C.textSecondary, marginTop: "6px" } }, "满开时好看程度·综合6大数据源"),
+          h("div", { style: { fontSize: "34px", color: C.textMuted, fontWeight: 800 } }, "好看指数 / 100"),
+          h("div", { style: { fontSize: "28px", color: C.textSecondary, marginTop: "6px", fontWeight: 600 } }, "满开时好看程度 · 综合6大数据源"),
         ),
       ),
       // Tags row
@@ -238,7 +238,7 @@ export function createXhsSpotElement(data: TemplateData, spotIndex = 0): React.R
       ),
       // Description
       spot.desc_cn
-        ? h("div", { style: { fontSize: "28px", color: C.textSecondary, lineHeight: 1.6, marginBottom: "16px" } }, spot.desc_cn.slice(0, 80) + (spot.desc_cn.length > 80 ? "..." : ""))
+        ? h("div", { style: { fontSize: "30px", color: C.textSecondary, lineHeight: 1.6, marginBottom: "16px", fontWeight: 500 } }, spot.desc_cn.slice(0, 80) + (spot.desc_cn.length > 80 ? "..." : ""))
         : null,
       // Spacer
       h("div", { style: { flex: 1 } }),
@@ -384,17 +384,17 @@ export function createMomentElement(data: TemplateData): React.ReactElement {
     },
       // Score
       h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center" } },
-        h("div", { style: { fontSize: "64px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
-        h("div", { style: { fontSize: "16px", color: C.textMuted } }, "能冲指数"),
+        h("div", { style: { fontSize: "72px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+        h("div", { style: { fontSize: "22px", color: C.textMuted, fontWeight: 700 } }, "好看指数"),
       ),
       // Divider
       h("div", { style: { width: "1px", height: "80px", background: C.divider } }),
       // Tags
       h("div", { style: { display: "flex", flexDirection: "column", flex: 1, gap: "10px" } },
-        spot.full ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `✿ 满开 ${spot.full}`) : null,
-        spot.trees ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `♣ ${spot.trees}`) : null,
-        spot.lightup ? h("div", { style: { fontSize: "20px", color: "#6366f1" } }, "夜樱灯光") : null,
-        h("div", { style: { fontSize: "18px", color: C.accent, fontWeight: 700, marginTop: "4px" } }, BRAND.ctaSecondary),
+        spot.full ? h("div", { style: { fontSize: "24px", color: C.textSecondary, fontWeight: 600 } }, `✿ 满开 ${spot.full}`) : null,
+        spot.trees ? h("div", { style: { fontSize: "24px", color: C.textSecondary, fontWeight: 600 } }, `♣ ${spot.trees}`) : null,
+        spot.lightup ? h("div", { style: { fontSize: "24px", color: "#6366f1", fontWeight: 600 } }, "夜樱灯光") : null,
+        h("div", { style: { fontSize: "22px", color: C.accent, fontWeight: 800, marginTop: "4px" } }, BRAND.ctaSecondary),
       ),
     ),
   );
@@ -430,8 +430,8 @@ export function createXhsStoryElement(data: TemplateData): React.ReactElement {
       // Spacer
       h("div", { style: { flex: 1 } }),
       // City title
-      h("div", { style: { fontSize: "80px", fontWeight: 900, color: C.white, marginBottom: "12px" } }, `${data.cityName}`),
-      h("div", { style: { fontSize: "42px", color: "rgba(255,255,255,0.7)", marginBottom: "40px" } }, "赏樱 TOP3 · 推荐指数排名"),
+      h("div", { style: { fontSize: "88px", fontWeight: 900, color: C.white, marginBottom: "12px" } }, `${data.cityName}`),
+      h("div", { style: { fontSize: "46px", color: "rgba(255,255,255,0.7)", marginBottom: "40px", fontWeight: 700 } }, "赏樱 TOP3 · 好看指数排名"),
       // Top 3 spots
       ...top3.map((spot, i) => {
         const bloom = getBloomInfo(spot);
@@ -443,19 +443,19 @@ export function createXhsStoryElement(data: TemplateData): React.ReactElement {
             padding: "20px 24px", marginBottom: "12px",
           },
         },
-          h("div", { style: { fontSize: "42px", fontWeight: 900, color: C.accent, width: "56px" } }, `${i + 1}`),
+          h("div", { style: { fontSize: "48px", fontWeight: 900, color: C.accent, width: "60px" } }, `${i + 1}`),
           h("div", { style: { display: "flex", flexDirection: "column", flex: 1 } },
-            h("div", { style: { fontSize: "34px", fontWeight: 700, color: C.white } }, spot.name),
-            h("div", { style: { fontSize: "24px", color: "rgba(255,255,255,0.5)", marginTop: "6px" } }, `${bloom.emoji} ${bloom.labelCn} · 满开 ${spot.full || "待定"}`),
+            h("div", { style: { fontSize: "38px", fontWeight: 800, color: C.white } }, spot.name),
+            h("div", { style: { fontSize: "26px", color: "rgba(255,255,255,0.5)", marginTop: "6px", fontWeight: 600 } }, `${bloom.emoji} ${bloom.labelCn} · 满开 ${spot.full || "待定"}`),
           ),
-          h("div", { style: { fontSize: "48px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+          h("div", { style: { fontSize: "56px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
         );
       }),
       // Bottom CTA
       h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", marginTop: "32px" } },
-        h("div", { style: { fontSize: "34px", color: "rgba(255,255,255,0.8)", fontWeight: 700 } }, BRAND.ctaPrimary),
-        h("div", { style: { fontSize: "28px", color: C.accent, marginTop: "10px" } }, BRAND.ctaSecondary),
-        h("div", { style: { fontSize: "20px", color: "rgba(255,255,255,0.2)", marginTop: "14px" } }, BRAND.sources),
+        h("div", { style: { fontSize: "38px", color: "rgba(255,255,255,0.8)", fontWeight: 800 } }, BRAND.ctaPrimary),
+        h("div", { style: { fontSize: "32px", color: C.accent, marginTop: "10px", fontWeight: 800 } }, BRAND.ctaSecondary),
+        h("div", { style: { fontSize: "22px", color: "rgba(255,255,255,0.3)", marginTop: "14px", fontWeight: 600 } }, BRAND.sources),
       ),
     ),
   );
