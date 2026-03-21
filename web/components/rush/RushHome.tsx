@@ -1,7 +1,8 @@
+"use client";
+
 /**
  * RushHome.tsx — M1: Rush 首页 Section
  * 包含: Hero 数据统计 + 本周 HOT 推荐网格 + 城市概览卡 + 数据来源信任条
- * 服务端组件，使用 RushData（来自 getRushData()）
  */
 
 import Image from "next/image";

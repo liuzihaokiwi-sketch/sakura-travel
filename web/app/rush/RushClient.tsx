@@ -101,10 +101,17 @@ function HotSpots({ cities, onViewMap }: { cities: RushCity[]; onViewMap: (cityI
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <div className={cn("text-[9px] font-bold", s.color === "#c2185b" || s.color === "#e91e63" ? "text-pink-600" : s.color === "#9c27b0" ? "text-purple-600" : "text-stone-400")}>
-                  {s.color === "#c2185b" ? "满开中" : s.color === "#e91e63" ? "开花中" : s.color === "#9c27b0" ? "飘落中" : "即将开"}
+                <div className={cn("text-[9px] font-bold px-1.5 py-0.5 rounded mb-0.5",
+                  s.color === "#c2185b" ? "text-pink-700 bg-pink-100" :
+                  s.color === "#e91e63" ? "text-pink-600 bg-pink-50" :
+                  s.color === "#9c27b0" ? "text-purple-600 bg-purple-50" :
+                  s.color === "#81c784" ? "text-green-600 bg-green-50" :
+                  "text-orange-500 bg-orange-50"
+                )}>
+                  {s.color === "#c2185b" ? "🌸 满开" : s.color === "#e91e63" ? "开花中" : s.color === "#9c27b0" ? "飘落中" : "即将开"}
                 </div>
                 <div className="text-base font-black text-pink-600">{s.score}</div>
+                <div className="text-[7px] text-stone-400">推荐指数</div>
               </div>
             </div>
           ))
