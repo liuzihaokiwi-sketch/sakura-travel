@@ -109,17 +109,17 @@ export function createXhsCoverElement(data: TemplateData): React.ReactElement {
     BrandHeader({ title: `${data.cityName} 赏樱 TOP3`, subtitle: "数据融合排名 · 每天更新" }),
     // Decorative accent line
     h("div", { style: { display: "flex", height: "4px", background: `linear-gradient(90deg, ${C.accent}, ${C.bloomFull}, ${C.accent})` } }),
-    // Spot list — fill vertical space evenly
-    h("div", { style: { display: "flex", flexDirection: "column", flex: 1, padding: "28px 40px 20px", gap: "24px", justifyContent: "space-around" } },
+    // Spot list — each card uses flex:1 to fill the space equally
+    h("div", { style: { display: "flex", flexDirection: "column", flex: 1, padding: "24px 40px 16px", gap: "20px" } },
       ...top3.map((spot, i) => {
         const bloom = getBloomInfo(spot);
         const photoUri = data.photoBuffers[spot.name];
         return h("div", {
           key: i,
           style: {
-            display: "flex", alignItems: "center", gap: "20px",
+            display: "flex", alignItems: "center", gap: "20px", flex: 1,
             background: i === 0 ? C.accentLight : C.white,
-            borderRadius: "20px", padding: "28px 28px",
+            borderRadius: "20px", padding: "0 28px",
             border: i === 0 ? `2px solid ${C.accent}` : `1px solid ${C.divider}`,
           },
         },
@@ -127,27 +127,35 @@ export function createXhsCoverElement(data: TemplateData): React.ReactElement {
           h("div", {
             style: {
               display: "flex", alignItems: "center", justifyContent: "center",
-              width: "64px", height: "64px", borderRadius: "50%",
+              width: "72px", height: "72px", borderRadius: "50%",
               background: i === 0 ? C.accent : i === 1 ? "#c0c0c0" : "#cd7f32",
               flexShrink: 0,
             },
-          }, h("div", { style: { fontSize: "32px", fontWeight: 900, color: C.white } }, `${i + 1}`)),
-          // Photo thumbnail — larger 120×120
+          }, h("div", { style: { fontSize: "36px", fontWeight: 900, color: C.white } }, `${i + 1}`)),
+          // Photo thumbnail — 140×140
           photoUri
-            ? h("img", { src: photoUri, width: 120, height: 120, style: { borderRadius: "14px", objectFit: "cover", flexShrink: 0 } })
-            : h("div", { style: { width: "120px", height: "120px", borderRadius: "14px", background: `linear-gradient(135deg, ${C.divider}, ${C.bgPrimary})`, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" } },
-                h("div", { style: { fontSize: "40px", opacity: 0.3, color: C.bloomFull } }, "✿")),
+            ? h("img", { src: photoUri, width: 140, height: 140, style: { borderRadius: "16px", objectFit: "cover", flexShrink: 0 } })
+            : h("div", { style: { width: "140px", height: "140px", borderRadius: "16px", background: `linear-gradient(135deg, ${C.divider}, ${C.bgPrimary})`, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" } },
+                h("div", { style: { fontSize: "48px", opacity: 0.3, color: C.bloomFull } }, "✿")),
           // Info
-          h("div", { style: { display: "flex", flexDirection: "column", flex: 1, gap: "8px" } },
-            h("div", { style: { fontSize: i === 0 ? "30px" : "26px", fontWeight: 700, color: C.textPrimary } }, spot.name),
+          h("div", { style: { display: "flex", flexDirection: "column", flex: 1, gap: "10px" } },
+            h("div", { style: { fontSize: i === 0 ? "32px" : "28px", fontWeight: 700, color: C.textPrimary } }, spot.name),
             h("div", { style: { display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" } },
-              h("div", { style: { fontSize: "20px", color: bloom.color, fontWeight: 600 } }, `${bloom.emoji} ${bloom.labelCn}`),
+              h("div", { style: { display: "flex", alignItems: "center", gap: "6px", background: bloom.color + "18", borderRadius: "8px", padding: "4px 12px" } },
+                h("div", { style: { fontSize: "20px", color: bloom.color, fontWeight: 600 } }, `${bloom.emoji} ${bloom.labelCn}`),
+              ),
               spot.full ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `满开 ${spot.full}`) : null,
-              spot.lightup ? h("div", { style: { fontSize: "20px", color: "#6366f1" } }, "夜樱") : null,
             ),
+            spot.lightup ? h("div", { style: { display: "flex", alignItems: "center", gap: "6px" } },
+              h("div", { style: { width: "8px", height: "8px", borderRadius: "50%", background: "#6366f1" } }),
+              h("div", { style: { fontSize: "18px", color: "#6366f1" } }, "夜樱灯光"),
+            ) : null,
           ),
-          // Score
-          ScoreBadge({ score: spot.score, size: i === 0 ? "large" : "small" }),
+          // Score — bigger for visual impact
+          h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 } },
+            h("div", { style: { fontSize: i === 0 ? "52px" : "40px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+            h("div", { style: { fontSize: "13px", color: C.textMuted, marginTop: "2px" } }, "能冲指数"),
+          ),
         );
       }),
     ),
@@ -410,8 +418,8 @@ export function createXhsStoryElement(data: TemplateData): React.ReactElement {
       src: photoUri, width: 1080, height: 1920,
       style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" },
     }) : null,
-    // Dark overlay
-    h("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(transparent 20%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)" } }),
+    // Dark overlay — stronger gradient for text legibility
+    h("div", { style: { position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 65%, rgba(0,0,0,0.92) 100%)" } }),
     // Content
     h("div", { style: { position: "relative", display: "flex", flexDirection: "column", flex: 1, padding: "60px 48px" } },
       // Brand top

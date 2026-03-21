@@ -1,23 +1,27 @@
-## ADDED Requirements
+## MODIFIED Requirements
 
-### Requirement: 轻问卷（免费预览用）
-路由 `/quiz`，4题，30秒完成，全部图标选择，无文字输入：
-1. "你大概什么时候去？" — 月份范围选择器（如"3月下旬-4月上旬"）
-2. "几个人一起？" — 图标单选：🧑独旅 / 👫两人 / 👨‍👩‍👧家庭 / 👭闺蜜团
-3. "主要想去哪？" — 城市多选卡片：东京/京都/大阪/其他
-4. "这次旅行你最想…" — 最多选3个：📸出片 / 🍣美食 / 💰省钱 / 🏛文化 / 👶亲子 / 🧖放松
+### Requirement: 问卷题目集合
+问卷 QUESTIONS 数组 SHALL 在 `style` 题之前包含 `japan_experience` 和 `play_mode` 两道新题，共 7 道题（destination → duration → party → japan_experience → play_mode → style → wechat）。
 
-交互要求：每选一题自动滑到下一题，进度条显示 1/4 → 2/4...，最后一题选完直接 CTA
+#### Scenario: japan_experience 题展示
+- **WHEN** 用户完成前三道基础题
+- **THEN** 第 4 题显示「你去过日本几次？」，选项为：第一次去（first_time）/ 去过 1–2 次（few_times）/ 去过很多次，想玩得更深（experienced）
 
-### Requirement: 正式问卷（付费后）
-路由 `/questionnaire/[id]`，在轻问卷基础上追加 4 题：
-5. "预算大概多少？" — 滑杆（¥3000-¥30000/人）
-6. "住宿偏好？" — 单选：经济型/舒适型/高端型/不确定
-7. "有忌口或偏好吗？" — 多选标签：海鲜/生食/素食/清真/无/其他
-8. "还有什么特别想要的？" — 文本框（限100字，占位符："比如想看夜樱、想买药妆、想带老人泡温泉…"）
+#### Scenario: play_mode 题展示
+- **WHEN** 用户完成 japan_experience 题
+- **THEN** 第 5 题显示「这次更想怎么玩？」，选项为：多城顺玩（multi_city）/ 一地深玩（single_city）/ 还没想好，给我建议（undecided）
 
-### Requirement: 问卷体验原则
-- 像在"聊天选旅行风格"而非"填表"
-- 每个选项用大卡片+图标，不用小radio
-- 手机端一屏一题，滑动切换
-- 不要在轻问卷阶段要手机号/微信号
+#### Scenario: 两道新题自动跳转
+- **WHEN** 用户选择任意单选项
+- **THEN** 300ms 后自动跳至下一题，无需点"下一步"
+
+### Requirement: 提交 payload 包含新字段
+提交 API 的 payload SHALL 包含 `japan_experience` 和 `play_mode` 两个字段，均为可选（用户未答时传 null）。
+
+#### Scenario: 正常提交带新字段
+- **WHEN** 用户完整填写两道新题后提交
+- **THEN** payload 中包含 `japan_experience: "first_time" | "few_times" | "experienced"` 和 `play_mode: "multi_city" | "single_city" | "undecided"`
+
+#### Scenario: 后端未存储新字段时不报错
+- **WHEN** 后端 `/quiz` 接口尚未处理新字段
+- **THEN** 提交仍成功（后端忽略未知字段），不影响现有流程
