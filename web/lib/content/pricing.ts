@@ -101,6 +101,106 @@ export interface FaqItem {
   a: string;
 }
 
+// ─── 一日体验版（Free Tier）文案 ─────────────────────────────────────────────────
+export const FREE_TIER_COPY = {
+  name: "一日体验版",
+  tagline: "完整体验第 1 天，不是摘要",
+  badge: null,
+  price: 0,
+  price_display: "免费",
+  price_note: null,
+  who: "不确定要不要买的人",
+  cta: "先免费看一天 →",
+  href: "/quiz",
+  includes: [
+    "Day 1 完整时间线（精确到 30 分钟）",
+    "每个景点推荐理由（专业判断）",
+    "Day 1 餐厅推荐（含预约提示）",
+    "Day 1 拍摄指南 + 拍摄机位",
+    "Day 1 避坑提醒",
+    "遇雨 / 排队长的 Plan B",
+  ],
+  excludes: [
+    "Day 2 及后续天数",
+    "全程准备清单",
+    "全行程安全事项",
+    "多天酒店方案",
+    "修改权益",
+  ],
+} as const;
+
+// ─── 对比表三列文案（COMPARE_ROWS）──────────────────────────────────────────────
+// 供 pricing/page.tsx server 端 import 使用
+export interface CompareRow {
+  label: string;
+  free: string;
+  standard: string;
+  premium: string;
+}
+
+export const COMPARE_ROWS: CompareRow[] = [
+  {
+    label: "行程天数",
+    free: "Day 1 完整版",
+    standard: "全部天数（通常 5-7 天）",
+    premium: "全部天数（可定制延长）",
+  },
+  {
+    label: "内容颗粒度",
+    free: "时间线 + 推荐理由 + 拍摄指南 + 避坑",
+    standard: "全程都像这一天一样细",
+    premium: "全程细 + 深度个性化 + 隐藏好店",
+  },
+  {
+    label: "餐厅推荐",
+    free: "Day 1 餐厅（含预约提示）",
+    standard: "每天餐厅推荐 + 预约链接",
+    premium: "每天推荐 + 本地人价位比价",
+  },
+  {
+    label: "拍摄指南",
+    free: "Day 1 机位 + 时间建议",
+    standard: "每天每处景点拍摄指南",
+    premium: "每天 + 情侣/闺蜜专属构图建议",
+  },
+  {
+    label: "避坑提醒",
+    free: "Day 1 完整避坑",
+    standard: "全程避坑 + Plan B",
+    premium: "全程 + 深度比价省钱方案",
+  },
+  {
+    label: "交通方案",
+    free: "—",
+    standard: "完整交通安排 + 推荐交通卡",
+    premium: "完整交通 + 最优化费用方案",
+  },
+  {
+    label: "修改次数",
+    free: "—",
+    standard: "2 次免费微调",
+    premium: "5 次免费微调",
+  },
+  {
+    label: "微信答疑",
+    free: "—",
+    standard: "付款后答疑",
+    premium: "出发前 7 天全程答疑",
+  },
+  {
+    label: "深度比价系统",
+    free: "—",
+    standard: "—",
+    premium: "✓ 帮你省 20-30% 旅行开销",
+  },
+  {
+    label: "PDF 交付",
+    free: "—",
+    standard: "✓ PDF + 网页版",
+    premium: "✓ PDF + 网页版",
+  },
+];
+
 export const PRICING_FAQ: FaqItem[] = [
   {
     q: "页面上写的是 7 天价格，我想做 5 天（或其他天数），怎么收费？",

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import PricingClient from "./PricingClient";
+import { FREE_TIER_COPY, COMPARE_ROWS } from "@/lib/content/pricing";
 
 // ── 价格数据类型 ────────────────────────────────────────────────────────────
 export interface PricingTier {
@@ -20,12 +21,8 @@ export interface PricingTier {
   who: string;
 }
 
-export interface CompareRow {
-  label: string;
-  free: string;
-  standard: string;
-  premium: string;
-}
+export type { CompareRow } from "@/lib/content/pricing";
+import type { CompareRow } from "@/lib/content/pricing";
 
 export interface PricingData {
   tiers: PricingTier[];
@@ -36,13 +33,21 @@ export interface PricingData {
 const FALLBACK: PricingData = {
   tiers: [
     {
-      id: "free", name: "一日体验版", tagline: "先看看适不适合你",
-      price: 0, price_display: "免费", price_note: "", original_price: null,
-      featured: false, badge: null, cta: "先免费看一天 →", href: "/quiz",
+      id: "free",
+      name: FREE_TIER_COPY.name,
+      tagline: FREE_TIER_COPY.tagline,
+      price: FREE_TIER_COPY.price,
+      price_display: FREE_TIER_COPY.price_display,
+      price_note: FREE_TIER_COPY.price_note ?? "",
+      original_price: null,
+      featured: false,
+      badge: FREE_TIER_COPY.badge,
+      cta: FREE_TIER_COPY.cta,
+      href: FREE_TIER_COPY.href,
       modifications: 0,
-      includes: ["1 天完整行程安排", "2-3 个景点的推荐理由", "当天交通指引", "行程品质预览"],
-      excludes: ["其余天数行程", "餐厅和酒店推荐", "避坑指南和出行准备"],
-      who: "想先看看效果再决定的人",
+      includes: [...FREE_TIER_COPY.includes],
+      excludes: [...FREE_TIER_COPY.excludes],
+      who: FREE_TIER_COPY.who,
     },
     {
       id: "standard", name: "完整攻略·首发特惠", tagline: "完整行程 · 每一天都安排好",
@@ -72,18 +77,7 @@ const FALLBACK: PricingData = {
       who: "蜜月、纪念日、或想要全程有人跟进的人",
     },
   ],
-  compare_rows: [
-    { label: "知道每天去哪、路线怎么走", free: "1天", standard: "✅ 精确到小时", premium: "✅ 精确到小时" },
-    { label: "不用自己查交通换乘", free: "—", standard: "✅ 手把手写清楚", premium: "✅ 手把手写清楚" },
-    { label: "每顿饭不用现场纠结", free: "—", standard: "✅ 推荐+备选", premium: "✅ 推荐+备选+高端精选" },
-    { label: "门票/预约不怕漏掉", free: "—", standard: "✅ 提醒清单", premium: "✅ 提醒清单" },
-    { label: "下雨/排队有备选方案", free: "—", standard: "✅ 每天都有Plan B", premium: "✅ 每天都有Plan B" },
-    { label: "不用花两周做功课", free: "部分", standard: "✅ 拿到就能出发", premium: "✅ 拿到就能出发" },
-    { label: "有人帮我把关行程合理性", free: "—", standard: "—", premium: "✅ 1对1沟通" },
-    { label: "旅途中遇到问题能问人", free: "—", standard: "—", premium: "✅ 实时答疑" },
-    { label: "攻略页数", free: "3-5页", standard: "30-40页", premium: "40-50页" },
-    { label: "行程精调次数", free: "0次", standard: "2次", premium: "5次" },
-  ],
+  compare_rows: COMPARE_ROWS,
 };
 
 // ── 服务端数据拉取（ISR 缓存5分钟）────────────────────────────────────────

@@ -6,12 +6,18 @@ import type { ReactNode } from "react";
 
 // ── Font loading ────────────────────────────────────────────────────────────
 
-let _fontBuffer: Buffer | null = null;
+let _fontBuffer: ArrayBuffer | null = null;
 
-function getFontBuffer(): Buffer {
+function getFontBuffer(): ArrayBuffer {
   if (_fontBuffer) return _fontBuffer;
-  const fontPath = join(process.cwd(), "public", "fonts", "NotoSansSC-Regular.ttf");
-  _fontBuffer = readFileSync(fontPath);
+  // Use static font (variable fonts crash Satori's opentype.js fvar parser)
+  const staticPath = join(process.cwd(), "public", "fonts", "NotoSansSC-400-static.ttf");
+  const varPath = join(process.cwd(), "public", "fonts", "NotoSansSC-Regular.ttf");
+  const { existsSync } = require("fs");
+  const fontPath = existsSync(staticPath) ? staticPath : varPath;
+  const buf = readFileSync(fontPath);
+  // Convert to ArrayBuffer (Satori needs this for proper parsing)
+  _fontBuffer = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
   return _fontBuffer;
 }
 

@@ -7,6 +7,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { fadeInUp } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
+import { TrialDayHook } from "@/components/pricing/TrialDayHook";
+import {
+  INLINE_CTA_AFTER_TIMELINE,
+  PREVIEW_HEADER_SUBTITLE,
+} from "@/lib/content/trial-day-hook";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -474,7 +479,7 @@ export default function PreviewPage({ params }: { params: { id: string } }) {
             你的专属行程已生成 ✨
           </h1>
           <p className="mt-2 text-sm text-stone-500">
-            {data.total_days} 天完整方案 · 免费预览精选 Day 1
+            {PREVIEW_HEADER_SUBTITLE}
           </p>
           {/* 小 Banner CTA */}
           <motion.button
@@ -505,9 +510,18 @@ export default function PreviewPage({ params }: { params: { id: string } }) {
           </motion.section>
         )}
 
+        {/* ── 后续高光预告区（TrialDayHook）────────────────────────────── */}
+        <TrialDayHook
+          days={data.days}
+          totalDays={data.total_days}
+          price={price}
+          planId={planId}
+          onUnlock={(trigger) => goToPricing(planId, trigger)}
+        />
+
         {/* ── Inline CTA 1（Day 1 结束后） ────────────────────────────── */}
         <InlineCTA
-          message="喜欢这一天的安排？完整版还有更多惊喜"
+          message={INLINE_CTA_AFTER_TIMELINE.message}
           price={price}
           planId={planId}
           trigger="inline_after_day1"

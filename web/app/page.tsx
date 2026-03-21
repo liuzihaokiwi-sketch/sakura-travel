@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ENTRY_COPY } from "@/lib/content/segmentation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -58,9 +59,19 @@ function Hero() {
           30-40页完整攻略 · 精确到每一天每一餐每一站 · 拿到就能出发
         </motion.p>
 
-        <motion.p variants={fadeInUp} className="text-xs text-white/40 mb-8">
+        <motion.p variants={fadeInUp} className="text-xs text-white/40 mb-6">
           已为 1,200+ 位旅行者定制行程
         </motion.p>
+
+        {/* 场景化入口短句 */}
+        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 mb-8">
+          <span className="text-xs bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10">
+            🌟 {ENTRY_COPY.first_time.hook} {ENTRY_COPY.first_time.sub}
+          </span>
+          <span className="text-xs bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10">
+            🗺️ {ENTRY_COPY.experienced.hook} {ENTRY_COPY.experienced.sub}
+          </span>
+        </motion.div>
 
         <motion.div variants={fadeInUp}>
           <Link href="/quiz">

@@ -51,6 +51,28 @@ const QUESTIONS = [
     ],
   },
   {
+    id: "japan_experience",
+    title: "你去过日本几次？",
+    subtitle: "根据经验，我们会调整推荐的路线类型",
+    type: "single" as const,
+    options: [
+      { value: "first_time", label: "第一次去", icon: "🌟" },
+      { value: "few_times", label: "去过 1–2 次", icon: "✈️" },
+      { value: "experienced", label: "去过很多次，想玩得更深", icon: "🗺️" },
+    ],
+  },
+  {
+    id: "play_mode",
+    title: "这次更想怎么玩？",
+    subtitle: "影响我们怎么安排城市和天数分配",
+    type: "single" as const,
+    options: [
+      { value: "multi_city", label: "多城顺玩", icon: "🚅" },
+      { value: "single_city", label: "一地深玩", icon: "📍" },
+      { value: "undecided", label: "还没想好，给我建议", icon: "💡" },
+    ],
+  },
+  {
     id: "style",
     title: "你更偏向哪种旅行风格？",
     subtitle: "可以多选，最多 3 个（不选也没关系）",
@@ -140,6 +162,9 @@ export default function QuizPage() {
       styles: (answers.style as string[]) || [],
       wechat_id: wechatId.trim(),
       travel_time: null,
+      // 分流字段（可选，后端 graceful ignore）
+      japan_experience: (answers.japan_experience as string) || null,
+      play_mode: (answers.play_mode as string) || null,
     };
 
     try {

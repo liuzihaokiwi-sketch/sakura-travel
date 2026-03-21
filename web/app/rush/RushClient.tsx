@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ENTRY_COPY } from "@/lib/content/segmentation";
 import { cn } from "@/lib/utils";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
@@ -229,7 +230,16 @@ export default function RushClient({ data }: { data: RushScores }) {
         {/* Screen 6: Conversion */}
         <section>
           <h2 className="text-lg font-bold text-stone-900 mb-2 text-center">看完花期，接下来呢？</h2>
-          <p className="text-sm text-stone-400 text-center mb-6">把喜欢的景点变成一份完整的行程方案</p>
+          <p className="text-sm text-stone-400 text-center mb-3">把喜欢的景点变成一份完整的行程方案</p>
+          {/* 场景化入口短句 */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            <span className="text-xs bg-rose-50 text-rose-500 px-3 py-1.5 rounded-full border border-rose-100">
+              🚅 {ENTRY_COPY.multi_city.hook} {ENTRY_COPY.multi_city.sub}
+            </span>
+            <span className="text-xs bg-amber-50 text-amber-600 px-3 py-1.5 rounded-full border border-amber-100">
+              📍 {ENTRY_COPY.single_city.hook} {ENTRY_COPY.single_city.sub}
+            </span>
+          </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
               { icon: "🌸", title: "帮我安排赏樱行程", desc: "AI 定制 + 在地顾问审核", href: "/quiz", cta: "免费开始 →" },

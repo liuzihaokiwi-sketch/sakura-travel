@@ -1,0 +1,454 @@
+/**
+ * Satori social card templates v2.
+ *
+ * 5 templates for XHS/WeChat distribution:
+ *   1. xhs-cover    — City TOP3 ranking cover (1080×1440)
+ *   2. xhs-spot     — Single spot with real photo (1080×1440)
+ *   3. xhs-compare  — Multi-city bloom comparison (1080×1440)
+ *   4. wechat-moment — Square moment card (1080×1080)
+ *   5. xhs-story    — Vertical story (1080×1920)
+ */
+
+import React from "react";
+import { C, BRAND, CITY_NAMES, getBloomInfo } from "./card-colors";
+import type { Spot } from "./data";
+
+const h = React.createElement;
+
+// ── Shared types ────────────────────────────────────────────────────────────
+
+export interface TemplateData {
+  city: string;
+  cityName: string;
+  spots: Spot[];
+  photoBuffers: Record<string, string>; // name → base64 data URI
+  updatedAt: string;
+}
+
+// ── Shared sub-components ───────────────────────────────────────────────────
+
+function FooterCTA() {
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", alignItems: "center",
+      borderTop: `1px solid ${C.divider}`, padding: "28px 40px 24px",
+      background: C.bgPrimary,
+    },
+  },
+    h("div", { style: { fontSize: "28px", color: C.textPrimary, fontWeight: 700 } }, BRAND.ctaPrimary),
+    h("div", { style: { fontSize: "22px", color: C.accent, marginTop: "10px", fontWeight: 700 } }, BRAND.ctaSecondary),
+    h("div", { style: { display: "flex", gap: "8px", marginTop: "14px", alignItems: "center" } },
+      h("div", { style: { fontSize: "14px", color: C.textMuted, letterSpacing: "3px" } }, BRAND.title),
+      h("div", { style: { fontSize: "14px", color: C.textLight } }, "·"),
+      h("div", { style: { fontSize: "14px", color: C.textMuted } }, BRAND.subtitle),
+    ),
+  );
+}
+
+function BrandHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", alignItems: "center",
+      padding: "48px 40px 36px",
+      background: `linear-gradient(180deg, ${C.bgDark} 0%, ${C.bgDarkSoft} 100%)`,
+    },
+  },
+    h("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" } },
+      h("div", { style: { fontSize: "28px", color: C.bloomFull } }, "✿"),
+      h("div", { style: { fontSize: "18px", color: "rgba(255,255,255,0.4)", letterSpacing: "4px" } }, BRAND.title),
+    ),
+    h("div", { style: { fontSize: "48px", fontWeight: 900, color: C.white, textAlign: "center" } }, title),
+    subtitle ? h("div", { style: { fontSize: "24px", color: "rgba(255,255,255,0.5)", marginTop: "10px" } }, subtitle) : null,
+  );
+}
+
+function ScoreBadge({ score, size = "large" }: { score: number; size?: "large" | "small" }) {
+  const fontSize = size === "large" ? "42px" : "28px";
+  const labelSize = size === "large" ? "14px" : "11px";
+  return h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 } },
+    h("div", { style: { fontSize, fontWeight: 900, color: C.accent } }, `${score}`),
+    h("div", { style: { fontSize: labelSize, color: C.textMuted, marginTop: "2px" } }, "能冲指数"),
+  );
+}
+
+function BloomBadge({ spot }: { spot: Spot }) {
+  const bloom = getBloomInfo(spot);
+  return h("div", {
+    style: {
+      display: "flex", alignItems: "center", gap: "6px",
+      background: bloom.color + "20", borderRadius: "8px",
+      padding: "4px 12px",
+    },
+  },
+    h("div", { style: { fontSize: "16px" } }, bloom.emoji),
+    h("div", { style: { fontSize: "16px", color: bloom.color, fontWeight: 700 } }, bloom.labelCn),
+  );
+}
+
+function TagPill({ text, color = C.textSecondary }: { text: string; color?: string }) {
+  return h("div", {
+    style: {
+      display: "flex", fontSize: "16px", color,
+      background: color + "15", borderRadius: "6px", padding: "3px 10px",
+    },
+  }, text);
+}
+
+// ── 1. XHS Cover — City TOP3 ────────────────────────────────────────────────
+
+export function createXhsCoverElement(data: TemplateData): React.ReactElement {
+  const top3 = data.spots.slice(0, 3);
+
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", width: "100%", height: "100%",
+      background: C.bgPrimary, fontFamily: "Noto Sans SC",
+    },
+  },
+    // Header
+    BrandHeader({ title: `${data.cityName} 赏樱 TOP3`, subtitle: "数据融合排名 · 每天更新" }),
+    // Decorative accent line
+    h("div", { style: { display: "flex", height: "4px", background: `linear-gradient(90deg, ${C.accent}, ${C.bloomFull}, ${C.accent})` } }),
+    // Spot list — fill vertical space evenly
+    h("div", { style: { display: "flex", flexDirection: "column", flex: 1, padding: "28px 40px 20px", gap: "24px", justifyContent: "space-around" } },
+      ...top3.map((spot, i) => {
+        const bloom = getBloomInfo(spot);
+        const photoUri = data.photoBuffers[spot.name];
+        return h("div", {
+          key: i,
+          style: {
+            display: "flex", alignItems: "center", gap: "20px",
+            background: i === 0 ? C.accentLight : C.white,
+            borderRadius: "20px", padding: "28px 28px",
+            border: i === 0 ? `2px solid ${C.accent}` : `1px solid ${C.divider}`,
+          },
+        },
+          // Rank
+          h("div", {
+            style: {
+              display: "flex", alignItems: "center", justifyContent: "center",
+              width: "64px", height: "64px", borderRadius: "50%",
+              background: i === 0 ? C.accent : i === 1 ? "#c0c0c0" : "#cd7f32",
+              flexShrink: 0,
+            },
+          }, h("div", { style: { fontSize: "32px", fontWeight: 900, color: C.white } }, `${i + 1}`)),
+          // Photo thumbnail — larger 120×120
+          photoUri
+            ? h("img", { src: photoUri, width: 120, height: 120, style: { borderRadius: "14px", objectFit: "cover", flexShrink: 0 } })
+            : h("div", { style: { width: "120px", height: "120px", borderRadius: "14px", background: `linear-gradient(135deg, ${C.divider}, ${C.bgPrimary})`, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" } },
+                h("div", { style: { fontSize: "40px", opacity: 0.3, color: C.bloomFull } }, "✿")),
+          // Info
+          h("div", { style: { display: "flex", flexDirection: "column", flex: 1, gap: "8px" } },
+            h("div", { style: { fontSize: i === 0 ? "30px" : "26px", fontWeight: 700, color: C.textPrimary } }, spot.name),
+            h("div", { style: { display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap" } },
+              h("div", { style: { fontSize: "20px", color: bloom.color, fontWeight: 600 } }, `${bloom.emoji} ${bloom.labelCn}`),
+              spot.full ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `满开 ${spot.full}`) : null,
+              spot.lightup ? h("div", { style: { fontSize: "20px", color: "#6366f1" } }, "夜樱") : null,
+            ),
+          ),
+          // Score
+          ScoreBadge({ score: spot.score, size: i === 0 ? "large" : "small" }),
+        );
+      }),
+    ),
+    // Footer
+    FooterCTA(),
+  );
+}
+
+// ── 2. XHS Spot — Single spot spotlight ─────────────────────────────────────
+
+export function createXhsSpotElement(data: TemplateData, spotIndex = 0): React.ReactElement {
+  const spot = data.spots[spotIndex];
+  const bloom = getBloomInfo(spot);
+  const photoUri = data.photoBuffers[spot.name];
+
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", width: "100%", height: "100%",
+      fontFamily: "Noto Sans SC",
+    },
+  },
+    // Hero photo area (top 55%)
+    h("div", {
+      style: {
+        display: "flex", flexDirection: "column", justifyContent: "flex-end",
+        position: "relative", height: "55%", overflow: "hidden",
+        background: photoUri ? C.bgDark : `linear-gradient(135deg, ${C.bgDark} 0%, #3d1a2a 100%)`,
+      },
+    },
+      // Background image
+      photoUri ? h("img", {
+        src: photoUri, width: 1080, height: 792,
+        style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" },
+      }) : null,
+      // Gradient overlay
+      h("div", {
+        style: {
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "60%",
+          background: "linear-gradient(transparent, rgba(0,0,0,0.7))",
+        },
+      }),
+      // Text overlay
+      h("div", { style: { position: "relative", padding: "0 48px 36px", display: "flex", flexDirection: "column" } },
+        h("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" } },
+          h("div", {
+            style: {
+              display: "flex", padding: "6px 16px", borderRadius: "10px",
+              background: bloom.color + "30", border: `1px solid ${bloom.color}60`,
+            },
+          }, h("div", { style: { fontSize: "20px", color: C.white } }, `${bloom.emoji} ${bloom.labelCn}`)),
+          spot.meisyo100 ? h("div", {
+            style: { display: "flex", padding: "6px 14px", borderRadius: "10px", background: "rgba(245,158,11,0.3)", border: "1px solid rgba(245,158,11,0.6)" },
+          }, h("div", { style: { fontSize: "20px", color: C.white } }, "★ 名所百选")) : null,
+        ),
+        h("div", { style: { fontSize: "52px", fontWeight: 900, color: C.white, lineHeight: 1.2 } }, spot.name),
+        h("div", { style: { fontSize: "22px", color: "rgba(255,255,255,0.6)", marginTop: "6px" } }, `${data.cityName} · ${spot.region || ""}`),
+      ),
+    ),
+    // Info area (bottom 45%)
+    h("div", {
+      style: {
+        display: "flex", flexDirection: "column", flex: 1,
+        background: C.bgPrimary, padding: "32px 48px",
+      },
+    },
+      // Score row
+      h("div", { style: { display: "flex", alignItems: "center", gap: "20px", marginBottom: "24px" } },
+        h("div", { style: { fontSize: "72px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+        h("div", { style: { display: "flex", flexDirection: "column" } },
+          h("div", { style: { fontSize: "20px", color: C.textMuted } }, "能冲指数 / 100"),
+          h("div", { style: { fontSize: "18px", color: C.textSecondary, marginTop: "4px" } }, "综合6大数据源评估"),
+        ),
+      ),
+      // Tags row
+      h("div", { style: { display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "20px" } },
+        spot.full ? TagPill({ text: `✿ 满开 ${spot.full}`, color: C.bloomFull }) : null,
+        spot.half ? TagPill({ text: `❀ 五分咲 ${spot.half}`, color: C.bloomHalf }) : null,
+        spot.trees ? TagPill({ text: `♣ ${spot.trees}` }) : null,
+        spot.lightup ? TagPill({ text: "夜樱灯光", color: "#6366f1" }) : null,
+      ),
+      // Description
+      spot.desc_cn
+        ? h("div", { style: { fontSize: "20px", color: C.textSecondary, lineHeight: 1.6, marginBottom: "16px" } }, spot.desc_cn.slice(0, 100) + (spot.desc_cn.length > 100 ? "..." : ""))
+        : null,
+      // Spacer
+      h("div", { style: { flex: 1 } }),
+    ),
+    // Footer
+    FooterCTA(),
+  );
+}
+
+// ── 3. XHS Compare — Multi-city timeline ────────────────────────────────────
+
+export function createXhsCompareElement(allCities: TemplateData[]): React.ReactElement {
+  const cities = allCities.slice(0, 5);
+
+  // Generate simplified bloom timeline for a city
+  function getCityTimeline(data: TemplateData) {
+    // For visualization: mark which half-month periods have blooming
+    const periods = ["3月上", "3月中", "3月下", "4月上", "4月中", "4月下"];
+    const spotsWithFull = data.spots.filter((s) => s.full);
+    const stages: number[] = periods.map((_, pi) => {
+      const monthRef = pi < 3 ? 3 : 4;
+      const dayRef = (pi % 3) * 10 + 10;
+      let maxStage = 0;
+      for (const s of spotsWithFull) {
+        if (!s.full) continue;
+        const [m, d] = s.full.split("/").map(Number);
+        if (!m || !d) continue;
+        const diff = (monthRef - m) * 30 + (dayRef - d);
+        if (Math.abs(diff) <= 5) maxStage = Math.max(maxStage, 2); // full
+        else if (Math.abs(diff) <= 12) maxStage = Math.max(maxStage, 1); // approaching
+      }
+      return maxStage;
+    });
+    return { periods, stages };
+  }
+
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", width: "100%", height: "100%",
+      background: C.bgPrimary, fontFamily: "Noto Sans SC",
+    },
+  },
+    BrandHeader({ title: "花期时间轴对比", subtitle: "什么时候去哪个城市最好？" }),
+    h("div", { style: { display: "flex", flexDirection: "column", flex: 1, padding: "36px 48px", gap: "8px" } },
+      // Period labels
+      h("div", { style: { display: "flex", alignItems: "center", gap: "4px", marginBottom: "12px" } },
+        h("div", { style: { width: "100px", flexShrink: 0 } }),
+        ...["3月上", "3月中", "3月下", "4月上", "4月中", "4月下"].map((p) =>
+          h("div", { key: p, style: { flex: 1, fontSize: "16px", color: C.textMuted, textAlign: "center" } }, p)
+        ),
+      ),
+      // City rows
+      ...cities.map((cityData) => {
+        const { stages } = getCityTimeline(cityData);
+        return h("div", {
+          key: cityData.city,
+          style: { display: "flex", alignItems: "center", gap: "4px", marginBottom: "16px" },
+        },
+          h("div", { style: { width: "100px", flexShrink: 0, fontSize: "22px", fontWeight: 700, color: C.textPrimary } }, cityData.cityName),
+          ...stages.map((s, i) =>
+            h("div", {
+              key: i,
+              style: {
+                flex: 1, height: "48px", borderRadius: "10px",
+                background: s === 0 ? C.divider : s === 1 ? "#fbcfe8" : C.bloomFull,
+              },
+            })
+          ),
+        );
+      }),
+      // Legend
+      h("div", { style: { display: "flex", gap: "24px", justifyContent: "center", marginTop: "20px" } },
+        h("div", { style: { display: "flex", alignItems: "center", gap: "8px" } },
+          h("div", { style: { width: "24px", height: "24px", borderRadius: "6px", background: C.divider } }),
+          h("div", { style: { fontSize: "18px", color: C.textMuted } }, "未开"),
+        ),
+        h("div", { style: { display: "flex", alignItems: "center", gap: "8px" } },
+          h("div", { style: { width: "24px", height: "24px", borderRadius: "6px", background: "#fbcfe8" } }),
+          h("div", { style: { fontSize: "18px", color: C.textMuted } }, "五分咲"),
+        ),
+        h("div", { style: { display: "flex", alignItems: "center", gap: "8px" } },
+          h("div", { style: { width: "24px", height: "24px", borderRadius: "6px", background: C.bloomFull } }),
+          h("div", { style: { fontSize: "18px", color: C.textMuted } }, "満開"),
+        ),
+      ),
+      // Best timing callout
+      h("div", {
+        style: {
+          display: "flex", flexDirection: "column", alignItems: "center",
+          background: C.accentLight, borderRadius: "16px", padding: "24px",
+          border: `1px solid ${C.accent}40`, marginTop: "24px",
+        },
+      },
+        h("div", { style: { fontSize: "24px", fontWeight: 700, color: C.textPrimary } }, "▸ 最佳出行时间"),
+        h("div", { style: { fontSize: "20px", color: C.textSecondary, marginTop: "8px", textAlign: "center" } },
+          "东京 3月下旬 · 京都/大阪 4月上旬 · 满开仅持续 5-7 天"
+        ),
+      ),
+      h("div", { style: { flex: 1 } }),
+    ),
+    FooterCTA(),
+  );
+}
+
+// ── 4. WeChat Moment — Square card ──────────────────────────────────────────
+
+export function createMomentElement(data: TemplateData): React.ReactElement {
+  const spot = data.spots[0];
+  const bloom = getBloomInfo(spot);
+  const photoUri = data.photoBuffers[spot.name];
+
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", width: "100%", height: "100%",
+      fontFamily: "Noto Sans SC",
+    },
+  },
+    // Top section with photo
+    h("div", {
+      style: {
+        display: "flex", flexDirection: "column", justifyContent: "flex-end",
+        position: "relative", height: "55%", overflow: "hidden",
+        background: photoUri ? C.bgDark : `linear-gradient(135deg, ${C.bgDark}, #3d1a2a)`,
+      },
+    },
+      photoUri ? h("img", {
+        src: photoUri, width: 1080, height: 594,
+        style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" },
+      }) : null,
+      h("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, height: "70%", background: "linear-gradient(transparent, rgba(0,0,0,0.75))" } }),
+      h("div", { style: { position: "relative", padding: "0 40px 28px", display: "flex", flexDirection: "column" } },
+        h("div", { style: { fontSize: "18px", color: "rgba(255,255,255,0.5)", letterSpacing: "3px", marginBottom: "8px" } }, BRAND.title),
+        h("div", { style: { fontSize: "42px", fontWeight: 900, color: C.white } }, spot.name),
+        h("div", { style: { fontSize: "20px", color: "rgba(255,255,255,0.6)", marginTop: "4px" } }, `${data.cityName} · ${bloom.emoji} ${bloom.labelCn}`),
+      ),
+    ),
+    // Bottom info
+    h("div", {
+      style: {
+        display: "flex", flex: 1, background: C.bgPrimary,
+        padding: "28px 40px", alignItems: "center", gap: "28px",
+      },
+    },
+      // Score
+      h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center" } },
+        h("div", { style: { fontSize: "64px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+        h("div", { style: { fontSize: "16px", color: C.textMuted } }, "能冲指数"),
+      ),
+      // Divider
+      h("div", { style: { width: "1px", height: "80px", background: C.divider } }),
+      // Tags
+      h("div", { style: { display: "flex", flexDirection: "column", flex: 1, gap: "10px" } },
+        spot.full ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `✿ 满开 ${spot.full}`) : null,
+        spot.trees ? h("div", { style: { fontSize: "20px", color: C.textSecondary } }, `♣ ${spot.trees}`) : null,
+        spot.lightup ? h("div", { style: { fontSize: "20px", color: "#6366f1" } }, "夜樱灯光") : null,
+        h("div", { style: { fontSize: "18px", color: C.accent, fontWeight: 700, marginTop: "4px" } }, BRAND.ctaSecondary),
+      ),
+    ),
+  );
+}
+
+// ── 5. XHS Story — Vertical ─────────────────────────────────────────────────
+
+export function createXhsStoryElement(data: TemplateData): React.ReactElement {
+  const top3 = data.spots.slice(0, 3);
+  const photoUri = data.photoBuffers[top3[0]?.name];
+
+  return h("div", {
+    style: {
+      display: "flex", flexDirection: "column", width: "100%", height: "100%",
+      fontFamily: "Noto Sans SC", position: "relative", overflow: "hidden",
+      background: photoUri ? C.bgDark : `linear-gradient(180deg, ${C.bgDark} 0%, #3d1a2a 50%, ${C.bgDarkSoft} 100%)`,
+    },
+  },
+    // Full-bleed photo
+    photoUri ? h("img", {
+      src: photoUri, width: 1080, height: 1920,
+      style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" },
+    }) : null,
+    // Dark overlay
+    h("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(transparent 20%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%)" } }),
+    // Content
+    h("div", { style: { position: "relative", display: "flex", flexDirection: "column", flex: 1, padding: "60px 48px" } },
+      // Brand top
+      h("div", { style: { display: "flex", alignItems: "center", gap: "10px" } },
+        h("div", { style: { fontSize: "24px", color: C.bloomFull } }, "✿"),
+        h("div", { style: { fontSize: "16px", color: "rgba(255,255,255,0.4)", letterSpacing: "4px" } }, BRAND.title),
+      ),
+      // Spacer
+      h("div", { style: { flex: 1 } }),
+      // City title
+      h("div", { style: { fontSize: "64px", fontWeight: 900, color: C.white, marginBottom: "12px" } }, `${data.cityName}`),
+      h("div", { style: { fontSize: "36px", color: "rgba(255,255,255,0.7)", marginBottom: "40px" } }, "赏樱 TOP3 · 能冲指数排名"),
+      // Top 3 spots
+      ...top3.map((spot, i) => {
+        const bloom = getBloomInfo(spot);
+        return h("div", {
+          key: i,
+          style: {
+            display: "flex", alignItems: "center", gap: "16px",
+            background: "rgba(255,255,255,0.1)", borderRadius: "16px",
+            padding: "20px 24px", marginBottom: "12px",
+          },
+        },
+          h("div", { style: { fontSize: "32px", fontWeight: 900, color: C.accent, width: "48px" } }, `${i + 1}`),
+          h("div", { style: { display: "flex", flexDirection: "column", flex: 1 } },
+            h("div", { style: { fontSize: "26px", fontWeight: 700, color: C.white } }, spot.name),
+            h("div", { style: { fontSize: "18px", color: "rgba(255,255,255,0.5)", marginTop: "4px" } }, `${bloom.emoji} ${bloom.labelCn} · 满开 ${spot.full || "待定"}`),
+          ),
+          h("div", { style: { fontSize: "36px", fontWeight: 900, color: C.accent } }, `${spot.score}`),
+        );
+      }),
+      // Bottom CTA
+      h("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", marginTop: "32px" } },
+        h("div", { style: { fontSize: "24px", color: "rgba(255,255,255,0.8)", fontWeight: 700 } }, BRAND.ctaPrimary),
+        h("div", { style: { fontSize: "20px", color: C.accent, marginTop: "8px" } }, BRAND.ctaSecondary),
+        h("div", { style: { fontSize: "14px", color: "rgba(255,255,255,0.2)", marginTop: "12px" } }, BRAND.sources),
+      ),
+    ),
+  );
+}
