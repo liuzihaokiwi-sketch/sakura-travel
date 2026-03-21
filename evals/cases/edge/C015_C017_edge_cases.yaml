@@ -1,0 +1,153 @@
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 15 — 冷门目的地 7 天  (D类：边界)
+# ══════════════════════════════════════════════════════════════════
+case_id: C015
+case_type: edge
+title: 金泽+高山+松本7天冷门三城 — 情侣中端
+description: 测试冷门目的地 fallback 策略：片段库无金泽/高山内容时，应降级到 AI 生成并标注「数据覆盖有限」
+tags: [kanazawa, takayama, matsumoto, couple, mid_budget, off_beaten, edge]
+known_risks:
+  - 片段库可能无覆盖，需优雅降级
+  - 多城交通复杂（新干线+普通列车混用）
+
+user_input:
+  cities:
+    - {city_code: kanazawa, city_name: 金泽, nights: 3, place_id: JP-KANAZAWA}
+    - {city_code: takayama, city_name: 高山, nights: 2, place_id: JP-TAKAYAMA}
+    - {city_code: matsumoto, city_name: 松本, nights: 2, place_id: JP-MATSUMOTO}
+  travel_start_date: "2026-09-01"
+  travel_end_date: "2026-09-08"
+  duration_days: 7
+  party_type: couple
+  party_size: 2
+  party_ages: [32, 30]
+  budget_level: mid
+  budget_total_jpy: 130000
+  pace_preference: moderate
+  trip_style: multi_city
+  stamina_level: mid
+  must_have_tags: [kenroku_garden, higashiyama, sanmachi_suji, matsumoto_castle]
+  arrival_date: "2026-09-01"
+  arrival_time: "13:00"
+  arrival_place: KIX
+  departure_date: "2026-09-08"
+  departure_time: "15:00"
+  departure_place: NRT
+  has_jr_pass: true
+  jr_pass_type: 7day
+  japan_experience: repeat_visitor
+
+normalized_profile_expected:
+  city_codes: [kanazawa, takayama, matsumoto]
+  trip_style: multi_city
+  theme_family: culture_offbeat
+  budget_level: mid
+  party_type: couple
+
+output_requirements:
+  min_days_covered: 7
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [金泽, 高山, 兼六园, 交通攻略]
+  fallback_acceptable: true
+  version: standard
+
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 16 — 预算冲突 5 天  (D类：边界)
+# ══════════════════════════════════════════════════════════════════
+case_id: C016
+case_type: edge
+title: 东京5天预算冲突 — 奢华偏好 vs 性价比预算
+description: 测试偏好-预算冲突处理：用户标注 budget=budget 但 must_have 包含米其林餐厅，系统应明确提示冲突并给出折衷建议
+tags: [tokyo, couple, budget_conflict, edge]
+known_risks:
+  - 米其林午餐套餐≈8000-15000日元/人，与 budget 预算矛盾
+  - 不应静默忽略，需在攻略中说明预算压力
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}
+  travel_start_date: "2026-04-20"
+  travel_end_date: "2026-04-25"
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  party_ages: [26, 24]
+  budget_level: budget
+  budget_total_jpy: 60000
+  pace_preference: moderate
+  trip_style: one_city
+  stamina_level: mid
+  must_have_tags: [michelin_restaurant, teamlab, shibuya_crossing]
+  food_preferences: [omakase, wagyu]
+  arrival_date: "2026-04-20"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-04-25"
+  departure_time: "11:00"
+  departure_place: NRT
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: budget
+  party_type: couple
+
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, day1]
+  must_mention_keywords: [预算提醒, 折衷, 午餐套餐]
+  budget_conflict_flag: true
+  version: standard
+
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 17 — 信息不全已付费 5 天  (D类：边界)
+# ══════════════════════════════════════════════════════════════════
+case_id: C017
+case_type: edge
+title: 东京5天信息不全 — 缺到离时间和酒店区域
+description: 测试信息残缺时的优雅降级：arrival_time 和 departure_time 均为空，accommodation_pref 未填，系统应给出假设说明并生成合理行程
+tags: [tokyo, couple, mid_budget, incomplete_info, edge]
+known_risks:
+  - 到离时间缺失导致首末日安排无法精确
+  - 系统应使用 fallback 假设（默认到达 14:00，默认离开 10:00）
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}
+  travel_start_date: "2026-06-01"
+  travel_end_date: "2026-06-06"
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  party_ages: [28, 26]
+  budget_level: mid
+  pace_preference: moderate
+  trip_style: one_city
+  stamina_level: mid
+  # 故意缺失：arrival_time, departure_time, accommodation_pref
+  arrival_date: "2026-06-01"
+  arrival_place: NRT
+  departure_date: "2026-06-06"
+  departure_place: NRT
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: couple
+
+output_requirements:
+  min_days_covered: 4
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [假设, 默认, 请确认]
+  incomplete_info_flag: true
+  fallback_acceptable: true
+  version: standard

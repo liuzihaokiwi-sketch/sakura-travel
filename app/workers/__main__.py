@@ -193,4 +193,10 @@ if __name__ == "__main__":
     import asyncio
     from arq import run_worker
 
+    # Python 3.14+ 不再自动创建 event loop，需要手动设置
+    try:
+        asyncio.get_event_loop()
+    except RuntimeError:
+        asyncio.set_event_loop(asyncio.new_event_loop())
+
     run_worker(WorkerSettings)

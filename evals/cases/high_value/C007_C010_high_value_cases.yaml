@@ -1,0 +1,233 @@
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 07 — 东京纪念日高价值 5 天  (B类：高价值)
+# ══════════════════════════════════════════════════════════════════
+case_id: C007
+case_type: high_value
+title: 东京纪念日 5 天 — 情侣高价值
+description: 周年纪念日专项，要求纪念日当晚高档餐厅+河边散步，测试固定事件+高端片段命中
+tags: [tokyo, couple, premium, anniversary, high_value, fixed_event]
+known_risks:
+  - 纪念日晚餐需提前预订，需在行程中提醒
+  - 高端餐厅预订失败时需提供备选方案
+
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  travel_start_date: "2026-06-14"
+  travel_end_date: "2026-06-19"
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  party_ages: [32, 30]
+  budget_level: premium
+  budget_total_jpy: 350000
+  pace_preference: balanced
+  trip_style: mixed
+  stamina_level: medium
+  must_have_tags: [fine_dining, teamlab, shinjuku_night]
+  food_preferences: [kaiseki, sushi, yakiniku]
+  fixed_events:
+    - date: "2026-06-15"
+      time: "19:00"
+      name: 周年纪念日晚餐
+      location: 银座/新宿高档餐厅
+  arrival_date: "2026-06-14"
+  arrival_time: "12:00"
+  arrival_place: HND
+  departure_date: "2026-06-19"
+  departure_time: "14:00"
+  departure_place: HND
+  transport_locked: true
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: luxury_experience
+  budget_level: premium
+  party_type: couple
+  has_fixed_events: true
+
+fragment_hit_expectation:
+  must_hit: [tokyo:experience, tokyo:dining]
+  should_hit: [tokyo:route, tokyo:logistics]
+  must_not_hit: [budget_hostel, backpacker_tips]
+
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, day1, day2_anniversary, transport_guide]
+  must_mention_keywords: [纪念日, 预订提醒, 高档]
+  version: high_value
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 08 — 京都审美出片 5 天  (B类：高价值)
+# ══════════════════════════════════════════════════════════════════
+case_id: C008
+case_type: high_value
+title: 京都审美出片 5 天 — 情侣高端
+description: 测试软规则 shareability/photography 权重，行程应优先出片场景，时机安排精确
+tags: [kyoto, couple, premium, photography, high_value, aesthetic]
+known_risks:
+  - 岚山竹林/伏见稻荷最佳拍照时间（早晨）需早起安排
+  - 部分热门拍摄点有拍摄限制需提醒
+
+user_input:
+  cities: [{city_code: kyoto, city_name: 京都, nights: 5, place_id: JP-KYOTO}]
+  travel_start_date: "2026-11-15"
+  travel_end_date: "2026-11-20"
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  party_ages: [29, 27]
+  budget_level: premium
+  budget_total_jpy: 250000
+  pace_preference: relaxed
+  trip_style: hidden_gem
+  stamina_level: medium
+  must_have_tags: [photography, arashiyama, fushimi_inari, kinkakuji]
+  food_preferences: [kaiseki, matcha, cafe]
+  arrival_date: "2026-11-15"
+  arrival_time: "11:00"
+  arrival_place: KIX
+  departure_date: "2026-11-20"
+  departure_time: "16:00"
+  departure_place: KIX
+  transport_locked: false
+  has_jr_pass: false
+  japan_experience: second_time
+
+normalized_profile_expected:
+  city_codes: [kyoto]
+  trip_style: one_city
+  theme_family: luxury_experience
+  budget_level: premium
+  party_type: couple
+  soft_rule_weights:
+    shareability: 0.9
+    photography: 0.9
+
+fragment_hit_expectation:
+  must_hit: [kyoto:experience, kyoto:route]
+  should_hit: [kyoto:dining, kyoto:tips]
+  must_not_hit: [generic_tourist_spots]
+
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, day1, photo_tips]
+  must_mention_keywords: [早起, 拍摄时间, 秋叶]
+  version: high_value
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 09 — 箱根温泉旅馆 3 天  (B类：高价值)
+# ══════════════════════════════════════════════════════════════════
+case_id: C009
+case_type: high_value
+title: 箱根温泉旅馆 3 天 — 情侣奢华体验
+description: 纯温泉旅馆体验，测试旅馆片段命中+温泉安排+富士山天气提醒
+tags: [hakone, couple, luxury, onsen, ryokan, high_value]
+known_risks:
+  - 富士山能见度受天气影响，需提供备选
+  - 温泉旅馆需提前预订，行程应含预订提醒
+
+user_input:
+  cities: [{city_code: hakone, city_name: 箱根, nights: 3, place_id: JP-HAKONE}]
+  travel_start_date: "2026-10-08"
+  travel_end_date: "2026-10-11"
+  duration_days: 3
+  party_type: couple
+  party_size: 2
+  party_ages: [35, 33]
+  budget_level: luxury
+  budget_total_jpy: 200000
+  accommodation_pref: [ryokan]
+  hotel_booking_status: not_booked
+  pace_preference: relaxed
+  trip_style: must_see
+  stamina_level: low
+  must_have_tags: [onsen, ryokan, mt_fuji_view]
+  food_preferences: [kaiseki, sushi]
+  arrival_date: "2026-10-08"
+  arrival_time: "15:00"
+  arrival_place: HND
+  departure_date: "2026-10-11"
+  departure_time: "12:00"
+  departure_place: HND
+  transport_locked: false
+  has_jr_pass: false
+  japan_experience: second_time
+
+normalized_profile_expected:
+  city_codes: [hakone]
+  trip_style: one_city
+  theme_family: luxury_experience
+  budget_level: luxury
+  party_type: couple
+  accommodation_type: ryokan
+
+fragment_hit_expectation:
+  must_hit: [hakone:experience, hakone:logistics]
+  should_hit: [hakone:dining]
+  must_not_hit: [budget_hotel, backpacker]
+
+output_requirements:
+  min_days_covered: 3
+  must_include_sections: [overview, day1, ryokan_tips]
+  must_mention_keywords: [温泉, 旅馆, 富士山, 预订]
+  version: high_value
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 10 — 二刷东京深玩 6 天  (B类：高价值)
+# ══════════════════════════════════════════════════════════════════
+case_id: C010
+case_type: high_value
+title: 东京6天深度二刷 — 情侣中端
+description: 测试 repeat_visitor 逻辑：应避开浅草寺/东京塔等一刷必去点，转向谷根千/下北泽/清澄白河等深度选点
+tags: [tokyo, couple, mid_budget, repeat_visitor, deep_dive, high_value]
+known_risks:
+  - 一刷过的景点需排除，推荐隐藏版 local 体验
+  - 软规则 localness 权重需高
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 6, place_id: JP-TOKYO}
+  travel_start_date: "2026-06-10"
+  travel_end_date: "2026-06-16"
+  duration_days: 6
+  party_type: couple
+  party_size: 2
+  party_ages: [30, 28]
+  budget_level: mid
+  budget_total_jpy: 120000
+  pace_preference: moderate
+  trip_style: one_city
+  stamina_level: mid
+  japan_experience: repeat_visitor
+  avoid_tags: [asakusa, tokyo_tower, shibuya_crossing, teamlab]
+  must_have_tags: [yanaka, shimokitazawa, koenji, kiyosumi_shiraka]
+  food_preferences: [kissaten, craft_beer, izakaya_local]
+  arrival_date: "2026-06-10"
+  arrival_time: "13:00"
+  arrival_place: HND
+  departure_date: "2026-06-16"
+  departure_time: "14:00"
+  departure_place: HND
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: local_deep
+  budget_level: mid
+  party_type: couple
+  pace_preference: moderate
+
+fragment_hit_expectation:
+  must_hit: [tokyo:route, tokyo:experience]
+  should_hit: [tokyo:dining, tokyo:tips]
+
+output_requirements:
+  min_days_covered: 6
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [谷根千, 下北泽, 本地]
+  must_not_mention_keywords: [浅草寺, 东京塔, TeamLab]
+  version: standard

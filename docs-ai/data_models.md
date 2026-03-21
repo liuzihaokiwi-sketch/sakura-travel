@@ -1,56 +1,77 @@
-# Data Models
+# Data Models（AI 版）
 
-## Layer A: Catalog (catalog.py) — 8 tables
+## 目标
+让 AI 快速知道“当前库里有什么”，并知道哪些模型是旧结构，哪些是可延续基础。
 
-| 表名 | 类名 | 关键字段 | 关系 |
-|---|---|---|---|
-| `entity_base` | `EntityBase` | entity_id(PK,UUID), entity_type, name_zh, name_ja, name_en, city_code, area_name, lat, lng, data_tier(S/A/B), google_place_id | → poi, hotel, restaurant, tags, media, editor_notes |
-| `pois` | `Poi` | entity_id(PK,FK→entity_base), poi_category, typical_duration_min, admission_fee_jpy, best_season, google_rating | → entity |
-| `hotels` | `Hotel` | entity_id(PK,FK→entity_base), hotel_type, star_rating, amenities(JSONB), price_tier, typical_price_min_jpy | → entity, area_guide |
-| `restaurants` | `Restaurant` | entity_id(PK,FK→entity_base), cuisine_type, tabelog_score, michelin_star, requires_reservation, price_range_min/max_jpy | → entity |
-| `entity_tags` | `EntityTag` | id(PK), entity_id(FK), tag_namespace, tag_value, source | → entity |
-| `entity_media` | `EntityMedia` | id(PK), entity_id(FK), media_type, url, is_cover | → entity |
-| `entity_editor_notes` | `EntityEditorNote` | id(PK), entity_id(FK), note_type, boost_value(-8~+8), content_zh | → entity |
-| `hotel_area_guide` | `HotelAreaGuide` | id(PK), entity_id(FK→hotels), area_summary_zh, nearby_poi_ids(JSONB) | → hotel |
+## 当前四层
+1. Catalog：实体、标签、媒体、编辑备注
+2. Snapshots：外部时效数据快照
+3. Derived：评分、行程、导出、产物
+4. Business：用户、订单、请求、画像、版本、审核
 
-## Layer B: Snapshots (snapshots.py) — 6 tables
+## 仍然有效的核心模型
+### Catalog
+- `entity_base`
+- `pois`
+- `hotels`
+- `restaurants`
+- `entity_tags`
+- `entity_media`
+- `entity_editor_notes`
+- `hotel_area_guide`
 
-| 表名 | 类名 | 关键字段 |
-|---|---|---|
-| `source_snapshots` | `SourceSnapshot` | snapshot_id(PK), source_name, object_type, object_id, raw_payload(JSONB), fetched_at |
-| `hotel_offer_snapshots` | `HotelOfferSnapshot` | offer_snapshot_id(PK), entity_id(FK), check_in_date, check_out_date, currency | → lines |
-| `hotel_offer_lines` | `HotelOfferLine` | line_id(PK), offer_snapshot_id(FK), room_type, price_per_night, booking_url |
-| `flight_offer_snapshots` | `FlightOfferSnapshot` | flight_snapshot_id(PK), origin_iata, dest_iata, departure_date, min_price |
-| `poi_opening_snapshots` | `PoiOpeningSnapshot` | opening_snapshot_id(PK), entity_id(FK), check_date, is_open |
-| `weather_snapshots` | `WeatherSnapshot` | weather_snapshot_id(PK), city_code, forecast_date, temp_high_c, condition |
+### Derived
+- `entity_scores`
+- `itinerary_plans`
+- `itinerary_days`
+- `itinerary_items`
+- `itinerary_scores`
+- `route_templates`
+- `export_jobs`
+- `export_assets`
+- `plan_artifacts`
+- `route_matrix_cache`
 
-## Layer C: Derived (derived.py) — 13 tables
+### Business
+- `users`
+- `orders`
+- `trip_requests`
+- `trip_profiles`
+- `trip_versions`
+- `review_jobs`
+- `review_actions`
 
-| 表名 | 类名 | 关键字段 |
-|---|---|---|
-| `entity_scores` | `EntityScore` | score_id(PK), entity_id(FK), score_profile, base_score(0-100), editorial_boost(-8~+8), final_score |
-| `itinerary_plans` | `ItineraryPlan` | plan_id(PK,UUID), trip_request_id(FK), version, status(draft/reviewed/published) | → days, scores |
-| `itinerary_scores` | `ItineraryScore` | itinerary_score_id(PK), plan_id(FK), overall_score, diversity/efficiency/budget/preference scores |
-| `planner_runs` | `PlannerRun` | planner_run_id(PK), trip_request_id(FK), status, algorithm_version |
-| `candidate_sets` | `CandidateSet` | candidate_set_id(PK), planner_run_id(FK), city_code, entity_type, candidate_entity_ids(JSONB) |
-| `route_matrix_cache` | `RouteMatrixCache` | cache_id(PK), origin_entity_id, dest_entity_id, travel_mode, duration_min |
-| `itinerary_days` | `ItineraryDay` | day_id(PK), plan_id(FK), day_number, city_code, day_theme, hotel_entity_id(FK) | → items |
-| `itinerary_items` | `ItineraryItem` | item_id(PK), day_id(FK), sort_order, item_type, entity_id(FK), start_time, duration_min |
-| `route_templates` | `RouteTemplate` | template_id(PK,UUID), name_zh, city_code, duration_days, template_data(JSONB) |
-| `render_templates` | `RenderTemplate` | render_template_id(PK), template_name, template_type, html_content |
-| `export_jobs` | `ExportJob` | export_job_id(PK,UUID), plan_id(FK), export_type, status | → assets |
-| `export_assets` | `ExportAsset` | asset_id(PK), export_job_id(FK), asset_type, storage_url |
-| `plan_artifacts` | `PlanArtifact` | artifact_id(PK,UUID), plan_id(FK), order_id(FK), artifact_type, delivery_url, is_delivered |
+## 旧结构但仍可能被调用的模型
+### `product_sku`
+这是现有代码事实，但不是最终产品模型。  
+当前新方向是：
+- 前台少套餐
+- 后台多维映射
 
-## Layer D: Business (business.py) — 8 tables
+因此后续不要继续把 `product_sku` 当成完整产品真相源，尤其不要从它反推前台产品定义。
 
-| 表名 | 类名 | 关键字段 |
-|---|---|---|
-| `users` | `User` | user_id(PK,UUID), openid, phone, nickname | → orders |
-| `product_sku` | `ProductSku` | sku_id(PK,str), sku_name, price_cny, sku_type, features(JSONB), max_days | → orders |
-| `orders` | `Order` | order_id(PK,UUID), user_id(FK), sku_id(FK), status, amount_cny, payment_channel |
-| `trip_requests` | `TripRequest` | trip_request_id(PK,UUID), user_id(FK), order_id(FK), raw_input(JSONB), status | → profile |
-| `trip_profiles` | `TripProfile` | profile_id(PK,UUID), trip_request_id(FK,unique), cities(JSONB), duration_days, party_type, budget_level, must_have_tags(JSONB) |
-| `trip_versions` | `TripVersion` | version_id(PK,UUID), trip_request_id(FK), plan_id(FK), version_number, change_reason |
-| `review_jobs` | `ReviewJob` | review_job_id(PK,UUID), job_type, target_id, status, assigned_to, priority | → actions |
-| `review_actions` | `ReviewAction` | action_id(PK), review_job_id(FK), action_type, actor, payload(JSONB) |
+## 反馈与增长相关模型（需特别记住）
+代码和旧文档里还涉及：
+- `user_entity_feedback`
+- 可能存在的 `entity_time_window_scores` / crowd 类派生分层
+- 订单、反馈、复购意向的业务扩展字段
+
+AI 在改动反馈/复购相关功能时，不要只盯 `orders` 和 `trip_profiles`。
+
+## 当前缺少但新方向需要的概念层
+这些不一定都要立刻变成表，但 AI 应知道后续会需要：
+- 主题家族
+- 时间扩展包
+- 预算偏向
+- 免费体验边界
+- 自助微调配置
+- 条件页触发规则
+- 预览钩子配置
+
+## 真相源边界
+- 数据模型文档描述的是“当前代码现实”
+- 产品定义真相源在 `product-scope.md` 和人类产品文档中
+- 如果 DB 结构和产品定义冲突，先标冲突，不要假装数据库已经迁移完成
+
+## 结论
+当前数据库仍可继续用，但 AI 在做设计时要把“旧 SKU 结构”和“新产品结构”分开理解；涉及反馈、复购、体验版、主题层时，不能只盯旧表名推断产品逻辑。

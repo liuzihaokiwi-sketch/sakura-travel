@@ -126,8 +126,8 @@ async def submit_modification(
     order, trip = await _get_order_with_trip(order_id, db)
 
     # 只有已交付的订单可以修改
-    if order.status not in ("delivered", "review"):
-        raise HTTPException(400, f"订单状态 '{order.status}' 不支持修改，需要已交付状态")
+    if order.status not in ("delivered", "done"):
+        raise HTTPException(400, f"订单状态 '{order.status}' 不支持修改，需要已交付或已完成状态")
 
     # 获取 SKU 的最大修改次数
     max_mods = SKU_MAX_MODIFICATIONS.get(order.sku_id, 0)

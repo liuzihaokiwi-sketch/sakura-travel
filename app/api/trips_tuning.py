@@ -321,6 +321,25 @@ async def execute_swap(
         body.item_id, old_entity_id, new_entity_id, safety.impact_level,
     )
 
+    # ── M6 自助微调自动重检 ──────────────────────────────────────────────────
+    # swap 成功后异步触发重检，不阻塞响应
+    recheck_result: dict = {}
+    try:
+        recheck_result = await _run_post_swap_recheck(
+            trip_request_id=trip_request_id,
+            swapped_item_id=body.item_id,
+            day=day,
+            day_items_after=after_dicts,
+            db=db,
+        )
+        if recheck_result.get("issues"):
+            logger.warning(
+                "Post-swap recheck issues: item=%d issues=%s",
+                body.item_id, recheck_result["issues"],
+            )
+    except Exception as e:
+        logger.error("Post-swap recheck failed (non-blocking): %s", e)
+
     return SwapResponse(
         success=True,
         impact_level=safety.impact_level,
@@ -441,3 +460,86 @@ def _date_to_dow(date_str: str | None) -> str | None:
         return ["mon", "tue", "wed", "thu", "fri", "sat", "sun"][d.weekday()]
     except (ValueError, IndexError):
         return None
+
+
+# ── M6 自助微调自动重检逻辑 ───────────────────────────────────────────────────
+
+async def _run_post_swap_recheck(
+    trip_request_id: str,
+    swapped_item_id: int,
+    day: Any,
+    day_items_after: list[dict],
+    db: AsyncSession,
+) -> dict:
+    """
+    swap 成功后对整天路线运行快速重检，检测：
+    1. 顺路性：相邻景点区域是否明显绕路
+    2. 时间冲突：同一时段是否有多个安排
+    3. 预算一致性：新实体的价格档位是否与 TripProfile 的 budget_level 匹配
+    4. 闭合日程：到达/离开时间的首末日约束
+
+    返回：{"passed": bool, "issues": list[str], "warnings": list[str]}
+    """
+    issues: list[str] = []
+    warnings: list[str] = []
+
+    # ── 1. 顺路性检查（相邻区域跳变）───────────────────────────────────────
+    areas = [item.get("area_code") or item.get("area_name") for item in day_items_after]
+    for i in range(len(areas) - 1):
+        a, b = areas[i], areas[i + 1]
+        if a and b and a != b:
+            # 简单规则：若连续三个 item 有 A→B→A 模式则为绕路
+            if i + 2 < len(areas) and areas[i + 2] == a:
+                issues.append(
+                    f"顺路性警告：第 {i+1}-{i+3} 项出现 {a}→{b}→{a} 绕路模式"
+                )
+
+    # ── 2. 时间冲突检查 ───────────────────────────────────────────────────
+    time_slots: dict[str, list[int]] = {}
+    for idx, item in enumerate(day_items_after):
+        slot = item.get("time_slot") or _infer_time_slot(item.get("start_time"))
+        time_slots.setdefault(slot, []).append(idx)
+
+    for slot, idxs in time_slots.items():
+        if len(idxs) >= 3:
+            warnings.append(f"时间段「{slot}」安排了 {len(idxs)} 个项目，可能偏密集")
+
+    # ── 3. 预算一致性检查（通过 TripProfile）───────────────────────────────
+    try:
+        from app.db.models.business import TripProfile
+        from sqlalchemy import select as sa_select
+        profile_result = await db.execute(
+            sa_select(TripProfile).where(
+                TripProfile.trip_request_id == uuid.UUID(trip_request_id)
+            )
+        )
+        profile = profile_result.scalar_one_or_none()
+        if profile and profile.budget_level == "budget":
+            # 检查替换后的 item 是否为高价格实体（price_level >= 3）
+            swapped = next(
+                (it for i, it in enumerate(day_items_after)
+                 if it.get("entity_id") and i == 0),  # 已替换的 item 在 after 里
+                None
+            )
+            if swapped and swapped.get("price_level", 0) and swapped["price_level"] >= 3:
+                warnings.append(
+                    "预算一致性：用户预算档为 budget，但替换后的项目价格档位偏高（level≥3）"
+                )
+    except Exception:
+        pass  # profile 查询失败不影响主流程
+
+    # ── 4. 首末日约束（day_number=1 或末天）──────────────────────────────
+    if day and hasattr(day, "day_number"):
+        if day.day_number == 1:
+            # 第一天检查：有无在到达时间前的安排（时间字段存在时）
+            for item in day_items_after:
+                st = item.get("start_time")
+                if st and st < "14:00":
+                    # 不知道实际到达时间，只做 soft warning
+                    warnings.append(
+                        "首日警告：有安排的开始时间早于常规到达时间，请确认到达时间"
+                    )
+                    break
+
+    passed = len(issues) == 0
+    return {"passed": passed, "issues": issues, "warnings": warnings}

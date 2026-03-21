@@ -1,0 +1,77 @@
+rubric_id: structure_rubric
+version: "1.0"
+description: |
+  攻略结构层评分 — 规则化检查，不依赖 LLM。
+  检查攻略是否具备完整骨架：总纲、每日页、条件页触发、标准版/尊享版边界。
+max_score: 100
+
+dimensions:
+  - id: S1
+    name: 总纲页完整性
+    weight: 20
+    max_score: 20
+    scoring:
+      - score: 20
+        criteria: 总纲页存在，且包含：行程概览（天数/城市/主题）、亮点列表（≥3条）、适合人群标签、整体预算区间
+      - score: 12
+        criteria: 总纲页存在，但缺少上述 1-2 个字段
+      - score: 5
+        criteria: 总纲页存在，但内容极简（<3个有效信息）
+      - score: 0
+        criteria: 无总纲页，或总纲仅有标题
+
+  - id: S2
+    name: 每日页骨架完整性
+    weight: 30
+    max_score: 30
+    scoring:
+      - score: 30
+        criteria: 每天都有：主题定位句、时间轴（≥3个时间点）、交通说明、预算估算、当日小贴士
+      - score: 20
+        criteria: 每天有时间轴，但平均缺失1个上述字段
+      - score: 10
+        criteria: 结构明显不均衡（有天详细有天空洞），或时间轴<2个时间点
+      - score: 0
+        criteria: 无结构化骨架，仅有纯文字描述
+
+  - id: S3
+    name: 条件页触发正确性
+    weight: 20
+    max_score: 20
+    scoring:
+      - score: 20
+        criteria: 所有应触发的条件页均已出现（如温泉用户有温泉专页，亲子有儿童友好提示页）
+      - score: 12
+        criteria: 触发了大部分条件页（≥80%）
+      - score: 5
+        criteria: 触发了部分条件页（50-80%）
+      - score: 0
+        criteria: 几乎没有条件页（<50%应触发的出现），或条件页内容与用户需求不符
+
+  - id: S4
+    name: 版本边界清晰度
+    weight: 15
+    max_score: 15
+    scoring:
+      - score: 15
+        criteria: 标准版/尊享版内容边界清晰，尊享版明确多出的内容已用视觉区分
+      - score: 8
+        criteria: 有版本区分但边界模糊
+      - score: 0
+        criteria: 无版本区分，或版本内容混乱
+
+  - id: S5
+    name: 静态块覆盖
+    weight: 15
+    max_score: 15
+    scoring:
+      - score: 15
+        criteria: 应包含的静态块均已出现（出发前准备 + 安全须知 + eSIM，至少这3个）
+      - score: 8
+        criteria: 只有1-2个静态块
+      - score: 0
+        criteria: 无静态块
+
+pass_threshold: 70
+fail_auto_flag: true
+flag_message: "结构评分低于 70 分，视为结构性缺陷，需人工复查"

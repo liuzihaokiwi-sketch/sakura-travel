@@ -16,7 +16,7 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1920&q=80')",
+            "url('/images/hero-sakura.jpg')",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75" />

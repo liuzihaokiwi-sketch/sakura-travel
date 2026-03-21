@@ -2,483 +2,552 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ENTRY_COPY } from "@/lib/content/segmentation";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 
-// ── Animation variants ──────────────────────────────────────────────────────
+// ── Animations ──────────────────────────────────────────────────────────────
 
-const fadeIn = {
-  initial: { opacity: 0, y: 24 },
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 1: Hero
-// ═══════════════════════════════════════════════════════════════════════════════
+const stagger = {
+  animate: { transition: { staggerChildren: 0.1 } },
+};
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 1: Hero — 最核心的一句话
+// ═════════════════════════════════════════════════════════════════════════════
+
+const SELLING_CARDS: { text: React.ReactNode; img: string }[] = [
+  {
+    text: <><span className="text-amber-600 font-semibold">旅日博主精选</span>，有审美有深度，拒绝网红路线</>,
+    img: "/images/japan-temple.jpg",
+  },
+  {
+    text: <>精选<span className="text-amber-600 font-semibold">上千家</span>餐厅酒店，花最少的钱<span className="text-amber-600 font-semibold">吃最好的</span></>,
+    img: "/images/japan-food.jpg",
+  },
+  {
+    text: <><span className="text-pink-600 font-semibold">出片机位</span> + 最佳时间，省了请摄影师的钱</>,
+    img: "/images/kyoto.jpg",
+  },
+  {
+    text: <>天气不好也没关系，每个活动都有 <span className="text-sky-600 font-semibold">Plan B</span></>,
+    img: "/images/japan-city.jpg",
+  },
+];
 
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden min-h-[85vh]">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1920&q=80')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-
+    <section className="relative bg-gradient-to-b from-amber-50/50 via-white to-stone-50 px-5 pt-0 pb-6 md:pt-4 md:pb-10 overflow-hidden">
+      {/* 装饰光斑 */}
+      <div className="absolute -top-10 -left-10 w-72 h-72 bg-pink-300/30 rounded-full blur-[80px]" />
+      <div className="absolute top-40 -right-16 w-80 h-80 bg-amber-300/25 rounded-full blur-[80px]" />
+      <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-sky-200/25 rounded-full blur-[80px]" />
+      {/* 点阵装饰 */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
       <motion.div
-        className="relative z-10 text-center px-6 max-w-3xl"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
+        className="max-w-3xl mx-auto w-full"
+        initial="initial" animate="animate" variants={stagger}
       >
-        <motion.div variants={fadeInUp} className="flex justify-center gap-2 mb-6">
-          {["东京", "京都", "大阪", "北海道", "冲绳"].map((c) => (
-            <span key={c} className="text-xs bg-white/10 text-white/70 px-3 py-1 rounded-full">{c}</span>
+        {/* 标题区 */}
+        <div className="text-center mb-3">
+          <motion.div variants={fadeUp} className="flex justify-center gap-2 mb-1.5">
+            {["东京", "京都", "大阪", "北海道", "冲绳"].map((c) => (
+              <span key={c} className="text-[11px] bg-stone-100 text-stone-500 px-3 py-1 rounded-full">{c}</span>
+            ))}
+          </motion.div>
+
+          <motion.div variants={fadeUp}>
+            <h1 className="text-2xl md:text-4xl font-bold text-stone-800 leading-tight mb-1">
+              一本翻开就能出发的
+            </h1>
+            <h1 className="text-2xl md:text-4xl font-black leading-tight">
+              <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
+                为你量身定制的日本旅行手册
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.p variants={fadeUp} className="text-sm md:text-base text-stone-500 leading-relaxed mt-2 max-w-md mx-auto">
+            从路线到餐厅到交通，<span className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent font-bold">40页+</span> 全部安排好
+            <br />
+            不绕路、有备选、精确到每一分钟
+          </motion.p>
+        </div>
+
+        {/* 4 张卡片 — 有图片，遮罩浅 */}
+        <motion.div className="grid grid-cols-2 gap-3 mt-4" variants={stagger}>
+          {SELLING_CARDS.map((card, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="rounded-2xl overflow-hidden bg-white border border-stone-100/80 shadow-lg shadow-stone-300/40 group hover:-translate-y-1.5 hover:shadow-xl hover:shadow-stone-300/50 transition-all duration-300"
+            >
+              <div className="relative h-20 sm:h-28 overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${card.img}')` }}
+                />
+              </div>
+              <div className="px-3 py-2.5">
+                <p className="text-[12px] md:text-[13px] text-stone-600 leading-relaxed">
+                  {card.text}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </motion.div>
 
-        <motion.h1
-          variants={fadeInUp}
-          className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white/80 leading-tight mb-1"
-        >
-          一本翻开就能出发的
-        </motion.h1>
-        <motion.h1
-          variants={fadeInUp}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4"
-        >
-          <span className="bg-gradient-to-r from-warm-200 via-warm-300 to-sakura-300 bg-clip-text text-transparent">
-            为你量身定制的日本旅行手册
-          </span>
-        </motion.h1>
-
-        <motion.p
-          variants={fadeInUp}
-          className="text-sm md:text-base text-white/50 mb-3 max-w-md mx-auto leading-relaxed"
-        >
-          从路线到餐厅到交通，30页+ 全部安排好
-          <br />
-          不绕路、有备选、精确到每一个小时
-        </motion.p>
-
-        <motion.p variants={fadeInUp} className="text-xs text-white/40 mb-6">
-          已为 1,200+ 位旅行者定制行程
-        </motion.p>
-
-        {/* 场景化入口短句：手机端只显示一条，桌面端两条 */}
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 mb-8">
-          <span className="text-[11px] bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10 line-clamp-1">
-            🌟 {ENTRY_COPY.first_time.hook} {ENTRY_COPY.first_time.sub}
-          </span>
-          <span className="hidden sm:inline-flex text-[11px] bg-white/10 text-white/60 px-3 py-1.5 rounded-full border border-white/10 line-clamp-1">
-            🗺️ {ENTRY_COPY.experienced.hook} {ENTRY_COPY.experienced.sub}
-          </span>
-        </motion.div>
-
-        <motion.div variants={fadeInUp}>
-          <div className="relative inline-block group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
-            <Link href="/why">
-              <Button variant="warm" size="xl" className="relative shadow-xl shadow-warm-300/30 min-w-[260px] font-bold">
-                先免费看一天 →
-              </Button>
-            </Link>
-          </div>
+        {/* 底部信息 + CTA */}
+        <motion.div variants={fadeUp} className="text-center mt-5 mb-2">
+          <p className="text-xs text-stone-700 mb-3 font-bold">已为 <span className="text-amber-600">1,200+</span> 位旅行者定制行程</p>
+          <Link href="/quiz" className="inline-block relative group">
+            {/* 动态边框 */}
+            <span className="absolute -inset-[3px] rounded-2xl bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 bg-[length:200%_100%] animate-[shimmer_2s_linear_infinite] opacity-80 group-hover:opacity-100 blur-[2px]" />
+            <Button variant="warm" size="xl" className="relative min-w-[260px] text-base py-4 font-bold shadow-xl shadow-orange-300/50">
+              免费看看你的行程 →
+            </Button>
+          </Link>
+          <p className="text-sm text-stone-700 mt-3 font-bold">先免费体验一天完整行程，满意再付费定制全部</p>
         </motion.div>
       </motion.div>
     </section>
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 2: Pain Points
-// ═══════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 2: Pain → Solution — 痛点 + 优势整合
+// ═════════════════════════════════════════════════════════════════════════════
 
-const PAINS = [
-  { emoji: "😵‍💫", title: "攻略越看越乱", desc: "小红书收藏了 200 篇，打开全是碎片信息，拼不成一条完整路线" },
-  { emoji: "⏰", title: "花了两周还没定下来", desc: "光是研究交通换乘 + 门票预约就耗掉所有下班时间，行程还是一团浆糊" },
-  { emoji: "😰", title: "怕踩坑又怕错过", desc: "不知道哪些值得去、哪些是游客陷阱，总觉得会漏掉什么" },
-  { emoji: "🤷", title: "同行人众口难调", desc: "有人想逛街、有人想泡温泉、有人带娃，根本没法让所有人都满意" },
+const PAIN_SOLUTION_PAIRS = [
+  {
+    pain: { emoji: "😵‍💫", title: "攻略越看越乱", desc: "收藏 200 篇小红书，全是碎片拼不出完整路线" },
+    solution: { icon: "🏠", title: "团队旅居日本", desc: "每条路线亲自走过，不是网上拼凑", accent: "from-amber-400 to-orange-400" },
+  },
+  {
+    pain: { emoji: "⏰", title: "两周还没定下来", desc: "交通换乘 + 门票预约耗掉所有下班时间" },
+    solution: { icon: "⚡", title: "24 小时交付", desc: "提交信息后次日收到完整攻略", accent: "from-sky-400 to-blue-500" },
+  },
+  {
+    pain: { emoji: "😰", title: "怕踩坑又怕错过", desc: "不知道哪些值得去、哪些是游客陷阱" },
+    solution: { icon: "📊", title: "6 大数据源融合", desc: "Tabelog · Booking · Google 多平台真实评分，AI 智能排序", accent: "from-emerald-400 to-teal-500" },
+  },
+  {
+    pain: { emoji: "🤷", title: "同行人众口难调", desc: "逛街、温泉、带娃需求全不同" },
+    solution: { icon: "🎯", title: "完全定制，不套模板", desc: "根据日期、人数、偏好单独制作，每份都不一样", accent: "from-pink-400 to-rose-500" },
+  },
 ];
 
-function PainPoints() {
+function PainAndSolution() {
   return (
-    <section className="py-16 px-6 bg-white">
+    <section id="showcase" className="py-10 px-5 bg-gradient-to-b from-stone-50 to-amber-50/30 scroll-mt-14">
       <div className="max-w-4xl mx-auto">
-        <motion.h2 variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="font-display text-2xl md:text-3xl font-bold text-stone-900 text-center mb-10">
-          每次计划日本旅行，是不是都卡在这里？
-        </motion.h2>
-        <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="grid sm:grid-cols-2 gap-4">
-          {PAINS.map((p) => (
-            <motion.div key={p.title} variants={fadeInUp}
-              className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
-              <span className="text-3xl mb-3 block">{p.emoji}</span>
-              <h3 className="font-bold text-stone-900 mb-1">{p.title}</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">{p.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 3: Solution
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const RESULTS = [
-  { icon: "📖", title: "30-40页完整手册", desc: "不是简单的行程表，是一本翻开就能出发的旅行说明书" },
-  { icon: "🗓️", title: "逐日路线精确到小时", desc: "每天几点出发、去哪里、怎么去，全部安排好" },
-  { icon: "🍜", title: "每餐推荐+备选", desc: "午饭吃什么、备选餐厅在哪、人均多少，不用现场纠结" },
-  { icon: "🚃", title: "交通方案手把手教", desc: "坐哪趟车、到哪个站换乘、买什么交通卡最省钱" },
-];
-
-function Solution() {
-  return (
-    <section className="py-16 px-6 bg-warm-50">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-2">
-            你只需要告诉我们「去哪、几天、和谁」
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }} className="text-center mb-12">
+          <p className="text-xs font-mono tracking-widest text-stone-400 uppercase mb-3">Problem → Solution</p>
+          <h2 className="text-2xl md:text-3xl font-black text-stone-900 leading-snug">
+            你的焦虑，我们<span className="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent">逐一击破</span>
           </h2>
-          <p className="text-stone-500 mb-10">剩下的，全部交给我们</p>
+          <p className="text-sm text-stone-400 mt-2">1,200+ 位旅行者已验证的解法</p>
         </motion.div>
-        <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {RESULTS.map((r) => (
-            <motion.div key={r.title} variants={fadeInUp}
-              className="bg-white rounded-2xl p-5 border border-stone-100 text-center">
-              <span className="text-3xl mb-3 block">{r.icon}</span>
-              <h3 className="font-bold text-stone-900 text-sm mb-1">{r.title}</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">{r.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 4: Free Preview
-// ═══════════════════════════════════════════════════════════════════════════════
+        <div className="space-y-4">
+          {PAIN_SOLUTION_PAIRS.map((pair, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-5"
+            >
+              <div className="bg-white rounded-2xl p-4 md:p-5 border border-stone-100 shadow-sm h-full flex flex-col justify-center">
+                <span className="text-xl md:text-2xl mb-2 block">{pair.pain.emoji}</span>
+                <h3 className="font-bold text-stone-800 text-sm md:text-base mb-1">{pair.pain.title}</h3>
+                <p className="text-[11px] md:text-xs text-stone-400 leading-relaxed">{pair.pain.desc}</p>
+              </div>
 
-function FreePreview() {
-  return (
-    <section className="py-16 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="bg-gradient-to-br from-warm-50 to-sakura-50 rounded-3xl p-8 md:p-12 border border-warm-100">
-          <div className="md:flex items-center gap-10">
-            <div className="flex-1 mb-6 md:mb-0">
-              <Badge variant="warm" className="mb-4">🆓 免费</Badge>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-3">
-                先免费看看，你的攻略会长什么样
-              </h2>
-              <p className="text-sm text-stone-500 leading-relaxed mb-6">
-                填写你的出行信息后，我们会先为你生成一份<strong>免费预览版</strong>——包含第一天的完整行程。
-                你可以先看看攻略的细致程度。觉得值，再看完整版；觉得不合适，一分钱不花。
-                <br /><br />
-                <strong>没有套路，先看货再决定。</strong>
-              </p>
-              <Link href="/why">
-                <Button variant="warm" size="lg" className="min-w-[220px]">
-                  免费生成我的攻略预览 →
-                </Button>
-              </Link>
-            </div>
-            <div className="flex-shrink-0 w-full md:w-60">
-              {/* Preview vs Full mockup */}
-              <div className="relative">
-                <div className="bg-white rounded-xl shadow-lg p-4 border border-stone-100">
-                  <div className="text-xs font-mono text-stone-400 mb-2">预览版 · Day 1</div>
-                  <div className="space-y-2">
-                    {["09:00 🌸 上野公园", "12:00 🍜 浅草弁天", "13:30 ⛩️ 浅草寺", "17:00 🌇 隅田川"].map((l) => (
-                      <div key={l} className="text-xs text-stone-600 bg-stone-50 rounded-lg px-3 py-2">{l}</div>
-                    ))}
-                  </div>
-                </div>
-                <div className="absolute -bottom-3 -right-3 bg-stone-200 rounded-xl p-4 w-48 h-32 flex items-center justify-center opacity-60">
-                  <div className="text-center">
-                    <span className="text-2xl">🔒</span>
-                    <p className="text-[10px] text-stone-500 mt-1">完整版 30-40页</p>
-                  </div>
+              <div className="flex flex-col items-center gap-1">
+                <div className={cn("w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br flex items-center justify-center shadow-lg", pair.solution.accent)}>
+                  <span className="text-white text-sm font-bold">→</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 5: Main Plan (¥248) — 主推
-// ═══════════════════════════════════════════════════════════════════════════════
-
-function MainPlan() {
-  return (
-    <section className="py-16 px-6 bg-warm-50">
-      <div className="max-w-3xl mx-auto">
-        <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="bg-white rounded-3xl border-2 border-warm-300 shadow-xl shadow-warm-200/20 p-8 md:p-10 relative overflow-hidden">
-          <Badge variant="warm" className="absolute top-4 right-4 px-4 py-1">🔥 90%用户选择</Badge>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-1">
-            首发特惠 ¥248，拿走你的完整攻略
-          </h2>
-          <p className="text-sm text-stone-400 mb-6">
-            <span className="line-through">原价 ¥368</span> · 首批用户专属 · 随时恢复原价
-          </p>
-          <p className="text-sm text-stone-600 leading-relaxed mb-6">
-            一份 30-40 页的完整日本旅行手册，从出发到回程每一步都替你安排好。
-            省下的不只是钱——是你两周的下班时间、无数次纠结、和旅途中踩坑的风险。
-            <br /><br />
-            <strong>¥248，比你请朋友吃顿日料还便宜，但换来的是一趟真正省心的旅行。</strong>
-          </p>
-          <div className="grid sm:grid-cols-2 gap-2 mb-8">
-            {[
-              "✅ 逐日行程精确到小时",
-              "✅ 餐厅推荐+备选方案",
-              "✅ 交通方案手把手教",
-              "✅ 门票预约提醒清单",
-              "✅ Plan B 备选方案",
-              "✅ 预订优先级提醒",
-              "✅ 全程预算参考",
-              "✅ 避坑指南+出行准备",
-              "✅ 拍照最佳时段",
-              "✅ 2 次免费精调",
-            ].map((item) => (
-              <p key={item} className="text-sm text-stone-700">{item}</p>
-            ))}
-          </div>
-          <Link href="/why">
-            <Button variant="warm" size="xl" className="w-full md:w-auto min-w-[300px]">
-              🔥 先免费看一天，满意再付 ¥248 →
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 6: Premium Anchor (¥888) — 锚点，低调
-// ═══════════════════════════════════════════════════════════════════════════════
-
-function PremiumAnchor() {
-  return (
-    <section className="py-10 px-6 bg-warm-50">
-      <div className="max-w-3xl mx-auto">
-        <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="bg-stone-50 rounded-2xl border border-stone-200 p-6 md:p-8 opacity-90">
-          <h3 className="text-lg font-bold text-stone-700 mb-1">想要更多？还有尊享定制版</h3>
-          <p className="text-sm text-stone-400 mb-3">适合蜜月、纪念日、或对品质有极致追求的你</p>
-          <p className="text-sm text-stone-500 leading-relaxed mb-4">
-            在完整版攻略基础上，额外包含：<strong>专属 1v1 行程沟通</strong>、隐藏小众目的地推荐、
-            高端餐厅酒店精选方案、以及出行期间的实时答疑支持。
-          </p>
-          <p className="text-2xl font-mono font-bold text-stone-600">¥888</p>
-          <Link href="/why" className="text-sm text-stone-400 hover:text-stone-600 mt-2 inline-block transition-colors">
-            了解尊享定制 →
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 7: Delivery Showcase — 攻略长什么样
-// ═══════════════════════════════════════════════════════════════════════════════
-
-function DeliveryShowcase() {
-  const PAGES = [
-    { title: "封面", desc: "你的名字 + 目的地 + 旅行日期", color: "bg-stone-900 text-white" },
-    { title: "总览", desc: "7天行程一览 + 设计说明", color: "bg-warm-50" },
-    { title: "Day 1 路线", desc: "上野→浅草→隅田川 精确到分钟", color: "bg-white" },
-    { title: "餐厅推荐", desc: "浅草弁天 ⭐4.2 · 人均¥80 · 需预约", color: "bg-white" },
-    { title: "交通指南", desc: "JR上野站→浅草站 · 银座线 · 5分钟", color: "bg-blue-50" },
-    { title: "预算小结", desc: "Day 1 合计约 ¥580/人", color: "bg-green-50" },
-  ];
-
-  return (
-    <section className="py-16 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="text-center mb-10">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-2">
-            你将收到的攻略，长这样
-          </h2>
-          <p className="text-sm text-stone-500">
-            30-40页 · 不是流水账，是一本真正能用的旅行手册
-          </p>
-        </motion.div>
-        <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {PAGES.map((p, i) => (
-            <motion.div key={p.title} variants={fadeInUp}
-              className={cn("rounded-2xl p-5 border border-stone-100 shadow-sm", p.color)}>
-              <p className="text-[10px] font-mono text-stone-400 mb-2">第 {i + 1} 页 / 共 36 页</p>
-              <h4 className="font-bold text-sm mb-1">{p.title}</h4>
-              <p className="text-xs text-stone-500">{p.desc}</p>
+              <div className={cn(
+                "relative rounded-2xl p-4 md:p-5 h-full flex flex-col justify-center overflow-hidden",
+                "bg-gradient-to-br border border-white/20 shadow-md",
+                pair.solution.accent
+              )}>
+                <div className="absolute inset-0 bg-white/90" />
+                <div className="relative">
+                  <span className="text-xl md:text-2xl mb-2 block">{pair.solution.icon}</span>
+                  <h3 className="font-bold text-stone-900 text-sm md:text-base mb-1">{pair.solution.title}</h3>
+                  <p className="text-[11px] md:text-xs text-stone-500 leading-relaxed">{pair.solution.desc}</p>
+                </div>
+                <div className={cn("absolute top-0 right-0 w-16 h-16 rounded-bl-[3rem] opacity-10 bg-gradient-to-br", pair.solution.accent)} />
+              </div>
             </motion.div>
           ))}
+        </div>
+
+        <motion.div
+          variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+          className="mt-10 flex items-center justify-center gap-6 md:gap-10"
+        >
+          {[
+            { num: "1,200+", label: "已服务旅行者" },
+            { num: "4.9", label: "平均满意度" },
+            { num: "24h", label: "极速交付" },
+            { num: "6", label: "数据源融合" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-lg md:text-xl font-black bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent">
+                {stat.num}
+              </p>
+              <p className="text-[10px] md:text-xs text-stone-400">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
-        <p className="text-xs text-stone-400 text-center mt-6">
-          ↑ 仅展示部分页面，完整攻略包含每天 4-5 页详细内容
+      </div>
+    </section>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 3: Showcase — 攻略 8 大模块展示
+// ═════════════════════════════════════════════════════════════════════════════
+
+/* 内联 SVG 图标组件 */
+const ModIcon = ({ d, color }: { d: string; color: string }) => (
+  <svg className={cn("w-7 h-7 mb-2 transition-transform duration-300 group-hover:scale-110", color)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d={d}/>
+  </svg>
+);
+
+const GUIDE_MODULES: { iconD: string; iconColor: string; title: string; desc: string; highlight: string; color: string; highlightClass: string; descClass: string }[] = [
+  {
+    iconD: "M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z",
+    iconColor: "text-amber-500",
+    title: "设计方案",
+    desc: "拒绝千篇一律的网红打卡，人工精选小众与经典的最佳组合",
+    highlight: "每条路线都有「为什么这样排」",
+    color: "bg-gradient-to-br from-amber-50 to-orange-50",
+    highlightClass: "bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+    iconColor: "text-rose-500",
+    title: "每日路线",
+    desc: "数据优化路线顺序，省下宝贵的体力和时间，不绕路不暴走",
+    highlight: "精确到每小时，拿到就能出发",
+    color: "bg-white",
+    highlightClass: "bg-gradient-to-r from-amber-600 to-pink-500 bg-clip-text text-transparent",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z M6 1v3 M10 1v3 M14 1v3",
+    iconColor: "text-orange-500",
+    title: "餐厅推荐",
+    desc: "从上千家餐厅中人工筛选，最合你口味、有独特体验的那几家",
+    highlight: "评分 + 人均 + 预约手把手教",
+    color: "bg-white",
+    highlightClass: "text-amber-600",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10",
+    iconColor: "text-sky-500",
+    title: "酒店推荐",
+    desc: "人工比价筛选，让你好好休息的同时带来独特体验",
+    highlight: "位置 + 价格 + 特色，帮你选到最值",
+    color: "bg-sky-50",
+    highlightClass: "text-sky-600",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M1 3h15v13H1z M16 8h4l3 3v5h-7V8z M5.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z M18.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+    iconColor: "text-blue-500",
+    title: "交通指南",
+    desc: "站名 · 线路 · 几号口出，人工标注每一步怎么走",
+    highlight: "手写级清楚，不用再查换乘案内",
+    color: "bg-blue-50",
+    highlightClass: "text-blue-600",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z",
+    iconColor: "text-emerald-500",
+    title: "Plan B 备选",
+    desc: "拒绝旅行焦虑，天气不好、电车晚点也没关系，给你不输原方案的替代计划",
+    highlight: "受影响的活动都有应急方案",
+    color: "bg-emerald-50",
+    highlightClass: "text-emerald-600",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",
+    iconColor: "text-pink-500",
+    title: "出片指南",
+    desc: "最佳机位 + 最佳时间 + 构图建议，省了请摄影师的钱",
+    highlight: "拍了就发朋友圈，缓解情侣出片危机",
+    color: "bg-pink-50",
+    highlightClass: "text-pink-600",
+    descClass: "text-stone-500",
+  },
+  {
+    iconD: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4 M16 17l5-5-5-5 M21 12H9",
+    iconColor: "text-violet-500",
+    title: "行前准备 + 安全须知",
+    desc: "出发清单 · eSIM · 支付 · 交通卡 · 常用App · 医疗急救 · 预约总表",
+    highlight: "靠谱保证，一份搞定不用到处找",
+    color: "bg-violet-50",
+    highlightClass: "text-violet-600",
+    descClass: "text-stone-500",
+  },
+];
+
+function Showcase() {
+  return (
+    <section className="py-10 px-6 bg-gradient-to-b from-amber-50/30 to-stone-50/50">
+      <div className="max-w-5xl mx-auto">
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+          className="text-center mb-10">
+          <h2 className="text-xl md:text-2xl font-bold text-stone-900 mb-2">
+            你将收到的攻略，长这样
+          </h2>
+          <p className="text-xs md:text-sm text-stone-500">30-40 页 · 不是流水账，是一本能直接照着走的旅行手册</p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {GUIDE_MODULES.map((m, i) => (
+            <motion.div
+              key={m.title}
+              variants={fadeUp}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className={cn(
+                "rounded-2xl p-4 md:p-5 border border-stone-100/80 shadow-sm min-h-[160px] md:min-h-[180px] flex flex-col justify-between",
+                "hover:-translate-y-1 transition-transform duration-300 group",
+                m.color,
+              )}
+            >
+              <div>
+                <ModIcon d={m.iconD} color={m.iconColor} />
+                <h4 className="font-bold text-sm md:text-base mb-1.5 font-[family-name:var(--font-display)]">{m.title}</h4>
+                <p className={cn("text-[11px] md:text-xs leading-relaxed mb-2", m.descClass)}>{m.desc}</p>
+              </div>
+              <p className={cn("text-[11px] md:text-xs font-extrabold leading-snug", m.highlightClass)}>
+                {m.highlight}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <p className="text-[10px] text-stone-400 text-center mt-5">
+          ↑ 完整攻略包含每天 4-5 页详细内容 + 满足条件时自动生成酒店页、出片页、交通专页等
         </p>
       </div>
     </section>
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 8: Trust
-// ═══════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 4: 对比表 + 价格
+// ═════════════════════════════════════════════════════════════════════════════
 
-function Trust() {
-  const ITEMS = [
-    { icon: "🏠", title: "旅居日本", desc: "团队在日本生活，推荐的每条路线都亲自走过" },
-    { icon: "📊", title: "数据驱动", desc: "整合 Tabelog、Booking、Google 等多平台真实评分" },
-    { icon: "🔄", title: "不满意可改", desc: "248 含 2 次免费精调，确保你拿到真正满意的方案" },
-    { icon: "🆓", title: "先看后决定", desc: "免费看完第一天行程，觉得值再付费，零风险" },
-  ];
+/* 对勾 & 横线组件 */
+const Check = () => (
+  <svg className="w-4 h-4 mx-auto text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+  </svg>
+);
+const Dash = () => <span className="block text-center text-stone-300">—</span>;
+const Num = ({ n }: { n: string }) => <span className="block text-center text-xs font-bold text-stone-700">{n}</span>;
 
+const COMPARE_ROWS: { label: React.ReactNode; free: React.ReactNode; std: React.ReactNode; pre: React.ReactNode; accent?: boolean }[] = [
+  { label: "每日路线",   free: <Check />, std: <Check />, pre: <Check /> },
+  { label: "交通指南",   free: <Check />, std: <Check />, pre: <Check /> },
+  { label: "餐厅推荐",   free: <Check />, std: <Check />, pre: <Check /> },
+  { label: "出片指南",   free: <Dash />,  std: <Check />, pre: <Check /> },
+  { label: "Plan B",     free: <Dash />,  std: <Check />, pre: <Check /> },
+  { label: "行前须知",   free: <Dash />,  std: <Check />, pre: <Check /> },
+  { label: "预算明细",   free: <Check />, std: <Check />, pre: <Check /> },
+  { label: <span className="text-amber-600 font-bold">深度比价</span>, free: <Dash />, std: <Dash />, pre: <Check />, accent: true },
+  { label: "自助微调",   free: <Dash />,  std: <Check />, pre: <Check /> },
+  { label: "正式修改",   free: <Dash />,  std: <Num n="1次" />, pre: <Num n="3次" /> },
+  { label: <span className="text-violet-600 font-bold">专属规划师</span>, free: <Dash />, std: <Dash />, pre: <Check />, accent: true },
+  { label: <span className="text-violet-600 font-bold">实时答疑</span>,   free: <Dash />, std: <Dash />, pre: <Check />, accent: true },
+  { label: "攻略页数",   free: <Num n="3-5" />, std: <Num n="30-40" />, pre: <Num n="40-50" /> },
+];
+
+function ComparisonTable() {
   return (
-    <section className="py-12 px-6 bg-stone-50">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {ITEMS.map((t) => (
-            <div key={t.title} className="text-center p-4">
-              <span className="text-2xl block mb-2">{t.icon}</span>
-              <h4 className="font-bold text-stone-900 text-sm mb-1">{t.title}</h4>
-              <p className="text-xs text-stone-500">{t.desc}</p>
-            </div>
-          ))}
-        </div>
+    <section className="py-10 px-4 md:px-6 bg-gradient-to-b from-stone-50/80 to-white">
+      <div className="max-w-3xl mx-auto">
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+          className="text-center mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-stone-900 mb-1">
+            从你关心的角度看区别
+          </h2>
+          <p className="text-xs md:text-sm text-stone-400">三个版本，总有一个适合你</p>
+        </motion.div>
+
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+          className="bg-white rounded-2xl border border-stone-100 shadow-sm overflow-hidden mt-4">
+          <table className="w-full text-xs">
+            {/* 表头：价格行 */}
+            <thead>
+              <tr className="border-b-2 border-stone-100">
+                <th className="w-[34%]" />
+                <th className="px-1 py-3 md:px-3 md:py-4 text-center w-[22%]">
+                  <p className="text-stone-400 text-[10px] md:text-xs">体验版</p>
+                  <p className="text-sm md:text-lg font-black text-stone-600 mt-0.5">免费</p>
+                </th>
+                <th className="px-1 py-3 md:px-3 md:py-4 text-center w-[22%] bg-amber-50/60 border-x-2 border-amber-100 relative">
+                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[7px] md:text-[10px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">
+                    首发特惠
+                  </div>
+                  <p className="text-amber-600 text-[10px] md:text-xs font-medium">完整攻略</p>
+                  <p className="text-stone-300 line-through text-[9px] md:text-xs">¥368</p>
+                  <p className="text-base md:text-xl font-black bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">¥248</p>
+                  <p className="text-[7px] md:text-[10px] text-stone-400">7天参考价</p>
+                </th>
+                <th className="px-1 py-3 md:px-3 md:py-4 text-center w-[22%]">
+                  <p className="text-violet-500 text-[10px] md:text-xs font-medium">尊享版</p>
+                  <p className="text-base md:text-xl font-black text-violet-600 mt-0.5">¥888</p>
+                  <p className="text-[7px] md:text-[10px] text-stone-400">7天参考价</p>
+                </th>
+              </tr>
+            </thead>
+            {/* 内容行 */}
+            <tbody>
+              {COMPARE_ROWS.map((row, i) => (
+                <tr key={i} className={cn(
+                  "border-b border-stone-50",
+                  i % 2 === 0 ? "bg-white" : "bg-stone-50/30",
+                  row.accent && "bg-gradient-to-r from-amber-50/40 to-violet-50/40",
+                )}>
+                  <td className="px-3 py-2 md:px-4 md:py-2.5 text-[11px] md:text-sm font-medium text-stone-700">{row.label}</td>
+                  <td className="px-1 py-2 md:px-3 md:py-2.5 text-center">{row.free}</td>
+                  <td className="px-1 py-2 md:px-3 md:py-2.5 text-center bg-amber-50/20 border-x border-amber-50/60">{row.std}</td>
+                  <td className="px-1 py-2 md:px-3 md:py-2.5 text-center">{row.pre}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
+
+        <p className="text-center text-[10px] text-stone-400 mt-3">其他天数按行程复杂度小幅浮动，付款前确认最终价格</p>
       </div>
     </section>
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 9: FAQ
-// ═══════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 5: FAQ — 首页精选 5 题
+// ═════════════════════════════════════════════════════════════════════════════
 
-const FAQS = [
-  {
-    q: "攻略是通用模板还是为我定制的？",
-    a: "每一份攻略都是根据你填写的出行日期、天数、人数、偏好单独制作的，不是套模板。你的攻略和别人的不会一样。",
-  },
-  {
-    q: "免费版和完整版有什么区别？",
-    a: "免费版包含第一天的完整行程，让你感受攻略风格和质量。完整版是30-40页的全量手册，精确到每个时间段、每顿饭、每段交通、每个备选方案。",
-  },
-  {
-    q: "多久能收到攻略？",
-    a: "提交信息后，24小时内你会收到完整攻略。高峰期可能稍有延迟，但不会超过48小时。",
-  },
-  {
-    q: "如果攻略不满意怎么办？",
-    a: "248元套餐包含2次免费精调。如果整体方向不对，可以沟通调整。我们的目标是让你拿到一份真正能用的攻略。",
-  },
-  {
-    q: "¥248 首发价还能维持多久？",
-    a: "首发价是限量的，达到一定用户数后会恢复原价 ¥368。具体截止时间不确定，当前下单锁定 ¥248。",
-  },
-  {
-    q: "攻略是什么格式？",
-    a: "网页版 H5，手机、iPad、电脑都能打开，也可以导出长图保存到相册或打印出来带着走。",
-  },
+const TOP_FAQS = [
+  { q: "攻略是通用模板还是为我定制的", a: "每一份都是根据你的出行日期、天数、同行人、偏好单独制作的，不是套模板，每份都不一样。" },
+  { q: "免费体验版有多少内容", a: "Day 1 完整可执行行程，包括路线、餐厅、交通和预算明细，跟付费版同样的细致程度。出片指南和 Plan B 会有演示样例供参考。" },
+  { q: "不满意可以改吗", a: "可以！先通过网站自助微调（不限次数），仍不满意再使用正式修改权益（标准版 1 次 / 尊享版 3 次）。" },
+  { q: "多久能收到攻略", a: "提交信息后 24 小时内收到，樱花季/红叶季等高峰期不超过 48 小时。" },
+  { q: "攻略是什么格式", a: "网页版 + PDF 双格式。手机、iPad、电脑都能看，PDF 可离线保存。" },
 ];
 
 function FAQ() {
   return (
-    <section className="py-16 px-6 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-2xl font-bold text-stone-900 text-center mb-10">
-          你可能还想知道
-        </h2>
-        <div className="space-y-4">
-          {FAQS.map((f) => (
-            <details key={f.q} className="group bg-stone-50 rounded-2xl border border-stone-100 overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer text-sm font-medium text-stone-900 list-none">
+    <section className="py-10 px-6 bg-gradient-to-b from-white to-stone-50">
+      <div className="max-w-2xl mx-auto">
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}
+          className="text-center mb-6">
+          <h2 className="text-lg md:text-xl font-bold text-stone-900">常见问题</h2>
+        </motion.div>
+
+        <div className="space-y-1.5">
+          {TOP_FAQS.map((f) => (
+            <details key={f.q} className="group bg-white rounded-xl border border-stone-100 overflow-hidden">
+              <summary className="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-stone-900 list-none">
                 {f.q}
-                <span className="ml-2 text-stone-400 group-open:rotate-180 transition-transform">▾</span>
+                <span className="ml-2 text-stone-400 group-open:rotate-180 transition-transform text-xs">▾</span>
               </summary>
-              <div className="px-5 pb-5 text-sm text-stone-500 leading-relaxed">{f.a}</div>
+              <div className="px-4 pb-4 text-sm text-stone-500 leading-relaxed">{f.a}</div>
             </details>
           ))}
         </div>
+
+        <div className="text-center mt-5">
+          <Link href="/faq" className="text-sm text-amber-600 hover:text-amber-700 font-medium transition-colors">
+            查看全部常见问题 →
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODULE 10: Final CTA
-// ═══════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// SECTION 6: Final CTA（保持不变）
+// ═════════════════════════════════════════════════════════════════════════════
 
 function FinalCTA() {
   return (
-    <section className="py-16 px-6 bg-gradient-to-b from-warm-50 to-sakura-50">
+    <section className="py-10 px-6 bg-gradient-to-b from-stone-50/50 to-stone-50/80">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 mb-3">
-          别再纠结了，先免费看看
-        </h2>
-        <p className="text-sm text-stone-500 mb-8 leading-relaxed max-w-md mx-auto">
-          最坏的结果，也不过是免费拿到一份行程参考。
-          <br />
-          最好的结果，是你省下两周时间，换来一趟真正省心的日本旅行。
-        </p>
-        <div className="flex flex-col items-center gap-3">
+        <motion.div variants={fadeUp} initial="initial" whileInView="animate" viewport={{ once: true }}>
+          <p className="text-sm text-stone-500 mb-5">不确定的话，先免费定制一天，觉得好再决定</p>
+
           <div className="relative inline-block group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
-            <Link href="/why">
-              <Button variant="warm" size="xl" className="relative min-w-[280px] shadow-lg shadow-warm-300/20 font-bold">
-                先免费看一天 →
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-40 group-hover:opacity-60 transition-opacity animate-pulse" />
+          <Link href="/quiz">
+            <motion.div
+              className="relative inline-block"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              {/* 光晕 */}
+              <motion.div
+                className="absolute -inset-4 rounded-full bg-gradient-to-r from-amber-400/70 via-orange-400/60 to-pink-400/70 blur-2xl"
+                animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.1, 0.9] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute -inset-3 rounded-full bg-amber-300/40 blur-lg"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              />
+              <Button variant="warm" size="xl" className="relative min-w-[260px] text-base py-4 font-bold shadow-lg shadow-orange-200/40">
+                免费看看你的行程 →
               </Button>
-            </Link>
+            </motion.div>
+          </Link>
           </div>
-        </div>
-        <div className="flex justify-center gap-4 mt-8 text-xs text-stone-400">
-          <span>⏱️ 24h交付</span>
-          <span>·</span>
-          <span>🔄 不满意可改</span>
-          <span>·</span>
-          <span>🌸 已服务 1,200+ 旅行者</span>
-        </div>
+
+          <div className="flex justify-center gap-3 mt-5 text-[10px] text-stone-400">
+            <span>⏱️ 24h 交付</span>
+            <span>·</span>
+            <span>🔄 不满意可改</span>
+            <span>·</span>
+            <span>🌸 已服务 1,200+</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// PAGE: 首页
-// ═══════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
+// PAGE
+// ═════════════════════════════════════════════════════════════════════════════
 
-export default function Home() {
+export default function WhyPage() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <PainPoints />
-      <Solution />
-      <FreePreview />
-      <MainPlan />
-      <PremiumAnchor />
-      <DeliveryShowcase />
-      <Trust />
-      <FAQ />
-      <FinalCTA />
     </div>
   );
 }

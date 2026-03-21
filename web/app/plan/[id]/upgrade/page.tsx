@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { fadeInUp } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
+import { copyToClipboard } from "@/lib/clipboard";
 import { useState } from "react";
 
 const UPGRADE_BENEFITS = [
@@ -52,7 +53,7 @@ export default function UpgradePage({ params }: { params: { id: string } }) {
           <p className="text-stone-400 text-xs mb-2">升级请联系专属顾问</p>
           <p className="font-mono text-xl font-bold bg-gradient-to-r from-warm-300 to-sakura-300 bg-clip-text text-transparent mb-3">{WECHAT_ID}</p>
           <button
-            onClick={async () => { await navigator.clipboard.writeText(WECHAT_ID); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+            onClick={async () => { await copyToClipboard(WECHAT_ID); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
             className="bg-gradient-to-r from-warm-300 to-warm-400 text-white font-semibold py-2.5 px-8 rounded-xl text-sm"
           >
             {copied ? "✅ 已复制!" : "复制微信号 · 备注「升级」"}

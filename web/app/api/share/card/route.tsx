@@ -13,27 +13,34 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
+// 改为 Node runtime，兼容阿里云 FC（FC 不支持 Vercel Edge Runtime）
+// next/og 的 ImageResponse 在 Node runtime 下通过 @resvg/resvg-js 正常工作
+export const runtime = "nodejs";
 
-// ── 城市封面配置 ─────────────────────────────────────────────────────────
+// ── 城市封面配置（使用相对路径，运行时由 getCover 拼接为绝对 URL）────────
 const CITY_COVERS: Record<string, { img: string; name: string; color: string }> = {
-  tokyo:  { img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80", name: "东京", color: "#d4a373" },
-  osaka:  { img: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80", name: "大阪", color: "#e76f51" },
-  kyoto:  { img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", name: "京都", color: "#8b5cf6" },
-  hokkaido: { img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80", name: "北海道", color: "#3b82f6" },
-  okinawa:  { img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=800&q=80", name: "冲绳", color: "#06b6d4" },
+  tokyo:    { img: "/images/tokyo.jpg", name: "东京", color: "#d4a373" },
+  osaka:    { img: "/images/osaka.jpg", name: "大阪", color: "#e76f51" },
+  kyoto:    { img: "/images/kyoto.jpg", name: "京都", color: "#8b5cf6" },
+  hokkaido: { img: "/images/hokkaido.jpg", name: "北海道", color: "#3b82f6" },
+  okinawa:  { img: "/images/okinawa.jpg", name: "冲绳", color: "#06b6d4" },
 };
 
-const DEFAULT_COVER = { img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", name: "日本", color: "#d4a373" };
+const DEFAULT_COVER = { img: "/images/kyoto.jpg", name: "日本", color: "#d4a373" };
+
+/** Satori 需要绝对 URL 来 fetch 图片；从请求中提取 origin 拼接 */
+function resolveImg(relPath: string, origin: string): string {
+  return `${origin}${relPath}`;
+}
 
 // ── 卡片渲染函数 ─────────────────────────────────────────────────────────
 
-function CardDay1({ city, theme, plan }: { city: string; theme?: string; plan?: string }) {
+function CardDay1({ city, theme, plan, origin }: { city: string; theme?: string; plan?: string; origin: string }) {
   const cover = CITY_COVERS[city] || DEFAULT_COVER;
   return (
     <div style={{ display: "flex", width: 800, height: 420, position: "relative", fontFamily: "sans-serif" }}>
       {/* 背景图 */}
-      <img src={cover.img} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <img src={resolveImg(cover.img, origin)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
       {/* 渐变遮罩 */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%)" }} />
       {/* 内容 */}
@@ -63,7 +70,7 @@ function CardDay1({ city, theme, plan }: { city: string; theme?: string; plan?: 
   );
 }
 
-function CardResult({ city, days }: { city: string; days: number }) {
+function CardResult({ city, days, origin }: { city: string; days: number; origin: string }) {
   const cover = CITY_COVERS[city] || DEFAULT_COVER;
   return (
     <div style={{ display: "flex", width: 800, height: 420, background: "#0f172a", fontFamily: "sans-serif" }}>
@@ -85,7 +92,7 @@ function CardResult({ city, days }: { city: string; days: number }) {
         </div>
       </div>
       <div style={{ width: 300, position: "relative", overflow: "hidden" }}>
-        <img src={cover.img} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }} />
+        <img src={resolveImg(cover.img, origin)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }} />
       </div>
     </div>
   );
@@ -110,13 +117,13 @@ function CardSavings({ days, hours }: { days: number; hours: number }) {
   );
 }
 
-function CardReview({ city, rating, comment }: { city: string; rating: number; comment?: string }) {
+function CardReview({ city, rating, comment, origin }: { city: string; rating: number; comment?: string; origin: string }) {
   const cover = CITY_COVERS[city] || DEFAULT_COVER;
   const stars = "⭐".repeat(Math.min(5, Math.max(1, rating)));
   return (
     <div style={{ display: "flex", width: 800, height: 420, background: "#fafaf9", fontFamily: "sans-serif" }}>
       <div style={{ width: 280, position: "relative" }}>
-        <img src={cover.img} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={resolveImg(cover.img, origin)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent, #fafaf9)" }} />
       </div>
       <div style={{ flex: 1, padding: "40px 48px 40px 16px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -181,24 +188,25 @@ export async function GET(req: NextRequest) {
   const code = searchParams.get("code") ?? undefined;
   const discount = parseInt(searchParams.get("discount") ?? "20", 10);
 
+  const origin = new URL(req.url).origin;
   let element: React.ReactElement;
 
   switch (type) {
     case "result":
-      element = <CardResult city={city} days={days} />;
+      element = <CardResult city={city} days={days} origin={origin} />;
       break;
     case "savings":
       element = <CardSavings days={days} hours={hours} />;
       break;
     case "review":
-      element = <CardReview city={city} rating={rating} comment={comment} />;
+      element = <CardReview city={city} rating={rating} comment={comment} origin={origin} />;
       break;
     case "invite":
       element = <CardInvite code={code} discount={discount} />;
       break;
     case "day1":
     default:
-      element = <CardDay1 city={city} theme={theme} plan={plan} />;
+      element = <CardDay1 city={city} theme={theme} plan={plan} origin={origin} />;
       break;
   }
 

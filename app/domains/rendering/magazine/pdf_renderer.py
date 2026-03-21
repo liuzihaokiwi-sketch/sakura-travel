@@ -22,10 +22,105 @@ from app.domains.rendering.magazine.html_renderer import render_html
 logger = logging.getLogger(__name__)
 
 
+# ── 水印 CSS 片段 ────────────────────────────────────────────────────────────
+
+def _build_watermark_css(watermark_text: str) -> str:
+    """
+    生成对角线半透明水印的 CSS。
+
+    水印通过 CSS `::before` 伪元素 + `transform: rotate(-35deg)` 实现，
+    重复铺满每一页，不遮挡正文阅读。
+
+    Args:
+        watermark_text: 水印文字，建议格式：「用户昵称 · 订单尾号 · 仅供本人使用」
+
+    Returns:
+        CSS 字符串（含 @page 规则）
+    """
+    # 转义单引号，防止注入
+    safe_text = watermark_text.replace("'", "\\'").replace('"', '\\"')
+    return f"""
+<style>
+/* ── 水印层（WeasyPrint @page fixed content）── */
+@page {{
+    @bottom-center {{
+        content: "";
+    }}
+}}
+
+body::before {{
+    content: "{safe_text}";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+    letter-spacing: 2px;
+    pointer-events: none;
+    z-index: 9999;
+    width: 200%;
+    text-align: center;
+    /* 重复平铺效果 */
+    line-height: 6em;
+    word-spacing: 4em;
+}}
+
+/* 辅助：通过 background 实现多行铺满 */
+body {{
+    position: relative;
+}}
+
+.watermark-layer {{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}}
+
+.watermark-layer span {{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: rotate(-35deg) translate(-25%, -25%);
+    background-image: repeating-linear-gradient(
+        transparent 0,
+        transparent 70px,
+        transparent 70px
+    );
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.07);
+    letter-spacing: 1px;
+    line-height: 80px;
+    word-spacing: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}}
+</style>
+
+<!-- 水印层 DOM（WeasyPrint fixed 定位方案） -->
+<div class="watermark-layer" aria-hidden="true">
+    <span>{safe_text} &nbsp;&nbsp;&nbsp; {safe_text} &nbsp;&nbsp;&nbsp;
+          {safe_text} &nbsp;&nbsp;&nbsp; {safe_text} &nbsp;&nbsp;&nbsp;
+          {safe_text} &nbsp;&nbsp;&nbsp; {safe_text}</span>
+</div>
+"""
+
+
 async def render_pdf(
     plan_id: _uuid.UUID | str,
     session: AsyncSession,
     base_url: Optional[str] = None,
+    watermark_text: Optional[str] = None,
 ) -> bytes:
     """
     将 ItineraryPlan 渲染为 PDF bytes。
@@ -124,8 +219,17 @@ async def render_pdf(
     # 1. 渲染 HTML
     html_content = await render_html(plan_id, session)
 
-    # 2. WeasyPrint 转 PDF
-    logger.info("开始 WeasyPrint PDF 渲染 plan=%s", plan_id)
+    # 2. 注入水印层（在 </body> 前插入）
+    if watermark_text:
+        watermark_html = _build_watermark_css(watermark_text)
+        if "</body>" in html_content:
+            html_content = html_content.replace("</body>", f"{watermark_html}\n</body>")
+        else:
+            html_content += watermark_html
+        logger.debug("已注入水印: %s", watermark_text[:30] + "…" if len(watermark_text) > 30 else watermark_text)
+
+    # 3. WeasyPrint 转 PDF
+    logger.info("开始 WeasyPrint PDF 渲染 plan=%s watermark=%s", plan_id, bool(watermark_text))
     try:
         html_obj = HTML(
             string=html_content,

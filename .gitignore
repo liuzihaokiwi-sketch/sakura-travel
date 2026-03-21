@@ -64,3 +64,5 @@ data/city_defaults/*.png
 web/public/fonts/*.ttf
 data/crawl_progress.json  
 data/crawl_status.json  
+
+.vercel

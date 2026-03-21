@@ -1,0 +1,89 @@
+case_id: X002
+case_type: constrained
+title: 全部酒店已订+固定活动 — 多重锁定
+tags: [kyoto, osaka, couple, mid_budget, all_locked]
+known_risks: [酒店和固定活动已锁，路线调整空间极小，需紧密围绕约束排程]
+user_input:
+  cities:
+    - {city_code: kyoto, city_name: 京都, nights: 3, place_id: JP-KYOTO}
+    - {city_code: osaka, city_name: 大阪, nights: 3, place_id: JP-OSAKA}
+  duration_days: 6
+  party_type: couple
+  party_size: 2
+  budget_level: mid
+  pace_preference: moderate
+  hotel_booking_status: all
+  booked_hotels:
+    - {city: kyoto, name: 京都四季酒店, area: 岡崎, checkin: "2026-10-01"}
+    - {city: osaka, name: 大阪瑞士奥特莱斯酒店, area: 心斋桥, checkin: "2026-10-04"}
+  willing_change_hotel_area: "no"
+  fixed_events:
+    - {date: "2026-10-02", time: "14:00", place: 嵐山竹林}
+    - {date: "2026-10-05", time: "19:00", place: 道顿堀烟火大会}
+  arrival_date: "2026-10-01"
+  arrival_time: "12:00"
+  arrival_place: KIX
+  departure_date: "2026-10-07"
+  departure_time: "15:00"
+  departure_place: KIX
+hard_constraints_expected:
+  should_pass: [hotel_area_respected, fixed_events_integrated]
+output_requirements:
+  must_mention_keywords: [岚山, 道顿堀烟火, 岡崎]
+
+case_id: X003
+case_type: constrained
+title: 严格素食+佛教徒 — 特殊饮食
+tags: [kyoto, nara, solo, budget, vegetarian, buddhist]
+known_risks: [素食选项在日本较少, 需推荐精进料理, 不应推荐肉食餐厅]
+user_input:
+  cities:
+    - {city_code: kyoto, city_name: 京都, nights: 4, place_id: JP-KYOTO}
+    - {city_code: nara, city_name: 奈良, nights: 2, place_id: JP-NARA}
+  duration_days: 6
+  party_type: solo
+  party_size: 1
+  budget_level: budget
+  pace_preference: relaxed
+  food_restrictions: [vegetarian, no_fish, no_eggs]
+  food_restrictions_note: 严格素食，不含肉鱼蛋，可接受奶制品
+  must_have_tags: [zen_temples, shojin_ryori, meditation]
+  arrival_date: "2026-03-20"
+  arrival_time: "13:00"
+  arrival_place: ITM
+  departure_date: "2026-03-26"
+  departure_time: "17:00"
+  departure_place: KIX
+hard_constraints_expected:
+  should_pass: [no_meat_recommendations, vegetarian_options_available]
+output_requirements:
+  must_mention_keywords: [精进料理, 禅, 素食]
+  must_not_mention_keywords: [烤肉, 寿司, 拉面]
+
+case_id: X004
+case_type: constrained
+title: 超短途2天周末 — 东京极限压缩
+tags: [tokyo, solo, budget, intensive, weekend_trip]
+known_risks: [2天时间极短, 必须精准排程, 不能塞太多]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 2, place_id: JP-TOKYO}]
+  duration_days: 2
+  party_type: solo
+  party_size: 1
+  budget_level: budget
+  pace_preference: intensive
+  trip_style: one_city
+  stamina_level: high
+  must_have_tags: [shibuya, shinjuku, tsukiji_morning]
+  arrival_date: "2026-05-23"
+  arrival_time: "07:00"
+  arrival_place: HND
+  departure_date: "2026-05-25"
+  departure_time: "09:00"
+  departure_place: HND
+output_requirements:
+  min_days_covered: 2
+  must_mention_keywords: [筑地早市, 涩谷, 新宿]
+grader_overrides:
+  planning_rubric:
+    P3_weight: 30

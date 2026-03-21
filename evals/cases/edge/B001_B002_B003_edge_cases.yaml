@@ -1,0 +1,77 @@
+case_id: B001
+case_type: edge
+title: 到达时间极晚22:30 — 首日应近乎空白
+tags: [tokyo, solo, edge_case, late_arrival]
+known_risks: [首日到达22:30，不应安排任何景点，只做到酒店+次日说明]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  duration_days: 5
+  party_type: solo
+  party_size: 1
+  budget_level: mid
+  arrival_date: "2026-06-10"
+  arrival_time: "22:30"
+  arrival_place: NRT
+  departure_date: "2026-06-15"
+  departure_time: "16:00"
+  departure_place: NRT
+hard_constraints_expected:
+  should_pass: [no_day1_sightseeing_after_late_arrival]
+output_requirements:
+  min_days_covered: 5
+  must_not_mention_keywords: [Day1景点, Day1参观]
+grader_overrides:
+  planning_rubric:
+    P3_weight: 40
+
+---
+case_id: B002
+case_type: edge
+title: must_go 与 dont_want_go 有冲突地点 — 校验应拦截
+tags: [edge_case, validation_conflict, should_be_blocked]
+description: 用户同时在must_go填了"浅草寺"，在dont_want_go也填了"浅草寺"，校验引擎应返回R7红色错误
+known_risks: [这个用例期望被校验引擎拦截，不应产生攻略输出]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  budget_level: mid
+  must_go_places: [浅草寺, 新宿御苑]
+  dont_want_places: [浅草寺]
+  arrival_date: "2026-07-01"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-07-06"
+  departure_time: "12:00"
+  departure_place: NRT
+hard_constraints_expected:
+  should_trigger: [R7_conflict_venues]
+output_requirements:
+  must_include_sections: []
+  version: "blocked"
+grader_overrides:
+  planning_rubric:
+    pass_threshold: 0
+
+---
+case_id: B003
+case_type: edge
+title: 离开日早于到达日 — R9 应拦截
+tags: [edge_case, validation_date_error, should_be_blocked]
+description: 到达日2026-05-10，离开日2026-05-05，R9规则应触发
+known_risks: [这个用例期望校验引擎返回R9红色错误并拦截生成]
+user_input:
+  cities: [{city_code: osaka, city_name: 大阪, nights: 3, place_id: JP-OSAKA}]
+  duration_days: 5
+  party_type: solo
+  party_size: 1
+  budget_level: budget
+  arrival_date: "2026-05-10"
+  arrival_time: "10:00"
+  arrival_place: KIX
+  departure_date: "2026-05-05"
+  departure_time: "15:00"
+  departure_place: KIX
+hard_constraints_expected:
+  should_trigger: [R9_departure_before_arrival]

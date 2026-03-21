@@ -1,0 +1,52 @@
+case_id: C001
+case_type: standard
+title: 东京首刷情侣 5 天 — 经典中预算
+description: 最典型的用户画像，东京5天，情侣，中等预算，第一次来日本，经典打卡风格
+tags: [tokyo, couple, mid_budget, first_time, classic]
+known_risks:
+  - 通票选择（地铁vs JR Pass）需给出建议
+  - 首末日到离时间逻辑需严格
+
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  travel_start_date: "2026-04-10"
+  travel_end_date: "2026-04-15"
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  party_ages: [28, 26]
+  budget_level: mid
+  budget_total_jpy: 150000
+  pace_preference: moderate
+  trip_style: one_city
+  stamina_level: mid
+  must_have_tags: [teamlab, shibuya_crossing, tsukiji]
+  food_preferences: [sushi, ramen, yakitori]
+  arrival_date: "2026-04-10"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-04-15"
+  departure_time: "11:00"
+  departure_place: NRT
+  transport_locked: false
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: couple
+  pace_preference: moderate
+
+fragment_hit_expectation:
+  must_hit: [tokyo:route, tokyo:logistics, tokyo:tips]
+  should_hit: [tokyo:dining, tokyo:experience]
+  must_not_hit: [kyoto:route, osaka:route]
+
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, day1, transport_guide, pre_departure, esim_payment]
+  must_mention_keywords: [teamlab, 涩谷交叉路口, 筑地]
+  version: standard

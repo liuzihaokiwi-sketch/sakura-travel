@@ -1,0 +1,52 @@
+case_id: C002
+case_type: standard
+title: 京都首刷情侣 4 天
+description: 首次赴日情侣，专注京都，中等预算，文化+拍照风格，4天轻松节奏
+tags: [kyoto, couple, mid_budget, first_time, culture, photography]
+known_risks:
+  - 岚山/伏见稻荷同日安排可能时间过紧
+  - 金阁寺+清水寺同天体力消耗较大
+
+user_input:
+  cities: [{city_code: kyoto, city_name: 京都, nights: 4, place_id: JP-KYOTO}]
+  travel_start_date: "2026-05-01"
+  travel_end_date: "2026-05-05"
+  duration_days: 4
+  party_type: couple
+  party_size: 2
+  party_ages: [27, 25]
+  budget_level: mid
+  budget_total_jpy: 100000
+  pace_preference: relaxed
+  trip_style: must_see
+  stamina_level: medium
+  must_have_tags: [kinkakuji, arashiyama, fushimi_inari]
+  food_preferences: [kaiseki, tofu, matcha]
+  arrival_date: "2026-05-01"
+  arrival_time: "13:00"
+  arrival_place: KIX
+  departure_date: "2026-05-05"
+  departure_time: "10:00"
+  departure_place: KIX
+  transport_locked: false
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [kyoto]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: couple
+  pace_preference: relaxed
+
+fragment_hit_expectation:
+  must_hit: [kyoto:route, kyoto:logistics]
+  should_hit: [kyoto:experience, kyoto:dining]
+  must_not_hit: [tokyo:route, osaka:route]
+
+output_requirements:
+  min_days_covered: 4
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [金阁寺, 岚山, 伏见稻荷]
+  version: standard

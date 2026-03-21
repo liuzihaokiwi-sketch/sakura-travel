@@ -175,7 +175,7 @@ async def submit_quiz(
     # 2. 写入 trip_requests
     trip = TripRequest(
         raw_input=raw_input,
-        status="quiz_submitted",
+        status="new",
     )
     db.add(trip)
     await db.flush()
@@ -190,6 +190,6 @@ async def submit_quiz(
 
     return QuizResponse(
         trip_request_id=trip_id,
-        status="quiz_submitted",
+        status="new",
         message="已收到你的需求！规划师会在 2 小时内通过微信联系你。",
     )

@@ -1,0 +1,91 @@
+{#
+  总纲模板 — 放在封面之后、每日行程之前
+  变量：
+    plan            - ItineraryPlan 对象或 dict
+    overview        - dict:
+      design_philosophy  - 设计思路（为什么这样排）
+      trip_overview       - 一眼看懂总览表（HTML 或文本）
+      key_bookings        - 关键预订提醒列表 [{item, deadline, note}]
+      pre_trip_checklist  - 出发前准备清单 [{category, items: [str]}]
+    days            - list[dict]，用于生成路线总览表
+    total_days      - 天数
+    city_names      - 城市列表
+#}
+
+<section class="overview-section page-break-before">
+
+  {# 标题 #}
+  <div class="overview-header">
+    <h1 class="overview-title">📋 行程总纲</h1>
+    <p class="overview-subtitle">在开始每天的行程之前，先了解整体设计思路</p>
+  </div>
+
+  {# 1. 为什么这样排 #}
+  {% if overview.design_philosophy %}
+  <div class="overview-block">
+    <h2 class="overview-block-title">💡 为什么这份攻略这样设计</h2>
+    <div class="overview-philosophy">
+      {{ overview.design_philosophy | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {# 2. 一眼看懂总览 #}
+  <div class="overview-block">
+    <h2 class="overview-block-title">🗺️ 一眼看懂全程</h2>
+    <table class="overview-table">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>城市</th>
+          <th>主题</th>
+          <th>亮点</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for day in days %}
+        <tr>
+          <td><strong>Day {{ day.day_number }}</strong></td>
+          <td>{{ day.city_name_zh | default('—') }}</td>
+          <td>{{ day.day_theme | default('—') }}</td>
+          <td>{{ day.day_summary_zh | default('—') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {# 3. 关键预订提醒 #}
+  {% if overview.key_bookings %}
+  <div class="overview-block">
+    <h2 class="overview-block-title">⚠️ 关键预订提醒</h2>
+    <div class="booking-list">
+      {% for b in overview.key_bookings %}
+      <div class="booking-item">
+        <div class="booking-item-name">{{ b.item }}</div>
+        {% if b.deadline %}<div class="booking-item-deadline">截止：{{ b.deadline }}</div>{% endif %}
+        {% if b.note %}<div class="booking-item-note">{{ b.note }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# 4. 出发前准备 #}
+  {% if overview.pre_trip_checklist %}
+  <div class="overview-block">
+    <h2 class="overview-block-title">✈️ 出发前准备</h2>
+    {% for category in overview.pre_trip_checklist %}
+    <div class="checklist-category">
+      <h3 class="checklist-category-title">{{ category.category }}</h3>
+      <ul class="checklist-items">
+        {% for item in category.items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</section>

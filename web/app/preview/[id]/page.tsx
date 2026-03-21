@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { fadeInUp } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
+import { copyToClipboard } from "@/lib/clipboard";
 import { TrialDayHook } from "@/components/pricing/TrialDayHook";
 import {
   INLINE_CTA_AFTER_TIMELINE,
@@ -366,7 +367,7 @@ function TrustModule({ planId, price }: { planId?: string; price: number }) {
 function WechatFallback() {
   const [copied, setCopied] = useState(false);
   async function copy() {
-    await navigator.clipboard.writeText(WECHAT_ID).catch(() => {});
+    await copyToClipboard(WECHAT_ID);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }

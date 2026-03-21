@@ -114,10 +114,10 @@ async def list_pending_reviews(
     获取待审核订单列表。
     包括 status=review 的订单 + 有 pending modification 的订单。
     """
-    # 查询 status=review 或 status=generating 的订单
+    # 查询 status=done 或 status=generating 的订单（待审核）
     q = (
         select(Order)
-        .where(Order.status.in_(["review", "generating"]))
+        .where(Order.status.in_(["done", "generating"]))
         .order_by(Order.created_at.asc())
         .limit(limit)
     )
@@ -191,9 +191,9 @@ async def update_review_content(
     )
     db.add(action)
 
-    # 确保订单在 review 状态
+    # 确保订单在 done 状态（审核中）
     if order.status == "generating":
-        order.status = "review"
+        order.status = "done"
 
     await db.flush()
 
@@ -216,10 +216,10 @@ async def publish_order(
     """
     order, _ = await _get_order_and_trip(order_id, db)
 
-    if order.status not in ("review", "generating"):
+    if order.status not in ("done", "generating"):
         raise HTTPException(
             400,
-            f"当前状态 '{order.status}' 无法发布，需要 review 或 generating 状态",
+            f"当前状态 '{order.status}' 无法发布，需要 done 或 generating 状态",
         )
 
     order.status = "delivered"
@@ -265,10 +265,10 @@ async def reject_order(
     """
     order, _ = await _get_order_and_trip(order_id, db)
 
-    if order.status not in ("review",):
+    if order.status not in ("done",):
         raise HTTPException(
             400,
-            f"当前状态 '{order.status}' 无法打回，需要 review 状态",
+            f"当前状态 '{order.status}' 无法打回，需要 done 状态",
         )
 
     order.status = "generating"

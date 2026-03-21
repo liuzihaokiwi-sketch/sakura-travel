@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "回访节奏 + 问卷模板。T 指攻略交付日。字段 {order_id}/{dest}/{days} 为占位符",
+    "updated": "2026-03-22"
+  },
+
+  "schedule": [
+    {
+      "timing_id": "T+2",
+      "trigger_days_after_delivery": 2,
+      "occasion": "用户拿到攻略后 2 天（还未出发，记忆最新鲜）",
+      "channel": "wechat",
+      "goal": "确认用户已看攻略，解答使用疑问",
+      "template_id": "review_t2"
+    },
+    {
+      "timing_id": "T+dep+1",
+      "trigger": "departure_date + 1 day",
+      "occasion": "出发次日（到达目的地第一天）",
+      "channel": "wechat",
+      "goal": "问候 + 提醒当日重点",
+      "template_id": "checkin_t1"
+    },
+    {
+      "timing_id": "T+ret+3",
+      "trigger": "return_date + 3 days",
+      "occasion": "回国 3 天后（新鲜感还在，愿意回忆细节）",
+      "channel": "wechat",
+      "goal": "收集体验反馈，沉淀优质数据",
+      "template_id": "feedback_t3"
+    },
+    {
+      "timing_id": "T+ret+7",
+      "trigger": "return_date + 7 days",
+      "occasion": "回国 7 天后（若 T+3 未回复）",
+      "channel": "wechat",
+      "goal": "二次触达 + 简化问卷",
+      "template_id": "feedback_short"
+    }
+  ],
+
+  "templates": {
+    "review_t2": {
+      "name": "攻略交付后确认",
+      "message": "你好！你的{dest}{days}天行程攻略已经发给你了 🎉\n\n攻略里每天都排到了小时级别，打开后记得先看「总览」页，拼盘式了解整体节奏。\n\n如果有任何看不懂的地方或者想调整的，直接回我就好～\n\n出发顺利！🌸"
+    },
+
+    "checkin_t1": {
+      "name": "出发日问候",
+      "message": "今天到{dest}了吗？🎌\n\n提醒：\n• 到达机场/车站后可以先找 IC 卡充值机充值\n• 攻略里第一天的路线已经考虑了你的到达时间，按顺序走就好\n\n有任何临时问题随时找我 👋"
+    },
+
+    "feedback_t3": {
+      "name": "回国后 3 天详细反馈",
+      "message": "欢迎回来！🏠 希望这趟玩得开心～\n\n方便的话帮我回答几个小问题，10 秒就好：\n\n1️⃣ 整体满意度：非常满意 / 满意 / 一般 / 不满意\n2️⃣ 哪天/哪个地方最惊喜？\n3️⃣ 哪里踩坑了 / 建议改进的地方？\n4️⃣ 愿意推荐给朋友吗？（愿意/不确定/不愿意）\n\n你的反馈会帮我把下一份攻略做得更好 🙏\n\n有没有出了好照片？欢迎分享给我看看 📸",
+      "fields": ["satisfaction_score", "highlight", "improvement", "nps"]
+    },
+
+    "feedback_short": {
+      "name": "回国后 7 天简化反馈（二次触达）",
+      "message": "打扰一下 😊 上次忘记问你：\n\n{dest}那趟玩得怎么样？一个词形容一下？\n\n（比如：很值 / 还行 / 小失望 / 还想去）\n\n谢谢你 🙏",
+      "fields": ["one_word_feedback"]
+    }
+  },
+
+  "feedback_scoring": {
+    "satisfaction_score": {
+      "very_satisfied": 5,
+      "satisfied": 4,
+      "neutral": 3,
+      "unsatisfied": 2
+    },
+    "nps_buckets": {
+      "promote": "愿意推荐",
+      "passive": "不确定",
+      "detract": "不愿意"
+    },
+    "distillation_threshold": {
+      "description": "satisfaction_score >= 4 且 highlight 有具体内容时，触发片段沉淀判断",
+      "min_score": 4,
+      "require_highlight": true
+    }
+  }
+}

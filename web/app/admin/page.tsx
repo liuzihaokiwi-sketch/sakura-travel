@@ -5,31 +5,58 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type OrderItem, fetchOrders } from "@/lib/admin-api";
 
-// ── Status column config ─────────────────────────────────────────────────────
+// ── Status column config（按新状态流分 6 列）────────────────────────────────
 const COLUMNS = [
   {
     key: "pending",
-    label: "待审核",
+    label: "待处理",
     icon: "📋",
-    statuses: ["quiz_submitted", "preview_sent", "paid", "generating", "review"],
+    statuses: ["new", "sample_viewed"],
     bg: "bg-amber-50",
     border: "border-amber-200",
     badge: "bg-amber-100 text-amber-800",
   },
   {
-    key: "active",
-    label: "进行中",
-    icon: "🔄",
-    statuses: ["review"],
+    key: "paid",
+    label: "已付费",
+    icon: "💰",
+    statuses: ["paid"],
+    bg: "bg-green-50",
+    border: "border-green-200",
+    badge: "bg-green-100 text-green-800",
+  },
+  {
+    key: "form",
+    label: "表单中",
+    icon: "📝",
+    statuses: ["detail_filling", "detail_submitted", "needs_fix"],
     bg: "bg-blue-50",
     border: "border-blue-200",
     badge: "bg-blue-100 text-blue-800",
   },
   {
-    key: "done",
-    label: "已交付",
+    key: "validated",
+    label: "待生成",
     icon: "✅",
-    statuses: ["delivered"],
+    statuses: ["validating", "validated"],
+    bg: "bg-violet-50",
+    border: "border-violet-200",
+    badge: "bg-violet-100 text-violet-800",
+  },
+  {
+    key: "generating",
+    label: "生成中",
+    icon: "⚙️",
+    statuses: ["generating"],
+    bg: "bg-sky-50",
+    border: "border-sky-200",
+    badge: "bg-sky-100 text-sky-800",
+  },
+  {
+    key: "done",
+    label: "已完成",
+    icon: "🎉",
+    statuses: ["done", "delivered"],
     bg: "bg-emerald-50",
     border: "border-emerald-200",
     badge: "bg-emerald-100 text-emerald-800",
@@ -37,11 +64,16 @@ const COLUMNS = [
 ];
 
 const STATUS_LABELS: Record<string, string> = {
-  quiz_submitted: "问卷已提交",
-  preview_sent: "预览已发送",
-  paid: "已付款",
+  new: "新提交",
+  sample_viewed: "已看样片",
+  paid: "已付费",
+  detail_filling: "填写详细信息中",
+  detail_submitted: "详细信息已提交",
+  validating: "校验中",
+  needs_fix: "需补充信息",
+  validated: "校验通过",
   generating: "生成中",
-  review: "待审核",
+  done: "攻略完成",
   delivered: "已交付",
   refunded: "已退款",
   cancelled: "已取消",
@@ -187,15 +219,6 @@ export default function AdminDashboard() {
     router.push("/admin/login");
   };
 
-  // Split orders into columns
-  const pendingOrders = orders.filter((o) =>
-    ["quiz_submitted", "preview_sent", "paid", "generating"].includes(o.status)
-  );
-  const reviewOrders = orders.filter((o) => o.status === "review");
-  const deliveredOrders = orders.filter((o) =>
-    ["delivered", "refunded"].includes(o.status)
-  );
-
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
@@ -211,6 +234,18 @@ export default function AdminDashboard() {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <Link
+              href="/admin/trace"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
+            >
+              🔍 生成追踪
+            </Link>
+            <Link
+              href="/admin/evals"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
+            >
+              📈 评测仪表板
+            </Link>
             <Link
               href="/admin/conversion"
               className="text-xs text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
@@ -230,38 +265,25 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      {/* Kanban */}
+      {/* Kanban — 按 COLUMNS 配置动态渲染 6 列 */}
       <div className="max-w-[1600px] mx-auto p-6">
         {loading ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-sm text-slate-400">加载中...</div>
           </div>
         ) : (
-          <div className="flex gap-6 overflow-x-auto pb-4">
-            <KanbanColumn
-              label="待处理"
-              icon="📋"
-              orders={pendingOrders}
-              bg="bg-amber-50/50"
-              border="border-amber-200/50"
-              badge="bg-amber-100 text-amber-800"
-            />
-            <KanbanColumn
-              label="审核中"
-              icon="🔄"
-              orders={reviewOrders}
-              bg="bg-blue-50/50"
-              border="border-blue-200/50"
-              badge="bg-blue-100 text-blue-800"
-            />
-            <KanbanColumn
-              label="已交付"
-              icon="✅"
-              orders={deliveredOrders}
-              bg="bg-emerald-50/50"
-              border="border-emerald-200/50"
-              badge="bg-emerald-100 text-emerald-800"
-            />
+          <div className="flex gap-4 overflow-x-auto pb-4">
+            {COLUMNS.map((col) => (
+              <KanbanColumn
+                key={col.key}
+                label={col.label}
+                icon={col.icon}
+                orders={orders.filter((o) => col.statuses.includes(o.status))}
+                bg={col.bg}
+                border={col.border}
+                badge={col.badge}
+              />
+            ))}
           </div>
         )}
       </div>

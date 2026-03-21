@@ -1,6 +1,7 @@
 "use client";
 
 import { WECHAT_ID } from "@/lib/constants";
+import { copyToClipboard } from "@/lib/clipboard";
 
 export function MobileBottomCTA() {
   return (
@@ -11,14 +12,7 @@ export function MobileBottomCTA() {
           <p className="text-xs text-stone-400 mt-0.5">微信联系，24h 内交付</p>
         </div>
         <button
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(WECHAT_ID);
-              alert(`已复制微信号：${WECHAT_ID}`);
-            } catch {
-              prompt("请复制微信号：", WECHAT_ID);
-            }
-          }}
+          onClick={() => copyToClipboard(WECHAT_ID)}
           className="flex-shrink-0 bg-warm-400 hover:bg-warm-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
         >
           📋 复制微信号

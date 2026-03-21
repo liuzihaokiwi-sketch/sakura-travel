@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "description": "静态知识块注册表 — 管线按 block_id 引入，模板用 include_block(block_id) 调用",
+    "updated": "2026-03-22"
+  },
+  "blocks": [
+    {
+      "block_id": "pre_departure",
+      "file": "templates/static_blocks/pre_departure.html",
+      "title": "出发前准备清单",
+      "icon": "✈️",
+      "category": "preparation",
+      "always_include": true,
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "safety",
+      "file": "templates/static_blocks/safety.html",
+      "title": "安全须知",
+      "icon": "🦺",
+      "category": "safety",
+      "always_include": true,
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "emergency",
+      "file": "templates/static_blocks/emergency.html",
+      "title": "医疗与紧急联系",
+      "icon": "🏥",
+      "category": "safety",
+      "always_include": true,
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "esim_payment",
+      "file": "templates/static_blocks/esim_payment.html",
+      "title": "eSIM 与支付指南",
+      "icon": "📱",
+      "category": "practical",
+      "always_include": true,
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "transport_passes",
+      "file": "templates/static_blocks/transport_passes.html",
+      "title": "交通通票选择指南",
+      "icon": "🎫",
+      "category": "practical",
+      "always_include": false,
+      "trigger_conditions": ["multi_city", "long_distance_train"],
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "avoid_traps",
+      "file": "templates/static_blocks/avoid_traps.html",
+      "title": "新手避坑指南",
+      "icon": "⚠️",
+      "category": "tips",
+      "always_include": false,
+      "trigger_conditions": ["first_time_japan"],
+      "applicable_destinations": ["all"]
+    },
+    {
+      "block_id": "useful_apps",
+      "file": "templates/static_blocks/useful_apps.html",
+      "title": "实用 App 推荐",
+      "icon": "📲",
+      "category": "practical",
+      "always_include": false,
+      "trigger_conditions": ["first_time_japan", "tech_savvy"],
+      "applicable_destinations": ["all"]
+    }
+  ]
+}

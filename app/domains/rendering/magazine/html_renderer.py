@@ -315,6 +315,24 @@ async def _build_magazine_context(
 
             timeline.append(item_data)
 
+        # ── 条件页触发标记 ────────────────────────────────────────────────
+        has_hotel_change = any(
+            t.get("entity_type") == "hotel" or t.get("item_type") == "hotel_area"
+            for t in timeline
+        )
+        has_highlight_restaurant = any(
+            t.get("entity_type") == "restaurant"
+            and t.get("rating") is not None
+            and (t.get("rating") or 0) >= 4.0
+            for t in timeline
+        )
+        has_photo_spots = any(
+            "出片" in " ".join(t.get("tags", []))
+            or "photo" in " ".join(t.get("tags", [])).lower()
+            or "instagrammable" in " ".join(t.get("tags", [])).lower()
+            for t in timeline
+        )
+
         rendered_days.append({
             "day_number": day.day_number,
             "city_code": day.city_code,
@@ -323,6 +341,10 @@ async def _build_magazine_context(
             "day_summary_zh": day.day_summary_zh,
             "timeline": timeline,
             "transport_notes_zh": None,
+            # 条件页标记
+            "has_hotel_change": has_hotel_change,
+            "has_highlight_restaurant": has_highlight_restaurant,
+            "has_photo_spots": has_photo_spots,
         })
 
     return {
@@ -577,7 +599,104 @@ def render_savings_summary(
     )
 
 
+# ── 静态块缓存 ───────────────────────────────────────────────────────────────
+
+_STATIC_BLOCKS_DIR = _TEMPLATES_DIR / "static_blocks"
+
+# 静态块 key → 文件名 映射
+_STATIC_BLOCK_FILES = {
+    "pre_departure":  "pre_departure.html",
+    "safety":         "safety.html",
+    "esim_payment":   "esim_payment.html",
+    "useful_apps":    "useful_apps.html",
+    "emergency":      "emergency.html",
+}
+
+# 内存缓存（进程级，不会频繁变动）
+_static_block_cache: Dict[str, str] = {}
+
+
+def render_static_block(block_key: str) -> str:
+    """
+    从 templates/static_blocks/ 读取预制静态知识块 HTML。
+
+    比每次 AI 生成快 100x，内容质量稳定，不耗 Token。
+
+    Args:
+        block_key: 块标识（pre_departure / safety / esim_payment / useful_apps / emergency）
+
+    Returns:
+        HTML 字符串（含 <section> 标签）；文件不存在时返回空字符串
+    """
+    if block_key in _static_block_cache:
+        return _static_block_cache[block_key]
+
+    filename = _STATIC_BLOCK_FILES.get(block_key)
+    if not filename:
+        logger.warning("未知静态块 key: %s", block_key)
+        return ""
+
+    block_path = _STATIC_BLOCKS_DIR / filename
+    if not block_path.exists():
+        logger.warning("静态块文件不存在: %s", block_path)
+        return ""
+
+    content = block_path.read_text(encoding="utf-8")
+    # 去掉 Jinja2 注释行（{# ... #}）再缓存
+    import re as _re
+    content = _re.sub(r"\{#.*?#\}", "", content, flags=_re.DOTALL).strip()
+    _static_block_cache[block_key] = content
+    logger.debug("已加载静态块 %s (%d bytes)", block_key, len(content))
+    return content
+
+
+def render_all_static_blocks() -> str:
+    """一次性渲染所有静态知识块，按 pre_departure → safety → esim_payment →
+    useful_apps → emergency 顺序拼接。"""
+    return "\n".join(
+        render_static_block(key) for key in _STATIC_BLOCK_FILES
+    )
+
+
 # ── 对外接口 ─────────────────────────────────────────────────────────────────
+
+def _build_overview_context(context: Dict[str, Any]) -> Dict[str, Any]:
+    """从渲染上下文构建总纲数据。"""
+    days = context.get("days", [])
+    meta = context.get("plan_metadata", {}) or {}
+
+    # 设计思路（如果 AI 生成了的话，存在 plan_metadata 中）
+    design_philosophy = meta.get("design_philosophy", "")
+    if not design_philosophy:
+        # 默认文案
+        cities = context.get("cities_zh", [])
+        total = context.get("total_days", len(days))
+        design_philosophy = (
+            f"这份 {total} 天的行程围绕{'、'.join(cities) if cities else '日本'}设计，"
+            "综合考虑了路线顺畅度、体力分配、餐饮安排和你的偏好，"
+            "力求每天都有亮点但不暴走。"
+        )
+
+    # 关键预订提醒（从 plan_metadata 中读取，或留空让 AI 后续填充）
+    key_bookings = meta.get("key_bookings", [])
+
+    # 出发前准备清单（从 plan_metadata 中读取）
+    pre_trip_checklist = meta.get("pre_trip_checklist", [])
+    if not pre_trip_checklist:
+        # 默认清单
+        pre_trip_checklist = [
+            {"category": "证件", "items": ["护照（有效期 > 6 个月）", "签证", "机票确认单"]},
+            {"category": "通讯", "items": ["eSIM 或随身 WiFi", "下载离线地图"]},
+            {"category": "支付", "items": ["准备少量日元现金", "开通 Visa/Master 信用卡境外支付"]},
+            {"category": "交通", "items": ["购买 IC 卡（Suica/Pasmo）或提前买好 JR Pass"]},
+        ]
+
+    return {
+        "design_philosophy": design_philosophy,
+        "key_bookings": key_bookings,
+        "pre_trip_checklist": pre_trip_checklist,
+    }
+
 
 async def render_html(
     plan_id: _uuid.UUID | str,
@@ -610,16 +729,48 @@ async def render_html(
     env = _get_jinja_env()
 
     # 渲染完整 HTML（基于 base.html.j2）
-    # 由于 base 使用 block content，我们渲染 main 模板
+    # static_blocks_html：从磁盘预制文件读取（非 AI 生成，稳定 + 零 Token 消耗）
+    context["static_blocks_html"] = render_all_static_blocks()
+
+    # 构建 overview 上下文（总纲数据）
+    context["overview"] = _build_overview_context(context)
+
     main_tmpl_src = """
 {% extends 'magazine/base.html.j2' %}
 {% block content %}
 <div class="magazine-container">
   {% include 'magazine/cover.html.j2' %}
+
+  {# 总纲：设计思路 + 总览表 + 预订提醒 + 出发准备 #}
+  {% include 'magazine/overview.html.j2' %}
+
   {% for day in days %}
     {% include 'magazine/day_card.html.j2' %}
+
+    {# 条件页：酒店（换住宿日/特色酒店日）#}
+    {% if day.has_hotel_change %}
+      {% include 'magazine/hotel_report.html.j2' %}
+    {% endif %}
+
+    {# 条件页：餐厅（重点晚餐日）#}
+    {% if day.has_highlight_restaurant %}
+      {% include 'magazine/restaurant_report.html.j2' %}
+    {% endif %}
+
+    {# 条件页：出片（高视觉价值日）#}
+    {% if day.has_photo_spots %}
+      {% include 'magazine/photo_guide.html.j2' %}
+    {% endif %}
   {% endfor %}
+
   {% include 'magazine/tips_page.html.j2' %}
+
+  {# 静态知识块区（出发准备 / 安全 / 通讯 / App / 医疗）#}
+  {% if static_blocks_html %}
+  <div class="static-blocks-section page-break-before">
+    {{ static_blocks_html | safe }}
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
 """

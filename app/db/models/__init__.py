@@ -44,6 +44,27 @@ from app.db.models.derived import (  # noqa: F401
     RouteMatrixCache,
     RouteTemplate,
 )
+from app.db.models.detail_forms import (  # noqa: F401
+    DetailForm,
+    DetailFormStep,
+)
+from app.db.models.trace import (  # noqa: F401
+    ExportLog,
+    FragmentHitLog,
+    GenerationRun,
+    GenerationStepRun,
+    PromptRunLog,
+    ReviewActionLog,
+    RuleEvaluationLog,
+)
+from app.db.models.fragments import (  # noqa: F401
+    FragmentCompatibility,
+    FragmentDistillationQueue,
+    FragmentEmbedding,
+    FragmentEntity,
+    FragmentUsageStats,
+    GuideFragment,
+)
 from app.db.models.soft_rules import (  # noqa: F401
     AreaProfile,
     AudienceFit,
@@ -84,4 +105,12 @@ __all__ = [
     "SwapCandidateSoftScore", "SoftRuleFeedbackLog",
     "AreaProfile", "TimeslotRule", "SeasonalEvent", "TransportLink",
     "AudienceFit", "EntityOperatingFact", "ProductConfig", "FeatureFlag", "UserEvent",
+    # Detail Forms
+    "DetailForm", "DetailFormStep",
+    # Trace
+    "GenerationRun", "GenerationStepRun", "FragmentHitLog",
+    "RuleEvaluationLog", "PromptRunLog", "ReviewActionLog", "ExportLog",
+    # Fragments
+    "GuideFragment", "FragmentEntity", "FragmentEmbedding",
+    "FragmentCompatibility", "FragmentUsageStats", "FragmentDistillationQueue",
 ]

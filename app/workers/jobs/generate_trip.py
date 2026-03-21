@@ -102,37 +102,10 @@ async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> 
     if hasattr(trip, "travel_start_date") and trip.travel_start_date:
         context["travel_date"] = str(trip.travel_start_date)
 
-    # 尝试从 city context 表获取营业限制和季节活动
-    try:
-        from sqlalchemy import select, text
-        result = await session.execute(text(
-            "SELECT entity_id, closed_days, reservation_required "
-            "FROM entity_operating_facts LIMIT 100"
-        ))
-        rows = result.fetchall()
-        if rows:
-            ops_lines = []
-            for row in rows:
-                if row[1]:  # closed_days
-                    ops_lines.append(f"{row[0]}: 定休 {row[1]}")
-                if row[2]:  # reservation_required
-                    ops_lines.append(f"{row[0]}: 需预约")
-            context["operational_context"] = "\n".join(ops_lines[:20])
-    except Exception:
-        pass
-
-    try:
-        from sqlalchemy import select, text
-        result = await session.execute(text(
-            "SELECT event_name, start_date, end_date, crowd_impact "
-            "FROM seasonal_events WHERE is_active = true LIMIT 20"
-        ))
-        rows = result.fetchall()
-        if rows:
-            events = [f"{r[0]} ({r[1]}~{r[2]}, 人流影响: {r[3]})" for r in rows]
-            context["seasonal_events"] = "\n".join(events)
-    except Exception:
-        pass
+    # entity_operating_facts / seasonal_events 表尚未创建（需 alembic migration）
+    # 暂时使用占位数据，待表创建后再接入真实查询
+    context["operational_context"] = "暂无营业限制数据"   # TODO: 接入 entity_operating_facts
+    context["seasonal_events"] = "暂无季节活动数据"        # TODO: 接入 seasonal_events
 
     return context
 
@@ -195,6 +168,60 @@ async def generate_trip(
         except Exception as exc:
             logger.warning("文案润色失败（非致命）trip=%s: %s", trip_id, exc)
 
+        # Step 2.3: 预览天标记
+        try:
+            from app.domains.ranking.soft_rules.preview_engine import select_preview_day
+            from sqlalchemy import select
+            from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
+            from app.db.models.catalog import EntityBase
+
+            days_q = await session.execute(
+                select(ItineraryDay)
+                .where(ItineraryDay.plan_id == plan_id)
+                .order_by(ItineraryDay.day_number)
+            )
+            all_days = days_q.scalars().all()
+
+            # 转换为 select_preview_day 需要的 list[list[dict]] 格式
+            itinerary_days_for_preview: list[list[dict]] = []
+            for day in all_days:
+                items_q = await session.execute(
+                    select(ItineraryItem)
+                    .where(ItineraryItem.day_id == day.day_id)
+                    .order_by(ItineraryItem.sort_order)
+                )
+                items = items_q.scalars().all()
+                day_items: list[dict] = []
+                for item in items:
+                    if not item.entity_id:
+                        continue
+                    entity = await session.get(EntityBase, item.entity_id)
+                    day_items.append({
+                        "entity_id": str(item.entity_id),
+                        "entity_type": item.item_type or (entity.entity_type if entity else "poi"),
+                        "name": (entity.name_local or entity.name or "未知") if entity else "未知",
+                        "tags": [],  # tags 可后续补充
+                    })
+                itinerary_days_for_preview.append(day_items)
+
+            if itinerary_days_for_preview:
+                preview_result = select_preview_day(itinerary_days_for_preview)
+                plan = await session.get(ItineraryPlan, plan_id)
+                if plan:
+                    meta = plan.plan_metadata or {}
+                    meta["preview_day"] = preview_result.selected_day_index
+                    meta["preview_needs_review"] = preview_result.needs_human_review
+                    meta["preview_reason"] = preview_result.selection_reason
+                    plan.plan_metadata = meta
+                    await session.commit()
+                    logger.info(
+                        "preview_day 标记完成 plan=%s day=%d needs_review=%s",
+                        plan_id, preview_result.selected_day_index,
+                        preview_result.needs_human_review,
+                    )
+        except Exception as exc:
+            logger.warning("preview_day 标记失败（非致命）trip=%s: %s", trip_id, exc)
+
         # Step 2.5: 质量门控校验（11条 QTY 硬规则）
         try:
             plan_json_for_gate = await _build_plan_json(session, plan_id)
@@ -251,6 +278,10 @@ async def generate_trip(
             )
 
             # 持久化 T22-T25 四维评审报告（并行，不阻塞主流程）
+            # NOTE: plan_review_reports 表尚未创建，需要 alembic migration。
+            # 字段：plan_id, overall_score, passed, blocker_count, warning_count,
+            #       summary, comments(jsonb), slot_boundaries(jsonb)
+            # 表不存在时 try/except 会静默跳过，不影响主流程。
             try:
                 from app.core.multi_model_review import (
                     run_multi_model_review, review_report_to_dict

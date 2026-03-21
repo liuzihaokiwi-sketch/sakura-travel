@@ -60,6 +60,8 @@ const FLOW_STEPS = [
   { n: "4", t: "满意再付费" },
 ];
 
+import { copyToClipboard } from "@/lib/clipboard";
+
 const WECHAT_ID = "Kiwi_iloveu_O-o";
 
 // ── Main Component ────────────────────────────────────────────────────────
@@ -67,11 +69,10 @@ const WECHAT_ID = "Kiwi_iloveu_O-o";
 export default function RushCTA() {
   const [copied, setCopied] = useState(false);
 
-  function handleCopy() {
-    navigator.clipboard.writeText(WECHAT_ID).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    });
+  async function handleCopy() {
+    await copyToClipboard(WECHAT_ID);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   }
 
   return (

@@ -29,7 +29,7 @@ export default function PricingClient({ data }: { data: PricingData }) {
             选一个适合你的方案
           </h1>
           <p className="text-stone-500 text-base max-w-lg mx-auto">
-            不确定？先免费看一天，觉得好再决定。不满意不花一分钱。
+            不确定的话，先免费看一天，觉得好再决定。不满意不花一分钱。
           </p>
         </motion.div>
 
@@ -223,7 +223,7 @@ export default function PricingClient({ data }: { data: PricingData }) {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <p className="text-stone-400 text-sm mb-4">不确定？先免费看一天，觉得好再决定</p>
+          <p className="text-stone-400 text-sm mb-4">不确定的话，先免费看一天，觉得好再决定</p>
           <Link href="/quiz">
             <Button variant="warm" size="xl">
               先免费看一天 →

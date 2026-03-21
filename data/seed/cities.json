@@ -1,0 +1,192 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "标准化日本城市/地区列表，用于目的地自动补全和 place_id 绑定",
+    "updated": "2026-03-22"
+  },
+  "cities": [
+    {
+      "place_id": "JP-TOKYO",
+      "name_zh": "东京",
+      "name_en": "Tokyo",
+      "region": "関東",
+      "type": "city",
+      "aliases": ["tokyo", "东京都", "东京市"],
+      "airports": [
+        { "code": "NRT", "name_zh": "成田国际机场", "name_en": "Narita International Airport" },
+        { "code": "HND", "name_zh": "羽田机场", "name_en": "Haneda Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-TOKYO", "name_zh": "东京站", "name_en": "Tokyo Station", "lines": ["JR東海道", "JR中央", "丸ノ内線", "新幹線"] },
+        { "id": "JP-ST-SHINJUKU", "name_zh": "新宿站", "name_en": "Shinjuku Station", "lines": ["JR山手線", "JR中央", "小田急", "京王"] },
+        { "id": "JP-ST-SHIBUYA", "name_zh": "涩谷站", "name_en": "Shibuya Station", "lines": ["JR山手線", "東急", "東京メトロ"] },
+        { "id": "JP-ST-UENO", "name_zh": "上野站", "name_en": "Ueno Station", "lines": ["JR山手線", "京成", "銀座線"] }
+      ],
+      "sub_areas": ["浅草", "上野", "新宿", "涩谷", "原宿", "表参道", "六本木", "银座", "秋叶原", "池袋", "中野", "下北泽"]
+    },
+    {
+      "place_id": "JP-KYOTO",
+      "name_zh": "京都",
+      "name_en": "Kyoto",
+      "region": "関西",
+      "type": "city",
+      "aliases": ["kyoto", "京都市", "京都府"],
+      "airports": [
+        { "code": "ITM", "name_zh": "大阪伊丹机场（最近）", "name_en": "Osaka Itami Airport" },
+        { "code": "KIX", "name_zh": "关西国际机场", "name_en": "Kansai International Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-KYOTO", "name_zh": "京都站", "name_en": "Kyoto Station", "lines": ["JR東海道", "近鉄", "新幹線"] },
+        { "id": "JP-ST-KAWARAMACHI", "name_zh": "河原町站", "name_en": "Kawaramachi Station", "lines": ["阪急京都線"] },
+        { "id": "JP-ST-ARASHIYAMA", "name_zh": "岚山站", "name_en": "Arashiyama Station", "lines": ["嵐電", "阪急"] }
+      ],
+      "sub_areas": ["祇园", "岚山", "伏见", "嵯峨野", "岡崎", "锦市场", "哲学之道", "金阁寺周边", "清水寺周边"]
+    },
+    {
+      "place_id": "JP-OSAKA",
+      "name_zh": "大阪",
+      "name_en": "Osaka",
+      "region": "関西",
+      "type": "city",
+      "aliases": ["osaka", "大阪市", "大阪府"],
+      "airports": [
+        { "code": "KIX", "name_zh": "关西国际机场", "name_en": "Kansai International Airport" },
+        { "code": "ITM", "name_zh": "大阪伊丹机场", "name_en": "Osaka Itami Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-SHIN-OSAKA", "name_zh": "新大阪站", "name_en": "Shin-Osaka Station", "lines": ["新幹線", "大阪メトロ御堂筋線"] },
+        { "id": "JP-ST-NAMBA", "name_zh": "难波站", "name_en": "Namba Station", "lines": ["近鉄", "地下鉄御堂筋線", "南海"] },
+        { "id": "JP-ST-UMEDA", "name_zh": "梅田站", "name_en": "Umeda Station", "lines": ["阪急", "地下鉄御堂筋線", "JR大阪"] }
+      ],
+      "sub_areas": ["道顿堀", "心斋桥", "梅田", "难波", "天王寺", "日本桥", "通天阁", "新世界"]
+    },
+    {
+      "place_id": "JP-NARA",
+      "name_zh": "奈良",
+      "name_en": "Nara",
+      "region": "関西",
+      "type": "city",
+      "aliases": ["nara", "奈良市", "奈良県"],
+      "airports": [
+        { "code": "ITM", "name_zh": "大阪伊丹机场（最近）", "name_en": "Osaka Itami Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-NARA", "name_zh": "奈良站", "name_en": "Nara Station", "lines": ["JR奈良線", "近鉄奈良線"] },
+        { "id": "JP-ST-KINTETSU-NARA", "name_zh": "近铁奈良站", "name_en": "Kintetsu-Nara Station", "lines": ["近鉄奈良線"] }
+      ],
+      "sub_areas": ["奈良公园", "东大寺", "春日大社", "西之京", "若草山"]
+    },
+    {
+      "place_id": "JP-KOBE",
+      "name_zh": "神户",
+      "name_en": "Kobe",
+      "region": "関西",
+      "type": "city",
+      "aliases": ["kobe", "神戸市", "神戸"],
+      "airports": [
+        { "code": "UKB", "name_zh": "神户机场", "name_en": "Kobe Airport" },
+        { "code": "ITM", "name_zh": "大阪伊丹机场", "name_en": "Osaka Itami Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-SANNOMIYA", "name_zh": "三宫站", "name_en": "Sannomiya Station", "lines": ["JR神戸線", "阪急", "阪神", "地下鉄西神山手線"] }
+      ],
+      "sub_areas": ["北野异人馆", "南京町", "三宫", "元町", "须磨", "有马温泉"]
+    },
+    {
+      "place_id": "JP-HAKONE",
+      "name_zh": "箱根",
+      "name_en": "Hakone",
+      "region": "関東",
+      "type": "resort",
+      "aliases": ["hakone", "箱根町"],
+      "airports": [
+        { "code": "HND", "name_zh": "羽田机场（最近）", "name_en": "Haneda Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-HAKONE-YUMOTO", "name_zh": "箱根汤本站", "name_en": "Hakone-Yumoto Station", "lines": ["箱根登山鉄道"] },
+        { "id": "JP-ST-ODAWARA", "name_zh": "小田原站", "name_en": "Odawara Station", "lines": ["小田急", "新幹線", "JR東海道"] }
+      ],
+      "sub_areas": ["箱根湯本", "強羅", "仙石原", "宮ノ下", "大湧谷", "芦ノ湖"]
+    },
+    {
+      "place_id": "JP-NIKKO",
+      "name_zh": "日光",
+      "name_en": "Nikko",
+      "region": "関東",
+      "type": "resort",
+      "aliases": ["nikko", "日光市"],
+      "airports": [
+        { "code": "NRT", "name_zh": "成田国际机场（最近）", "name_en": "Narita International Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-NIKKO", "name_zh": "日光站", "name_en": "Nikko Station", "lines": ["東武日光線", "JR日光線"] }
+      ],
+      "sub_areas": ["东照宫", "中禅寺湖", "华严瀑布", "奥日光", "汤元温泉"]
+    },
+    {
+      "place_id": "JP-HOKKAIDO",
+      "name_zh": "北海道",
+      "name_en": "Hokkaido",
+      "region": "北海道",
+      "type": "region",
+      "aliases": ["hokkaido", "北海道", "札幌"],
+      "airports": [
+        { "code": "CTS", "name_zh": "新千岁机场（札幌）", "name_en": "New Chitose Airport" },
+        { "code": "HKD", "name_zh": "函馆机场", "name_en": "Hakodate Airport" },
+        { "code": "OKD", "name_zh": "丘珠机场（札幌市内）", "name_en": "Okadama Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-SAPPORO", "name_zh": "札幌站", "name_en": "Sapporo Station", "lines": ["JR函館本線", "JR千歳線", "札幌市営地下鉄"] },
+        { "id": "JP-ST-OTARU", "name_zh": "小樽站", "name_en": "Otaru Station", "lines": ["JR函館本線"] },
+        { "id": "JP-ST-HAKODATE", "name_zh": "函馆站", "name_en": "Hakodate Station", "lines": ["JR函館本線"] }
+      ],
+      "sub_areas": ["札幌", "小樽", "函馆", "富良野", "美瑛", "知床", "洞爷湖", "登别温泉", "旭川"]
+    },
+    {
+      "place_id": "JP-HIROSHIMA",
+      "name_zh": "广岛",
+      "name_en": "Hiroshima",
+      "region": "中国地方",
+      "type": "city",
+      "aliases": ["hiroshima", "广島", "廣島"],
+      "airports": [
+        { "code": "HIJ", "name_zh": "广岛机场", "name_en": "Hiroshima Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-HIROSHIMA", "name_zh": "广岛站", "name_en": "Hiroshima Station", "lines": ["JR山陽本線", "新幹線", "広島電鉄"] }
+      ],
+      "sub_areas": ["原爆圆顶馆", "平和记念公园", "宫岛（严岛神社）", "本通商店街"]
+    },
+    {
+      "place_id": "JP-FUKUOKA",
+      "name_zh": "福冈",
+      "name_en": "Fukuoka",
+      "region": "九州",
+      "type": "city",
+      "aliases": ["fukuoka", "福岡", "博多"],
+      "airports": [
+        { "code": "FUK", "name_zh": "福冈机场", "name_en": "Fukuoka Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-HAKATA", "name_zh": "博多站", "name_en": "Hakata Station", "lines": ["JR鹿児島本線", "新幹線", "地下鉄空港線"] },
+        { "id": "JP-ST-TENJIN", "name_zh": "天神站", "name_en": "Tenjin Station", "lines": ["地下鉄空港線", "西鉄"] }
+      ],
+      "sub_areas": ["博多", "天神", "中洲", "大濠公园", "太宰府", "糸岛"]
+    },
+    {
+      "place_id": "JP-OKINAWA",
+      "name_zh": "冲绳",
+      "name_en": "Okinawa",
+      "region": "沖縄",
+      "type": "region",
+      "aliases": ["okinawa", "冲绳", "沖縄"],
+      "airports": [
+        { "code": "OKA", "name_zh": "那霸机场", "name_en": "Naha Airport" }
+      ],
+      "stations": [
+        { "id": "JP-ST-NAHA", "name_zh": "那霸机场站（单轨）", "name_en": "Naha Airport Station", "lines": ["沖縄都市モノレール"] }
+      ],
+      "sub_areas": ["那霸", "国际通", "首里城", "美国村", "恩纳村", "宫古岛", "石垣岛"]
+    }
+  ]
+}

@@ -43,7 +43,7 @@ async def db_session() -> AsyncGenerator[AsyncSession, None]:
     from app.db.models import catalog, derived, snapshots, business  # noqa: F401
 
     from sqlalchemy.dialects.postgresql import JSONB, UUID as PG_UUID
-    from sqlalchemy import JSON, String, event as sa_event
+    from sqlalchemy import JSON, String, Uuid as SA_Uuid, event as sa_event
     from sqlalchemy.engine import Engine
 
     engine = create_async_engine(
@@ -60,10 +60,31 @@ async def db_session() -> AsyncGenerator[AsyncSession, None]:
             for col in table.columns:
                 if isinstance(col.type, JSONB):
                     col.type = JSON()
-                elif isinstance(col.type, PG_UUID):
+                elif isinstance(col.type, (PG_UUID, SA_Uuid)):
                     col.type = String(36)
 
     patch_sqlite_types(Base.metadata)
+
+    # 注册 SQLite UUID 适配器
+    import sqlite3
+    sqlite3.register_adapter(uuid.UUID, lambda u: str(u))
+
+    # Monkey-patch SQLAlchemy Uuid 的 bind_processor 使其在 SQLite 上接受 str
+    from sqlalchemy.sql.sqltypes import Uuid as _SA_Uuid
+    _original_bp = _SA_Uuid.bind_processor
+
+    def _patched_bind_processor(self, dialect):
+        if dialect.name == "sqlite":
+            def process(value):
+                if value is None:
+                    return None
+                if isinstance(value, uuid.UUID):
+                    return str(value)
+                return str(value)
+            return process
+        return _original_bp(self, dialect)
+
+    _SA_Uuid.bind_processor = _patched_bind_processor
 
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -98,7 +119,6 @@ async def _insert_test_poi(session: AsyncSession, name_zh: str, city: str = "tok
     """直接向 DB 插入测试 POI 实体。"""
     from app.db.models.catalog import EntityBase, Poi
 
-    # SQLite 不支持原生 UUID 类型，转换为字符串存储
     entity_id = str(uuid.uuid4())
     entity = EntityBase(
         entity_id=entity_id,
@@ -170,16 +190,21 @@ async def test_score_entities_writes_scores(db_session: AsyncSession):
     from datetime import datetime, timezone
     from sqlalchemy import delete
 
+    from app.db.models.catalog import Poi
     for entity in entities:
-        await db_session.refresh(entity, ["poi"])
+        # SQLite 上 refresh 有 UUID 类型问题，用直接查询代替
+        poi_result = await db_session.execute(
+            select(Poi).where(Poi.entity_id == entity.entity_id)
+        )
+        poi_obj = poi_result.scalar_one_or_none()
 
         signals = EntitySignals(
             entity_type="poi",
             data_tier=entity.data_tier or "B",
             updated_at=datetime.now(tz=timezone.utc),
-            google_rating=float(entity.poi.google_rating) if entity.poi and entity.poi.google_rating else None,
-            google_review_count=entity.poi.google_review_count if entity.poi else None,
-            has_opening_hours=bool(entity.poi.opening_hours_json) if entity.poi else False,
+            google_rating=float(poi_obj.google_rating) if poi_obj and poi_obj.google_rating else None,
+            google_review_count=poi_obj.google_review_count if poi_obj else None,
+            has_opening_hours=bool(poi_obj.opening_hours_json) if poi_obj else False,
         )
         result_score = compute_base_score(signals, score_profile="general")
 

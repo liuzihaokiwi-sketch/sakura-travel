@@ -5,18 +5,18 @@ import { fadeInUp, staggerContainerSlow } from "@/lib/animations";
 import { ADVANTAGES } from "@/lib/constants";
 
 const BG_IMAGES = [
-  "photo-1528360983277-13d401cdc186", // 日本街道
-  "photo-1493976040374-85c8e12f0c0e", // 路线地图
-  "photo-1529655683826-aba9b3e77383", // 情侣旅行
-  "photo-1490806843957-31f4c9a91c65", // 富士山
-  "photo-1535090467336-9501f96eef89", // 日本料理
-  "photo-1551218808-94e220e084d2", // 数据图表
-  "photo-1544716278-ca5e3f4abd8c", // 杂志
-  "photo-1558618666-fcd25c85f82e", // 科技
-  "photo-1492571350019-22de08371fd3", // 祭典
-  "photo-1524413840807-0c3cb6fa808d", // 日本地图
-  "photo-1540959733332-eab4deabeeaf", // 东京
-  "photo-1493780474015-ba834fd0ce2f", // 相机
+  "/images/japan-street.jpg",   // 日本街道
+  "/images/kyoto.jpg",          // 路线地图
+  "/images/couple-travel.jpg",  // 情侣旅行
+  "/images/fuji.jpg",           // 富士山
+  "/images/sushi.jpg",          // 日本料理
+  "/images/data-chart.jpg",     // 数据图表
+  "/images/magazine.jpg",       // 杂志
+  "/images/tech.jpg",           // 科技
+  "/images/festival.jpg",       // 祭典
+  "/images/japan-map.jpg",      // 日本地图
+  "/images/tokyo.jpg",          // 东京
+  "/images/camera.jpg",         // 相机
 ];
 
 export function AdvantageGrid() {
@@ -37,7 +37,7 @@ export function AdvantageGrid() {
           <div
             className="absolute inset-0 bg-cover bg-center opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-300"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/${BG_IMAGES[i]}?w=400&q=40')`,
+              backgroundImage: `url('${BG_IMAGES[i]}')`,
             }}
           />
 

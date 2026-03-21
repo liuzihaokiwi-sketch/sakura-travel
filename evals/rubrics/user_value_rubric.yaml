@@ -1,0 +1,135 @@
+rubric_id: user_value_rubric
+version: "1.0"
+description: |
+  体验层评分 — LLM-as-judge，评价攻略是否真的对这个用户有价值。
+  核心问题：「这份攻略是为这个人写的吗？」
+  由 E3 grader 调用 GPT-4o，按以下维度打分，返回 JSON。
+max_score: 100
+
+llm_judge_config:
+  model: "gpt-4o"
+  temperature: 0.1
+  system_prompt: |
+    你是一位资深日本旅行规划师，同时也是一位严格的攻略质量评审员。
+    你将收到：1）用户的详细需求画像；2）为该用户生成的攻略正文。
+    请按照以下评分维度，对攻略进行独立、客观的评分。
+    输出格式为 JSON，包含每个维度的 score（整数）和 reason（≤100字的中文说明）。
+    评分时请严格按照 scoring 标准，不要过度宽容。
+
+dimensions:
+  - id: U1
+    name: 个性化感知
+    weight: 30
+    max_score: 30
+    description: 攻略是否让人感觉是「专门为这个人写的」，而非通用模板
+    judge_prompt: |
+      对比用户画像（party_type/travel_style/must_have_tags/avoid_tags/special_needs）
+      和攻略内容，判断攻略对用户特征的体现程度。
+    scoring:
+      - score: 28-30
+        criteria: |
+          攻略明显体现了用户特征：
+          - 提到了用户的 must_have 需求（如「你特别提到想体验温泉」）
+          - 回避了用户的 avoid 内容
+          - 节奏/预算/同行结构均有体现
+          读者会感觉「这就是为我写的」
+      - score: 18-27
+        criteria: 体现了大部分用户特征，但个别地方感觉是通用描述
+      - score: 8-17
+        criteria: 有一些个性化元素，但整体感觉还是通用攻略
+      - score: 0-7
+        criteria: 几乎无法感受到用户特征，完全像通用攻略
+
+  - id: U2
+    name: 信息密度与实用性
+    weight: 25
+    max_score: 25
+    description: 攻略提供的信息是否具体、可操作，而非泛泛而谈
+    judge_prompt: |
+      检查攻略中的时间/价格/交通/预约信息是否具体，
+      是否包含「第一次去的人不知道的信息」（tip/避坑/最佳时段）。
+    scoring:
+      - score: 23-25
+        criteria: |
+          信息极度具体：时间精确到小时、价格有估算、
+          交通有换乘说明、有3个以上内行 tip（非常识性内容）
+      - score: 15-22
+        criteria: 大部分信息具体，有少量模糊（如「可以去xx」但无具体建议）
+      - score: 7-14
+        criteria: 信息较泛，主要是景点列表，缺乏可操作细节
+      - score: 0-6
+        criteria: 信息极度泛化，读完不知道该怎么做
+
+  - id: U3
+    name: 行程流畅感
+    weight: 20
+    max_score: 20
+    description: 阅读攻略时是否有「跟着走就行了」的顺畅感
+    judge_prompt: |
+      模拟一个用户跟着这份攻略走，判断：
+      1）景点之间的衔接是否自然？2）有无明显的逻辑跳跃或信息缺失？
+      3）整体节奏是否舒适？
+    scoring:
+      - score: 18-20
+        criteria: 行程衔接顺畅，每天都有「故事感」，读者无需自己做决策
+      - score: 12-17
+        criteria: 基本流畅，有1-2处需要读者自己填补的信息
+      - score: 6-11
+        criteria: 有多处信息断层，需要读者自己查额外资料
+      - score: 0-5
+        criteria: 严重不流畅，读完仍不知道怎么执行
+
+  - id: U4
+    name: 记忆点与亮点
+    weight: 15
+    max_score: 15
+    description: 攻略中是否有让人印象深刻的推荐/描述，有「说服力」
+    judge_prompt: |
+      判断攻略中是否有至少2个「让人眼前一亮」的推荐，
+      这些推荐是否有具体的理由（而非「值得一去」这类空话）。
+    scoring:
+      - score: 13-15
+        criteria: ≥3个有具体理由的亮点推荐，理由令人信服（如季节/角度/数据）
+      - score: 8-12
+        criteria: 1-2个亮点推荐，理由基本充分
+      - score: 3-7
+        criteria: 推荐存在但理由泛化（如「这里风景很好」）
+      - score: 0-2
+        criteria: 无明确亮点推荐，或推荐完全没有理由
+
+  - id: U5
+    name: 付费意愿感知
+    weight: 10
+    max_score: 10
+    description: 看完这份攻略，是否会觉得「值得付这个钱」
+    judge_prompt: |
+      作为目标用户，看完攻略后，判断：
+      这份内容的质量和个性化程度，是否能支撑 ¥399-699 的定价？
+      不需要考虑价格本身，只评估内容质量。
+    scoring:
+      - score: 9-10
+        criteria: 明显超出免费攻略水平，专业感强，愿意付费
+      - score: 6-8
+        criteria: 比免费攻略好，但差距不够大
+      - score: 3-5
+        criteria: 和免费攻略差别不明显
+      - score: 0-2
+        criteria: 不如免费攻略，不值得付费
+
+output_format:
+  type: json
+  schema: |
+    {
+      "dimension_scores": [
+        {"id": "U1", "score": <int>, "reason": "<str>"},
+        ...
+      ],
+      "total_score": <int>,
+      "overall_verdict": "<pass|fail|borderline>",
+      "key_issues": ["<issue1>", "<issue2>"],
+      "highlight": "<最值得称赞的一点>"
+    }
+
+pass_threshold: 70
+fail_auto_flag: true
+flag_message: "体验评分低于 70 分，视为个性化严重不足，需检查 profile normalization 和 AI 解释层"

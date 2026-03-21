@@ -1,0 +1,54 @@
+# 大阪美食购物朋友 4天 — Case 03（文档定义的 Case 03）
+# 因 C003 文件名已被北海道占用，本文件独立存放
+case_id: C003b
+case_type: standard
+title: 大阪4天美食购物 — 朋友中预算
+description: 典型大阪首次画像，美食+购物驱动，朋友同行，节奏紧凑
+tags: [osaka, friends, mid_budget, first_time, food, shopping]
+known_risks:
+  - 道顿堀/心斋桥周末极度拥挤
+  - 大阪周游卡是否购买需按计划判断
+
+user_input:
+  cities:
+    - {city_code: osaka, city_name: 大阪, nights: 4, place_id: JP-OSAKA}
+  travel_start_date: "2026-05-15"
+  travel_end_date: "2026-05-19"
+  duration_days: 4
+  party_type: friends
+  party_size: 2
+  party_ages: [24, 23]
+  budget_level: mid
+  budget_total_jpy: 60000
+  pace_preference: active
+  trip_style: one_city
+  stamina_level: high
+  must_have_tags: [dotonbori, kuromon_market, shinsaibashi, umeda]
+  food_preferences: [takoyaki, ramen, kushikatsu, yakiniku]
+  arrival_date: "2026-05-15"
+  arrival_time: "10:00"
+  arrival_place: KIX
+  departure_date: "2026-05-19"
+  departure_time: "18:00"
+  departure_place: KIX
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [osaka]
+  trip_style: one_city
+  theme_family: food_shopping
+  budget_level: mid
+  party_type: friends
+  pace_preference: active
+
+fragment_hit_expectation:
+  must_hit: [osaka:route, osaka:dining, osaka:logistics]
+  should_hit: [osaka:tips, osaka:experience]
+  must_not_hit: [kyoto:route, tokyo:route]
+
+output_requirements:
+  min_days_covered: 4
+  must_include_sections: [overview, day1, transport_guide, pre_departure]
+  must_mention_keywords: [道顿堀, 黑门市场, 心斋桥]
+  version: standard

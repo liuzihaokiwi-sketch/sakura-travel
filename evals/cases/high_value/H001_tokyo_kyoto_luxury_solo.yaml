@@ -1,0 +1,53 @@
+# H001 — 高价值：luxury 用户，东京+京都，尊享版，omakase+私汤温泉
+case_id: H001
+case_type: high_value
+title: 东京+京都8天 — luxury 单人尊享
+description: 最高客单价用户，一人，luxury预算，尊享版，要求 omakase 预约建议+私汤旅馆
+tags: [tokyo, kyoto, solo, luxury, premium_experience, omakase]
+known_risks:
+  - 必须触发尊享版内容边界
+  - omakase 预约需有具体建议
+  - 价格信息必须准确（不能低估luxury餐饮）
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 4, place_id: JP-TOKYO}
+    - {city_code: kyoto, city_name: 京都, nights: 4, place_id: JP-KYOTO}
+  duration_days: 8
+  party_type: solo
+  party_size: 1
+  party_ages: [42]
+  budget_level: luxury
+  budget_total_jpy: 500000
+  pace_preference: relaxed
+  trip_style: multi_city
+  stamina_level: mid
+  must_have_tags: [omakase_sushi, private_onsen, high_end_ryokan, art_museums]
+  avoid_tags: [crowds, tourist_traps, chain_restaurants]
+  japan_experience: repeat_visitor
+  accommodation_pref: [ryokan, boutique_hotel]
+  arrival_date: "2026-11-10"
+  arrival_time: "11:00"
+  arrival_place: HND
+  departure_date: "2026-11-18"
+  departure_time: "16:00"
+  departure_place: KIX
+  has_jr_pass: true
+  jr_pass_type: 7day
+normalized_profile_expected:
+  city_codes: [tokyo, kyoto]
+  budget_level: luxury
+  party_type: solo
+  pace_preference: relaxed
+  theme_family: gourmet_focus
+fragment_hit_expectation:
+  must_hit: [tokyo:dining, kyoto:experience, kyoto:route]
+  should_hit: [tokyo:route, kyoto:dining]
+output_requirements:
+  min_days_covered: 8
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [omakase, 私汤, 怀石]
+  version: premium
+grader_overrides:
+  user_value_rubric:
+    U1_weight: 35
+    pass_threshold: 80

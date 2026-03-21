@@ -1,16 +1,22 @@
-import { supabase } from "@/lib/supabase";
+// ── Admin API — 直接调后端 FastAPI，不再依赖 Supabase ──────────────────────
+
+// 通过 Next.js API route 代理，避免浏览器跨域和手机无法访问 localhost 的问题
+const API_BASE = "/api/admin/submissions";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
 export interface QuizSubmission {
   id: string;
+  name: string | null;
   destination: string;
   duration_days: number;
+  people_count: number | null;
   party_type: string;
   japan_experience: string | null;
   play_mode: string | null;
+  budget_focus: string | null;
   styles: string[];
-  wechat_id: string;
+  wechat_id: string | null;
   status: string;
   notes: string | null;
   created_at: string;
@@ -44,25 +50,21 @@ function toOrderItem(q: QuizSubmission): OrderItem {
 
 export async function fetchOrders(status?: string): Promise<OrderItem[]> {
   try {
-    let query = (supabase as any)
-      .from("quiz_submissions")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(200);
-
+    let url = API_BASE;
     if (status) {
-      query = query.eq("status", status);
+      url += `?status=${encodeURIComponent(status)}`;
     }
 
-    const { data, error } = await query;
-
-    if (error) {
-      console.error("Failed to fetch submissions:", error);
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.error("Failed to fetch submissions:", res.status);
       return [];
     }
 
-    return (data || []).map((d: any) => toOrderItem(d));
-  } catch {
+    const data: QuizSubmission[] = await res.json();
+    return data.map(toOrderItem);
+  } catch (e) {
+    console.error("Failed to fetch submissions:", e);
     return [];
   }
 }
@@ -71,13 +73,10 @@ export async function fetchOrders(status?: string): Promise<OrderItem[]> {
 
 export async function fetchOrderById(id: string): Promise<OrderItem | null> {
   try {
-    const { data, error } = await (supabase as any)
-      .from("quiz_submissions")
-      .select("*")
-      .eq("id", id)
-      .single();
+    const res = await fetch(`${API_BASE}?id=${id}`);
+    if (!res.ok) return null;
 
-    if (error || !data) return null;
+    const data: QuizSubmission = await res.json();
     return toOrderItem(data);
   } catch {
     return null;
@@ -92,12 +91,12 @@ export async function updateOrderStatus(
   reason?: string
 ): Promise<boolean> {
   try {
-    const { error } = await (supabase as any)
-      .from("quiz_submissions")
-      .update({ status: newStatus, notes: reason || null })
-      .eq("id", id);
-
-    return !error;
+    const res = await fetch(`${API_BASE}?id=${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: newStatus, notes: reason || null }),
+    });
+    return res.ok;
   } catch {
     return false;
   }
@@ -114,7 +113,7 @@ export async function publishOrder(id: string): Promise<boolean> {
 }
 
 export async function rejectOrder(id: string): Promise<boolean> {
-  return updateOrderStatus(id, "rejected", "admin_reject");
+  return updateOrderStatus(id, "generating", "admin_reject");
 }
 
 export async function confirmPayment(id: string): Promise<boolean> {

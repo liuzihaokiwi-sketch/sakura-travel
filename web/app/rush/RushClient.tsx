@@ -18,7 +18,7 @@ type TabKey = "home" | "map" | "timeline";
 
 const TABS: { key: TabKey; label: string; icon: string }[] = [
   { key: "home", label: "首页", icon: "🏠" },
-  { key: "map", label: "地图", icon: "🗺️" },
+  // { key: "map", label: "地图", icon: "🗺️" },  // 暂时隐藏
   { key: "timeline", label: "时间轴", icon: "📅" },
 ];
 
@@ -251,7 +251,7 @@ function CtaSection() {
       <p className="text-sm text-stone-500 mb-5">30-40页完整手册 · 精确到每一天每一餐 · 拿到就能出发</p>
       <div className="relative inline-block group">
         <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
-        <Link href="/why">
+        <Link href="/">
           <Button variant="warm" size="lg" className="relative font-bold shadow-lg">先免费看一天 →</Button>
         </Link>
       </div>
@@ -271,7 +271,7 @@ export default function RushClient({ data }: { data: RushData }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fdfaf7] pt-14">
+    <div className="min-h-screen bg-[#fdfaf7]">
       {/* Sub-nav (rush internal tabs) — 更醒目 */}
       <div className="sticky top-14 z-40 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center px-4">
@@ -292,11 +292,26 @@ export default function RushClient({ data }: { data: RushData }) {
             ))}
           </div>
           <div className="ml-auto">
-            <Link href="/why" className="text-xs text-pink-600 font-bold hover:underline">
+            <Link href="/" className="text-xs text-pink-600 font-bold hover:underline">
               定制行程 →
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* 引流框 */}
+      <div className="max-w-7xl mx-auto px-4 pt-2 pb-1">
+        <Link href="/quiz" className="block">
+          <div className="flex items-center justify-between bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl px-4 py-3 hover:shadow-md transition-shadow">
+            <div>
+              <p className="text-sm font-bold text-stone-800">想要一份专属于你的日本行程攻略</p>
+              <p className="text-xs text-stone-500 mt-0.5">免费定制一天试试，满意再付费 →</p>
+            </div>
+            <span className="shrink-0 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+              免费试试
+            </span>
+          </div>
+        </Link>
       </div>
 
       {/* Tab content */}

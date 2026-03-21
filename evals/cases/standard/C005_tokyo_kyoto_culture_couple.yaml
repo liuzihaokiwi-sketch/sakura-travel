@@ -1,0 +1,53 @@
+case_id: C005
+case_type: standard
+title: 大阪+京都7天关西经典 — 朋友组合中预算
+description: 关西多城顺玩代表案例，测试多城市行程规划、城市间交通衔接、大阪美食与京都文化的权重分配
+tags: [osaka, kyoto, friends, mid_budget, multi_city, kansai]
+known_risks:
+  - 大阪↔京都交通选择（JR vs 阪急）
+  - 酒店位置影响两城玩耍效率
+
+user_input:
+  cities:
+    - {city_code: osaka, city_name: 大阪, nights: 4, place_id: JP-OSAKA}
+    - {city_code: kyoto, city_name: 京都, nights: 3, place_id: JP-KYOTO}
+  travel_start_date: "2026-09-20"
+  travel_end_date: "2026-09-27"
+  duration_days: 7
+  party_type: friends
+  party_size: 3
+  party_ages: [26, 27, 25]
+  budget_level: mid
+  budget_total_jpy: 120000
+  pace_preference: moderate
+  trip_style: multi_city
+  stamina_level: mid
+  must_have_tags: [dotonbori, osaka_castle, arashiyama, fushimi_inari]
+  food_preferences: [takoyaki, okonomiyaki, ramen, kaiseki_lite]
+  arrival_date: "2026-09-20"
+  arrival_time: "15:00"
+  arrival_place: KIX
+  departure_date: "2026-09-27"
+  departure_time: "13:00"
+  departure_place: KIX
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [osaka, kyoto]
+  trip_style: multi_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: friends
+  pace_preference: moderate
+
+fragment_hit_expectation:
+  must_hit: [osaka:route, osaka:logistics, kyoto:route]
+  should_hit: [osaka:dining, kyoto:experience, kyoto:tips]
+  must_not_hit: [tokyo:route, hokkaido:route]
+
+output_requirements:
+  min_days_covered: 7
+  must_include_sections: [overview, day1, transport_guide, transport_passes, pre_departure]
+  must_mention_keywords: [道顿堀, 大阪城, 岚山, 交通衔接]
+  version: standard

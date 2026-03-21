@@ -187,7 +187,7 @@ async def chat_confirm(req: ChatConfirmRequest, db: AsyncSession = Depends(get_d
     trip_req = TripRequest(
         user_id=req.user_id,
         raw_input=intent_data.get("raw_message", ""),
-        status="pending",
+        status="new",
         channel="chat_api",
     )
     db.add(trip_req)
@@ -249,11 +249,16 @@ async def get_trip_status(trip_request_id: str, db: AsyncSession = Depends(get_d
         raise HTTPException(status_code=404, detail="未找到该行程请求")
 
     status_messages = {
-        "pending":  "⏳ 需求已提交，等待处理",
-        "profiled": "📋 需求已解析，等待规划",
-        "planning": "🔄 正在规划行程...",
-        "done":     "✅ 行程规划完成！",
-        "failed":   "❌ 规划失败，请重试",
+        "new":          "⏳ 需求已提交，等待处理",
+        "sample_viewed": "� 预览已查看",
+        "paid":         "💰 已付款，等待填写详情",
+        "detail_filling": "📝 详情填写中",
+        "validating":   "🔍 正在校验",
+        "validated":    "✅ 校验通过，等待生成",
+        "generating":   "🔄 正在生成行程...",
+        "done":         "✅ 行程生成完成！",
+        "delivered":    "📬 行程已送达",
+        "failed":       "❌ 规划失败，请重试",
     }
 
     # 查询是否有 plan

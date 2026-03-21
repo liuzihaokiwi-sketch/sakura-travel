@@ -1,0 +1,98 @@
+rubric_id: planning_rubric
+version: "1.0"
+description: |
+  规划层评分 — 基于 trace 数据的规则化检查。
+  检查：顺路性、节奏适配、到离时间一致性、预算偏向一致性、片段命中 vs 期望对比。
+  不依赖 LLM，依赖 generation trace（H15a 完成后可自动填充）。
+max_score: 100
+
+dimensions:
+  - id: P1
+    name: 地理顺路性
+    weight: 25
+    max_score: 25
+    description: 同日内景点之间的移动是否合理，无明显绕路
+    scoring:
+      - score: 25
+        criteria: |
+          所有天的路线均通过顺路性检查：
+          同城内相邻景点地铁/步行 ≤30min，
+          多城转移有明确交通说明且时间合理
+      - score: 15
+        criteria: 大部分路线合理，有1-2处轻微绕路（可接受范围）
+      - score: 5
+        criteria: 有明显绕路（如上午涩谷→下午浅草→晚上涩谷），严重影响体验
+      - score: 0
+        criteria: 路线完全未考虑地理位置，纯随机排列
+
+  - id: P2
+    name: 节奏与体力适配
+    weight: 20
+    max_score: 20
+    description: 每日安排密度是否符合用户填写的 pace_preference 和 stamina_level
+    scoring:
+      - score: 20
+        criteria: |
+          relaxed：每天≤3个主景点，有明确休息时段
+          moderate：每天3-4个主景点，合理穿插餐饮
+          intensive：每天≥5个安排，无长时段空白
+          且与用户填写的 stamina_level 一致
+      - score: 12
+        criteria: 基本符合，有1天明显偏离（如 relaxed 用户某天排了6个景点）
+      - score: 5
+        criteria: 多天与用户节奏偏好不符
+      - score: 0
+        criteria: 完全忽略节奏偏好
+
+  - id: P3
+    name: 到达/离开时间一致性
+    weight: 20
+    max_score: 20
+    description: 首末日安排是否与用户填写的到达/离开时间匹配
+    scoring:
+      - score: 20
+        criteria: |
+          到达日：首个景点在到达时间+1.5h 之后
+          离开日：最后安排结束时间在离开时间-2h 之前
+          均满足
+      - score: 12
+        criteria: 满足其中一个
+      - score: 0
+        criteria: 两个均不满足，或到达日安排了明显不可能赶到的景点
+
+  - id: P4
+    name: 预算偏向一致性
+    weight: 15
+    max_score: 15
+    description: 餐饮/住宿/体验选择是否与用户的 budget_level 和 spend_priority 一致
+    scoring:
+      - score: 15
+        criteria: |
+          budget 用户：餐饮选择≤¥1500/人，无高价体验（温泉旅馆/米其林）
+          mid 用户：人均餐饮 ¥1500-3000，有1-2个亮点体验
+          premium 用户：有明确的高品质选择，但无需每餐都贵
+          luxury 用户：全程高端，有 omakase/私汤/高端旅馆
+      - score: 8
+        criteria: 大体符合，有1-2处偏差
+      - score: 0
+        criteria: 明显不符（如 budget 用户排了多个米其林）
+
+  - id: P5
+    name: 片段命中期望符合度
+    weight: 20
+    max_score: 20
+    description: 实际使用的片段类型和城市是否与 case 中设定的 fragment_hit_expectation 一致
+    notes: "此维度在 E1 trace 接入前需人工评分，接入后自动化"
+    scoring:
+      - score: 20
+        criteria: 所有 must_hit 片段期望均命中，至少80% should_hit 片段命中
+      - score: 12
+        criteria: must_hit 全部命中，should_hit 命中率50-80%
+      - score: 5
+        criteria: must_hit 有遗漏，但整体城市/主题方向正确
+      - score: 0
+        criteria: must_hit 多数未命中，或使用了明确标注为 must_not_hit 的片段
+
+pass_threshold: 75
+fail_auto_flag: true
+flag_message: "规划评分低于 75 分，视为规划性缺陷，需检查片段复用引擎和节奏适配逻辑"

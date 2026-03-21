@@ -1,0 +1,92 @@
+case_id: R001
+case_type: regression
+title: 回归：首末日时间逻辑（历史bug：到达日排了凌晨景点）
+description: |
+  历史 bug：当用户到达时间为 14:00 时，生成器曾推荐上午 9:00 的景点（时间轴错误）。
+  此用例固化为回归测试，确保该 bug 不再出现。
+tags: [regression, timing_bug, tokyo]
+known_risks: [历史上到达当天曾推荐到达前的景点]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 7, place_id: JP-TOKYO}]
+  duration_days: 7
+  party_type: couple
+  party_size: 2
+  budget_level: mid
+  arrival_date: "2026-04-01"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-04-08"
+  departure_time: "09:00"
+  departure_place: NRT
+hard_constraints_expected:
+  should_pass: [day1_start_after_arrival, last_day_ends_before_departure]
+output_requirements:
+  must_not_mention_keywords: ["Day1 09:00", "Day1 10:00", "Day1 11:00", "Day1 12:00", "Day1 13:00"]
+grader_overrides:
+  planning_rubric:
+    P3_weight: 50
+    pass_threshold: 90
+
+---
+case_id: R002
+case_type: regression
+title: 回归：budget 用户被推荐了米其林餐厅（历史bug）
+description: |
+  历史 bug：budget 用户曾被推荐人均 ¥15000+ 的米其林餐厅，
+  预算偏向一致性完全失效。此用例固化为回归测试。
+tags: [regression, budget_mismatch_bug, tokyo]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  duration_days: 5
+  party_type: solo
+  party_size: 1
+  budget_level: budget
+  budget_total_jpy: 50000
+  pace_preference: moderate
+  arrival_date: "2026-05-10"
+  arrival_time: "12:00"
+  arrival_place: HND
+  departure_date: "2026-05-15"
+  departure_time: "14:00"
+  departure_place: HND
+output_requirements:
+  must_not_mention_keywords: [米其林, 龙吟, 鮨さいとう, omakase, 人均¥15000, 人均¥20000]
+grader_overrides:
+  planning_rubric:
+    P4_weight: 40
+    pass_threshold: 85
+
+---
+case_id: R003
+case_type: regression
+title: 回归：多城顺路性错误（大阪→广岛→京都→大阪 绕路）
+description: |
+  历史 bug：关西多城行程曾出现大阪→广岛→京都→大阪的绕路安排，
+  正确顺序应为大阪→京都→广岛（或广岛→京都→大阪）。
+tags: [regression, routing_bug, osaka, kyoto, hiroshima]
+user_input:
+  cities:
+    - {city_code: osaka, city_name: 大阪, nights: 3, place_id: JP-OSAKA}
+    - {city_code: kyoto, city_name: 京都, nights: 2, place_id: JP-KYOTO}
+    - {city_code: hiroshima, city_name: 广岛, nights: 2, place_id: JP-HIROSHIMA}
+  duration_days: 7
+  party_type: friends
+  party_size: 3
+  budget_level: mid
+  trip_style: multi_city
+  arrival_date: "2026-09-01"
+  arrival_time: "10:00"
+  arrival_place: KIX
+  departure_date: "2026-09-08"
+  departure_time: "14:00"
+  departure_place: HIJ
+  has_jr_pass: true
+  jr_pass_type: 7day
+hard_constraints_expected:
+  should_pass: [no_backtrack_routing]
+output_requirements:
+  must_not_mention_keywords: [大阪→广岛→京都]
+grader_overrides:
+  planning_rubric:
+    P1_weight: 50
+    pass_threshold: 90

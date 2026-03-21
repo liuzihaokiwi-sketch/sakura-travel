@@ -1,0 +1,218 @@
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 11 — 晚到东京 6 天  (C类：复杂约束)
+# ══════════════════════════════════════════════════════════════════
+case_id: C011
+case_type: constrained
+title: 东京6天晚到 — 情侣中预算（21:30 到达）
+description: 测试首日极晚到达逻辑：第一天到达时间 21:30，不应安排任何景点，只安排机场→酒店+便利店/拉面
+tags: [tokyo, couple, mid_budget, late_arrival, constrained]
+known_risks:
+  - 首日不应安排景点，只安排到达动线
+  - 需提示机场→市区末班车时间
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 6, place_id: JP-TOKYO}
+  travel_start_date: "2026-05-01"
+  travel_end_date: "2026-05-07"
+  duration_days: 6
+  party_type: couple
+  party_size: 2
+  party_ages: [27, 25]
+  budget_level: mid
+  pace_preference: moderate
+  trip_style: one_city
+  stamina_level: mid
+  arrival_date: "2026-05-01"
+  arrival_time: "21:30"
+  arrival_place: NRT
+  departure_date: "2026-05-07"
+  departure_time: "10:00"
+  departure_place: NRT
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: couple
+
+fragment_hit_expectation:
+  must_hit: [tokyo:route, tokyo:logistics]
+  should_hit: [tokyo:tips]
+
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [晚到, 末班车, 机场快线]
+  day1_constraint: no_sightseeing_first_evening
+  version: standard
+
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 12 — 已订酒店多城 7 天  (C类：复杂约束)
+# ══════════════════════════════════════════════════════════════════
+case_id: C012
+case_type: constrained
+title: 东京+京都7天 — 已订酒店区域锁定
+description: 测试酒店区域约束对路线的影响：东京酒店在浅草，京都酒店在岚山，路线应优先围绕锁定区域展开
+tags: [tokyo, kyoto, couple, mid_budget, hotel_locked, constrained]
+known_risks:
+  - 浅草区酒店→渋谷/新宿路程不近，需考虑交通成本
+  - 岚山酒店适合上午游览竹林，路线顺序需匹配
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 3, place_id: JP-TOKYO}
+    - {city_code: kyoto, city_name: 京都, nights: 4, place_id: JP-KYOTO}
+  travel_start_date: "2026-07-05"
+  travel_end_date: "2026-07-12"
+  duration_days: 7
+  party_type: couple
+  party_size: 2
+  party_ages: [30, 28]
+  budget_level: mid
+  pace_preference: moderate
+  trip_style: multi_city
+  stamina_level: mid
+  hotel_locked: true
+  hotel_area_tokyo: asakusa
+  hotel_area_kyoto: arashiyama
+  arrival_date: "2026-07-05"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-07-12"
+  departure_time: "12:00"
+  departure_place: KIX
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo, kyoto]
+  trip_style: multi_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: couple
+
+fragment_hit_expectation:
+  must_hit: [tokyo:route, kyoto:route, kyoto:logistics]
+  should_hit: [tokyo:tips, kyoto:experience]
+
+output_requirements:
+  min_days_covered: 7
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [浅草, 岚山, 酒店位置, 交通]
+  version: standard
+
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 13 — 固定演出时间 5 天  (C类：复杂约束)
+# ══════════════════════════════════════════════════════════════════
+case_id: C013
+case_type: constrained
+title: 东京5天固定演出 — 第3天晚间演唱会约束
+description: 测试固定时间事件对路线的影响：第3天19:00有演唱会在武道馆，该天下午不应安排远距离景点
+tags: [tokyo, friends, mid_budget, fixed_event, constrained]
+known_risks:
+  - 第3天演出前行程需控制在武道馆30分钟内
+  - 演出后晚餐安排需在九段下/神保町附近
+
+user_input:
+  cities:
+    - {city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}
+  travel_start_date: "2026-08-10"
+  travel_end_date: "2026-08-15"
+  duration_days: 5
+  party_type: friends
+  party_size: 3
+  party_ages: [25, 26, 24]
+  budget_level: mid
+  pace_preference: active
+  trip_style: one_city
+  stamina_level: high
+  fixed_events:
+    - date: "2026-08-12"
+      time: "19:00"
+      venue: 武道馆
+      area: kudanshita
+      type: concert
+  arrival_date: "2026-08-10"
+  arrival_time: "12:00"
+  arrival_place: HND
+  departure_date: "2026-08-15"
+  departure_time: "16:00"
+  departure_place: HND
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [tokyo]
+  trip_style: one_city
+  theme_family: classic_first
+  budget_level: mid
+  party_type: friends
+
+output_requirements:
+  min_days_covered: 5
+  day3_constraint: afternoon_near_kudanshita
+  must_mention_keywords: [武道馆, 九段下, 演出]
+  version: standard
+
+---
+# ══════════════════════════════════════════════════════════════════
+# Case 14 — 带父母多城 6 天  (C类：复杂约束)
+# ══════════════════════════════════════════════════════════════════
+case_id: C014
+case_type: constrained
+title: 大阪+京都6天带父母 — 体力优先多城
+description: 测试体力敏感约束：同行中有 60+ 老人，每天步行不超过 8000 步，避免爬坡景点，优先电梯/无障碍路线
+tags: [osaka, kyoto, family, mid_budget, elderly, low_stamina, constrained]
+known_risks:
+  - 清水寺爬坡不适合老人，应推荐平路替代（嵐山渡月桥）
+  - 每天景点不超过3个，节奏必须轻松
+
+user_input:
+  cities:
+    - {city_code: osaka, city_name: 大阪, nights: 3, place_id: JP-OSAKA}
+    - {city_code: kyoto, city_name: 京都, nights: 3, place_id: JP-KYOTO}
+  travel_start_date: "2026-10-05"
+  travel_end_date: "2026-10-11"
+  duration_days: 6
+  party_type: family
+  party_size: 4
+  party_ages: [35, 33, 63, 61]
+  budget_level: mid
+  pace_preference: relaxed
+  trip_style: multi_city
+  stamina_level: low
+  has_elderly: true
+  accessibility_required: true
+  avoid_tags: [steep_stairs, long_walk, crowded_narrow_street]
+  must_have_tags: [osaka_castle_lift, namba, arashiyama_flat]
+  arrival_date: "2026-10-05"
+  arrival_time: "14:00"
+  arrival_place: KIX
+  departure_date: "2026-10-11"
+  departure_time: "13:00"
+  departure_place: KIX
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [osaka, kyoto]
+  trip_style: multi_city
+  theme_family: family_relaxed
+  budget_level: mid
+  party_type: family
+  pace_preference: relaxed
+
+fragment_hit_expectation:
+  must_hit: [osaka:route, kyoto:route]
+  should_hit: [osaka:logistics, kyoto:tips]
+
+output_requirements:
+  min_days_covered: 6
+  must_include_sections: [overview, day1, transport_guide]
+  must_mention_keywords: [无障碍, 轻松, 电梯, 步行友好]
+  must_not_mention_keywords: [清水寺爬坡, 长距离步行]
+  version: standard

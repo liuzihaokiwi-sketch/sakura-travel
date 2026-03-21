@@ -1,0 +1,44 @@
+case_id: C003
+case_type: standard
+title: 北海道6天轻松自然 — 情侣均衡预算
+description: 测试轻松节奏+均衡预算的北海道行程，节奏不宜塞满，重自然体验
+tags: [hokkaido, couple, mid_budget, relaxed, nature]
+known_risks: [北海道地大需 JR Pass, 景点间距离远需留足交通时间]
+user_input:
+  cities:
+    - {city_code: hokkaido, city_name: 北海道, nights: 6, place_id: JP-HOKKAIDO}
+  travel_start_date: "2026-07-10"
+  travel_end_date: "2026-07-16"
+  duration_days: 6
+  party_type: couple
+  party_size: 2
+  party_ages: [28, 26]
+  budget_level: mid
+  pace_preference: relaxed
+  trip_style: multi_city
+  stamina_level: low
+  must_have_tags: [lavender, seafood_market, blue_pond]
+  arrival_date: "2026-07-10"
+  arrival_time: "13:00"
+  arrival_place: CTS
+  departure_date: "2026-07-16"
+  departure_time: "14:00"
+  departure_place: CTS
+  has_jr_pass: true
+  jr_pass_type: 7day
+  japan_experience: first_time
+normalized_profile_expected:
+  city_codes: [hokkaido]
+  trip_style: multi_city
+  theme_family: nature_relaxed
+  budget_level: mid
+  party_type: couple
+  pace_preference: relaxed
+fragment_hit_expectation:
+  must_hit: [hokkaido:route, hokkaido:logistics]
+  should_hit: [hokkaido:tips, hokkaido:experience]
+output_requirements:
+  min_days_covered: 6
+  must_include_sections: [overview, transport_guide, transport_passes]
+  must_mention_keywords: [富良野, 薰衣草, 温泉]
+  version: standard

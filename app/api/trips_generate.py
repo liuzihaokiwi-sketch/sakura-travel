@@ -31,6 +31,7 @@ router = APIRouter(prefix="/trips", tags=["trips-plan"])
 # ── 响应模型 ──────────────────────────────────────────────────────────────────
 
 class ItemOut(BaseModel):
+    model_config = {"from_attributes": True}
     item_type: str
     start_time: Optional[str]
     end_time: Optional[str]
@@ -38,8 +39,6 @@ class ItemOut(BaseModel):
     notes_zh: Optional[str]
     estimated_cost_jpy: Optional[int]
     is_optional: bool
-    class Config:
-        from_attributes = True
 
 
 class DayOut(BaseModel):

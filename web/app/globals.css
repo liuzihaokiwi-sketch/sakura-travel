@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @theme {
   /* Sakura palette */
   --color-sakura-50: #fef7f7;
@@ -19,8 +24,8 @@
   --color-warm-500: #d35400;
 
   /* Fonts */
-  --font-display: "Playfair Display", "Noto Serif SC", serif;
-  --font-sans: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Playfair Display", "Noto Serif SC", "SimSun", "STSong", serif;
+  --font-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   /* Animations */

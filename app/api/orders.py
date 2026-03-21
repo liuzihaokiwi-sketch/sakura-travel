@@ -1,9 +1,10 @@
 """
 Orders API — 订单管理端点（运营后台使用）。
 
-核心状态机：
-  quiz_submitted → preview_sent → paid → generating → review → delivered
-                                                              → refunded
+统一状态机（11 状态）：
+  new → sample_viewed → paid → detail_filling → detail_submitted
+  → validating → needs_fix → validated → generating → done → delivered
+  （任意状态可 → cancelled / refunded）
 
 提供：
 - POST   /orders              — 创建订单（关联 trip_request + sku）
@@ -33,19 +34,31 @@ router = APIRouter(prefix="/orders", tags=["orders"])
 
 # ── 状态机定义 ────────────────────────────────────────────────────────────────
 
-# 合法的状态流转
+# 统一 11 状态流转表
 VALID_TRANSITIONS = {
-    "quiz_submitted": ["preview_sent"],
-    "preview_sent":   ["paid", "cancelled"],
-    "paid":           ["generating", "refunded"],
-    "generating":     ["review"],
-    "review":         ["delivered", "generating"],  # review → generating = 打回重做
-    "delivered":      ["refunded"],
-    "cancelled":      [],
-    "refunded":       [],
+    "new":              ["sample_viewed", "cancelled"],
+    "sample_viewed":    ["paid", "cancelled"],
+    "paid":             ["detail_filling", "refunded"],
+    "detail_filling":   ["detail_submitted"],
+    "detail_submitted": ["validating"],
+    "validating":       ["needs_fix", "validated"],
+    "needs_fix":        ["detail_filling"],           # 用户补填后回到 detail_filling
+    "validated":        ["generating"],
+    "generating":       ["done", "generating"],       # 可重跑
+    "done":             ["delivered", "generating"],   # review 后可打回重做
+    "delivered":        ["refunded"],
+    "cancelled":        [],
+    "refunded":         [],
 }
 
 ALL_STATUSES = list(VALID_TRANSITIONS.keys())
+
+# 旧状态 → 新状态映射（兼容历史数据）
+_LEGACY_STATUS_MAP = {
+    "quiz_submitted": "new",
+    "preview_sent": "sample_viewed",
+    "review": "done",
+}
 
 
 # ── Pydantic Schemas ──────────────────────────────────────────────────────────
@@ -126,7 +139,7 @@ async def create_order(
 
     order = Order(
         sku_id=body.sku_id,
-        status="quiz_submitted",
+        status="new",
         amount_cny=amount,
         payment_channel=body.payment_channel,
     )
@@ -219,8 +232,9 @@ async def update_order_status(
     """
     推进订单状态。有状态机校验，不能跳步。
 
-    状态流转:
-    quiz_submitted → preview_sent → paid → generating → review → delivered
+    统一 11 状态流转:
+    new → sample_viewed → paid → detail_filling → detail_submitted
+    → validating → needs_fix → validated → generating → done → delivered
     """
     order = await db.get(Order, uuid.UUID(order_id))
     if not order:
@@ -228,6 +242,13 @@ async def update_order_status(
 
     current = order.status
     target = body.new_status
+
+    # 旧状态兼容：自动映射到新状态
+    if current in _LEGACY_STATUS_MAP:
+        current = _LEGACY_STATUS_MAP[current]
+        order.status = current  # 同时修正数据库中的旧状态
+    if target in _LEGACY_STATUS_MAP:
+        target = _LEGACY_STATUS_MAP[target]
 
     # 校验状态流转合法性
     if current not in VALID_TRANSITIONS:

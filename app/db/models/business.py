@@ -97,8 +97,8 @@ class Order(Base):
         String(50), ForeignKey("product_sku.sku_id"), nullable=False
     )
     status: Mapped[str] = mapped_column(
-        String(20), nullable=False, default="pending",
-        comment="pending / paid / processing / delivered / refunded"
+        String(20), nullable=False, default="new",
+        comment="new / sample_viewed / paid / detail_filling / detail_submitted / validating / needs_fix / validated / generating / done / delivered / cancelled / refunded"
     )
     amount_cny: Mapped[float] = mapped_column(Numeric(8, 2), nullable=False)
     payment_channel: Mapped[Optional[str]] = mapped_column(
@@ -144,8 +144,8 @@ class TripRequest(Base):
 
     # 处理状态
     status: Mapped[str] = mapped_column(
-        String(20), nullable=False, default="pending",
-        comment="pending / normalizing / profiled / planning / done / failed"
+        String(20), nullable=False, default="new",
+        comment="new / sample_viewed / paid / detail_filling / detail_submitted / validating / needs_fix / validated / generating / done / delivered / cancelled / refunded"
     )
     last_job_error: Mapped[Optional[str]] = mapped_column(Text, comment="最后一次 job 报错摘要")
     retry_count: Mapped[int] = mapped_column(SmallInteger, default=0)
@@ -206,6 +206,12 @@ class TripProfile(Base):
     must_have_tags: Mapped[list] = mapped_column(JSONB, default=list)
     nice_to_have_tags: Mapped[list] = mapped_column(JSONB, default=list)
     avoid_tags: Mapped[list] = mapped_column(JSONB, default=list)
+
+    # 预算偏向（用户 Quiz 中选择）
+    budget_focus: Mapped[Optional[str]] = mapped_column(
+        String(30),
+        comment="better_stay / better_food / better_experience / balanced / best_value",
+    )
 
     # 特殊需求
     special_requirements: Mapped[Optional[dict]] = mapped_column(

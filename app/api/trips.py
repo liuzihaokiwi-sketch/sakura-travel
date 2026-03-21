@@ -64,7 +64,7 @@ async def create_trip(
     """
     trip = TripRequest(
         raw_input=body.model_dump(),
-        status="pending",
+        status="new",
     )
     db.add(trip)
     await db.flush()  # 获取 trip_request_id（flush 不 commit，get_db 会在退出时 commit）
@@ -74,7 +74,7 @@ async def create_trip(
 
     return TripCreateResponse(
         trip_request_id=str(trip.trip_request_id),
-        status="pending",
+        status="new",
         message="Trip request accepted. Use GET /trips/{id}/status to poll.",
     )
 

@@ -108,7 +108,7 @@ async def set_intensity(
         raise HTTPException(status_code=404, detail="行程不存在")
 
     # 只有特定状态才允许切换节奏
-    allowed_statuses = {"quiz_submitted", "preview_sent", "paid", "generating", "review", "delivered"}
+    allowed_statuses = {"new", "sample_viewed", "paid", "generating", "done", "delivered"}
     if trip.status not in allowed_statuses:
         raise HTTPException(
             status_code=400,
@@ -123,7 +123,7 @@ async def set_intensity(
 
     if old_intensity != body.intensity:
         # 节奏变化 → 需要重新生成
-        trip.status = "pending"
+        trip.status = "generating"
 
     await db.commit()
 

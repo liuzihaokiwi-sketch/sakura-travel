@@ -1,0 +1,36 @@
+case_id: C006
+case_type: standard
+title: 冲绳5天休闲海岛 — 家庭无幼儿
+tags: [okinawa, family_no_kids, mid_budget, beach, relaxed]
+known_risks: [冲绳交通依赖租车, 节奏要轻松]
+user_input:
+  cities: [{city_code: okinawa, city_name: 冲绳, nights: 5, place_id: JP-OKINAWA}]
+  duration_days: 5
+  party_type: family_no_kids
+  party_size: 4
+  party_ages: [55, 52, 28, 26]
+  has_elderly: true
+  budget_level: mid
+  pace_preference: relaxed
+  trip_style: one_city
+  stamina_level: low
+  must_have_tags: [beach, shuri_castle, american_village]
+  arrival_date: "2026-08-10"
+  arrival_time: "13:00"
+  arrival_place: OKA
+  departure_date: "2026-08-15"
+  departure_time: "17:00"
+  departure_place: OKA
+normalized_profile_expected:
+  city_codes: [okinawa]
+  trip_style: one_city
+  budget_level: mid
+  party_type: family_no_kids
+  pace_preference: relaxed
+fragment_hit_expectation:
+  must_hit: [okinawa:route, okinawa:logistics]
+  must_not_hit: [tokyo:route, kyoto:route]
+output_requirements:
+  min_days_covered: 5
+  must_include_sections: [overview, pre_departure]
+  must_mention_keywords: [首里城, 美国村, 海滩]

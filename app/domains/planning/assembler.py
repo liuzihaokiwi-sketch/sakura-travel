@@ -16,18 +16,221 @@ from typing import Optional
 
 from sqlalchemy import select, and_, or_, func
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.core.queue import enqueue_job
 from app.db.models.catalog import EntityBase, EntityTag, EntityEditorNote
 from app.db.models.derived import (
+    EntityScore,
     ItineraryDay,
     ItineraryItem,
     ItineraryPlan,
     PlannerRun,
     RouteTemplate,
 )
+from app.domains.ranking.scorer import (
+    CandidateScoreResult,
+    EntitySignals,
+    compute_candidate_score,
+)
+from app.domains.ranking.soft_rules.weight_packs import (
+    SEGMENT_PACK_SEEDS,
+    STAGE_PACK_SEEDS,
+    merge_weight_packs,
+    aggregate_soft_rule_score,
+)
 
 logger = logging.getLogger(__name__)
+
+# ─── party_type → segment_pack_id 映射 ──────────────────────────────────────────
+_PARTY_TO_SEGMENT: dict[str, str] = {
+    "solo": "first_time_fit",
+    "couple": "couple",
+    "family_child": "family_child",
+    "family_no_child": "parents",
+    "group": "friends_small_group",
+    "senior": "parents",
+    # quiz 前端可能传的别名
+    "friends": "friends_small_group",
+    "besties": "besties",
+    "parents": "parents",
+}
+
+
+# ─── 用户权重构建 ──────────────────────────────────────────────────────────────
+
+async def _build_user_weights(
+    session: AsyncSession,
+    trip_request_id: uuid.UUID,
+    stage: str = "standard",
+) -> tuple[dict[str, float], str, str]:
+    """从 TripProfile 构建 user_weights（用于 context_score 计算）。
+
+    Returns:
+        (merged_weights, segment_pack_id, stage_pack_id)
+    """
+    from app.db.models.business import TripProfile
+
+    result = await session.execute(
+        select(TripProfile).where(TripProfile.trip_request_id == trip_request_id)
+    )
+    profile = result.scalar_one_or_none()
+
+    # 确定客群包
+    segment_pack_id = "first_time_fit"  # 默认
+    if profile and profile.party_type:
+        segment_pack_id = _PARTY_TO_SEGMENT.get(profile.party_type, "first_time_fit")
+
+    # 确定阶段包
+    stage_pack_id = stage if stage in STAGE_PACK_SEEDS else "standard"
+
+    # 获取 seed 权重（不走 DB，直接用内存 seeds；DB 权重包表可能尚未灌入数据）
+    seg_weights = SEGMENT_PACK_SEEDS.get(segment_pack_id, SEGMENT_PACK_SEEDS["first_time_fit"])
+    stg_weights = STAGE_PACK_SEEDS.get(stage_pack_id, STAGE_PACK_SEEDS["standard"])
+    merged = merge_weight_packs(seg_weights, stg_weights)
+
+    logger.info(
+        "user_weights built: segment=%s stage=%s trip=%s",
+        segment_pack_id, stage_pack_id, trip_request_id,
+    )
+    return merged, segment_pack_id, stage_pack_id
+
+
+async def _build_entity_affinity(
+    session: AsyncSession,
+    entity_ids: list[uuid.UUID],
+) -> dict[uuid.UUID, dict[str, int]]:
+    """批量查询实体的主题亲和度标签 → {entity_id: {theme: affinity_score}}。"""
+    if not entity_ids:
+        return {}
+
+    result = await session.execute(
+        select(EntityTag).where(
+            EntityTag.entity_id.in_(entity_ids),
+            EntityTag.tag_namespace == "affinity",
+        )
+    )
+    tags = result.scalars().all()
+
+    affinity_map: dict[uuid.UUID, dict[str, int]] = {}
+    for tag in tags:
+        parts = (tag.tag_value or "").split(":", 1)
+        if len(parts) == 2:
+            try:
+                affinity_map.setdefault(tag.entity_id, {})[parts[0].lower()] = int(parts[1])
+            except ValueError:
+                pass
+    return affinity_map
+
+
+async def _get_entity_soft_scores(
+    session: AsyncSession,
+    entity_ids: list[uuid.UUID],
+) -> dict[uuid.UUID, float]:
+    """查询实体的软规则聚合分（如果 entity_soft_scores 表存在）。
+
+    Returns:
+        {entity_id: soft_rule_score (0-100)} — 缺失的实体不在 dict 中
+    """
+    try:
+        from app.db.models.soft_rules import EntitySoftScore
+        result = await session.execute(
+            select(EntitySoftScore).where(
+                EntitySoftScore.entity_id.in_(entity_ids),
+            )
+        )
+        scores = result.scalars().all()
+
+        soft_map: dict[uuid.UUID, float] = {}
+        for s in scores:
+            # EntitySoftScore 有 12 个维度列，需要聚合
+            dim_scores: dict[str, float] = {}
+            from app.domains.ranking.soft_rules.dimensions import DIMENSION_IDS
+            for dim_id in DIMENSION_IDS:
+                val = getattr(s, dim_id, None)
+                if val is not None:
+                    dim_scores[dim_id] = float(val)
+            if dim_scores:
+                from app.domains.ranking.soft_rules.dimensions import DEFAULT_WEIGHTS
+                soft_map[s.entity_id] = aggregate_soft_rule_score(dim_scores, DEFAULT_WEIGHTS)
+        return soft_map
+    except Exception:
+        # 表不存在或其他错误 → 退化到 2D
+        logger.debug("entity_soft_scores 不可用，退化到 2D 评分")
+        return {}
+
+
+async def _rescore_candidates(
+    session: AsyncSession,
+    candidates: list[EntityBase],
+    user_weights: dict[str, float],
+    segment_pack_id: str,
+    stage_pack_id: str,
+) -> list[EntityBase]:
+    """对候选实体用三维公式重新评分，按 final_score 降序排序。"""
+    if not candidates:
+        return candidates
+
+    entity_ids = [e.entity_id for e in candidates]
+
+    # 批量查询 affinity + soft scores
+    affinity_map = await _build_entity_affinity(session, entity_ids)
+    soft_score_map = await _get_entity_soft_scores(session, entity_ids)
+
+    # 批量查询 EntityScore（获取 base signals）
+    es_result = await session.execute(
+        select(EntityScore).where(
+            EntityScore.entity_id.in_(entity_ids),
+            EntityScore.score_profile == "general",
+        )
+    )
+    es_map = {es.entity_id: es for es in es_result.scalars().all()}
+
+    # 批量查询 editorial boost
+    en_result = await session.execute(
+        select(EntityEditorNote).where(
+            EntityEditorNote.entity_id.in_(entity_ids),
+        )
+    )
+    boost_map: dict[uuid.UUID, int] = {}
+    for note in en_result.scalars().all():
+        boost = getattr(note, "boost", 0) or getattr(note, "editorial_boost", 0) or 0
+        boost_map[note.entity_id] = boost
+
+    # 逐候选评分
+    scored: list[tuple[EntityBase, float]] = []
+    for entity in candidates:
+        eid = entity.entity_id
+        es = es_map.get(eid)
+
+        # 构建 signals
+        signals = EntitySignals(
+            entity_type=entity.entity_type or "poi",
+            data_tier=entity.data_tier or "B",
+            google_rating=getattr(entity, "google_rating", None),
+            google_review_count=getattr(entity, "google_review_count", None),
+            editorial_boost=boost_map.get(eid, 0),
+        )
+
+        # entity affinity
+        entity_affinity = affinity_map.get(eid, {})
+
+        # soft rule score（可能为 None → 退化 2D）
+        soft_score = soft_score_map.get(eid, None)
+
+        result = compute_candidate_score(
+            signals=signals,
+            user_weights=user_weights,
+            entity_affinity=entity_affinity,
+            soft_rule_score=soft_score,
+            segment_pack_id=segment_pack_id,
+            stage_pack_id=stage_pack_id,
+        )
+        scored.append((entity, result.final_score))
+
+    # 按 final_score 降序排序
+    scored.sort(key=lambda x: x[1], reverse=True)
+    return [entity for entity, _ in scored]
 
 
 # ─── 模板加载 ──────────────────────────────────────────────────────────────────
@@ -431,6 +634,35 @@ async def assemble_trip(
         logger.info("天数裁剪: 模板%d天 → 请求%d天", template_days, requested_days)
         template = trim_to_days(template, requested_days)
 
+    # 1c. 读取 TripProfile 的 budget_focus，叠加到 tag_weight_overrides
+    budget_focus: str | None = None
+    from app.db.models.business import TripProfile as _TripProfile
+    _profile_result = await session.execute(
+        select(_TripProfile).where(
+            _TripProfile.trip_request_id == trip_request_id
+        )
+    )
+    _profile = _profile_result.scalar_one_or_none()
+    if _profile and hasattr(_profile, "budget_focus"):
+        budget_focus = _profile.budget_focus
+
+    # budget_focus → tag_weight 映射
+    _BUDGET_FOCUS_WEIGHTS: dict[str, dict[str, float]] = {
+        "better_stay":       {"hotel_premium": 2.0, "hotel_boutique": 1.5},
+        "better_food":       {"restaurant_premium": 2.0, "fine_dining": 1.8, "tabelog_top": 1.5},
+        "better_experience": {"unique_experience": 2.0, "hidden_gem": 1.5, "local_authentic": 1.5},
+        "balanced":          {},  # 不做额外权重覆盖
+        "best_value":        {"budget_friendly": 1.8, "free_entry": 1.5},
+    }
+    if budget_focus and budget_focus in _BUDGET_FOCUS_WEIGHTS:
+        extra_weights = _BUDGET_FOCUS_WEIGHTS[budget_focus]
+        if extra_weights:
+            logger.info("budget_focus=%s 应用额外权重: %s", budget_focus, extra_weights)
+            # 将 budget_focus 权重注入到模板，与场景权重合并
+            existing = template.get("_tag_weight_overrides", {})
+            merged = {**extra_weights, **existing}  # 场景权重优先
+            template["_tag_weight_overrides"] = merged
+
     meta = template.get("meta", {})
     # 兼容顶层字段和 meta 子对象两种格式
     _city_code_raw = template.get("city_code") or meta.get("city_code") or meta.get("city_codes")
@@ -446,15 +678,22 @@ async def assemble_trip(
     tag_weight_overrides = template.get("_tag_weight_overrides", {})
     filter_exclude_tags = template.get("_filter_exclude_tags", {})
 
+    # 1d. 构建三维评分 user_weights
+    user_weights, segment_pack_id, stage_pack_id = await _build_user_weights(
+        session, trip_request_id, stage="standard",
+    )
+
     # 2. 创建 PlannerRun 追溯记录
     planner_run = PlannerRun(
         trip_request_id=trip_request_id,
         status="running",
-        algorithm_version="assembler-v1",
+        algorithm_version="assembler-v2-3d",
         run_params={
             "template_code": template_code,
             "scene": scene,
             "city_codes": city_codes,
+            "segment_pack": segment_pack_id,
+            "stage_pack": stage_pack_id,
         },
         started_at=datetime.now(tz=timezone.utc),
     )
@@ -539,6 +778,12 @@ async def assemble_trip(
                     area_strict=False,
                 )
 
+            # 三维评分重排序（用 user_weights + entity_affinity + soft_rule_score）
+            if candidates:
+                candidates = await _rescore_candidates(
+                    session, candidates, user_weights, segment_pack_id, stage_pack_id,
+                )
+
             # 选 Top 1
             chosen_entity: EntityBase | None = candidates[0] if candidates else None
 
@@ -567,7 +812,10 @@ async def assemble_trip(
             )
             session.add(item)
 
-    # 5. 更新 PlannerRun 完成状态
+    # 5. 装配后交通时间校验
+    route_warnings = await _post_check_commute(session, plan.plan_id)
+
+    # 6. 更新 PlannerRun 完成状态
     elapsed_ms = int((time.time() - start_time) * 1000)
     planner_run.status = "completed"
     planner_run.completed_at = datetime.now(tz=timezone.utc)
@@ -575,18 +823,87 @@ async def assemble_trip(
         "entity_ids_used": entity_ids_log,
         "total_entities": len(entity_ids_log),
         "duration_ms": elapsed_ms,
+        "route_warnings_count": len(route_warnings),
     }
 
-    # 6. 更新 ItineraryPlan 状态
+    # 7. 更新 ItineraryPlan 状态 + 写入 route_warnings
     plan.status = "reviewing"
+    plan_meta = plan.plan_metadata or {}
+    plan_meta["route_warnings"] = route_warnings
+    plan_meta["segment_pack"] = segment_pack_id
+    plan_meta["stage_pack"] = stage_pack_id
+    plan.plan_metadata = plan_meta
 
     await session.commit()
     logger.info(
-        "装配完成 plan=%s 用时 %dms，实体 %d 个",
-        plan.plan_id, elapsed_ms, len(entity_ids_log),
+        "装配完成 plan=%s 用时 %dms，实体 %d 个，交通警告 %d 条",
+        plan.plan_id, elapsed_ms, len(entity_ids_log), len(route_warnings),
     )
 
     return plan.plan_id
+
+
+# ─── 装配后交通时间校验 ────────────────────────────────────────────────────────
+
+COMMUTE_WARNING_THRESHOLD_MIN = 45  # 超过此阈值的相邻实体对记录为 warning
+
+async def _post_check_commute(
+    session: AsyncSession,
+    plan_id: uuid.UUID,
+) -> list[dict]:
+    """遍历每天相邻实体对，调用 route_matrix 检查通勤时间。
+
+    Returns:
+        route_warnings: [{day, from_entity, to_entity, duration_min}]
+    """
+    from app.domains.planning.route_matrix import get_travel_time
+
+    warnings: list[dict] = []
+
+    # 查所有天
+    days_result = await session.execute(
+        select(ItineraryDay).where(ItineraryDay.plan_id == plan_id).order_by(ItineraryDay.day_number)
+    )
+    days = days_result.scalars().all()
+
+    for day in days:
+        # 查当天所有有实体的 items（按 sort_order）
+        items_result = await session.execute(
+            select(ItineraryItem).where(
+                ItineraryItem.day_id == day.day_id,
+                ItineraryItem.entity_id.is_not(None),
+            ).order_by(ItineraryItem.sort_order)
+        )
+        items = items_result.scalars().all()
+
+        # 相邻实体对
+        for i in range(len(items) - 1):
+            origin_id = items[i].entity_id
+            dest_id = items[i + 1].entity_id
+            if not origin_id or not dest_id:
+                continue
+
+            try:
+                travel = await get_travel_time(session, origin_id, dest_id, mode="transit")
+                duration = travel.get("duration_min", 0) if travel else 0
+            except Exception:
+                # route_matrix 不可用时跳过，不阻塞装配
+                logger.debug("route_matrix 查询失败: %s → %s", origin_id, dest_id)
+                continue
+
+            if duration > COMMUTE_WARNING_THRESHOLD_MIN:
+                warnings.append({
+                    "day": day.day_number,
+                    "from_entity": str(origin_id),
+                    "to_entity": str(dest_id),
+                    "duration_min": duration,
+                })
+                logger.warning(
+                    "通勤超标 Day%d: %s → %s = %d min",
+                    day.day_number, origin_id, dest_id, duration,
+                )
+
+    return warnings
 
 
 # ─── 文案批量更新（Task 3.5）────────────────────────────────────────────────────
@@ -630,7 +947,14 @@ async def enrich_itinerary_with_copy(
         )
         items = items_result.scalars().all()
         for item in items:
-            entity = await session.get(EntityBase, item.entity_id)
+            # 使用 selectinload eager load tags 关系，避免 async session 中
+            # _get_tags_str 访问 entity.tags 时触发 lazy load → MissingGreenlet 异常
+            entity_result = await session.execute(
+                select(EntityBase)
+                .options(selectinload(EntityBase.tags))
+                .where(EntityBase.entity_id == item.entity_id)
+            )
+            entity = entity_result.scalar_one_or_none()
             if entity:
                 items_with_entities.append((item, entity))
 

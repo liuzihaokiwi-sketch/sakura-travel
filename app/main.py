@@ -16,17 +16,21 @@ from app.api import chat
 from app.api import pois
 from app.api import products
 from app.api import quiz
+from app.api import submissions
 from app.api import orders
 from app.api import modifications
 from app.api import review
 from app.api import config as config_api
 from app.api import intensity as intensity_api
 from app.api import self_adjustment as self_adjustment_api
+from app.api import detail_forms
+from app.api import destinations
 from app.api.ops import editorial, entities, ranked
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
 from app.db.session import AsyncSessionLocal, engine
 from app.db.models import catalog, business, derived, snapshots  # noqa: F401 触发模型注册
+from app.db.models import detail_forms as _df, fragments as _frag, trace as _trace  # noqa: F401
 
 
 # ── Lifespan ──────────────────────────────────────────────────────────────────
@@ -98,12 +102,15 @@ app.include_router(entities.router, prefix="/ops", tags=["ops"])
 app.include_router(editorial.router, prefix="/ops", tags=["ops-editorial"])
 app.include_router(ranked.router, prefix="/ops", tags=["ops-ranked"])
 app.include_router(quiz.router, tags=["quiz"])               # /quiz
+app.include_router(submissions.router)                       # /submissions
 app.include_router(orders.router, tags=["orders"])           # /orders
 app.include_router(modifications.router, tags=["modifications"])  # /orders/{id}/modify
 app.include_router(review.router, tags=["admin-reviews"])    # /admin/reviews/*
 app.include_router(config_api.router, tags=["config"])       # /config/*
 app.include_router(intensity_api.router, tags=["trips-intensity"])  # /trips/{id}/intensity
 app.include_router(self_adjustment_api.router, tags=["self-adjustment"])  # /trips/{id}/alternatives, /swap
+app.include_router(detail_forms.router, tags=["detail-forms"])           # /detail-forms/*
+app.include_router(destinations.router, tags=["destinations"])           # /destinations/*
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────

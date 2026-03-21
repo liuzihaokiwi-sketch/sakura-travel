@@ -15,7 +15,7 @@ export default function CustomPage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80')",
+              "url('/images/kyoto.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/85" />

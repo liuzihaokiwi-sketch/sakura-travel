@@ -1,0 +1,55 @@
+case_id: C002
+case_type: standard
+title: 京阪神10天多城 — 朋友团性价比
+description: 4人朋友团，京都+大阪+神户10天，预算偏低，第一次日本，多城顺游
+tags: [kyoto, osaka, kobe, friends, budget, first_time, multi_city]
+known_risks:
+  - 多城行程顺路性检查
+  - budget 用户不应推荐高价餐厅
+
+user_input:
+  cities:
+    - {city_code: kyoto, city_name: 京都, nights: 4, place_id: JP-KYOTO}
+    - {city_code: osaka, city_name: 大阪, nights: 4, place_id: JP-OSAKA}
+    - {city_code: kobe, city_name: 神户, nights: 2, place_id: JP-KOBE}
+  travel_start_date: "2026-05-01"
+  travel_end_date: "2026-05-11"
+  duration_days: 10
+  party_type: friends
+  party_size: 4
+  party_ages: [24, 25, 23, 26]
+  budget_level: budget
+  budget_total_jpy: 80000
+  pace_preference: moderate
+  trip_style: multi_city
+  stamina_level: high
+  must_have_tags: [fushimi_inari, dotonbori, nishiki_market]
+  food_preferences: [ramen, takoyaki, street_food]
+  arrival_date: "2026-05-01"
+  arrival_time: "10:30"
+  arrival_place: KIX
+  departure_date: "2026-05-11"
+  departure_time: "13:00"
+  departure_place: KIX
+  transport_locked: false
+  has_jr_pass: false
+  japan_experience: first_time
+
+normalized_profile_expected:
+  city_codes: [kyoto, osaka, kobe]
+  trip_style: multi_city
+  theme_family: classic_first
+  budget_level: budget
+  party_type: friends
+  pace_preference: moderate
+
+fragment_hit_expectation:
+  must_hit: [kyoto:route, osaka:route, osaka:dining]
+  should_hit: [kyoto:tips, osaka:tips]
+  must_not_hit: [tokyo:route]
+
+output_requirements:
+  min_days_covered: 10
+  must_include_sections: [overview, day1, transport_guide, pre_departure]
+  must_mention_keywords: [伏见稻荷, 道顿堀, 锦市场]
+  version: standard

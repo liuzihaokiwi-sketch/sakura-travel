@@ -10,6 +10,7 @@ import { PDF_NOTICE } from "@/lib/content/pricing";
 import { cn } from "@/lib/utils";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { WECHAT_ID } from "@/lib/constants";
+import { copyToClipboard } from "@/lib/clipboard";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface PlanItem {
@@ -312,13 +313,7 @@ function PlanContent({ params }: { params: { id: string } }) {
                     微信：<span className="font-mono">{WECHAT_ID}</span>
                   </p>
                   <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(WECHAT_ID).then(() => {
-                        alert("已复制微信号：" + WECHAT_ID);
-                      }).catch(() => {
-                        prompt("请复制微信号：", WECHAT_ID);
-                      });
-                    }}
+                    onClick={() => copyToClipboard(WECHAT_ID)}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-warm-100 text-warm-600 text-sm font-medium hover:bg-warm-200 transition-colors"
                   >
                     📋 复制微信号

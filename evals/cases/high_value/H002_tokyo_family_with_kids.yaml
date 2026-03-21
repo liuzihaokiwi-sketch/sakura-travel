@@ -1,0 +1,39 @@
+case_id: H002
+case_type: high_value
+title: 亲子5天东京 — 带6岁幼儿家庭
+tags: [tokyo, family_with_kids, mid_budget, children_friendly]
+known_risks: [必须有儿童友好条件页, 体力按孩子算, 不推荐长时间步行]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 5, place_id: JP-TOKYO}]
+  duration_days: 5
+  party_type: family_with_kids
+  party_size: 3
+  party_ages: [35, 33, 6]
+  has_children: true
+  children_ages: [6]
+  budget_level: mid
+  pace_preference: relaxed
+  trip_style: one_city
+  stamina_level: low
+  must_have_tags: [disneyland, pokemon_center, child_friendly_food]
+  arrival_date: "2026-04-25"
+  arrival_time: "15:00"
+  arrival_place: NRT
+  departure_date: "2026-04-30"
+  departure_time: "12:00"
+  departure_place: NRT
+normalized_profile_expected:
+  city_codes: [tokyo]
+  party_type: family_with_kids
+  pace_preference: relaxed
+  budget_level: mid
+fragment_hit_expectation:
+  must_hit: [tokyo:route, tokyo:tips]
+  should_hit: [tokyo:logistics]
+output_requirements:
+  min_days_covered: 5
+  must_mention_keywords: [迪士尼, 宝可梦中心, 儿童]
+  must_include_sections: [overview, pre_departure]
+grader_overrides:
+  planning_rubric:
+    P2_weight: 30

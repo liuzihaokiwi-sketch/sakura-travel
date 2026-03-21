@@ -39,6 +39,16 @@ async def render_export(
 
         trip = await session.get(TripRequest, plan.trip_request_id)
 
+        # 组装水印文字：从 trip.raw_input 取 wechat_id（用户昵称/微信号）+ 订单尾号
+        _watermark_text: str | None = None
+        if trip:
+            _raw = trip.raw_input or {}
+            _wechat = _raw.get("wechat_id", "") or ""
+            # 订单尾号：取 trip_request_id 最后 4 位（无真实订单号时用请求 ID 代替）
+            _order_tail = str(trip.trip_request_id).replace("-", "")[-4:].upper()
+            _nickname = _wechat[:10] if _wechat else f"用户{_order_tail}"
+            _watermark_text = f"{_nickname} · {_order_tail} · 仅供本人行程使用"
+
         # 创建 h5 export_job 记录
         export_job = ExportJob(
             plan_id=pid,
@@ -70,7 +80,7 @@ async def render_export(
             try:
                 from app.domains.rendering.magazine.pdf_renderer import render_pdf
 
-                pdf_bytes = await render_pdf(pid, session)
+                pdf_bytes = await render_pdf(pid, session, watermark_text=_watermark_text)
                 pdf_path = EXPORTS_DIR / f"{pid}.pdf"
                 pdf_path.write_bytes(pdf_bytes)
                 logger.info("PDF 写入 %s", pdf_path)

@@ -1,0 +1,67 @@
+case_id: H003
+case_type: high_value
+title: 广岛+京都+奈良6天 — 历史文化深度游
+tags: [hiroshima, kyoto, nara, couple, mid_budget, culture_deep]
+known_risks: [广岛+京都+奈良顺路性, 不应漏掉宫岛]
+user_input:
+  cities:
+    - {city_code: hiroshima, city_name: 广岛, nights: 2, place_id: JP-HIROSHIMA}
+    - {city_code: kyoto, city_name: 京都, nights: 3, place_id: JP-KYOTO}
+    - {city_code: nara, city_name: 奈良, nights: 1, place_id: JP-NARA}
+  duration_days: 6
+  party_type: couple
+  party_size: 2
+  party_ages: [32, 30]
+  budget_level: mid
+  pace_preference: moderate
+  trip_style: multi_city
+  stamina_level: mid
+  must_have_tags: [hiroshima_peace, miyajima, deer_park]
+  japan_experience: first_time
+  arrival_date: "2026-09-05"
+  arrival_time: "11:00"
+  arrival_place: HIJ
+  departure_date: "2026-09-11"
+  departure_time: "15:00"
+  departure_place: ITM
+  has_jr_pass: true
+  jr_pass_type: 7day
+fragment_hit_expectation:
+  must_hit: [hiroshima:route, kyoto:route]
+  should_hit: [nara:route, kyoto:tips]
+output_requirements:
+  min_days_covered: 6
+  must_mention_keywords: [平和纪念公园, 宫岛, 奈良公园]
+  version: standard
+
+case_id: H004
+case_type: high_value
+title: 福冈+长崎5天九州深度 — 美食+历史
+tags: [fukuoka, nagasaki, couple, mid_budget, gourmet, history]
+known_risks: [九州路线少见，片段库可能欠缺，需AI补充]
+user_input:
+  cities:
+    - {city_code: fukuoka, city_name: 福冈, nights: 3, place_id: JP-FUKUOKA}
+    - city_code: nagasaki
+      city_name: 长崎
+      nights: 2
+  duration_days: 5
+  party_type: couple
+  party_size: 2
+  budget_level: mid
+  pace_preference: moderate
+  trip_style: multi_city
+  must_have_tags: [hakata_ramen, chanpon, glover_garden]
+  arrival_date: "2026-06-20"
+  arrival_time: "12:00"
+  arrival_place: FUK
+  departure_date: "2026-06-25"
+  departure_time: "18:00"
+  departure_place: FUK
+fragment_hit_expectation:
+  must_hit: [fukuoka:route]
+  should_hit: [fukuoka:dining, fukuoka:tips]
+  must_not_hit: [tokyo:route, kyoto:route]
+output_requirements:
+  min_days_covered: 5
+  must_mention_keywords: [博多拉面, 太宰府, 格拉巴园]

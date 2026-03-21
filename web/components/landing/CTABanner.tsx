@@ -4,12 +4,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
 import { WECHAT_ID, TRUST_ITEMS } from "@/lib/constants";
+import { copyToClipboard } from "@/lib/clipboard";
 
 export function CTABanner() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(WECHAT_ID);
+    await copyToClipboard(WECHAT_ID);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };

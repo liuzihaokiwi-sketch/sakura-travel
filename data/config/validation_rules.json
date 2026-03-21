@@ -1,0 +1,167 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "详细表单红黄绿校验规则配置 — 被 H3 校验引擎加载",
+    "updated": "2026-03-22"
+  },
+
+  "red_rules": [
+    {
+      "id": "R1",
+      "description": "到达日期或时间缺失",
+      "condition": "arrival_date == null OR arrival_time == null",
+      "field_refs": ["arrival_date", "arrival_time"],
+      "message": "请补充到达日期和时间",
+      "severity": "blocking"
+    },
+    {
+      "id": "R2",
+      "description": "离开日期或时间缺失",
+      "condition": "departure_date == null OR departure_time == null",
+      "field_refs": ["departure_date", "departure_time"],
+      "message": "请补充离开日期和时间",
+      "severity": "blocking"
+    },
+    {
+      "id": "R3",
+      "description": "已买交通票但未填机场/车站",
+      "condition": "transport_locked == true AND (arrival_place == null OR departure_place == null)",
+      "field_refs": ["transport_locked", "arrival_place", "departure_place"],
+      "message": "你已表示买了机票/车票，请补充到达和离开的机场/车站",
+      "severity": "blocking"
+    },
+    {
+      "id": "R4",
+      "description": "主目的地未选",
+      "condition": "destination_1 == null",
+      "field_refs": ["destination_1"],
+      "message": "请先选择主要目的地",
+      "severity": "blocking"
+    },
+    {
+      "id": "R5",
+      "description": "有固定安排但信息不完整",
+      "condition": "fixed_events != null AND fixed_events.any(e => e.date == null OR e.time == null OR e.place == null)",
+      "field_refs": ["fixed_events"],
+      "message": "你有固定安排，请补全具体时间和地点",
+      "severity": "blocking"
+    },
+    {
+      "id": "R6",
+      "description": "已订酒店但信息不完整",
+      "condition": "hotel_booking_status != 'none' AND (booked_hotels == null OR booked_hotels.any(h => h.city == null OR h.checkin == null))",
+      "field_refs": ["hotel_booking_status", "booked_hotels"],
+      "message": "你已表示订了酒店，请补充酒店所在区域和入住日期",
+      "severity": "blocking"
+    },
+    {
+      "id": "R7",
+      "description": "must_go 与 dont_want_go 存在同一地点",
+      "condition": "must_go.intersect(dont_want_go).length > 0",
+      "field_refs": ["must_go", "dont_want_go"],
+      "message": "你的「一定要去」和「不想去」里有冲突地点，请确认",
+      "severity": "blocking"
+    },
+    {
+      "id": "R8",
+      "description": "饮食禁忌选了其他但未填写",
+      "condition": "food_restrictions.includes('other') AND food_restrictions_note == null",
+      "field_refs": ["food_restrictions", "food_restrictions_note"],
+      "message": "请补充具体的饮食禁忌",
+      "severity": "blocking"
+    },
+    {
+      "id": "R9",
+      "description": "离开日期早于到达日期",
+      "condition": "departure_date < arrival_date",
+      "field_refs": ["arrival_date", "departure_date"],
+      "message": "离开日期不能早于到达日期",
+      "severity": "blocking"
+    },
+    {
+      "id": "R10",
+      "description": "行程天数与到离日期差距过大",
+      "condition": "abs(trip_days - date_diff(arrival_date, departure_date)) >= 2",
+      "field_refs": ["trip_days", "arrival_date", "departure_date"],
+      "message": "行程天数与到离日期不一致，请确认",
+      "severity": "blocking"
+    }
+  ],
+
+  "yellow_rules": [
+    {
+      "id": "Y1",
+      "description": "选了一地深玩但填了多目的地",
+      "condition": "trip_style == 'one_city' AND (destination_2 != null OR destination_3 != null)",
+      "field_refs": ["trip_style", "destination_2", "destination_3"],
+      "message": "你选择了一地深玩，但同时添加了多个目的地，请确认是否改为多城顺玩",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y2",
+      "description": "看重性价比但选了多个高成本体验",
+      "condition": "spend_priority == 'value' AND [want_onsen_ryokan, want_special_dining, want_shopping].filter(Boolean).length >= 3",
+      "field_refs": ["spend_priority", "want_onsen_ryokan", "want_special_dining", "want_shopping"],
+      "message": "你更看重性价比，但同时选了多个高成本项目，后续可能需要取舍",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y3",
+      "description": "希望轻松但目的地跨度大",
+      "condition": "pace_preference == 'relaxed' AND distinct_regions(destinations).length >= 3",
+      "field_refs": ["pace_preference", "destination_1", "destination_2", "destination_3"],
+      "message": "你希望更轻松，但当前路线可能偏折腾，后续会帮你优化",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y4",
+      "description": "到达时间较晚",
+      "condition": "arrival_time >= '20:00'",
+      "field_refs": ["arrival_time"],
+      "message": "到达时间较晚，首日不适合安排重行程",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y5",
+      "description": "离开时间较早",
+      "condition": "departure_time <= '10:00'",
+      "field_refs": ["departure_time"],
+      "message": "离开时间较早，末日建议安排轻量行程",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y6",
+      "description": "已订全部酒店且不接受换区域且是多城",
+      "condition": "hotel_booking_status == 'all' AND willing_change_hotel_area == 'no' AND trip_style == 'multi_city'",
+      "field_refs": ["hotel_booking_status", "willing_change_hotel_area", "trip_style"],
+      "message": "你已锁定住宿且不接受换区域，后续路线调整空间会变小",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y7",
+      "description": "体力偏低但节奏偏高密度",
+      "condition": "stamina_level == 'low' AND pace_preference == 'intensive'",
+      "field_refs": ["stamina_level", "pace_preference"],
+      "message": "你的体力和节奏偏好可能冲突，建议确认",
+      "severity": "advisory"
+    },
+    {
+      "id": "Y8",
+      "description": "带老人/孩子但选了高密度多城",
+      "condition": "(travel_group == 'parents' OR travel_group == 'children') AND pace_preference == 'intensive' AND trip_style == 'multi_city'",
+      "field_refs": ["travel_group", "pace_preference", "trip_style"],
+      "message": "这类同行结构下，多城高密度行程可能偏累",
+      "severity": "advisory"
+    }
+  ],
+
+  "green_conditions": {
+    "description": "满足以下全部条件则为绿色，可触发生成",
+    "rules": [
+      "所有 red_rules 均未触发",
+      "yellow_rules 触发数量 <= 2 或已全部由客服确认",
+      "destination_1 非空",
+      "arrival_date 和 departure_date 均非空"
+    ]
+  }
+}

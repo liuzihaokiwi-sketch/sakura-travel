@@ -1,0 +1,34 @@
+case_id: X001
+case_type: constrained
+title: 清真饮食+无障碍 — 复合约束
+tags: [tokyo, family_with_kids, halal, wheelchair, constrained]
+known_risks: [清真餐厅必须专门标注, 无障碍路线需检查, 不能推荐登山/长楼梯]
+user_input:
+  cities: [{city_code: tokyo, city_name: 东京, nights: 6, place_id: JP-TOKYO}]
+  duration_days: 6
+  party_type: family_with_kids
+  party_size: 4
+  has_elderly: false
+  has_children: true
+  children_ages: [8]
+  budget_level: mid
+  pace_preference: relaxed
+  trip_style: one_city
+  stamina_level: low
+  food_restrictions: [halal]
+  food_restrictions_note: 全家均需清真饮食，不含猪肉和酒精
+  special_needs: 祖父使用轮椅，需无障碍路线
+  avoid_tags: [stairs_heavy, long_walk, non_halal]
+  arrival_date: "2026-05-15"
+  arrival_time: "14:00"
+  arrival_place: NRT
+  departure_date: "2026-05-21"
+  departure_time: "10:00"
+  departure_place: NRT
+hard_constraints_expected:
+  should_pass: [no_non_halal_dining, no_steep_stairs]
+fragment_hit_expectation:
+  must_hit: [tokyo:route, tokyo:logistics]
+output_requirements:
+  must_mention_keywords: [清真, 无障碍, halal]
+  must_not_mention_keywords: [猪肉, 清酒, 需爬山]
