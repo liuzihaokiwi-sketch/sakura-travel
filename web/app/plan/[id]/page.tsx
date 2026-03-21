@@ -65,6 +65,8 @@ function PlanContent({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode");
   const isPreview = mode === "preview";
+  const isExport = searchParams.get("export") === "true";
+  const [exporting, setExporting] = useState(false);
 
   const [expandedDay, setExpandedDay] = useState(0);
 
@@ -262,21 +264,64 @@ function PlanContent({ params }: { params: { id: string } }) {
               </div>
             </section>
 
-            {/* Actions */}
-            <div className="flex gap-3">
-              <Link href={`/plan/${params.id}/edit`} className="flex-1">
-                <Button variant="outline" className="w-full">✏️ 精调行程（剩余2次）</Button>
-              </Link>
-              <Link href={`/plan/${params.id}/upgrade`} className="flex-1">
-                <Button variant="warm" className="w-full">⭐ 升级管家版</Button>
-              </Link>
-            </div>
+            {/* Actions — hidden in export mode */}
+            {!isExport && (
+              <>
+                <div className="flex gap-3">
+                  <Link href={`/plan/${params.id}/edit`} className="flex-1">
+                    <Button variant="outline" className="w-full">✏️ 精调行程（剩余2次）</Button>
+                  </Link>
+                  <Link href={`/plan/${params.id}/upgrade`} className="flex-1">
+                    <Button variant="warm" className="w-full">⭐ 升级管家版</Button>
+                  </Link>
+                </div>
 
-            {/* Share */}
-            <div className="text-center py-6 border-t border-stone-100">
-              <p className="text-sm text-stone-500 mb-2">觉得有用？分享给一起去的朋友</p>
-              <Button variant="outline" size="sm">📤 分享行程</Button>
-            </div>
+                {/* Share + Export */}
+                <div className="text-center py-6 border-t border-stone-100 space-y-3">
+                  <p className="text-sm text-stone-500 mb-2">觉得有用？分享给一起去的朋友</p>
+                  <div className="flex justify-center gap-3">
+                    <Button variant="outline" size="sm">📤 分享行程</Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={exporting}
+                      onClick={async () => {
+                        setExporting(true);
+                        try {
+                          const resp = await fetch("/api/export/plan-image", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ planId: params.id }),
+                          });
+                          if (!resp.ok) throw new Error("导出失败");
+                          const blob = await resp.blob();
+                          const url = URL.createObjectURL(blob);
+                          const a = document.createElement("a");
+                          a.href = url;
+                          a.download = `plan-${params.id}-share.png`;
+                          a.click();
+                          URL.revokeObjectURL(url);
+                        } catch (err) {
+                          alert("导出图片失败，请稍后重试");
+                          console.error(err);
+                        } finally {
+                          setExporting(false);
+                        }
+                      }}
+                    >
+                      {exporting ? "⏳ 生成中..." : "🖼️ 导出朋友圈图"}
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Export mode: watermark branding */}
+            {isExport && (
+              <div className="text-center py-6 border-t border-stone-100">
+                <p className="text-xs text-stone-400">🌸 Sakura Rush 2026 · 定制行程</p>
+              </div>
+            )}
           </>
         )}
       </div>

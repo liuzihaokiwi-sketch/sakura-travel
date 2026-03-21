@@ -9,7 +9,13 @@
     "start": "next start",
     "lint": "next lint",
     "export:screenshot": "npx tsx scripts/export-playwright.ts",
-    "export:cards": "npx tsx scripts/export-satori.ts"
+    "export:cards": "npx tsx scripts/export-satori.ts",
+    "export:social": "npx tsx scripts/export-social-images.ts",
+    "verify:export": "npx tsx scripts/verify-export-mode.ts",
+    "walkthrough": "npx tsx scripts/visual-walkthrough.ts",
+    "export:all": "npx tsx scripts/export-satori.ts --template xhs-cover --output output/xhs && npx tsx scripts/export-satori.ts --template xhs-content --output output/xhs-content && npx tsx scripts/export-satori.ts --template moment --output output/moments",
+    "verify:funnel": "npx tsx scripts/e2e-funnel-verify.ts",
+    "verify:mobile": "npx tsx scripts/mobile-responsive-verify.ts"
   },
   "keywords": [],
   "author": "",

@@ -168,6 +168,166 @@ function createMomentElement(spot: Spot, city: string): React.ReactElement {
   );
 }
 
+function createXhsContentElement(city: string, spots: Spot[]): React.ReactElement {
+  const top5 = spots.slice(0, 5);
+  const cityName = CITY_NAMES[city] || city;
+
+  return React.createElement(
+    "div",
+    {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+        background: "#fefaf6",
+        fontFamily: "Noto Sans SC",
+      },
+    },
+    // Header band
+    React.createElement(
+      "div",
+      {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(135deg, #1a0a0f 0%, #2d1525 60%, #3d1a2a 100%)",
+          padding: "56px 60px 40px",
+        },
+      },
+      React.createElement(
+        "div",
+        { style: { display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" } },
+        React.createElement("div", { style: { fontSize: "32px" } }, "🌸"),
+        React.createElement("div", { style: { fontSize: "22px", color: "rgba(255,255,255,0.5)", letterSpacing: "4px" } }, "SAKURA RUSH 2026")
+      ),
+      React.createElement(
+        "div",
+        { style: { fontSize: "52px", fontWeight: 900, color: "white", textAlign: "center" as const } },
+        `${cityName} 赏樱榜`
+      ),
+      React.createElement(
+        "div",
+        { style: { display: "flex", gap: "24px", marginTop: "16px" } },
+        React.createElement("div", { style: { fontSize: "18px", color: "#f8bbd0" } }, "📊 数据融合排名"),
+        React.createElement("div", { style: { fontSize: "18px", color: "rgba(255,255,255,0.3)" } }, "·"),
+        React.createElement("div", { style: { fontSize: "18px", color: "#f8bbd0" } }, "每天3次更新")
+      )
+    ),
+    // Spot list
+    React.createElement(
+      "div",
+      {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          padding: "32px 48px",
+          gap: "20px",
+        },
+      },
+      ...top5.map((spot, i) =>
+        React.createElement(
+          "div",
+          {
+            key: i,
+            style: {
+              display: "flex",
+              alignItems: "center",
+              background: i === 0 ? "linear-gradient(135deg, #fff7ed, #fef3e2)" : "white",
+              borderRadius: "20px",
+              padding: "24px 28px",
+              gap: "20px",
+              border: i === 0 ? "2px solid #f7931e" : "1px solid #f5f0eb",
+            },
+          },
+          // Rank badge
+          React.createElement(
+            "div",
+            {
+              style: {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "56px",
+                height: "56px",
+                borderRadius: "50%",
+                background: i === 0 ? "#f7931e" : i === 1 ? "#c0c0c0" : i === 2 ? "#cd7f32" : "#e7e5e4",
+                flexShrink: 0,
+              },
+            },
+            React.createElement(
+              "div",
+              { style: { fontSize: "28px", fontWeight: 900, color: i <= 2 ? "white" : "#78716c" } },
+              `${i + 1}`
+            )
+          ),
+          // Spot info
+          React.createElement(
+            "div",
+            { style: { display: "flex", flexDirection: "column", flex: 1, gap: "6px" } },
+            React.createElement(
+              "div",
+              { style: { fontSize: i === 0 ? "30px" : "26px", fontWeight: 700, color: "#1c1917" } },
+              spot.name
+            ),
+            React.createElement(
+              "div",
+              { style: { display: "flex", gap: "16px" } },
+              React.createElement("div", { style: { fontSize: "18px", color: "#78716c" } }, `🌸 满开: ${spot.full || "待定"}`),
+              spot.lightup
+                ? React.createElement("div", { style: { fontSize: "18px", color: "#78716c" } }, "🌙 夜樱")
+                : null,
+              spot.meisyo100
+                ? React.createElement("div", { style: { fontSize: "18px", color: "#f7931e" } }, "⭐ 名所百选")
+                : null
+            ).valueOf()
+          ),
+          // Score
+          React.createElement(
+            "div",
+            {
+              style: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                flexShrink: 0,
+              },
+            },
+            React.createElement(
+              "div",
+              { style: { fontSize: "36px", fontWeight: 900, color: i === 0 ? "#f7931e" : "#44403c" } },
+              `${spot.score}`
+            ),
+            React.createElement("div", { style: { fontSize: "14px", color: "#a8a29e" } }, "/ 100")
+          )
+        )
+      )
+    ),
+    // Footer
+    React.createElement(
+      "div",
+      {
+        style: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "24px 48px",
+          borderTop: "1px solid #e7e5e4",
+        },
+      },
+      React.createElement("div", { style: { fontSize: "18px", color: "#a8a29e" } }, "4大权威数据源 · JMA + JMC + Weathernews + 地方官方"),
+      React.createElement(
+        "div",
+        { style: { display: "flex", background: "#1a0a0f", borderRadius: "12px", padding: "10px 20px" } },
+        React.createElement("div", { style: { fontSize: "18px", color: "#f7931e", fontWeight: 700 } }, "关注看完整榜 ↗")
+      )
+    )
+  );
+}
+
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -205,8 +365,12 @@ async function main() {
         count++;
       }
     } else if (opts.template === "xhs-content") {
-      // TODO: implement XhsContent template
-      console.log(`  ⏭️ xhs-content template not yet implemented for ${city}`);
+      const element = createXhsContentElement(city, sorted);
+      const png = await renderToPng(element, SIZES.XHS);
+      const path = join(outputDir, `${city}_content.png`);
+      writeFileSync(path, png);
+      console.log(`  ✅ ${path}`);
+      count++;
     }
   }
 
