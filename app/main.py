@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
+from app.core.logging_config import setup_logging
 from app.api import trips
 from app.api import trips_generate
 from app.api import chat
@@ -26,6 +27,12 @@ from app.db.models import catalog, business, derived, snapshots  # noqa: F401 �
 # ── Lifespan ──────────────────────────────────────────────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Startup: 结构化日志初始化
+    setup_logging(
+        json_output=settings.is_production,
+        log_level="DEBUG" if settings.app_debug else "INFO",
+    )
+
     # Startup: 自动建表（开发模式，失败不阻断启动）
     from app.db.session import Base
     if settings.app_env == "development":

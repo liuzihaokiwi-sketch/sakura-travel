@@ -44,32 +44,28 @@ async def render_pdf(
         ValueError:   plan_id 不存在
     """
     try:
-        # macOS Homebrew: WeasyPrint 的 cffi 搜索 Linux 风格的库名，
-        # 但 macOS 库名格式不同。在 import 前 monkey-patch cffi 的 dlopen 搜索路径。
+        # 各平台 WeasyPrint 依赖的原生库名/路径不同，在 import 前做平台适配。
         import os, platform
-        if platform.system() == "Darwin":
+        _sys = platform.system()
+
+        if _sys == "Darwin":
+            # macOS Homebrew: cffi 搜索 Linux 风格库名，需 monkey-patch dlopen
             _brew_lib = "/opt/homebrew/lib"
             _lib_map = {
-                # gobject
                 "gobject-2.0-0": os.path.join(_brew_lib, "libgobject-2.0.0.dylib"),
                 "gobject-2.0": os.path.join(_brew_lib, "libgobject-2.0.dylib"),
                 "libgobject-2.0-0": os.path.join(_brew_lib, "libgobject-2.0.0.dylib"),
-                # pango
                 "pango-1.0-0": os.path.join(_brew_lib, "libpango-1.0.0.dylib"),
                 "pango-1.0": os.path.join(_brew_lib, "libpango-1.0.dylib"),
                 "libpango-1.0-0": os.path.join(_brew_lib, "libpango-1.0.0.dylib"),
-                # pangocairo
                 "pangocairo-1.0-0": os.path.join(_brew_lib, "libpangocairo-1.0.0.dylib"),
                 "pangocairo-1.0": os.path.join(_brew_lib, "libpangocairo-1.0.dylib"),
-                # pangoft2
                 "pangoft2-1.0-0": os.path.join(_brew_lib, "libpangoft2-1.0.0.dylib"),
                 "pangoft2-1.0": os.path.join(_brew_lib, "libpangoft2-1.0.dylib"),
                 "libpangoft2-1.0-0": os.path.join(_brew_lib, "libpangoft2-1.0.0.dylib"),
-                # fontconfig
                 "fontconfig-1": os.path.join(_brew_lib, "libfontconfig.1.dylib"),
                 "fontconfig": os.path.join(_brew_lib, "libfontconfig.dylib"),
                 "libfontconfig": os.path.join(_brew_lib, "libfontconfig.dylib"),
-                # harfbuzz (WeasyPrint 60 first tries "harfbuzz")
                 "harfbuzz": os.path.join(_brew_lib, "libharfbuzz.dylib"),
                 "harfbuzz-0": os.path.join(_brew_lib, "libharfbuzz.0.dylib"),
                 "harfbuzz-0.0": os.path.join(_brew_lib, "libharfbuzz.0.dylib"),
@@ -86,15 +82,44 @@ async def render_pdf(
                     cffi.FFI.dlopen = _patched_dlopen
                 except Exception:
                     pass
+
+        elif _sys == "Windows":
+            # Windows: GTK3 运行时需要在 PATH 中，常见安装路径：
+            #   - MSYS2:  C:\msys64\mingw64\bin
+            #   - 独立包: C:\Program Files\GTK3-Runtime Win64\bin
+            _gtk_paths = [
+                r"C:\msys64\mingw64\bin",
+                r"C:\Program Files\GTK3-Runtime Win64\bin",
+                os.path.join(os.environ.get("PROGRAMFILES", ""), "GTK3-Runtime Win64", "bin"),
+            ]
+            for _gp in _gtk_paths:
+                if os.path.isdir(_gp) and _gp not in os.environ.get("PATH", ""):
+                    os.environ["PATH"] = _gp + os.pathsep + os.environ.get("PATH", "")
+                    logger.debug("已将 GTK3 路径加入 PATH: %s", _gp)
+                    break
+
         from weasyprint import HTML, CSS
     except ImportError:
-        raise ImportError(
-            "weasyprint 未安装，请运行:\n"
+        _install_hints = (
+            "weasyprint 未安装或缺少系统依赖，请参考以下步骤:\n"
             "  pip install weasyprint\n"
-            "macOS 还需要:\n"
-            "  brew install cairo pango gdk-pixbuf libffi\n"
-            "Docker 环境已通过 Dockerfile 预装依赖（libpango / libcairo / fonts-noto-cjk）"
         )
+        _sys_name = platform.system() if "platform" in dir() else "Unknown"
+        if _sys_name == "Darwin":
+            _install_hints += (
+                "macOS 还需要:\n"
+                "  brew install cairo pango gdk-pixbuf libffi\n"
+            )
+        elif _sys_name == "Windows":
+            _install_hints += (
+                "Windows 还需要安装 GTK3 运行时（提供 cairo/pango 等 DLL）:\n"
+                "  方法 A (推荐): 安装 MSYS2 后执行:\n"
+                "    pacman -S mingw-w64-x86_64-pango mingw-w64-x86_64-cairo\n"
+                "    并将 C:\\msys64\\mingw64\\bin 加入系统 PATH\n"
+                "  方法 B: 使用 Docker 环境（推荐生产部署）\n"
+            )
+        _install_hints += "Docker 环境已通过 Dockerfile 预装依赖（libpango / libcairo / fonts-noto-cjk）"
+        raise ImportError(_install_hints)
 
     # 1. 渲染 HTML
     html_content = await render_html(plan_id, session)

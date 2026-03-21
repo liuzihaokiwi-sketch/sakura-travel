@@ -75,7 +75,3 @@ async def test_record_snapshot_no_expiry():
     )
 
     assert snap.expires_at is None
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-https://docker.mirrors.ustc.edu.cn
-https://hub-mirror.c.163.com

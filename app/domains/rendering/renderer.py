@@ -171,9 +171,16 @@ async def render_pdf(html_content: str) -> bytes:
     try:
         from weasyprint import HTML
     except ImportError:
-        raise ImportError(
-            "weasyprint 未安装，请运行: pip install weasyprint\n"
-            "macOS 还需要: brew install cairo pango gdk-pixbuf libffi"
-        )
+        import platform as _pf
+        _hint = "weasyprint 未安装，请运行: pip install weasyprint\n"
+        if _pf.system() == "Darwin":
+            _hint += "macOS 还需要: brew install cairo pango gdk-pixbuf libffi"
+        elif _pf.system() == "Windows":
+            _hint += (
+                "Windows 还需要 GTK3 运行时:\n"
+                "  MSYS2: pacman -S mingw-w64-x86_64-pango mingw-w64-x86_64-cairo\n"
+                "  并将 C:\\msys64\\mingw64\\bin 加入 PATH，或使用 Docker 环境"
+            )
+        raise ImportError(_hint)
     pdf_bytes = HTML(string=html_content).write_pdf()
     return pdf_bytes

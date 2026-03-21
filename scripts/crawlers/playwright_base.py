@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import platform
 import random
 from typing import Any, Dict, List, Optional
 
@@ -90,11 +91,7 @@ class PlaywrightCrawler:
         self._context = await self._browser.new_context(
             locale=self.locale,
             timezone_id=self.timezone,
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
+            user_agent=self._get_user_agent(),
             viewport={"width": 1440, "height": 900},
             java_script_enabled=True,
         )
@@ -118,6 +115,30 @@ class PlaywrightCrawler:
 
     async def new_page(self) -> "Page":
         return await self._context.new_page()
+
+    @staticmethod
+    def _get_user_agent() -> str:
+        """根据当前操作系统返回匹配的 Chrome User-Agent。"""
+        sys_name = platform.system()
+        if sys_name == "Darwin":
+            return (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            )
+        elif sys_name == "Windows":
+            return (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            )
+        else:
+            # Linux / 其他
+            return (
+                "Mozilla/5.0 (X11; Linux x86_64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            )
 
     async def random_delay(self) -> None:
         lo, hi = self.delay_range

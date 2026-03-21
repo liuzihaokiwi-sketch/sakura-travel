@@ -35,6 +35,12 @@ dependencies = [
     # Utilities
     "python-dotenv>=1.0.0",
     "orjson>=3.10.0",
+    # Structured logging
+    "structlog>=24.0.0",
+    # Retry / resilience
+    "tenacity>=9.0.0",
+    # AI observability
+    "langfuse>=2.0.0",
 ]
 
 [project.optional-dependencies]
@@ -47,6 +53,9 @@ dev = [
     "ruff>=0.8.0",
     "mypy>=1.13.0",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
