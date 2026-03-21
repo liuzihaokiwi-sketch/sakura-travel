@@ -36,8 +36,10 @@ web/output/
 
 # ── Build artifacts ───────────────────────────
 exports/
+output/
 logs/
 *.log
+*.tsbuildinfo
 
 # ── Data (crawled, too large for git) ─────────
 data/events_raw/
