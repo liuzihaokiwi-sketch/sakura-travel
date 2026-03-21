@@ -24,6 +24,13 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 import httpx
+from tenacity import (
+    AsyncRetrying,
+    RetryError,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -214,7 +221,7 @@ class BaseCrawler:
         发送 HTTP 请求，自带：
         - 信号量控制并发
         - 随机 UA + 延迟
-        - 自动重试 + 指数退避
+        - tenacity 自动重试 + 指数退避（替换手写 retry 循环）
         - 请求统计
 
         Returns:
@@ -224,77 +231,81 @@ class BaseCrawler:
             await self.open()
 
         async with self._semaphore:
-            for attempt in range(1, self.max_retries + 1):
-                self.stats.requests_total += 1
-                req_headers = self._build_headers()
-                if referer:
-                    req_headers["Referer"] = referer
-                if headers:
-                    req_headers.update(headers)
+            self.stats.requests_total += 1
+            req_headers = self._build_headers()
+            if referer:
+                req_headers["Referer"] = referer
+            if headers:
+                req_headers.update(headers)
 
-                try:
-                    await self._random_delay()
+            await self._random_delay()
 
-                    resp = await self._client.request(  # type: ignore[union-attr]
-                        method,
-                        url,
-                        headers=req_headers,
-                        params=params,
-                        data=data,
-                    )
+            # ── 可重试异常（tenacity 会自动重试这些） ──────────────────────────
 
-                    # 检查常见反爬响应
-                    if resp.status_code == 429:
-                        wait = min(30, 5 * (2 ** attempt))
-                        logger.warning(f"⚠️  429 限速，等待 {wait}s ... [{url}]")
-                        await asyncio.sleep(wait)
-                        self.stats.requests_retried += 1
-                        continue
+            class _RetryableError(Exception):
+                """标记为可重试的内部异常"""
 
-                    if resp.status_code == 403:
-                        logger.warning(f"⚠️  403 被拒绝（可能被封），跳过 [{url}]")
-                        self.stats.requests_failed += 1
-                        return None
-
-                    if resp.status_code == 503:
-                        wait = min(20, 3 * (2 ** attempt))
-                        logger.warning(f"⚠️  503 服务不可用，等待 {wait}s ... [{url}]")
-                        await asyncio.sleep(wait)
-                        self.stats.requests_retried += 1
-                        continue
-
-                    if resp.status_code >= 400:
-                        logger.warning(f"⚠️  HTTP {resp.status_code} [{url}]")
-                        self.stats.requests_failed += 1
-                        return None
-
-                    self.stats.requests_success += 1
-                    return resp
-
-                except httpx.TimeoutException:
-                    logger.warning(
-                        f"⏱️  超时 (attempt {attempt}/{self.max_retries}) [{url}]"
-                    )
+            async def _do_request() -> httpx.Response:
+                resp = await self._client.request(  # type: ignore[union-attr]
+                    method,
+                    url,
+                    headers=self._build_headers() | ({"Referer": referer} if referer else {}) | (headers or {}),
+                    params=params,
+                    data=data,
+                )
+                # 429 / 503 视为可重试（tenacity 会等待后再试）
+                if resp.status_code == 429:
+                    logger.warning(f"⚠️  429 限速，等待后重试 [{url}]")
                     self.stats.requests_retried += 1
-                except httpx.ConnectError as e:
-                    logger.warning(
-                        f"🔌 连接失败 (attempt {attempt}/{self.max_retries}): {e}"
-                    )
+                    raise _RetryableError("429 Rate limited")
+                if resp.status_code == 503:
+                    logger.warning(f"⚠️  503 服务不可用，等待后重试 [{url}]")
                     self.stats.requests_retried += 1
-                except Exception as e:
-                    logger.error(f"❌ 请求异常: {e} [{url}]")
-                    self.stats.requests_failed += 1
-                    return None
+                    raise _RetryableError("503 Service unavailable")
+                return resp
 
-                # 指数退避
-                if attempt < self.max_retries:
-                    backoff = min(30, 2 ** attempt + random.uniform(0, 1))
-                    await asyncio.sleep(backoff)
+            try:
+                async for attempt in AsyncRetrying(
+                    stop=stop_after_attempt(self.max_retries),
+                    wait=wait_exponential(multiplier=1, min=2, max=30),
+                    retry=retry_if_exception_type(
+                        (httpx.TimeoutException, httpx.ConnectError, _RetryableError)
+                    ),
+                    reraise=False,
+                ):
+                    with attempt:
+                        try:
+                            resp = await _do_request()
+                        except (httpx.TimeoutException, httpx.ConnectError) as e:
+                            self.stats.requests_retried += 1
+                            logger.warning(
+                                f"⏱️  网络错误 (attempt {attempt.retry_state.attempt_number}/{self.max_retries}): {e} [{url}]"
+                            )
+                            raise  # 交给 tenacity 处理重试
 
-            # 所有重试都失败
-            self.stats.requests_failed += 1
-            logger.error(f"❌ 所有重试失败 [{url}]")
-            return None
+            except RetryError:
+                # 全部重试耗尽
+                self.stats.requests_failed += 1
+                logger.error(f"❌ 所有重试失败（tenacity 退出）[{url}]")
+                return None
+            except Exception as e:
+                logger.error(f"❌ 请求异常: {e} [{url}]")
+                self.stats.requests_failed += 1
+                return None
+
+            # ── 处理 3xx+ 非重试错误 ──────────────────────────────────────────
+            if resp.status_code == 403:
+                logger.warning(f"⚠️  403 被拒绝（可能被封），跳过 [{url}]")
+                self.stats.requests_failed += 1
+                return None
+
+            if resp.status_code >= 400:
+                logger.warning(f"⚠️  HTTP {resp.status_code} [{url}]")
+                self.stats.requests_failed += 1
+                return None
+
+            self.stats.requests_success += 1
+            return resp
 
     async def fetch_text(self, url: str, **kwargs: Any) -> Optional[str]:
         """获取页面 HTML 文本"""
