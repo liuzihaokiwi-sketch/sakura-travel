@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/", label: "首页" },
-  { href: "/rush", label: "🌸 樱花追踪" },
   { href: "/pricing", label: "方案与价格" },
 ];
 
@@ -20,13 +19,12 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 h-14 border-b border-white/10 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl h-full flex items-center justify-between px-4">
-        {/* Logo */}
+        {/* Logo — 主站品牌 */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl">🌸</span>
+          <span className="text-xl">✈️</span>
           <span className="font-display text-lg font-bold tracking-tight text-stone-900">
-            Sakura Rush
+            日本旅行定制
           </span>
-          <span className="text-xs text-stone-400 font-mono">2026</span>
         </Link>
 
         {/* Nav links */}
@@ -43,6 +41,13 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
+          {/* 季节性入口 — 樱花季期间显示 */}
+          <Link
+            href="/rush"
+            className="px-2.5 py-1 rounded-lg text-xs font-medium text-pink-600 bg-pink-50 hover:bg-pink-100 transition-colors"
+          >
+            🌸 樱花季
+          </Link>
         </div>
 
         {/* CTA */}
