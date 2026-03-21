@@ -60,3 +60,5 @@ data/city_defaults/*.png
 
 # ── Large fonts (use CDN in production) ───────
 web/public/fonts/*.ttf
+data/crawl_progress.json  
+data/crawl_status.json  
