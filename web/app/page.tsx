@@ -43,20 +43,26 @@ function Hero() {
 
         <motion.h1
           variants={fadeInUp}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4"
+          className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white/80 leading-tight mb-1"
         >
-          你的日本行程
-          <br />
+          一本翻开就能出发的
+        </motion.h1>
+        <motion.h1
+          variants={fadeInUp}
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4"
+        >
           <span className="bg-gradient-to-r from-warm-200 via-warm-300 to-sakura-300 bg-clip-text text-transparent">
-            已经有人替你想好了
+            为你量身定制的日本旅行手册
           </span>
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
-          className="text-base md:text-lg text-white/70 mb-3 max-w-xl mx-auto leading-relaxed"
+          className="text-sm md:text-base text-white/50 mb-3 max-w-md mx-auto leading-relaxed"
         >
-          30-40页完整攻略 · 精确到每一天每一餐每一站 · 拿到就能出发
+          从路线到餐厅到交通，30页+ 全部安排好
+          <br />
+          不绕路、有备选、精确到每一个小时
         </motion.p>
 
         <motion.p variants={fadeInUp} className="text-xs text-white/40 mb-6">
@@ -74,11 +80,14 @@ function Hero() {
         </motion.div>
 
         <motion.div variants={fadeInUp}>
-          <Link href="/quiz">
-            <Button variant="warm" size="xl" className="shadow-xl shadow-warm-300/30 min-w-[260px]">
-              🆓 先免费看一天 →
-            </Button>
-          </Link>
+          <div className="relative inline-block group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
+            <Link href="/why">
+              <Button variant="warm" size="xl" className="relative shadow-xl shadow-warm-300/30 min-w-[260px] font-bold">
+                先免费看一天 →
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </motion.div>
     </section>
@@ -179,9 +188,9 @@ function FreePreview() {
                 <br /><br />
                 <strong>没有套路，先看货再决定。</strong>
               </p>
-              <Link href="/quiz">
+              <Link href="/why">
                 <Button variant="warm" size="lg" className="min-w-[220px]">
-                  🆓 免费生成我的攻略预览 →
+                  免费生成我的攻略预览 →
                 </Button>
               </Link>
             </div>
@@ -250,7 +259,7 @@ function MainPlan() {
               <p key={item} className="text-sm text-stone-700">{item}</p>
             ))}
           </div>
-          <Link href="/quiz">
+          <Link href="/why">
             <Button variant="warm" size="xl" className="w-full md:w-auto min-w-[300px]">
               🔥 先免费看一天，满意再付 ¥248 →
             </Button>
@@ -278,7 +287,7 @@ function PremiumAnchor() {
             高端餐厅酒店精选方案、以及出行期间的实时答疑支持。
           </p>
           <p className="text-2xl font-mono font-bold text-stone-600">¥888</p>
-          <Link href="/quiz" className="text-sm text-stone-400 hover:text-stone-600 mt-2 inline-block transition-colors">
+          <Link href="/why" className="text-sm text-stone-400 hover:text-stone-600 mt-2 inline-block transition-colors">
             了解尊享定制 →
           </Link>
         </motion.div>
@@ -432,16 +441,14 @@ function FinalCTA() {
           最好的结果，是你省下两周时间，换来一趟真正省心的日本旅行。
         </p>
         <div className="flex flex-col items-center gap-3">
-          <Link href="/quiz">
-            <Button variant="warm" size="xl" className="min-w-[280px] shadow-lg shadow-warm-300/20">
-              🆓 免费生成我的攻略预览 →
-            </Button>
-          </Link>
-          <Link href="/quiz">
-            <Button variant="outline" size="lg" className="min-w-[280px]">
-              🔥 ¥248 直接定制完整攻略（首发价）
-            </Button>
-          </Link>
+          <div className="relative inline-block group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
+            <Link href="/why">
+              <Button variant="warm" size="xl" className="relative min-w-[280px] shadow-lg shadow-warm-300/20 font-bold">
+                先免费看一天 →
+              </Button>
+            </Link>
+          </div>
         </div>
         <div className="flex justify-center gap-4 mt-8 text-xs text-stone-400">
           <span>⏱️ 24h交付</span>
