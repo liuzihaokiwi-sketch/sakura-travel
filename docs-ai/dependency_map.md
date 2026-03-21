@@ -56,6 +56,42 @@ geography/region_router.py → data/*.json (种子文件)
 geography/route_selector.py → data/route_templates/*.json
 ```
 
+## 爬虫依赖
+
+```
+scripts/crawl_orchestrator.py
+  → scripts/crawlers/*.py          # 各站点爬虫
+    → scripts/crawlers/base.py     # 爬虫基类（自适应限速）
+    → scripts/crawlers/playwright_base.py  # JS 渲染爬虫基类
+  → data/crawl_progress.json       # 爬取进度（断点续传）
+  → data/crawl_status.json         # 实时状态仪表板
+
+scripts/crawlers/sakura_pipeline/cli.py
+  → scripts/crawlers/sakura_pipeline/providers/*.py  # JMA/Weathernews/etc
+  → scripts/crawlers/sakura_pipeline/fusion.py       # 多源融合
+  → data/sakura/*.json                               # 输出数据
+```
+
+## 前端依赖
+
+```
+web/app/rush/page.tsx (Server Component)
+  → web/lib/data.ts                # 数据加载器
+    → data/sakura/sakura_rush_scores.json  # ★ 实际数据文件
+    → data/sakura/weathernews_all_spots.json
+    → data/sakura/jma/jma_city_truth_2026.json
+  → web/app/rush/RushClient.tsx    # 客户端交互组件
+    → web/components/rush/BloomTimeline.tsx
+
+web/app/page.tsx (首页)
+  → web/lib/constants.ts           # 文案/统计常量
+  → web/lib/animations.ts          # 动画预设
+
+web/app/admin/* (管理后台)
+  → web/lib/admin-api.ts           # 后端 API 客户端
+  → web/middleware.ts              # 密码保护
+```
+
 ## 外部依赖
 
 | 包 | 用于 |
@@ -71,3 +107,7 @@ geography/route_selector.py → data/route_templates/*.json
 | `jinja2` | 模板渲染 |
 | `weasyprint` | HTML → PDF |
 | `httpx` | HTTP 客户端 |
+| `structlog` | 结构化日志 |
+| `playwright` | JS 渲染爬虫 + 截图导出 |
+| `beautifulsoup4` | HTML 解析（爬虫） |
+| `aiofiles` | 异步文件操作 |

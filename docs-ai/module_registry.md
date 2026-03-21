@@ -46,3 +46,25 @@
 | `app/workers/jobs/run_guardrails.py` | 护栏检查 | `run_guardrails()` |
 | `app/workers/jobs/score_entities.py` | 实体评分 | `score_entities()` |
 | `app/workers/jobs/scan_flight_prices.py` | 航班价格扫描 | `scan_flight_prices()` |
+
+## 新增模块（2026-03-21 更新）
+
+| 模块路径 | 职责 | 关键函数/类 |
+|---|---|---|
+| `app/core/logging_config.py` | structlog 日志配置 | `setup_logging()` |
+| `app/api/modifications.py` | 用户修改请求 API | `submit_modification()`, `list_modifications()` |
+| `app/api/review.py` | 管理员审核 API | `list_pending_reviews()`, `publish_order()`, `reject_order()` |
+| `scripts/crawl_orchestrator.py` | 全日本并行爬取调度器 | `CrawlOrchestrator`, `run()` |
+| `scripts/crawlers/base.py` | 爬虫基类（自适应限速） | `BaseCrawler`, `adaptive_delay()` |
+| `scripts/crawlers/playwright_base.py` | Playwright 爬虫基类 | `PlaywrightCrawler` |
+| `scripts/crawlers/sakura_pipeline/cli.py` | 樱花管线 CLI | `fetch()`, `fuse()`, `all()` |
+| `scripts/crawlers/sakura_pipeline/fusion.py` | 多源数据融合 | `fuse_all_sources()` |
+| `scripts/crawlers/sakura_pipeline/providers/jma.py` | JMA 气象厅数据 | `fetch_jma_bloom()` |
+| `scripts/crawlers/sakura_pipeline/providers/weathernews.py` | Weathernews 数据 | `fetch_weathernews()` |
+| `scripts/sync_remote_to_local.py` | 远端→本地数据同步 | `sync_table()`, `main()` |
+| `scripts/fix_and_init.py` | 数据库修复与初始化 | `normalize_scores()`, `add_area_names()`, `add_tags()` |
+| `scripts/smart_commit.py` | 自动语义化 commit | `smart_commit()` |
+| `scripts/maintain.py` | 一键维护工具 | `deploy()`, `status()`, `restart()` |
+| `web/lib/data.ts` | 樱花数据加载+格式转换 | `getRushScores()`, `getWeathernewsSpots()` |
+| `web/app/rush/RushClient.tsx` | 樱花排行榜客户端组件 | `RushClient`, `SpotCard`, `BloomTimeline` |
+| `web/app/api/export/plan-image/route.ts` | Playwright 截图导出 API | `POST /api/export/plan-image` |
