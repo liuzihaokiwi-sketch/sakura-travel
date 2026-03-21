@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "提交失败，请稍后重试" }, { status: 500 });
     }
 
-    return NextResponse.json({ trip_request_id: data.id, success: true });
+    return NextResponse.json({ trip_request_id: (data as any).id, success: true });
   } catch (e: any) {
     console.error("Quiz API error:", e);
     return NextResponse.json({ error: "服务器错误" }, { status: 500 });
