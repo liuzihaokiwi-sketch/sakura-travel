@@ -10,7 +10,7 @@ from alembic import op
 from sqlalchemy import text
 
 revision = "20260321_130000"
-down_revision = "20260321_120000"
+down_revision = "soft_rules_system_v1"
 branch_labels = None
 depends_on = None
 
@@ -37,7 +37,7 @@ TOKYO_DAY1_BENCHMARK = {
             "start_time": "09:00",
             "end_time": "10:00",
             "duration_min": 60,
-            "copy_zh": "东京最大的公共公园，3月下旬的樱花季期间约1200棵染井吉野樱同时盛开，是全日本最密集的赏樱地之一。非樱花季也值得来——这里有东京国立博物馆、不忍池和西乡隆盛铜像，1小时能把"明治维新后东京的公共生活"走个完整。",
+            "copy_zh": "东京最大的公共公园，3月下旬的樱花季期间约1200棵染井吉野樱同时盛开，是全日本最密集的赏樱地之一。非樱花季也值得来——这里有东京国立博物馆、不忍池和西乡隆盛铜像，1小时能把「明治维新后东京的公共生活」走个完整。",
             "tips_zh": "建议09:00入园，工作日人少，光线从东边照进来，不忍池倒影最漂亮。不需要进任何博物馆，公园内步行即可。",
             "photo_tip": "不忍池喷泉+远处东京塔同框：站在池南岸往北拍，35mm焦段效果最好。",
             "avoid_tip": None,

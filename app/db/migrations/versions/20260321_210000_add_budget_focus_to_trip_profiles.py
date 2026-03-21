@@ -9,7 +9,7 @@ import sqlalchemy as sa
 
 # revision identifiers
 revision = '20260321_210000'
-down_revision = '20260321_160000_invite_and_review_tables'
+down_revision = '20260321_160000'
 branch_labels = None
 depends_on = None
 
