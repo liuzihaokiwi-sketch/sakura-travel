@@ -102,7 +102,8 @@ const QUESTIONS = [
 
 // ── API config ──────────────────────────────────────────────────────────────
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// 直接用 Next.js API Route，不依赖后端
+const API_BASE = "";
 
 // ── Component ───────────────────────────────────────────────────────────────
 
@@ -168,7 +169,7 @@ export default function QuizPage() {
     };
 
     try {
-      const res = await fetch(`${API_BASE}/quiz`, {
+      const res = await fetch(`/api/quiz`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

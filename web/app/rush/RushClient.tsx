@@ -248,10 +248,13 @@ function CtaSection() {
   return (
     <div className="px-4 md:px-6 py-10 text-center bg-gradient-to-b from-pink-50 to-white border-t border-stone-100">
       <h3 className="text-xl font-extrabold text-stone-900 mb-2">看完花期，定制你的专属行程</h3>
-      <p className="text-sm text-stone-500 mb-5">AI 生成 · 精确到每一天每一餐 · 拿到就能出发</p>
-      <Link href="/quiz">
-        <Button variant="warm" size="lg">免费看看我的行程 →</Button>
-      </Link>
+      <p className="text-sm text-stone-500 mb-5">30-40页完整手册 · 精确到每一天每一餐 · 拿到就能出发</p>
+      <div className="relative inline-block group">
+        <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-pink-400 to-amber-400 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity animate-pulse" />
+        <Link href="/why">
+          <Button variant="warm" size="lg" className="relative font-bold shadow-lg">先免费看一天 →</Button>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -269,17 +272,19 @@ export default function RushClient({ data }: { data: RushData }) {
 
   return (
     <div className="min-h-screen bg-[#fdfaf7] pt-14">
-      {/* Sub-nav (rush internal tabs) */}
-      <div className="sticky top-14 z-40 bg-white/90 backdrop-blur-sm border-b border-stone-200">
+      {/* Sub-nav (rush internal tabs) — 更醒目 */}
+      <div className="sticky top-14 z-40 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center px-4">
-          <div className="flex items-center gap-1 py-2">
+          <div className="flex items-center gap-1 py-1.5">
             {TABS.map((t) => (
               <button
                 key={t.key}
                 onClick={() => setTab(t.key)}
                 className={cn(
-                  "px-4 py-2 text-sm font-semibold rounded-lg transition-colors",
-                  tab === t.key ? "text-pink-700 bg-pink-50" : "text-stone-500 hover:text-stone-700"
+                  "px-4 py-2 text-sm font-bold rounded-lg transition-all",
+                  tab === t.key
+                    ? "text-white bg-pink-500 shadow-md shadow-pink-200"
+                    : "text-stone-600 hover:text-pink-600 hover:bg-pink-50 border border-transparent hover:border-pink-100"
                 )}
               >
                 {t.icon} {t.label}
@@ -287,7 +292,7 @@ export default function RushClient({ data }: { data: RushData }) {
             ))}
           </div>
           <div className="ml-auto">
-            <Link href="/quiz" className="text-xs text-pink-600 font-semibold hover:underline">
+            <Link href="/why" className="text-xs text-pink-600 font-bold hover:underline">
               定制行程 →
             </Link>
           </div>

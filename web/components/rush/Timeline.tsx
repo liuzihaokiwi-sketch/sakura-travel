@@ -142,25 +142,55 @@ export interface TimelineProps {
 
 export default function Timeline({ cities, initialCity = 0, onSpotClick }: TimelineProps) {
   const [cityIdx, setCityIdx] = useState(initialCity);
+  const [search, setSearch] = useState("");
   const city = cities[cityIdx];
-  const regions = groupByRegion(city.spots);
+
+  // Filter spots by search
+  const filteredSpots = search.trim()
+    ? city.spots.filter((s) =>
+        s.name.toLowerCase().includes(search.toLowerCase()) ||
+        (s.region || "").toLowerCase().includes(search.toLowerCase()) ||
+        (s.desc_cn || "").toLowerCase().includes(search.toLowerCase())
+      )
+    : city.spots;
+  const regions = groupByRegion(filteredSpots);
 
   return (
     <div className="space-y-4">
-      {/* City tabs */}
-      <div className="flex items-center gap-1 overflow-x-auto pb-1">
-        {cities.map((c, i) => (
-          <button
-            key={c.key}
-            onClick={() => setCityIdx(i)}
-            className={cn(
-              "px-3 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors",
-              i === cityIdx ? "text-white bg-pink-500" : "text-stone-500 bg-stone-100 hover:bg-stone-200"
-            )}
-          >
-            {c.emoji} {c.name} ({c.spotCount})
-          </button>
-        ))}
+      {/* City tabs + search */}
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-1 overflow-x-auto pb-1">
+          {cities.map((c, i) => (
+            <button
+              key={c.key}
+              onClick={() => { setCityIdx(i); setSearch(""); }}
+              className={cn(
+                "px-3 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors",
+                i === cityIdx ? "text-white bg-pink-500" : "text-stone-500 bg-stone-100 hover:bg-stone-200"
+              )}
+            >
+              {c.emoji} {c.name} ({c.spotCount})
+            </button>
+          ))}
+        </div>
+        {/* Search bar */}
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="搜索景点名称、地区..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full sm:w-80 text-sm px-4 py-2 pl-9 rounded-lg border border-stone-200 bg-white focus:outline-none focus:border-pink-300 focus:ring-1 focus:ring-pink-200"
+          />
+          <svg className="absolute left-2.5 top-2.5 w-4 h-4 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          {search && (
+            <span className="absolute right-3 top-2.5 text-[10px] text-stone-400">
+              {filteredSpots.length} 个结果
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Legend */}

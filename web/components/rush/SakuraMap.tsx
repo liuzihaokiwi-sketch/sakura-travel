@@ -269,10 +269,19 @@ export default function SakuraMap({ cities, landmarks, initialCity = 0 }: Sakura
   const [cityIdx, setCityIdx] = useState(initialCity);
   const [selectedSpot, setSelectedSpot] = useState(0);
   const [showMobileDetail, setShowMobileDetail] = useState(false);
+  const [mapSearch, setMapSearch] = useState("");
 
   const city = cities[cityIdx];
   const cityLandmarks = landmarks[city.key] || [];
   const spot = city.spots[selectedSpot] || null;
+
+  // Filter left panel by search
+  const filteredLeftSpots = mapSearch.trim()
+    ? city.spots.map((s, i) => ({ s, i })).filter(({ s }) =>
+        s.name.toLowerCase().includes(mapSearch.toLowerCase()) ||
+        (s.region || "").toLowerCase().includes(mapSearch.toLowerCase())
+      )
+    : city.spots.slice(0, 20).map((s, i) => ({ s, i }));
 
   const handleSelectSpot = useCallback((idx: number) => {
     setSelectedSpot(idx);
@@ -283,6 +292,7 @@ export default function SakuraMap({ cities, landmarks, initialCity = 0 }: Sakura
     setCityIdx(idx);
     setSelectedSpot(0);
     setShowMobileDetail(false);
+    setMapSearch("");
   }, []);
 
   return (
@@ -309,11 +319,21 @@ export default function SakuraMap({ cities, landmarks, initialCity = 0 }: Sakura
         <div className="hidden md:flex flex-col w-[220px] border-r border-stone-100 bg-white shrink-0">
           <div className="px-2.5 py-2 text-xs font-bold border-b border-stone-50 flex items-center gap-1 shrink-0">
             <span>{city.emoji}</span>
-            {city.name} TOP {Math.min(city.spots.length, 20)}
-            <span className="text-[8px] text-stone-400 ml-auto">好看指数↓</span>
+            {city.name} {mapSearch ? `搜索` : `TOP ${Math.min(city.spots.length, 20)}`}
+            <span className="text-[8px] text-stone-400 ml-auto">{filteredLeftSpots.length}个</span>
+          </div>
+          {/* Search in left panel */}
+          <div className="px-2 py-1.5 border-b border-stone-50 shrink-0">
+            <input
+              type="text"
+              placeholder="🔍 搜索景点..."
+              value={mapSearch}
+              onChange={(e) => setMapSearch(e.target.value)}
+              className="w-full text-[11px] px-2 py-1.5 rounded-md border border-stone-200 bg-stone-50 focus:outline-none focus:border-pink-300 focus:bg-white"
+            />
           </div>
           <div className="flex-1 overflow-y-auto">
-            {city.spots.slice(0, 20).map((s, i) => (
+            {filteredLeftSpots.map(({ s, i }) => (
               <LeftPanelItem
                 key={s.id}
                 spot={s}
@@ -322,6 +342,9 @@ export default function SakuraMap({ cities, landmarks, initialCity = 0 }: Sakura
                 onClick={() => handleSelectSpot(i)}
               />
             ))}
+            {filteredLeftSpots.length === 0 && (
+              <div className="p-4 text-center text-xs text-stone-400">没有找到匹配的景点</div>
+            )}
           </div>
         </div>
 
