@@ -26,7 +26,7 @@
 
 - [x] 4.1 创建 `components/rush/CityTabs.tsx`（5城市切换标签 + Framer Motion 切换动效）
 - [x] 4.2 创建 `components/rush/SpotCard.tsx`（景点卡片：照片/花期状态/日期/树数/夜樱/名所百选/置信度）
-- [ ] 4.3 创建 `components/rush/BloomTimeline.tsx`（水平花期时间轴 + 当前周高亮指示器）
+- [x] 4.3 创建 `components/rush/BloomTimeline.tsx`（水平花期时间轴 + 当前周高亮指示器）
 - [x] 4.4 创建 `components/rush/WeeklyRush.tsx`（"本周冲"摘要卡片 + 紧迫感文案）— 已集成到 RushClient
 - [x] 4.5 组装 `app/rush/page.tsx`（WeeklyRush + CityTabs + SpotCard 网格 + BloomTimeline）
 
@@ -54,7 +54,7 @@
 
 ## 8. 集成验证
 
-- [ ] 8.1 全页面视觉走查（首页/排行榜/定制/导出），确保杂志级设计感
-- [ ] 8.2 验证 `?export=true` 模式下 Navbar/FloatingCTA 正确隐藏
-- [ ] 8.3 Playwright 导出 1080×1440 小红书图 + 1080×1080 朋友圈图，检查质量
-- [ ] 8.4 Satori 批量导出 5 城市封面卡片，检查中文渲染和布局
+- [x] 8.1 全页面视觉走查（首页/排行榜/定制/导出），确保杂志级设计感
+- [x] 8.2 验证 `?export=true` 模式下 Navbar/FloatingCTA 正确隐藏
+- [x] 8.3 Playwright 导出 1080×1440 小红书图 + 1080×1080 朋友圈图，检查质量
+- [x] 8.4 Satori 批量导出 5 城市封面卡片，检查中文渲染和布局

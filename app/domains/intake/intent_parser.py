@@ -26,22 +26,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from openai import AsyncOpenAI
-
+from app.core.ai_cache import cached_ai_call
 from app.core.config import settings
-
-# ── OpenAI 客户端（指向中转站）────────────────────────────────────────────────
-_client: Optional[AsyncOpenAI] = None
-
-
-def _get_client() -> AsyncOpenAI:
-    global _client
-    if _client is None:
-        _client = AsyncOpenAI(
-            api_key=settings.openai_api_key,
-            base_url=settings.ai_base_url,
-        )
-    return _client
 
 
 # ── 结果数据类 ─────────────────────────────────────────────────────────────────
@@ -156,22 +142,17 @@ async def parse_trip_intent(user_message: str) -> TripIntentResult:
     Raises:
         不抛异常，解析失败时返回带默认值的结果
     """
-    client = _get_client()
-
     try:
-        response = await client.chat.completions.create(
+        raw_content = await cached_ai_call(
+            prompt=user_message,
             model=settings.ai_model,
-            messages=[
-                {"role": "system", "content": _SYSTEM_PROMPT},
-                {"role": "user", "content": user_message},
-            ],
+            system_prompt=_SYSTEM_PROMPT,
             temperature=0.1,   # 低温度，保证输出稳定
             max_tokens=1000,
         )
 
-        raw_content = response.choices[0].message.content or "{}"
         # 提取 JSON：支持 ```json ... ``` 或裸 JSON
-        raw_json = _extract_json(raw_content)
+        raw_json = _extract_json(raw_content or "{}")
         data = json.loads(raw_json)
 
         return TripIntentResult(

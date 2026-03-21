@@ -6,17 +6,69 @@ AI 调用缓存中间件（ai_cache）
   - TTL: 7 天
   - 命中缓存直接返回，不调 AI
   - 未命中则调用 AI API，缓存后返回
+
+Langfuse 追踪（可选）：
+  - 通过 LANGFUSE_PUBLIC_KEY + LANGFUSE_SECRET_KEY 环境变量启用
+  - 未配置时自动降级（不影响正常功能）
+  - 追踪内容：model / prompt 摘要 / 是否命中缓存 / token 估算
 """
 from __future__ import annotations
 
 import hashlib
-import json
 import logging
+import os
 from typing import Any, Optional
 
 import redis.asyncio as aioredis
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+    before_sleep_log,
+)
 
 logger = logging.getLogger(__name__)
+
+# ── Langfuse 可选集成 ─────────────────────────────────────────────────────────
+
+def _get_langfuse_client() -> Any:
+    """
+    懒加载 Langfuse 客户端。
+    如果未安装或未配置环境变量则返回 None（降级模式）。
+    """
+    public_key = os.getenv("LANGFUSE_PUBLIC_KEY", "")
+    secret_key = os.getenv("LANGFUSE_SECRET_KEY", "")
+    host = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
+
+    if not public_key or not secret_key:
+        return None
+
+    try:
+        from langfuse import Langfuse
+        return Langfuse(
+            public_key=public_key,
+            secret_key=secret_key,
+            host=host,
+        )
+    except ImportError:
+        logger.debug("langfuse 未安装，AI 追踪已跳过")
+        return None
+    except Exception as e:
+        logger.warning("Langfuse 初始化失败（追踪已跳过）: %s", e)
+        return None
+
+
+# 模块级别懒加载（首次使用时初始化）
+_langfuse: Any = None
+
+
+def _lf() -> Any:
+    """获取全局 Langfuse 实例（None = 追踪禁用）。"""
+    global _langfuse
+    if _langfuse is None:
+        _langfuse = _get_langfuse_client()
+    return _langfuse
 
 _CACHE_TTL = 7 * 24 * 3600  # 7 天（秒）
 _CACHE_PREFIX = "ai_cache"
@@ -74,6 +126,22 @@ async def cached_ai_call(
     # 获取 Redis 客户端
     client = redis_client or _get_redis_client()
 
+    # ── Langfuse 追踪：开始一次 generation ───────────────────────────────────
+    lf = _lf()
+    lf_generation = None
+    if lf is not None:
+        try:
+            # prompt 摘要（前 200 字，避免暴露过多数据）
+            prompt_preview = (full_prompt[:200] + "…") if len(full_prompt) > 200 else full_prompt
+            lf_generation = lf.generation(
+                name="cached_ai_call",
+                model=model,
+                input={"system": system_prompt[:100] if system_prompt else "", "user": prompt_preview},
+                metadata={"cache_key": cache_key[:60], "temperature": temperature, "max_tokens": max_tokens},
+            )
+        except Exception:
+            lf_generation = None  # 追踪失败不影响主流程
+
     # 1. 尝试读取缓存
     if client is not None:
         try:
@@ -81,6 +149,15 @@ async def cached_ai_call(
             if cached is not None:
                 cached_str = cached.decode("utf-8") if isinstance(cached, bytes) else cached
                 logger.debug("AI cache HIT: %s (model=%s)", cache_key[:60], model)
+                # Langfuse：标记为缓存命中
+                if lf_generation is not None:
+                    try:
+                        lf_generation.end(
+                            output=cached_str[:200],
+                            metadata={"cache_hit": True},
+                        )
+                    except Exception:
+                        pass
                 return cached_str
         except Exception as e:
             logger.warning("AI cache read failed: %s", e)
@@ -96,6 +173,16 @@ async def cached_ai_call(
         response_format=response_format,
         **kwargs,
     )
+
+    # Langfuse：记录实际 AI 调用结果
+    if lf_generation is not None:
+        try:
+            lf_generation.end(
+                output=result[:200] if result else "",
+                metadata={"cache_hit": False},
+            )
+        except Exception:
+            pass
 
     # 3. 写入缓存
     if client is not None and result:
@@ -143,6 +230,13 @@ async def _call_ai(
         )
 
 
+@retry(
+    retry=retry_if_exception_type((Exception,)),
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=1, max=10),
+    before_sleep=before_sleep_log(logger, logging.WARNING),
+    reraise=True,
+)
 async def _call_openai(
     prompt: str,
     model: str,
@@ -152,7 +246,7 @@ async def _call_openai(
     response_format: Optional[dict] = None,
     **kwargs: Any,
 ) -> str:
-    """调用 OpenAI 兼容 API"""
+    """调用 OpenAI 兼容 API（含 tenacity 自动重试，最多 3 次，指数退避）"""
     from openai import AsyncOpenAI
     from app.core.config import settings
 
@@ -179,6 +273,13 @@ async def _call_openai(
     return response.choices[0].message.content or ""
 
 
+@retry(
+    retry=retry_if_exception_type((Exception,)),
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=1, max=10),
+    before_sleep=before_sleep_log(logger, logging.WARNING),
+    reraise=True,
+)
 async def _call_anthropic(
     prompt: str,
     model: str,
@@ -187,7 +288,7 @@ async def _call_anthropic(
     max_tokens: int = 2000,
     **kwargs: Any,
 ) -> str:
-    """调用 Anthropic Claude API（通过 httpx）"""
+    """调用 Anthropic Claude API（含 tenacity 自动重试，最多 3 次，指数退避）"""
     import httpx
     from app.core.config import settings
 

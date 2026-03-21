@@ -16,21 +16,8 @@ import json
 import re
 from typing import Any, Dict, List, Optional
 
-from openai import AsyncOpenAI
-
+from app.core.ai_cache import cached_ai_call
 from app.core.config import settings
-
-_client: Optional[AsyncOpenAI] = None
-
-
-def _get_client() -> AsyncOpenAI:
-    global _client
-    if _client is None:
-        _client = AsyncOpenAI(
-            api_key=settings.openai_api_key,
-            base_url=settings.ai_base_url,
-        )
-    return _client
 
 
 def _extract_json_array(text: str) -> str:
@@ -144,16 +131,14 @@ async def generate_pois(
         category=cat_zh, count=count,
     )
 
-    client = _get_client()
-    response = await client.chat.completions.create(
+    raw = await cached_ai_call(
+        prompt=prompt,
         model=settings.ai_model,
-        messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_tokens=4000,
     )
 
-    raw = response.choices[0].message.content or "[]"
-    data = json.loads(_extract_json_array(raw))
+    data = json.loads(_extract_json_array(raw or "[]"))
 
     # 确保 city_code 和 category 字段正确
     for item in data:
@@ -240,16 +225,14 @@ async def generate_restaurants(
         cuisine=cuisine_zh, count=count,
     )
 
-    client = _get_client()
-    response = await client.chat.completions.create(
+    raw = await cached_ai_call(
+        prompt=prompt,
         model=settings.ai_model,
-        messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_tokens=4000,
     )
 
-    raw = response.choices[0].message.content or "[]"
-    data = json.loads(_extract_json_array(raw))
+    data = json.loads(_extract_json_array(raw or "[]"))
 
     for item in data:
         item["city_code"] = city_code
@@ -328,16 +311,14 @@ async def generate_hotels(
         tier=tier_zh, count=count,
     )
 
-    client = _get_client()
-    response = await client.chat.completions.create(
+    raw = await cached_ai_call(
+        prompt=prompt,
         model=settings.ai_model,
-        messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_tokens=4000,
     )
 
-    raw = response.choices[0].message.content or "[]"
-    data = json.loads(_extract_json_array(raw))
+    data = json.loads(_extract_json_array(raw or "[]"))
 
     for item in data:
         item["city_code"] = city_code

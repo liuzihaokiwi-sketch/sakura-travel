@@ -17,6 +17,8 @@ from typing import Any, Dict, Optional
 
 from redis.asyncio import Redis
 
+from app.core.ai_cache import cached_ai_call
+
 logger = logging.getLogger(__name__)
 
 _REDIS_TTL = 7 * 24 * 3600  # 7 天（秒）
@@ -107,14 +109,8 @@ async def generate_copy(
 
 
 async def _call_gpt(entity: Any, scene: str, editorial_reason: str) -> Dict[str, str]:
-    """调用 AI 模型生成文案，返回 {copy_zh, tips_zh}。"""
-    from openai import AsyncOpenAI
+    """调用 AI 模型生成文案（经由 ai_cache 中间件），返回 {copy_zh, tips_zh}。"""
     from app.core.config import settings
-
-    client = AsyncOpenAI(
-        api_key=settings.openai_api_key,
-        base_url=settings.ai_base_url if settings.ai_base_url else None,
-    )
 
     # 组装 prompt
     name_zh = getattr(entity, "name_zh", "") or ""
@@ -138,20 +134,17 @@ async def _call_gpt(entity: Any, scene: str, editorial_reason: str) -> Dict[str,
         editorial_reason=editorial_reason or "无",
     )
 
-    response = await client.chat.completions.create(
+    # 走 cached_ai_call，相同实体+场景命中缓存后不重复调用 AI
+    content = await cached_ai_call(
+        prompt=user_prompt,
         model=settings.ai_model_standard,
-        messages=[
-            {"role": "system", "content": _SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-        response_format={"type": "json_object"},
+        system_prompt=_SYSTEM_PROMPT,
         temperature=0.7,
         max_tokens=200,
+        response_format={"type": "json_object"},
     )
 
-    content = response.choices[0].message.content or "{}"
-    data = json.loads(content)
-
+    data = json.loads(content or "{}")
     copy_zh = data.get("copy_zh", "").strip()
     tips_zh = data.get("tips_zh", "").strip()
 

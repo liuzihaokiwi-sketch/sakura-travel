@@ -56,17 +56,25 @@
 - **方案**：`structlog`（免费）
 - **TODO**：后续部署前加
 
-### P1 — AI 调用缓存
+### P1 — AI 调用缓存 ✅ DONE
 
 - **问题**：相同输入重复调 AI 浪费 token
 - **方案**：Redis 缓存 AI 响应（key = hash(prompt+model)）
-- **TODO**：在 AI 调用层加缓存中间件
+- **实现**：
+  - `app/core/ai_cache.py` — `cached_ai_call()` 统一入口（已存在并完善）
+  - `app/domains/catalog/tagger.py` — 已改为走 `cached_ai_call`（移除直接 OpenAI 调用）
+  - `app/domains/planning/copywriter.py` — `_call_gpt()` 已改为走 `cached_ai_call`
+  - 缓存 TTL = 7 天，Redis key = `ai_cache:{model}:{sha256(prompt)}`
 
-### P2 — AI 调用追踪（langfuse）
+### P2 — AI 调用追踪（langfuse）✅ DONE
 
 - **问题**：不知道 token 花在哪
 - **方案**：`langfuse`（免费 self-host 或免费云额度）
-- **TODO**：后续优化阶段加
+- **实现**：
+  - `app/core/ai_cache.py` — `cached_ai_call()` 内置 langfuse 追踪
+  - 环境变量 `LANGFUSE_PUBLIC_KEY` / `LANGFUSE_SECRET_KEY` 未配置时自动降级
+  - `.env.example` 已添加 Langfuse 配置项
+  - `pyproject.toml` 已添加 `langfuse>=2.0.0` 依赖
 
 ### P2 — Python 端 Playwright
 
@@ -74,8 +82,12 @@
 - **方案**：Python `playwright`（免费）
 - **TODO**：已有 google_flights.py 但可能需要补 playwright 支持
 
-### P2 — 重试策略（tenacity）
+### P2 — 重试策略（tenacity）✅ DONE
 
 - **问题**：手写 retry 不够稳
 - **方案**：`tenacity`（免费）
-- **TODO**：替换爬虫和 AI 调用中的手写 retry
+- **实现**：
+  - `scripts/crawlers/base.py` — `BaseCrawler.fetch()` 中的手写 `for attempt` 重试循环已替换为 `AsyncRetrying` + `wait_exponential`
+  - `scripts/crawlers/sakura_pipeline/utils.py` — 已有 tenacity 装饰器（无需改动）
+  - `pyproject.toml` 已添加 `tenacity>=9.0.0` 依赖
+  - 重试策略：指数退避（min=2s, max=30s），429/503 自动重试，403 直接失败

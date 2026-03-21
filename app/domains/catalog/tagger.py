@@ -19,10 +19,10 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from openai import AsyncOpenAI
 from sqlalchemy import delete, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.ai_cache import cached_ai_call
 from app.db.models.catalog import EntityBase, EntityTag
 
 logger = logging.getLogger(__name__)
@@ -43,16 +43,6 @@ THEME_DIMENSIONS: list[str] = [
 
 SEED_DATA_PATH = Path(__file__).parent.parent.parent.parent / "data" / "entity_affinity_seed_v1.json"
 BATCH_SIZE = 10  # GPT 单次处理实体上限
-
-
-# ── GPT 客户端（懒初始化）────────────────────────────────────────────────────
-
-def _get_client() -> AsyncOpenAI:
-    from app.core.config import settings
-    return AsyncOpenAI(
-        api_key=settings.openai_api_key,
-        base_url=settings.ai_base_url if settings.ai_base_url else None,
-    )
 
 
 # ── Prompt 模板 ───────────────────────────────────────────────────────────────
@@ -102,8 +92,6 @@ async def generate_tags_for_entities(
     if not entities:
         return {}
 
-    client = _get_client()
-
     # 构建 GPT 输入
     entity_info = [
         {
@@ -118,21 +106,20 @@ async def generate_tags_for_entities(
 
     try:
         from app.core.config import settings as _settings
-        resp = await client.chat.completions.create(
+        user_prompt = _USER_PROMPT_TEMPLATE.format(
+            count=len(entities),
+            entities_json=entities_json,
+        )
+        # 走 cached_ai_call，相同批次不重复调用 AI
+        raw_text = await cached_ai_call(
+            prompt=user_prompt,
             model=_settings.ai_model_light,
-            messages=[
-                {"role": "system", "content": _SYSTEM_PROMPT},
-                {"role": "user", "content": _USER_PROMPT_TEMPLATE.format(
-                    count=len(entities),
-                    entities_json=entities_json,
-                )},
-            ],
-            response_format={"type": "json_object"},
+            system_prompt=_SYSTEM_PROMPT,
             temperature=0.1,
             max_tokens=2000,
+            response_format={"type": "json_object"},
         )
-        raw_text = resp.choices[0].message.content or "{}"
-        gpt_result: dict[str, Any] = json.loads(raw_text)
+        gpt_result: dict[str, Any] = json.loads(raw_text or "{}")
     except Exception as e:
         logger.error(f"GPT 标签生成失败: {e}")
         return {}
