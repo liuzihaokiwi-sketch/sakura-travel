@@ -33,12 +33,18 @@ router = APIRouter(prefix="/trips", tags=["trips-plan"])
 class ItemOut(BaseModel):
     model_config = {"from_attributes": True}
     item_type: str
-    start_time: Optional[str]
-    end_time: Optional[str]
-    duration_min: Optional[int]
-    notes_zh: Optional[str]
-    estimated_cost_jpy: Optional[int]
-    is_optional: bool
+    start_time: Optional[str] = None
+    end_time: Optional[str] = None
+    duration_min: Optional[int] = None
+    notes_zh: Optional[str] = None
+    estimated_cost_jpy: Optional[int] = None
+    is_optional: bool = False
+    # 解析后的富字段
+    entity_name: Optional[str] = None
+    copy_zh: Optional[str] = None
+    tips_zh: Optional[str] = None
+    area_name: Optional[str] = None
+    google_rating: Optional[float] = None
 
 
 class DayOut(BaseModel):
@@ -56,6 +62,7 @@ class PlanOut(BaseModel):
     status: str
     plan_metadata: Optional[Dict[str, Any]]
     days: List[DayOut]
+    report_content: Optional[Dict[str, Any]] = None
 
 
 class GenerateResponse(BaseModel):
@@ -243,21 +250,53 @@ async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
     )
     days = days_result.scalars().all()
 
+    import json as _json
+    from app.db.models.catalog import EntityBase
+
     days_out = []
     for day in days:
         items_result = await db.execute(
             select(ItineraryItem).where(ItineraryItem.day_id == day.day_id).order_by(ItineraryItem.sort_order)
         )
         items = items_result.scalars().all()
+        rich_items = []
+        for i in items:
+            # 解析 notes_zh JSON
+            notes = {}
+            if i.notes_zh:
+                try:
+                    notes = _json.loads(i.notes_zh)
+                except (ValueError, TypeError):
+                    notes = {"copy_zh": i.notes_zh}
+            # 关联 entity
+            entity = await db.get(EntityBase, i.entity_id) if i.entity_id else None
+            entity_name = notes.get("copy_zh") or (
+                getattr(entity, "name_zh", None) or getattr(entity, "name_en", "") if entity else ""
+            )
+            rich_items.append(ItemOut(
+                item_type=i.item_type,
+                start_time=str(i.start_time) if i.start_time else None,
+                end_time=str(i.end_time) if i.end_time else None,
+                duration_min=i.duration_min,
+                notes_zh=i.notes_zh,
+                estimated_cost_jpy=i.estimated_cost_jpy,
+                is_optional=i.is_optional or False,
+                entity_name=entity_name,
+                copy_zh=notes.get("copy_zh", ""),
+                tips_zh=notes.get("tips_zh", ""),
+                area_name=getattr(entity, "area_name", "") if entity else "",
+                google_rating=float(entity.google_rating) if entity and getattr(entity, "google_rating", None) else None,
+            ))
         days_out.append(DayOut(
             day_number=day.day_number, date=day.date, city_code=day.city_code,
             day_theme=day.day_theme, estimated_cost_jpy=day.estimated_cost_jpy,
-            items=[ItemOut.model_validate(i) for i in items],
+            items=rich_items,
         ))
 
     return PlanOut(
         plan_id=str(plan.plan_id), trip_request_id=str(plan.trip_request_id),
         status=plan.status, plan_metadata=plan.plan_metadata, days=days_out,
+        report_content=plan.report_content,
     )
 
 
@@ -285,12 +324,19 @@ async def export_plan(trip_request_id: str, fmt: str = "html", db: AsyncSession 
     if fmt == "pdf":
         try:
             pdf_bytes = await render_pdf(html_content)
-        except ImportError as e:
-            raise HTTPException(status_code=501, detail=str(e))
-        return Response(
-            content=pdf_bytes, media_type="application/pdf",
-            headers={"Content-Disposition": f"attachment; filename=itinerary_{trip_request_id[:8]}.pdf"},
-        )
+            return Response(
+                content=pdf_bytes, media_type="application/pdf",
+                headers={"Content-Disposition": f"attachment; filename=sakura-plan-{trip_request_id[:8]}.pdf"},
+            )
+        except (ImportError, OSError) as pdf_err:
+            import logging as _log
+            _log.getLogger(__name__).warning("PDF 引擎不可用，降级到浏览器打印: %s", pdf_err)
+            print_html = html_content.replace(
+                "</head>",
+                "<style>@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .day-card { break-inside: avoid; } }</style>\n"
+                "<script>window.onload = function() { window.print(); }</script>\n</head>"
+            )
+            return Response(content=print_html, media_type="text/html; charset=utf-8")
 
     return Response(content=html_content, media_type="text/html; charset=utf-8")
 

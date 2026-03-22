@@ -97,6 +97,27 @@ async def _build_render_context(
             "timeline": items_data,
         })
 
+    # 解析 notes_zh 获取实体名和文案
+    import json as _json
+    for rd in rendered_days:
+        for it in rd.get("timeline", []):
+            notes = {}
+            if it.get("notes_zh"):
+                try:
+                    notes = _json.loads(it["notes_zh"])
+                except (ValueError, TypeError):
+                    notes = {"copy_zh": it["notes_zh"]}
+            if not it.get("entity_name"):
+                it["entity_name"] = notes.get("copy_zh", "")
+            it["copy_zh"] = notes.get("copy_zh", "")
+            it["tips_zh_parsed"] = notes.get("tips_zh", "")
+
+    rc = plan.report_content or {}
+
+    # T6: 检测 schema_version，v2 走 v2 渲染上下文
+    if rc.get("schema_version") == "v2":
+        return _build_render_context_v2(rc, rendered_days, plan, meta)
+
     return {
         "plan_id": str(plan.plan_id),
         "total_days": meta.get("total_days", len(days)),
@@ -106,6 +127,58 @@ async def _build_render_context(
         "estimated_total_cost_jpy": meta.get("estimated_total_cost_jpy"),
         "days": rendered_days,
         "status": plan.status,
+        "report_content": plan.report_content,
+    }
+
+
+def _build_render_context_v2(
+    rc: dict,
+    rendered_days: list,
+    plan: "ItineraryPlan",
+    meta: dict,
+) -> dict:
+    """
+    T6：为 schema_version=v2 的 report_content 构建渲染上下文。
+    在 v1 字段基础上额外提供 design_brief、每日 8 字段等 v2 内容。
+    """
+    layer1 = rc.get("layer1_overview", {})
+    design_brief = rc.get("design_brief", {})
+    layer2 = rc.get("layer2_daily", [])
+
+    # 把 layer2 中的 v2 字段合并到 rendered_days（按 day_number 对齐）
+    layer2_map = {d.get("day_number"): d for d in layer2}
+    for rd in rendered_days:
+        dn = rd.get("day_number")
+        layer2_day = layer2_map.get(dn, {})
+        rd["primary_area"] = layer2_day.get("primary_area", "")
+        rd["secondary_area"] = layer2_day.get("secondary_area", "")
+        rd["day_goal"] = layer2_day.get("day_goal", "")
+        rd["must_keep"] = layer2_day.get("must_keep", "")
+        rd["first_cut"] = layer2_day.get("first_cut", "")
+        rd["start_anchor"] = layer2_day.get("start_anchor", "")
+        rd["end_anchor"] = layer2_day.get("end_anchor", "")
+        rd["route_integrity_score"] = layer2_day.get("route_integrity_score", 1.0)
+        rd["report"] = layer2_day.get("report", {})
+        rd["conditional_pages"] = layer2_day.get("conditional_pages", [])
+
+    return {
+        "plan_id": str(plan.plan_id),
+        "schema_version": "v2",
+        "total_days": meta.get("total_days", len(rendered_days)),
+        "cities": meta.get("cities", []),
+        "budget_level": meta.get("budget_level", "mid"),
+        "budget_level_zh": _budget_zh(meta.get("budget_level", "mid")),
+        "estimated_total_cost_jpy": meta.get("estimated_total_cost_jpy"),
+        "days": rendered_days,
+        "status": plan.status,
+        "report_content": rc,
+        # v2 专属字段
+        "design_brief": design_brief,
+        "design_philosophy": layer1.get("design_philosophy", {}),
+        "overview": layer1.get("overview", {}),
+        "booking_reminders": layer1.get("booking_reminders", []),
+        "seasonal_tips": layer1.get("seasonal_tips", ""),
+        "prep_checklist": layer1.get("prep_checklist", {}),
     }
 
 
@@ -137,6 +210,9 @@ async def render_html(
     """
     把 ItineraryPlan 渲染成 HTML 字符串。
 
+    T6：如果 report_content.schema_version == "v2"，且调用方没有指定模板，
+    自动切换到 itinerary_v2.html。
+
     Args:
         session:       AsyncSession
         plan_id:       ItineraryPlan.plan_id（UUID 字符串）
@@ -157,30 +233,64 @@ async def render_html(
         raise ValueError(f"ItineraryPlan not found: {plan_id}")
 
     context = await _build_render_context(session, plan)
+
+    # T6：v2 report 自动选 v2 模板（调用方显式指定模板时不覆盖）
+    resolved_template = template_name
+    if (
+        template_name == "itinerary_default.html"
+        and context.get("schema_version") == "v2"
+    ):
+        resolved_template = "itinerary_v2.html"
+
     env = _get_jinja_env()
-    tmpl = env.get_template(template_name)
+    tmpl = env.get_template(resolved_template)
     return tmpl.render(**context)
 
 
 async def render_pdf(html_content: str) -> bytes:
     """
     把 HTML 字符串转成 PDF bytes。
-    依赖 weasyprint（需要系统安装 cairo/pango）。
-    如果 weasyprint 未安装，raise ImportError 并提示。
+    优先使用 xhtml2pdf（纯 Python，无系统依赖），
+    fallback 到 weasyprint。
     """
+    import io
+
+    # 方案一：xhtml2pdf（纯 Python，Windows 友好）
+    # xhtml2pdf 不支持 CSS var()，需要替换成实际值
+    try:
+        from xhtml2pdf import pisa
+        import re
+
+        # 提取 :root 中的 CSS 变量定义
+        css_vars = {}
+        root_match = re.search(r':root\s*\{([^}]+)\}', html_content)
+        if root_match:
+            for m in re.finditer(r'--([\w-]+)\s*:\s*([^;]+);', root_match.group(1)):
+                css_vars[f'var(--{m.group(1)})'] = m.group(2).strip()
+
+        # 替换所有 var(--xxx) 引用
+        pdf_html = html_content
+        for var_ref, val in css_vars.items():
+            pdf_html = pdf_html.replace(var_ref, val)
+
+        # 移除 xhtml2pdf 不支持的 CSS 特性
+        pdf_html = re.sub(r'backdrop-filter:[^;]+;', '', pdf_html)
+        pdf_html = re.sub(r'-webkit-print-color-adjust:[^;]+;', '', pdf_html)
+        pdf_html = re.sub(r'print-color-adjust:[^;]+;', '', pdf_html)
+
+        result = io.BytesIO()
+        pisa_status = pisa.CreatePDF(io.StringIO(pdf_html), dest=result)
+        if pisa_status.err:
+            raise RuntimeError(f"xhtml2pdf error count: {pisa_status.err}")
+        return result.getvalue()
+    except ImportError:
+        pass
+
+    # 方案二：weasyprint（需要系统 GTK 库）
     try:
         from weasyprint import HTML
-    except ImportError:
-        import platform as _pf
-        _hint = "weasyprint 未安装，请运行: pip install weasyprint\n"
-        if _pf.system() == "Darwin":
-            _hint += "macOS 还需要: brew install cairo pango gdk-pixbuf libffi"
-        elif _pf.system() == "Windows":
-            _hint += (
-                "Windows 还需要 GTK3 运行时:\n"
-                "  MSYS2: pacman -S mingw-w64-x86_64-pango mingw-w64-x86_64-cairo\n"
-                "  并将 C:\\msys64\\mingw64\\bin 加入 PATH，或使用 Docker 环境"
-            )
-        raise ImportError(_hint)
-    pdf_bytes = HTML(string=html_content).write_pdf()
-    return pdf_bytes
+        return HTML(string=html_content).write_pdf()
+    except (ImportError, OSError):
+        pass
+
+    raise ImportError("PDF 生成需要安装 xhtml2pdf 或 weasyprint: pip install xhtml2pdf")

@@ -209,7 +209,15 @@ async def _call_ai(
     """
     from app.core.config import settings
 
-    if "claude" in model.lower() or "anthropic" in model.lower():
+    # 中转站统一走 OpenAI 兼容接口（支持 claude/gpt 等所有模型）
+    # 仅在配置了 ANTHROPIC_API_KEY 且未配置 AI_BASE_URL 时才走官方 Anthropic API
+    use_native_anthropic = (
+        ("claude" in model.lower() or "anthropic" in model.lower())
+        and getattr(settings, "anthropic_api_key", None)
+        and not getattr(settings, "ai_base_url", None)
+    )
+
+    if use_native_anthropic:
         return await _call_anthropic(
             prompt=prompt,
             model=model,

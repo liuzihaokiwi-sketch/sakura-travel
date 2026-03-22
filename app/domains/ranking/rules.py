@@ -58,37 +58,50 @@ POI_DIMENSIONS: list[ScoreDimension] = [
     ScoreDimension(
         key="platform_rating",
         label="平台评分与口碑",
-        weight=0.25,
+        weight=0.30,
         max_raw=5.0,  # Google rating 0-5
     ),
     ScoreDimension(
         key="review_confidence",
         label="评论量置信度",
-        weight=0.15,
+        weight=0.20,
         max_raw=10000.0,  # review_count，10000 条视为满分
     ),
     ScoreDimension(
         key="city_popularity",
         label="城市代表性/热度",
-        weight=0.15,
+        weight=0.20,
         max_raw=100.0,  # 归一化热度分 0-100
     ),
+    # R2: theme_match (原 0.20) 和 area_efficiency (原 0.15) 已从 base_quality
+    # 移至 context_fit 层（itinerary_fit_scorer.py），不再参与实体固有品质评分。
+    # 新增 operational_stability 替代，确保权重和 = 1.0。
     ScoreDimension(
-        key="theme_match",
-        label="与用户主题匹配度",
-        weight=0.20,
-        max_raw=100.0,
-    ),
-    ScoreDimension(
-        key="area_efficiency",
-        label="区域串联效率",
+        key="operational_stability",
+        label="运营稳定度",
         weight=0.15,
-        max_raw=100.0,
+        max_raw=100.0,  # 综合营业稳定性、投诉率、状态变更频率
     ),
     ScoreDimension(
         key="data_freshness",
         label="信息新鲜度",
-        weight=0.10,
+        weight=0.15,
+        max_raw=100.0,
+    ),
+]
+
+# R2: 已移出到 context_fit 层的维度（保留定义供 itinerary_fit_scorer 使用）
+POI_CONTEXT_DIMENSIONS: list[ScoreDimension] = [
+    ScoreDimension(
+        key="theme_match",
+        label="与用户主题匹配度（context_fit 层）",
+        weight=0.55,
+        max_raw=100.0,
+    ),
+    ScoreDimension(
+        key="area_efficiency",
+        label="区域串联效率（itinerary_fit 层）",
+        weight=0.45,
         max_raw=100.0,
     ),
 ]

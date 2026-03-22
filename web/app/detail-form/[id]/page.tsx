@@ -93,7 +93,7 @@ function DetailFormInner({ formId }: { formId: string }) {
       if (res.ok) {
         setCompletedSteps(new Set([1, 2, 3, 4, 5, 6]));
         setSubmitSuccess(true);
-        setTimeout(() => router.push(`/plan?submitted=1`), 2000);
+        // 不跳转，留在当前页继续编辑
       }
     } catch (e) {
       console.error("Submit failed", e);
@@ -102,7 +102,7 @@ function DetailFormInner({ formId }: { formId: string }) {
     }
   };
 
-  // 提交成功状态
+  // 提交成功状态 — 不跳转，可以继续编辑
   if (submitSuccess) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-emerald-50 flex items-center justify-center px-4">
@@ -110,11 +110,17 @@ function DetailFormInner({ formId }: { formId: string }) {
           <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto shadow-lg">
             <CheckIcon className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900">信息提交成功！</h2>
+          <h2 className="text-2xl font-bold text-gray-900">保存成功！</h2>
           <p className="text-gray-600 text-sm leading-relaxed">
-            我们已收到您的详细需求，客服将在 24 小时内为您定制专属行程方案。
+            您的需求已保存，客服会与您微信确认细节。<br />
+            如果有修改可以随时打开此链接再次编辑。
           </p>
-          <p className="text-xs text-gray-400">正在跳转到行程页面...</p>
+          <button
+            onClick={() => setSubmitSuccess(false)}
+            className="mt-2 text-sm text-indigo-600 hover:text-indigo-800 font-medium"
+          >
+            ← 继续编辑
+          </button>
         </div>
       </div>
     );

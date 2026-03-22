@@ -416,6 +416,154 @@ def check_qty_11(plan: dict) -> RuleResult:
     )
 
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# T7: v2 STR 结构 grader（5 条）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def check_str_01(report: dict) -> RuleResult:
+    """STR-01: 总纲完整性 — design_brief + layer1_overview 四节必须齐全"""
+    if report.get("schema_version") != "v2":
+        return RuleResult(rule_id="STR-01", passed=True, message="跳过（非 v2 schema）", severity="warning")
+
+    errors = []
+    design_brief = report.get("design_brief", {})
+    if not design_brief:
+        errors.append("design_brief 缺失")
+    else:
+        for key in ("route_strategy", "tradeoffs", "stay_strategy", "budget_strategy", "execution_principles"):
+            if not design_brief.get(key):
+                errors.append(f"design_brief.{key} 为空")
+
+    l1 = report.get("layer1_overview", {})
+    dp = l1.get("design_philosophy", {})
+    ov = l1.get("overview", {})
+    if not dp.get("summary"):
+        errors.append("layer1_overview.design_philosophy.summary 缺失")
+    if not ov.get("route_summary"):
+        errors.append("layer1_overview.overview.route_summary 缺失")
+    if not l1.get("booking_reminders") and not l1.get("seasonal_tips"):
+        errors.append("layer1_overview 缺少 booking_reminders 和 seasonal_tips")
+    if not l1.get("prep_checklist"):
+        errors.append("layer1_overview.prep_checklist 缺失")
+
+    return RuleResult(
+        rule_id="STR-01",
+        passed=len(errors) == 0,
+        message="总纲结构完整" if not errors else f"总纲结构缺失: {len(errors)} 项",
+        details=errors,
+    )
+
+
+def check_str_02(report: dict) -> RuleResult:
+    """STR-02: 日主线完整性 — 每天必须有 8 个结构字段"""
+    if report.get("schema_version") != "v2":
+        return RuleResult(rule_id="STR-02", passed=True, message="跳过（非 v2 schema）", severity="warning")
+
+    errors = []
+    required_fields = ("primary_area", "day_goal", "must_keep", "first_cut", "start_anchor", "end_anchor")
+    for day in report.get("layer2_daily", []):
+        day_num = day.get("day_number", "?")
+        for field in required_fields:
+            if not day.get(field):
+                errors.append(f"Day {day_num}: {field} 为空")
+        rpt = day.get("report", {})
+        if not rpt.get("why_this_arrangement"):
+            errors.append(f"Day {day_num}: why_this_arrangement 缺失")
+        if not rpt.get("notes_and_planb"):
+            errors.append(f"Day {day_num}: notes_and_planb 缺失")
+
+    return RuleResult(
+        rule_id="STR-02",
+        passed=len(errors) == 0,
+        message="日主线结构完整" if not errors else f"日主线字段缺失: {len(errors)} 处",
+        severity="error" if errors else "error",
+        details=errors[:10],  # 最多显示10条
+    )
+
+
+def check_str_03(report: dict) -> RuleResult:
+    """STR-03: 标题与正文一致性 — day_goal 中的 primary_area 应出现在 timeline_summary 中"""
+    if report.get("schema_version") != "v2":
+        return RuleResult(rule_id="STR-03", passed=True, message="跳过（非 v2 schema）", severity="warning")
+
+    errors = []
+    for day in report.get("layer2_daily", []):
+        day_num = day.get("day_number", "?")
+        primary_area = day.get("primary_area", "")
+        rpt = day.get("report", {})
+        eo = rpt.get("execution_overview", {})
+        ts = eo.get("timeline_summary", "")
+        area_in_rpt = eo.get("area", "")
+        # 宽松检查：AI 给出的 area 字段应该与 primary_area 接近
+        if primary_area and area_in_rpt and primary_area not in area_in_rpt and area_in_rpt not in primary_area:
+            errors.append(f"Day {day_num}: AI 给出 area=「{area_in_rpt}」与规则计算 primary_area=「{primary_area}」不一致")
+
+    return RuleResult(
+        rule_id="STR-03",
+        passed=len(errors) == 0,
+        message="标题与正文区域一致" if not errors else f"区域不一致: {len(errors)} 处",
+        severity="warning",
+        details=errors,
+    )
+
+
+def check_str_04(report: dict) -> RuleResult:
+    """STR-04: 结构性去重 — 跨天检查重复实体"""
+    if report.get("schema_version") != "v2":
+        return RuleResult(rule_id="STR-04", passed=True, message="跳过（非 v2 schema）", severity="warning")
+
+    errors = []
+    seen: set[str] = set()
+    for day in report.get("layer2_daily", []):
+        day_num = day.get("day_number", "?")
+        for it in day.get("items", []):
+            eid = it.get("entity_id") or it.get("name", "")
+            if eid and eid != "自由安排":
+                if eid in seen:
+                    errors.append(f"Day {day_num}: 实体「{eid}」重复出现")
+                seen.add(eid)
+
+    return RuleResult(
+        rule_id="STR-04",
+        passed=len(errors) == 0,
+        message="无跨天重复实体" if not errors else f"发现 {len(errors)} 处重复实体",
+        severity="warning",
+        details=errors,
+    )
+
+
+def check_str_05(report: dict) -> RuleResult:
+    """STR-05: 条件页触发正确性 — 第一/最后天必须有 transport 和 hotel 页"""
+    if report.get("schema_version") != "v2":
+        return RuleResult(rule_id="STR-05", passed=True, message="跳过（非 v2 schema）", severity="warning")
+
+    errors = []
+    days = report.get("layer2_daily", [])
+    if not days:
+        return RuleResult(rule_id="STR-05", passed=True, message="无 daily 数据，跳过")
+
+    total = len(days)
+    for day in days:
+        day_num = day.get("day_number", 0)
+        cond_pages = day.get("conditional_pages", [])
+        if day_num == 1:
+            if "transport" not in cond_pages:
+                errors.append(f"Day 1: 缺少 transport 条件页（第一天应有交通说明）")
+            if "hotel" not in cond_pages:
+                errors.append(f"Day 1: 缺少 hotel 条件页（第一天应有住宿信息）")
+        if day_num == total:
+            if "transport" not in cond_pages:
+                errors.append(f"Day {total}: 缺少 transport 条件页（最后天应有返程交通）")
+
+    return RuleResult(
+        rule_id="STR-05",
+        passed=len(errors) == 0,
+        message="条件页触发正确" if not errors else f"条件页触发异常: {len(errors)} 处",
+        severity="warning",
+        details=errors,
+    )
+
+
 # ── 主入口 ────────────────────────────────────────────────────────────────────
 
 async def run_quality_gate(
@@ -434,7 +582,7 @@ async def run_quality_gate(
     """
     results: list[RuleResult] = []
 
-    # 同步规则
+    # 同步规则（QTY — 数量/内容规则）
     results.append(check_qty_01(plan))
     results.append(check_qty_02(plan))
     results.append(check_qty_03(plan))
@@ -443,6 +591,18 @@ async def run_quality_gate(
     results.append(check_qty_08(plan))
     results.append(check_qty_09(plan))
     results.append(check_qty_11(plan))
+
+    # T7: v2 结构规则（STR — 只对 schema_version=v2 的报告有效）
+    # 传入的是 report_content（layer2_daily 里的内容），而非 plan.days
+    # 为兼容 run_quality_gate 的现有接口，优先从 plan 顶层找 schema_version
+    report_content = plan if plan.get("schema_version") == "v2" else {}
+    if not report_content and plan.get("report_content"):
+        report_content = plan["report_content"]
+    results.append(check_str_01(report_content))
+    results.append(check_str_02(report_content))
+    results.append(check_str_03(report_content))
+    results.append(check_str_04(report_content))
+    results.append(check_str_05(report_content))
 
     # 异步（需要 DB）规则
     results.append(await check_qty_06(plan, db))

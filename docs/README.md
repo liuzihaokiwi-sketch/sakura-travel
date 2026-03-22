@@ -1,54 +1,42 @@
 # Travel AI — 文档索引
 
-> 最后更新：2026-03-22
+> 13 份文档，每份有明确职责，无重复。最后更新：2026-03-22
 
-## 📂 文档结构
+## 📂 文档清单
 
-```
-docs-human/                          # 人工编写的核心需求文档（权威源）
-  travel_ai_unified_system_doc.md    # 统一系统文档（25 章，唯一需求源）
-  copywriting-audit-report.md        # 全站文案审查报告
+| # | 文件 | 行数 | 给谁看 | 存在意义 |
+|---|------|------|--------|---------|
+| 01 | `01_system_core.md` | ~470 | 全员 | **系统总纲**：免费流程→付费表单→校验→客服角色→生成主链路→画像标准化 |
+| 02 | `02_fragment_system.md` | ~320 | 开发 | **片段攻略库**：Schema、复用流程、命中策略、硬软规则对接 |
+| 03 | `03_report_delivery_rules.md` | ~240 | 开发 | **报告结构+交付规则**：3层正文、静态/规则/AI块、PDF/H5、微调修改、状态机 |
+| 04 | `04_positioning_pricing_themes.md` | ~310 | 产品/运营 | **商业基础**：产品定位、价格体系、主题线、高客单方向 |
+| 05 | `05_content_and_growth.md` | ~275 | 运营 | **内容+增长**：账号打法、内容支柱、引流到成交路径、页面职责 |
+| 06 | `06_retention_and_roadmap.md` | ~195 | 产品/CEO | **私域+路线图**：用户分层、复购转介绍、4阶段长期规划 |
+| 07 | `07_ops_playbook.md` | ~440 | 运营 | **运营手册**：旅后回访+反馈、小红书增长引擎 |
+| 08 | `08_eval_cases.md` | ~400 | 开发/QA | **评测用例**：20个核心 case（A标准/B高价值/C复杂/D边界/E回归） |
+| 09 | `09_eval_graders.md` | ~315 | 开发/QA | **评测标准**：3个 grader rubric + 飞轮运行方式 + 失败归因 |
+| 10 | `10_e2e_testing_guide.md` | ~470 | 开发 | **E2E 测试操作指引**：13步完整流程 + API 调用示例 |
+| 11 | `11_copywriting_audit.md` | ~82 | 产品/运营 | **文案审查报告**：首页/问卷/价格页/交付页逐页审查 |
+| 12 | `12_report_structure.md` | ~220 | 开发/设计 | **攻略详细骨架**：总纲4节+每日4节+6种条件页+页数控制 |
+| 13 | `13_ai_codebase_map.md` | ~430 | AI agent | **AI 工作手册**：仓库结构、模型、管线、风险文件、命名、启动方式 |
 
-docs/                                # AI 生成/维护的工作文档
-  README.md                          # ← 你正在看的文档索引
-  unified-system-gap-tasks.md        # 主任务清单（差距分析 + 全部任务状态）
-  product-refactor-tasks.md          # 产品重构任务（表单字段 + 校验规则 + 状态流定义）
-  eval_flywheel_and_case_system.md   # 评测飞轮设计（4 层评测 + 20 用例 + grader 规格）
-  01-08_*.md                         # 产品定位/结构/增长等战略文档
-
-docs/ops/                            # 运营相关文档
-  09_post_trip_followup_and_feedback.md
-  10_xiaohongshu_growth_engine.md
-```
-
-## 📋 哪个文档看什么
-
-| 你想了解... | 看这个 |
-|---|---|
-| **需求全貌**（25 章完整系统定义） | `docs-human/travel_ai_unified_system_doc.md` |
-| **当前进度**（什么做了、什么没做、谁做） | `docs/unified-system-gap-tasks.md` |
-| **表单字段 + 校验规则 + 客服流程** | `docs/product-refactor-tasks.md` |
-| **评测体系**（用例、grader、飞轮） | `docs/eval_flywheel_and_case_system.md` |
-| **产品定位 & 定价** | `docs/01_positioning_and_value.md` + `02_product_structure_and_pricing.md` |
-| **增长漏斗 & 前端** | `docs/06_growth_funnel_and_frontend.md` |
-
-## 🗑️ 已清理的废弃文档
-
-以下文档已在 2026-03-22 删除（内容已被 `travel_ai_unified_system_doc.md` 或其他文档取代）：
-
-- `docs-human/00-overview.md` ~ `09-risk-and-known-issues.md`（10 篇，被统一文档取代）
-- `docs-human/test.md`（被 `eval_flywheel_and_case_system.md` 取代）
-- `docs-human/buchong.md`（空文件）
-- `docs-human/crawlers-guide.md`（空 TODO）
-- `docs/ALL_DOCS_COMBINED.md`（01-08 的合并副本，冗余）
-- `docs/admin_generation_observability_spec.md`（设计方案，已被 H15a/H15b 实现取代）
-
-## ⚡ 11 状态机（唯一定义）
+## 🔗 文档关系
 
 ```
-new → sample_viewed → paid → detail_filling → detail_submitted
-→ validating → needs_fix → validated → generating → done → delivered
-终态：cancelled / refunded
+01 系统总纲 ──→ 02 片段库 ──→ 03 报告规则
+    │                              ↑
+    ├──→ 04 商业基础      12 攻略骨架 ──┘
+    ├──→ 05 内容增长
+    ├──→ 06 私域路线
+    └──→ 07 运营手册
+
+08+09 评测体系 ──→ 10 E2E 测试
+11 文案审查（独立）
+13 AI 工作手册（独立）
 ```
 
-所有后端 API、前端 UI、文档均已统一到此定义。
+## ⚠️ 规则
+
+- **01 是源头** — 有冲突时以 01 为准
+- **12 和 03 有交叉** — 12 是详细骨架定义，03 是交付规则，角度不同
+- **13 只给 AI 看** — 人不需要读

@@ -97,11 +97,29 @@ async def _check_plan(session: AsyncSession, plan_id: uuid.UUID) -> tuple[list[s
 
         # 调用 swap_safety 的完整 6 项检查
         if day_item_dicts:
+            # 构建 operational_context：查询当天实体的营业事实
+            op_context: dict = {}
+            try:
+                from app.db.models.soft_rules import EntityOperatingFact as _EOF
+                day_entity_ids = [
+                    itm.entity_id for itm in items
+                    if getattr(itm, "entity_id", None)
+                ]
+                if day_entity_ids:
+                    eof_q = await session.execute(
+                        select(_EOF).where(_EOF.entity_id.in_(day_entity_ids))
+                    )
+                    for eof in eof_q.scalars().all():
+                        key = str(eof.entity_id)
+                        op_context.setdefault(key, {})[eof.fact_key] = eof.fact_value
+            except Exception:
+                pass
+
             issues = await check_single_day_guardrails(
                 day_items=day_item_dicts,
                 day_number=day.day_number,
                 day_of_week=day_of_week,
-                operational_context={},  # 暂无 entity_operating_facts 数据
+                operational_context=op_context,
             )
             for issue in issues:
                 if issue.severity == "hard_fail":

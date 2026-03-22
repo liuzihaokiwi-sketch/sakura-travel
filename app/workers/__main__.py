@@ -99,6 +99,183 @@ def derive_profile_tags(raw_input: dict) -> dict:
     }
 
 
+# ── 城市圈决策层信号推导 ──────────────────────────────────────────────────────
+
+_CELEBRATION_KEYWORDS = {
+    "生日": "birthday", "birthday": "birthday",
+    "纪念日": "anniversary", "anniversary": "anniversary",
+    "求婚": "proposal", "proposal": "proposal",
+    "蜜月": "honeymoon", "honeymoon": "honeymoon",
+    "毕业": "graduation", "graduation": "graduation",
+}
+
+
+def _derive_circle_signals(
+    raw: dict,
+    cities: list[dict],
+    duration_days: int,
+    tags: dict,
+) -> dict:
+    """
+    从 raw_input 推导城市圈决策链路所需的信号。
+
+    返回一个 dict，包含一等字段值和 special_requirements 扩充。
+    """
+    result: dict[str, Any] = {}
+    special = dict(raw.get("special_requirements") or {})
+
+    # ── 航班 / 机场 ──
+    flight = raw.get("flight_info") or {}
+    outbound = flight.get("outbound") or {}
+    ret = flight.get("return") or {}
+
+    result["arrival_airport"] = outbound.get("airport") or raw.get("arrival_airport", "")
+    result["departure_airport"] = ret.get("airport") or raw.get("departure_airport", "")
+    result["last_flight_time"] = ret.get("depart_time", "")
+
+    # arrival_shape: 同城 vs 开口程
+    arr_ap = result["arrival_airport"].upper()
+    dep_ap = result["departure_airport"].upper()
+    if arr_ap and dep_ap:
+        result["arrival_shape"] = "same_city" if arr_ap == dep_ap else "open_jaw"
+        result["departure_shape"] = result["arrival_shape"]
+    else:
+        result["arrival_shape"] = "same_city"
+        result["departure_shape"] = "same_city"
+
+    # arrival_day_shape: 根据到达时间
+    arrive_time = outbound.get("arrive_time", outbound.get("arrive", ""))
+    result["arrival_day_shape"] = _infer_day_shape_arrival(arrive_time)
+
+    # departure_day_shape: 根据出发时间
+    depart_time = ret.get("depart_time", ret.get("depart", ""))
+    result["departure_day_shape"] = _infer_day_shape_departure(depart_time)
+
+    # ── 容忍度推导 ──
+    party_type = raw.get("party_type", "couple")
+    pace = raw.get("pace", "moderate")
+    has_elderly = raw.get("has_elderly", False) or bool(raw.get("special_needs", {}).get("wheelchair"))
+    has_children = raw.get("has_children", False)
+    children_ages = raw.get("children_ages", [])
+    min_child_age = min(children_ages) if children_ages else 99
+
+    # daytrip_tolerance
+    if has_elderly or (has_children and min_child_age < 5):
+        result["daytrip_tolerance"] = "low"
+    elif pace == "packed" and party_type in ("solo", "friends"):
+        result["daytrip_tolerance"] = "high"
+    else:
+        result["daytrip_tolerance"] = "medium"
+
+    # hotel_switch_tolerance
+    accom = raw.get("accommodation_pref") or {}
+    if has_elderly or (has_children and min_child_age < 3):
+        result["hotel_switch_tolerance"] = "low"
+    elif accom.get("prefer_single_hotel"):
+        result["hotel_switch_tolerance"] = "low"
+    elif duration_days <= 3:
+        result["hotel_switch_tolerance"] = "low"
+    elif pace == "packed":
+        result["hotel_switch_tolerance"] = "high"
+    else:
+        result["hotel_switch_tolerance"] = "medium"
+
+    # ── celebration_flags（从 free_text_wishes 提取）──
+    wishes = raw.get("free_text_wishes", "")
+    celebrations = []
+    if wishes:
+        wishes_lower = wishes.lower()
+        for keyword, flag in _CELEBRATION_KEYWORDS.items():
+            if keyword in wishes_lower:
+                celebrations.append(flag)
+    if celebrations:
+        special["celebration_flags"] = list(set(celebrations))
+
+    # ── mobility_notes ──
+    mobility = []
+    if has_elderly:
+        mobility.append("slow_pace")
+    if has_children and min_child_age < 5:
+        mobility.append("stroller_needed")
+    if raw.get("special_needs", {}).get("wheelchair"):
+        mobility.append("accessible_only")
+    if mobility:
+        special["mobility_notes"] = mobility
+
+    # ── queue_tolerance ──
+    if pace == "packed" and not has_elderly:
+        special["queue_tolerance"] = "high"
+    elif pace == "relaxed" or has_elderly:
+        special["queue_tolerance"] = "low"
+    else:
+        special["queue_tolerance"] = "medium"
+
+    # ── weather_risk_tolerance ──
+    travel_month = None
+    start = raw.get("travel_start_date", "")
+    if start and len(start) >= 7:
+        try:
+            travel_month = int(start[5:7])
+        except ValueError:
+            pass
+    rainy_months = {6, 7, 8, 9}
+    if travel_month in rainy_months and (has_children or has_elderly):
+        special["weather_risk_tolerance"] = "low"
+    elif party_type == "solo" and pace == "packed":
+        special["weather_risk_tolerance"] = "high"
+    else:
+        special["weather_risk_tolerance"] = "medium"
+
+    # ── priority 推导（从 must_have_tags 计数）──
+    must_tags = set(t.lower() for t in tags.get("must_have", []))
+    food_tags = {"food", "foodie", "ramen", "sushi", "wagyu", "local_cuisine"}
+    photo_tags = {"photo", "photo_spot", "scenic", "instagram"}
+    shopping_tags = {"shopping", "market", "department_store"}
+    if must_tags & food_tags:
+        special["food_priority"] = "high"
+    if must_tags & photo_tags:
+        special["photo_priority"] = "high"
+    if must_tags & shopping_tags:
+        special["shopping_priority"] = "high"
+
+    result["special_requirements"] = special
+    return result
+
+
+def _infer_day_shape_arrival(arrive_time: str) -> str:
+    """从到达时间推断到达日形态。"""
+    if not arrive_time:
+        return "half_day_afternoon"
+    try:
+        hour = int(arrive_time.split(":")[0])
+        if hour < 12:
+            return "full_day"
+        elif hour < 17:
+            return "half_day_afternoon"
+        elif hour < 22:
+            return "evening_only"
+        else:
+            return "red_eye"
+    except (ValueError, IndexError):
+        return "half_day_afternoon"
+
+
+def _infer_day_shape_departure(depart_time: str) -> str:
+    """从离开航班时间推断离开日形态。"""
+    if not depart_time:
+        return "half_day_morning"
+    try:
+        hour = int(depart_time.split(":")[0])
+        if hour >= 18:
+            return "full_day"
+        elif hour >= 12:
+            return "half_day_morning"
+        else:
+            return "early_morning"
+    except (ValueError, IndexError):
+        return "half_day_morning"
+
+
 # ── Job: normalize_trip_profile ────────────────────────────────────────────────
 
 async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
@@ -130,6 +307,9 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
         if raw.get("travel_start_date"):
             travel_dates = {"start": raw["travel_start_date"]}
 
+        # ── 城市圈决策层新增推导 ──
+        derived = _derive_circle_signals(raw, cities, duration_days, tags)
+
         profile = TripProfile(
             trip_request_id=uuid.UUID(trip_request_id),
             cities=[{"city_code": c["city_code"], "nights": c["nights"]} for c in cities],
@@ -141,7 +321,21 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
             must_have_tags=tags["must_have"],
             nice_to_have_tags=tags["nice_to_have"],
             avoid_tags=tags["avoid"],
-            special_requirements=raw.get("special_requirements"),
+            special_requirements=derived["special_requirements"],
+            # 城市圈决策层一等字段
+            arrival_shape=derived.get("arrival_shape"),
+            departure_shape=derived.get("departure_shape"),
+            arrival_airport=derived.get("arrival_airport"),
+            departure_airport=derived.get("departure_airport"),
+            last_flight_time=derived.get("last_flight_time"),
+            arrival_day_shape=derived.get("arrival_day_shape"),
+            departure_day_shape=derived.get("departure_day_shape"),
+            daytrip_tolerance=derived.get("daytrip_tolerance"),
+            hotel_switch_tolerance=derived.get("hotel_switch_tolerance"),
+            pace=raw.get("pace"),
+            wake_up_time=raw.get("wake_up_time"),
+            accommodation_pref=raw.get("accommodation_pref"),
+            flight_info=raw.get("flight_info"),
         )
         session.add(profile)
 

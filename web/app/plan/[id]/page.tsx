@@ -34,6 +34,35 @@ interface PlanDay {
   tips?: { photo?: string; avoid?: string };
 }
 
+interface ReportContent {
+  version?: string;
+  generated_at?: string;
+  layer1_overview?: {
+    design_philosophy?: { summary?: string; key_points?: string[] };
+    overview?: { route_summary?: string; intensity_map?: string[]; highlights?: string[] };
+    booking_reminders?: { item?: string; deadline?: string; impact?: string }[];
+    seasonal_tips?: string;
+    prep_checklist?: { title?: string; sections?: { heading?: string; content?: string }[] };
+  };
+  layer2_daily?: {
+    day_number?: number;
+    city_code?: string;
+    day_theme?: string;
+    items?: PlanItem[];
+    report?: {
+      execution_overview?: { timeline_summary?: string; area?: string; intensity?: string; top_expectation?: string };
+      why_this_arrangement?: string[];
+      highlights?: { name?: string; description?: string; photo_tip?: string; nearby_bonus?: string }[];
+      notes_and_planb?: { risk_warnings?: string[]; weather_plan?: string; energy_plan?: string; clothing_tip?: string };
+    };
+    conditional_pages?: string[];
+  }[];
+  layer3_appendix?: {
+    prep_checklist?: { title?: string; sections?: { heading?: string; content?: string }[] };
+  };
+  meta?: Record<string, unknown>;
+}
+
 interface PlanData {
   title?: string;
   tags?: string[];
@@ -45,6 +74,7 @@ interface PlanData {
   // backend fields
   plan_id?: string;
   plan_metadata?: Record<string, unknown>;
+  report_content?: ReportContent;
 }
 
 // ── Mock complete plan data (fallback when API unavailable) ─────────────────
@@ -133,6 +163,8 @@ function PlanContent({ params }: { params: { id: string } }) {
   const [plan, setPlan] = useState<PlanData>(MOCK_PLAN);
   const [loading, setLoading] = useState(true);
 
+  const [report, setReport] = useState<ReportContent | null>(null);
+
   // Fetch real plan data from API
   useEffect(() => {
     const isMockId = params.id === "demo" || params.id === "preview";
@@ -141,7 +173,12 @@ function PlanContent({ params }: { params: { id: string } }) {
     fetch(`/api/plan/${params.id}`)
       .then((r) => r.json())
       .then((data) => {
-        if (!data.error) setPlan(normalizePlan(data));
+        if (!data.error) {
+          setPlan(normalizePlan(data));
+          if (data.report_content?.layer2_daily) {
+            setReport(data.report_content);
+          }
+        }
       })
       .catch(() => { /* silently use MOCK */ })
       .finally(() => setLoading(false));
@@ -270,6 +307,200 @@ function PlanContent({ params }: { params: { id: string } }) {
           </motion.section>
         ))}
 
+        {/* ══════ REPORT CONTENT (3-Layer) ══════ */}
+        {report && !isPreview && (
+          <>
+            {/* Layer 1: Design Philosophy */}
+            {report.layer1_overview?.design_philosophy?.summary && (
+              <section className="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl border border-indigo-100 p-6">
+                <h2 className="text-lg font-bold text-indigo-900 mb-3">🎯 设计理念</h2>
+                <p className="text-sm text-indigo-800 leading-relaxed">{report.layer1_overview.design_philosophy.summary}</p>
+                {report.layer1_overview.design_philosophy.key_points && (
+                  <ul className="mt-3 space-y-1.5">
+                    {report.layer1_overview.design_philosophy.key_points.map((p, i) => (
+                      <li key={i} className="text-xs text-indigo-700 flex items-start gap-2">
+                        <span className="text-indigo-400 mt-0.5">▸</span>{p}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+
+            {/* Layer 1: Route Overview */}
+            {report.layer1_overview?.overview?.route_summary && (
+              <section className="bg-white rounded-2xl border border-stone-100 p-6">
+                <h2 className="text-lg font-bold text-stone-900 mb-3">🗺️ 路线概述</h2>
+                <p className="text-sm text-stone-600 leading-relaxed">{report.layer1_overview.overview.route_summary}</p>
+                {report.layer1_overview.overview.intensity_map && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {report.layer1_overview.overview.intensity_map.map((m, i) => (
+                      <span key={i} className="text-xs bg-warm-50 text-warm-600 px-3 py-1 rounded-full border border-warm-200">{m}</span>
+                    ))}
+                  </div>
+                )}
+                {report.layer1_overview.overview.highlights && (
+                  <div className="mt-4">
+                    <p className="text-xs font-semibold text-stone-500 mb-2">✨ 全程亮点</p>
+                    <ul className="space-y-1">
+                      {report.layer1_overview.overview.highlights.map((h, i) => (
+                        <li key={i} className="text-xs text-stone-600 flex items-start gap-2">
+                          <span className="text-amber-400">★</span>{h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </section>
+            )}
+
+            {/* Layer 1: Booking Reminders */}
+            {report.layer1_overview?.booking_reminders && report.layer1_overview.booking_reminders.length > 0 && (
+              <section className="bg-amber-50 rounded-2xl border border-amber-200 p-6">
+                <h2 className="text-lg font-bold text-amber-900 mb-3">📅 预约提醒</h2>
+                <div className="space-y-2">
+                  {report.layer1_overview.booking_reminders.map((b, i) => (
+                    <div key={i} className="bg-white rounded-xl p-3 border border-amber-100">
+                      <p className="text-sm font-medium text-stone-800">{b.item}</p>
+                      {b.deadline && <p className="text-xs text-amber-600 mt-1">⏰ {b.deadline}</p>}
+                      {b.impact && <p className="text-xs text-stone-500 mt-0.5">💡 {b.impact}</p>}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Layer 1: Seasonal Tips */}
+            {report.layer1_overview?.seasonal_tips && (
+              <section className="bg-emerald-50 rounded-2xl border border-emerald-200 p-4">
+                <p className="text-sm text-emerald-800">🌸 {report.layer1_overview.seasonal_tips}</p>
+              </section>
+            )}
+
+            {/* Layer 2: Daily Reports */}
+            {report.layer2_daily?.map((day) => {
+              const rpt = day.report;
+              if (!rpt) return null;
+              return (
+                <section key={day.day_number} className="bg-white rounded-2xl border border-stone-100 p-6 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 text-white flex items-center justify-center font-bold text-sm shadow">{day.day_number}</span>
+                    <div>
+                      <h3 className="text-lg font-bold text-stone-900">Day {day.day_number} 攻略</h3>
+                      <p className="text-sm text-stone-400">{day.day_theme} · {day.city_code}</p>
+                    </div>
+                    {rpt.execution_overview?.intensity && (
+                      <span className="ml-auto text-xs bg-sky-50 text-sky-600 px-3 py-1 rounded-full border border-sky-200">{rpt.execution_overview.intensity}</span>
+                    )}
+                  </div>
+
+                  {/* Timeline */}
+                  {rpt.execution_overview?.timeline_summary && (
+                    <div className="bg-stone-50 rounded-xl p-4">
+                      <p className="text-xs font-semibold text-stone-500 mb-1">📍 今日概览</p>
+                      <p className="text-sm text-stone-700 leading-relaxed">{rpt.execution_overview.timeline_summary}</p>
+                      {rpt.execution_overview.top_expectation && (
+                        <p className="text-xs text-amber-600 mt-2">🌟 最期待：{rpt.execution_overview.top_expectation}</p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Why this arrangement */}
+                  {rpt.why_this_arrangement && rpt.why_this_arrangement.length > 0 && (
+                    <div>
+                      <p className="text-xs font-semibold text-stone-500 mb-2">💡 为什么这样安排</p>
+                      <ul className="space-y-1">
+                        {rpt.why_this_arrangement.map((w, i) => (
+                          <li key={i} className="text-xs text-stone-600 flex items-start gap-2">
+                            <span className="text-indigo-400 mt-0.5">▸</span>{w}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Highlights */}
+                  {rpt.highlights && rpt.highlights.length > 0 && (
+                    <div>
+                      <p className="text-xs font-semibold text-stone-500 mb-2">✨ 今日亮点</p>
+                      <div className="space-y-3">
+                        {rpt.highlights.map((h, i) => (
+                          <div key={i} className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+                            <h4 className="text-sm font-semibold text-stone-800">{h.name}</h4>
+                            {h.description && <p className="text-xs text-stone-600 mt-1 leading-relaxed">{h.description}</p>}
+                            <div className="flex flex-wrap gap-3 mt-2">
+                              {h.photo_tip && <span className="text-[10px] text-sakura-500">📸 {h.photo_tip}</span>}
+                              {h.nearby_bonus && <span className="text-[10px] text-emerald-600">📍 {h.nearby_bonus}</span>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Notes & Plan B */}
+                  {rpt.notes_and_planb && (
+                    <div className="grid grid-cols-2 gap-3">
+                      {rpt.notes_and_planb.risk_warnings && rpt.notes_and_planb.risk_warnings.length > 0 && (
+                        <div className="bg-red-50 rounded-xl p-3 border border-red-100">
+                          <p className="text-xs font-semibold text-red-600 mb-1">⚠️ 注意事项</p>
+                          {rpt.notes_and_planb.risk_warnings.map((w, i) => (
+                            <p key={i} className="text-[10px] text-red-700">{w}</p>
+                          ))}
+                        </div>
+                      )}
+                      {rpt.notes_and_planb.weather_plan && (
+                        <div className="bg-blue-50 rounded-xl p-3 border border-blue-100">
+                          <p className="text-xs font-semibold text-blue-600 mb-1">🌧️ 雨天备选</p>
+                          <p className="text-[10px] text-blue-700">{rpt.notes_and_planb.weather_plan}</p>
+                        </div>
+                      )}
+                      {rpt.notes_and_planb.energy_plan && (
+                        <div className="bg-orange-50 rounded-xl p-3 border border-orange-100">
+                          <p className="text-xs font-semibold text-orange-600 mb-1">⚡ 体力不够</p>
+                          <p className="text-[10px] text-orange-700">{rpt.notes_and_planb.energy_plan}</p>
+                        </div>
+                      )}
+                      {rpt.notes_and_planb.clothing_tip && (
+                        <div className="bg-violet-50 rounded-xl p-3 border border-violet-100">
+                          <p className="text-xs font-semibold text-violet-600 mb-1">👔 穿着建议</p>
+                          <p className="text-[10px] text-violet-700">{rpt.notes_and_planb.clothing_tip}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Conditional pages */}
+                  {day.conditional_pages && day.conditional_pages.length > 0 && (
+                    <div className="flex gap-2 pt-2 border-t border-stone-100">
+                      {day.conditional_pages.map((p) => (
+                        <span key={p} className="text-[10px] bg-stone-100 text-stone-500 px-2 py-0.5 rounded-full">
+                          {p === "transport" ? "🚃 交通页" : p === "hotel" ? "🏨 住宿页" : p === "restaurant" ? "🍽️ 美食页" : p}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              );
+            })}
+
+            {/* Layer 3: Prep Checklist */}
+            {report.layer3_appendix?.prep_checklist?.sections && (
+              <section className="bg-white rounded-2xl border border-stone-100 p-6">
+                <h2 className="text-lg font-bold text-stone-900 mb-4">{report.layer3_appendix.prep_checklist.title || "📋 出发准备"}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {report.layer3_appendix.prep_checklist.sections.map((sec, i) => (
+                    <div key={i} className="bg-stone-50 rounded-xl p-4">
+                      <p className="text-sm font-semibold text-stone-800 mb-1">{sec.heading}</p>
+                      <p className="text-xs text-stone-600 leading-relaxed">{sec.content}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
+        )}
+
         {/* Preview: locked content teaser */}
         {isPreview && (
           <section className="relative">
@@ -367,8 +598,52 @@ function PlanContent({ params }: { params: { id: string } }) {
                 </div>
 
                 {/* Share + Export */}
-                <div className="text-center py-6 border-t border-stone-100 space-y-3">
+                <div className="text-center py-6 border-t border-stone-100 space-y-4">
                   <p className="text-sm text-stone-500 mb-2">觉得有用？分享给一起去的朋友</p>
+                  
+                  {/* 导出 PDF — 主要 CTA */}
+                  <Button
+                    variant="warm"
+                    className="w-full max-w-xs mx-auto"
+                    disabled={exporting}
+                    onClick={async () => {
+                      setExporting(true);
+                      try {
+                        const resp = await fetch(`/api/plan/${params.id}/pdf`);
+                        if (!resp.ok) {
+                          const err = await resp.json().catch(() => ({}));
+                          throw new Error(err.error || "PDF 生成失败");
+                        }
+                        const contentType = resp.headers.get("content-type") || "";
+                        if (contentType.includes("application/pdf")) {
+                          // 直接下载 PDF
+                          const blob = await resp.blob();
+                          const url = URL.createObjectURL(blob);
+                          const a = document.createElement("a");
+                          a.href = url;
+                          a.download = `sakura-plan-${params.id.slice(0, 8)}.pdf`;
+                          a.click();
+                          URL.revokeObjectURL(url);
+                        } else {
+                          // 后端返回了打印友好 HTML（weasyprint 不可用时）
+                          const html = await resp.text();
+                          const w = window.open("", "_blank");
+                          if (w) {
+                            w.document.write(html);
+                            w.document.close();
+                          }
+                        }
+                      } catch (err: unknown) {
+                        alert(err instanceof Error ? err.message : "PDF 导出失败，请稍后重试");
+                        console.error(err);
+                      } finally {
+                        setExporting(false);
+                      }
+                    }}
+                  >
+                    {exporting ? "⏳ 正在生成 PDF..." : "📄 导出完整 PDF 攻略"}
+                  </Button>
+
                   <div className="flex justify-center gap-3">
                     <Button variant="outline" size="sm">📤 分享行程</Button>
                     <Button

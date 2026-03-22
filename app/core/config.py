@@ -50,9 +50,12 @@ class Settings(BaseSettings):
     alert_email: str = ""
     ai_model: str = "gpt-4o"
     # ── AI 模型分层（Tiered Model Selection）──────────────
-    ai_model_light: str = "gpt-4o-mini"       # Tier 1: 标签/分类/翻译
-    ai_model_standard: str = "gpt-4o"          # Tier 2: 推荐理由/润色
-    ai_model_strong: str = "claude-sonnet"     # Tier 3: 完整行程编排
+    # Tier 1 (Light):    标签/分类/翻译 — 高吞吐低成本
+    # Tier 2 (Standard): 文案生成/文本解析 — 中等能力日常主力
+    # Tier 3 (Strong):   质量评审/复杂推理/多维评估 — 最强模型少量调用
+    ai_model_light: str = "gpt-4o-mini"
+    ai_model_standard: str = "gpt-4o"
+    ai_model_strong: str = "claude-sonnet"
 
     serpapi_key: str = ""
     anthropic_api_key: str = ""

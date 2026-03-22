@@ -55,44 +55,31 @@ class DetailFormPatch(BaseModel):
     children_ages: Optional[list[int]] = None
     special_needs: Optional[str] = None
 
-    # Step 3 — 预算与住宿
+    # Step 3 — 预算与住宿（匹配 ORM: JSONB dict）
     budget_level: Optional[str] = None
-    budget_total_jpy: Optional[int] = None
-    accommodation_pref: Optional[list[str]] = None
-    hotel_area_pref: Optional[str] = None
-    hotel_booking_status: Optional[str] = None
-    booked_hotels: Optional[list[dict]] = None
+    budget_total_cny: Optional[int] = None
+    budget_focus: Optional[str] = None
+    accommodation_pref: Optional[dict] = None
 
-    # Step 4 — 兴趣偏好
+    # Step 4 — 兴趣偏好（匹配 ORM: JSONB list/dict）
     must_have_tags: Optional[list[str]] = None
     nice_to_have_tags: Optional[list[str]] = None
     avoid_tags: Optional[list[str]] = None
-    food_preferences: Optional[list[str]] = None
-    food_restrictions: Optional[list[str]] = None
-    food_restrictions_note: Optional[str] = None
-    must_go_places: Optional[list[str]] = None
-    dont_want_places: Optional[list[str]] = None
+    food_preferences: Optional[dict] = None
+    theme_family: Optional[str] = None
 
-    # Step 5 — 行程节奏
-    pace_preference: Optional[str] = None
-    trip_style: Optional[str] = None
-    stamina_level: Optional[str] = None
+    # Step 5 — 行程节奏（匹配 ORM 字段名）
+    pace: Optional[str] = None
     wake_up_time: Optional[str] = None
-    fixed_events: Optional[list[dict]] = None
+    must_visit_places: Optional[list[str]] = None
     free_text_wishes: Optional[str] = None
 
-    # Step 6 — 航班与交通
-    transport_locked: Optional[bool] = None
-    arrival_date: Optional[str] = None
-    arrival_time: Optional[str] = None
-    arrival_place: Optional[str] = None
-    departure_date: Optional[str] = None
-    departure_time: Optional[str] = None
-    departure_place: Optional[str] = None
+    # Step 6 — 航班与交通（匹配 ORM: JSONB dict）
+    flight_info: Optional[dict] = None
+    arrival_airport: Optional[str] = None
+    departure_airport: Optional[str] = None
     has_jr_pass: Optional[bool] = None
-    jr_pass_type: Optional[str] = None
-    has_pocket_wifi: Optional[bool] = None
-    transport_notes: Optional[str] = None
+    transport_pref: Optional[dict] = None
 
     # 当前步骤（用于进度追踪）
     current_step: Optional[int] = None
@@ -121,20 +108,20 @@ async def _get_form_or_404(
 
 
 def _form_to_dict(form: DetailForm) -> dict:
-    """将 ORM 对象序列化为 API 响应"""
+    """将 ORM 对象序列化为 API 响应 — 字段严格匹配 ORM 模型"""
     return {
         "form_id": str(form.form_id),
         "submission_id": form.submission_id,
         "order_id": str(form.order_id) if form.order_id else None,
         "current_step": form.current_step,
         "is_complete": form.is_complete,
-        # Step 1
+        # Step 1: 目的地与日期
         "cities": form.cities,
         "travel_start_date": form.travel_start_date,
         "travel_end_date": form.travel_end_date,
         "duration_days": form.duration_days,
         "date_flexible": form.date_flexible,
-        # Step 2
+        # Step 2: 同行人信息
         "party_type": form.party_type,
         "party_size": form.party_size,
         "party_ages": form.party_ages,
@@ -142,49 +129,32 @@ def _form_to_dict(form: DetailForm) -> dict:
         "has_children": form.has_children,
         "children_ages": form.children_ages,
         "special_needs": form.special_needs,
-        # Step 3
+        # Step 3: 预算与住宿
         "budget_level": form.budget_level,
-        "budget_total_jpy": form.budget_total_jpy,
+        "budget_total_cny": form.budget_total_cny,
+        "budget_focus": form.budget_focus,
         "accommodation_pref": form.accommodation_pref,
-        "hotel_area_pref": form.hotel_area_pref,
-        "hotel_booking_status": form.hotel_booking_status,
-        "booked_hotels": form.booked_hotels,
-        # Step 4
+        # Step 4: 兴趣偏好
         "must_have_tags": form.must_have_tags,
         "nice_to_have_tags": form.nice_to_have_tags,
         "avoid_tags": form.avoid_tags,
         "food_preferences": form.food_preferences,
-        "food_restrictions": form.food_restrictions,
-        "food_restrictions_note": form.food_restrictions_note,
-        "must_go_places": form.must_go_places,
-        "dont_want_places": form.dont_want_places,
-        # Step 5
-        "pace_preference": form.pace_preference,
-        "trip_style": form.trip_style,
-        "stamina_level": form.stamina_level,
+        "theme_family": form.theme_family,
+        # Step 5: 行程节奏
+        "pace": form.pace,
         "wake_up_time": form.wake_up_time,
-        "fixed_events": form.fixed_events,
+        "must_visit_places": form.must_visit_places,
         "free_text_wishes": form.free_text_wishes,
-        # Step 6
-        "transport_locked": form.transport_locked,
-        "arrival_date": form.arrival_date,
-        "arrival_time": form.arrival_time,
-        "arrival_place": form.arrival_place,
-        "departure_date": form.departure_date,
-        "departure_time": form.departure_time,
-        "departure_place": form.departure_place,
+        # Step 6: 航班与交通
+        "flight_info": form.flight_info,
+        "arrival_airport": form.arrival_airport,
+        "departure_airport": form.departure_airport,
         "has_jr_pass": form.has_jr_pass,
-        "jr_pass_type": form.jr_pass_type,
-        "has_pocket_wifi": form.has_pocket_wifi,
-        "transport_notes": form.transport_notes,
-        # 校验
-        "validation_status": form.validation_status,
-        "validation_result": form.validation_result,
-        "validated_at": form.validated_at.isoformat() if form.validated_at else None,
+        "transport_pref": form.transport_pref,
         # 时间戳
         "created_at": form.created_at.isoformat(),
         "updated_at": form.updated_at.isoformat(),
-        "submitted_at": form.submitted_at.isoformat() if form.submitted_at else None,
+        "completed_at": form.completed_at.isoformat() if form.completed_at else None,
     }
 
 
@@ -201,15 +171,13 @@ async def create_detail_form(
     付费成功后由 webhook 或管理员手动触发，也可由前端在付款确认页调用。
     同一 submission_id 只允许一个表单（unique 约束）。
     """
-    # 检查是否已存在
+    # 检查是否已存在——如果有就返回现有的（幂等）
     existing = await db.execute(
         select(DetailForm).where(DetailForm.submission_id == submission_id)
     )
-    if existing.scalar_one_or_none():
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail=f"DetailForm for submission {submission_id} already exists",
-        )
+    existing_form = existing.scalar_one_or_none()
+    if existing_form:
+        return _form_to_dict(existing_form)
 
     form = DetailForm(
         form_id=uuid4(),
@@ -385,15 +353,10 @@ async def submit_detail_form(
     """
     form = await _get_form_or_404(form_id, db)
 
-    if form.is_complete:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="表单已提交，请勿重复提交",
-        )
-
+    # 允许反复提交——每次提交都更新 completed_at
     now = datetime.now(tz=timezone.utc)
     form.is_complete = True
-    form.submitted_at = now
+    form.completed_at = now
     form.updated_at = now
 
     await db.commit()
@@ -432,7 +395,7 @@ async def validate_detail_form(
     if form.party_size:        form_data["party_size"] = form.party_size
     if form.party_ages:        form_data["party_ages"] = form.party_ages
     if form.budget_level:      form_data["budget_level"] = form.budget_level
-    if form.budget_total_jpy:  form_data["budget_total_jpy"] = form.budget_total_jpy
+    if form.budget_total_cny:  form_data["budget_total_cny"] = form.budget_total_cny
     if form.accommodation_pref: form_data["accommodation_pref"] = form.accommodation_pref
     if form.must_have_tags:    form_data["must_have_tags"] = form.must_have_tags
     if form.nice_to_have_tags: form_data["nice_to_have_tags"] = form.nice_to_have_tags

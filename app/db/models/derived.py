@@ -108,6 +108,9 @@ class ItineraryPlan(Base):
     plan_metadata: Mapped[Optional[dict]] = mapped_column(
         JSONB, comment="总天数、总预算、城市列表等汇总"
     )
+    report_content: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="3层攻略报告正文: {layer1_overview, layer2_daily, layer3_appendix}"
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
@@ -444,3 +447,62 @@ class PlanArtifact(Base):
     )
 
     __table_args__ = (Index("ix_plan_artifacts_plan", "plan_id"),)
+
+
+# ── generation_decisions (T11) ────────────────────────────────────────────────
+class GenerationDecision(Base):
+    """
+    T11: 生成决策记录表。
+
+    每次生成行程时，记录关键决策节点的输入/输出，支持：
+    - 重复生成检测（input_hash 相同且 is_current=True → 直接复用）
+    - 决策回溯与 debug
+    - A/B test 实验归因
+    """
+
+    __tablename__ = "generation_decisions"
+
+    decision_id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    plan_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("itinerary_plans.plan_id", ondelete="SET NULL"),
+    )
+    trip_request_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("trip_requests.trip_request_id", ondelete="SET NULL"),
+    )
+
+    # T11 新增：画像哈希 + 当前有效版本标记
+    input_hash: Mapped[Optional[str]] = mapped_column(
+        String(64), comment="SHA-256(profile_json) — 用于判断是否需要重跑"
+    )
+    is_current: Mapped[bool] = mapped_column(
+        Boolean, default=True, comment="是否是当前有效决策版本，重跑时置 False"
+    )
+
+    # 决策阶段
+    decision_stage: Mapped[str] = mapped_column(
+        String(50), nullable=False,
+        comment="circle_selection / major_ranking / hotel_strategy / skeleton_build / ..."
+    )
+    decision_key: Mapped[str] = mapped_column(
+        String(100), nullable=False,
+        comment="具体决策点，如 'selected_circle_id' / 'hotel_preset_id'"
+    )
+    decision_value: Mapped[Optional[str]] = mapped_column(
+        Text, comment="决策结果值（字符串化）"
+    )
+    alternatives_considered: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="备选方案及评分 [{id, score, reason}, ...]"
+    )
+    decision_reason: Mapped[Optional[str]] = mapped_column(Text, comment="选择理由（trace 摘要）")
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+
+    __table_args__ = (
+        Index("ix_gen_decisions_plan", "plan_id"),
+        Index("ix_gen_decisions_input_hash", "input_hash"),
+        Index("ix_gen_decisions_trip_current", "trip_request_id", "is_current"),
+    )

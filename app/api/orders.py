@@ -270,6 +270,7 @@ async def update_order_status(
         order.paid_at = datetime.now(timezone.utc)
 
     await db.flush()
+    await db.refresh(order)  # 确保 server_default 字段（updated_at 等）已加载
 
     logger.info(f"Order {order_id[:8]} status: {current} → {target} (reason: {body.reason})")
 

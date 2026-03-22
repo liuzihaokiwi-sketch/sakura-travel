@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Sakura Plan · {{ total_days }}天日本行程</title>
+<style>
+  :root {
+    --red: #c0392b; --warm: #e07a5f; --gold: #d4a017; --ink: #1a1a1a; --muted: #6b6b6b;
+    --bg: #faf9f7; --card: #ffffff; --border: #e8e0d5;
+    --poi-color: #2c5f8a; --restaurant-color: #7b3f00;
+    --hotel-color: #2d6a4f; --free-color: #8e44ad; --transit-color: #555;
+    --indigo: #4338ca; --sky: #0284c7; --amber: #d97706; --emerald: #059669;
+    --must-keep: #d97706; --first-cut: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; }
+
+  /* Cover */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: "🌸"; font-size: 180px; position: absolute; top: -30px; right: -10px; opacity: 0.06; }
+  .cover-brand { font-size: 13px; letter-spacing: 4px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .cover-meta { font-size: 14px; color: rgba(255,255,255,0.6); }
+  .cover-badges { margin-top: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); padding: 5px 14px; border-radius: 20px; font-size: 12px; }
+  .schema-badge { background: rgba(99,102,241,0.3); border-color: rgba(99,102,241,0.5); color: #c7d2fe; }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px 60px; }
+
+  /* Section cards */
+  .section { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin: 24px 0; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .section p { font-size: 13px; color: var(--muted); }
+  .section-accent { background: linear-gradient(135deg, #eef2ff, #f0f0ff); border-color: #c7d2fe; }
+  .section-warm { background: #fffbeb; border-color: #fde68a; }
+  .section-green { background: #ecfdf5; border-color: #a7f3d0; }
+  .section-brief { background: linear-gradient(135deg, #fdf4ff, #faf5ff); border-color: #e9d5ff; }
+
+  .key-point { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; font-size: 13px; color: #4338ca; }
+  .key-point::before { content: "▸"; color: #818cf8; flex-shrink: 0; margin-top: 1px; }
+
+  /* v2: design_brief 块 */
+  .brief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .brief-item { background: rgba(255,255,255,0.7); border-radius: 10px; padding: 12px; border: 1px solid #e9d5ff; }
+  .brief-item strong { font-size: 12px; color: #7c3aed; display: block; margin-bottom: 4px; }
+  .brief-item ul { list-style: none; padding: 0; }
+  .brief-item li { font-size: 12px; color: #4b5563; padding: 2px 0; display: flex; gap: 4px; }
+  .brief-item li::before { content: "·"; color: #a78bfa; }
+
+  .highlight-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #fef3c7; border: 1px solid #fde68a; padding: 3px 10px; border-radius: 12px; margin: 3px 2px; }
+
+  .booking-item { background: var(--card); border: 1px solid #fde68a; border-radius: 10px; padding: 12px; margin: 8px 0; }
+  .booking-item strong { font-size: 13px; }
+  .booking-item .deadline { font-size: 11px; color: var(--amber); margin-top: 2px; }
+  .booking-item .impact { font-size: 11px; color: var(--muted); }
+
+  /* Day cards */
+  .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin: 24px 0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .day-header { background: linear-gradient(90deg, #f5f0ea, var(--card)); padding: 16px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+  .day-num { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--warm), var(--red)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .day-info { flex: 1; }
+  .day-theme { font-size: 16px; font-weight: 700; }
+  .day-sub { font-size: 12px; color: var(--muted); }
+  .day-intensity { font-size: 11px; padding: 3px 10px; border-radius: 10px; background: #e0f2fe; color: var(--sky); }
+
+  /* v2: 每天结构字段横条 */
+  .day-struct-bar { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 20px; background: #f8f7f5; border-bottom: 1px solid var(--border); font-size: 11px; }
+  .struct-tag { display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 8px; }
+  .struct-tag.area { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+  .struct-tag.goal { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .struct-tag.must-keep { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-weight: 600; }
+  .struct-tag.first-cut { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+  .struct-tag.integrity { border-radius: 8px; }
+  .integrity-high { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .integrity-mid { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .integrity-low { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+  /* Timeline items */
+  .timeline { padding: 16px 20px; }
+  .tl-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot-col { display: flex; flex-direction: column; align-items: center; width: 16px; flex-shrink: 0; }
+  .tl-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; }
+  .tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 4px; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-dot.poi { background: var(--poi-color); }
+  .tl-dot.restaurant { background: var(--restaurant-color); }
+  .tl-body { flex: 1; }
+  .tl-title { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .type-tag { font-size: 10px; padding: 1px 6px; border-radius: 8px; color: #fff; }
+  .type-tag.poi { background: var(--poi-color); }
+  .type-tag.restaurant { background: var(--restaurant-color); }
+  .type-tag.hotel { background: var(--hotel-color); }
+  .tl-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .tl-meta { font-size: 11px; color: #999; margin-top: 2px; }
+  .tl-optional { opacity: 0.7; }
+  .optional-badge { font-size: 10px; background: #f3f4f6; color: #6b7280; padding: 1px 5px; border-radius: 6px; }
+
+  /* Report sub-sections */
+  .report-block { background: #f8fafc; border-radius: 10px; padding: 14px; margin: 12px 0; }
+  .report-block h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .report-block p, .report-block li { font-size: 12px; color: var(--muted); }
+  .report-block ul { padding-left: 16px; }
+  .report-block li { margin: 3px 0; }
+
+  .hl-card { background: linear-gradient(135deg, #fffbeb, #fff7ed); border: 1px solid #fed7aa; border-radius: 10px; padding: 12px; margin: 8px 0; }
+  .hl-card h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .hl-card p { font-size: 12px; color: var(--muted); }
+  .hl-card .tips { font-size: 11px; color: var(--warm); margin-top: 4px; }
+
+  .planb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+  .planb-card { border-radius: 8px; padding: 10px; font-size: 11px; }
+  .planb-card strong { font-size: 12px; display: block; margin-bottom: 3px; }
+  .planb-warn { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+  .planb-rain { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+  .planb-energy { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; }
+  .planb-cloth { background: #f5f3ff; border: 1px solid #ddd6fe; color: #5b21b6; }
+
+  /* v2: 条件页 badge */
+  .cond-pages { display: flex; gap: 5px; flex-wrap: wrap; padding: 8px 20px 12px; }
+  .cond-badge { font-size: 10px; padding: 2px 8px; border-radius: 8px; border: 1px solid; }
+  .cond-transport { background: #e0f2fe; border-color: #bae6fd; color: #0369a1; }
+  .cond-hotel { background: #dcfce7; border-color: #bbf7d0; color: #15803d; }
+  .cond-restaurant { background: #fef3c7; border-color: #fde68a; color: #92400e; }
+  .cond-photo { background: #fdf4ff; border-color: #e9d5ff; color: #7c3aed; }
+  .cond-budget { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+
+  /* Prep checklist */
+  .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .prep-item { background: #f8fafc; border-radius: 10px; padding: 12px; }
+  .prep-item strong { font-size: 13px; display: block; margin-bottom: 4px; }
+  .prep-item p { font-size: 12px; color: var(--muted); }
+
+  .footer { text-align: center; padding: 32px; color: #aaa; font-size: 11px; border-top: 1px solid var(--border); margin-top: 40px; }
+  .footer strong { color: var(--warm); }
+
+  @media print {
+    .day-card { break-inside: avoid; }
+    .section { break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .cover { padding: 40px 20px; }
+    .cover h1 { font-size: 24px; }
+    .planb-grid { grid-template-columns: 1fr; }
+    .prep-grid { grid-template-columns: 1fr; }
+    .brief-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ COVER ═══════ -->
+<div class="cover">
+  <div class="cover-brand">Sakura Plan · 定制行程</div>
+  <h1>🌸 日本旅行 · {{ total_days }} 天深度游</h1>
+  <div class="cover-meta">
+    {% if days and days[0].date %}{{ days[0].date }} 出发 · {% endif %}预算：{{ budget_level_zh }}
+  </div>
+  <div class="cover-badges">
+    {% for city_code in cities %}
+    <div class="badge">{{ {"tokyo":"🗼 东京","osaka":"🏯 大阪","kyoto":"⛩️ 京都","sapporo":"❄️ 札幌","fukuoka":"🌊 福冈","naha":"🌺 冲绳"}.get(city_code, city_code) }}</div>
+    {% endfor %}
+    <div class="badge schema-badge">v2 决策型攻略</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════ v2 BLOCK: DESIGN BRIEF（总纲真相源）═══════ -->
+{% if design_brief %}
+<div class="section section-brief">
+  <h2>🧭 路线设计简报</h2>
+  <p style="color: #7c3aed; font-size: 13px; margin-bottom: 10px;">以下是这份攻略的核心设计决策，整份行程都由此出发。</p>
+  <div class="brief-grid">
+    {% if design_brief.route_strategy %}
+    <div class="brief-item">
+      <strong>🗺️ 路线策略</strong>
+      <ul>{% for s in design_brief.route_strategy %}<li>{{ s }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% if design_brief.tradeoffs %}
+    <div class="brief-item">
+      <strong>⚖️ 主要取舍</strong>
+      <ul>{% for t in design_brief.tradeoffs %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% if design_brief.stay_strategy %}
+    <div class="brief-item">
+      <strong>🏨 住宿策略</strong>
+      <ul>{% for s in design_brief.stay_strategy %}<li>{{ s }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% if design_brief.budget_strategy %}
+    <div class="brief-item">
+      <strong>💰 预算策略</strong>
+      <ul>{% for b in design_brief.budget_strategy %}<li>{{ b }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% if design_brief.execution_principles %}
+    <div class="brief-item" style="grid-column: span 2;">
+      <strong>📋 执行原则</strong>
+      <ul>{% for p in design_brief.execution_principles %}<li>{{ p }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<!-- ═══════ LAYER 1: AI 解释版总纲 ═══════ -->
+{% if design_philosophy and design_philosophy.get('summary') %}
+<div class="section section-accent">
+  <h2>🎯 设计思路解释</h2>
+  <p style="color: #312e81; font-size: 14px; line-height: 1.8;">{{ design_philosophy.summary }}</p>
+  {% if design_philosophy.get('key_points') %}
+  <div style="margin-top: 12px;">
+    {% for kp in design_philosophy.key_points %}
+    <div class="key-point">{{ kp }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if overview and overview.get('route_summary') %}
+<div class="section">
+  <h2>🗺️ 路线概述</h2>
+  <p>{{ overview.route_summary }}</p>
+  {% if overview.get('highlights') %}
+  <div style="margin-top: 12px;">
+    {% for hl in overview.highlights %}
+    <div class="highlight-badge">★ {{ hl }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if overview.get('intensity_map') %}
+  <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+    {% for im in overview.intensity_map %}
+    <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">{{ im }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if booking_reminders %}
+<div class="section section-warm">
+  <h2>📅 预约提醒</h2>
+  {% for br in booking_reminders %}
+  <div class="booking-item">
+    <strong>{{ br.get('item', '') }}</strong>
+    {% if br.get('deadline') %}<div class="deadline">⏰ {{ br.deadline }}</div>{% endif %}
+    {% if br.get('impact') %}<div class="impact">💡 {{ br.impact }}</div>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if seasonal_tips %}
+<div class="section section-green">
+  <p style="color: #065f46; font-size: 13px;">🌸 {{ seasonal_tips }}</p>
+</div>
+{% endif %}
+
+<!-- ═══════ DAILY ITINERARY（v2 增强版）═══════ -->
+{% set ns = namespace(last_city="") %}
+{% for day in days %}
+
+  {% if day.city_code != ns.last_city %}
+  <div style="display: flex; align-items: center; gap: 12px; margin: 36px 0 8px;">
+    <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;">{{ {"tokyo":"东","osaka":"阪","kyoto":"京"}.get(day.city_code, "市") }}</div>
+    <div style="font-size: 20px; font-weight: 700;">{{ {"tokyo":"东京","osaka":"大阪","kyoto":"京都","sapporo":"札幌","fukuoka":"福冈","naha":"冲绳"}.get(day.city_code, day.city_code) }}</div>
+  </div>
+  {% set ns.last_city = day.city_code %}
+  {% endif %}
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">{{ day.day_number }}</div>
+      <div class="day-info">
+        <!-- v2: 优先用 day_goal，fallback 到 day_theme -->
+        <div class="day-theme">{{ day.get('day_goal') or day.day_theme or (day.city_name_zh + " 一日游") }}</div>
+        <div class="day-sub">
+          {% if day.date %}📅 {{ day.date }} · {% endif %}
+          {% if day.get('primary_area') %}📍 {{ day.primary_area }}{% if day.get('secondary_area') %} / {{ day.secondary_area }}{% endif %}{% endif %}
+        </div>
+      </div>
+      {% if day.get('report', {}).get('execution_overview', {}).get('intensity') %}
+      <div class="day-intensity">{{ day.report.execution_overview.intensity }}</div>
+      {% endif %}
+    </div>
+
+    <!-- v2: 结构字段横条（must_keep / first_cut / 完整性）-->
+    {% if day.get('must_keep') or day.get('first_cut') %}
+    <div class="day-struct-bar">
+      {% if day.get('must_keep') %}
+      <span class="struct-tag must-keep">🔒 最不能砍：{{ day.must_keep }}</span>
+      {% endif %}
+      {% if day.get('first_cut') %}
+      <span class="struct-tag first-cut">✂️ 晚了先砍：{{ day.first_cut }}</span>
+      {% endif %}
+      {% if day.get('route_integrity_score') is not none %}
+        {% set score = day.route_integrity_score %}
+        <span class="struct-tag integrity {% if score >= 0.75 %}integrity-high{% elif score >= 0.5 %}integrity-mid{% else %}integrity-low{% endif %}">
+          路线完整性：{{ "%.0f"|format(score * 100) }}%
+        </span>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- 条件页标签 -->
+    {% if day.get('conditional_pages') %}
+    <div class="cond-pages">
+      <span style="font-size:10px;color:#9ca3af;padding-top:2px;">今日专题页：</span>
+      {% for cp in day.conditional_pages %}
+        {% set cond_labels = {"transport":"🚆 交通","hotel":"🏨 住宿","restaurant":"🍽️ 餐厅","photo":"📸 出片","budget":"💰 预算"} %}
+        <span class="cond-badge cond-{{ cp }}">{{ cond_labels.get(cp, cp) }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Timeline -->
+    <div class="timeline">
+    {% for item in day.timeline %}
+      <div class="tl-item {% if item.is_optional %}tl-optional{% endif %}">
+        <div class="tl-dot-col">
+          <div class="tl-dot {{ item.item_type }}"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag {{ item.item_type }}">{{ {"poi":"景点","restaurant":"餐厅","hotel":"住宿","free_time":"自由","transit":"交通"}.get(item.item_type, item.item_type) }}</span>
+            {{ item.entity_name or item.copy_zh or '' }}
+            {% if item.is_optional %}<span class="optional-badge">可跳过</span>{% endif %}
+          </div>
+          {% if item.tips_zh_parsed %}<div class="tl-note">💡 {{ item.tips_zh_parsed }}</div>{% endif %}
+          <div class="tl-meta">⏱ {{ item.duration_min }} 分钟</div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+
+    <!-- v2 report content -->
+    {% set rpt = day.get('report', {}) %}
+    {% if rpt %}
+
+      {% if rpt.get('execution_overview', {}).get('timeline_summary') %}
+      <div class="report-block" style="margin: 0 20px 12px;">
+        <h4>📍 今日概览</h4>
+        <p>{{ rpt.execution_overview.timeline_summary }}</p>
+        {% if rpt.execution_overview.get('top_expectation') %}
+        <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：{{ rpt.execution_overview.top_expectation }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if rpt.get('why_this_arrangement') %}
+      <div class="report-block" style="margin: 0 20px 12px;">
+        <h4>💡 为什么这样安排</h4>
+        <ul>
+        {% for w in rpt.why_this_arrangement %}
+          <li>{{ w }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if rpt.get('highlights') %}
+      <div style="margin: 0 20px 12px;">
+        <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+        {% for hl in rpt.highlights %}
+        <div class="hl-card">
+          <h5>{{ hl.get('name', '') }}</h5>
+          {% if hl.get('description') %}<p>{{ hl.description }}</p>{% endif %}
+          <div class="tips">
+            {% if hl.get('photo_tip') %}📸 {{ hl.photo_tip }} {% endif %}
+            {% if hl.get('nearby_bonus') %}📍 {{ hl.nearby_bonus }}{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if rpt.get('notes_and_planb') %}
+      {% set nb = rpt.notes_and_planb %}
+      <div class="planb-grid" style="margin: 0 20px 16px;">
+        {% if nb.get('risk_warnings') %}
+        <div class="planb-card planb-warn">
+          <strong>⚠️ 注意事项</strong>
+          {% for w in nb.risk_warnings %}{{ w }}<br>{% endfor %}
+        </div>
+        {% endif %}
+        {% if nb.get('weather_plan') %}
+        <div class="planb-card planb-rain">
+          <strong>🌧️ 雨天备选</strong>
+          {{ nb.weather_plan }}
+        </div>
+        {% endif %}
+        {% if nb.get('energy_plan') %}
+        <div class="planb-card planb-energy">
+          <strong>⚡ 体力不够</strong>
+          {{ nb.energy_plan }}
+        </div>
+        {% endif %}
+        {% if nb.get('clothing_tip') %}
+        <div class="planb-card planb-cloth">
+          <strong>👔 穿着建议</strong>
+          {{ nb.clothing_tip }}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    {% endif %}
+  </div>
+{% endfor %}
+
+<!-- ═══════ LAYER 3: PREP CHECKLIST ═══════ -->
+{% if prep_checklist and prep_checklist.get('sections') %}
+<div class="section">
+  <h2>🧳 {{ prep_checklist.get('title', '出发前准备') }}</h2>
+  <div class="prep-grid">
+    {% for sec in prep_checklist.sections %}
+    <div class="prep-item">
+      <strong>{{ sec.heading }}</strong>
+      <p>{{ sec.content }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+</div>
+
+<div class="footer">
+  🌸 由 <strong>Sakura Plan</strong> 精心制作（决策型攻略 v2）<br>
+  行程仅供参考，建议出发前确认各景点营业时间
+</div>
+</body>
+</html>

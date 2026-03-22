@@ -218,6 +218,54 @@ class TripProfile(Base):
         JSONB, comment="无障碍需求、饮食限制等"
     )
 
+    # ── 城市圈决策层新增字段 ──
+    arrival_shape: Mapped[Optional[str]] = mapped_column(
+        String(30),
+        comment="one_way / open_jaw / same_city — 到达/离开形态",
+    )
+    departure_shape: Mapped[Optional[str]] = mapped_column(
+        String(30),
+        comment="与 arrival_shape 配合，描述离开端",
+    )
+    arrival_airport: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="NRT / HND / KIX / ...",
+    )
+    departure_airport: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="NRT / HND / KIX / ...",
+    )
+    last_flight_time: Mapped[Optional[str]] = mapped_column(
+        String(5), comment="HH:MM 返程航班时间，用于最后一晚安全计算",
+    )
+    daytrip_tolerance: Mapped[Optional[str]] = mapped_column(
+        String(10), default="medium",
+        comment="low / medium / high — 日归容忍度",
+    )
+    hotel_switch_tolerance: Mapped[Optional[str]] = mapped_column(
+        String(10), default="medium",
+        comment="low / medium / high — 换酒店容忍度",
+    )
+    pace: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="relaxed / moderate / packed",
+    )
+    wake_up_time: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="early / normal / late",
+    )
+    # T5: 到达/离开日容量形态（由 T8 normalize 推导规则写入）
+    arrival_day_shape: Mapped[Optional[str]] = mapped_column(
+        String(20),
+        comment="full_day / half_day_afternoon / evening_only / red_eye — 到达日可用时段",
+    )
+    departure_day_shape: Mapped[Optional[str]] = mapped_column(
+        String(20),
+        comment="full_day / half_day_morning / early_morning — 离开日可用时段",
+    )
+    accommodation_pref: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="住宿偏好详情",
+    )
+    flight_info: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="航班详情 {outbound:{...}, return:{...}}",
+    )
+
     normalized_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )

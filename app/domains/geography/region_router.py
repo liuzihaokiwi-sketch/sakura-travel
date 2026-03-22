@@ -274,7 +274,7 @@ def load_seed_data(data_dir: str | None = None) -> dict[str, bool]:
     from pathlib import Path
 
     if data_dir is None:
-        data_dir = str(Path(__file__).parent.parent.parent.parent / "data")
+        data_dir = str(Path(__file__).parent.parent.parent.parent / "data" / "seed")
 
     data_path = Path(data_dir)
     loaded: dict[str, bool] = {}

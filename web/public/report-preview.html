@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Sakura Plan · 5天日本行程</title>
+<style>
+  :root {
+    --red: #c0392b; --warm: #e07a5f; --gold: #d4a017; --ink: #1a1a1a; --muted: #6b6b6b;
+    --bg: #faf9f7; --card: #ffffff; --border: #e8e0d5;
+    --poi-color: #2c5f8a; --restaurant-color: #7b3f00;
+    --hotel-color: #2d6a4f; --free-color: #8e44ad; --transit-color: #555;
+    --indigo: #4338ca; --sky: #0284c7; --amber: #d97706; --emerald: #059669;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; }
+
+  /* Cover */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cover::before { content: "🌸"; font-size: 180px; position: absolute; top: -30px; right: -10px; opacity: 0.06; }
+  .cover-brand { font-size: 13px; letter-spacing: 4px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 20px; }
+  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .cover-meta { font-size: 14px; color: rgba(255,255,255,0.6); }
+  .cover-badges { margin-top: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); padding: 5px 14px; border-radius: 20px; font-size: 12px; }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px 60px; }
+
+  /* Section cards */
+  .section { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin: 24px 0; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .section p { font-size: 13px; color: var(--muted); }
+  .section-accent { background: linear-gradient(135deg, #eef2ff, #f0f0ff); border-color: #c7d2fe; }
+  .section-warm { background: #fffbeb; border-color: #fde68a; }
+  .section-green { background: #ecfdf5; border-color: #a7f3d0; }
+
+  .key-point { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; font-size: 13px; color: #4338ca; }
+  .key-point::before { content: "▸"; color: #818cf8; flex-shrink: 0; margin-top: 1px; }
+
+  .highlight-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #fef3c7; border: 1px solid #fde68a; padding: 3px 10px; border-radius: 12px; margin: 3px 2px; }
+
+  .booking-item { background: var(--card); border: 1px solid #fde68a; border-radius: 10px; padding: 12px; margin: 8px 0; }
+  .booking-item strong { font-size: 13px; }
+  .booking-item .deadline { font-size: 11px; color: var(--amber); margin-top: 2px; }
+  .booking-item .impact { font-size: 11px; color: var(--muted); }
+
+  /* Day cards */
+  .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin: 24px 0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .day-header { background: linear-gradient(90deg, #f5f0ea, var(--card)); padding: 16px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+  .day-num { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--warm), var(--red)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .day-info { flex: 1; }
+  .day-theme { font-size: 16px; font-weight: 700; }
+  .day-sub { font-size: 12px; color: var(--muted); }
+  .day-intensity { font-size: 11px; padding: 3px 10px; border-radius: 10px; background: #e0f2fe; color: var(--sky); }
+
+  /* Timeline items */
+  .timeline { padding: 16px 20px; }
+  .tl-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot-col { display: flex; flex-direction: column; align-items: center; width: 16px; flex-shrink: 0; }
+  .tl-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; }
+  .tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 4px; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-dot.poi { background: var(--poi-color); }
+  .tl-dot.restaurant { background: var(--restaurant-color); }
+  .tl-body { flex: 1; }
+  .tl-title { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .type-tag { font-size: 10px; padding: 1px 6px; border-radius: 8px; color: #fff; }
+  .type-tag.poi { background: var(--poi-color); }
+  .type-tag.restaurant { background: var(--restaurant-color); }
+  .type-tag.hotel { background: var(--hotel-color); }
+  .tl-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .tl-meta { font-size: 11px; color: #999; margin-top: 2px; }
+
+  /* Report sub-sections */
+  .report-block { background: #f8fafc; border-radius: 10px; padding: 14px; margin: 12px 0; }
+  .report-block h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .report-block p, .report-block li { font-size: 12px; color: var(--muted); }
+  .report-block ul { padding-left: 16px; }
+  .report-block li { margin: 3px 0; }
+
+  .hl-card { background: linear-gradient(135deg, #fffbeb, #fff7ed); border: 1px solid #fed7aa; border-radius: 10px; padding: 12px; margin: 8px 0; }
+  .hl-card h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .hl-card p { font-size: 12px; color: var(--muted); }
+  .hl-card .tips { font-size: 11px; color: var(--warm); margin-top: 4px; }
+
+  .planb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+  .planb-card { border-radius: 8px; padding: 10px; font-size: 11px; }
+  .planb-card strong { font-size: 12px; display: block; margin-bottom: 3px; }
+  .planb-warn { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+  .planb-rain { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+  .planb-energy { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; }
+  .planb-cloth { background: #f5f3ff; border: 1px solid #ddd6fe; color: #5b21b6; }
+
+  /* Prep checklist */
+  .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .prep-item { background: #f8fafc; border-radius: 10px; padding: 12px; }
+  .prep-item strong { font-size: 13px; display: block; margin-bottom: 4px; }
+  .prep-item p { font-size: 12px; color: var(--muted); }
+
+  .footer { text-align: center; padding: 32px; color: #aaa; font-size: 11px; border-top: 1px solid var(--border); margin-top: 40px; }
+  .footer strong { color: var(--warm); }
+
+  @media print {
+    .day-card { break-inside: avoid; }
+    .section { break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .cover { padding: 40px 20px; }
+    .cover h1 { font-size: 24px; }
+    .planb-grid { grid-template-columns: 1fr; }
+    .prep-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ COVER ═══════ -->
+<div class="cover">
+  <div class="cover-brand">Sakura Plan · 定制行程</div>
+  <h1>🌸 日本旅行 · 5 天深度游</h1>
+  <div class="cover-meta">
+    预算：中档
+  </div>
+  <div class="cover-badges">
+    
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════ REPORT LAYER 1: OVERVIEW ═══════ -->
+
+  
+  
+
+  
+  <div class="section section-accent">
+    <h2>🎯 设计理念</h2>
+    <p style="color: #312e81; font-size: 14px; line-height: 1.8;">这份行程围绕「食与影」展开，每天选一个核心街区深度体验，避免跨区奔波。前三天走经典线（浅草-涩谷-新宿），后两天拉高体验层次（六本木-银座），节奏从文化探索逐步过渡到精致享受。餐厅全部选在地铁站5分钟步行圈内，确保拍完照不用饿着肚子找路。</p>
+    
+    <div style="margin-top: 12px;">
+      
+      <div class="key-point">每天只深耕1-2个街区，步行为主，地铁为辅，情侣出行不赶场</div>
+      
+      <div class="key-point">餐厅覆盖寿喜烧、拉面、乌冬、寿司全品类,每顿都是出片+美味双保险</div>
+      
+      <div class="key-point">观景台选在日落时段(Day2涩谷/Day4六本木)，一次看两种光线</div>
+      
+      <div class="key-point">温泉安排在Day2开场和Day5收尾，缓解暴走疲劳</div>
+      
+      <div class="key-point">银座和皇居放最后一天，节奏放缓，适合买伴手礼和回味</div>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="section">
+    <h2>🗺️ 路线概述</h2>
+    <p>Day1从浅草的江户风情启动，Day2-3在涩谷新宿感受都市脉搏，Day4跳到台场六本木看现代东京，Day5回归银座优雅收官。地理上呈「东→西→南→中」的螺旋线，每天地铁不超过3次换乘。</p>
+    
+    <div style="margin-top: 12px;">
+      
+      <div class="highlight-badge">★ 浅草寺清晨无人时段拍雷门倒影（Day1 8:30前到）</div>
+      
+      <div class="highlight-badge">★ 涩谷Sky日落+夜景连拍，2000日元看两场秀（Day2 16:30）</div>
+      
+      <div class="highlight-badge">★ 六本木森美术馆52层俯拍东京塔，情侣必打卡机位（Day4下午）</div>
+      
+      <div class="highlight-badge">★ 银座小十的怀石料理，米其林三星但人均2万日元可控（Day5午餐）</div>
+      
+      <div class="highlight-badge">★ LaQua温泉露天风吕看东京巨蛋夜景，泡完直接睡（Day5晚）</div>
+      
+    </div>
+    
+    
+    <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+      
+      <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">Day1: 轻松（上午寺庙慢拍，下午美术馆，晚餐寿喜烧）</span>
+      
+      <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">Day2: 偏紧（温泉+原宿+涩谷双观景台，步数破15000）</span>
+      
+      <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">Day3: 均衡（御苑散步+秋叶原逛街+都厅夜景）</span>
+      
+      <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">Day4: 均衡（六本木艺术+台场海景，两顿高级料理）</span>
+      
+      <span style="font-size: 11px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 2px 8px; border-radius: 8px; color: #0369a1;">Day5: 最轻松（银座购物+温泉，为回程留体力）</span>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="section section-warm">
+    <h2>📅 预约提醒</h2>
+    
+    <div class="booking-item">
+      <strong>銀座 小十（米其林三星怀石）</strong>
+      <div class="deadline">⏰ 至少提前30天通过官网或酒店代订</div>
+      <div class="impact">💡 不订就吃不到，这家只接受预约且每日限量12位</div>
+    </div>
+    
+    <div class="booking-item">
+      <strong>日本橋蛎殻町 すぎた（江户前寿司）</strong>
+      <div class="deadline">⏰ 提前14天，通过Omakase或TableCheck</div>
+      <div class="impact">💡 现场排队基本无望，这家只有8个吧台位</div>
+    </div>
+    
+    <div class="booking-item">
+      <strong>涩谷Sky展望台</strong>
+      <div class="deadline">⏰ 提前3天官网买指定时段票（2000日元）</div>
+      <div class="impact">💡 现场买要排40分钟+可能没票，错过日落时段</div>
+    </div>
+    
+    <div class="booking-item">
+      <strong>上野の森美術館</strong>
+      <div class="deadline">⏰ 查官网当期展览，热门展提前买电子票</div>
+      <div class="impact">💡 特展现场排队可能1小时起，且可能当日售罄</div>
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="section section-green">
+    <p style="color: #065f46; font-size: 13px;">🌸 如果是3-4月樱花季，新宿御苑和上野公园人流会翻倍，建议8点开门就进。夏季(6-8月)台场海风大但晒，带防晒；冬季(12-2月)都厅夜景17点就全黑，可以提前到16:30。LaQua温泉全年恒温，但周末晚上19-21点是高峰，建议21点后去或工作日白天去。</p>
+  </div>
+  
+
+
+<!-- ═══════ DAILY ITINERARY + REPORTS ═══════ -->
+
+
+
+  
+  <div style="display: flex; align-items: center; gap: 12px; margin: 36px 0 8px;">
+    <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;">东</div>
+    <div style="font-size: 20px; font-weight: 700;">东京</div>
+  </div>
+  
+  
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">1</div>
+      <div class="day-info">
+        <div class="day-theme">浅草・上野 — 历史与下町风情</div>
+        
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            浅草寺
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            浅草今半（寿喜烧）
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            上野の森美術館
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 150 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            新ばし 星野
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Report content for this day -->
+    
+      
+        
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>📍 今日概览</h4>
+            <p>上午9点前到浅草寺拍空景，中午浅草今半吃寿喜烧，下午转战上野看展，傍晚去新桥星野吃怀石料理。浅草→上野地铁10分钟，上野→新桥15分钟，动线顺畅不折返。</p>
+            
+            <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：浅草今半的黑毛和牛寿喜烧（情侣氛围感拉满）+ 上野美术馆当季特展的出片机会</p>
+            
+          </div>
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>💡 为什么这样安排</h4>
+            <ul>
+            
+              <li>浅草寺排第一是因为早上8:30-9:30光线最好且游客少，雷门和五重塔都能拍到干净画面</li>
+            
+              <li>浅草今半11:30开门，正好接上浅草寺，步行5分钟到，避开12点排队高峰</li>
+            
+              <li>上野美术馆下午2点进场人流平稳，150分钟够看展+拍照+不忍池散步</li>
+            
+              <li>新桥星野18:30预约第一轮，能赶上怀石料理最佳出餐节奏，结束后正好逛银座夜景</li>
+            
+            </ul>
+          </div>
+          
+
+          
+          <div style="margin: 0 20px 12px;">
+            <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+            
+            <div class="hl-card">
+              <h5>浅草寺晨光</h5>
+              <p>9点前雷门几乎没人，阳光从左侧斜打过来，红灯笼特别通透。仲见世通的店铺刚开门，老板在摆货的画面很生活。宝藏山门往回拍五重塔，前景带鸽子或参拜的人，构图绝了。</p>
+              <div class="tips">
+                📸 雷门拍完往左走20米，侧面45度角拍灯笼和晴空塔同框 
+                📍 仲见世通尽头右转有&#39;梅园&#39;抹茶冰淇淋350日元，比人形烧排队快且好吃
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>浅草今半寿喜烧</h5>
+              <p>包厢有榻榻米和式座位，服务员会帮你煮第一锅示范。黑毛和牛入口即化，蘸生蛋液那一刻情侣对视很有仪式感。人均5000-7000日元，性价比高过银座同级别。</p>
+              <div class="tips">
+                📸 肉片下锅冒烟那瞬间拍特写，记得开闪光灯补光 
+                📍 吃完往隅田川方向走5分钟，有&#39;言问桥&#39;拍晴空塔倒影，下午2点光线正好
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>上野の森美術館</h5>
+              <p>展览质量稳定，空间设计简约好拍。看完展往不忍池方向走，下午3-4点湖面波光粼粼，情侣牵手剪影很出片。池边有&#39;韵松亭&#39;茶屋，抹茶套餐1200日元可以坐窗边发呆。</p>
+              <div class="tips">
+                📸 美术馆外墙是白色混凝土，穿深色衣服拍人像对比强烈 
+                📍 不忍池往阿美横丁方向有&#39;みなとや&#39;鲷鱼烧，150日元现烤，红豆馅料扎实
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>新桥星野怀石</h5>
+              <p>8道菜慢慢上，每道都是艺术品级别摆盘。主厨会用时令食材做惊喜，比如春天的樱花豆腐、秋天的松茸土瓶蒸。包厢窗外能看到新桥站灯火，很有都市夜晚的浪漫感。</p>
+              <div class="tips">
+                📸 每道菜上桌先俯拍全景，再45度角拍局部细节 
+                📍 吃完步行10分钟到银座，晚上8点后各大品牌店橱窗灯光全开，适合压轴拍照
+              </div>
+            </div>
+            
+          </div>
+          
+
+          
+          
+          <div class="planb-grid" style="margin: 0 20px 16px;">
+            
+            <div class="planb-card planb-warn">
+              <strong>⚠️ 注意事项</strong>
+              浅草今半必须提前2天电话预约（03-3841-1114），现场排队可能等1小时<br>上野の森美術館周一休馆，去之前查官网确认当期展览<br>新桥星野18:30是第一轮，20:30是第二轮，订错时间会影响后续行程<br>浅草寺周末9点后人流暴增，务必8:30前到<br>
+            </div>
+            
+            
+            <div class="planb-card planb-rain">
+              <strong>🌧️ 雨天备选</strong>
+              下雨就砍不忍池散步，上野美术馆看完直接去阿美横丁室内逛药妆和零食，或提前去银座逛商场
+            </div>
+            
+            
+            <div class="planb-card planb-energy">
+              <strong>⚡ 体力不够</strong>
+              如果浅草今半吃太饱，上野美术馆可以缩短到90分钟只看核心展厅，省出时间在不忍池边坐着休息
+            </div>
+            
+            
+            <div class="planb-card planb-cloth">
+              <strong>👔 穿着建议</strong>
+              浅草今半有榻榻米包厢，女生别穿太短的裙子。上野美术馆空调强，带件薄外套。全天步行约8000步，穿舒适的鞋
+            </div>
+            
+          </div>
+          
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </div>
+
+
+  
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">2</div>
+      <div class="day-info">
+        <div class="day-theme">涩谷・原宿 — 潮流文化</div>
+        
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            LaQua温泉
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            AFURI 原宿店
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            涩谷天空观景台
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            涩谷天空展望台
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            鱼真 涩谷店
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Report content for this day -->
+    
+      
+        
+      
+        
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>📍 今日概览</h4>
+            <p>上午在后乐园LaQua泡温泉放松，中午转战原宿吃AFURI柚子拉面，下午到涩谷天空观景台看日落和夜景，晚上在涩谷站附近吃鱼真的海鲜居酒屋。全天集中在涩谷-原宿线上，移动时间短。</p>
+            
+            <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：涩谷天空观景台的日落夜景，和鱼真的新鲜刺身</p>
+            
+          </div>
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>💡 为什么这样安排</h4>
+            <ul>
+            
+              <li>早上泡温泉避开人流高峰，让身体放松为后面行程蓄力</li>
+            
+              <li>AFURI在原宿站旁边，从后乐园坐丸之内线直达，中午12点前到能避开排队高峰</li>
+            
+              <li>下午4点半上涩谷天空观景台，正好赶上日落时段（冬季16:45左右），能同时拍到黄昏和夜景</li>
+            
+              <li>晚餐选在涩谷站步行5分钟的鱼真，观景台下来直接过去，不用再换区域</li>
+            
+              <li>今天重点是拍照和美食，节奏不赶，每个点都留足时间</li>
+            
+            </ul>
+          </div>
+          
+
+          
+          <div style="margin: 0 20px 12px;">
+            <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+            
+            <div class="hl-card">
+              <h5>LaQua温泉</h5>
+              <p>东京巨蛋旁边的都市温泉，露天风吕能看到摩天轮。早上9点开门人少，情侣可以选混浴区的私汤（需加2000日元）。泡完在休息区喝瓶咖啡牛奶，很日式。</p>
+              <div class="tips">
+                📸 休息区的落地窗能拍到巨蛋和摩天轮，逆光很出片 
+                📍 东京巨蛋城有无印良品旗舰店，可以顺便逛20分钟
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>AFURI原宿店</h5>
+              <p>柚子盐味拉面是招牌，汤底清爽不油腻，女生也能喝完。叉烧是低温慢煮的，入口即化。店内工业风装修很适合拍照，中午12点前到不用排队。</p>
+              <div class="tips">
+                📸 拉面上桌时拍俯拍，柚子片和葱花的配色很好看 
+                📍 原宿站对面就是明治神宫入口，饭后可以散步15分钟
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>涩谷天空观景台</h5>
+              <p>229米高的360度观景台，能看到富士山、东京塔、晴空塔。16:30上去能拍到日落变夜景的全过程，天气好的话富士山会被染成粉色。顶楼有露天区域，风大但视野无遮挡。</p>
+              <div class="tips">
+                📸 日落时站在西侧拍富士山剪影,夜景时用涩谷十字路口的车流做前景 
+                📍 观景台下来后涩谷站周边全是购物区，SHIBUYA109、PARCO都在步行5分钟内
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>鱼真涩谷店</h5>
+              <p>筑地直送的海鲜居酒屋,刺身拼盘每天不同看当日进货。烤金目鲷和盐烤秋刀鱼是必点,配日本酒很搭。店内是传统居酒屋氛围,有吧台座位能看师傅现场处理鱼。</p>
+              <div class="tips">
+                📸 刺身拼盘上桌时拍特写,冰块和鱼片的质感很好 
+                📍 吃完可以去涩谷站前的十字路口拍夜景人流,或者去MEGA唐吉诃德逛到深夜
+              </div>
+            </div>
+            
+          </div>
+          
+
+          
+          
+          <div class="planb-grid" style="margin: 0 20px 16px;">
+            
+            <div class="planb-card planb-warn">
+              <strong>⚠️ 注意事项</strong>
+              LaQua温泉周末人多,建议工作日去或提前官网买票<br>涩谷天空观景台必须提前官网买票(2000日元),现场排队平均40分钟且可能售罄<br>AFURI中午12:30-13:30是高峰,排队可能20分钟以上<br>鱼真不接受预约,建议18:00前到或20:00后去避开晚餐高峰<br>
+            </div>
+            
+            
+            <div class="planb-card planb-rain">
+              <strong>🌧️ 雨天备选</strong>
+              下雨就砍掉涩谷天空观景台,改去涩谷PARCO或表参道逛街购物,晚上可以提前去鱼真或改吃一兰拉面涩谷店
+            </div>
+            
+            
+            <div class="planb-card planb-energy">
+              <strong>⚡ 体力不够</strong>
+              如果泡温泉后太累,可以砍掉涩谷天空观景台,直接在原宿-表参道区域逛街拍照,傍晚再去涩谷吃晚饭
+            </div>
+            
+            
+            <div class="planb-card planb-cloth">
+              <strong>👔 穿着建议</strong>
+              温泉带泳衣(混浴区用),观景台顶楼风大带外套,涩谷晚上逛街穿舒适的鞋
+            </div>
+            
+          </div>
+          
+
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </div>
+
+
+  
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">3</div>
+      <div class="day-info">
+        <div class="day-theme">新宿 — 繁华都市</div>
+        
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            新宿御苑
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            面屋武藏 新宿总本店
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            秋叶原电器街
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            东京都厅舍展望室
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Report content for this day -->
+    
+      
+        
+      
+        
+      
+        
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>📍 今日概览</h4>
+            <p>上午在新宿御苑拍情侣照，中午吃武藏拉面，下午跳到秋叶原扫手办和电器，傍晚回新宿都厅看免费夜景。新宿2次往返，但JR山手线20分钟就到秋叶原，不累。</p>
+            
+            <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：新宿御苑的日式庭园出片率极高，都厅45楼免费看东京全景夜景</p>
+            
+          </div>
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>💡 为什么这样安排</h4>
+            <ul>
+            
+              <li>御苑10点开门就进，上午光线柔和适合拍人像，避开下午旅行团</li>
+            
+              <li>武藏拉面11:30前到能避开午市高峰，吃完直接新宿站坐JR去秋叶原</li>
+            
+              <li>秋叶原下午人流适中，女生逛动漫周边男生看电器都有得看，2小时刚好</li>
+            
+              <li>都厅17:30前回来，赶上日落到入夜的渐变天空，免费但景观不输付费展望台</li>
+            
+              <li>全天只换1次区域，新宿作为大本营进出2次，行李可寄存车站省体力</li>
+            
+            </ul>
+          </div>
+          
+
+          
+          <div style="margin: 0 20px 12px;">
+            <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+            
+            <div class="hl-card">
+              <h5>新宿御苑</h5>
+              <p>75公顷日式+英式+法式三种庭园，樱花季和红叶季是顶配但平时也很出片。情侣照推荐日式庭园的木桥和茶室，早上10-11点侧逆光最柔。入园500日元，禁止野餐但有长椅可坐。</p>
+              <div class="tips">
+                📸 带广角镜头拍庭园全景,长焦拍树林间的情侣剪影,避开游客选小路 
+                📍 新宿三丁目站出来的伊势丹百货地下食品层,各种精致便当和甜品可买了当下午茶
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>面屋武藏新宿总本店</h5>
+              <p>浓厚系豚骨拉面代表,汤头熬12小时呈乳白色。招牌武藏拉面1100日元,加溏心蛋和叉烧。11点开门,11:30前到排队10分钟内,12点后要等30分钟。</p>
+              <div class="tips">
+                📸 拉面上桌30秒内拍,蒸汽和油光最诱人,俯拍45度角 
+                📍 同栋楼上有茑屋书店新宿店,饭后可逛20分钟消食看设计书
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>秋叶原电器街</h5>
+              <p>动漫手办、复古游戏、电子产品三合一。情侣推荐路线:animate本店扫周边→友都八喜看相机镜头比价→Radio会馆淘二手游戏卡带。中古店价格比国内便宜30-40%,但要会砍价。</p>
+              <div class="tips">
+                📸 电器街出口的大型广告牌和女仆咖啡店招牌很赛博朋克,傍晚拍霓虹灯 
+                📍 秋叶原站高架下的2k540工房街区,有手工皮具和木作小店,买个钥匙扣当纪念品500日元起
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>东京都厅舍展望室</h5>
+              <p>45楼高202米,免费但景观不输六本木。南展望室看东京塔和台场方向,北展望室看晴空塔。17:30到能看日落渐变,18:30后全黑夜景最璀璨。周末人多建议平日去。</p>
+              <div class="tips">
+                📸 带三脚架拍长曝光夜景,或手机贴玻璃开夜景模式,拍情侣剪影配东京塔 
+                📍 都厅1楼有东京观光信息中心,免费拿各种景点地图和优惠券,还有纪念章可盖
+              </div>
+            </div>
+            
+          </div>
+          
+
+          
+          
+          <div class="planb-grid" style="margin: 0 20px 16px;">
+            
+            <div class="planb-card planb-warn">
+              <strong>⚠️ 注意事项</strong>
+              新宿御苑周一休园,出发前查官网确认<br>面屋武藏12-13点是死亡排队时段,宁可11点或14点去<br>秋叶原很多店18-19点关门,别逛太晚赶不上都厅<br>都厅北展望室每月第2和第4周一休,南展望室第1和第3周一休,别扑空<br>
+            </div>
+            
+            
+            <div class="planb-card planb-rain">
+              <strong>🌧️ 雨天备选</strong>
+              下雨砍御苑,改成新宿伊势丹百货+纪伊国屋书店室内逛,或直接去秋叶原泡一下午
+            </div>
+            
+            
+            <div class="planb-card planb-energy">
+              <strong>⚡ 体力不够</strong>
+              体力不够先砍秋叶原,新宿站周边的高岛屋Times Square也能逛够2小时,直接都厅看夜景
+            </div>
+            
+            
+            <div class="planb-card planb-cloth">
+              <strong>👔 穿着建议</strong>
+              御苑要走碎石路穿运动鞋,秋叶原室内冷气强带薄外套,都厅展望室玻璃窗边晚上有点凉
+            </div>
+            
+          </div>
+          
+
+        
+      
+        
+      
+        
+      
+    
+  </div>
+
+
+  
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">4</div>
+      <div class="day-info">
+        <div class="day-theme">台场・六本木 — 现代东京</div>
+        
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            东京城市观景（六本木新城森大厦）
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            つる とんたん 六本木店
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            台场自由女神像
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 150 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            日本橋蛎殻町 すぎた
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Report content for this day -->
+    
+      
+        
+      
+        
+      
+        
+      
+        
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>📍 今日概览</h4>
+            <p>上午先去六本木新城森大厦看东京全景，中午在つる とんたん吃乌冬面，下午坐百合海鸥号去台场看海景和自由女神像，傍晚回市区在日本橋すぎた吃高级寿司。跨越都心和海滨两种风格，节奏前紧后松。</p>
+            
+            <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：森大厦52层俯瞰东京铁塔和富士山，台场海滨日落配彩虹大桥</p>
+            
+          </div>
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>💡 为什么这样安排</h4>
+            <ul>
+            
+              <li>上午去森大厦因为10点开门人少，能拍到干净的玻璃窗景，中午前光线最适合拍东京铁塔</li>
+            
+              <li>つる とんたん在森大厦楼下，吃完直接坐地铁去台场，省去找餐厅时间</li>
+            
+              <li>台场安排下午3-5点，正好赶上海滨日落（冬季16:30左右），自由女神像逆光剪影特别出片</li>
+            
+              <li>晚餐选日本橋是因为从台场回来顺路，すぎた只有8个座位需要提前订，安排在最后避免赶时间</li>
+            
+              <li>全天只换2次区域，交通时间控制在单程30分钟内，情侣出行不会太累</li>
+            
+            </ul>
+          </div>
+          
+
+          
+          <div style="margin: 0 20px 12px;">
+            <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+            
+            <div class="hl-card">
+              <h5>森大厦Tokyo City View</h5>
+              <p>52层露天观景台能360度看东京，天气好时富士山、东京铁塔、晴空塔同框。玻璃幕墙适合拍情侣剪影，10-11点人少可以慢慢摆拍。门票2000日元，加森美术馆套票2800日元（如果有teamLab或当期展览可以顺便看）。</p>
+              <div class="tips">
+                📸 站在西南角拍东京铁塔，用超广角把城市天际线收进去，情侣可以背对镜头看风景 
+                📍 森大厦下面的六本木Hills商场有蓝瓶咖啡和茑屋书店，吃完饭可以逛20分钟
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>つる とんたん 六本木店</h5>
+              <p>超大碗乌冬面，碗直径30厘米视觉冲击力强。推荐明太子奶油乌冬1380日元或松露牛肉乌冬1680日元，面条手工现做很Q弹。店内装修是日式摩登风，灯光柔和适合拍食物。</p>
+              <div class="tips">
+                📸 上菜时先拍大碗全景，再拍挑起面条的特写，用浅景深虚化背景 
+                📍 吃完往毛利庭园方向走5分钟，有个小型日式庭院可以拍照，人很少
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>台场海滨公园+自由女神像</h5>
+              <p>东京版自由女神像背后是彩虹大桥，下午4点后夕阳把海面染成金色。沙滩可以脱鞋走走，冬天人少很适合情侣拍照。往左走10分钟到Diver City有1:1高达立像，晚上7点有灯光秀。</p>
+              <div class="tips">
+                📸 站在女神像侧后方，用彩虹大桥做背景拍剪影，或者坐在沙滩上拍海景人像 
+                📍 Aqua City购物中心6楼有拉面主题公园，如果晚餐订不到可以这里解决，一兰拉面不用排队
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>日本橋蛎殻町 すぎた</h5>
+              <p>米其林一星江户前寿司，师傅杉田孝明在吧台前现捏，8个座位的私密空间。Omakase套餐18000-25000日元，20道左右包含当季鱼生和煮物。预约很难抢，至少提前1个月打电话或请酒店代订。</p>
+              <div class="tips">
+                📸 可以拍师傅捏寿司的手部特写，但要先礼貌询问，不要开闪光灯 
+                📍 吃完往日本桥方向走，晚上8点后桥下灯光亮起很浪漫，适合散步消食
+              </div>
+            </div>
+            
+          </div>
+          
+
+          
+          
+          <div class="planb-grid" style="margin: 0 20px 16px;">
+            
+            <div class="planb-card planb-warn">
+              <strong>⚠️ 注意事项</strong>
+              森大厦如果遇到大雾或下雨能见度差，可以改去森美术馆看展（室内不受天气影响）<br>つる とんたん午餐时段12-13点排队20-30分钟，11点前或14点后去不用等<br>台场百合海鸥号末班车23:30，但建议20点前离开，晚上台场除了商场没什么可逛<br>すぎた如果没订到，备选筑地青空三代目（无需预约，海鲜丼2500日元）或银座久兵卫（需预约但比すぎた好订）<br>
+            </div>
+            
+            
+            <div class="planb-card planb-rain">
+              <strong>🌧️ 雨天备选</strong>
+              下雨就砍台场，改去表参道逛店+teamLab Borderless（室内数字艺术馆，情侣出片圣地），或者去代官山茑屋书店泡一下午
+            </div>
+            
+            
+            <div class="planb-card planb-energy">
+              <strong>⚡ 体力不够</strong>
+              如果体力不够先砍台场，六本木吃完直接去日本桥附近逛，COREDO室町有很多杂货店和甜品店可以慢慢看
+            </div>
+            
+            
+            <div class="planb-card planb-cloth">
+              <strong>👔 穿着建议</strong>
+              森大厦露天观景台风大，带件外套。台场海边更冷，围巾手套备着。すぎた是高级寿司店，建议smart casual，男生别穿短裤拖鞋
+            </div>
+            
+          </div>
+          
+
+        
+      
+        
+      
+    
+  </div>
+
+
+  
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">5</div>
+      <div class="day-info">
+        <div class="day-theme">银座・皇居 — 优雅收尾</div>
+        
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            新宿御苑
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 90 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot restaurant"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag restaurant">餐厅</span>
+            銀座 小十
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            银座
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 120 分钟</div>
+        </div>
+      </div>
+    
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot poi"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-title">
+            <span class="type-tag poi">景点</span>
+            LaQua温泉
+          </div>
+          <div class="tl-note">💡 建议提前查看官方开放时间</div>
+          <div class="tl-meta">⏱ 60 分钟</div>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Report content for this day -->
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>📍 今日概览</h4>
+            <p>最后一天从新宿御苑的绿意开始，中午赴银座小十的怀石盛宴，下午在银座优雅扫货拍照，晚上LaQua温泉泡汤放松，为旅程画上完美句号。</p>
+            
+            <p style="color: var(--amber); margin-top: 4px;">🌟 最期待：银座小十的怀石料理（米其林三星体验）+ 银座街拍的优雅氛围</p>
+            
+          </div>
+          
+
+          
+          <div class="report-block" style="margin: 0 20px 12px;">
+            <h4>💡 为什么这样安排</h4>
+            <ul>
+            
+              <li>新宿御苑放在早上是因为9点开门人少光线好，90分钟刚好拍完不赶</li>
+            
+              <li>小十中午12点预约比晚餐便宜3000-5000日元，怀石套餐8000日元起性价比高</li>
+            
+              <li>银座下午2-5点是最佳街拍时段，阳光柔和且店铺都开门，晴海通和中央通交叉口最出片</li>
+            
+              <li>LaQua温泉放最后是因为泡完直接回酒店收拾行李，不用再折腾，且晚上8点后人少</li>
+            
+              <li>今天不排满是给收拾行李和买伴手礼留时间，最后一天别太累</li>
+            
+            </ul>
+          </div>
+          
+
+          
+          <div style="margin: 0 20px 12px;">
+            <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">✨ 今日亮点</h4>
+            
+            <div class="hl-card">
+              <h5>新宿御苑 — 都市绿洲告别</h5>
+              <p>早上9点进园，日式庭园的枫叶倒影和法式花园的对称构图都很出片。走到温室附近有长椅可以坐着发呆，这里游客最少。秋天的银杏大道金黄一片，情侣牵手照的经典机位在玉藻池旁边。</p>
+              <div class="tips">
+                📸 日式庭园用广角拍全景，法式花园用长焦压缩空间感，温室玻璃反光记得调角度 
+                📍 出园后新宿站南口有Lumine百货，地下一楼的伴手礼区可以补货Tokyo Banana和白色恋人
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>银座小十 — 米其林三星怀石</h5>
+              <p>中午套餐8000-12000日元，比晚餐便宜但品质一样。主厨奥田透的料理讲究季节感，每道菜都是艺术品。记得提前2周官网预约，现场不接待walk-in。用餐时间60-90分钟，可以慢慢享受。</p>
+              <div class="tips">
+                📸 每道菜上桌先拍再吃，自然光从窗户进来最好，别用闪光灯 
+                📍 小十在银座6丁目，步行5分钟到Ginza Six顶楼花园可以俯拍银座街景
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>银座街拍 — 优雅都会风</h5>
+              <p>晴海通的Dior、Chanel旗舰店橱窗是经典背景，中央通的和光百货钟楼下午3点光线最好。鸠居堂的和纸店适合拍文艺小物，伊东屋文具店7楼的红砖墙很出片。别忘了去资生堂Parlour买芝士蛋糕当伴手礼，1500日元一盒。</p>
+              <div class="tips">
+                📸 银座4丁目十字路口用广角拍街景，店铺橱窗用人像模式拍倒影，避开下午4点后的逆光 
+                📍 银座三越地下食品街可以买高级水果和便当，晚上LaQua泡汤前可以先吃
+              </div>
+            </div>
+            
+            <div class="hl-card">
+              <h5>LaQua温泉 — 都心泡汤放松</h5>
+              <p>东京巨蛋旁的都市温泉，晚上8点后人少。露天风吕能看到东京塔夜景，室内有18种汤池。门票2900日元含毛巾和浴衣，额外付费可以做按摩。泡完在休息区躺椅上睡一觉，完美结束旅程。</p>
+              <div class="tips">
+                📸 温泉区不能拍照，但入口的日式庭园和休息区可以拍浴衣照留念 
+                📍 LaQua旁边的东京巨蛋城有无印良品和优衣库，最后补货的好地方
+              </div>
+            </div>
+            
+          </div>
+          
+
+          
+          
+          <div class="planb-grid" style="margin: 0 20px 16px;">
+            
+            <div class="planb-card planb-warn">
+              <strong>⚠️ 注意事项</strong>
+              小十必须提前预约且严格准时，迟到10分钟可能被取消，从新宿御苑打车过去15分钟1800日元<br>新宿御苑周一休园（国定假日除外），出发前查官网确认<br>LaQua温泉周末晚上7-9点是高峰期，建议8点后或提前官网买票快速入场<br>银座很多店铺周日休息，如果是周日去建议改成表参道或代官山<br>
+            </div>
+            
+            
+            <div class="planb-card planb-rain">
+              <strong>🌧️ 雨天备选</strong>
+              下雨就砍新宿御苑，改成新宿伊势丹百货逛街，地下食品街也很好拍。LaQua温泉下雨天更舒服，露天风吕淋着雨泡汤别有风味。
+            </div>
+            
+            
+            <div class="planb-card planb-energy">
+              <strong>⚡ 体力不够</strong>
+              体力不够就砍LaQua温泉，直接回酒店休息收拾行李。或者银座只逛2小时，把时间留给温泉。
+            </div>
+            
+            
+            <div class="planb-card planb-cloth">
+              <strong>👔 穿着建议</strong>
+              新宿御苑要走路建议穿运动鞋，但小十和银座要优雅所以带双可换的皮鞋。LaQua自备泳衣（现场租800日元），其他都有提供。
+            </div>
+            
+          </div>
+          
+
+        
+      
+    
+  </div>
+
+
+<!-- ═══════ LAYER 3: PREP CHECKLIST ═══════ -->
+
+<div class="section">
+  <h2>� 出发前准备 / 总注意事项</h2>
+  <div class="prep-grid">
+    
+    <div class="prep-item">
+      <strong>📱 eSIM &amp; 网络</strong>
+      <p>提前在淘宝购买日本 eSIM（推荐 IIJmio / Ubigi），落地开机即用。Pocket WiFi 适合多人共享。</p>
+    </div>
+    
+    <div class="prep-item">
+      <strong>💳 支付</strong>
+      <p>备 3-5 万日元现金；Visa/Master 大部分商场可用；7-11 ATM 支持银联取现；PayPay 覆盖越来越广。</p>
+    </div>
+    
+    <div class="prep-item">
+      <strong>🚃 交通卡</strong>
+      <p>Suica / PASMO 可刷地铁、JR、公交、便利店。Apple Wallet 可直接开虚拟 Suica。跨城多考虑 JR Pass。</p>
+    </div>
+    
+    <div class="prep-item">
+      <strong>🧳 行李</strong>
+      <p>日本室内暖气足，外套里穿薄。鞋子选舒适步行鞋，日均 1.5-2 万步。带一个折叠行李袋备购物。</p>
+    </div>
+    
+    <div class="prep-item">
+      <strong>📲 常用 App</strong>
+      <p>Google Maps（导航）、Tabelog（餐厅评分）、乗換案内（电车）、Google 翻译（拍照翻译菜单）。</p>
+    </div>
+    
+    <div class="prep-item">
+      <strong>🏥 紧急联系</strong>
+      <p>110 警察 / 119 火警·救护。中国驻日大使馆 03-3403-3388。建议买旅行保险。</p>
+    </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+<div class="footer">
+  🌸 由 <strong>Sakura Plan</strong> AI 精心制作<br>
+  行程仅供参考，建议出发前确认各景点营业时间
+</div>
+</body>
+</html>

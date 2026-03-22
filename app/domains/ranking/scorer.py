@@ -69,6 +69,7 @@ class EntitySignals:
     area_efficiency_score: float = 50.0       # 区域串联效率，默认 50
     theme_match_score: float = 50.0           # 与用户主题匹配，默认 50
     has_seasonal_tags: bool = False           # 是否有季节提示标签
+    operational_stability_score: float = 60.0  # R2: 运营稳定度 0-100（综合营业稳定性/投诉率/状态变更频率）
 
     # ── 酒店专用信号 ──────────────────────────────────────────────────────────
     walking_distance_station_min: int | None = None   # 步行到地铁分钟数
@@ -206,11 +207,10 @@ def _compute_poi_system_score(signals: EntitySignals) -> tuple[float, dict]:
         elif dim.key == "city_popularity":
             raw = signals.city_popularity_score
             norm = _normalize(raw, dim.max_raw)
-        elif dim.key == "theme_match":
-            raw = signals.theme_match_score
-            norm = _normalize(raw, dim.max_raw)
-        elif dim.key == "area_efficiency":
-            raw = signals.area_efficiency_score
+        # R2: theme_match 和 area_efficiency 已移至 context_fit 层
+        # 新增 operational_stability 替代
+        elif dim.key == "operational_stability":
+            raw = signals.operational_stability_score
             norm = _normalize(raw, dim.max_raw)
         elif dim.key == "data_freshness":
             raw = _freshness_score(signals.updated_at)

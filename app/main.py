@@ -25,9 +25,11 @@ from app.api import intensity as intensity_api
 from app.api import self_adjustment as self_adjustment_api
 from app.api import detail_forms
 from app.api import destinations
-from app.api.ops import editorial, entities, ranked
+from app.api.ops import editorial, entities, ranked, catalog as catalog_ops
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
+import logging
+import traceback
 from app.db.session import AsyncSessionLocal, engine
 from app.db.models import catalog, business, derived, snapshots  # noqa: F401 触发模型注册
 from app.db.models import detail_forms as _df, fragments as _frag, trace as _trace  # noqa: F401
@@ -101,6 +103,7 @@ app.include_router(pois.cities_router, tags=["cities"])      # /cities
 app.include_router(entities.router, prefix="/ops", tags=["ops"])
 app.include_router(editorial.router, prefix="/ops", tags=["ops-editorial"])
 app.include_router(ranked.router, prefix="/ops", tags=["ops-ranked"])
+app.include_router(catalog_ops.router, prefix="/ops", tags=["ops-catalog"])
 app.include_router(quiz.router, tags=["quiz"])               # /quiz
 app.include_router(submissions.router)                       # /submissions
 app.include_router(orders.router, tags=["orders"])           # /orders

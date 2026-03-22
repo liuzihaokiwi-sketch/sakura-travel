@@ -33,6 +33,28 @@ export async function GET(req: NextRequest) {
   }
 }
 
+// POST /api/admin/submissions?id=xxx&action=archive — 归档
+export async function POST(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
+    const action = searchParams.get("action");
+    if (!id) return NextResponse.json({ error: "missing id" }, { status: 400 });
+
+    if (action === "archive") {
+      const res = await fetch(`${BACKEND_URL}/submissions/${id}/archive`, {
+        method: "POST",
+      });
+      const data = await res.json();
+      return NextResponse.json(data, { status: res.status });
+    }
+
+    return NextResponse.json({ error: "unknown action" }, { status: 400 });
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: 500 });
+  }
+}
+
 // PATCH /api/admin/submissions?id=xxx — 更新状态
 export async function PATCH(req: NextRequest) {
   try {

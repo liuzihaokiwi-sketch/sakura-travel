@@ -123,3 +123,18 @@ export async function confirmPayment(id: string): Promise<boolean> {
 export async function refundOrder(id: string, reason?: string): Promise<boolean> {
   return updateOrderStatus(id, "refunded", reason || "admin_refund");
 }
+
+export async function markAsUsing(id: string): Promise<boolean> {
+  return updateOrderStatus(id, "using", "admin_mark_using");
+}
+
+export async function archiveOrder(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}?id=${id}&action=archive`, {
+      method: "POST",
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}

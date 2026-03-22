@@ -31,18 +31,22 @@ EVAL_CASES_DIR = Path(__file__).resolve().parents[3] / "data" / "eval"
 
 @dataclass
 class EvalScore:
-    completeness: float = 0.0    # 0-10
-    feasibility: float = 0.0     # 0-10
-    diversity: float = 0.0       # 0-10
-    preference_match: float = 0.0 # 0-10
-    quality: float = 0.0          # 0-10
-    safety: float = 0.0           # 0-10
+    completeness: float = 0.0        # 0-10（现有）
+    feasibility: float = 0.0         # 0-10（现有）
+    diversity: float = 0.0           # 0-10（现有）
+    preference_match: float = 0.0    # 0-10（现有）
+    quality: float = 0.0             # 0-10（现有）
+    safety: float = 0.0              # 0-10（现有）
+    factual_reliability: float = 0.0 # 0-10（L4-05 新增）
+    pacing_quality: float = 0.0      # 0-10（L4-05 新增）
 
     @property
     def overall(self) -> float:
-        weights = [0.20, 0.25, 0.15, 0.20, 0.10, 0.10]
+        # 权重总和 = 0.15+0.20+0.10+0.15+0.10+0.10+0.10+0.10 = 1.00
+        weights = [0.15, 0.20, 0.10, 0.15, 0.10, 0.10, 0.10, 0.10]
         dims = [self.completeness, self.feasibility, self.diversity,
-                self.preference_match, self.quality, self.safety]
+                self.preference_match, self.quality, self.safety,
+                self.factual_reliability, self.pacing_quality]
         return round(sum(w * d for w, d in zip(weights, dims)), 2)
 
     def to_dict(self) -> dict:
@@ -226,6 +230,12 @@ def score_plan(plan: dict[str, Any], case: EvalCase) -> EvalScore:
                 day_ids.add(eid)
                 all_entity_ids.append(eid)
 
+    # 7. Factual Reliability（L4-05）
+    factual_reliability = _score_factual_reliability(plan, case)
+
+    # 8. Pacing Quality（L4-05）
+    pacing_quality = _score_pacing_quality(plan, case)
+
     score = EvalScore(
         completeness=max(0, min(10, completeness)),
         feasibility=max(0, min(10, feasibility)),
@@ -233,10 +243,131 @@ def score_plan(plan: dict[str, Any], case: EvalCase) -> EvalScore:
         preference_match=max(0, min(10, pref_match)),
         quality=max(0, min(10, quality)),
         safety=max(0, min(10, safety)),
+        factual_reliability=factual_reliability,
+        pacing_quality=pacing_quality,
     )
     case.score = score
     case.issues = issues
     return score
+
+
+# ── L4-05 新增评分函数 ────────────────────────────────────────────────────────
+
+def _score_factual_reliability(plan: dict, case: EvalCase) -> float:
+    """
+    事实可靠性评分（L4-05）。检查：
+    - 实体是否有 google_rating（有 = 加分，说明来源可靠）
+    - 实体是否有 opening_hours_json（有 = 加分）
+    - 餐厅是否有 tabelog_score（有 = 加分）
+    - data_tier A 比 B 加分
+    - 有 field_provenance 且非 stale = 加分
+
+    纯规则统计，不调 API。
+    """
+    days = plan.get("days", [])
+    total_items = 0
+    score_sum = 0.0
+
+    for day in days:
+        for it in day.get("items", []):
+            total_items += 1
+            item_score = 5.0  # 基础分
+
+            # google_rating 存在且合理
+            gr = it.get("google_rating")
+            if gr:
+                try:
+                    gr_f = float(gr)
+                    if 1.0 <= gr_f <= 5.0:
+                        item_score += 1.5
+                except (ValueError, TypeError):
+                    pass
+
+            # 营业时间有记录
+            if it.get("opening_hours_json") or it.get("opening_hours"):
+                item_score += 1.0
+
+            # tabelog 评分（餐厅）
+            ts = it.get("tabelog_score")
+            if ts:
+                try:
+                    if float(ts) >= 3.0:
+                        item_score += 1.0
+                except (ValueError, TypeError):
+                    pass
+
+            # data_tier
+            tier = it.get("data_tier", "")
+            if tier == "S":
+                item_score += 1.5
+            elif tier == "A":
+                item_score += 1.0
+            elif tier == "B":
+                item_score += 0.5
+
+            # field_provenance 且非 stale
+            if it.get("field_provenance") and not it.get("is_stale"):
+                item_score += 0.5
+
+            score_sum += min(10.0, item_score)
+
+    if total_items == 0:
+        return 5.0  # 无数据时给中间分
+    return round(score_sum / total_items, 2)
+
+
+def _score_pacing_quality(plan: dict, case: EvalCase) -> float:
+    """
+    节奏质量评分（L4-05）。检查：
+    - 每天 item 数量方差（低 = 好）
+    - intensity 分布是否有"先松后紧"或"张弛有度"
+    - 是否有连续 2 天都是 dense
+    - arrival day 是否 light / balanced
+    - departure day 是否 light
+
+    纯规则统计，不调 API。
+    """
+    days = plan.get("days", [])
+    if not days:
+        return 5.0
+
+    score = 10.0
+    item_counts = []
+
+    intensities = []
+    for i, day in enumerate(days):
+        items = day.get("items", [])
+        item_counts.append(len(items))
+        intensities.append(day.get("intensity", "balanced"))
+
+        # arrival day 应该轻松
+        if day.get("day_type") == "arrival" and day.get("intensity") == "dense":
+            score -= 1.5
+
+        # departure day 应该轻松
+        if day.get("day_type") == "departure" and day.get("intensity") == "dense":
+            score -= 1.5
+
+    # 连续 2 天 dense 扣分
+    for i in range(len(intensities) - 1):
+        if intensities[i] == "dense" and intensities[i + 1] == "dense":
+            score -= 1.0
+
+    # item 数量方差（越低越稳定）
+    if len(item_counts) > 1:
+        mean = sum(item_counts) / len(item_counts)
+        variance = sum((x - mean) ** 2 for x in item_counts) / len(item_counts)
+        # 方差 > 9（标准差 > 3 个 item）开始扣分
+        if variance > 9:
+            score -= min(2.0, (variance - 9) * 0.2)
+
+    # 首天和末天轻松加分
+    if intensities and intensities[0] in ("light", "balanced"):
+        score += 0.5
+    if len(intensities) > 1 and intensities[-1] == "light":
+        score += 0.5
+
+    return round(max(0.0, min(10.0, score)), 2)
 
 
 # ── 回归检测 ──────────────────────────────────────────────────────────────────
@@ -253,7 +384,10 @@ def detect_regressions(
         threshold: 分数下降超过此值视为回归
     """
     regressions = []
-    dims = ["completeness", "feasibility", "diversity", "preference_match", "quality", "safety"]
+    dims = [
+        "completeness", "feasibility", "diversity", "preference_match",
+        "quality", "safety", "factual_reliability", "pacing_quality",  # L4-05
+    ]
 
     for dim in dims:
         curr_avg = sum(getattr(s, dim) for s in current_scores) / len(current_scores) if current_scores else 0
@@ -339,7 +473,10 @@ def run_eval(
 
     # 维度均值
     dim_avgs = {}
-    dims = ["completeness", "feasibility", "diversity", "preference_match", "quality", "safety"]
+    dims = [
+        "completeness", "feasibility", "diversity", "preference_match",
+        "quality", "safety", "factual_reliability", "pacing_quality",  # L4-05
+    ]
     for dim in dims:
         vals = [getattr(s, dim) for s in scores]
         dim_avgs[dim] = round(sum(vals) / len(vals), 2) if vals else 0

@@ -129,6 +129,25 @@ class GuideFragment(Base):
         comment="片段版本号（每次修改+1）"
     )
 
+    # ── 时效与适用性（对齐 template_asset_system_spec） ──
+    time_sensitivity: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="timeless",
+        comment="timeless / soft_ttl / hard_ttl / snapshot_bound"
+    )
+    ttl_days: Mapped[Optional[int]] = mapped_column(
+        Integer, comment="soft/hard TTL 天数"
+    )
+    valid_from: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="生效起始时间"
+    )
+    valid_until: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="失效时间"
+    )
+    refresh_strategy: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="none",
+        comment="none / downgrade / block / snapshot_refill"
+    )
+
     # ── 状态管理 ──
     status: Mapped[str] = mapped_column(
         String(20), nullable=False, default="draft",

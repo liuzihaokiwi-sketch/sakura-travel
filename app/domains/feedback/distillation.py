@@ -290,16 +290,117 @@ async def process_feedback(
     else:
         details.append("no distillation candidates")
 
+    # Step 4.5: 实体/簇/圈质量回写
+    entities_updated = 0
+    try:
+        entities_updated = await _update_entity_quality(session, feedback)
+        details.append(f"entity quality updated for {entities_updated} entities")
+    except Exception as exc:
+        logger.warning("entity quality update failed: %s", exc)
+
     result = FeedbackResult(
         trip_id=feedback.trip_id,
         fragments_updated=frag_updated,
-        entities_updated=0,  # TODO: 接入实体质量更新
+        entities_updated=entities_updated,
         distillation_candidates=distill_count,
         details=details,
     )
 
     logger.info(
-        "feedback processed: trip=%s frags_updated=%d distill=%d rating=%d",
-        feedback.trip_id, frag_updated, distill_count, feedback.overall_rating,
+        "feedback processed: trip=%s frags_updated=%d entities=%d distill=%d rating=%d",
+        feedback.trip_id, frag_updated, entities_updated, distill_count, feedback.overall_rating,
     )
     return result
+
+
+# ── Step 4.5: 实体 / 簇 / 圈 质量回写 ─────────────────────────────────────────
+
+async def _update_entity_quality(
+    session: AsyncSession,
+    feedback: FeedbackInput,
+) -> int:
+    """
+    根据用户反馈回写实体质量信号。
+
+    规则：
+      rating 4-5: 行程中所有实体 google_review_count +1 (模拟正向信号)
+      rating 1-2: 行程中被标记为 issue 的实体降低 data_tier 权重
+      day_rating 4-5: 该天实体标记正面反馈
+      day_rating 1-2: 该天实体标记负面反馈
+
+    回写到 generation_decisions 中，而非直接改 entity_base。
+    这样保留可追溯性，后续可通过批量任务统计累积反馈。
+    """
+    from app.domains.planning.decision_writer import write_decision
+    from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
+
+    # 找到行程的 plan
+    plan_q = await session.execute(
+        select(ItineraryPlan).where(ItineraryPlan.trip_request_id == feedback.trip_id).limit(1)
+    )
+    plan = plan_q.scalar_one_or_none()
+    if not plan:
+        return 0
+
+    # 找到所有 items
+    days_q = await session.execute(
+        select(ItineraryDay).where(ItineraryDay.plan_id == plan.plan_id).order_by(ItineraryDay.day_number)
+    )
+    all_days = days_q.scalars().all()
+
+    updated = 0
+    for day in all_days:
+        day_rating = feedback.day_ratings.get(day.day_number, feedback.overall_rating)
+
+        items_q = await session.execute(
+            select(ItineraryItem).where(ItineraryItem.day_id == day.day_id)
+        )
+        items = items_q.scalars().all()
+
+        for item in items:
+            if not item.entity_id:
+                continue
+
+            signal = "neutral"
+            if day_rating >= 4:
+                signal = "positive"
+            elif day_rating <= 2:
+                signal = "negative"
+
+            if signal != "neutral":
+                await write_decision(
+                    session,
+                    trip_request_id=feedback.trip_id,
+                    plan_id=plan.plan_id,
+                    stage="feedback_entity",
+                    key=f"entity_{item.entity_id}",
+                    value=signal,
+                    reason=f"day{day.day_number} rating={day_rating}, "
+                           f"overall={feedback.overall_rating}, "
+                           f"source={feedback.source_type}",
+                )
+                updated += 1
+
+    # 如果 overall 高分，记录到 circle 级
+    if feedback.overall_rating >= 4:
+        await write_decision(
+            session,
+            trip_request_id=feedback.trip_id,
+            plan_id=plan.plan_id,
+            stage="feedback_circle",
+            key="nps_positive",
+            value=feedback.overall_rating,
+            reason=f"would_recommend={feedback.would_recommend}",
+        )
+    elif feedback.overall_rating <= 2:
+        await write_decision(
+            session,
+            trip_request_id=feedback.trip_id,
+            plan_id=plan.plan_id,
+            stage="feedback_circle",
+            key="nps_negative",
+            value=feedback.overall_rating,
+            reason=feedback.feedback_text or "",
+        )
+
+    return updated

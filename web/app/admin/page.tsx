@@ -11,7 +11,7 @@ const COLUMNS = [
     key: "pending",
     label: "待处理",
     icon: "📋",
-    statuses: ["new", "sample_viewed"],
+    statuses: ["new", "sample_viewed", "quiz_submitted"],
     bg: "bg-amber-50",
     border: "border-amber-200",
     badge: "bg-amber-100 text-amber-800",
@@ -47,25 +47,35 @@ const COLUMNS = [
     key: "generating",
     label: "生成中",
     icon: "⚙️",
-    statuses: ["generating"],
+    statuses: ["generating", "generating_full", "assembling", "reviewing"],
     bg: "bg-sky-50",
     border: "border-sky-200",
     badge: "bg-sky-100 text-sky-800",
   },
   {
     key: "done",
-    label: "已完成",
+    label: "已交付",
     icon: "🎉",
     statuses: ["done", "delivered"],
     bg: "bg-emerald-50",
     border: "border-emerald-200",
     badge: "bg-emerald-100 text-emerald-800",
   },
+  {
+    key: "using",
+    label: "使用中",
+    icon: "✈️",
+    statuses: ["using"],
+    bg: "bg-teal-50",
+    border: "border-teal-200",
+    badge: "bg-teal-100 text-teal-800",
+  },
 ];
 
 const STATUS_LABELS: Record<string, string> = {
   new: "新提交",
   sample_viewed: "已看样片",
+  quiz_submitted: "已提交问卷",
   paid: "已付费",
   detail_filling: "填写详细信息中",
   detail_submitted: "详细信息已提交",
@@ -73,8 +83,13 @@ const STATUS_LABELS: Record<string, string> = {
   needs_fix: "需补充信息",
   validated: "校验通过",
   generating: "生成中",
+  generating_full: "完整生成中",
+  assembling: "装配中",
+  reviewing: "审核中",
   done: "攻略完成",
   delivered: "已交付",
+  using: "使用中",
+  archived: "已归档",
   refunded: "已退款",
   cancelled: "已取消",
 };
@@ -171,7 +186,7 @@ function KanbanColumn({
   badge: string;
 }) {
   return (
-    <div className={`flex-1 min-w-[320px] rounded-xl ${bg} border ${border} p-4`}>
+    <div className={`flex-1 min-w-[240px] max-w-[320px] rounded-xl ${bg} border ${border} p-4`} style={{ scrollSnapAlign: "start" }}>
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-semibold text-slate-700">
           {icon} {label}
@@ -252,6 +267,18 @@ export default function AdminDashboard() {
             >
               📊 转化看板
             </Link>
+            <Link
+              href="/admin/history"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
+            >
+              📁 历史表单
+            </Link>
+            <Link
+              href="/admin/catalog"
+              className="text-xs font-medium text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1 px-2.5 py-1 bg-indigo-50 rounded-lg border border-indigo-200"
+            >
+              🗂️ 内容库
+            </Link>
             <span className="text-xs text-slate-400">
               共 {orders.length} 个订单 · 每 30 秒刷新
             </span>
@@ -272,7 +299,7 @@ export default function AdminDashboard() {
             <div className="text-sm text-slate-400">加载中...</div>
           </div>
         ) : (
-          <div className="flex gap-4 overflow-x-auto pb-4">
+          <div className="flex gap-4 overflow-x-auto pb-4" style={{ scrollSnapType: "x mandatory" }}>
             {COLUMNS.map((col) => (
               <KanbanColumn
                 key={col.key}

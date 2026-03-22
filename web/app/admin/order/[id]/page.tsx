@@ -17,8 +17,11 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: string
   needs_fix:        { label: "需补充信息",     color: "bg-red-100 text-red-600",        icon: "⚠️" },
   validated:        { label: "校验通过",       color: "bg-violet-100 text-violet-700",  icon: "✅" },
   generating:       { label: "生成中",         color: "bg-sky-100 text-sky-700",        icon: "⚙️" },
+  generating_full:  { label: "完整生成中",     color: "bg-sky-100 text-sky-700",        icon: "⚙️" },
   done:             { label: "攻略完成",       color: "bg-emerald-100 text-emerald-700",icon: "🎉" },
   delivered:        { label: "已交付",         color: "bg-green-100 text-green-700",    icon: "📬" },
+  using:            { label: "使用中",         color: "bg-teal-100 text-teal-700",      icon: "✈️" },
+  archived:         { label: "已归档",         color: "bg-gray-100 text-gray-500",      icon: "📁" },
   cancelled:        { label: "已取消",         color: "bg-gray-100 text-gray-500",      icon: "❌" },
   refunded:         { label: "已退款",         color: "bg-red-100 text-red-600",        icon: "💸" },
 };
@@ -69,7 +72,11 @@ const STATUS_ACTIONS: Record<string, StatusAction[]> = {
     { label: "打回重做",     target: "generating", style: "danger", confirm: "确定打回重新生成？" },
   ],
   delivered: [
-    { label: "申请退款", target: "refunded", style: "danger", confirm: "确定退款？" },
+    { label: "✈️ 标记使用中", target: "using",    style: "primary" },
+    { label: "申请退款",       target: "refunded", style: "danger", confirm: "确定退款？" },
+  ],
+  using: [
+    { label: "📁 归档", target: "archived", style: "secondary", confirm: "确定归档？旅程结束后归档。" },
   ],
 };
 
@@ -201,12 +208,20 @@ export default function OrderDetailPage() {
   const [order, setOrder] = useState<OrderItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
+  const [formId, setFormId] = useState<string | null>(null);
+  const [formLoading, setFormLoading] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   useEffect(() => {
     fetchOrderById(orderId).then((data) => {
       setOrder(data);
       setLoading(false);
     });
+    // 检查是否已有表单
+    fetch(`/api/detail-forms/by-submission/${orderId}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d?.form_id) setFormId(d.form_id); })
+      .catch(() => {});
   }, [orderId]);
 
   async function handleAction(action: StatusAction) {
@@ -382,6 +397,91 @@ export default function OrderDetailPage() {
             </div>
           )}
         </div>
+
+        {/* ── 📝 表单管理 ── */}
+        {!isTerminal && (
+          <div className="bg-white rounded-2xl border border-gray-200/60 shadow-sm p-6">
+            <h2 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
+              📝 详细表单
+            </h2>
+
+            {formId ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <span className="text-green-500">✓</span>
+                  表单已创建
+                  <span className="font-mono text-xs text-gray-400">#{formId.slice(0, 8)}</span>
+                </div>
+
+                {/* 复制链接按钮 */}
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    onClick={() => {
+                      const url = `${window.location.origin}/detail-form/${formId}`;
+                      navigator.clipboard.writeText(url).then(() => {
+                        setLinkCopied(true);
+                        setTimeout(() => setLinkCopied(false), 2000);
+                      });
+                    }}
+                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    {linkCopied ? "✓ 链接已复制！" : "📋 复制表单链接（发给客户）"}
+                  </button>
+                  <button
+                    onClick={() => window.open(`/detail-form/${formId}`, "_blank")}
+                    className="py-3 px-4 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 transition-all"
+                  >
+                    👁️ 查看/编辑表单
+                  </button>
+                </div>
+
+                <p className="text-xs text-gray-400">
+                  💡 客服和用户都可以通过此链接反复修改表单内容，无需登录
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <p className="text-sm text-gray-500">用户付费后，创建表单并将链接发给客户填写</p>
+                <button
+                  onClick={async () => {
+                    setFormLoading(true);
+                    try {
+                      const res = await fetch(`/api/detail-forms/${orderId}/create`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ submission_id: orderId }),
+                      });
+                      if (res.ok) {
+                        const data = await res.json();
+                        setFormId(data.form_id);
+                      } else {
+                        const err = await res.json().catch(() => ({}));
+                        alert(err.detail || "创建失败");
+                      }
+                    } catch {
+                      alert("网络错误，请重试");
+                    }
+                    setFormLoading(false);
+                  }}
+                  disabled={formLoading}
+                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {formLoading ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      创建中…
+                    </>
+                  ) : (
+                    "📝 创建详细表单"
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* ── 备注 ── */}
         {order.notes && (
