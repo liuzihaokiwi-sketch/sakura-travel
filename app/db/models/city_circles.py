@@ -136,11 +136,52 @@ class ActivityCluster(Base):
 
     # 体验参数
     default_duration: Mapped[Optional[str]] = mapped_column(
-        String(20), comment="full_day / half_day / quarter_day",
+        String(20), comment="full_day / half_day / quarter_day — 展示标签，内部用分钟字段",
     )
     # 推荐时长范围（天）
     duration_range_days: Mapped[Optional[str]] = mapped_column(
         String(20), comment="0.5-1.0",
+    )
+    # ── 分钟级时长字段（内部编排用）────────────────────────────────────────────
+    # core_visit_minutes: 核心游玩时长（不含排队缓冲）
+    core_visit_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger,
+        comment="核心游玩时长（分钟），不含排队/拍照缓冲",
+    )
+    # queue_buffer_minutes: 排队缓冲
+    queue_buffer_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=0,
+        comment="排队缓冲分钟数，热门景点旺季可达 60+",
+    )
+    # photo_buffer_minutes: 摄影缓冲（photo 用户专用）
+    photo_buffer_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=0,
+        comment="重摄影用户额外耗时（分钟）",
+    )
+    # meal_buffer_minutes: 簇本身绑定餐饮（如伏见稻荷参道午餐）
+    meal_buffer_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=0,
+        comment="簇绑定餐饮耗时，不含独立餐厅选择",
+    )
+    # fatigue_weight: 体力负担系数（0.5=轻松 / 1.0=正常 / 1.5=耗体力）
+    fatigue_weight: Mapped[Optional[float]] = mapped_column(
+        Numeric(3, 1), default=1.0,
+        comment="体力消耗系数：0.5轻松/1.0正常/1.5耗体力，影响带老人/小孩折扣",
+    )
+    # queue_risk_level: 排队风险
+    queue_risk_level: Mapped[Optional[str]] = mapped_column(
+        String(10), default="low",
+        comment="none / low / medium / high — 旺季排队风险",
+    )
+    # photo_intensity: 摄影价值（影响 photo 用户的 photo_buffer 是否激活）
+    photo_intensity: Mapped[Optional[str]] = mapped_column(
+        String(10), default="medium",
+        comment="low / medium / high / extreme — 摄影价值",
+    )
+    # best_time_window: 最佳游览时间段
+    best_time_window: Mapped[Optional[str]] = mapped_column(
+        String(50),
+        comment="如 '07:00-09:00' (早间) / 'evening' / 'anytime'",
     )
     # 核心走廊区域
     primary_corridor: Mapped[Optional[str]] = mapped_column(
@@ -155,6 +196,53 @@ class ActivityCluster(Base):
     profile_fit: Mapped[list] = mapped_column(
         JSONB, nullable=False, default=list,
         comment='["first_timer","couple","photo","culture"]',
+    )
+
+    # ── 个性化新列（_add_columns.py 追加）───────────────────────────────────
+    # must_have_tags: 必须命中的用户 tag，才有资格提升权重
+    must_have_tags: Mapped[Optional[list]] = mapped_column(
+        JSONB, default=list,
+        comment='["photo","sakura"] — 用户 tag 完全命中时给予 niche bonus',
+    )
+    # capacity_units: 规划容量单位（1.0=一整天, 0.5=半天）
+    capacity_units: Mapped[Optional[float]] = mapped_column(
+        Numeric(3, 1), default=1.0,
+        comment="1.0=全天 / 0.5=半天，用于日程容量计算",
+    )
+    # meal_break_minutes: 簇本身包含的餐饮中断（区别于 meal_buffer_minutes）
+    meal_break_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=0,
+        comment="簇内餐饮中断时长（分钟），与 meal_buffer_minutes 不同",
+    )
+    # transit_minutes: 到达该簇的平均交通时间
+    transit_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=30,
+        comment="从典型基础出发点到簇起点的参考交通时间（分钟）",
+    )
+    # slack_minutes: 弹性缓冲时间
+    slack_minutes: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, default=20,
+        comment="弹性缓冲（迷路/休息/意外）分钟数",
+    )
+    # season_fit: 季节适配（较 seasonality 更简单的 list 格式）
+    season_fit: Mapped[Optional[list]] = mapped_column(
+        JSONB, default=list,
+        comment='["spring","autumn","all"] — 适合的季节',
+    )
+    # day_type_hint: 推荐日程位置提示
+    day_type_hint: Mapped[Optional[str]] = mapped_column(
+        String(30), default="normal",
+        comment="normal / half_day / half_day_pm — 调度位置建议",
+    )
+    # typical_start_time: 建议出发时间
+    typical_start_time: Mapped[Optional[str]] = mapped_column(
+        String(10),
+        comment="如 '06:30' / '09:00' — 建议出发时间（HH:MM）",
+    )
+    # description_zh: 中文简要说明
+    description_zh: Mapped[Optional[str]] = mapped_column(
+        Text,
+        comment="簇的中文简要描述，用于 PDF / 前端展示",
     )
 
     # 调度属性

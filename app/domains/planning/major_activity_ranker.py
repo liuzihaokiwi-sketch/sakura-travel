@@ -34,6 +34,7 @@ from app.db.models.business import TripProfile
 from app.db.models.city_circles import ActivityCluster, CircleEntityRole
 from app.db.models.derived import EntityScore
 from app.db.models.soft_rules import EntitySoftScore
+from app.domains.planning.constraint_compiler import PlanningConstraints
 
 logger = logging.getLogger(__name__)
 
@@ -65,13 +66,20 @@ class RankedMajor:
     context_fit_score: float = 0.0
     precheck_status: str = "pass"         # pass / fail / warn
     live_risk_level: str = "low"          # low / medium / high
-    capacity_units: float = 1.0           # 0.5 或 1.0
-    default_duration: str = "full_day"
+    capacity_units: float = 1.0           # 0.5 或 1.0（兼容保留，展示用）
+    default_duration: str = "full_day"    # 展示标签，内部调度用 activity_load_minutes
     primary_corridor: str = ""
     anchor_entity_ids: list[uuid.UUID] = field(default_factory=list)
     selected: bool = False
     selection_reason: str = ""
     explain: MajorExplain = field(default_factory=MajorExplain)
+    # ── 分钟级时长（内部编排）────────────────────────────────────────────────
+    # base 值：core_visit + queue_buffer（不含 photo/meal，由日骨架按用户画像叠加）
+    activity_load_minutes: int = 0        # 标准用户的活动占用分钟数（已含排队缓冲）
+    core_visit_minutes: int = 0           # 纯游玩分钟（不含任何缓冲）
+    photo_buffer_minutes: int = 0         # 摄影用户额外耗时
+    fatigue_weight: float = 1.0           # 体力消耗系数，带老人/小孩时做折扣用
+    queue_risk_level: str = "low"         # none / low / medium / high
 
 
 @dataclass
@@ -92,10 +100,12 @@ async def rank_major_activities(
     passed_cluster_ids: set[str],
     precheck_failed_entity_ids: set[uuid.UUID] = frozenset(),
     override_resolver: "OverrideResolver | None" = None,
+    constraints: "PlanningConstraints | None" = None,
 ) -> MajorRankingResult:
     """
     对通过资格过滤的活动簇进行排序，按容量上限选出主要活动。
     如果传入 override_resolver，会在 context_fit 分上叠加运营干预的 weight_delta。
+    如果传入 constraints，使用编译后的约束（硬约束 + 软偏好）代替直接读 profile。
     """
     result = MajorRankingResult()
 
@@ -156,6 +166,7 @@ async def rank_major_activities(
             context_scores,
             precheck_failed_entity_ids,
             profile,
+            constraints=constraints,
         )
 
         # L4-02: 运营干预 weight_delta 接入
@@ -179,14 +190,39 @@ async def rank_major_activities(
         result.all_ranked.append(ranked)
 
     # 6. 排序
-    # S 级且 default_selected=True 的优先，然后按分数排
-    result.all_ranked.sort(key=lambda r: (
-        r.precheck_status == "pass",  # pass 优先
-        r.level == "S",               # S 级优先
-        r.major_score,                # 分高优先
-    ), reverse=True)
+    # 优先级：precheck pass > S+default_selected（必去）> 其余按分数
+    # S+default_selected 代表"必去经典线"，分数再高的 A 级也不应排前面
+    cluster_map: dict[str, ActivityCluster] = {c.cluster_id: c for c in clusters}
 
-    # 7. 按容量贪心选取 + E4: explain
+    # must_have_tags 只做软偏好 boost；这里仅用于判断 theme_park 请求
+    user_tags_set = set(t.lower() for t in (profile.must_have_tags or []))
+    has_theme_park_request = "theme_park" in user_tags_set
+
+    def _sort_key(r: RankedMajor):
+        c = cluster_map.get(r.cluster_id)
+        is_must_go = bool(c and c.default_selected and (c.level or "") == "S")
+        # 用户明确要主题公园时，USJ 类 cluster 也视为必去
+        if has_theme_park_request and c:
+            fits = set(t.lower() for t in (c.profile_fit or []))
+            if "theme_park" in fits and (c.level or "") == "S":
+                is_must_go = True
+        return (
+            r.precheck_status == "pass",  # pass 优先
+            is_must_go,                   # S+default/用户指定 必去优先
+            r.major_score,                # 分高优先
+        )
+
+    result.all_ranked.sort(key=_sort_key, reverse=True)
+
+    # 7. MMR 多样性约束：同走廊最多入选 N 个（普通用户 N=2，小众用户 N=1）
+    # 防止同一走廊 cluster 吃掉全部容量（如 higashiyama + arashiyama 各有多个簇）
+    user_tags_for_mmr = set(t.lower() for t in (profile.must_have_tags or []))
+    NICHE_MMR_TAGS = {"architecture","zen","sakura","autumn","niche","gourmet","history","family_child"}
+    is_niche_for_mmr = bool(user_tags_for_mmr & NICHE_MMR_TAGS)
+    max_per_corridor = 1 if is_niche_for_mmr else 2
+    corridor_count: dict[str, int] = {}
+
+    # 8. 按容量贪心选取 + MMR 走廊去重 + E4: explain
     used = 0.0
     for ranked in result.all_ranked:
         if ranked.precheck_status == "fail":
@@ -204,6 +240,17 @@ async def rank_major_activities(
                 expected_tradeoff=f"如需加入需移除其他活动释放 {ranked.capacity_units} 容量单位",
             )
             continue
+        # MMR：S+default 的经典线不受走廊上限限制（必须进）
+        c_obj = cluster_map.get(ranked.cluster_id)
+        is_must = bool(c_obj and c_obj.default_selected and (c_obj.level or "") == "S")
+        corr = ranked.primary_corridor or "_none_"
+        if not is_must and corridor_count.get(corr, 0) >= max_per_corridor:
+            ranked.selection_reason = "mmr_corridor_limit"
+            ranked.explain = MajorExplain(
+                why_not_selected=f"{ranked.name_zh} 被 MMR 走廊去重排除（{corr} 已选 {max_per_corridor} 个）",
+                fallback_hint="可延长行程天数或调整偏好以包含此线路",
+            )
+            continue
         ranked.selected = True
         ranked.selection_reason = "selected"
         ranked.explain = MajorExplain(
@@ -213,6 +260,7 @@ async def rank_major_activities(
                          f"综合={ranked.major_score:.1f}",
             expected_tradeoff=f"占用 {ranked.capacity_units} 容量单位",
         )
+        corridor_count[corr] = corridor_count.get(corr, 0) + 1
         used += ranked.capacity_units
         result.selected_majors.append(ranked)
 
@@ -234,8 +282,9 @@ def _score_cluster(
     context_scores: dict[uuid.UUID, float],
     precheck_failed: set[uuid.UUID],
     profile: TripProfile,
+    constraints: "PlanningConstraints | None" = None,
 ) -> RankedMajor:
-    """对单个活动簇打分。"""
+    """对单个活动簇打分。优先使用 constraints 中的编译约束。"""
     ranked = RankedMajor(
         cluster_id=cluster.cluster_id,
         name_zh=cluster.name_zh,
@@ -275,18 +324,131 @@ def _score_cluster(
     else:
         ranked.context_fit_score = 50.0
 
-    # 画像加成
     profile_fit_tags = set(t.lower() for t in (cluster.profile_fit or []))
+    # ── constraints-aware: 优先从编译约束读取 ──
     user_tags = set(t.lower() for t in (profile.must_have_tags or []))
+    party = (profile.party_type or "").lower()
+    user_pace = (profile.pace or "moderate").lower()
+    avoid_tags = constraints.blocked_tags if constraints else set(t.lower() for t in (profile.avoid_tags or []))
+
+    # blocked_clusters 硬过滤：cluster_id 在黑名单中直接归零
+    if constraints and constraints.blocked_clusters:
+        if cluster.cluster_id in constraints.blocked_clusters:
+            ranked.context_fit_score = 0.0
+            ranked.base_quality_score = 0.0
+            if constraints:
+                constraints.record_consumption(
+                    "blocked_clusters", "ranker", "hard_block",
+                    f"cluster {cluster.cluster_id} zeroed",
+                )
+            return ranked
+
+    # ── 是否是小众/专属 profile ──────────────────────────────────────────────
+    # 用户画像里含有明确的专属偏好标签（非通用旅游者）
+    NICHE_PROFILE_TAGS = {
+        "architecture", "zen", "sakura", "autumn", "foliage", "wisteria",
+        "niche", "gourmet", "sake", "design", "art", "history",
+        "family_child", "elderly", "ramen", "night", "romantic",
+    }
+    user_niche_tags = user_tags & NICHE_PROFILE_TAGS
+    is_niche_user = len(user_niche_tags) >= 1
+
+    # ── P1: default_selected 核心簇保底加分 ──────────────────────────────────
+    # 仅对"通用旅游者"保留强加分；小众用户降低热门经典线的霸榜力
+    if cluster.default_selected and cluster.level == "S":
+        if is_niche_user:
+            # 小众用户：热门线仅加 +10（保底不消失，但不再统治）
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 10)
+        else:
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 25)
+    elif cluster.default_selected and cluster.level == "A":
+        ranked.context_fit_score = min(100.0, ranked.context_fit_score + 10)
+
+    # ── P2: 兴趣精准匹配加分（profile_match_bonus）──────────────────────────
+    # 专属 cluster 的 must_have_tags 与用户 tags 精准命中 → 大幅加分
+    cluster_must_tags = set(t.lower() for t in (cluster.must_have_tags or []))
+    if cluster_must_tags and user_tags:
+        must_overlap = cluster_must_tags & user_tags
+        if must_overlap:
+            # 精准命中：每个必需 tag 加 15 分（比普通 tag 命中更强）
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + len(must_overlap) * 15)
+
+    # 普通 profile_fit 命中加分
     if profile_fit_tags and user_tags:
         overlap = len(profile_fit_tags & user_tags)
         if overlap > 0:
-            ranked.context_fit_score = min(100.0, ranked.context_fit_score + overlap * 5)
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + overlap * 6)
 
     # party_type 匹配
-    party = (profile.party_type or "").lower()
     if party in profile_fit_tags:
         ranked.context_fit_score = min(100.0, ranked.context_fit_score + 8)
+
+    # ── P3: upgrade_triggers ────────────────────────────────────────────────
+    triggers = cluster.upgrade_triggers or {}
+    trigger_tags = set(t.lower() for t in (triggers.get("tags") or []))
+    trigger_parties = set(t.lower() for t in (triggers.get("party_types") or []))
+    if trigger_tags and user_tags and (trigger_tags & user_tags):
+        boost = len(trigger_tags & user_tags) * 12
+        ranked.context_fit_score = min(100.0, ranked.context_fit_score + boost)
+    if party and trigger_parties and party in trigger_parties:
+        ranked.context_fit_score = min(100.0, ranked.context_fit_score + 10)
+
+    # ── P4: 通用热门线对小众用户的惩罚（generic_cluster_penalty）──────────
+    # 没有 must_have_tags 或 must_have_tags 为通用 tag 的簇，
+    # 在小众 profile 下扣分，避免热门线吃光容量
+    GENERIC_CLUSTERS = {
+        "kyo_higashiyama_gion_classic", "kyo_arashiyama_sagano",
+        "kyo_fushimi_inari", "odc_dotonbori_food", "osa_dotonbori_minami_food",
+    }
+    if is_niche_user and cluster.cluster_id in GENERIC_CLUSTERS:
+        # 小众用户：每个专属 niche tag 扣 5 分，最多扣 20
+        penalty = min(20.0, len(user_niche_tags) * 5)
+        ranked.context_fit_score = max(0.0, ranked.context_fit_score - penalty)
+
+    # ── P5: 画像不匹配时降权/排除 ───────────────────────────────────────────
+    if user_pace == "relaxed" and "theme_park" in profile_fit_tags:
+        if "theme_park" not in user_tags:
+            ranked.context_fit_score = 0.0
+            ranked.base_quality_score = max(0.0, ranked.base_quality_score - 40)
+
+    # ── P5b: party_block_tags 硬约束（从 constraints 获取）──────────────────
+    if constraints and constraints.party_block_tags and profile_fit_tags:
+        party_block_hit = constraints.party_block_tags & profile_fit_tags
+        if party_block_hit:
+            ranked.context_fit_score = 0.0
+            ranked.base_quality_score = max(0.0, ranked.base_quality_score - 40)
+            logger.debug(
+                "cluster %s blocked by party_block_tags %s",
+                cluster.cluster_id, sorted(party_block_hit),
+            )
+
+    # ── P5c: party_fit_penalty（从 constraints 获取）────────────────────────
+    if constraints and constraints.party_fit_penalty > 0:
+        # 不匹配 party 的 cluster 扣分（profile_fit 里没有 party_type）
+        if party and party not in profile_fit_tags:
+            ranked.context_fit_score = max(
+                0.0, ranked.context_fit_score - constraints.party_fit_penalty
+            )
+
+    # ── P5d: preferred_tags_boost（从 constraints 获取）─────────────────────
+    if constraints and constraints.preferred_tags_boost and profile_fit_tags:
+        for tag, boost_val in constraints.preferred_tags_boost.items():
+            if tag in profile_fit_tags:
+                ranked.context_fit_score = min(100.0, ranked.context_fit_score + boost_val)
+
+    # avoid_tags 命中 → 大幅降权
+    if avoid_tags and profile_fit_tags:
+        avoid_overlap = len(avoid_tags & profile_fit_tags)
+        if avoid_overlap > 0:
+            ranked.context_fit_score = max(0.0, ranked.context_fit_score - avoid_overlap * 20)
+
+    # 用户拒绝实体（reject_entity_ids / avoid_pois）中包含簇的锚点 → 直接降权
+    reject_pois = set((getattr(profile, "reject_entity_ids", None) or []))
+    if reject_pois and anchor_entity_ids:
+        hit = reject_pois & set(str(e) for e in anchor_entity_ids)
+        if hit:
+            ranked.context_fit_score = 0.0
+            ranked.base_quality_score = max(0.0, ranked.base_quality_score - 50)
 
     # 归一化到 0-100
     ranked.base_quality_score = min(100.0, max(0.0, ranked.base_quality_score))

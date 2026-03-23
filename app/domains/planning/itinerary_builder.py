@@ -178,7 +178,7 @@ async def build_itinerary_records(
             day_number=day_idx,
             city_code=city_code,
             day_theme=frame.title_hint or frame.main_driver_name or "",
-            day_summary_zh=f"{frame.primary_corridor} · {frame.intensity}",
+            day_summary_zh=f"{frame.day_type} | {frame.primary_corridor} | {frame.intensity}",
             hotel_entity_id=hotel_by_day.get(day_idx),
         )
         session.add(itinerary_day)

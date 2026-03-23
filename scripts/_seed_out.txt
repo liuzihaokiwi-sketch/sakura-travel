@@ -1,0 +1,4 @@
+  File "d:\projects\projects\travel-ai\scripts\seed_kansai_specialty_clusters.py", line 3
+    专属骨架 cluster 补充：摄�?季节线、亲子、纯美食、小众建筑�?
+                     ^
+SyntaxError: Non-UTF-8 code starting with '\xe5' in file d:\projects\projects\travel-ai\scripts\seed_kansai_specialty_clusters.py on line 3, but no encoding declared; see https://peps.python.org/pep-0263/ for details

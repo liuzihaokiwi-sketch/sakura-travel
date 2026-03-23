@@ -235,12 +235,24 @@ def _score_preset(
     if tolerance == "low":
         switch_score = max(0, 1.0 - switch * 0.5)
     elif tolerance == "high":
-        switch_score = 0.8  # 高容忍度对所有住法都还行
+        switch_score = 0.8
     else:
         switch_score = max(0, 1.0 - switch * 0.3)
     score += switch_score * 20
 
-    # 5. 优先级 bonus（10%）
+    # 5. 多城市契合度（新增 15%）
+    # 当 profile.cities 包含多个城市时，bases 城市数量与之匹配的 preset 加分
+    profile_cities = {c.get("city_code", "") for c in (getattr(profile, "cities", None) or [])}
+    preset_base_cities = {b.get("base_city", "") for b in (preset.bases or [])}
+    if len(profile_cities) >= 2:
+        city_overlap = len(profile_cities & preset_base_cities) / max(len(profile_cities), 1)
+        score += city_overlap * 15
+    else:
+        # 单城市行程：单基点 preset 加分
+        if len(preset_base_cities) == 1 and preset_base_cities & profile_cities:
+            score += 15
+
+    # 6. 优先级 bonus（10%）
     priority_bonus = max(0, (100 - (preset.priority or 50)) / 100)
     score += priority_bonus * 10
 

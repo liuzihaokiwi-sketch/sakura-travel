@@ -1,0 +1,40 @@
+[1] Created trip: 23888896-06f0-427c-a4ae-2550a14e3057
+[2] Generate: 409
+  [  5s] status=normalizing  plan_id=-
+  [ 10s] status=normalizing  plan_id=-
+  [ 15s] status=normalizing  plan_id=-
+  [ 20s] status=normalizing  plan_id=-
+  [ 25s] status=normalizing  plan_id=-
+  [ 30s] status=normalizing  plan_id=-
+  [ 35s] status=normalizing  plan_id=-
+  [ 40s] status=normalizing  plan_id=-
+  [ 45s] status=normalizing  plan_id=-
+  [ 50s] status=normalizing  plan_id=-
+  [ 55s] status=normalizing  plan_id=-
+  [ 60s] status=normalizing  plan_id=-
+  [ 65s] status=normalizing  plan_id=-
+  [ 70s] status=normalizing  plan_id=-
+  [ 75s] status=normalizing  plan_id=-
+  [ 80s] status=normalizing  plan_id=-
+  [ 85s] status=normalizing  plan_id=-
+  [ 90s] status=normalizing  plan_id=-
+  [ 95s] status=normalizing  plan_id=-
+  [100s] status=normalizing  plan_id=-
+  [105s] status=normalizing  plan_id=-
+  [110s] status=normalizing  plan_id=-
+  [115s] status=normalizing  plan_id=-
+  [120s] status=normalizing  plan_id=-
+  [125s] status=normalizing  plan_id=-
+  [130s] status=normalizing  plan_id=-
+  [135s] status=normalizing  plan_id=-
+  [140s] status=normalizing  plan_id=-
+  [145s] status=normalizing  plan_id=-
+  [150s] status=normalizing  plan_id=-
+  [155s] status=normalizing  plan_id=-
+  [160s] status=normalizing  plan_id=-
+  [165s] status=normalizing  plan_id=-
+  [170s] status=normalizing  plan_id=-
+  [175s] status=normalizing  plan_id=-
+  [180s] status=normalizing  plan_id=-
+
+⚠️ 超时（3分钟），worker 可能未在运行

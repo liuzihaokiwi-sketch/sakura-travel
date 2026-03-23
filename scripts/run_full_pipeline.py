@@ -114,6 +114,39 @@ async def main():
         )
         logger.info("骨架: %d 天编排完成", len(skeleton.frames))
 
+        # 2g. 餐厅填充
+        from app.domains.planning.meal_flex_filler import fill_meals
+        from app.db.models.catalog import EntityBase
+        rest_q = await session.execute(
+            select(EntityBase).where(EntityBase.entity_type == "restaurant", EntityBase.is_active == True)
+        )
+        rest_pool = [
+            {
+                "entity_id": str(e.entity_id), "entity_type": e.entity_type,
+                "name_zh": e.name_zh, "name_en": e.name_en,
+                "city_code": e.city_code, "area_name": e.area_name,
+                "corridor_tags": e.corridor_tags or [],
+                "cuisine_type": "other",
+                "data_tier": e.data_tier, "is_active": True,
+                "price_range_min_jpy": 800, "price_range_max_jpy": 5000,
+            }
+            for e in rest_q.scalars().all()
+        ]
+        logger.info("餐厅池: %d 家", len(rest_pool))
+
+        meal_fills = fill_meals(
+            frames=skeleton.frames,
+            restaurant_pool=rest_pool,
+            trip_profile={
+                "budget_level": profile.budget_level,
+                "party_type": profile.party_type,
+                "avoid_list": profile.avoid_tags or [],
+            },
+        )
+        for mf in meal_fills:
+            filled_names = [m.restaurant.get("name", "?") if isinstance(m.restaurant, dict) else "?" for m in mf.meals]
+            logger.info("  Day %d 餐厅: %s", mf.day_index, ", ".join(filled_names))
+
         t_phase2 = time.time() - t0
         logger.info("Phase 2 完成 (%.1fs, 0 API calls)", t_phase2)
 
@@ -140,6 +173,20 @@ async def main():
 
         # 创建 Plan
         plan_id = uuid.uuid4()
+        # 构建 hotel_bases metadata
+        hotel_bases_meta = []
+        for b in hotel.bases:
+            hotel_bases_meta.append({
+                "city": b.base_city,
+                "area": b.area,
+                "nights": b.nights,
+            })
+        # 推导实际城市列表
+        actual_cities = []
+        for b in hotel.bases:
+            if b.base_city not in actual_cities:
+                actual_cities.append(b.base_city)
+
         plan = ItineraryPlan(
             plan_id=plan_id,
             trip_request_id=profile.trip_request_id,
@@ -150,11 +197,31 @@ async def main():
                 "hotel_strategy": hotel.preset_name,
                 "pipeline": "city_circle_v1",
                 "model": settings.ai_model_standard,
+                "hotel_bases": hotel_bases_meta,
+                "actual_cities": actual_cities,
             },
         )
         session.add(plan)
 
-        # 写入每天的结构
+        # 索引 meal_fills by day
+        meal_by_day = {}
+        for mf in meal_fills:
+            meal_by_day[mf.day_index] = mf
+
+        # 城市→走廊中文映射（PDF 渲染用）
+        _CZH = {
+            "fushimi": "伏见·稻荷", "arashiyama": "岚山·嵯峨野",
+            "higashiyama": "东山·清水寺", "gion": "祇园·花见小路",
+            "kawaramachi": "河原町·四条", "namba": "难波·道顿堀",
+            "osakajo": "大阪城·天满桥", "sakurajima": "环球影城(USJ)",
+            "shinsekai": "新世界·天王寺", "nara_park": "奈良公园·东大寺",
+        }
+        _AZZH = {
+            "kawaramachi": "京都·河原町", "namba": "大阪·难波",
+            "gion": "京都·祇园", "kyoto": "京都", "osaka": "大阪",
+        }
+
+        # 写入每天的结构（使用真实 meal_fills 替代 placeholder）
         for frame in skeleton.frames:
             day = ItineraryDay(
                 plan_id=plan_id,
@@ -164,9 +231,11 @@ async def main():
                 day_summary_zh=f"{frame.day_type} | {frame.primary_corridor or ''} | {frame.intensity}",
             )
             session.add(day)
-            await session.flush()  # 获取 autoincrement day_id
+            await session.flush()
 
-            # 写入主活动 item — 通过 cluster_id 查找 anchor entity
+            sort_idx = 0
+
+            # 写入主活动 item
             if frame.main_driver:
                 from app.db.models.city_circles import CircleEntityRole
                 anchor_q = await session.execute(
@@ -178,33 +247,91 @@ async def main():
                 )
                 anchor = anchor_q.scalars().first()
                 if anchor:
-                    from app.db.models.catalog import EntityBase
                     entity = await session.get(EntityBase, anchor.entity_id)
+                    corr_zh = _CZH.get(frame.primary_corridor, frame.primary_corridor or "")
                     item = ItineraryItem(
                         day_id=day.day_id,
                         entity_id=anchor.entity_id,
                         item_type=entity.entity_type if entity else "poi",
-                        sort_order=1,
+                        sort_order=sort_idx,
                         notes_zh=json.dumps({
+                            "name": entity.name_zh if entity else "",
                             "corridor": frame.primary_corridor,
+                            "corridor_display": corr_zh,
+                            "area_display": entity.area_name if entity else "",
                             "is_main_driver": True,
-                            "cluster_id": frame.main_driver,
                         }, ensure_ascii=False),
                     )
                     session.add(item)
+                    sort_idx += 1
 
-            # 写入餐窗 placeholder
-            for i, meal in enumerate(frame.meal_windows):
-                meal_item = ItineraryItem(
-                    day_id=day.day_id,
-                    item_type="restaurant",
-                    sort_order=10 + i,
-                    notes_zh=json.dumps({
-                        "meal_type": meal.meal_type,
-                        "placeholder": True,
-                    }, ensure_ascii=False),
-                )
-                session.add(meal_item)
+            # 写入真实餐厅 items（从 meal_fills）
+            mf = meal_by_day.get(frame.day_index)
+            if mf:
+                for meal in mf.meals:
+                    r = meal.restaurant if isinstance(meal.restaurant, dict) else {}
+                    eid = r.get("entity_id")
+                    serving_corr = r.get("serving_corridor", "")
+                    serving_zh = _CZH.get(serving_corr, _AZZH.get(serving_corr, serving_corr))
+                    cuisine_zh_map = {
+                        "sushi": "寿司", "ramen": "拉面", "yakiniku": "烧肉",
+                        "tempura": "天妇罗", "kushikatsu": "串炸", "kaiseki": "怀石",
+                        "cafe": "咖啡轻食", "takoyaki": "章鱼烧", "okonomiyaki": "大阪烧",
+                        "yakitori": "烧鸟", "udon": "乌冬", "tonkatsu": "炸猪排",
+                    }
+                    cu_raw = r.get("cuisine_type", "")
+                    cu_zh = cuisine_zh_map.get(cu_raw, cu_raw)
+                    # 净化 cuisine_display：如果还是 raw key（如 kyo_gion），再做一层映射
+                    if cu_zh and cu_zh.startswith(("kyo_", "osa_")):
+                        cu_zh = _CZH.get(cu_zh, cu_zh)
+
+                    # 净化 why_here：确保无 raw key 残留
+                    why_here_raw = r.get("why_here", "")
+                    for rk, zv in _CZH.items():
+                        why_here_raw = why_here_raw.replace(rk, zv)
+                    for rk, zv in _AZZH.items():
+                        why_here_raw = why_here_raw.replace(rk, zv)
+
+                    # 净化 area_display
+                    area_raw = r.get("area_name", "")
+                    area_display = _CZH.get(area_raw, _AZZH.get(area_raw, area_raw))
+
+                    meal_item = ItineraryItem(
+                        day_id=day.day_id,
+                        item_type="restaurant",
+                        entity_id=uuid.UUID(eid) if eid else None,
+                        sort_order=sort_idx,
+                        start_time={"breakfast": "08:00", "lunch": "12:00", "dinner": "18:30"}.get(meal.meal_type, "12:00"),
+                        duration_min=60 if meal.meal_type == "dinner" else 45,
+                        notes_zh=json.dumps({
+                            "name": r.get("name", ""),
+                            "meal_type": meal.meal_type,
+                            "placeholder": False,
+                            "cuisine": cu_raw,
+                            "cuisine_display": cu_zh,
+                            "why_here": why_here_raw,
+                            "serving_area": serving_zh,
+                            "corridor": serving_corr,
+                            "corridor_display": serving_zh,
+                            "area_display": area_display,
+                        }, ensure_ascii=False),
+                    )
+                    session.add(meal_item)
+                    sort_idx += 1
+            else:
+                # fallback: 写 placeholder
+                for i, mw in enumerate(frame.meal_windows):
+                    meal_item = ItineraryItem(
+                        day_id=day.day_id,
+                        item_type="restaurant",
+                        sort_order=sort_idx,
+                        notes_zh=json.dumps({
+                            "meal_type": mw.meal_type,
+                            "placeholder": True,
+                        }, ensure_ascii=False),
+                    )
+                    session.add(meal_item)
+                    sort_idx += 1
 
         await session.commit()
         logger.info("DB 写入完成: plan_id=%s (%d days)", plan_id, len(skeleton.frames))
