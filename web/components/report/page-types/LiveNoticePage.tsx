@@ -117,7 +117,7 @@ function RiskCard({ content }: { content: RiskCardContent }) {
 }
 
 function LiveSummaryBanner({ section }: { section: SectionVM }) {
-  const content = section.content as LiveSummaryContent | null
+  const content = section.content as unknown as LiveSummaryContent | null
   if (!content) return null
 
   const total = content.critical_count + content.warning_count + content.info_count
@@ -176,7 +176,7 @@ function LiveSummaryBanner({ section }: { section: SectionVM }) {
 }
 
 function RiskCardList({ section }: { section: SectionVM }) {
-  const items = section.content as RiskCardContent[] | null
+  const items = section.content as unknown as RiskCardContent[] | null
   if (!items?.length) return null
 
   // 按 severity 排序：critical > warning > info
@@ -199,12 +199,14 @@ function RiskCardList({ section }: { section: SectionVM }) {
 
 // ── 主组件 ─────────────────────────────────────────────────────────────────
 
-interface LiveNoticePageProps extends PageViewModel {
+interface LiveNoticePageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function LiveNoticePage(props: LiveNoticePageProps) {
-  const { heading, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, sections, footer } = vm
 
   const summarySection = sections.find((s) => s.section_type === "live_summary")
   const riskSections   = sections.filter((s) => s.section_type === "risk_card")
@@ -242,7 +244,7 @@ export default function LiveNoticePage(props: LiveNoticePageProps) {
           <p className="text-xs text-gray-600 leading-relaxed">
             {typeof noteSection.content === "string"
               ? noteSection.content
-              : (noteSection.content as { text?: string })?.text ?? ""}
+              : (noteSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}

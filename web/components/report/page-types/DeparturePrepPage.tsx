@@ -67,7 +67,7 @@ function CheckItemRow({ item }: { item: CheckItem }) {
 }
 
 function CheckGroup({ section }: { section: SectionVM }) {
-  const content = section.content as CheckGroupContent | null
+  const content = section.content as unknown as CheckGroupContent | null
   if (!content) return null
   return (
     <div className="mb-5">
@@ -87,7 +87,7 @@ function CheckGroup({ section }: { section: SectionVM }) {
 }
 
 function PrepHero({ section }: { section: SectionVM }) {
-  const content = section.content as PrepHeroContent | null
+  const content = section.content as unknown as PrepHeroContent | null
   if (!content) return null
 
   const hasUrgent = content.urgent_count > 0
@@ -121,12 +121,14 @@ function PrepHero({ section }: { section: SectionVM }) {
 
 // ── 主组件 ─────────────────────────────────────────────────────────────────
 
-interface DeparturePrepPageProps extends PageViewModel {
+interface DeparturePrepPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function DeparturePrepPage(props: DeparturePrepPageProps) {
-  const { heading, hero, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, hero, sections, footer } = vm
 
   const heroSection   = sections.find((s) => s.section_type === "prep_hero")
   const checkSections = sections.filter((s) => s.section_type === "check_group")
@@ -203,7 +205,7 @@ export default function DeparturePrepPage(props: DeparturePrepPageProps) {
           <p className="text-xs text-gray-600 leading-relaxed">
             {typeof noteSection.content === "string"
               ? noteSection.content
-              : (noteSection.content as { text?: string })?.text ?? ""}
+              : (noteSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}

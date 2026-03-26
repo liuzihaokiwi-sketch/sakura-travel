@@ -48,7 +48,7 @@ function KeyReasonCard({ reason }: { reason: KeyReason }) {
 }
 
 function KeyReasons({ section }: { section: SectionVM }) {
-  const content = section.content as KeyReasonsContent | null
+  const content = section.content as unknown as KeyReasonsContent | null
   if (!content?.reasons?.length) return null
   return (
     <div className="mb-4">
@@ -63,7 +63,7 @@ function KeyReasons({ section }: { section: SectionVM }) {
 }
 
 function StatStrip({ section }: { section: SectionVM }) {
-  const content = section.content as StatStripContent | null
+  const content = section.content as unknown as StatStripContent | null
   if (!content?.stats?.length) return null
   return (
     <div className={cn("grid gap-2 mb-4", `grid-cols-${Math.min(content.stats.length, 4)}`)}>
@@ -80,12 +80,14 @@ function StatStrip({ section }: { section: SectionVM }) {
 
 // ── 主组件 ─────────────────────────────────────────────────────────────────
 
-interface MajorActivityDetailPageProps extends PageViewModel {
+interface MajorActivityDetailPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function MajorActivityDetailPage(props: MajorActivityDetailPageProps) {
-  const { heading, hero, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, hero, sections, footer } = vm
 
   const statSection    = sections.find((s) => s.section_type === "stat_strip")
   const reasonSection  = sections.find((s) => s.section_type === "key_reasons")
@@ -125,7 +127,7 @@ export default function MajorActivityDetailPage(props: MajorActivityDetailPagePr
           <p className="text-xs text-gray-700 leading-relaxed">
             {typeof textSection.content === "string"
               ? textSection.content
-              : (textSection.content as { text?: string })?.text ?? ""}
+              : (textSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}
@@ -137,7 +139,7 @@ export default function MajorActivityDetailPage(props: MajorActivityDetailPagePr
           <p className="text-xs text-amber-700 leading-relaxed">
             {typeof riskSection.content === "string"
               ? riskSection.content
-              : (riskSection.content as { description?: string })?.description ?? ""}
+              : (riskSection.content as unknown as { description?: string })?.description ?? ""}
           </p>
         </div>
       )}

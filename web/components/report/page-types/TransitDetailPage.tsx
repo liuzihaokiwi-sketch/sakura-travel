@@ -58,18 +58,20 @@ function TransitStep({ step }: { step: TransitStep }) {
   )
 }
 
-interface TransitDetailPageProps extends PageViewModel {
+interface TransitDetailPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function TransitDetailPage(props: TransitDetailPageProps) {
-  const { heading, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, sections, footer } = vm
   const timelineSection = sections.find((s) => s.section_type === "transit_timeline" || s.section_type === "timeline")
   const statSection     = sections.find((s) => s.section_type === "stat_strip")
   const textSection     = sections.find((s) => s.section_type === "text_block")
 
-  const timeline = timelineSection?.content as TransitTimelineContent | null
-  const stats    = (statSection?.content as StatStripContent)?.stats ?? []
+  const timeline = timelineSection?.content as unknown as TransitTimelineContent | null
+  const stats    = (statSection?.content as unknown as StatStripContent)?.stats ?? []
 
   return (
     <PageShell mode={mode} footer={footer} compact>
@@ -116,7 +118,7 @@ export default function TransitDetailPage(props: TransitDetailPageProps) {
           <p className="text-xs text-gray-600 leading-relaxed">
             {typeof textSection.content === "string"
               ? textSection.content
-              : (textSection.content as { text?: string })?.text ?? ""}
+              : (textSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}

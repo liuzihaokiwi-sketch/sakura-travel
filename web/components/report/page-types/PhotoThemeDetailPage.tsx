@@ -31,12 +31,14 @@ function PhotoTipRow({ tip }: { tip: PhotoTip }) {
   )
 }
 
-interface PhotoThemeDetailPageProps extends PageViewModel {
+interface PhotoThemeDetailPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function PhotoThemeDetailPage(props: PhotoThemeDetailPageProps) {
-  const { heading, hero, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, hero, sections, footer } = vm
   const tipsSection = sections.find((s) => s.section_type === "photo_tips" || s.section_type === "key_reasons")
   const textSection = sections.find((s) => s.section_type === "text_block")
 
@@ -58,7 +60,7 @@ export default function PhotoThemeDetailPage(props: PhotoThemeDetailPageProps) {
 
       {tipsSection && (
         <div className="bg-white rounded-lg border border-gray-200 px-3 mb-3">
-          {(tipsSection.content as PhotoTipsContent)?.tips?.map((t, i) => (
+          {(tipsSection.content as unknown as PhotoTipsContent)?.tips?.map((t, i) => (
             <PhotoTipRow key={i} tip={t} />
           ))}
         </div>
@@ -68,7 +70,7 @@ export default function PhotoThemeDetailPage(props: PhotoThemeDetailPageProps) {
         <p className="text-xs text-gray-600 leading-relaxed">
           {typeof textSection.content === "string"
             ? textSection.content
-            : (textSection.content as { text?: string })?.text ?? ""}
+            : (textSection.content as unknown as { text?: string })?.text ?? ""}
         </p>
       )}
     </PageShell>

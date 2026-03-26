@@ -117,7 +117,7 @@ function BookingItemCard({ item }: { item: BookingItem }) {
 }
 
 function BookingTimeline({ section }: { section: SectionVM }) {
-  const content = section.content as BookingTimelineContent | null
+  const content = section.content as unknown as BookingTimelineContent | null
   if (!content?.items?.length) return null
 
   // 按 days_before_required 降序排列（越早需要预订越靠前）
@@ -142,7 +142,7 @@ function BookingTimeline({ section }: { section: SectionVM }) {
 }
 
 function BookingStatStrip({ section }: { section: SectionVM }) {
-  const content = section.content as BookingStatContent | null
+  const content = section.content as unknown as BookingStatContent | null
   if (!content) return null
 
   return (
@@ -168,12 +168,14 @@ function BookingStatStrip({ section }: { section: SectionVM }) {
 
 // ── 主组件 ─────────────────────────────────────────────────────────────────
 
-interface BookingWindowPageProps extends PageViewModel {
+interface BookingWindowPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function BookingWindowPage(props: BookingWindowPageProps) {
-  const { heading, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, sections, footer } = vm
 
   const statSection      = sections.find((s) => s.section_type === "stat_strip")
   const timelineSection  = sections.find((s) => s.section_type === "booking_timeline")
@@ -204,7 +206,7 @@ export default function BookingWindowPage(props: BookingWindowPageProps) {
           <p className="text-xs text-gray-600 leading-relaxed">
             {typeof noteSection.content === "string"
               ? noteSection.content
-              : (noteSection.content as { text?: string })?.text ?? ""}
+              : (noteSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}

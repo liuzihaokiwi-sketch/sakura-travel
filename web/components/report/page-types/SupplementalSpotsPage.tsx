@@ -71,16 +71,18 @@ function SpotRow({ spot }: { spot: SpotCard }) {
   )
 }
 
-interface SupplementalSpotsPageProps extends PageViewModel {
+interface SupplementalSpotsPageProps {
+  vm: PageViewModel
   mode?: "screen" | "print"
 }
 
 export default function SupplementalSpotsPage(props: SupplementalSpotsPageProps) {
-  const { heading, sections, footer, mode = "screen" } = props
+  const { vm, mode = "screen" } = props
+  const { heading, sections, footer } = vm
   const entitySection = sections.find((s) => s.section_type === "entity_card")
   const textSection   = sections.find((s) => s.section_type === "text_block")
 
-  const spots = (entitySection?.content as EntityCardContent)?.spots ?? []
+  const spots = (entitySection?.content as unknown as EntityCardContent)?.spots ?? []
 
   return (
     <PageShell mode={mode} footer={footer} compact>
@@ -107,7 +109,7 @@ export default function SupplementalSpotsPage(props: SupplementalSpotsPageProps)
           <p className="text-xs text-gray-600 leading-relaxed">
             {typeof textSection.content === "string"
               ? textSection.content
-              : (textSection.content as { text?: string })?.text ?? ""}
+              : (textSection.content as unknown as { text?: string })?.text ?? ""}
           </p>
         </div>
       )}
