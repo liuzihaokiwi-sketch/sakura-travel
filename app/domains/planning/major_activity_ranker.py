@@ -32,6 +32,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.business import TripProfile
 from app.db.models.city_circles import ActivityCluster, CircleEntityRole
+from app.db.models.catalog import EntityAlias, EntityBase
 from app.db.models.derived import EntityScore
 from app.db.models.soft_rules import EntitySoftScore
 from app.domains.planning.constraint_compiler import PlanningConstraints
@@ -43,6 +44,95 @@ logger = logging.getLogger(__name__)
 
 W_BASE_QUALITY = 0.55
 W_CONTEXT_FIT = 0.45
+
+
+def _norm_place_key(text: str | None) -> str:
+    if not text:
+        return ""
+    s = str(text).strip().lower()
+    if not s:
+        return ""
+    return "".join(ch for ch in s if ch.isalnum())
+
+
+async def _resolve_must_go_cluster_ids(
+    session: AsyncSession,
+    circle_id: str,
+    clusters: list[ActivityCluster],
+    raw_terms: set[str],
+) -> tuple[set[str], list[str]]:
+    """Resolve user must-go free text to canonical cluster_id set."""
+    if not raw_terms or not clusters:
+        return set(), []
+
+    candidate_cluster_ids = {c.cluster_id for c in clusters}
+    token_map: dict[str, set[str]] = {}
+
+    def _add_token(token: str | None, cluster_id: str | None) -> None:
+        if not token or not cluster_id:
+            return
+        if cluster_id not in candidate_cluster_ids:
+            return
+        k = _norm_place_key(token)
+        if not k:
+            return
+        token_map.setdefault(k, set()).add(cluster_id)
+
+    # cluster-level standardized keys
+    for c in clusters:
+        _add_token(c.cluster_id, c.cluster_id)
+        _add_token(c.name_zh, c.cluster_id)
+        _add_token(c.name_en, c.cluster_id)
+
+    # entity names mapped to clusters
+    name_rows = await session.execute(
+        select(CircleEntityRole.cluster_id, EntityBase.name_zh, EntityBase.name_en)
+        .join(EntityBase, CircleEntityRole.entity_id == EntityBase.entity_id)
+        .where(
+            CircleEntityRole.circle_id == circle_id,
+            CircleEntityRole.cluster_id.in_(candidate_cluster_ids),
+        )
+    )
+    for cluster_id, name_zh, name_en in name_rows.all():
+        _add_token(name_zh, cluster_id)
+        _add_token(name_en, cluster_id)
+
+    # entity aliases mapped to clusters
+    alias_rows = await session.execute(
+        select(CircleEntityRole.cluster_id, EntityAlias.alias_text, EntityAlias.normalized_text)
+        .join(EntityAlias, CircleEntityRole.entity_id == EntityAlias.entity_id)
+        .where(
+            CircleEntityRole.circle_id == circle_id,
+            CircleEntityRole.cluster_id.in_(candidate_cluster_ids),
+        )
+    )
+    for cluster_id, alias_text, normalized_text in alias_rows.all():
+        _add_token(alias_text, cluster_id)
+        _add_token(normalized_text, cluster_id)
+
+    resolved: set[str] = set()
+    unresolved: list[str] = []
+    for raw in sorted(raw_terms):
+        key = _norm_place_key(raw)
+        if not key:
+            continue
+        hit = token_map.get(key)
+        if hit:
+            resolved.update(hit)
+            continue
+
+        # conservative fuzzy fallback on standardized tokens
+        fuzzy_hit = set()
+        if len(key) >= 3:
+            for tok, cids in token_map.items():
+                if key in tok or tok in key:
+                    fuzzy_hit.update(cids)
+        if fuzzy_hit:
+            resolved.update(fuzzy_hit)
+        else:
+            unresolved.append(raw)
+
+    return resolved, unresolved
 
 
 # ── 输出结构 ──────────────────────────────────────────────────────────────────
@@ -89,6 +179,9 @@ class MajorRankingResult:
     capacity_total: float = 0.0
     capacity_used: float = 0.0
     trace: list[str] = field(default_factory=list)
+    must_go_requested: list[str] = field(default_factory=list)
+    must_go_resolved: list[str] = field(default_factory=list)
+    must_go_unresolved: list[str] = field(default_factory=list)
 
 
 # ── 主入口 ────────────────────────────────────────────────────────────────────
@@ -197,7 +290,21 @@ async def rank_major_activities(
     # must_have_tags 只做软偏好 boost；这里仅用于判断 theme_park 请求
     user_tags_set = set(t.lower() for t in (profile.must_have_tags or []))
     has_theme_park_request = "theme_park" in user_tags_set
-    explicit_must_go = set(getattr(constraints, "must_go_clusters", set()) or set()) if constraints else set()
+    explicit_must_go_raw = set(getattr(constraints, "must_go_clusters", set()) or set()) if constraints else set()
+    explicit_must_go, unresolved_must_go = await _resolve_must_go_cluster_ids(
+        session=session,
+        circle_id=circle_id,
+        clusters=clusters,
+        raw_terms=explicit_must_go_raw,
+    )
+    if explicit_must_go_raw:
+        result.must_go_requested = sorted(explicit_must_go_raw)
+        result.must_go_resolved = sorted(explicit_must_go)
+        result.must_go_unresolved = sorted(unresolved_must_go)
+        result.trace.append(
+            f"must_go_resolve: raw={sorted(explicit_must_go_raw)} -> "
+            f"resolved={sorted(explicit_must_go)} unresolved={sorted(unresolved_must_go)}"
+        )
 
     def _sort_key(r: RankedMajor):
         c = cluster_map.get(r.cluster_id)
@@ -285,10 +392,11 @@ async def rank_major_activities(
             constraints.record_consumption(
                 "blocked_clusters", "ranker", "scan_complete",
                 f"scanned {len(result.all_ranked)} clusters against blocked_clusters={sorted(constraints.blocked_clusters)}")
-        if getattr(constraints, "must_go_clusters", None):
+        if explicit_must_go_raw:
             constraints.record_consumption(
                 "must_go_clusters", "ranker", "priority_sort",
-                f"prioritized with must_go_clusters={sorted(constraints.must_go_clusters)}",
+                f"raw={sorted(explicit_must_go_raw)} resolved={sorted(explicit_must_go)} "
+                f"unresolved={sorted(unresolved_must_go)}",
             )
 
     return result

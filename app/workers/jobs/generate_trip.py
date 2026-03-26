@@ -206,7 +206,11 @@ async def _try_city_circle_pipeline(
         (success, plan_id, day_frames_dicts, design_brief)
         success=False 表示需要 fallback 到旧模板。
     """
-    from app.domains.planning.fallback_router import evaluate_fallback, resolve_legacy_template_code
+    from app.domains.planning.fallback_router import (
+        FallbackLevel,
+        evaluate_fallback,
+        resolve_legacy_template_code,
+    )
     from app.domains.planning.trace_writer import CircleTraceWriter
     from app.domains.planning.decision_writer import (
         write_decision, compute_profile_hash, invalidate_previous_decisions,
@@ -375,6 +379,13 @@ async def _try_city_circle_pipeline(
             s.set_output({"failed": len(pc_result.failed_ids), "warned": len(pc_result.warned_ids)})
             s.set_trace(pc_result.trace)
 
+        # ── Step 3b: 编译统一约束 ──
+        from app.domains.planning.constraint_compiler import compile_constraints
+        constraints = compile_constraints(profile)
+        # 同源锁死：run_id 贯穿全链路
+        _run_id = constraints.run_id
+        logger.info("同源 run_id=%s plan 将绑定此 ID", _run_id[:8])
+
         # Step 4: 主要活动排序
         from app.domains.planning.major_activity_ranker import rank_major_activities
         async with trace.step("major_ranking") as s:
@@ -385,6 +396,7 @@ async def _try_city_circle_pipeline(
                 passed_cluster_ids=eg_result.passed_cluster_ids,
                 precheck_failed_entity_ids=pc_result.failed_ids,
                 override_resolver=override_resolver,
+                constraints=constraints,
             )
             s.set_output({
                 "selected": len(ranking_result.selected_majors),
@@ -415,6 +427,22 @@ async def _try_city_circle_pipeline(
             cluster_count=len(eg_result.passed_cluster_ids),
             selected_major_count=len(ranking_result.selected_majors),
         )
+        if getattr(ranking_result, "must_go_unresolved", None):
+            unresolved = list(ranking_result.must_go_unresolved)
+            if fallback.level == FallbackLevel.NONE:
+                fallback.level = FallbackLevel.SECTION_ADAPTER
+            fallback.reasons.append(
+                f"F-MUSTGO: unresolved must-go places={unresolved}"
+            )
+            await write_decision(
+                session,
+                trip_request_id=trip_id,
+                input_hash=profile_hash,
+                stage="fallback",
+                key="must_go_unresolved",
+                value=unresolved,
+                reason="must-go items unresolved in current circle candidates; degrade to explainable partial mode",
+            )
         if fallback.use_legacy_assembler:
             # FULL_LEGACY — 完全退回旧链路
             logger.info("城市圈降级(full): %s reasons=%s", fallback.level, fallback.reasons)
@@ -484,6 +512,7 @@ async def _try_city_circle_pipeline(
             hotel_bases=hotel_result.bases,
             pace=profile.pace or "moderate",
                 wake_up_time=profile.wake_up_time or "normal",
+                constraints=constraints,
             )
             s.set_output({"days": len(skeleton.frames)})
             s.set_trace(skeleton.trace)
@@ -563,6 +592,7 @@ async def _try_city_circle_pipeline(
                     already_used_ids=used_ids,
                     corridor_resolver=corridor_resolver,
                     override_resolver=override_resolver,
+                    constraints=constraints,
                 )
                 s.set_output({"days_filled": len(secondary_fills),
                               "total_items": sum(len(d.secondary_items) for d in secondary_fills)})
@@ -606,6 +636,7 @@ async def _try_city_circle_pipeline(
                     restaurant_pool=restaurant_pool,
                     trip_profile=profile_dict,
                     corridor_resolver=corridor_resolver,
+                    constraints=constraints,
                 )
                 s.set_output({"days_filled": len(meal_fills),
                               "total_meals": sum(len(d.meals) for d in meal_fills)})
@@ -794,6 +825,31 @@ async def _try_city_circle_pipeline(
             await session.flush()
         except Exception:
             pass
+
+        # ── constraint_trace finalize + evidence_bundle 落库 ──
+        constraints.finalize_trace()
+
+        _unconsumed_hard = constraints.hard_unconsumed()
+        if _unconsumed_hard:
+            logger.warning("⚠️ unconsumed hard constraints: %s (run_id=%s)",
+                           [u.constraint_name for u in _unconsumed_hard], _run_id[:8])
+
+        try:
+            from app.db.models.derived import ItineraryPlan as _IPlan
+            _plan_for_trace = await session.get(_IPlan, plan_id)
+            if _plan_for_trace:
+                _meta = _plan_for_trace.plan_metadata or {}
+                _meta["evidence_bundle"] = constraints.to_evidence_dict(
+                    plan_id=str(plan_id),
+                    request_id=str(trip_id),
+                )
+                _plan_for_trace.plan_metadata = _meta
+                await session.flush()
+                logger.info("evidence_bundle 落库: plan=%s run_id=%s items=%d unconsumed_hard=%d",
+                            plan_id, _run_id[:8],
+                            len(constraints.constraint_trace), len(_unconsumed_hard))
+        except Exception as _exc:
+            logger.warning("evidence_bundle 落库失败（非致命）: %s", _exc)
 
         # 更新 trace 的 plan_id
         if trace._run:
@@ -1136,9 +1192,10 @@ async def generate_trip(
         # Step 3: 多模型评审
         if not REVIEW_PIPELINE_ENABLED:
             # 旧逻辑：直接触发 guardrails
-            await enqueue_job("run_guardrails", plan_id=str(plan_id))
-            logger.info("generate_trip 完成（旧流程）plan=%s", plan_id)
-            return {"status": "ok", "plan_id": str(plan_id), "review": "skipped"}
+            _rid = locals().get("_run_id", "")
+            await enqueue_job("run_guardrails", plan_id=str(plan_id), run_id=_rid)
+            logger.info("generate_trip 完成（旧流程）plan=%s run_id=%s", plan_id, _rid[:8] if _rid else "N/A")
+            return {"status": "ok", "plan_id": str(plan_id), "run_id": _rid, "review": "skipped"}
 
         try:
             from app.domains.review_ops.pipeline import run_review_with_retry, Verdict
@@ -1281,10 +1338,12 @@ async def generate_trip(
             # 评审失败不阻塞，降级到人工审核
             trip.status = "review"
             await session.commit()
-            await enqueue_job("run_guardrails", plan_id=str(plan_id))
+            _rid = locals().get("_run_id", "")
+            await enqueue_job("run_guardrails", plan_id=str(plan_id), run_id=_rid)
             return {
                 "status": "ok",
                 "plan_id": str(plan_id),
+                "run_id": _rid,
                 "review": "fallback_guardrails",
                 "error": str(exc),
             }

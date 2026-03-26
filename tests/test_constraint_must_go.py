@@ -19,20 +19,32 @@ class _ScalarResult:
 
 
 class _Result:
-    def __init__(self, rows):
+    def __init__(self, rows, scalar_mode: bool = True):
         self._rows = rows
+        self._scalar_mode = scalar_mode
 
     def scalars(self):
+        if not self._scalar_mode:
+            raise AssertionError("scalars() called on non-scalar result")
         return _ScalarResult(self._rows)
+
+    def all(self):
+        return list(self._rows)
 
 
 class _FakeSession:
-    def __init__(self, clusters, roles):
+    def __init__(self, clusters, roles, name_rows, alias_rows):
         self._clusters = clusters
         self._roles = roles
+        self._name_rows = name_rows
+        self._alias_rows = alias_rows
 
     async def execute(self, stmt):
         sql = str(stmt).lower()
+        if "join entity_aliases" in sql:
+            return _Result(self._alias_rows, scalar_mode=False)
+        if "join entity_base" in sql:
+            return _Result(self._name_rows, scalar_mode=False)
         if "from activity_clusters" in sql:
             return _Result(self._clusters)
         if "from circle_entity_roles" in sql:
@@ -42,7 +54,7 @@ class _FakeSession:
 
 @pytest.mark.asyncio
 async def test_must_visit_places_compiled_and_consumed_by_ranker(monkeypatch):
-    must_go_cluster = "kyo_fushimi_inari"
+    must_go_cluster = "kyo_cluster_001"
     normal_cluster = "kyo_higashiyama_gion_classic"
     circle_id = "kansai_city_circle"
 
@@ -88,7 +100,7 @@ async def test_must_visit_places_compiled_and_consumed_by_ranker(monkeypatch):
 
     profile = SimpleNamespace(
         duration_days=1,
-        must_visit_places=["Fushimi Inari"],
+        must_visit_places=["伏见稻荷大社"],
         must_have_tags=[],
         nice_to_have_tags=[],
         avoid_tags=[],
@@ -106,7 +118,7 @@ async def test_must_visit_places_compiled_and_consumed_by_ranker(monkeypatch):
     )
 
     constraints = compile_constraints(profile)
-    assert "fushimi_inari" in constraints.must_go_clusters
+    assert "伏见稻荷大社".lower() in constraints.must_go_clusters
 
     async def _fake_load_bq(_session, entity_ids):
         return {eid: 40.0 for eid in entity_ids}
@@ -129,7 +141,14 @@ async def test_must_visit_places_compiled_and_consumed_by_ranker(monkeypatch):
         _fake_load_cf,
     )
 
-    session = _FakeSession([c1, c2], roles)
+    name_rows = [
+        (must_go_cluster, "伏见稻荷大社", "Fushimi Inari Taisha"),
+        (normal_cluster, "东山祇园", "Higashiyama Gion"),
+    ]
+    alias_rows = [
+        (must_go_cluster, "伏见稻荷", "伏见稻荷大社"),
+    ]
+    session = _FakeSession([c1, c2], roles, name_rows=name_rows, alias_rows=alias_rows)
     result = await rank_major_activities(
         session=session,
         circle_id=circle_id,

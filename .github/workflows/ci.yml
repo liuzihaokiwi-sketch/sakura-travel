@@ -54,6 +54,13 @@ jobs:
           APP_ENV: "development"
         run: pytest tests/ -x -q --tb=short 2>/dev/null || echo "No tests found (ok for now)"
 
+      - name: Run must-go regression chain test
+        env:
+          DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
+          REDIS_URL: "redis://localhost:6379/0"
+          APP_ENV: "development"
+        run: python -m pytest -q tests/test_regression_submission_normalize_constraints_ranking.py
+
   build-frontend:
     runs-on: ubuntu-latest
     steps:
