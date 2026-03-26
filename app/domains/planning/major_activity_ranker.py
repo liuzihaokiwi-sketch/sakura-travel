@@ -197,10 +197,15 @@ async def rank_major_activities(
     # must_have_tags 只做软偏好 boost；这里仅用于判断 theme_park 请求
     user_tags_set = set(t.lower() for t in (profile.must_have_tags or []))
     has_theme_park_request = "theme_park" in user_tags_set
+    explicit_must_go = set(getattr(constraints, "must_go_clusters", set()) or set()) if constraints else set()
 
     def _sort_key(r: RankedMajor):
         c = cluster_map.get(r.cluster_id)
         is_must_go = bool(c and c.default_selected and (c.level or "") == "S")
+        if explicit_must_go:
+            cid = (r.cluster_id or "").lower()
+            if cid in explicit_must_go or any(cid.endswith(f"_{x}") or cid == x for x in explicit_must_go):
+                is_must_go = True
         # 用户明确要主题公园时，USJ 类 cluster 也视为必去
         if has_theme_park_request and c:
             fits = set(t.lower() for t in (c.profile_fit or []))
@@ -225,11 +230,11 @@ async def rank_major_activities(
     # 8. 按容量贪心选取 + MMR 走廊去重 + E4: explain
     used = 0.0
     for ranked in result.all_ranked:
-        if ranked.precheck_status == "fail":
-            ranked.selection_reason = "precheck_failed"
+        if ranked.precheck_status in ("fail", "blocked"):
+            ranked.selection_reason = ranked.selection_reason or "precheck_failed"
             ranked.explain = MajorExplain(
-                why_not_selected=f"{ranked.name_zh} 未通过前置风险检查(precheck_failed)",
-                fallback_hint="可在行程前重新检查该活动的开放状态",
+                why_not_selected=f"{ranked.name_zh} 被硬排除({ranked.precheck_status})",
+                fallback_hint="该活动已被用户或系统排除，不可回退",
             )
             continue
         if used + ranked.capacity_units > capacity + 0.01:
@@ -240,9 +245,9 @@ async def rank_major_activities(
                 expected_tradeoff=f"如需加入需移除其他活动释放 {ranked.capacity_units} 容量单位",
             )
             continue
-        # MMR：S+default 的经典线不受走廊上限限制（必须进）
+        # MMR：S+default 的经典线走廊限制放宽但不完全豁免
         c_obj = cluster_map.get(ranked.cluster_id)
-        is_must = bool(c_obj and c_obj.default_selected and (c_obj.level or "") == "S")
+        is_must = False  # 不再无条件豁免 S 级经典线
         corr = ranked.primary_corridor or "_none_"
         if not is_must and corridor_count.get(corr, 0) >= max_per_corridor:
             ranked.selection_reason = "mmr_corridor_limit"
@@ -269,6 +274,22 @@ async def rank_major_activities(
         f"selected {len(result.selected_majors)} majors, "
         f"capacity {used:.1f}/{capacity:.1f}"
     )
+
+    # ── 同源锁死：确保 blocked_tags / blocked_clusters 被记录为已消费 ──
+    if constraints:
+        if constraints.blocked_tags:
+            constraints.record_consumption(
+                "blocked_tags", "ranker", "scan_complete",
+                f"scanned {len(result.all_ranked)} clusters against blocked_tags={sorted(constraints.blocked_tags)}")
+        if constraints.blocked_clusters:
+            constraints.record_consumption(
+                "blocked_clusters", "ranker", "scan_complete",
+                f"scanned {len(result.all_ranked)} clusters against blocked_clusters={sorted(constraints.blocked_clusters)}")
+        if getattr(constraints, "must_go_clusters", None):
+            constraints.record_consumption(
+                "must_go_clusters", "ranker", "priority_sort",
+                f"prioritized with must_go_clusters={sorted(constraints.must_go_clusters)}",
+            )
 
     return result
 
@@ -331,16 +352,23 @@ def _score_cluster(
     user_pace = (profile.pace or "moderate").lower()
     avoid_tags = constraints.blocked_tags if constraints else set(t.lower() for t in (profile.avoid_tags or []))
 
-    # blocked_clusters 硬过滤：cluster_id 在黑名单中直接归零
+    # blocked_clusters 硬排除：标记 blocked，选择循环中直接跳过
+    # 支持精确匹配与后缀/子串匹配（前端可能传 "fushimi_inari" 而非 "kyo_fushimi_inari"）
     if constraints and constraints.blocked_clusters:
-        if cluster.cluster_id in constraints.blocked_clusters:
-            ranked.context_fit_score = 0.0
-            ranked.base_quality_score = 0.0
-            if constraints:
-                constraints.record_consumption(
-                    "blocked_clusters", "ranker", "hard_block",
-                    f"cluster {cluster.cluster_id} zeroed",
-                )
+        _cid = cluster.cluster_id
+        _blocked_hit = (
+            _cid in constraints.blocked_clusters
+            or any(_cid.endswith(f"_{b}") or _cid == b for b in constraints.blocked_clusters)
+        )
+        if _blocked_hit:
+            ranked.context_fit_score = -999.0
+            ranked.base_quality_score = -999.0
+            ranked.precheck_status = "blocked"
+            ranked.selection_reason = "blocked_by_user"
+            constraints.record_consumption(
+                "blocked_clusters", "ranker", "hard_exclude",
+                f"cluster {cluster.cluster_id} hard-excluded from candidates",
+            )
             return ranked
 
     # ── 是否是小众/专属 profile ──────────────────────────────────────────────
@@ -354,13 +382,12 @@ def _score_cluster(
     is_niche_user = len(user_niche_tags) >= 1
 
     # ── P1: default_selected 核心簇保底加分 ──────────────────────────────────
-    # 仅对"通用旅游者"保留强加分；小众用户降低热门经典线的霸榜力
+    # 降低经典线霸榜力：通用用户 +15（原 +25），小众用户 +5（原 +10）
     if cluster.default_selected and cluster.level == "S":
         if is_niche_user:
-            # 小众用户：热门线仅加 +10（保底不消失，但不再统治）
-            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 10)
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 5)
         else:
-            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 25)
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + 15)
     elif cluster.default_selected and cluster.level == "A":
         ranked.context_fit_score = min(100.0, ranked.context_fit_score + 10)
 
@@ -370,18 +397,18 @@ def _score_cluster(
     if cluster_must_tags and user_tags:
         must_overlap = cluster_must_tags & user_tags
         if must_overlap:
-            # 精准命中：每个必需 tag 加 15 分（比普通 tag 命中更强）
-            ranked.context_fit_score = min(100.0, ranked.context_fit_score + len(must_overlap) * 15)
+            # 精准命中：每个必需 tag 加 20 分（用户偏好优先于经典线）
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + len(must_overlap) * 20)
 
-    # 普通 profile_fit 命中加分
+    # 普通 profile_fit 命中加分（提升：6→10）
     if profile_fit_tags and user_tags:
         overlap = len(profile_fit_tags & user_tags)
         if overlap > 0:
-            ranked.context_fit_score = min(100.0, ranked.context_fit_score + overlap * 6)
+            ranked.context_fit_score = min(100.0, ranked.context_fit_score + overlap * 10)
 
-    # party_type 匹配
+    # party_type 匹配（提升：8→12）
     if party in profile_fit_tags:
-        ranked.context_fit_score = min(100.0, ranked.context_fit_score + 8)
+        ranked.context_fit_score = min(100.0, ranked.context_fit_score + 12)
 
     # ── P3: upgrade_triggers ────────────────────────────────────────────────
     triggers = cluster.upgrade_triggers or {}
@@ -417,6 +444,9 @@ def _score_cluster(
         if party_block_hit:
             ranked.context_fit_score = 0.0
             ranked.base_quality_score = max(0.0, ranked.base_quality_score - 40)
+            constraints.record_consumption(
+                "party_block_tags", "ranker", "hard_block",
+                f"cluster {cluster.cluster_id} blocked by party tags {sorted(party_block_hit)}")
             logger.debug(
                 "cluster %s blocked by party_block_tags %s",
                 cluster.cluster_id, sorted(party_block_hit),
@@ -429,18 +459,32 @@ def _score_cluster(
             ranked.context_fit_score = max(
                 0.0, ranked.context_fit_score - constraints.party_fit_penalty
             )
+            constraints.record_consumption(
+                "party_fit_penalty", "ranker", "soft_penalty",
+                f"cluster {cluster.cluster_id} penalized -{constraints.party_fit_penalty}")
 
     # ── P5d: preferred_tags_boost（从 constraints 获取）─────────────────────
+    _boost_total = 0.0
     if constraints and constraints.preferred_tags_boost and profile_fit_tags:
         for tag, boost_val in constraints.preferred_tags_boost.items():
             if tag in profile_fit_tags:
                 ranked.context_fit_score = min(100.0, ranked.context_fit_score + boost_val)
+                _boost_total += boost_val
+        if _boost_total > 0:
+            constraints.record_consumption(
+                "preferred_tags_boost", "ranker", "soft_boost",
+                f"cluster {cluster.cluster_id} boosted +{_boost_total:.0f}")
 
     # avoid_tags 命中 → 大幅降权
     if avoid_tags and profile_fit_tags:
-        avoid_overlap = len(avoid_tags & profile_fit_tags)
+        _avoid_hit = avoid_tags & profile_fit_tags
+        avoid_overlap = len(_avoid_hit)
         if avoid_overlap > 0:
             ranked.context_fit_score = max(0.0, ranked.context_fit_score - avoid_overlap * 20)
+            if constraints:
+                constraints.record_consumption(
+                    "blocked_tags", "ranker", "tag_penalty",
+                    f"cluster {cluster.cluster_id} penalized: hit tags {sorted(_avoid_hit)}")
 
     # 用户拒绝实体（reject_entity_ids / avoid_pois）中包含簇的锚点 → 直接降权
     reject_pois = set((getattr(profile, "reject_entity_ids", None) or []))

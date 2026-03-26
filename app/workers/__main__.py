@@ -123,6 +123,14 @@ def _derive_circle_signals(
     """
     result: dict[str, Any] = {}
     special = dict(raw.get("special_requirements") or {})
+    must_visit_places = raw.get("must_visit_places") or []
+    if isinstance(must_visit_places, list):
+        special["must_visit_places"] = [
+            str(x).strip() for x in must_visit_places if isinstance(x, str) and str(x).strip()
+        ]
+    raw_special_needs = raw.get("special_needs")
+    if isinstance(raw_special_needs, dict):
+        special.update(raw_special_needs)
 
     # ── 航班 / 机场 ──
     flight = raw.get("flight_info") or {}
@@ -300,44 +308,55 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
 
         # 计算总天数
         cities = raw.get("cities", [])
-        duration_days = sum(c.get("nights", 1) for c in cities) + 1  # +1 for arrival day
+        duration_days = int(raw.get("duration_days") or 0)
+        if duration_days <= 0:
+            duration_days = sum(c.get("nights", 1) for c in cities) + 1  # +1 for arrival day
 
         # 构建 travel_dates
         travel_dates = None
         if raw.get("travel_start_date"):
             travel_dates = {"start": raw["travel_start_date"]}
+            if raw.get("travel_end_date"):
+                travel_dates["end"] = raw["travel_end_date"]
 
         # ── 城市圈决策层新增推导 ──
         derived = _derive_circle_signals(raw, cities, duration_days, tags)
 
-        profile = TripProfile(
-            trip_request_id=uuid.UUID(trip_request_id),
-            cities=[{"city_code": c["city_code"], "nights": c["nights"]} for c in cities],
-            travel_dates=travel_dates,
-            duration_days=duration_days,
-            party_type=raw.get("party_type", "couple"),
-            party_size=raw.get("party_size", 2),
-            budget_level=raw.get("budget_level", "mid"),
-            must_have_tags=tags["must_have"],
-            nice_to_have_tags=tags["nice_to_have"],
-            avoid_tags=tags["avoid"],
-            special_requirements=derived["special_requirements"],
-            # 城市圈决策层一等字段
-            arrival_shape=derived.get("arrival_shape"),
-            departure_shape=derived.get("departure_shape"),
-            arrival_airport=derived.get("arrival_airport"),
-            departure_airport=derived.get("departure_airport"),
-            last_flight_time=derived.get("last_flight_time"),
-            arrival_day_shape=derived.get("arrival_day_shape"),
-            departure_day_shape=derived.get("departure_day_shape"),
-            daytrip_tolerance=derived.get("daytrip_tolerance"),
-            hotel_switch_tolerance=derived.get("hotel_switch_tolerance"),
-            pace=raw.get("pace"),
-            wake_up_time=raw.get("wake_up_time"),
-            accommodation_pref=raw.get("accommodation_pref"),
-            flight_info=raw.get("flight_info"),
+        profile_q = await session.execute(
+            select(TripProfile).where(TripProfile.trip_request_id == uuid.UUID(trip_request_id))
         )
-        session.add(profile)
+        profile = profile_q.scalar_one_or_none()
+        if profile is None:
+            profile = TripProfile(trip_request_id=uuid.UUID(trip_request_id))
+            session.add(profile)
+
+        profile.cities = [{"city_code": c["city_code"], "nights": c["nights"]} for c in cities]
+        profile.travel_dates = travel_dates
+        profile.duration_days = duration_days
+        profile.party_type = raw.get("party_type", "couple")
+        profile.party_size = raw.get("party_size", 2)
+        profile.budget_level = raw.get("budget_level", "mid")
+        profile.budget_total_cny = raw.get("budget_total_cny")
+        profile.budget_focus = raw.get("budget_focus")
+        profile.must_have_tags = tags["must_have"]
+        profile.nice_to_have_tags = tags["nice_to_have"]
+        profile.avoid_tags = tags["avoid"]
+        profile.special_requirements = derived["special_requirements"]
+
+        # 城市圈决策层一等字段
+        profile.arrival_shape = derived.get("arrival_shape")
+        profile.departure_shape = derived.get("departure_shape")
+        profile.arrival_airport = derived.get("arrival_airport")
+        profile.departure_airport = derived.get("departure_airport")
+        profile.last_flight_time = derived.get("last_flight_time")
+        profile.arrival_day_shape = derived.get("arrival_day_shape")
+        profile.departure_day_shape = derived.get("departure_day_shape")
+        profile.daytrip_tolerance = derived.get("daytrip_tolerance")
+        profile.hotel_switch_tolerance = derived.get("hotel_switch_tolerance")
+        profile.pace = raw.get("pace")
+        profile.wake_up_time = raw.get("wake_up_time")
+        profile.accommodation_pref = raw.get("accommodation_pref")
+        profile.flight_info = raw.get("flight_info")
 
         trip.status = "profiled"
         trip.last_job_error = None

@@ -55,6 +55,7 @@ class PlanningConstraints:
     # blocked_clusters: 明确禁止的 cluster_id 集合
     #   skeleton 中命中即不分配
     blocked_clusters: set[str] = field(default_factory=set)
+    must_go_clusters: set[str] = field(default_factory=set)
 
     # avoid_cuisines: 餐饮禁忌
     #   filler 中命中即 skip
@@ -106,7 +107,7 @@ class PlanningConstraints:
 
     # ── 版本 ────────────────────────────────────────────────────────────────
     compiler_version: str = COMPILER_VERSION
-    run_id: str = field(default_factory=lambda: str(_uuid.uuid4())[:8])
+    run_id: str = field(default_factory=lambda: str(_uuid.uuid4()))
 
     def trace_summary(self) -> list[str]:
         """返回人可读的 trace 摘要行列表。"""
@@ -146,6 +147,78 @@ class PlanningConstraints:
             }],
             final_status="partially_consumed",
         ))
+
+    # ── 同源锁死：finalize / evidence ─────────────────────────────────────
+
+    def finalize_trace(self):
+        """终结所有 trace item 的状态，不允许 pending 落库。"""
+        for t in self.constraint_trace:
+            if t.final_status == "pending":
+                t.final_status = "unconsumed"
+                if not t.ignored_reason:
+                    t.ignored_reason = "no_consumption_event_recorded"
+            elif t.final_status == "partially_consumed":
+                # 检查是否所有 intended_consumers 都命中了
+                hit_modules = {e["module"] for e in t.consumption_events}
+                if t.intended_consumers and all(
+                    any(m in hm for hm in hit_modules)
+                    for m in t.intended_consumers
+                ):
+                    t.final_status = "fully_consumed"
+        logger.info(
+            "[finalize_trace] run=%s  %s",
+            self.run_id[:8],
+            " | ".join(f"{t.constraint_name}={t.final_status}" for t in self.constraint_trace),
+        )
+
+    def hard_unconsumed(self) -> list[ConstraintTraceItem]:
+        """返回所有 strength==hard 且 final_status==unconsumed 的 trace item。"""
+        return [
+            t for t in self.constraint_trace
+            if t.strength == "hard" and t.final_status == "unconsumed"
+        ]
+
+    def has_pending(self) -> bool:
+        """是否还有 pending 状态的 trace（finalize 前会有）。"""
+        return any(t.final_status == "pending" for t in self.constraint_trace)
+
+    def to_evidence_dict(self, plan_id: str = "", request_id: str = "",
+                         key_decisions: list[str] | None = None) -> dict:
+        """序列化为 evidence_bundle dict，写入 plan_metadata。"""
+        from datetime import datetime, timezone
+        return {
+            "run_id": self.run_id,
+            "plan_id": plan_id,
+            "request_id": request_id,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "compiler_version": self.compiler_version,
+            "compiled_constraints": {
+                "blocked_tags": sorted(self.blocked_tags),
+                "blocked_clusters": sorted(self.blocked_clusters),
+                "must_go_clusters": sorted(self.must_go_clusters),
+                "avoid_cuisines": sorted(self.avoid_cuisines),
+                "max_intensity": self.max_intensity,
+                "preferred_tags_boost": self.preferred_tags_boost,
+                "party_block_tags": sorted(self.party_block_tags),
+            },
+            "constraint_trace": [
+                {
+                    "constraint_name": t.constraint_name,
+                    "strength": t.strength,
+                    "source_inputs": t.source_inputs,
+                    "compiled_value": t.compiled_value,
+                    "intended_consumers": t.intended_consumers,
+                    "consumption_events": t.consumption_events,
+                    "final_status": t.final_status,
+                    "ignored_reason": t.ignored_reason,
+                }
+                for t in self.constraint_trace
+            ],
+            "hard_unconsumed_count": len(self.hard_unconsumed()),
+            "key_decisions": key_decisions or [],
+            "final_pdf_path": None,
+            "final_html_path": None,
+        }
 
 
 # ── 节奏映射 ──────────────────────────────────────────────────────────────────
@@ -221,6 +294,36 @@ def compile_constraints(profile) -> PlanningConstraints:
         ))
 
     # ── 3. avoid_cuisines ────────────────────────────────────────────────
+    raw_must_go = (
+        getattr(profile, "must_visit_places", None)
+        or getattr(profile, "must_go_places", None)
+        or []
+    )
+    if not raw_must_go:
+        sr = getattr(profile, "special_requirements", None) or {}
+        if isinstance(sr, dict):
+            raw_must_go = sr.get("must_visit_places") or sr.get("must_go_places") or []
+
+    must_go_clusters: set[str] = set()
+    if isinstance(raw_must_go, (list, tuple, set)):
+        for item in raw_must_go:
+            if not isinstance(item, str):
+                continue
+            key = item.strip().lower()
+            if not key:
+                continue
+            key = key.replace(" ", "_").replace("-", "_")
+            must_go_clusters.add(key)
+    c.must_go_clusters = must_go_clusters
+    if c.must_go_clusters:
+        trace.append(ConstraintTraceItem(
+            constraint_name="must_go_clusters",
+            source_inputs=f"profile.must_visit_places={sorted(c.must_go_clusters)}",
+            compiled_value=str(sorted(c.must_go_clusters)),
+            strength="hard",
+            intended_consumers=["ranker"],
+        ))
+
     _CUISINE_TAGS = {
         "sushi", "sashimi", "raw", "yakiniku", "ramen",
         "tempura", "kushikatsu", "yakitori", "takoyaki",
@@ -265,13 +368,15 @@ def compile_constraints(profile) -> PlanningConstraints:
     must_stay_area = (getattr(profile, "must_stay_area", None) or "").lower()
     c.must_stay_area = must_stay_area
 
-    if stay_cities or must_stay_area:
+    if must_stay_area:
+        # must_stay_area 目前 hotel_base_builder 尚未消费，标为 soft
         trace.append(ConstraintTraceItem(
             constraint_name="must_stay_area",
-            source_inputs=f"profile.cities={[cs if isinstance(cs,str) else cs.get('city_code','') for cs in cities]}, must_stay_area='{must_stay_area}'",
-            compiled_value=f"cities={sorted(stay_cities)}, area='{must_stay_area}'",
-            strength="hard",
-            intended_consumers=["skeleton", "hotel_base_builder"],
+            source_inputs=f"profile.must_stay_area='{must_stay_area}'",
+            compiled_value=f"area='{must_stay_area}'",
+            strength="soft",
+            intended_consumers=["hotel_base_builder"],
+            ignored_reason="hotel_base_builder not yet wired" if must_stay_area else "",
         ))
 
     # ── 6. party_type → party_block_tags + penalty + intensity override ──
@@ -323,13 +428,13 @@ def compile_constraints(profile) -> PlanningConstraints:
         ))
 
     # ── 7. preferred_tags_boost ──────────────────────────────────────────
-    #   must_have_tags 只进 preferred_tags_boost（权重 10），不升级成硬约束
-    #   nice_to_have_tags 进 preferred_tags_boost（权重 5）
+    #   must_have_tags 只进 preferred_tags_boost（权重 20），不升级成硬约束
+    #   nice_to_have_tags 进 preferred_tags_boost（权重 10）
     nice_tags = set(t.lower() for t in (getattr(profile, "nice_to_have_tags", None) or []))
     for t in nice_tags:
-        c.preferred_tags_boost[t] = 5.0
+        c.preferred_tags_boost[t] = 10.0
     for t in must_tags:
-        c.preferred_tags_boost[t] = max(c.preferred_tags_boost.get(t, 0), 10.0)
+        c.preferred_tags_boost[t] = max(c.preferred_tags_boost.get(t, 0), 20.0)
 
     if c.preferred_tags_boost:
         trace.append(ConstraintTraceItem(
@@ -398,6 +503,7 @@ def _count_active(c: PlanningConstraints) -> int:
     count = 0
     if c.blocked_tags: count += 1
     if c.blocked_clusters: count += 1
+    if c.must_go_clusters: count += 1
     if c.avoid_cuisines: count += 1
     if c.max_intensity < 2: count += 1
     if c.must_stay_cities: count += 1
