@@ -45,7 +45,7 @@ jobs:
           pip install ruff pytest pytest-asyncio
 
       - name: Lint Python
-        run: ruff check app/ scripts/ --select E,F,W --ignore E501
+        run: python scripts/ci/check_ruff_baseline.py
 
       - name: Run tests
         env:

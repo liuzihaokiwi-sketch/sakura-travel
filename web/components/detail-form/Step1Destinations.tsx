@@ -34,7 +34,7 @@ export default function Step1Destinations() {
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1.5">添加目的地城市</label>
         <DestinationAutocomplete
-          onSelect={(city) => addCity({ place_id: city.place_id, name: city.name, name_zh: city.name_zh })}
+          onSelect={(city) => addCity({ place_id: city.place_id, name: city.name_en, name_zh: city.name_zh })}
           placeholder="搜索日本城市（中英文均可）"
         />
         {errors.cities && <p className="text-xs text-red-500 mt-1">{errors.cities}</p>}

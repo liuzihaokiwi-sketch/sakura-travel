@@ -63,7 +63,11 @@ function DetailFormInner({ formId }: { formId: string }) {
     setSaving(true);
     await saveCurrentStep(data);
     setSaving(false);
-    setCompletedSteps((prev) => new Set([...prev, currentStep]));
+    setCompletedSteps((prev) => {
+      const next = new Set(prev);
+      next.add(currentStep);
+      return next;
+    });
     setStep(Math.min(6, currentStep + 1));
   };
 
