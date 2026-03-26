@@ -120,6 +120,7 @@ def fill_secondary_activities(
     already_used_ids: Optional[set[str]] = None,
     corridor_resolver: Optional["CorridorResolver"] = None,
     override_resolver: Optional["OverrideResolver"] = None,
+    constraints=None,
 ) -> list[FilledDay]:
     """
     核心入口：为每天的骨架插入次要活动。
@@ -137,6 +138,11 @@ def fill_secondary_activities(
     """
     used_ids: set[str] = already_used_ids or set()
     avoid_list: set[str] = set(trip_profile.get("avoid_list", []))
+
+    # 从 constraints 补充 blocked_tags 到 avoid_list（如有）
+    _blocked_tags: set[str] = set()
+    if constraints is not None:
+        _blocked_tags = getattr(constraints, "blocked_tags", set()) or set()
 
     # L4-02: 从 OverrideResolver 获取被 block 的实体 ID 集合
     operator_blocked: set[str] = set()
@@ -194,6 +200,14 @@ def fill_secondary_activities(
                 continue
             if name in avoid_list or any(av in name for av in avoid_list):
                 continue
+            # constraints.blocked_tags: 检查实体的 sub_category / corridor_tags
+            if _blocked_tags:
+                ent_tags = set(ent.get("corridor_tags") or [])
+                sub_cat = ent.get("sub_category") or ""
+                if sub_cat:
+                    ent_tags.add(sub_cat.lower())
+                if ent_tags & _blocked_tags:
+                    continue
             score = _score_entity(ent, corridor, fallback, corridor_resolver)
             candidates.append((score, ent))
 

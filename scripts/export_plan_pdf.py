@@ -252,6 +252,17 @@ def generate_pdf(data: dict, output_path: str):
     pdf.cell(0, 7, "情侣 · 中等预算 · 文化美食", align="C", new_x="LMARGIN", new_y="NEXT")
     pdf.cell(0, 7, "2026年4月10日 — 4月15日", align="C", new_x="LMARGIN", new_y="NEXT")
 
+    # ── 同源标识 ──
+    bundle = meta.get("evidence_bundle", {})
+    _pdf_run_id = bundle.get("run_id", data.get("plan_id", "N/A"))
+    _pdf_plan_id = data.get("plan_id", "N/A")
+    pdf.ln(8)
+    pdf.set_font(zh, "", 8)
+    pdf.set_text_color(160, 160, 160)
+    pdf.cell(0, 5, f"run_id: {_pdf_run_id}", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 5, f"plan_id: {_pdf_plan_id}", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.set_creator(f"travel-ai run={_pdf_run_id}")
+
     pdf.ln(18)
     pdf.set_draw_color(200, 200, 200)
     pdf.line(65, pdf.get_y(), 145, pdf.get_y())
@@ -619,12 +630,24 @@ def generate_pdf(data: dict, output_path: str):
     print(f"   共 {pdf.pages_count} 页")
 
 
-async def main(output_path: str | None = None):
+async def main(output_path: str | None = None, run_id: str | None = None):
     print("📄 正在从数据库加载行程数据...")
     data = await load_plan_data()
     if not data:
         return
-    
+
+    # ── 同源校验 ──
+    bundle = data.get("meta", {}).get("evidence_bundle", {})
+    if run_id and bundle:
+        bundle_rid = bundle.get("run_id", "")
+        if bundle_rid != run_id:
+            print(f"❌ SOURCE_ID_MISMATCH: expect run_id={run_id[:8]}… got={bundle_rid[:8]}…")
+            print("   拒绝导出：回归报告与当前 plan 不是同一次运行")
+            return
+        print(f"✅ 同源校验通过: run_id={run_id[:8]}…")
+    elif not bundle:
+        print("⚠️ plan_metadata 无 evidence_bundle，跳过同源校验")
+
     if not output_path:
         output_path = str(Path(__file__).parent / "kansai_6day_report_v5.pdf")
     generate_pdf(data, output_path)
@@ -639,6 +662,11 @@ if __name__ == "__main__":
         default=str(Path(__file__).parent / "kansai_6day_report_v5.pdf"),
         help="输出 PDF 路径",
     )
+    parser.add_argument(
+        "--run-id",
+        default=None,
+        help="同源 run_id，用于校验导出与回归报告一致",
+    )
     args = parser.parse_args()
 
-    asyncio.run(main(args.output))
+    asyncio.run(main(args.output, run_id=args.run_id))

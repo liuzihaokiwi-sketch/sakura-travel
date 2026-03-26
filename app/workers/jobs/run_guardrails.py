@@ -153,17 +153,68 @@ async def _check_plan(session: AsyncSession, plan_id: uuid.UUID) -> tuple[list[s
     return errors, warnings
 
 
+async def _check_evidence_bundle(plan_meta: dict, run_id: str) -> list[dict]:
+    """
+    同源锁死 + 硬约束护栏。
+    返回结构化 hard_fail 列表（code + detail）。
+    """
+    fails: list[dict] = []
+    bundle = plan_meta.get("evidence_bundle")
+
+    # Gate 1: evidence_bundle 必须存在
+    if not bundle:
+        fails.append({
+            "code": "EVIDENCE_BUNDLE_MISSING",
+            "detail": "plan_metadata 无 evidence_bundle 字段",
+        })
+        return fails  # 无 bundle 则后续检查无意义
+
+    # Gate 2: 同源 run_id 校验
+    if run_id and bundle.get("run_id") != run_id:
+        fails.append({
+            "code": "SOURCE_ID_MISMATCH",
+            "detail": f"expect run_id={run_id[:8]}… got={str(bundle.get('run_id', ''))[:8]}…",
+        })
+
+    # Gate 3: constraint_trace 不允许 pending
+    trace_items = bundle.get("constraint_trace", [])
+    pending = [t for t in trace_items if t.get("final_status") == "pending"]
+    if pending:
+        names = [t["constraint_name"] for t in pending]
+        fails.append({
+            "code": "CONSTRAINT_TRACE_HAS_PENDING",
+            "detail": f"pending constraints: {names}",
+        })
+
+    # Gate 4: hard constraint 不允许 unconsumed
+    hard_unconsumed = [
+        t for t in trace_items
+        if t.get("strength") == "hard" and t.get("final_status") == "unconsumed"
+    ]
+    for t in hard_unconsumed:
+        fails.append({
+            "code": "HARD_CONSTRAINT_UNCONSUMED",
+            "detail": f"{t['constraint_name']}: unconsumed, reason={t.get('ignored_reason', 'N/A')}",
+            "constraint_name": t["constraint_name"],
+        })
+
+    return fails
+
+
 async def run_guardrails(
     ctx: dict,
     *,
     plan_id: str,
+    run_id: str = "",
 ) -> dict:
     """
     arq Job: 行程质量校验。
     通过后 enqueue render_export；失败则标记 trip_requests.status = 'failed'。
+
+    v2: 新增 evidence_bundle 同源校验 + hard constraint 护栏。
     """
     pid = uuid.UUID(plan_id)
-    logger.info("run_guardrails 开始 plan=%s", pid)
+    logger.info("run_guardrails 开始 plan=%s run_id=%s", pid, run_id[:8] if run_id else "N/A")
 
     async with async_session_factory() as session:
         plan = await session.get(ItineraryPlan, pid)
@@ -177,13 +228,22 @@ async def run_guardrails(
             trip.status = "reviewing"
             await session.commit()
 
-        # 执行校验（完整 6 项 + 原有 2 项）
+        # ── 同源 + 约束护栏（优先于传统校验）──
+        plan_meta = plan.plan_metadata or {}
+        bundle_fails = await _check_evidence_bundle(plan_meta, run_id)
+
+        # ── 传统校验（完整 6 项 + 原有 2 项）──
         errors, warnings = await _check_plan(session, pid)
 
-        # 将 soft_fail 警告写入 plan_metadata
-        plan_meta = plan.plan_metadata or {}
+        # 合并 bundle_fails 到 errors
+        for bf in bundle_fails:
+            errors.append(f"[{bf['code']}] {bf['detail']}")
+
+        # 将结果写入 plan_metadata
         plan_meta["guardrail_warnings"] = warnings
         plan_meta["guardrail_errors"] = errors if errors else []
+        plan_meta["guardrail_bundle_fails"] = bundle_fails
+        plan_meta["guardrail_run_id"] = run_id
         plan.plan_metadata = plan_meta
         await session.commit()
 
@@ -192,13 +252,20 @@ async def run_guardrails(
             if trip:
                 trip.status = "failed"
                 await session.commit()
-            return {"status": "failed", "errors": errors, "warnings": warnings}
+            return {
+                "status": "failed",
+                "plan_id": plan_id,
+                "run_id": run_id,
+                "errors": errors,
+                "bundle_fails": bundle_fails,
+                "warnings": warnings,
+            }
 
     # 校验通过 → 触发渲染
-    await enqueue_job("render_export", plan_id=plan_id)
+    await enqueue_job("render_export", plan_id=plan_id, run_id=run_id)
     logger.info(
-        "run_guardrails 通过 plan=%s（%d 条软警告），已入队 render_export",
-        pid, len(warnings),
+        "run_guardrails 通过 plan=%s run_id=%s（%d 条软警告），已入队 render_export",
+        pid, run_id[:8] if run_id else "N/A", len(warnings),
     )
 
-    return {"status": "ok", "plan_id": plan_id, "warnings": warnings}
+    return {"status": "ok", "plan_id": plan_id, "run_id": run_id, "warnings": warnings}

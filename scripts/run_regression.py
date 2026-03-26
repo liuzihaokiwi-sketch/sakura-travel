@@ -124,6 +124,58 @@ async def run_one_case(case: dict, session) -> dict:
     )
     logger.info("  骨架: %d 天", len(skeleton.frames))
 
+    # 2f2. day_mode 推导（vibe lock）
+    from app.domains.planning.day_mode import infer_all_day_modes
+    profile_tags = set(t.lower() for t in (profile.must_have_tags or []))
+    profile_tags |= set(t.lower() for t in (getattr(profile, "nice_to_have_tags", None) or []))
+    day_modes = infer_all_day_modes(
+        frames=skeleton.frames,
+        constraints=constraints,
+        profile_tags=profile_tags,
+        party_type=profile.party_type or "couple",
+    )
+    # 注入 day_mode 到 DayFrame
+    for frame, mode in zip(skeleton.frames, day_modes):
+        frame.day_mode = mode.mode
+        frame.day_mode_boosted = sorted(mode.boosted_tags)
+        frame.day_mode_suppressed = sorted(mode.suppressed_tags)
+    for mode in day_modes:
+        logger.info("  Day%d mode=%s (boosted=%s, suppressed=%s)",
+                     mode.day_index, mode.mode,
+                     sorted(mode.boosted_tags)[:4],
+                     sorted(mode.suppressed_tags)[:4])
+
+    # 2f3. micro-route 候选生成
+    from app.domains.planning.micro_route_builder import (
+        build_micro_route_candidates, select_best_micro_route,
+    )
+    micro_route_pools = {}
+    # 只追踪 micro-route 选择的去重，不排除已选 majors（majors 作为当天 driver 是合理的）
+    used_micro_clusters: set[str] = set()
+    for frame, mode in zip(skeleton.frames, day_modes):
+        pool = build_micro_route_candidates(
+            all_ranked=ranking.all_ranked,
+            constraints=constraints,
+            day_type=frame.day_type,
+            corridor=frame.primary_corridor,
+            party_type=profile.party_type or "couple",
+            intensity_cap=frame.intensity,
+            day_index=frame.day_index,
+        )
+        # 选最佳 micro-route
+        best = select_best_micro_route(
+            pool,
+            day_mode=mode.mode,
+            mode_boosted_tags=mode.boosted_tags,
+            mode_suppressed_tags=mode.suppressed_tags,
+            already_used_clusters=used_micro_clusters,
+        )
+        if best:
+            used_micro_clusters.add(best.primary_cluster_id)
+        micro_route_pools[frame.day_index] = pool
+    logger.info("  micro-routes: %d 天有候选",
+                sum(1 for p in micro_route_pools.values() if p.routes))
+
     # 2g. 餐厅填充
     from app.domains.planning.meal_flex_filler import fill_meals
     from app.db.models.catalog import EntityBase
@@ -163,8 +215,65 @@ async def run_one_case(case: dict, session) -> dict:
         ]
         logger.info("  Day %d 餐: %s", mf.day_index, ", ".join(names))
 
-    # 组装返回数据
-    return _build_case_data(case, profile, skeleton, hotel, meal_fills, ranking)
+    # finalize trace
+    constraints.finalize_trace()
+
+    # 2h. fusion patch（deterministic 版）
+    from app.domains.planning.fusion_patch import (
+        run_deterministic_fusion, verify_fusion_constraints,
+        build_fusion_trace_events,
+    )
+
+    # 组装返回数据（含 evidence_bundle）
+    cd = _build_case_data(case, profile, skeleton, hotel, meal_fills, ranking)
+
+    fusion_result = run_deterministic_fusion(cd, day_modes, constraints)
+    if fusion_result.patches:
+        # 验证 patch 后仍满足硬约束
+        ok, violations = verify_fusion_constraints(cd, constraints)
+        if not ok:
+            fusion_result.applied = False
+            fusion_result.rejected_reason = f"constraint violations: {violations}"
+            logger.warning("  fusion patch rejected: %s", violations)
+
+    cd["run_id"] = constraints.run_id
+    cd["evidence_bundle"] = constraints.to_evidence_dict(
+        plan_id=cd.get("run_id", ""),
+        request_id=case["case_id"],
+        key_decisions=cd.get("profile_summary", {}).get("key_decisions", []),
+    )
+
+    # 追加 day_mode + micro_route + fusion trace 到 evidence_bundle
+    fusion_events = build_fusion_trace_events(fusion_result, day_modes)
+    cd["evidence_bundle"]["quality_trace"] = fusion_events
+    cd["evidence_bundle"]["day_modes"] = [
+        {"day": m.day_index, "mode": m.mode, "reason": m.reason}
+        for m in day_modes
+    ]
+    cd["evidence_bundle"]["micro_routes_selected"] = [
+        {
+            "day": di,
+            "route_id": p.selected_route.route_id if p.selected_route else None,
+            "primary": p.selected_route.primary_name if p.selected_route else None,
+            "corridor": p.selected_route.corridor if p.selected_route else None,
+            "vibe_tags": sorted(p.selected_route.vibe_tags)[:5] if p.selected_route else [],
+        }
+        for di, p in micro_route_pools.items()
+    ]
+    cd["evidence_bundle"]["fusion_result"] = {
+        "applied": fusion_result.applied,
+        "patch_count": len(fusion_result.patches),
+        "rejected_reason": fusion_result.rejected_reason,
+    }
+
+    # 存储 day_modes 供断言使用
+    cd["day_modes"] = [
+        {"day": m.day_index, "mode": m.mode,
+         "boosted": sorted(m.boosted_tags), "suppressed": sorted(m.suppressed_tags)}
+        for m in day_modes
+    ]
+
+    return cd
 
 
 # -- display_registry import (single source of truth) --
@@ -259,6 +368,7 @@ def _build_case_data(case, profile, skeleton, hotel, meal_fills, ranking):
             "corridor": _corr_zh(corr_raw),
             "intensity_raw": frame.intensity,
             "intensity": _INTENSITY_ZH.get(frame.intensity, frame.intensity),
+            "day_mode": frame.day_mode or "",
             "items": items,
         })
 
@@ -747,6 +857,112 @@ def run_assertions(case_data: dict) -> list[dict]:
                 "detail": f"标题: {[d['theme'] for d in tp_days]}",
             })
 
+    # ══════════════════════════════════════════════════════════════════
+    # S1–S4. 同源锁死断言（same-source integrity）
+    # ══════════════════════════════════════════════════════════════════
+    bundle = case_data.get("evidence_bundle")
+    rid = case_data.get("run_id", "")
+
+    # S1: evidence_bundle 存在
+    results.append({
+        "name": "同源:evidence_bundle存在",
+        "passed": bundle is not None,
+        "detail": f"run_id={rid[:8]}…" if bundle else "MISSING",
+    })
+
+    if bundle:
+        trace_items = bundle.get("constraint_trace", [])
+
+        # S2: 无 pending 状态
+        pending_items = [t for t in trace_items if t.get("final_status") == "pending"]
+        results.append({
+            "name": "同源:无pending约束",
+            "passed": len(pending_items) == 0,
+            "detail": f"pending: {[t['constraint_name'] for t in pending_items]}" if pending_items else "通过",
+        })
+
+        # S3: hard constraints 无 unconsumed
+        hard_unc = [t for t in trace_items
+                    if t.get("strength") == "hard" and t.get("final_status") == "unconsumed"]
+        results.append({
+            "name": "同源:hard约束无unconsumed",
+            "passed": len(hard_unc) == 0,
+            "detail": f"unconsumed: {[t['constraint_name'] for t in hard_unc]}" if hard_unc else "通过",
+        })
+
+        # S4: run_id 一致性（bundle.run_id == case_data.run_id）
+        bundle_rid = bundle.get("run_id", "")
+        results.append({
+            "name": "同源:run_id一致",
+            "passed": bundle_rid == rid,
+            "detail": f"bundle={bundle_rid[:8]}… case={rid[:8]}…" if bundle_rid != rid else "通过",
+        })
+
+    # ══════════════════════════════════════════════════════════════════
+    # Q1. day_mode 存在性: 每天必须有 day_mode
+    # ══════════════════════════════════════════════════════════════════
+    day_mode_data = case_data.get("day_modes", [])
+    if day_mode_data:
+        missing_mode = [d for d in day_mode_data if not d.get("mode")]
+        results.append({
+            "name": "质量:day_mode全覆盖",
+            "passed": len(missing_mode) == 0,
+            "detail": f"modes={[d['mode'] for d in day_mode_data]}" if not missing_mode
+                     else f"缺失: {missing_mode}",
+        })
+
+    # ══════════════════════════════════════════════════════════════════
+    # Q2. day_vibe_consistency: day_mode 与 title/driver 一致
+    # ══════════════════════════════════════════════════════════════════
+    if asserts.get("day_vibe_consistency") and day_mode_data:
+        # 检查: arrival mode 的天 title 应含"到达"
+        # departure mode 的天 title 应含"返程"
+        # theme_park mode 的天 title 应含 USJ/环球
+        vibe_issues = []
+        mode_map_q = {d["day"]: d["mode"] for d in day_mode_data}
+        for d in days:
+            dn = d["day_number"]
+            mode = mode_map_q.get(dn, "")
+            title = (d.get("theme", "") or "").lower()
+            if mode == "arrival_light" and "到达" not in title:
+                vibe_issues.append(f"Day{dn}: mode=arrival_light but title='{d.get('theme','')}'")
+            if mode == "departure_light" and "返程" not in title and "收尾" not in title:
+                vibe_issues.append(f"Day{dn}: mode=departure_light but title='{d.get('theme','')}'")
+            if mode == "theme_park_full":
+                tp_kw = ["usj", "环球", "theme_park", "sakurajima", "此花"]
+                if not any(k in title for k in tp_kw):
+                    vibe_issues.append(f"Day{dn}: mode=theme_park_full but title='{d.get('theme','')}'")
+        ok = len(vibe_issues) == 0
+        results.append({
+            "name": "质量:day_mode与标题一致",
+            "passed": ok,
+            "detail": f"问题: {vibe_issues[:3]}" if vibe_issues else "通过",
+        })
+
+    # ══════════════════════════════════════════════════════════════════
+    # Q3. micro_route 覆盖: evidence_bundle 中有 micro_routes_selected
+    # ══════════════════════════════════════════════════════════════════
+    if bundle and bundle.get("micro_routes_selected"):
+        mr_data = bundle["micro_routes_selected"]
+        with_route = [r for r in mr_data if r.get("route_id")]
+        results.append({
+            "name": "质量:micro-route覆盖",
+            "passed": len(with_route) > 0,
+            "detail": f"{len(with_route)}/{len(mr_data)} 天有 micro-route",
+        })
+
+    # ══════════════════════════════════════════════════════════════════
+    # Q4. fusion 硬约束仍 0 违规
+    # ══════════════════════════════════════════════════════════════════
+    if bundle and bundle.get("fusion_result"):
+        fr = bundle["fusion_result"]
+        results.append({
+            "name": "质量:fusion后硬约束0违规",
+            "passed": fr.get("rejected_reason", "") == "",
+            "detail": f"applied={fr.get('applied')}, patches={fr.get('patch_count', 0)}"
+                     + (f", rejected={fr['rejected_reason']}" if fr.get("rejected_reason") else ""),
+        })
+
     return results
 
 
@@ -813,6 +1029,22 @@ def generate_regression_pdf(all_data: list[dict], output_path: str):
     for cd in all_data:
         c = cd["case"]
         pdf.cell(0, 7, f"  {c['case_label']} — {c['case_desc']}", align="C", new_x="LMARGIN", new_y="NEXT")
+
+    # 同源标识区
+    pdf.ln(8)
+    pdf.set_draw_color(180, 180, 180)
+    pdf.line(30, pdf.get_y(), 180, pdf.get_y())
+    pdf.ln(4)
+    pdf.set_font(zh, "B", 10)
+    pdf.set_text_color(60, 80, 130)
+    pdf.cell(0, 7, "同源标识 (Same-Source IDs)", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(2)
+    pdf.set_font(zh, "", 8)
+    pdf.set_text_color(80, 80, 80)
+    for cd in all_data:
+        rid = cd.get("run_id", "N/A")
+        cid = cd["case"]["case_id"]
+        pdf.cell(0, 6, f"  {cid:20s}  run_id={rid}", align="L", new_x="LMARGIN", new_y="NEXT")
 
     # ═══ 总汇总 ═══
     pdf.add_page()

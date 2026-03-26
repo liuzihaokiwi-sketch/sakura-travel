@@ -8,7 +8,7 @@ Quiz Submissions API — 问卷提交的 CRUD 端点。
 from __future__ import annotations
 
 import logging
-from typing import Optional
+from typing import Any, Optional
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -21,6 +21,218 @@ from app.db.session import get_db
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/submissions", tags=["submissions"])
+
+
+_DESTINATION_CITY_MAP: dict[str, list[str]] = {
+    "tokyo": ["tokyo"],
+    "osaka-kyoto": ["osaka", "kyoto"],
+    "tokyo-osaka-kyoto": ["tokyo", "osaka", "kyoto"],
+    "hokkaido": ["sapporo"],
+    "okinawa": ["naha"],
+    "kansai": ["osaka", "kyoto", "nara", "kobe"],
+    "kanto": ["tokyo", "yokohama", "kamakura"],
+    "south_china_five_city": ["guangzhou", "shenzhen", "foshan", "zhuhai", "dongguan"],
+    "northern_xinjiang": ["urumqi", "yining", "kuitun"],
+    "guangdong": ["guangzhou", "shenzhen", "foshan", "zhuhai"],
+}
+
+_CITY_ALIAS_MAP: dict[str, str] = {
+    "\u4e1c\u4eac": "tokyo",
+    "\u5927\u962a": "osaka",
+    "\u4eac\u90fd": "kyoto",
+    "\u5948\u826f": "nara",
+    "\u795e\u6237": "kobe",
+    "\u672d\u5e4c": "sapporo",
+    "\u51b2\u7ef3": "naha",
+    "\u90a3\u9738": "naha",
+    "\u6a2a\u6ee8": "yokohama",
+    "\u9570\u4ed3": "kamakura",
+    "\u4e4c\u9c81\u6728\u9f50": "urumqi",
+    "\u4f0a\u5b81": "yining",
+    "\u594e\u5c6f": "kuitun",
+    "\u5e7f\u5dde": "guangzhou",
+    "\u6df1\u5733": "shenzhen",
+    "\u4f5b\u5c71": "foshan",
+    "\u73e0\u6d77": "zhuhai",
+    "\u4e1c\u839e": "dongguan",
+}
+
+
+def _normalize_party_type(raw: Optional[str]) -> str:
+    mapping = {
+        "family_with_kids": "family_child",
+        "family_no_kids": "family_no_child",
+        "family": "family_child",
+        "friends": "group",
+        "besties": "group",
+        "parents": "senior",
+        "business": "group",
+    }
+    party = (raw or "couple").strip().lower()
+    return mapping.get(party, party or "couple")
+
+
+def _normalize_pace(raw: Optional[str]) -> str:
+    mapping = {
+        "balanced": "moderate",
+        "intensive": "packed",
+        "light": "relaxed",
+        "dense": "packed",
+    }
+    pace = (raw or "moderate").strip().lower()
+    return mapping.get(pace, pace or "moderate")
+
+
+def _normalize_wake_up_time(raw: Optional[str]) -> Optional[str]:
+    if not raw:
+        return None
+    val = str(raw).strip().lower()
+    if val in {"early", "normal", "late"}:
+        return val
+    if ":" in val:
+        try:
+            hour = int(val.split(":", 1)[0])
+        except ValueError:
+            return None
+        if hour <= 6:
+            return "early"
+        if hour <= 9:
+            return "normal"
+        return "late"
+    return None
+
+
+def _extract_city_code(city: dict[str, Any]) -> str:
+    for key in ("city_code", "place_id", "code"):
+        val = city.get(key)
+        if isinstance(val, str) and val.strip():
+            return val.strip().lower()
+
+    for key in ("name_zh", "city_name", "name"):
+        val = city.get(key)
+        if isinstance(val, str) and val.strip():
+            text = val.strip()
+            if text in _CITY_ALIAS_MAP:
+                return _CITY_ALIAS_MAP[text]
+            return text.lower().replace(" ", "_")
+    return ""
+
+
+def _normalize_cities(
+    raw_cities: Optional[list[Any]],
+    destination: str,
+    duration_days: int,
+) -> list[dict[str, Any]]:
+    cities: list[dict[str, Any]] = []
+    if isinstance(raw_cities, list):
+        for c in raw_cities:
+            if not isinstance(c, dict):
+                continue
+            code = _extract_city_code(c)
+            if not code:
+                continue
+            nights_raw = c.get("nights")
+            try:
+                nights = int(nights_raw) if nights_raw is not None else 0
+            except (TypeError, ValueError):
+                nights = 0
+            if nights <= 0:
+                nights = 1
+            cities.append({"city_code": code, "nights": nights})
+
+    if cities:
+        return cities
+
+    fallback_codes = _DESTINATION_CITY_MAP.get(destination, ["tokyo"])
+    per_city_days = max(1, duration_days // max(1, len(fallback_codes)))
+    return [{"city_code": code, "nights": per_city_days} for code in fallback_codes]
+
+
+def _build_raw_input(
+    submission_id: str,
+    sub: dict[str, Any],
+    form: Any | None,
+) -> dict[str, Any]:
+    destination = (sub.get("destination") or "").strip().lower()
+    duration = int(sub.get("duration_days") or 5)
+    party = _normalize_party_type(sub.get("party_type") or "couple")
+    styles = sub.get("styles") or []
+
+    if not form:
+        return {
+            "submission_id": submission_id,
+            "destination": destination,
+            "duration_days": duration,
+            "party_type": party,
+            "party_size": sub.get("people_count") or 2,
+            "styles": styles,
+            "budget_focus": sub.get("budget_focus"),
+        }
+
+    special_needs = getattr(form, "special_needs", None)
+    if isinstance(special_needs, str) and special_needs.strip():
+        special_needs = {"notes": special_needs.strip()}
+    elif not isinstance(special_needs, dict):
+        special_needs = {}
+
+    budget_total_cny = getattr(form, "budget_total_cny", None)
+
+    return {
+        "submission_id": submission_id,
+        "destination": destination,
+        "cities": _normalize_cities(getattr(form, "cities", None), destination, duration),
+        "duration_days": int(getattr(form, "duration_days", None) or duration),
+        "travel_start_date": getattr(form, "travel_start_date", None),
+        "travel_end_date": getattr(form, "travel_end_date", None),
+        "date_flexible": bool(getattr(form, "date_flexible", False)),
+        "party_type": _normalize_party_type(getattr(form, "party_type", None) or party),
+        "party_size": getattr(form, "party_size", None) or sub.get("people_count") or 2,
+        "has_elderly": bool(getattr(form, "has_elderly", False)),
+        "has_children": bool(getattr(form, "has_children", False)),
+        "children_ages": getattr(form, "children_ages", None) or [],
+        "special_needs": special_needs,
+        "budget_level": getattr(form, "budget_level", None) or "mid",
+        "budget_total_cny": int(budget_total_cny) if budget_total_cny else None,
+        "budget_focus": getattr(form, "budget_focus", None) or sub.get("budget_focus"),
+        "accommodation_pref": getattr(form, "accommodation_pref", None) or {},
+        "must_have_tags": getattr(form, "must_have_tags", None) or [],
+        "nice_to_have_tags": getattr(form, "nice_to_have_tags", None) or [],
+        "avoid_tags": getattr(form, "avoid_tags", None) or [],
+        "food_preferences": getattr(form, "food_preferences", None) or {},
+        "pace": _normalize_pace(getattr(form, "pace", None)),
+        "wake_up_time": _normalize_wake_up_time(getattr(form, "wake_up_time", None)),
+        "must_visit_places": getattr(form, "must_visit_places", None) or [],
+        "free_text_wishes": getattr(form, "free_text_wishes", None) or "",
+        "flight_info": getattr(form, "flight_info", None) or {},
+        "arrival_airport": getattr(form, "arrival_airport", None) or "",
+        "departure_airport": getattr(form, "departure_airport", None) or "",
+        "has_jr_pass": bool(getattr(form, "has_jr_pass", False)),
+        "transport_pref": getattr(form, "transport_pref", None) or {},
+        "styles": styles,
+    }
+
+
+def _legacy_template_and_scene(raw_input: dict[str, Any]) -> tuple[str, str]:
+    cities = raw_input.get("cities") or []
+    first_city = ""
+    if isinstance(cities, list) and cities and isinstance(cities[0], dict):
+        first_city = (cities[0].get("city_code") or "").lower()
+    days = int(raw_input.get("duration_days") or 5)
+
+    base_code = "kansai_classic" if first_city in {"osaka", "kyoto", "nara", "kobe", "uji"} else "tokyo_classic"
+    template_code = f"{base_code}_{days}d"
+
+    party = _normalize_party_type(raw_input.get("party_type"))
+    scene_map = {
+        "couple": "couple",
+        "solo": "solo",
+        "family_child": "family",
+        "family_no_child": "family",
+        "group": "solo",
+        "senior": "senior",
+    }
+    scene = scene_map.get(party, "couple")
+    return template_code, scene
 
 
 # ── Pydantic Schemas ──────────────────────────────────────────────────────────
@@ -168,20 +380,20 @@ async def generate_from_submission(
     """
     从 quiz_submission + detail_form 数据创建 trip_request 并触发生成。
 
-    1. 读 quiz_submission 拿 destination / duration_days / styles
-    2. 读 detail_form 拿详细偏好（如果有）
-    3. 在 trip_requests 表创建记录（如不存在）
-    4. 自动匹配模板 + 调用 assemble_trip
+    1. 构建统一 raw_input
+    2. upsert trip_requests（按 submission_id 幂等）
+    3. 先执行 normalize_trip_profile
+    4. 触发 generate_trip（城市圈优先，旧模板 fallback）
     5. 更新 quiz_submission 状态为 generating
     """
     import asyncio
     import uuid as _uuid
 
+    from app.core.queue import enqueue_job
     from app.db.models.business import TripRequest
     from app.db.models.detail_forms import DetailForm
     from sqlalchemy import select
 
-    # 1. 读 submission
     sub_res = await db.execute(
         text("SELECT * FROM quiz_submissions WHERE id = :id"),
         {"id": submission_id},
@@ -190,28 +402,12 @@ async def generate_from_submission(
     if not sub:
         raise HTTPException(status_code=404, detail="提交记录不存在")
 
-    destination = sub["destination"]
-    duration = sub["duration_days"]
-    party = sub.get("party_type") or "couple"
-    styles = sub.get("styles") or []
-
-    # 2. 读 detail_form（如果有）
-    form_data = {}
     form_res = await db.execute(
         select(DetailForm).where(DetailForm.submission_id == submission_id)
     )
     form = form_res.scalar_one_or_none()
-    if form:
-        form_data = {
-            "cities": form.cities,
-            "party_type": form.party_type or party,
-            "budget_level": form.budget_level,
-            "must_have_tags": form.must_have_tags,
-            "pace": form.pace,
-            "free_text_wishes": form.free_text_wishes,
-        }
+    raw_input = _build_raw_input(submission_id, sub, form)
 
-    # 3. 创建 trip_request（幂等——通过 raw_input.submission_id 查重）
     existing_tr = await db.execute(
         text("SELECT trip_request_id FROM trip_requests WHERE raw_input->>'submission_id' = :sid"),
         {"sid": submission_id},
@@ -220,108 +416,68 @@ async def generate_from_submission(
 
     if existing_row:
         tr_id = existing_row[0]
+        await db.execute(
+            text(
+                "UPDATE trip_requests "
+                "SET raw_input = :raw_input, status = 'new', updated_at = NOW() "
+                "WHERE trip_request_id = :id"
+            ),
+            {"id": str(tr_id), "raw_input": raw_input},
+        )
+        await db.commit()
     else:
-        raw_input = {
-            "submission_id": submission_id,
-            "destination": destination,
-            "duration_days": duration,
-            "party_type": party,
-            "styles": styles,
-            **{k: v for k, v in form_data.items() if v},
-        }
         tr_id = _uuid.uuid4()
         new_tr = TripRequest(
             trip_request_id=tr_id,
             raw_input=raw_input,
-            status="assembling",
+            status="new",
         )
         db.add(new_tr)
         await db.commit()
         await db.refresh(new_tr)
 
-    # 4. 自动匹配模板
-    dest_map = {
-        "tokyo": "tokyo_classic",
-        "osaka-kyoto": "kansai_classic",
-        "tokyo-osaka-kyoto": "golden_route",
-        "hokkaido": "hokkaido_classic",
-        "okinawa": "okinawa_beach",
-    }
-    base_code = dest_map.get(destination, "tokyo_classic")
-    template_code = f"{base_code}_{duration}d"
+    template_code, scene = _legacy_template_and_scene(raw_input)
 
-    scene_map = {
-        "couple": "couple",
-        "solo": "solo",
-        "family": "family",
-        "family_child": "family",
-        "friends": "solo",
-        "parents": "senior",
-    }
-    scene = scene_map.get(party, "couple")
-
-    # 5. 更新 trip_request 状态 + 启动 inline 生成
     await db.execute(
-        text("UPDATE trip_requests SET status='assembling' WHERE trip_request_id = :id"),
+        text("UPDATE trip_requests SET status='normalizing', updated_at=NOW() WHERE trip_request_id = :id"),
         {"id": str(tr_id)},
+    )
+    await db.execute(
+        text("UPDATE quiz_submissions SET status='generating', updated_at=NOW() WHERE id = :id"),
+        {"id": submission_id},
     )
     await db.commit()
 
-    # Inline 执行（无 Redis 队列场景）
-    from app.db.session import AsyncSessionLocal as _SF
-    from app.domains.planning.assembler import assemble_trip, enrich_itinerary_with_copy
-    from app.domains.planning.report_generator import generate_report
+    from app.workers.__main__ import normalize_trip_profile
+    await normalize_trip_profile({}, str(tr_id))
 
-    async def _run():
-        async with _SF() as _s:
+    queued = None
+    try:
+        queued = await enqueue_job(
+            "generate_trip",
+            trip_request_id=str(tr_id),
+            template_code=template_code,
+            scene=scene,
+        )
+    except Exception:
+        queued = None
+
+    if not queued:
+        from app.workers.jobs.generate_trip import generate_trip as _generate_trip_job
+
+        async def _run_inline() -> None:
             try:
-                # Phase 1: 骨架装配（模板 + 实体填充）
-                plan_id = await assemble_trip(
-                    session=_s,
-                    trip_request_id=_uuid.UUID(str(tr_id)),
+                await _generate_trip_job(
+                    {},
+                    trip_request_id=str(tr_id),
                     template_code=template_code,
                     scene=scene,
                 )
-                # Phase 2: 逐实体文案润色
-                await enrich_itinerary_with_copy(
-                    session=_s, plan_id=plan_id, scene=scene,
-                )
-                # Phase 3: 3层报告生成（总纲 + 每日骨架 + 条件页 + 附录）
-                user_ctx = {
-                    "party_type": party,
-                    "styles": styles if isinstance(styles, list) else [styles] if styles else [],
-                    "budget_level": form_data.get("budget_level", "mid"),
-                    "pace": form_data.get("pace", "moderate"),
-                }
-                # Phase 3: 3层报告生成（用独立 session，避免长 AI 调用导致 _s 超时）
-                async with _SF() as _sr:
-                    await generate_report(
-                        session=_sr, plan_id=plan_id, user_context=user_ctx,
-                    )
-                # 更新 trip_request 状态 → done（generate_report 已经把 plan 设为 done）
-                async with _SF() as _s2:
-                    await _s2.execute(
-                        text("UPDATE trip_requests SET status='done', updated_at=NOW() WHERE trip_request_id = :id"),
-                        {"id": str(tr_id)},
-                    )
-                    await _s2.commit()
-                # 更新 quiz_submission 状态为 done
-                async with _SF() as _s3:
-                    await _s3.execute(
-                        text("UPDATE quiz_submissions SET status='done', updated_at=NOW() WHERE id = :id"),
-                        {"id": submission_id},
-                    )
-                    await _s3.commit()
             except Exception as _exc:
                 import logging as _log
-                _log.getLogger(__name__).exception("generate_from_submission 失败: %s", _exc)
-                async with _SF() as _s4:
-                    _tr = await _s4.get(TripRequest, _uuid.UUID(str(tr_id)))
-                    if _tr:
-                        _tr.status = "failed"
-                        await _s4.commit()
+                _log.getLogger(__name__).exception("generate_from_submission fallback failed: %s", _exc)
 
-    asyncio.ensure_future(_run())
+        asyncio.ensure_future(_run_inline())
 
     return {
         "ok": True,
@@ -329,6 +485,7 @@ async def generate_from_submission(
         "trip_request_id": str(tr_id),
         "template_code": template_code,
         "scene": scene,
+        "job_queued": bool(queued),
         "message": "攻略生成已启动，请稍候刷新查看",
     }
 

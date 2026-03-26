@@ -291,6 +291,9 @@ def fill_meals(
         logger.info("fill_meals: using constraints.avoid_cuisines=%s", sorted(avoid_list))
     else:
         avoid_list: set[str] = set(trip_profile.get("avoid_list", []))
+
+    # avoid_cuisines 过滤计数（用于 trace 记录）
+    _pre_filter_count = len(restaurant_pool)
     budget = _budget_level(trip_profile)
     party_type = trip_profile.get("party_type", "couple")
 
@@ -306,6 +309,14 @@ def fill_meals(
         and _price_ok(r, budget)
         and _cuisine_ok(r, avoid_list)
     ]
+
+    # constraint trace: avoid_cuisines 过滤记录
+    if constraints and constraints.avoid_cuisines:
+        _filtered_count = _pre_filter_count - len(rest_pool)
+        if _filtered_count > 0:
+            constraints.record_consumption(
+                "avoid_cuisines", "filler", "cuisine_filter",
+                f"filtered {_filtered_count} restaurants by cuisine avoids {sorted(constraints.avoid_cuisines)}")
 
     # 推导本次行程涉及的城市集合（用于城市级过滤，防止东京餐厅出现在关西行程里）
     _trip_cities: set[str] = set()
@@ -380,6 +391,11 @@ def fill_meals(
             # 返程日：只允许住宿/当日走廊所在城市
             _day_required_city = _CORRIDOR_TO_CITY.get(sleep_base or corridor, "")
             _day_city_strict = day_type in _city_strict_types
+
+        if _day_city_strict and constraints:
+            constraints.record_consumption(
+                "city_strict_day_types", "filler", "city_strict",
+                f"day {day_idx} ({day_type}) enforced city match: {_day_required_city}")
 
         for meal_type in meal_types_needed:
             # 确定该餐次的服务走廊

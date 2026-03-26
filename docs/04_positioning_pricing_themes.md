@@ -1,3 +1,11 @@
+> Superseded（文档收口阶段）：本文件已被 architecture 真相源覆盖。请优先参考：
+> `docs/architecture/00_scope_and_truth.md`
+> `docs/architecture/01_current_state.md`
+> `docs/architecture/02_target_architecture.md`
+> `docs/architecture/03_gap_and_priorities.md`
+> `docs/architecture/04_execution_staging.md`
+> 本文件仅作为历史参考，不作为当前阶段决策依据。
+
 # 01 项目定位与真正卖点
 
 > 版本：v2.0  

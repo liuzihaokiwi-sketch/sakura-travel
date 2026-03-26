@@ -60,6 +60,9 @@ class DayFrame:
     slack_minutes: int = 90                           # 弹性缓冲（不可压缩）
     remaining_minutes: int = 0                        # 剩余可用分钟 = capacity - load - transit - slack
     day_label: str = "全天活动"                        # 展示标签（从分钟翻译，供报告用）
+    day_mode: str = ""                                # 单日气质锁（由 day_mode.py 注入）
+    day_mode_boosted: list[str] = field(default_factory=list)   # mode 加强的 tags
+    day_mode_suppressed: list[str] = field(default_factory=list) # mode 压低的 tags
 
 
 @dataclass
@@ -532,6 +535,12 @@ def _set_meal_windows(
     if constraints:
         dep_meal_window = constraints.departure_meal_window
         arrival_evening_only = constraints.arrival_evening_only
+        constraints.record_consumption(
+            "departure_constraints", "skeleton", "meal_window_applied",
+            f"departure meals={dep_meal_window}, no_poi={constraints.departure_day_no_poi}")
+        constraints.record_consumption(
+            "arrival_constraints", "skeleton", "arrival_shape_applied",
+            f"evening_only={arrival_evening_only}")
 
     for frame in frames:
         meals = []
@@ -632,6 +641,9 @@ def _mark_intensity(frames: list[DayFrame], pace: str, constraints=None) -> None
                 cap, cc_cap, constraints.max_intensity,
             )
             cap = cc_cap
+        constraints.record_consumption(
+            "max_intensity", "skeleton", "intensity_cap",
+            f"capped at level {constraints.max_intensity} ({cap})")
 
     for frame in frames:
         if frame.day_type in ("arrival", "departure"):

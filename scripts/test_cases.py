@@ -71,6 +71,8 @@ CASE_STANDARD = {
         "meal_corridor_consistency": True,
         # ── 净化 ──
         "no_raw_keys_in_pdf": True,
+        # ── 体验质量 ──
+        "day_vibe_consistency": True,
     },
 }
 
@@ -140,6 +142,8 @@ CASE_CONSTRAINED = {
         "meal_corridor_consistency": True,
         # ── 净化 ──
         "no_raw_keys_in_pdf": True,
+        # ── 体验质量 ──
+        "day_vibe_consistency": True,
     },
 }
 
@@ -335,4 +339,179 @@ CASE_NICHE = {
     },
 }
 
-ALL_CASES = [CASE_STANDARD, CASE_CONSTRAINED, CASE_EDGE, CASE_SAKURA, CASE_NICHE]
+# ── 用例 6：明确 must_not_go (blocked_clusters) ───────────────────────────────
+CASE_MUST_NOT_GO = {
+    "case_id": "must_not_go",
+    "case_label": "约束型 · 明确拒绝景点",
+    "case_desc": "用户明确 blocked_clusters，验证拒绝项不出现在行程中",
+
+    "duration_days": 5,
+    "cities": [
+        {"city_code": "kyoto", "nights": 2},
+        {"city_code": "osaka", "nights": 2},
+    ],
+    "party_type": "couple",
+    "budget_level": "mid",
+    "pace": "moderate",
+    "must_have_tags": ["food"],
+    "avoid_tags": [],
+    "blocked_clusters": ["kyo_fushimi_inari", "kyo_kinkakuji_kinugasa"],
+    "travel_dates": {"start": "2026-05-01", "end": "2026-05-05"},
+
+    "profile_summary": {
+        "travel_portrait": "情侣 · 明确拒绝伏见稻荷和金阁寺",
+        "hard_constraints": ["blocked: fushimi_inari, kinkakuji"],
+        "care_about": ["不想去游客太多的经典线"],
+        "key_decisions": [],
+    },
+
+    "assertions": {
+        "min_days": 5, "max_days": 5,
+        "must_not_have_day_themes": ["伏见稻荷", "金阁寺"],
+        "no_raw_keys_in_pdf": True,
+        "meal_corridor_consistency": True,
+    },
+}
+
+# ── 用例 7：纯餐饮禁忌 ──────────────────────────────────────────────────────────
+CASE_AVOID_CUISINE = {
+    "case_id": "avoid_cuisine",
+    "case_label": "约束型 · 纯餐饮禁忌",
+    "case_desc": "多种餐饮禁忌叠加，验证 avoid_cuisines 贯穿",
+
+    "duration_days": 4,
+    "cities": [
+        {"city_code": "osaka", "nights": 3},
+    ],
+    "party_type": "friends",
+    "budget_level": "mid",
+    "pace": "moderate",
+    "must_have_tags": ["food", "nightlife"],
+    "avoid_tags": ["sushi", "sashimi", "raw", "seafood"],
+    "travel_dates": {"start": "2026-06-01", "end": "2026-06-04"},
+
+    "profile_summary": {
+        "travel_portrait": "朋友聚会 · 大阪美食但不吃生鲜海鲜",
+        "hard_constraints": ["avoid: sushi, sashimi, raw, seafood"],
+        "care_about": ["大阪地道熟食", "夜生活"],
+        "key_decisions": [],
+    },
+
+    "assertions": {
+        "min_days": 4, "max_days": 4,
+        "avoid_cuisine_enforced": ["sushi", "sashimi", "raw", "seafood"],
+        "must_not_have_cities_in_meals": ["tokyo"],
+        "meal_corridor_consistency": True,
+        "no_raw_keys_in_pdf": True,
+    },
+}
+
+# ── 用例 8：直接返回机场 ─────────────────────────────────────────────────────────
+CASE_AIRPORT_RETURN = {
+    "case_id": "airport_return",
+    "case_label": "边界型 · 返程直奔机场",
+    "case_desc": "departure_day_shape=direct_to_airport，验证返程日无 POI",
+
+    "duration_days": 4,
+    "cities": [
+        {"city_code": "kyoto", "nights": 2},
+        {"city_code": "osaka", "nights": 1},
+    ],
+    "party_type": "couple",
+    "budget_level": "budget",
+    "pace": "moderate",
+    "must_have_tags": [],
+    "avoid_tags": [],
+    "departure_day_shape": "direct_to_airport",
+    "travel_dates": {"start": "2026-07-01", "end": "2026-07-04"},
+
+    "profile_summary": {
+        "travel_portrait": "情侣 · 最后一天直奔机场",
+        "hard_constraints": ["返程日直接去机场", "4天3晚"],
+        "care_about": ["不要赶行程"],
+        "key_decisions": [],
+    },
+
+    "assertions": {
+        "min_days": 4, "max_days": 4,
+        "departure_day_type": "departure",
+        "departure_day_no_poi": True,
+        "departure_day_intensity_whitelist": ["light"],
+        "departure_day_max_items": 2,
+        "no_raw_keys_in_pdf": True,
+    },
+}
+
+# ── 用例 9：USJ 主题公园专线 ─────────────────────────────────────────────────────
+CASE_THEME_PARK = {
+    "case_id": "theme_park",
+    "case_label": "标准型 · USJ 主题公园",
+    "case_desc": "必含 USJ 独立成天，验证 theme_park day 结构",
+
+    "duration_days": 5,
+    "cities": [
+        {"city_code": "osaka", "nights": 3},
+        {"city_code": "kyoto", "nights": 1},
+    ],
+    "party_type": "family_child",
+    "budget_level": "mid",
+    "pace": "moderate",
+    "must_have_tags": ["theme_park", "food"],
+    "avoid_tags": [],
+    "travel_dates": {"start": "2026-08-01", "end": "2026-08-05"},
+
+    "profile_summary": {
+        "travel_portrait": "亲子家庭 · 必去 USJ",
+        "hard_constraints": ["含 USJ 环球影城独立成天", "5天4晚"],
+        "care_about": ["孩子开心", "不要太赶"],
+        "key_decisions": [],
+    },
+
+    "assertions": {
+        "min_days": 5, "max_days": 5,
+        "theme_park_day_exists": True,
+        "meal_corridor_consistency": True,
+        "no_raw_keys_in_pdf": True,
+    },
+}
+
+# ── 用例 10：老年低强度 ──────────────────────────────────────────────────────────
+CASE_ELDERLY = {
+    "case_id": "elderly_low",
+    "case_label": "约束型 · 老年低强度",
+    "case_desc": "senior + relaxed，验证 max_intensity 全天不超过 light",
+
+    "duration_days": 5,
+    "cities": [
+        {"city_code": "kyoto", "nights": 4},
+    ],
+    "party_type": "senior",
+    "budget_level": "premium",
+    "pace": "relaxed",
+    "must_have_tags": ["garden", "culture"],
+    "avoid_tags": ["theme_park", "nightlife", "hiking"],
+    "travel_dates": {"start": "2026-10-15", "end": "2026-10-19"},
+
+    "profile_summary": {
+        "travel_portrait": "老年人 · 纯京都慢游 · 庭园+文化",
+        "hard_constraints": ["全天 relaxed 节奏", "禁止主题公园/夜生活/徒步"],
+        "care_about": ["无障碍", "不赶时间", "高品质餐饮"],
+        "key_decisions": [],
+    },
+
+    "assertions": {
+        "min_days": 5, "max_days": 5,
+        "all_days_max_intensity": "light",
+        "must_not_have_day_themes": ["USJ", "环球", "夜游"],
+        "departure_day_type": "departure",
+        "departure_day_intensity_whitelist": ["light"],
+        "meal_corridor_consistency": True,
+        "no_raw_keys_in_pdf": True,
+    },
+}
+
+
+ALL_CASES = [
+    CASE_STANDARD, CASE_CONSTRAINED, CASE_EDGE, CASE_SAKURA, CASE_NICHE,
+    CASE_MUST_NOT_GO, CASE_AVOID_CUISINE, CASE_AIRPORT_RETURN, CASE_THEME_PARK, CASE_ELDERLY,
+]
