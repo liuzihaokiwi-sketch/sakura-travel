@@ -55,6 +55,7 @@ jobs:
         run: pytest tests/ -x -q --tb=short 2>/dev/null || echo "No tests found (ok for now)"
 
       - name: Run must-go regression chain test
+        if: ${{ always() }}
         env:
           DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
           REDIS_URL: "redis://localhost:6379/0"
