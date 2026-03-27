@@ -24,6 +24,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.catalog import EntityBase, EntityMedia, EntityTag
 from app.db.models.derived import ItineraryDay, ItineraryItem, ItineraryPlan
+from app.domains.rendering.shared_export_contract import build_shared_page_export_contract
 
 logger = logging.getLogger(__name__)
 
@@ -698,6 +699,84 @@ def _build_overview_context(context: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _shared_page_export_css() -> str:
+    return """
+    .shared-page-export {
+      margin: 24px 0 36px;
+      padding: 20px 24px;
+      border: 1px solid rgba(32, 40, 52, 0.12);
+      border-radius: 18px;
+      background: rgba(250, 248, 243, 0.92);
+    }
+    .shared-page-export-header {
+      margin-bottom: 16px;
+    }
+    .shared-page-export-header h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+    }
+    .shared-page-export-header p,
+    .shared-page-export-meta {
+      margin: 0;
+      color: #5f6773;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .shared-page-export-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .shared-page-card {
+      padding: 16px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(32, 40, 52, 0.08);
+      break-inside: avoid;
+    }
+    .shared-page-card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .shared-page-card h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+    .shared-page-card .subtitle {
+      margin: 0 0 10px;
+      color: #5f6773;
+      font-size: 13px;
+    }
+    .shared-page-card .summary {
+      margin: 0 0 12px;
+      color: #253041;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .shared-page-slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .shared-page-slots li {
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: #f1efe8;
+      color: #4a5360;
+      font-size: 12px;
+    }
+    """
+
+
 async def render_html(
     plan_id: _uuid.UUID | str,
     session: AsyncSession,
@@ -726,6 +805,13 @@ async def render_html(
         raise ValueError(f"ItineraryPlan not found: {plan_id}")
 
     context = await _build_magazine_context(session, plan)
+    context["plan_metadata"] = plan.plan_metadata or {}
+    shared_page_export = build_shared_page_export_contract(plan.plan_metadata)
+    if not shared_page_export:
+        raise ValueError("plan_metadata.page_models is missing for shared export contract")
+    context["shared_page_export"] = shared_page_export
+    context["extra_css"] = (context.get("extra_css") or "") + _shared_page_export_css()
+
     env = _get_jinja_env()
 
     # 渲染完整 HTML（基于 base.html.j2）
@@ -743,6 +829,10 @@ async def render_html(
 
   {# 总纲：设计思路 + 总览表 + 预订提醒 + 出发准备 #}
   {% include 'magazine/overview.html.j2' %}
+
+  {% if shared_page_export and shared_page_export.pages %}
+    {% include 'magazine/shared_page_contract.html.j2' %}
+  {% endif %}
 
   {% for day in days %}
     {% include 'magazine/day_card.html.j2' %}

@@ -61,6 +61,12 @@ packages = ["app"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+markers = [
+    "l2_contract_blocker: contract-first layer-2 blocker coverage",
+    "l3_handbook_delivery_blocker: handbook-delivery acceptance blocker coverage",
+    "phase2_acceptance: phase2 second-layer acceptance coverage",
+    "legacy_compatibility: legacy-chain compatibility baseline coverage",
+]
 
 [tool.ruff]
 line-length = 100

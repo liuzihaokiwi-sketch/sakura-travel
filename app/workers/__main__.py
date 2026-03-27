@@ -18,9 +18,12 @@ from sqlalchemy import select
 from app.core.config import settings
 from app.db.models.business import TripProfile, TripRequest
 from app.db.session import AsyncSessionLocal
+from app.domains.intake.layer2_contract import (
+    build_layer2_canonical_input,
+    parse_layer2_datetime,
+)
 from app.workers.jobs.score_entities import score_entities
 from app.workers.jobs.generate_plan import generate_itinerary_plan
-from app.workers.jobs.generate_trip import generate_trip
 from app.workers.jobs.run_guardrails import run_guardrails
 from app.workers.jobs.render_export import render_export
 from app.workers.jobs.scan_flight_prices import scan_flight_prices
@@ -123,11 +126,23 @@ def _derive_circle_signals(
     """
     result: dict[str, Any] = {}
     special = dict(raw.get("special_requirements") or {})
+    canonical_input = build_layer2_canonical_input(raw)
+    # special_requirements keeps only compatibility side-channel semantics.
     must_visit_places = raw.get("must_visit_places") or []
     if isinstance(must_visit_places, list):
         special["must_visit_places"] = [
             str(x).strip() for x in must_visit_places if isinstance(x, str) and str(x).strip()
         ]
+    special["visited_places"] = canonical_input.get("visited_places") or []
+    special["do_not_go_places"] = canonical_input.get("do_not_go_places") or []
+    special["booked_items"] = canonical_input.get("booked_items") or []
+    special["locked_items"] = canonical_input.get("booked_items") or []
+    if canonical_input.get("requested_city_circle"):
+        special["requested_city_circle"] = canonical_input["requested_city_circle"]
+    if canonical_input.get("budget_range"):
+        special["budget_range"] = canonical_input["budget_range"]
+    if canonical_input.get("companion_breakdown"):
+        special["companion_breakdown"] = canonical_input["companion_breakdown"]
     raw_special_needs = raw.get("special_needs")
     if isinstance(raw_special_needs, dict):
         special.update(raw_special_needs)
@@ -152,11 +167,21 @@ def _derive_circle_signals(
         result["departure_shape"] = "same_city"
 
     # arrival_day_shape: 根据到达时间
-    arrive_time = outbound.get("arrive_time", outbound.get("arrive", ""))
+    arrive_time = (
+        outbound.get("arrive_time")
+        or outbound.get("arrive")
+        or raw.get("arrival_time")
+        or ""
+    )
     result["arrival_day_shape"] = _infer_day_shape_arrival(arrive_time)
 
     # departure_day_shape: 根据出发时间
-    depart_time = ret.get("depart_time", ret.get("depart", ""))
+    depart_time = (
+        ret.get("depart_time")
+        or ret.get("depart")
+        or raw.get("departure_time")
+        or ""
+    )
     result["departure_day_shape"] = _infer_day_shape_departure(depart_time)
 
     # ── 容忍度推导 ──
@@ -305,6 +330,7 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
 
         raw = trip.raw_input
         tags = derive_profile_tags(raw)
+        canonical_input = build_layer2_canonical_input(raw)
 
         # 计算总天数
         cities = raw.get("cities", [])
@@ -342,6 +368,19 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
         profile.nice_to_have_tags = tags["nice_to_have"]
         profile.avoid_tags = tags["avoid"]
         profile.special_requirements = derived["special_requirements"]
+        profile.contract_version = canonical_input.get("contract_version")
+        profile.requested_city_circle = canonical_input.get("requested_city_circle")
+        profile.arrival_local_datetime = parse_layer2_datetime(
+            canonical_input.get("arrival_local_datetime")
+        )
+        profile.departure_local_datetime = parse_layer2_datetime(
+            canonical_input.get("departure_local_datetime")
+        )
+        profile.visited_places = canonical_input.get("visited_places")
+        profile.do_not_go_places = canonical_input.get("do_not_go_places")
+        profile.booked_items = canonical_input.get("booked_items")
+        profile.companion_breakdown = canonical_input.get("companion_breakdown")
+        profile.budget_range = canonical_input.get("budget_range")
 
         # 城市圈决策层一等字段
         profile.arrival_shape = derived.get("arrival_shape")
@@ -357,12 +396,22 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
         profile.wake_up_time = raw.get("wake_up_time")
         profile.accommodation_pref = raw.get("accommodation_pref")
         profile.flight_info = raw.get("flight_info")
+        profile.arrival_time = raw.get("arrival_time")
+        profile.departure_time = raw.get("departure_time")
+        profile.blocked_clusters = canonical_input.get("do_not_go_places") or []
+        profile.must_visit_places = canonical_input.get("must_visit_places") or []
 
         trip.status = "profiled"
         trip.last_job_error = None
         await session.commit()
 
     return f"profiled:{trip_request_id}"
+
+
+async def _generate_trip_entry(*args, **kwargs):
+    from app.workers.jobs.generate_trip import generate_trip as _generate_trip
+
+    return await _generate_trip(*args, **kwargs)
 
 
 # ── Worker Settings ────────────────────────────────────────────────────────────
@@ -374,7 +423,7 @@ class WorkerSettings:
         normalize_trip_profile,
         score_entities,
         generate_itinerary_plan,
-        generate_trip,
+        _generate_trip_entry,
         run_guardrails,
         render_export,
         scan_flight_prices,

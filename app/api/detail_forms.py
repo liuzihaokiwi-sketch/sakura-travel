@@ -1,4 +1,4 @@
-"""
+﻿"""
 Detail Forms API — 付费后详细表单 CRUD 端点 (M1)
 
 端点：

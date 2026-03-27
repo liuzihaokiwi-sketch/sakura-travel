@@ -1,0 +1,90 @@
+name: Legacy Compatibility Nightly
+
+on:
+  schedule:
+    - cron: "30 17 * * *"
+  workflow_dispatch:
+
+jobs:
+  legacy-compatibility-monitor:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg15
+        env:
+          POSTGRES_USER: japan_ai
+          POSTGRES_PASSWORD: japan_ai_dev
+          POSTGRES_DB: japan_ai
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U japan_ai"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -e ".[dev]" 2>/dev/null || pip install -e .
+          pip install pytest pytest-asyncio
+
+      - name: Check text encoding
+        run: python scripts/ci/check_text_encoding.py
+
+      - name: Run legacy compatibility only
+        id: legacy_run
+        env:
+          DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
+          REDIS_URL: "redis://localhost:6379/0"
+          APP_ENV: "development"
+        run: |
+          mkdir -p ci_logs/legacy-nightly
+          set +e
+          python scripts/ci/run_dual_track_tests.py --legacy-only -q --junitxml=ci_logs/legacy-nightly/junit.xml 2>&1 | tee ci_logs/legacy-nightly/pytest.log
+          LEGACY_EXIT_CODE=${PIPESTATUS[0]}
+          echo "legacy_exit_code=${LEGACY_EXIT_CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Summarize legacy junit
+        if: ${{ always() }}
+        run: |
+          python scripts/ci/summarize_pytest_junit.py \
+            --junit ci_logs/legacy-nightly/junit.xml \
+            --summary-md ci_logs/legacy-nightly/summary.md \
+            --failed-list ci_logs/legacy-nightly/failed_tests.txt
+          cat ci_logs/legacy-nightly/summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload legacy nightly artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-compat-nightly
+          path: |
+            ci_logs/legacy-nightly/junit.xml
+            ci_logs/legacy-nightly/pytest.log
+            ci_logs/legacy-nightly/summary.md
+            ci_logs/legacy-nightly/failed_tests.txt
+          if-no-files-found: error
+
+      - name: Mark run failed when legacy compatibility fails
+        if: ${{ always() }}
+        run: |
+          if [ "${{ steps.legacy_run.outputs.legacy_exit_code }}" != "0" ]; then
+            echo "Legacy compatibility failed in nightly run."
+            exit 1
+          fi

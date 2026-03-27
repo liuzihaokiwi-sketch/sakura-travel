@@ -5,6 +5,7 @@ source_snapshots 写入工具。
 所有外部 API 调用（Google Places、Booking.com 等）都应通过此函数记录原始响应。
 """
 from datetime import datetime, timedelta, timezone
+from inspect import isawaitable
 from typing import Any, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -51,5 +52,7 @@ async def record_snapshot(
         http_status=http_status,
         request_url=request_url,
     )
-    session.add(snapshot)
+    add_result = session.add(snapshot)
+    if isawaitable(add_result):
+        await add_result
     return snapshot

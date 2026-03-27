@@ -45,6 +45,10 @@ class _FakeSession:
             return _Result(self._alias_rows, scalar_mode=False)
         if "join entity_base" in sql:
             return _Result(self._name_rows, scalar_mode=False)
+        if "from pois" in sql:
+            # _load_booking_requirements expects (entity_id, requires_advance_booking)
+            booking_rows = [(role.entity_id, False) for role in self._roles]
+            return _Result(booking_rows, scalar_mode=False)
         if "from activity_clusters" in sql:
             return _Result(self._clusters)
         if "from circle_entity_roles" in sql:

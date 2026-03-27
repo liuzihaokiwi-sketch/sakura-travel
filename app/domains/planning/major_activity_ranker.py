@@ -32,7 +32,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.business import TripProfile
 from app.db.models.city_circles import ActivityCluster, CircleEntityRole
-from app.db.models.catalog import EntityAlias, EntityBase
+from app.db.models.catalog import EntityAlias, EntityBase, Poi
 from app.db.models.derived import EntityScore
 from app.db.models.soft_rules import EntitySoftScore
 from app.domains.planning.constraint_compiler import PlanningConstraints
@@ -170,6 +170,9 @@ class RankedMajor:
     photo_buffer_minutes: int = 0         # 摄影用户额外耗时
     fatigue_weight: float = 1.0           # 体力消耗系数，带老人/小孩时做折扣用
     queue_risk_level: str = "low"         # none / low / medium / high
+    reservation_required: bool = False
+    reservation_pressure: str = "none"
+    booking_hint: str = ""
 
 
 @dataclass
@@ -241,14 +244,19 @@ async def rank_major_activities(
     )
     roles = roles_q.scalars().all()
     cluster_anchors: dict[str, list[uuid.UUID]] = {}
+    cluster_booking_hints: dict[str, list[str]] = {}
     for role in roles:
         if role.cluster_id:
             cluster_anchors.setdefault(role.cluster_id, []).append(role.entity_id)
+            hint = str(getattr(role, "booking_or_arrival_hint", "") or "").strip()
+            if hint:
+                cluster_booking_hints.setdefault(role.cluster_id, []).append(hint)
 
     # 4. 加载锚点实体的评分
     all_anchor_ids = [eid for ids in cluster_anchors.values() for eid in ids]
     base_scores = await _load_base_quality_scores(session, all_anchor_ids)
     context_scores = await _load_context_fit_scores(session, all_anchor_ids, profile)
+    booking_required_by_entity = await _load_booking_requirements(session, all_anchor_ids)
 
     # 5. 逐簇评分
     for cluster in clusters:
@@ -259,6 +267,8 @@ async def rank_major_activities(
             context_scores,
             precheck_failed_entity_ids,
             profile,
+            booking_required_by_entity=booking_required_by_entity,
+            booking_hints=cluster_booking_hints.get(cluster.cluster_id, []),
             constraints=constraints,
         )
 
@@ -392,6 +402,10 @@ async def rank_major_activities(
             constraints.record_consumption(
                 "blocked_clusters", "ranker", "scan_complete",
                 f"scanned {len(result.all_ranked)} clusters against blocked_clusters={sorted(constraints.blocked_clusters)}")
+        if constraints.visited_clusters:
+            constraints.record_consumption(
+                "visited_clusters", "ranker", "scan_complete",
+                f"scanned {len(result.all_ranked)} clusters against visited_clusters={sorted(constraints.visited_clusters)}")
         if explicit_must_go_raw:
             constraints.record_consumption(
                 "must_go_clusters", "ranker", "priority_sort",
@@ -411,6 +425,8 @@ def _score_cluster(
     context_scores: dict[uuid.UUID, float],
     precheck_failed: set[uuid.UUID],
     profile: TripProfile,
+    booking_required_by_entity: dict[uuid.UUID, bool],
+    booking_hints: list[str],
     constraints: "PlanningConstraints | None" = None,
 ) -> RankedMajor:
     """对单个活动簇打分。优先使用 constraints 中的编译约束。"""
@@ -422,6 +438,10 @@ def _score_cluster(
         primary_corridor=cluster.primary_corridor or "",
         anchor_entity_ids=anchor_entity_ids,
     )
+    ranked.booking_hint = " | ".join(booking_hints[:2]) if booking_hints else ""
+    ranked.reservation_required = any(booking_required_by_entity.get(eid, False) for eid in anchor_entity_ids)
+    if ranked.reservation_required:
+        ranked.reservation_pressure = "high" if (cluster.level or "A") == "S" else "medium"
 
     # 容量单位
     dur = (cluster.default_duration or "full_day").lower()
@@ -476,6 +496,23 @@ def _score_cluster(
             constraints.record_consumption(
                 "blocked_clusters", "ranker", "hard_exclude",
                 f"cluster {cluster.cluster_id} hard-excluded from candidates",
+            )
+            return ranked
+
+    if constraints and constraints.visited_clusters:
+        _cid = cluster.cluster_id
+        _visited_hit = (
+            _cid in constraints.visited_clusters
+            or any(_cid.endswith(f"_{v}") or _cid == v for v in constraints.visited_clusters)
+        )
+        if _visited_hit:
+            ranked.context_fit_score = -999.0
+            ranked.base_quality_score = -999.0
+            ranked.precheck_status = "blocked"
+            ranked.selection_reason = "already_visited"
+            constraints.record_consumption(
+                "visited_clusters", "ranker", "hard_exclude",
+                f"cluster {cluster.cluster_id} excluded as already visited",
             )
             return ranked
 
@@ -669,3 +706,15 @@ async def _load_context_fit_scores(
                 result[ss.entity_id] = 50.0
 
     return result
+
+
+async def _load_booking_requirements(
+    session: AsyncSession,
+    entity_ids: list[uuid.UUID],
+) -> dict[uuid.UUID, bool]:
+    if not entity_ids:
+        return {}
+    q = await session.execute(
+        select(Poi.entity_id, Poi.requires_advance_booking).where(Poi.entity_id.in_(entity_ids))
+    )
+    return {entity_id: bool(required) for entity_id, required in q.all()}

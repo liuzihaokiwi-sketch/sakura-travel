@@ -6,7 +6,7 @@ report_schema.py — ReportPayloadV2 Pydantic 类型定义
 from __future__ import annotations
 
 from typing import Dict, List, Literal, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 # ── 城市圈字段（vNext 扩充）────────────────────────────────────────────────────
@@ -285,6 +285,8 @@ class RiskWatchItem(BaseModel):
 # ── 顶层报告 Payload ──────────────────────────────────────────────────────────
 
 class ReportPayloadV2(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
     meta: ReportMeta
     profile_summary: ProfileSummary
     design_brief: DesignBrief
@@ -318,6 +320,3 @@ class ReportPayloadV2(BaseModel):
         description="day_index → circle_id 映射，ChapterPlanner 用",
     )
 
-    class Config:
-        # 允许从旧结构灵活构建
-        extra = "allow"

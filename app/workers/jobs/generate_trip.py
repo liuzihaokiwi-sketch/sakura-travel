@@ -1,14 +1,10 @@
-"""
+﻿"""
 arq Job: generate_trip
-触发行程装配 → AI 文案润色 → 多模型评审 → 发布/重写/转人工
-
-流程：
-    assemble_trip → enrich_itinerary_with_copy
-    → run_review_with_retry
-        → publish  → 标记 delivered，入队渲染
-        → rewrite  → 自动重写受影响天（最多 2 轮）
-        → human    → 标记 review，入队人工审核
-"""
+瑙﹀彂琛岀▼瑁呴厤 鈫?AI 鏂囨娑﹁壊 鈫?澶氭ā鍨嬭瘎瀹?鈫?鍙戝竷/閲嶅啓/杞汉宸?
+娴佺▼锛?    city-circle pipeline 鈫?enrich_itinerary_with_copy
+    鈫?run_review_with_retry
+        鈫?publish  鈫?鏍囪 delivered锛屽叆闃熸覆鏌?        鈫?rewrite  鈫?鑷姩閲嶅啓鍙楀奖鍝嶅ぉ锛堟渶澶?2 杞級
+        鈫?human    鈫?鏍囪 review锛屽叆闃熶汉宸ュ鏍?"""
 from __future__ import annotations
 
 import logging
@@ -18,7 +14,7 @@ from typing import Any
 from app.core.queue import enqueue_job
 from app.db.models.business import TripRequest
 from app.db.session import AsyncSessionLocal as async_session_factory
-from app.domains.planning.assembler import assemble_trip
+from app.domains.intake.layer2_contract import build_layer2_profile_contract
 from app.domains.planning.assembler import enrich_itinerary_with_copy
 from app.core.quality_gate import run_quality_gate, QualityGateResult
 
@@ -26,11 +22,11 @@ logger = logging.getLogger(__name__)
 
 # Feature flags
 REVIEW_PIPELINE_ENABLED = True
-CITY_CIRCLE_ENABLED = True  # 城市圈链路开关（False 时走旧模板链路）
+CITY_CIRCLE_ENABLED = True  # 鍩庡競鍦堥摼璺紑鍏筹紙False 鏃舵樉寮忓け璐ワ級
 
 
 async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
-    """从 DB 构建评审流水线需要的 plan_json 结构。"""
+    """Build the plan_json payload for downstream review/eval."""
     from sqlalchemy import select
     from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
     from app.db.models.catalog import EntityBase
@@ -63,15 +59,15 @@ async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
         day_items = []
         for item in items:
             item_dict: dict[str, Any] = {
-                "time": "",  # 从 slot 推断
-                "name": "未知",
+                "time": "",  # 浠?slot 鎺ㄦ柇
+                "name": "鏈煡",
                 "entity_type": item.item_type or "poi",
                 "entity_id": str(item.entity_id) if item.entity_id else None,
             }
             if item.entity_id:
                 entity = await session.get(EntityBase, item.entity_id)
                 if entity:
-                    item_dict["name"] = entity.name_local or entity.name or "未知"
+                    item_dict["name"] = entity.name_local or entity.name or "鏈煡"
                     item_dict["entity_type"] = entity.entity_type or "poi"
             if item.notes_zh:
                 import json as _json
@@ -93,27 +89,27 @@ async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
 
 
 async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> dict:
-    """构建评审所需的上下文（评审流水线所需的实时数据）。"""
+    """Build runtime review context from plan/profile/ops surfaces."""
     from sqlalchemy import select as _sel
     from datetime import datetime as _dt, timezone as _tz, timedelta as _td
 
     context: dict[str, Any] = {
         "segment": scene,
-        "travel_date": "未知",
+        "travel_date": "鏈煡",
     }
 
-    # 旅行日期
+    # 鏃呰鏃ユ湡
     travel_start: Any = None
     if hasattr(trip, "travel_start_date") and trip.travel_start_date:
         travel_start = trip.travel_start_date
         context["travel_date"] = str(travel_start)
 
-    # 1. entity_operating_facts：拉取本次行程关联实体的营业状态
+    # 1. entity_operating_facts
     try:
         from app.db.models.derived import ItineraryPlan, ItineraryItem
         from app.db.models.soft_rules import EntityOperatingFact
 
-        # 找最近的一个 plan
+        # 鎵炬渶杩戠殑涓€涓?plan
         plan_q = await session.execute(
             _sel(ItineraryPlan)
             .where(ItineraryPlan.trip_request_id == trip.trip_request_id)
@@ -135,7 +131,6 @@ async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> 
                     .where(EntityOperatingFact.entity_id.in_(entity_ids))
                 )
                 facts = facts_q.scalars().all()
-                # 只保留警告性状态
                 warnings = [
                     f"{f.fact_key}={f.fact_value} (entity={f.entity_id})"
                     for f in facts
@@ -144,23 +139,20 @@ async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> 
                         "temporarily_closed", "limited_hours",
                     )
                 ]
-                context["operational_context"] = (
-                    "; ".join(warnings) if warnings else "无异常营业状态"
-                )
+                context["operational_context"] = "; ".join(warnings) if warnings else "no_operational_alerts"
             else:
-                context["operational_context"] = "无实体数据"
+                context["operational_context"] = "no_entities"
         else:
-            context["operational_context"] = "无 plan 数据"
+            context["operational_context"] = "no_plan_data"
     except Exception as exc:
-        logger.warning("_build_review_context: entity_operating_facts 查询失败: %s", exc)
-        context["operational_context"] = "查询失败"
+        logger.warning("_build_review_context: entity_operating_facts 鏌ヨ澶辫触: %s", exc)
+        context["operational_context"] = "鏌ヨ澶辫触"
 
-    # 2. seasonal_events：拉取旅行日期前后 30 天内的季节活动
-    try:
+    # 2. seasonal_events锛氭媺鍙栨梾琛屾棩鏈熷墠鍚?30 澶╁唴鐨勫鑺傛椿鍔?    try:
         from app.db.models.soft_rules import SeasonalEvent
 
         if travel_start:
-            # 兼容 date / datetime
+            # 鍏煎 date / datetime
             if hasattr(travel_start, "year"):
                 window_start = _dt.combine(travel_start, _dt.min.time()).replace(tzinfo=_tz.utc) \
                     if not hasattr(travel_start, "tzinfo") else travel_start
@@ -184,12 +176,12 @@ async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> 
                     for e in events
                 )
             else:
-                context["seasonal_events"] = "行程期间无特殊季节活动"
+                context["seasonal_events"] = "no_seasonal_events"
         else:
-            context["seasonal_events"] = "无旅行日期，跳过季节活动查询"
+            context["seasonal_events"] = "no_travel_date"
     except Exception as exc:
-        logger.warning("_build_review_context: seasonal_events 查询失败: %s", exc)
-        context["seasonal_events"] = "查询失败"
+        logger.warning("_build_review_context: seasonal_events 鏌ヨ澶辫触: %s", exc)
+        context["seasonal_events"] = "鏌ヨ澶辫触"
 
     return context
 
@@ -200,16 +192,13 @@ async def _try_city_circle_pipeline(
     scene: str,
 ) -> tuple[bool, uuid.UUID | None, list | None, dict | None]:
     """
-    尝试走城市圈决策链路（带 trace）。
-
+    灏濊瘯璧板煄甯傚湀鍐崇瓥閾捐矾锛堝甫 trace锛夈€?
     Returns:
         (success, plan_id, day_frames_dicts, design_brief)
-        success=False 表示需要 fallback 到旧模板。
-    """
+        success=False 琛ㄧず涓婚摼澶辫触锛岄渶瑕佹樉寮忓け璐ヨ繑鍥炪€?    """
     from app.domains.planning.fallback_router import (
         FallbackLevel,
         evaluate_fallback,
-        resolve_legacy_template_code,
     )
     from app.domains.planning.trace_writer import CircleTraceWriter
     from app.domains.planning.decision_writer import (
@@ -222,42 +211,52 @@ async def _try_city_circle_pipeline(
         from app.db.models.business import TripProfile
         from sqlalchemy import select
 
-        # 加载画像
+        # 鍔犺浇鐢诲儚
         profile_q = await session.execute(
             select(TripProfile).where(TripProfile.trip_request_id == trip.trip_request_id)
         )
         profile = profile_q.scalar_one_or_none()
         if not profile:
-            logger.info("无 TripProfile，回落旧链路")
+            logger.info("no TripProfile, city-circle main chain failed")
             return False, None, None, None
 
         trip_id = trip.trip_request_id
 
-        # E1: 作废旧决策 + 计算画像哈希
+        # E1: 浣滃簾鏃у喅绛?+ 璁＄畻鐢诲儚鍝堝笇
         await invalidate_previous_decisions(session, trip_id)
+        canonical_input = build_layer2_profile_contract(profile)
         profile_snapshot = {
+            "contract_version": canonical_input.get("contract_version"),
+            "requested_city_circle": canonical_input.get("requested_city_circle"),
             "party_type": profile.party_type,
             "duration_days": profile.duration_days,
             "budget_level": profile.budget_level,
             "pace": getattr(profile, "pace", None),
             "arrival_day_shape": getattr(profile, "arrival_day_shape", None),
             "hotel_switch_tolerance": getattr(profile, "hotel_switch_tolerance", None),
+            "layer2_canonical_input": canonical_input,
         }
-        profile_hash = compute_profile_hash(profile_snapshot)
+        profile_hash = compute_profile_hash(canonical_input)
 
-        # E1: normalized_profile 快照
+        # E1: normalized_profile 蹇収
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="normalized_profile", key="profile_snapshot",
             value=profile_snapshot,
-            reason="画像标准化完成",
+            reason="profile normalization completed",
+        )
+        await write_decision(
+            session, trip_request_id=trip_id, input_hash=profile_hash,
+            stage="normalized_profile", key="canonical_input",
+            value=canonical_input,
+            reason="Layer 2 canonical input contract frozen at main-chain entry",
         )
 
-        # 初始化 trace writer
+        # 鍒濆鍖?trace writer
         trace = CircleTraceWriter(session, trip_id)
         await trace.start_run(profile_snapshot=profile_snapshot)
 
-        # Step 1: 城市圈选择
+        # Step 1: 鍩庡競鍦堥€夋嫨
         from app.domains.planning.city_circle_selector import select_city_circle
         async with trace.step("circle_selection") as s:
             circle_result = await select_city_circle(session, profile)
@@ -265,14 +264,14 @@ async def _try_city_circle_pipeline(
             s.set_trace(circle_result.trace)
 
         if not circle_result.selected:
-            logger.info("无匹配城市圈，回落旧链路")
+            logger.info("no matched city circle, main chain failed")
             await trace.finish_run(status="failed")
             return False, None, None, None
 
         circle_id = circle_result.selected_circle_id
-        logger.info("选中城市圈: %s (%s)", circle_id, circle_result.selected.name_zh)
+        logger.info("閫変腑鍩庡競鍦? %s (%s)", circle_id, circle_result.selected.name_zh)
 
-        # E1: circle_selection 快照 + E4: explain
+        # E1: circle_selection 蹇収 + E4: explain
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="circle_selection", key="selected_circle_id",
@@ -282,11 +281,13 @@ async def _try_city_circle_pipeline(
                  "reason": c.reject_reason or "candidate"}
                 for c in circle_result.candidates[:10]
             ],
-            reason=f"选中 {circle_result.selected.name_zh}，"
-                   f"score={circle_result.selected.total_score:.3f}",
+            reason=(
+                f"selected {circle_result.selected.name_zh}, "
+                f"score={circle_result.selected.total_score:.3f}"
+            ),
         )
 
-        # Step 1a: 加载 ConfigResolver（运营配置中心）
+        # Step 1a: 鍔犺浇 ConfigResolver锛堣繍钀ラ厤缃腑蹇冿級
         from app.domains.planning.config_resolver import ConfigResolver
         config_resolver = ConfigResolver(session)
         try:
@@ -295,34 +296,50 @@ async def _try_city_circle_pipeline(
                 segment=getattr(profile, "party_type", None),
             )
             logger.info(
-                "[ConfigResolver] 已加载配置 circle=%s segment=%s sources=%d",
+                "[ConfigResolver] 宸插姞杞介厤缃?circle=%s segment=%s sources=%d",
                 circle_id,
                 getattr(profile, "party_type", None),
                 len(resolved_cfg.sources),
             )
         except Exception as exc:
-            logger.warning("ConfigResolver 加载失败（降级为默认配置）: %s", exc)
+            logger.warning("ConfigResolver 鍔犺浇澶辫触锛堥檷绾т负榛樿閰嶇疆锛? %s", exc)
             from app.domains.planning.config_resolver import ResolvedConfig
             resolved_cfg = ResolvedConfig()
 
-        # 开关：是否启用运营干预
+        from app.domains.planning.policy_resolver import resolve_policy_set
+        resolved_policy = resolve_policy_set(
+            circle_id,
+            circle=None,
+            resolved_config=resolved_cfg,
+        )
+        await write_decision(
+            session,
+            trip_request_id=trip_id,
+            input_hash=profile_hash,
+            stage="resolved_policy",
+            key="policy_bundle",
+            value=resolved_policy.to_dict(),
+            reason="layer2 policy bundle resolved for front-half stages",
+        )
+
+        # 寮€鍏筹細鏄惁鍚敤杩愯惀骞查
         _enable_override = resolved_cfg.switch("enable_operator_override", default=True)
 
-        # Step 1b: 加载 OverrideResolver（L4-02）
-        from app.domains.planning.override_resolver import OverrideResolver
+        # Step 1b: 鍔犺浇 OverrideResolver锛圠4-02锛?        from app.domains.planning.override_resolver import OverrideResolver
         override_resolver = None
         if _enable_override:
             override_resolver = OverrideResolver(session)
             try:
                 await override_resolver.load_active()
             except Exception as exc:
-                logger.warning("OverrideResolver 加载失败（降级为无干预）: %s", exc)
+                logger.warning("OverrideResolver 鍔犺浇澶辫触锛堥檷绾т负鏃犲共棰勶級: %s", exc)
                 override_resolver = None
 
-        # Step 2: 资格过滤
+        # Step 2: 璧勬牸杩囨护
         from app.domains.planning.eligibility_gate import run_eligibility_gate, EligibilityContext
         from app.db.models.city_circles import CityCircle
         circle = await session.get(CityCircle, circle_id)
+        resolved_policy = resolve_policy_set(circle_id, circle=circle, resolved_config=resolved_cfg)
         all_cities = list(set((circle.base_city_codes or []) + (circle.extension_city_codes or [])))
 
         travel_month = None
@@ -346,16 +363,18 @@ async def _try_city_circle_pipeline(
         )
         eg_result = await run_eligibility_gate(session, eg_ctx, override_resolver=override_resolver)
 
-        # E1: eligibility 快照
+        # E1: eligibility 蹇収
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="eligibility", key="passed_entity_count",
             value=len(eg_result.passed_entity_ids),
-            reason=f"通过 {len(eg_result.passed_entity_ids)} 实体, "
-                   f"通过 {len(eg_result.passed_cluster_ids)} 簇",
+            reason=(
+                f"passed entities={len(eg_result.passed_entity_ids)}, "
+                f"passed clusters={len(eg_result.passed_cluster_ids)}"
+            ),
         )
 
-        # Step 3: 前置风险检查
+        # Step 3: precheck gate
         from app.domains.planning.precheck_gate import run_precheck_gate
         from datetime import date, timedelta
         travel_start = None
@@ -379,14 +398,13 @@ async def _try_city_circle_pipeline(
             s.set_output({"failed": len(pc_result.failed_ids), "warned": len(pc_result.warned_ids)})
             s.set_trace(pc_result.trace)
 
-        # ── Step 3b: 编译统一约束 ──
+        # 鈹€鈹€ Step 3b: 缂栬瘧缁熶竴绾︽潫 鈹€鈹€
         from app.domains.planning.constraint_compiler import compile_constraints
-        constraints = compile_constraints(profile)
-        # 同源锁死：run_id 贯穿全链路
-        _run_id = constraints.run_id
-        logger.info("同源 run_id=%s plan 将绑定此 ID", _run_id[:8])
+        constraints = compile_constraints(profile, resolved_policy=resolved_policy)
+        # 鍚屾簮閿佹锛歳un_id 璐┛鍏ㄩ摼璺?        _run_id = constraints.run_id
+        logger.info("鍚屾簮 run_id=%s plan 灏嗙粦瀹氭 ID", _run_id[:8])
 
-        # Step 4: 主要活动排序
+        # Step 4: 涓昏娲诲姩鎺掑簭
         from app.domains.planning.major_activity_ranker import rank_major_activities
         async with trace.step("major_ranking") as s:
             ranking_result = await rank_major_activities(
@@ -404,7 +422,7 @@ async def _try_city_circle_pipeline(
             })
             s.set_trace(ranking_result.trace)
 
-        # E1: major_ranking 快照 + E4: explain (why_selected / why_not)
+        # E1: major_ranking 蹇収 + E4: explain (why_selected / why_not)
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="major_activity_plan", key="selected_majors",
@@ -417,11 +435,11 @@ async def _try_city_circle_pipeline(
                  "context_fit": r.context_fit_score}
                 for r in ranking_result.all_ranked
             ],
-            reason=f"选中 {len(ranking_result.selected_majors)} 个主活动, "
-                   f"容量 {ranking_result.capacity_used:.1f}/{ranking_result.capacity_total:.1f}",
+            reason=f"閫変腑 {len(ranking_result.selected_majors)} 涓富娲诲姩, "
+                   f"瀹归噺 {ranking_result.capacity_used:.1f}/{ranking_result.capacity_total:.1f}",
         )
 
-        # E2: 精细化降级检查 — 只有 FULL_LEGACY 和 MAJOR_LEGACY 才完全退出
+        # E2: fallback evaluation
         fallback = evaluate_fallback(
             circle_found=True,
             cluster_count=len(eg_result.passed_cluster_ids),
@@ -441,36 +459,21 @@ async def _try_city_circle_pipeline(
                 stage="fallback",
                 key="must_go_unresolved",
                 value=unresolved,
-                reason="must-go items unresolved in current circle candidates; degrade to explainable partial mode",
+                reason="must-go items unresolved in current circle candidates; main chain must fail explicitly",
             )
-        if fallback.use_legacy_assembler:
-            # FULL_LEGACY — 完全退回旧链路
-            logger.info("城市圈降级(full): %s reasons=%s", fallback.level, fallback.reasons)
-            await write_decision(
-                session, trip_request_id=trip_id, input_hash=profile_hash,
-                stage="fallback", key="level",
-                value=fallback.level.value,
-                reason="; ".join(fallback.reasons),
-            )
-            await trace.finish_run(status="failed")
-            return False, None, None, None
-        if fallback.use_legacy_major_selection:
-            # MAJOR_LEGACY — 选圈 OK 但 major 不够，退回旧链路
-            logger.info("城市圈降级(major): %s reasons=%s", fallback.level, fallback.reasons)
-            await write_decision(
-                session, trip_request_id=trip_id, input_hash=profile_hash,
-                stage="fallback", key="level",
-                value=fallback.level.value,
-                reason="; ".join(fallback.reasons),
-            )
-            await trace.finish_run(status="failed")
-            return False, None, None, None
-        # FILLER_LEGACY / SECTION_ADAPTER / NONE — 继续新链路
-        # （filler 降级在后续 secondary/meal 阶段处理，不在此退出）
-        if fallback.level.value != "none":
-            logger.info("城市圈部分降级: %s reasons=%s (继续新链路)", fallback.level, fallback.reasons)
 
-        # Step 5: 酒店策略
+        if fallback.level != FallbackLevel.NONE:
+            logger.info("城市圈主链显式失败: level=%s reasons=%s", fallback.level, fallback.reasons)
+            await write_decision(
+                session, trip_request_id=trip_id, input_hash=profile_hash,
+                stage="fallback", key="level",
+                value=fallback.level.value,
+                reason="; ".join(fallback.reasons) if fallback.reasons else "main_chain_explicit_failure",
+            )
+            await trace.finish_run(status="failed")
+            return False, None, None, None
+
+        # Step 5: 閰掑簵绛栫暐
         from app.domains.planning.hotel_base_builder import build_hotel_strategy
         selected_cluster_ids = [m.cluster_id for m in ranking_result.selected_majors]
         async with trace.step("hotel_strategy") as s:
@@ -479,6 +482,8 @@ async def _try_city_circle_pipeline(
                 circle_id=circle_id,
                 profile=profile,
                 selected_cluster_ids=selected_cluster_ids,
+                resolved_policy=resolved_policy,
+                constraints=constraints,
             )
             s.set_output({
                 "preset": hotel_result.preset_name,
@@ -487,7 +492,7 @@ async def _try_city_circle_pipeline(
             })
             s.set_trace(hotel_result.trace)
 
-        # E1: hotel_strategy 快照
+        # E1: hotel_strategy 蹇収
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="hotel_strategy", key="preset_name",
@@ -498,26 +503,28 @@ async def _try_city_circle_pipeline(
                 "last_night_safe": hotel_result.last_night_safe,
                 "airport_minutes": hotel_result.last_night_airport_minutes,
             }],
-            reason=f"住法: {hotel_result.preset_name or '默认'}, "
-                   f"{len(hotel_result.bases)} 基点, "
+            reason=f"浣忔硶: {hotel_result.preset_name or '榛樿'}, "
+                   f"{len(hotel_result.bases)} 鍩虹偣, "
                    f"last_night_safe={hotel_result.last_night_safe}",
         )
 
-        # Step 6: 骨架构建
+        # Step 6: 楠ㄦ灦鏋勫缓
         from app.domains.planning.route_skeleton_builder import build_route_skeleton
         async with trace.step("skeleton_build") as s:
             skeleton = build_route_skeleton(
-            duration_days=days_count,
-            selected_majors=ranking_result.selected_majors,
-            hotel_bases=hotel_result.bases,
-            pace=profile.pace or "moderate",
+                duration_days=days_count,
+                selected_majors=ranking_result.selected_majors,
+                hotel_bases=hotel_result.bases,
+                pace=profile.pace or "moderate",
                 wake_up_time=profile.wake_up_time or "normal",
                 constraints=constraints,
+                resolved_policy=resolved_policy,
+                booked_items=getattr(profile, "booked_items", None) or [],
             )
             s.set_output({"days": len(skeleton.frames)})
             s.set_trace(skeleton.trace)
 
-        # E1: skeleton 快照
+        # E1: skeleton 蹇収
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="day_frame", key="skeleton_summary",
@@ -526,26 +533,28 @@ async def _try_city_circle_pipeline(
                 "corridors": [f.primary_corridor for f in skeleton.frames],
                 "drivers": [f.main_driver for f in skeleton.frames],
                 "intensity": [f.intensity for f in skeleton.frames],
+                "booking_alerts": skeleton.booking_alerts,
+                "degraded_majors": skeleton.degraded_majors,
             },
-            reason=f"骨架 {len(skeleton.frames)} 天, "
+            reason=f"楠ㄦ灦 {len(skeleton.frames)} 澶? "
                    f"pace={profile.pace or 'moderate'}",
         )
 
-        # ── Step 6b: 初始化 CorridorResolver ──
+        # 鈹€鈹€ Step 6b: 鍒濆鍖?CorridorResolver 鈹€鈹€
         from app.domains.planning.corridor_resolver import CorridorResolver
         corridor_resolver = CorridorResolver(session)
         try:
             await corridor_resolver.load_cache()
         except Exception as exc:
-            logger.warning("CorridorResolver 加载失败（降级为字符串匹配）: %s", exc)
+            logger.warning("CorridorResolver 鍔犺浇澶辫触锛堥檷绾т负瀛楃涓插尮閰嶏級: %s", exc)
             corridor_resolver = None
 
-        # ── Step 7: 次要活动填充 ──
+        # 鈹€鈹€ Step 7: 娆¤娲诲姩濉厖 鈹€鈹€
         from app.domains.planning.secondary_filler import fill_secondary_activities
         secondary_fills = []
         async with trace.step("secondary_fill") as s:
             try:
-                # 构建候选池：circle 内通过 eligibility 的 POI
+                # 鏋勫缓鍊欓€夋睜锛歝ircle 鍐呴€氳繃 eligibility 鐨?POI
                 from app.db.models.city_circles import CircleEntityRole
                 from app.db.models.catalog import EntityBase
                 role_q = await session.execute(
@@ -573,8 +582,7 @@ async def _try_city_circle_pipeline(
                         "typical_duration_min": getattr(ent, "typical_duration_min", 60),
                     })
 
-                # 已被 major 占用的实体
-                used_ids = set()
+                # 宸茶 major 鍗犵敤鐨勫疄浣?                used_ids = set()
                 for m in ranking_result.selected_majors:
                     for eid in m.anchor_entity_ids:
                         used_ids.add(str(eid))
@@ -597,15 +605,15 @@ async def _try_city_circle_pipeline(
                 s.set_output({"days_filled": len(secondary_fills),
                               "total_items": sum(len(d.secondary_items) for d in secondary_fills)})
             except Exception as exc:
-                logger.warning("secondary_filler 失败（继续）: %s", exc)
+                logger.warning("secondary_filler 澶辫触锛堢户缁級: %s", exc)
                 s.set_output({"error": str(exc)})
 
-        # ── Step 8: 餐厅填充 ──
+        # 鈹€鈹€ Step 8: 椁愬巺濉厖 鈹€鈹€
         from app.domains.planning.meal_flex_filler import fill_meals
         meal_fills = []
         async with trace.step("meal_fill") as s:
             try:
-                # 构建餐厅候选池
+                # 鏋勫缓椁愬巺鍊欓€夋睜
                 rest_q = await session.execute(
                     select(CircleEntityRole, EntityBase).join(
                         EntityBase, CircleEntityRole.entity_id == EntityBase.entity_id
@@ -641,10 +649,10 @@ async def _try_city_circle_pipeline(
                 s.set_output({"days_filled": len(meal_fills),
                               "total_meals": sum(len(d.meals) for d in meal_fills)})
             except Exception as exc:
-                logger.warning("meal_filler 失败（继续）: %s", exc)
+                logger.warning("meal_filler 澶辫触锛堢户缁級: %s", exc)
                 s.set_output({"error": str(exc)})
 
-        # ── Step 9: 日内适配评分 + 替换建议 ──
+        # 鈹€鈹€ Step 9: 鏃ュ唴閫傞厤璇勫垎 + 鏇挎崲寤鸿 鈹€鈹€
         from app.domains.planning.itinerary_fit_scorer import (
             compute_itinerary_fit_async, suggest_swaps,
             SlotContext, EntityFitSignals,
@@ -668,7 +676,7 @@ async def _try_city_circle_pipeline(
                         day_entity_types_so_far=[],
                     )
 
-                    # 收集该天的 secondary 实体
+                    # 鏀堕泦璇ュぉ鐨?secondary 瀹炰綋
                     day_sec = next((sf for sf in secondary_fills if sf.day_index == frame.day_index), None)
                     if day_sec:
                         day_signals = []
@@ -690,7 +698,7 @@ async def _try_city_circle_pipeline(
                             day_signals.append(sig)
                             prev_eid = ent.get("entity_id")
 
-                        # 替换建议
+                        # 鏇挎崲寤鸿
                         if day_signals:
                             swaps = await suggest_swaps(
                                 slot_ctx, day_signals, candidate_pool, session, corridor_resolver
@@ -703,10 +711,10 @@ async def _try_city_circle_pipeline(
                     "avg_fit": round(sum(f.itinerary_fit_score for f in fit_scores) / max(1, len(fit_scores)), 1),
                 })
             except Exception as exc:
-                logger.warning("itinerary_fit 评分失败（继续）: %s", exc)
+                logger.warning("itinerary_fit 璇勫垎澶辫触锛堢户缁級: %s", exc)
                 s.set_output({"error": str(exc)})
 
-        # E1: secondary + meal + fit 快照
+        # E1: secondary + meal + fit 蹇収
         await write_decision(
             session, trip_request_id=trip_id, input_hash=profile_hash,
             stage="filler_summary", key="secondary_meal_fit",
@@ -716,43 +724,41 @@ async def _try_city_circle_pipeline(
                 "fit_scored": len(fit_scores),
                 "swap_suggestions": len(swap_suggestions),
             },
-            reason="填充+评分完成",
+            reason="濉厖+璇勫垎瀹屾垚",
         )
 
-        # 转换 day_frames 为 dict 列表
+        # 杞崲 day_frames 涓?dict 鍒楄〃
         import dataclasses
         frame_dicts = []
         for f in skeleton.frames:
             fd = dataclasses.asdict(f)
             frame_dicts.append(fd)
 
-        # 构建 design_brief 从决策链结果
+        # 鏋勫缓 design_brief 浠庡喅绛栭摼缁撴灉
         design_brief = {
             "route_strategy": [
-                f"城市圈: {circle_result.selected.name_zh}",
-                f"主要活动: {', '.join(m.name_zh for m in ranking_result.selected_majors[:5])}",
+                f"鍩庡競鍦? {circle_result.selected.name_zh}",
+                f"涓昏娲诲姩: {', '.join(m.name_zh for m in ranking_result.selected_majors[:5])}",
             ],
             "tradeoffs": [t for t in ranking_result.trace if "capacity" in t.lower()],
             "stay_strategy": [
-                f"住法: {hotel_result.preset_name or '默认单基点'}",
-                f"换酒店: {hotel_result.switch_count} 次",
-                f"最后一晚安全: {'✓' if hotel_result.last_night_safe else '⚠️'}",
+                f"hotel strategy: {hotel_result.preset_name or 'default'}",
             ],
-            "budget_strategy": [f"预算档次: {profile.budget_level or 'mid'}"],
+            "budget_strategy": [f"棰勭畻妗ｆ: {profile.budget_level or 'mid'}"],
             "execution_principles": [
-                f"节奏: {profile.pace or 'moderate'}",
-                f"容量: {ranking_result.capacity_used:.1f}/{ranking_result.capacity_total:.1f}",
+                f"鑺傚: {profile.pace or 'moderate'}",
+                f"瀹归噺: {ranking_result.capacity_used:.1f}/{ranking_result.capacity_total:.1f}",
             ],
         }
 
-        # ── E6b: 根据 CIRCLE_WRITE_MODE 决定走旧 assembler 还是新 builder ──
+        # 鈹€鈹€ E6b: 鏍规嵁 CIRCLE_WRITE_MODE 鍐冲畾璧版棫 assembler 杩樻槸鏂?builder 鈹€鈹€
         from app.domains.planning.itinerary_builder import (
             build_itinerary_records, CIRCLE_WRITE_MODE,
         )
 
         if CIRCLE_WRITE_MODE == "live":
-            # ── LIVE 模式：新链路直写，跳过旧 assembler ──
-            logger.info("E6b live mode: 跳过旧 assembler，使用 itinerary_builder")
+            # 鈹€鈹€ LIVE 妯″紡锛氭柊閾捐矾鐩村啓锛岃烦杩囨棫 assembler 鈹€鈹€
+            logger.info("E6b live mode: 璺宠繃鏃?assembler锛屼娇鐢?itinerary_builder")
             live_result = await build_itinerary_records(
                 session,
                 trip_request_id=trip_id,
@@ -771,45 +777,12 @@ async def _try_city_circle_pipeline(
                 plan_id, live_result.get("days_created"), live_result.get("items_created"),
             )
         else:
-            # ── SHADOW / DISABLED 模式：走旧 assembler ──
-            city_codes = [c.get("city_code", "") for c in (profile.cities or []) if isinstance(c, dict)]
-            template = resolve_legacy_template_code(city_codes or all_cities[:1], days_count)
-            if not template:
-                logger.info("无法映射到旧模板，回落旧链路")
-                return False, None, None, None
+            logger.warning("CIRCLE_WRITE_MODE=%s 闈?live锛屾寜鏃ч摼娓呴€€绛栫暐鏄惧紡澶辫触", CIRCLE_WRITE_MODE)
+            if trace:
+                await trace.finish_run(status="failed")
+            return False, None, None, None
 
-            plan_id = await assemble_trip(
-                session=session,
-                trip_request_id=trip.trip_request_id,
-                template_code=template,
-                scene=scene,
-            )
-
-            # ── E6a: Shadow write（仅 shadow 模式）──
-            if CIRCLE_WRITE_MODE == "shadow":
-                try:
-                    shadow_result = await build_itinerary_records(
-                        session,
-                        trip_request_id=trip_id,
-                        circle_id=circle_id,
-                        skeleton_frames=skeleton.frames,
-                        secondary_fills=secondary_fills,
-                        meal_fills=meal_fills,
-                        hotel_result=hotel_result,
-                        ranking_result=ranking_result,
-                        design_brief=design_brief,
-                        existing_plan_id=plan_id,
-                    )
-                    logger.info(
-                        "E6a shadow write: overlap=%.2f days=%s items=%s",
-                        shadow_result.get("diff", {}).get("entity_overlap_rate", -1),
-                        shadow_result.get("days_created"),
-                        shadow_result.get("items_created"),
-                    )
-                except Exception as exc:
-                    logger.warning("E6a shadow write 失败（非致命）: %s", exc)
-
-        # E1: 回写 plan_id 到本次所有 decisions
+        # E1: 鍥炲啓 plan_id 鍒版湰娆℃墍鏈?decisions
         try:
             from sqlalchemy import update as _update
             from app.db.models.derived import GenerationDecision
@@ -826,12 +799,12 @@ async def _try_city_circle_pipeline(
         except Exception:
             pass
 
-        # ── constraint_trace finalize + evidence_bundle 落库 ──
+        # 鈹€鈹€ constraint_trace finalize + evidence_bundle 钀藉簱 鈹€鈹€
         constraints.finalize_trace()
 
         _unconsumed_hard = constraints.hard_unconsumed()
         if _unconsumed_hard:
-            logger.warning("⚠️ unconsumed hard constraints: %s (run_id=%s)",
+            logger.warning("鈿狅笍 unconsumed hard constraints: %s (run_id=%s)",
                            [u.constraint_name for u in _unconsumed_hard], _run_id[:8])
 
         try:
@@ -842,22 +815,23 @@ async def _try_city_circle_pipeline(
                 _meta["evidence_bundle"] = constraints.to_evidence_dict(
                     plan_id=str(plan_id),
                     request_id=str(trip_id),
+                    input_contract=canonical_input,
                 )
                 _plan_for_trace.plan_metadata = _meta
                 await session.flush()
-                logger.info("evidence_bundle 落库: plan=%s run_id=%s items=%d unconsumed_hard=%d",
+                logger.info("evidence_bundle 钀藉簱: plan=%s run_id=%s items=%d unconsumed_hard=%d",
                             plan_id, _run_id[:8],
                             len(constraints.constraint_trace), len(_unconsumed_hard))
         except Exception as _exc:
-            logger.warning("evidence_bundle 落库失败（非致命）: %s", _exc)
+            logger.warning("evidence_bundle 钀藉簱澶辫触锛堥潪鑷村懡锛? %s", _exc)
 
-        # 更新 trace 的 plan_id
+        # 鏇存柊 trace 鐨?plan_id
         if trace._run:
             trace._run.plan_id = plan_id
         await trace.finish_run(status="completed")
 
         logger.info(
-            "城市圈链路成功: circle=%s majors=%d hotel=%s skeleton=%d days",
+            "鍩庡競鍦堥摼璺垚鍔? circle=%s majors=%d hotel=%s skeleton=%d days",
             circle_id, len(ranking_result.selected_majors),
             hotel_result.preset_name, len(skeleton.frames),
         )
@@ -865,7 +839,7 @@ async def _try_city_circle_pipeline(
         return True, plan_id, frame_dicts, design_brief
 
     except Exception as exc:
-        logger.warning("城市圈链路异常，回落旧链路: %s", exc, exc_info=True)
+        logger.warning("鍩庡競鍦堥摼璺紓甯革紝涓婚摼澶辫触: %s", exc, exc_info=True)
         if trace:
             try:
                 await trace.finish_run(status="failed")
@@ -878,35 +852,30 @@ async def generate_trip(
     ctx: dict,
     *,
     trip_request_id: str,
-    template_code: str,
+    template_code: str | None = None,
     scene: str = "general",
 ) -> dict:
     """
-    arq Job: 触发行程装配 + 评审。
-
-    I1 改造：优先尝试城市圈决策链路，失败时 fallback 到旧模板。
-
-    完整流程：
-    1. [新] 尝试城市圈链路（select_circle → rank_major → hotel → skeleton）
-       → 成功: 用 assembler 装配 + generate_report_v2
-       → 失败: fallback 到旧 assemble_trip + generate_report
-    2. enrich_itinerary_with_copy → AI 文案润色
-    3. run_review_with_retry → 多模型评审
-    4. 根据裁决：publish → 渲染 / rewrite → 重写 / human → 人工队列
+    arq Job: 瑙﹀彂琛岀▼瑁呴厤 + 璇勫銆?
+    I1 鏀归€狅細浠呰蛋鍩庡競鍦堜富閾捐矾锛屽け璐ユ椂鏄惧紡澶辫触锛屼笉鍥為€€鏃фā鏉裤€?
+    瀹屾暣娴佺▼锛?    1. [鏂癩 灏濊瘯鍩庡競鍦堥摼璺紙select_circle 鈫?rank_major 鈫?hotel 鈫?skeleton锛?       鈫?鎴愬姛: 鐢?itinerary_builder 瑁呴厤 + generate_report_v2
+       鈫?澶辫触: 鏄惧紡澶辫触
+    2. enrich_itinerary_with_copy 鈫?AI 鏂囨娑﹁壊
+    3. run_review_with_retry 鈫?澶氭ā鍨嬭瘎瀹?    4. 鏍规嵁瑁佸喅锛歱ublish 鈫?娓叉煋 / rewrite 鈫?閲嶅啓 / human 鈫?浜哄伐闃熷垪
     """
     trip_id = uuid.UUID(trip_request_id)
-    logger.info("generate_trip 开始 trip=%s template=%s scene=%s", trip_id, template_code, scene)
+    logger.info("generate_trip 寮€濮?trip=%s scene=%s", trip_id, scene)
 
     async with async_session_factory() as session:
         trip = await session.get(TripRequest, trip_id)
         if trip is None:
-            logger.error("trip_request_id=%s 不存在", trip_id)
+            logger.error("trip_request_id=%s not found", trip_id)
             return {"status": "error", "reason": "trip not found"}
 
         trip.status = "assembling"
         await session.commit()
 
-        # ── 表单级前置门控（validation engine）──
+        # 鈹€鈹€ 琛ㄥ崟绾у墠缃棬鎺э紙validation engine锛夆攢鈹€
         form_validation_ok = True
         try:
             from app.domains.validation.engine import ValidationEngine
@@ -922,7 +891,7 @@ async def generate_trip(
                 vr = engine.validate(form.form_data, form_id=str(form.form_id))
                 if not vr.can_generate():
                     logger.warning(
-                        "表单校验未通过(red=%d): trip=%s",
+                        "琛ㄥ崟鏍￠獙鏈€氳繃(red=%d): trip=%s",
                         vr.red_count, trip_id,
                     )
                     trip.status = "validation_failed"
@@ -934,13 +903,13 @@ async def generate_trip(
                     }
                 elif vr.yellow_count > 0:
                     logger.info(
-                        "表单校验有 %d 个黄灯(可继续): trip=%s",
+                        "琛ㄥ崟鏍￠獙鏈?%d 涓粍鐏?鍙户缁?: trip=%s",
                         vr.yellow_count, trip_id,
                     )
         except Exception as exc:
-            logger.warning("表单校验异常(非阻塞): %s", exc)
+            logger.warning("琛ㄥ崟鏍￠獙寮傚父(闈為樆濉?: %s", exc)
 
-        # ── I1: 尝试城市圈链路 ──
+        # 鈹€鈹€ I1: 灏濊瘯鍩庡競鍦堥摼璺?鈹€鈹€
         plan_id = None
         day_frames = None
         design_brief = None
@@ -951,22 +920,12 @@ async def generate_trip(
                 session, trip, scene,
             )
 
-        # ── Fallback: 旧模板链路 ──
-        if not circle_path:
-            try:
-                plan_id = await assemble_trip(
-                    session=session,
-                    trip_request_id=trip_id,
-                    template_code=template_code,
-                    scene=scene,
-                )
-            except Exception as exc:
-                logger.exception("generate_trip 装配失败 trip=%s: %s", trip_id, exc)
-                trip.status = "failed"
-                await session.commit()
-                return {"status": "error", "reason": f"assemble failed: {exc}"}
+        # 涓婚摼澶辫触鍗虫樉寮忓け璐ワ紝涓嶅洖閫€鏃фā鏉块摼璺?        if not circle_path:
+            trip.status = "failed"
+            await session.commit()
+            return {"status": "error", "reason": "city_circle_pipeline_failed"}
 
-        # Step 2: AI 文案润色
+        # Step 2: AI 鏂囨娑﹁壊
         try:
             await enrich_itinerary_with_copy(
                 session=session,
@@ -974,14 +933,12 @@ async def generate_trip(
                 scene=scene,
             )
         except Exception as exc:
-            logger.warning("文案润色失败（非致命）trip=%s: %s", trip_id, exc)
+            logger.warning("鏂囨娑﹁壊澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
 
-        # Step 2.2: 报告生成（城市圈链路用 v2，旧链路用 v1）
-        try:
-            if circle_path and day_frames:
+        # Step 2.2: 鎶ュ憡鐢熸垚锛堜富閾句粎 v2锛?        try:
+            if day_frames:
                 from app.domains.planning.report_generator import generate_report_v2
-                # 重新加载 profile（_try_city_circle_pipeline 内部变量不在此作用域）
-                from app.db.models.business import TripProfile as _TP
+                # 閲嶆柊鍔犺浇 profile锛坃try_city_circle_pipeline 鍐呴儴鍙橀噺涓嶅湪姝や綔鐢ㄥ煙锛?                from app.db.models.business import TripProfile as _TP
                 from sqlalchemy import select as _sel2
                 _pq = await session.execute(
                     _sel2(_TP).where(_TP.trip_request_id == trip_id).limit(1)
@@ -1005,40 +962,72 @@ async def generate_trip(
                     user_context=user_ctx,
                 )
 
-                # ── Step 2.3: Layer 3 page pipeline ──
+                # 鈹€鈹€ Step 2.3: Layer 3 page pipeline 鈹€鈹€
                 try:
-                    from app.domains.planning.report_schema import ReportPayloadV2
                     from app.domains.rendering.chapter_planner import plan_chapters
-                    from app.domains.rendering.page_planner import plan_pages, plan_pages_and_persist
+                    from app.domains.rendering.layer2_handoff import build_layer2_delivery_handoff
+                    from app.domains.rendering.page_planner import plan_pages_and_persist
                     from app.domains.rendering.page_view_model import build_view_models
 
-                    # 尝试从 report_v2 构建 ReportPayloadV2
+                    chapters = []
+                    pages = []
+                    view_models = {}
+
+                    # 鍏堝皢 Layer2 杈撳嚭閫傞厤涓轰氦浠樺眰绋冲畾 payload锛屽啀杩涘叆 L3 pipeline
                     if isinstance(report_v2, dict) and report_v2.get("schema_version") == "v2":
-                        payload = ReportPayloadV2.parse_obj(report_v2)
+                        from app.db.models.derived import ItineraryPlan as _IP
+
+                        _plan = await session.get(_IP, plan_id)
+                        payload, handoff_boundary = build_layer2_delivery_handoff(
+                            report_content=report_v2,
+                            plan_metadata=(_plan.plan_metadata if _plan else {}) or {},
+                            plan_id=str(plan_id),
+                        )
                         chapters = plan_chapters(payload)
                         pages = await plan_pages_and_persist(chapters, payload, session, plan_id)
                         view_models = build_view_models(pages, payload)
 
-                        # 写入 plan_metadata
-                        from app.db.models.derived import ItineraryPlan as _IP
-                        _plan = await session.get(_IP, plan_id)
+                        # 鍐欏叆 plan_metadata
                         if _plan:
                             meta = _plan.plan_metadata or {}
+                            meta["layer2_delivery_handoff"] = handoff_boundary
                             meta["page_pipeline"] = {
                                 "chapters": len(chapters),
                                 "pages": len(pages),
                                 "view_models": len(view_models),
                             }
+                            meta["observation_chain"] = {
+                                "run_id": _run_id,
+                                "decision_surface": "generation_decisions",
+                                "handoff_surface": "layer2_delivery_handoff",
+                                "eval_surface": "offline_eval",
+                                "regression_surface": "scripts/run_regression.py",
+                            }
                             _plan.plan_metadata = meta
+                        await write_decision(
+                            session,
+                            trip_request_id=trip_id,
+                            plan_id=plan_id,
+                            input_hash=profile_hash,
+                            stage="layer2_handoff",
+                            key="handoff_boundary",
+                            value={
+                                "chapters": len(chapters),
+                                "pages": len(pages),
+                                "view_models": len(view_models),
+                                "run_id": _run_id,
+                            },
+                            reason="layer2 handoff committed to page-model-first delivery boundary",
+                        )
 
                     logger.info(
                         "L3 page pipeline: plan=%s chapters=%d pages=%d vms=%d",
                         plan_id, len(chapters), len(pages), len(view_models),
                     )
                 except Exception as exc:
-                    logger.warning("L3 page pipeline 失败（非致命）: %s", exc)
+                    logger.warning("L3 page pipeline 澶辫触锛堥潪鑷村懡锛? %s", exc)
 
-                # ── Step 2.4: LiveRiskMonitor 风险扫描（L4-03）──
+                # 鈹€鈹€ Step 2.4: LiveRiskMonitor 椋庨櫓鎵弿锛圠4-03锛夆攢鈹€
                 if resolved_cfg.switch("enable_live_risk_monitor", default=True):
                     try:
                         from app.domains.planning.live_risk_monitor import LiveRiskMonitor
@@ -1047,7 +1036,7 @@ async def generate_trip(
                         risk_alerts = await risk_monitor.scan_plan(plan_id, travel_date_list)
                         if risk_alerts:
                             logger.info(
-                                "LiveRiskMonitor: plan=%s 生成 %d 条风险警报 "
+                                "LiveRiskMonitor: plan=%s 鐢熸垚 %d 鏉￠闄╄鎶?"
                                 "(critical=%d warning=%d)",
                                 plan_id,
                                 len(risk_alerts),
@@ -1055,23 +1044,15 @@ async def generate_trip(
                                 sum(1 for a in risk_alerts if a.get("severity") == "warning"),
                             )
                     except Exception as exc:
-                        logger.warning("LiveRiskMonitor 扫描失败（非致命）: %s", exc)
+                        logger.warning("LiveRiskMonitor 鎵弿澶辫触锛堥潪鑷村懡锛? %s", exc)
 
-                logger.info("报告 v2(circle) 生成完成 plan=%s", plan_id)
+                logger.info("鎶ュ憡 v2(circle) 鐢熸垚瀹屾垚 plan=%s", plan_id)
             else:
-                from app.domains.planning.report_generator import generate_report
-                user_ctx = {"party_type": scene, "styles": [], "budget_level": "mid", "pace": "moderate"}
-                await generate_report(
-                    session=session,
-                    plan_id=plan_id,
-                    user_context=user_ctx,
-                )
-                logger.info("报告 v1 生成完成 plan=%s", plan_id)
+                raise RuntimeError("city_circle_pipeline_missing_day_frames")
         except Exception as exc:
-            logger.warning("报告生成失败（非致命）trip=%s: %s", trip_id, exc)
+            logger.warning("鎶ュ憡鐢熸垚澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
 
-        # Step 2.3: 预览天标记
-        try:
+        # Step 2.3: 棰勮澶╂爣璁?        try:
             from app.domains.ranking.soft_rules.preview_engine import select_preview_day
             from sqlalchemy import select
             from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
@@ -1084,7 +1065,7 @@ async def generate_trip(
             )
             all_days = days_q.scalars().all()
 
-            # 转换为 select_preview_day 需要的 list[list[dict]] 格式
+            # 杞崲涓?select_preview_day 闇€瑕佺殑 list[list[dict]] 鏍煎紡
             itinerary_days_for_preview: list[list[dict]] = []
             for day in all_days:
                 items_q = await session.execute(
@@ -1101,8 +1082,8 @@ async def generate_trip(
                     day_items.append({
                         "entity_id": str(item.entity_id),
                         "entity_type": item.item_type or (entity.entity_type if entity else "poi"),
-                        "name": (entity.name_local or entity.name or "未知") if entity else "未知",
-                        "tags": [],  # tags 可后续补充
+                        "name": (entity.name_local or entity.name or "鏈煡") if entity else "鏈煡",
+                        "tags": [],
                     })
                 itinerary_days_for_preview.append(day_items)
 
@@ -1117,28 +1098,28 @@ async def generate_trip(
                     plan.plan_metadata = meta
                     await session.commit()
                     logger.info(
-                        "preview_day 标记完成 plan=%s day=%d needs_review=%s",
+                        "preview_day 鏍囪瀹屾垚 plan=%s day=%d needs_review=%s",
                         plan_id, preview_result.selected_day_index,
                         preview_result.needs_human_review,
                     )
         except Exception as exc:
-            logger.warning("preview_day 标记失败（非致命）trip=%s: %s", trip_id, exc)
+            logger.warning("preview_day 鏍囪澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
 
-        # Step 2.5: 质量门控校验（11条 QTY 硬规则）
+        # Step 2.5: 璐ㄩ噺闂ㄦ帶鏍￠獙锛?1鏉?QTY 纭鍒欙級
         try:
             plan_json_for_gate = await _build_plan_json(session, plan_id)
             gate_result: QualityGateResult = await run_quality_gate(plan_json_for_gate, db=session)
             logger.info(
-                "质量门控结果 trip=%s plan=%s %s",
+                "璐ㄩ噺闂ㄦ帶缁撴灉 trip=%s plan=%s %s",
                 trip_id, plan_id, gate_result.summary(),
             )
             if not gate_result.passed:
-                # Hard error → 直接转人工，附上错误信息
+                # Hard error 鈫?鐩存帴杞汉宸ワ紝闄勪笂閿欒淇℃伅
                 trip.status = "review"
                 await session.commit()
                 error_summary = "; ".join(gate_result.errors[:5])
                 logger.warning(
-                    "质量门控未通过，转人工审核 trip=%s errors=%s",
+                    "璐ㄩ噺闂ㄦ帶鏈€氳繃锛岃浆浜哄伐瀹℃牳 trip=%s errors=%s",
                     trip_id, error_summary,
                 )
                 return {
@@ -1150,15 +1131,14 @@ async def generate_trip(
                     "quality_score": gate_result.score,
                 }
         except Exception as exc:
-            logger.warning("质量门控异常（非致命，继续评审）trip=%s: %s", trip_id, exc)
+            logger.warning("璐ㄩ噺闂ㄦ帶寮傚父锛堥潪鑷村懡锛岀户缁瘎瀹★級trip=%s: %s", trip_id, exc)
 
-        # Step 2.6: 离线评测（offline_eval）— 自动评分 + 回归检测
-        eval_score_dict = None
+        # Step 2.6: 绂荤嚎璇勬祴锛坥ffline_eval锛夆€?鑷姩璇勫垎 + 鍥炲綊妫€娴?        eval_score_dict = None
         try:
             from app.domains.evaluation.offline_eval import score_plan, EvalCase
             plan_json_for_eval = plan_json_for_gate if "plan_json_for_gate" in locals() else await _build_plan_json(session, plan_id)
 
-            # 构建评测 case（使用实际画像约束）
+            # 鏋勫缓璇勬祴 case锛堜娇鐢ㄥ疄闄呯敾鍍忕害鏉燂級
             eval_case = EvalCase(
                 case_id=f"live_{trip_id}",
                 description="live generation",
@@ -1172,14 +1152,32 @@ async def generate_trip(
             eval_result = score_plan(plan_json_for_eval, eval_case)
             eval_score_dict = eval_result.to_dict()
 
-            # 写入 plan metadata
+            # 鍐欏叆 plan metadata
             from app.db.models.derived import ItineraryPlan
             plan_obj = await session.get(ItineraryPlan, plan_id)
             if plan_obj:
                 meta = plan_obj.plan_metadata or {}
                 meta["offline_eval"] = eval_score_dict
                 meta["offline_eval_overall"] = eval_result.overall
+                observation_chain = dict(meta.get("observation_chain") or {})
+                observation_chain["offline_eval_overall"] = eval_result.overall
+                observation_chain["offline_eval_case_id"] = eval_case.case_id
+                meta["observation_chain"] = observation_chain
                 plan_obj.plan_metadata = meta
+            await write_decision(
+                session,
+                trip_request_id=trip_id,
+                plan_id=plan_id,
+                input_hash=profile_hash,
+                stage="offline_eval",
+                key="overall",
+                value={
+                    "overall": eval_result.overall,
+                    "run_id": _run_id,
+                    "case_id": eval_case.case_id,
+                },
+                reason="offline eval attached to same observation chain",
+            )
 
             logger.info(
                 "offline_eval trip=%s overall=%.2f (completeness=%.1f feasibility=%.1f diversity=%.1f)",
@@ -1187,15 +1185,13 @@ async def generate_trip(
                 eval_result.completeness, eval_result.feasibility, eval_result.diversity,
             )
         except Exception as exc:
-            logger.warning("offline_eval 异常（非致命）trip=%s: %s", trip_id, exc)
+            logger.warning("offline_eval 寮傚父锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
 
-        # Step 3: 多模型评审
-        if not REVIEW_PIPELINE_ENABLED:
-            # 旧逻辑：直接触发 guardrails
-            _rid = locals().get("_run_id", "")
-            await enqueue_job("run_guardrails", plan_id=str(plan_id), run_id=_rid)
-            logger.info("generate_trip 完成（旧流程）plan=%s run_id=%s", plan_id, _rid[:8] if _rid else "N/A")
-            return {"status": "ok", "plan_id": str(plan_id), "run_id": _rid, "review": "skipped"}
+        # Step 3: 澶氭ā鍨嬭瘎瀹?        if not REVIEW_PIPELINE_ENABLED:
+            trip.status = "failed"
+            trip.last_job_error = "review_pipeline_disabled"
+            await session.commit()
+            return {"status": "error", "plan_id": str(plan_id), "reason": "review_pipeline_disabled"}
 
         try:
             from app.domains.review_ops.pipeline import run_review_with_retry, Verdict
@@ -1203,13 +1199,13 @@ async def generate_trip(
             plan_json = await _build_plan_json(session, plan_id)
             review_context = await _build_review_context(session, trip, scene)
 
-            # 尝试获取 AI client
+            # 灏濊瘯鑾峰彇 AI client
             ai_client = None
             try:
                 from app.core.ai_client import get_openai_client
                 ai_client = get_openai_client()
             except Exception:
-                logger.warning("AI client 不可用，评审将使用规则引擎兜底")
+                logger.warning("AI client unavailable, using rules-only review fallback")
 
             result = await run_review_with_retry(
                 plan_json=plan_json,
@@ -1217,11 +1213,7 @@ async def generate_trip(
                 ai_client=ai_client,
             )
 
-            # 持久化 T22-T25 四维评审报告（并行，不阻塞主流程）
-            # NOTE: plan_review_reports 表尚未创建，需要 alembic migration。
-            # 字段：plan_id, overall_score, passed, blocker_count, warning_count,
-            #       summary, comments(jsonb), slot_boundaries(jsonb)
-            # 表不存在时 try/except 会静默跳过，不影响主流程。
+            # Persist multi-model review report (best effort).
             try:
                 from app.core.multi_model_review import (
                     run_multi_model_review, review_report_to_dict
@@ -1249,13 +1241,13 @@ async def generate_trip(
                     "boundaries": _json.dumps(mmr_dict["slot_boundaries"], ensure_ascii=False),
                 })
                 logger.info(
-                    "[T22-T25] 四维评审完成 plan=%s score=%.1f passed=%s",
+                    "[T22-T25] 鍥涚淮璇勫瀹屾垚 plan=%s score=%.1f passed=%s",
                     plan_id, mmr_dict["overall_score"], mmr_dict["passed"],
                 )
             except Exception as e:
-                logger.warning("[T22-T25] 四维评审失败（非致命）: %s", e)
+                logger.warning("[T22-T25] 鍥涚淮璇勫澶辫触锛堥潪鑷村懡锛? %s", e)
 
-            # 持久化旧评审结果
+            # 鎸佷箙鍖栨棫璇勫缁撴灉
             try:
                 from sqlalchemy import text
                 await session.execute(text("""
@@ -1279,10 +1271,9 @@ async def generate_trip(
                 })
                 await session.commit()
             except Exception as e:
-                logger.warning("评审结果持久化失败（非致命）: %s", e)
+                logger.warning("璇勫缁撴灉鎸佷箙鍖栧け璐ワ紙闈炶嚧鍛斤級: %s", e)
 
-            # 评审回写飞轮：issues → 数据层修正
-            try:
+            # 璇勫鍥炲啓椋炶疆锛歩ssues 鈫?鏁版嵁灞備慨姝?            try:
                 from app.domains.review_ops.review_writeback import writeback_review_issues
                 wb_stats = await writeback_review_issues(
                     session, plan_id=plan_id,
@@ -1291,15 +1282,15 @@ async def generate_trip(
                 )
                 logger.info("review_writeback: %s", wb_stats)
             except Exception as e:
-                logger.warning("review_writeback 失败（非致命）: %s", e)
+                logger.warning("review_writeback 澶辫触锛堥潪鑷村懡锛? %s", e)
 
-            # 根据裁决分流
+            # 鏍规嵁瑁佸喅鍒嗘祦
             if result.final_verdict == Verdict.PUBLISH:
                 trip.status = "reviewed"
                 await session.commit()
                 await enqueue_job("render_trip", plan_id=str(plan_id))
                 logger.info(
-                    "评审通过 plan=%s (tokens=%d, duration=%dms)",
+                    "璇勫閫氳繃 plan=%s (tokens=%d, duration=%dms)",
                     plan_id, result.total_tokens, result.total_duration_ms,
                 )
                 return {
@@ -1312,7 +1303,7 @@ async def generate_trip(
                 trip.status = "review"
                 await session.commit()
                 logger.info(
-                    "评审转人工 plan=%s reason=%s",
+                    "璇勫杞汉宸?plan=%s reason=%s",
                     plan_id, result.final_reason,
                 )
                 return {
@@ -1322,8 +1313,7 @@ async def generate_trip(
                     "reason": result.final_reason,
                 }
             else:
-                # REWRITE 已经在 run_review_with_retry 内部处理了
-                # 到这里说明重写后仍然是 human
+                # REWRITE 宸茬粡鍦?run_review_with_retry 鍐呴儴澶勭悊浜?                # 鍒拌繖閲岃鏄庨噸鍐欏悗浠嶇劧鏄?human
                 trip.status = "review"
                 await session.commit()
                 return {
@@ -1334,16 +1324,17 @@ async def generate_trip(
                 }
 
         except Exception as exc:
-            logger.exception("评审流水线异常 trip=%s: %s", trip_id, exc)
-            # 评审失败不阻塞，降级到人工审核
-            trip.status = "review"
+            logger.exception("璇勫娴佹按绾垮紓甯?trip=%s: %s", trip_id, exc)
+            # review pipeline exception must fail explicitly
+            trip.status = "failed"
+            trip.last_job_error = f"review_pipeline_exception:{exc}"
             await session.commit()
-            _rid = locals().get("_run_id", "")
-            await enqueue_job("run_guardrails", plan_id=str(plan_id), run_id=_rid)
             return {
-                "status": "ok",
+                "status": "error",
                 "plan_id": str(plan_id),
-                "run_id": _rid,
-                "review": "fallback_guardrails",
+                "run_id": _run_id,
+                "review": "failed",
                 "error": str(exc),
             }
+
+

@@ -1,34 +1,21 @@
-"""
-hotel_base_builder.py — 酒店基点策略生成器（Phase 2 决策链第 3 步）
-
-输入：
-  - selected_majors（已选主要活动列表）
-  - circle_id
-  - TripProfile（含 flight_info, hotel_switch_tolerance, last_flight_time）
-  - HotelStrategyPreset[]（圈级住法预设）
-
-输出：
-  - 选中的住法策略
-  - 每个 base 的明细（base_city, nights, served_majors, switch_cost）
-  - last_night_safe 检查结果
-  - trace
-"""
 from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import TYPE_CHECKING, Any, Optional
 
-from sqlalchemy import select, and_
+from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.business import TripProfile
 from app.db.models.city_circles import HotelStrategyPreset
+from app.domains.planning.policy_resolver import ResolvedPolicySet
+
+if TYPE_CHECKING:
+    from app.domains.planning.constraint_compiler import PlanningConstraints
 
 logger = logging.getLogger(__name__)
 
-
-# ── 输出结构 ──────────────────────────────────────────────────────────────────
 
 @dataclass
 class HotelBase:
@@ -42,7 +29,6 @@ class HotelBase:
 
 @dataclass
 class HotelExplain:
-    """E4: 结构化 explain — 酒店策略同步产出。"""
     why_selected: str = ""
     expected_tradeoff: str = ""
     fallback_hint: str = ""
@@ -61,30 +47,21 @@ class HotelStrategyResult:
     override_allowed: bool = True
     trace: list[str] = field(default_factory=list)
     explain: HotelExplain = field(default_factory=HotelExplain)
+    policy_summary: dict[str, Any] = field(default_factory=dict)
 
-
-# ── 主入口 ────────────────────────────────────────────────────────────────────
 
 async def build_hotel_strategy(
     session: AsyncSession,
     circle_id: str,
     profile: TripProfile,
     selected_cluster_ids: list[str],
+    resolved_policy: ResolvedPolicySet | None = None,
+    constraints: "PlanningConstraints | None" = None,
 ) -> HotelStrategyResult:
-    """
-    从圈级酒店预设中选择最优住法。
-
-    评分逻辑：
-    1. 天数匹配 — preset 的 min/max_days 必须包含 duration_days
-    2. 画像匹配 — party_type + budget_level
-    3. 主要活动覆盖 — preset 的 bases 能覆盖多少已选主要活动
-    4. 换酒店容忍度 — 与 switch_count 的匹配
-    5. 最后一晚安全 — last_night_airport_minutes vs last_flight_time
-    """
     result = HotelStrategyResult()
     days = profile.duration_days or 5
+    result.policy_summary = _policy_summary(resolved_policy)
 
-    # 1. 加载圈级住法预设
     q = await session.execute(
         select(HotelStrategyPreset).where(
             and_(
@@ -96,222 +73,344 @@ async def build_hotel_strategy(
     presets = q.scalars().all()
 
     if not presets:
-        result.trace.append(f"circle={circle_id} 无酒店住法预设，使用默认单基点")
-        return _build_default_strategy(profile, result)
+        result.trace.append(f"circle={circle_id} no preset, fallback to default single base")
+        return _build_default_strategy(profile, result, resolved_policy=resolved_policy)
 
-    # 2. 评分选优
-    best_score = -1.0
+    best_score = -10_000.0
     best_preset: Optional[HotelStrategyPreset] = None
-
     for preset in presets:
-        score = _score_preset(preset, profile, selected_cluster_ids, days)
+        score = _score_preset(
+            preset,
+            profile,
+            selected_cluster_ids,
+            days,
+            resolved_policy=resolved_policy,
+            constraints=constraints,
+        )
         result.trace.append(
-            f"preset={preset.name_zh} score={score:.2f} "
-            f"days={preset.min_days}-{preset.max_days} switches={preset.switch_count}"
+            "preset="
+            f"{preset.name_zh} score={score:.2f} days={preset.min_days}-{preset.max_days} "
+            f"bases={len(preset.bases or [])} switches={preset.switch_count}"
         )
         if score > best_score:
             best_score = score
             best_preset = preset
 
     if best_preset is None:
-        result.trace.append("无匹配预设，使用默认策略")
-        return _build_default_strategy(profile, result)
+        result.trace.append("no matching preset, fallback to default strategy")
+        return _build_default_strategy(profile, result, resolved_policy=resolved_policy)
 
-    # 3. 构建结果
     result.preset_id = best_preset.preset_id
     result.preset_name = best_preset.name_zh
     result.switch_count = best_preset.switch_count
     result.last_night_airport_minutes = best_preset.last_night_airport_minutes
-
-    # ── 解析 nights_range 并根据实际天数分配 ──
-    total_avail = days - 1  # 总夜数 = 天数 - 1
-    raw_bases = best_preset.bases or []
-    base_ranges = []
-    for base_data in raw_bases:
-        nr = base_data.get("nights_range", "")
-        n_fixed = base_data.get("nights")
-        if nr and isinstance(nr, str) and "-" in nr:
-            lo, hi = nr.split("-", 1)
-            base_ranges.append((base_data, int(lo), int(hi)))
-        elif n_fixed:
-            base_ranges.append((base_data, int(n_fixed), int(n_fixed)))
-        else:
-            base_ranges.append((base_data, 1, total_avail))
-
-    # 按比例分配 nights（min 优先占位，剩余按 max 上限分配）
-    min_total = sum(lo for _, lo, _ in base_ranges)
-    remainder = max(0, total_avail - min_total)
-    for base_data, lo, hi in base_ranges:
-        extra = min(hi - lo, remainder) if remainder > 0 else 0
-        nights = lo + extra
-        remainder -= extra
-        base = HotelBase(
-            base_city=base_data.get("base_city", ""),
-            area=base_data.get("area", ""),
-            nights=nights,
-            served_cluster_ids=base_data.get("served_cluster_ids", []),
-        )
-        result.bases.append(base)
-        result.total_nights += base.nights
-
-    # 兜底：如果仍不足，补给最后一个 base
-    if result.total_nights < total_avail:
-        diff = total_avail - result.total_nights
-        if result.bases:
-            result.bases[-1].nights += diff
-            result.total_nights += diff
-
-    # 4. 最后一晚安全检查
+    result.bases = _allocate_bases(best_preset, days)
+    result.total_nights = sum(base.nights for base in result.bases)
     result.last_night_safe = _check_last_night_safety(
         best_preset.last_night_airport_minutes,
         profile.last_flight_time,
+        required_buffer_minutes=(
+            resolved_policy.mobility_policy.last_night_airport_buffer_minutes
+            if resolved_policy is not None
+            else 180
+        ),
     )
-    if not result.last_night_safe:
-        result.trace.append(
-            f"WARNING: 最后一晚到机场 {best_preset.last_night_airport_minutes}min, "
-            f"航班 {profile.last_flight_time} — 安全余量不足"
-        )
 
-    # 5. 标记 switch reason
-    for i, base in enumerate(result.bases):
-        if i > 0:
-            base.switch_reason_code = "area_change"
-            base.switch_cost_minutes = best_preset.switch_cost_minutes // max(1, result.switch_count)
+    for idx, base in enumerate(result.bases):
+        if idx == 0:
+            continue
+        base.switch_reason_code = "area_change"
+        base.switch_cost_minutes = best_preset.switch_cost_minutes // max(1, result.switch_count)
 
     result.trace.append(
-        f"selected: {result.preset_name}, "
-        f"{len(result.bases)} bases, {result.switch_count} switches, "
-        f"last_night_safe={result.last_night_safe}"
+        f"selected={result.preset_name} bases={len(result.bases)} "
+        f"switches={result.switch_count} last_night_safe={result.last_night_safe}"
+    )
+    if result.policy_summary:
+        result.trace.append(
+            "policy_hotel_base="
+            f"{result.policy_summary.get('base_pattern_bias')} "
+            f"hub={result.policy_summary.get('prefer_last_night_near_hub')} "
+            f"route_node={result.policy_summary.get('long_segment_base_preference')}"
+        )
+
+    _record_constraint_consumption(
+        constraints=constraints,
+        profile=profile,
+        result=result,
     )
 
-    # E4: explain
-    base_summary = " → ".join(f"{b.base_city}({b.nights}晚)" for b in result.bases)
+    base_summary = " -> ".join(f"{b.base_city}({b.nights}n)" for b in result.bases)
     result.explain = HotelExplain(
-        why_selected=f"选用 [{result.preset_name}]: {base_summary}",
-        expected_tradeoff=f"换酒店 {result.switch_count} 次"
-                          + ("" if result.last_night_safe
-                             else f", ⚠️最后一晚到机场 {result.last_night_airport_minutes}min 余量不足"),
-        coverage_detail=f"共覆盖 {sum(len(b.served_cluster_ids) for b in result.bases)} 个活动簇",
-        fallback_hint="可人工 override 住法" if result.override_allowed else "",
+        why_selected=f"selected [{result.preset_name}]: {base_summary}",
+        expected_tradeoff=(
+            f"hotel switches {result.switch_count}"
+            + (
+                ""
+                if result.last_night_safe
+                else f", last night to airport {result.last_night_airport_minutes}min is tight"
+            )
+        ),
+        coverage_detail=f"covers {sum(len(b.served_cluster_ids) for b in result.bases)} selected clusters",
+        fallback_hint="manual override allowed" if result.override_allowed else "",
     )
-
     return result
 
 
-# ── 评分 ──────────────────────────────────────────────────────────────────────
+def _allocate_bases(preset: HotelStrategyPreset, days: int) -> list[HotelBase]:
+    total_nights = max(1, days - 1)
+    raw_bases = preset.bases or []
+    base_ranges: list[tuple[dict[str, Any], int, int]] = []
+    for base_data in raw_bases:
+        nights_range = base_data.get("nights_range", "")
+        fixed_nights = base_data.get("nights")
+        if isinstance(nights_range, str) and "-" in nights_range:
+            lo, hi = nights_range.split("-", 1)
+            base_ranges.append((base_data, int(lo), int(hi)))
+        elif fixed_nights:
+            fixed = int(fixed_nights)
+            base_ranges.append((base_data, fixed, fixed))
+        else:
+            base_ranges.append((base_data, 1, total_nights))
+
+    min_total = sum(lo for _, lo, _ in base_ranges)
+    remainder = max(0, total_nights - min_total)
+    bases: list[HotelBase] = []
+    for base_data, lo, hi in base_ranges:
+        extra = min(max(0, hi - lo), remainder)
+        nights = lo + extra
+        remainder -= extra
+        bases.append(
+            HotelBase(
+                base_city=base_data.get("base_city", ""),
+                area=base_data.get("area", ""),
+                nights=nights,
+                served_cluster_ids=list(base_data.get("served_cluster_ids", []) or []),
+            )
+        )
+
+    if bases and sum(base.nights for base in bases) < total_nights:
+        bases[-1].nights += total_nights - sum(base.nights for base in bases)
+    return bases
+
 
 def _score_preset(
     preset: HotelStrategyPreset,
     profile: TripProfile,
     selected_cluster_ids: list[str],
     days: int,
+    *,
+    resolved_policy: ResolvedPolicySet | None = None,
+    constraints: "PlanningConstraints | None" = None,
 ) -> float:
-    """对单个住法预设打分。"""
-    score = 0.0
-
-    # 1. 天数匹配（硬约束，不匹配直接 -100）
     if days < preset.min_days or days > preset.max_days:
         return -100.0
 
-    # 2. 画像匹配（30%）
-    party = profile.party_type or ""
-    budget = profile.budget_level or ""
-    party_match = 1.0 if party in (preset.fit_party_types or []) else 0.3
-    budget_match = 1.0 if budget in (preset.fit_budget_levels or []) else 0.4
+    score = 0.0
+    party = (profile.party_type or "").lower()
+    budget = (profile.budget_level or "").lower()
+    party_match = 1.0 if party in {str(x).lower() for x in (preset.fit_party_types or [])} else 0.3
+    budget_match = 1.0 if budget in {str(x).lower() for x in (preset.fit_budget_levels or [])} else 0.4
     score += (party_match * 0.5 + budget_match * 0.5) * 30
 
-    # 3. 主要活动覆盖（40%）
     if selected_cluster_ids:
         all_served = set()
-        for base_data in (preset.bases or []):
-            all_served.update(base_data.get("served_cluster_ids", []))
+        for base_data in preset.bases or []:
+            all_served.update(base_data.get("served_cluster_ids", []) or [])
         covered = len(set(selected_cluster_ids) & all_served)
-        coverage = covered / len(selected_cluster_ids)
-        score += coverage * 40
+        score += (covered / len(selected_cluster_ids)) * 40
 
-    # 4. 换酒店容忍度匹配（20%）
-    tolerance = (profile.hotel_switch_tolerance or "medium").lower()
-    switch = preset.switch_count or 0
-    if tolerance == "low":
-        switch_score = max(0, 1.0 - switch * 0.5)
-    elif tolerance == "high":
+    switch_tolerance = (profile.hotel_switch_tolerance or "medium").lower()
+    switch_count = preset.switch_count or 0
+    if switch_tolerance == "low":
+        switch_score = max(0.0, 1.0 - switch_count * 0.5)
+    elif switch_tolerance == "high":
         switch_score = 0.8
     else:
-        switch_score = max(0, 1.0 - switch * 0.3)
+        switch_score = max(0.0, 1.0 - switch_count * 0.3)
     score += switch_score * 20
 
-    # 5. 多城市契合度（新增 15%）
-    # 当 profile.cities 包含多个城市时，bases 城市数量与之匹配的 preset 加分
-    profile_cities = {c.get("city_code", "") for c in (getattr(profile, "cities", None) or [])}
-    preset_base_cities = {b.get("base_city", "") for b in (preset.bases or [])}
+    profile_cities = {c.get("city_code", "").lower() for c in (getattr(profile, "cities", None) or []) if isinstance(c, dict)}
+    preset_base_cities = {(b.get("base_city", "") or "").lower() for b in (preset.bases or [])}
     if len(profile_cities) >= 2:
-        city_overlap = len(profile_cities & preset_base_cities) / max(len(profile_cities), 1)
+        city_overlap = len(profile_cities & preset_base_cities) / max(1, len(profile_cities))
         score += city_overlap * 15
-    else:
-        # 单城市行程：单基点 preset 加分
-        if len(preset_base_cities) == 1 and preset_base_cities & profile_cities:
-            score += 15
+    elif len(preset_base_cities) == 1 and preset_base_cities & profile_cities:
+        score += 15
 
-    # 6. 优先级 bonus（10%）
-    priority_bonus = max(0, (100 - (preset.priority or 50)) / 100)
+    priority_bonus = max(0.0, (100 - (preset.priority or 50)) / 100)
     score += priority_bonus * 10
+
+    if resolved_policy is not None:
+        policy = resolved_policy.hotel_base_policy
+        score += _score_base_pattern_bias(
+            base_count=len(preset.bases or []),
+            bias=policy.base_pattern_bias,
+            switch_tolerance=switch_tolerance,
+            city_count=len(profile_cities),
+        )
+        if policy.prefer_last_night_near_hub:
+            airport_minutes = preset.last_night_airport_minutes or 999
+            if airport_minutes <= policy.last_night_hub_max_minutes:
+                score += 12
+            else:
+                score -= min(12.0, (airport_minutes - policy.last_night_hub_max_minutes) / 10)
+        if policy.long_segment_base_preference == "route_node":
+            score += _score_route_node_fit(preset) * max(0.0, policy.route_node_bias_weight) * 10
+
+    if constraints and constraints.must_stay_area:
+        target = constraints.must_stay_area.lower()
+        if any((base.get("area", "") or "").lower() == target for base in (preset.bases or [])):
+            score += 18
+        else:
+            score -= 4
+
+    booked_items = getattr(profile, "booked_items", None) or []
+    if booked_items:
+        score += _score_booked_hotel_alignment(preset, booked_items)
 
     return score
 
 
-# ── 最后一晚安全检查 ──────────────────────────────────────────────────────────
+def _score_base_pattern_bias(
+    *,
+    base_count: int,
+    bias: str,
+    switch_tolerance: str,
+    city_count: int,
+) -> float:
+    if bias == "single_base":
+        score = 10 if base_count == 1 else -6 * max(0, base_count - 1)
+    elif bias == "double_base":
+        score = 12 if base_count == 2 else 6 if base_count == 1 else 8 - abs(base_count - 2) * 4
+    elif bias == "multi_base":
+        score = 12 if base_count >= 3 else 8 if base_count == 2 else -8
+    else:
+        score = 0
+
+    if switch_tolerance == "low" and base_count >= 3:
+        score -= 6
+    if city_count >= 3 and base_count >= 2:
+        score += 4
+    return score
+
+
+def _score_route_node_fit(preset: HotelStrategyPreset) -> float:
+    bases = preset.bases or []
+    if not bases:
+        return 0.0
+    served_counts = [len(base.get("served_cluster_ids", []) or []) for base in bases]
+    avg_served = sum(served_counts) / max(1, len(served_counts))
+    if len(bases) >= 3:
+        return 1.0 if avg_served <= 2.5 else 0.6
+    if len(bases) == 2:
+        return 0.6 if avg_served <= 3.0 else 0.2
+    return -0.4
+
+
+def _score_booked_hotel_alignment(preset: HotelStrategyPreset, booked_items: list[Any]) -> float:
+    matched = 0
+    preset_areas = {
+        (base.get("area", "") or base.get("base_city", "") or "").lower()
+        for base in (preset.bases or [])
+    }
+    preset_cities = {(base.get("base_city", "") or "").lower() for base in (preset.bases or [])}
+    for item in booked_items:
+        if not isinstance(item, dict):
+            continue
+        item_type = str(item.get("item_type") or item.get("type") or "").lower()
+        if item_type and "hotel" not in item_type:
+            continue
+        item_area = str(item.get("area") or item.get("hotel_area") or "").lower()
+        item_city = str(item.get("city_code") or item.get("city") or "").lower()
+        if item_area and item_area in preset_areas:
+            matched += 1
+        elif item_city and item_city in preset_cities:
+            matched += 1
+    return matched * 8.0
+
+
+def _record_constraint_consumption(
+    *,
+    constraints: "PlanningConstraints | None",
+    profile: TripProfile,
+    result: HotelStrategyResult,
+) -> None:
+    if constraints is None:
+        return
+    constraints.record_consumption(
+        "policy_hotel_base",
+        "hotel_base_builder",
+        "preset_selected",
+        f"selected={result.preset_name or 'default'} bases={len(result.bases)}",
+    )
+    if constraints.must_stay_area:
+        constraints.record_consumption(
+            "must_stay_area",
+            "hotel_base_builder",
+            "area_bias_applied",
+            f"target={constraints.must_stay_area} selected={[b.area or b.base_city for b in result.bases]}",
+        )
+    booked_items = getattr(profile, "booked_items", None) or []
+    if booked_items:
+        constraints.record_consumption(
+            "booked_items",
+            "hotel_base_builder",
+            "booked_items_checked",
+            f"checked {len(booked_items)} booked items",
+        )
+
 
 def _check_last_night_safety(
     airport_minutes: Optional[int],
     flight_time: Optional[str],
+    *,
+    required_buffer_minutes: int = 180,
 ) -> bool:
-    """
-    检查最后一晚到机场的时间是否安全。
-
-    规则：到机场时间 + 3 小时 checkin 缓冲 < 航班时间
-    """
     if not airport_minutes or not flight_time:
-        return True  # 数据不足，默认安全
+        return True
 
     try:
         parts = flight_time.split(":")
         flight_hour = int(parts[0])
         flight_min = int(parts[1]) if len(parts) > 1 else 0
         flight_total_min = flight_hour * 60 + flight_min
-
-        # 需要在航班前至少 3 小时到机场
-        needed_departure_min = flight_total_min - 180  # 3 小时
-        # 假设早上 8 点出发
+        needed_departure_min = flight_total_min - required_buffer_minutes
         departure_time_min = 8 * 60 + airport_minutes
-
         return departure_time_min <= needed_departure_min
-    except (ValueError, TypeError):
+    except (TypeError, ValueError):
         return True
 
-
-# ── 默认策略 ──────────────────────────────────────────────────────────────────
 
 def _build_default_strategy(
     profile: TripProfile,
     result: HotelStrategyResult,
+    *,
+    resolved_policy: ResolvedPolicySet | None = None,
 ) -> HotelStrategyResult:
-    """无预设时的默认单基点策略。"""
     days = profile.duration_days or 5
     city_codes = [c.get("city_code", "") for c in (profile.cities or []) if isinstance(c, dict)]
     base_city = city_codes[0] if city_codes else "unknown"
-
-    result.bases = [
-        HotelBase(
-            base_city=base_city,
-            nights=days - 1,
-        ),
-    ]
-    result.total_nights = days - 1
+    result.bases = [HotelBase(base_city=base_city, nights=max(1, days - 1))]
+    result.total_nights = max(1, days - 1)
     result.switch_count = 0
     result.last_night_safe = True
-    result.trace.append(f"default: single base at {base_city}, {days - 1} nights")
+    result.policy_summary = _policy_summary(resolved_policy)
+    result.trace.append(f"default_single_base={base_city} nights={max(1, days - 1)}")
     result.explain = HotelExplain(
-        why_selected=f"无预设匹配，使用默认单基点: {base_city} ({days - 1} 晚)",
-        expected_tradeoff="单基点策略，不换酒店",
+        why_selected=f"no preset matched, default single base {base_city} ({max(1, days - 1)} nights)",
+        expected_tradeoff="single base strategy, no hotel switching",
     )
     return result
+
+
+def _policy_summary(resolved_policy: ResolvedPolicySet | None) -> dict[str, Any]:
+    if resolved_policy is None:
+        return {}
+    policy = resolved_policy.hotel_base_policy
+    return {
+        "base_pattern_bias": policy.base_pattern_bias,
+        "prefer_last_night_near_hub": policy.prefer_last_night_near_hub,
+        "long_segment_base_preference": policy.long_segment_base_preference,
+        "route_node_bias_weight": policy.route_node_bias_weight,
+    }

@@ -190,6 +190,32 @@ def _minimal_plan_json(days: int = 5, segment: str = "couple") -> dict[str, Any]
     }
 
 
+def _minimal_phase2_plan_from_contract(case: dict[str, Any]) -> dict[str, Any]:
+    destinations = list((case.get("city_circle_intent") or {}).get("destination_intent") or [])
+    window = dict(case.get("trip_window") or {})
+    days = max(3, len(destinations) + 2)
+    plan = _minimal_plan_json(days=days, segment=case.get("party_type", "couple"))
+    plan["meta"]["requested_city_circle"] = (case.get("city_circle_intent") or {}).get("circle_id")
+    plan["meta"]["destination_intent"] = destinations
+    plan["meta"]["arrival"] = window.get("arrival")
+    plan["meta"]["departure"] = window.get("departure")
+    plan["meta"]["booked_items"] = list(case.get("booked_items") or [])
+    plan["meta"]["do_not_go_places"] = list(case.get("do_not_go_places") or [])
+    plan["meta"]["visited_places"] = list(case.get("visited_places") or [])
+    plan["meta"]["companion_breakdown"] = {
+        "party_type": case.get("party_type"),
+        "party_size": case.get("party_size"),
+        "children_ages": list(case.get("children_ages") or []),
+        "has_children": bool(case.get("has_children")),
+    }
+    plan["meta"]["budget_range"] = {
+        "budget_level": case.get("budget_level"),
+        "currency": case.get("budget_currency"),
+        "total": case.get("budget_total_cny"),
+    }
+    return plan
+
+
 # ── TC-01: Happy path ─────────────────────────────────────────────────────────
 
 class TestHappyPath:
@@ -580,3 +606,123 @@ class TestEvalFramework:
         assert len(regressions) > 0, "未检测到明显回归"
         # overall 应该也回归
         assert any(r["dimension"] == "overall" for r in regressions)
+
+def test_phase2_contract_smoke_single_case():
+    """Phase 2 smoke: full-pipeline entry can consume one migrated contract sample."""
+    from scripts.test_cases import CASE_PHASE2_MIGRATED
+    from app.workers.__main__ import derive_profile_tags, _derive_circle_signals
+    from app.domains.planning.constraint_compiler import compile_constraints
+
+    case = CASE_PHASE2_MIGRATED
+    intent = case["city_circle_intent"]
+    window = case["trip_window"]
+    raw = {
+        "party_type": case["party_type"],
+        "party_size": case["party_size"],
+        "budget_level": case["budget_level"],
+        "budget_total_cny": case["budget_total_cny"],
+        "budget_currency": case["budget_currency"],
+        "budget_focus": case["budget_focus"],
+        "pace": case["pace"],
+        "duration_days": 5,
+        "requested_city_circle": intent["circle_id"],
+        "city_circle_intent": intent,
+        "cities": [{"city_code": c, "nights": 2} for c in intent["destination_intent"]],
+        "must_have_tags": ["culture", "food"],
+        "nice_to_have_tags": ["photo"],
+        "avoid_tags": ["sashimi"],
+        "must_visit_places": case["must_visit_places"],
+        "visited_places": case["visited_places"],
+        "do_not_go_places": case["do_not_go_places"],
+        "booked_items": case["booked_items"],
+        "special_needs": {
+            "do_not_go_places": case["do_not_go_places"],
+            "booked_items": case["booked_items"],
+            "locked_items": case["booked_items"],
+            **case["special_requirements"],
+        },
+        "travel_start_date": window["start_date"],
+        "travel_end_date": window["end_date"],
+        "flight_info": {
+            "outbound": {"airport": window["arrival"]["airport"], "arrive_time": window["arrival"]["time"]},
+            "return": {"airport": window["departure"]["airport"], "depart_time": window["departure"]["time"]},
+        },
+        "arrival_airport": window["arrival"]["airport"],
+        "departure_airport": window["departure"]["airport"],
+    }
+    tags = derive_profile_tags(raw)
+    derived = _derive_circle_signals(raw, raw["cities"], raw["duration_days"], tags)
+    profile = type("P", (), {})()
+    profile.must_visit_places = raw["must_visit_places"]
+    profile.must_have_tags = tags["must_have"]
+    profile.nice_to_have_tags = tags["nice_to_have"]
+    profile.avoid_tags = tags["avoid"]
+    profile.blocked_clusters = case["do_not_go_places"]
+    profile.blocked_pois = []
+    profile.pace = raw["pace"]
+    profile.cities = raw["cities"]
+    profile.must_stay_area = None
+    profile.party_type = raw["party_type"]
+    profile.arrival_time = window["arrival"]["time"]
+    profile.arrival_shape = derived["arrival_shape"]
+    profile.departure_day_shape = derived["departure_day_shape"]
+    profile.special_requirements = derived["special_requirements"]
+
+    constraints = compile_constraints(profile)
+    assert "fushimi_inari_taisha" in constraints.must_go_clusters
+    assert "osa_usj_themepark" in constraints.blocked_clusters
+    assert constraints.arrival_evening_only is True
+    assert constraints.departure_day_no_poi is True
+    assert profile.special_requirements["visited_places"] == case["visited_places"]
+    assert profile.special_requirements["requested_city_circle"] == intent["circle_id"]
+    assert profile.special_requirements["companion_breakdown"]["party_size"] == case["party_size"]
+    assert profile.special_requirements["budget_range"]["total"] == case["budget_total_cny"]
+
+
+def test_phase2_contract_batch_cases_preserve_new_fields():
+    from app.domains.intake.layer2_contract import build_layer2_canonical_input
+    from scripts.test_cases import PHASE2_CASES
+
+    for case in PHASE2_CASES:
+        window = case["trip_window"]
+        canonical = build_layer2_canonical_input(
+            {
+                **case,
+                "requested_city_circle": case["city_circle_intent"]["circle_id"],
+                "travel_start_date": window["start_date"],
+                "travel_end_date": window["end_date"],
+                "arrival_date": window["start_date"],
+                "arrival_time": window["arrival"]["time"],
+                "departure_date": window["end_date"],
+                "departure_time": window["departure"]["time"],
+                "do_not_go_places": case.get("do_not_go_places", []),
+                "visited_places": case.get("visited_places", []),
+            }
+        )
+
+        assert canonical["requested_city_circle"] == case["city_circle_intent"]["circle_id"]
+        assert canonical["do_not_go_places"] == case.get("do_not_go_places", [])
+        assert canonical["visited_places"] == case.get("visited_places", [])
+        assert canonical["booked_items"] == case.get("booked_items", [])
+        assert canonical["companion_breakdown"]["party_type"] == case.get("party_type")
+        assert canonical["budget_range"]["budget_level"] == case.get("budget_level")
+
+
+def test_phase2_contract_offline_eval_alignment():
+    from app.domains.evaluation.offline_eval import build_eval_case_from_contract, run_eval
+    from scripts.test_cases import CASE_PHASE2_KANSAI_FAMILY
+
+    phase2_case = build_eval_case_from_contract(
+        case_id=CASE_PHASE2_KANSAI_FAMILY["case_id"],
+        description=CASE_PHASE2_KANSAI_FAMILY["case_desc"],
+        contract=CASE_PHASE2_KANSAI_FAMILY,
+        expected_constraints={"min_days": 4, "must_include_types": ["poi", "restaurant"]},
+    )
+    plan = _minimal_phase2_plan_from_contract(CASE_PHASE2_KANSAI_FAMILY)
+    report = run_eval([plan], cases=[phase2_case], version="phase2_contract_eval")
+
+    assert report.total_cases == 1
+    assert phase2_case.input_contract is not None
+    assert phase2_case.input_contract["requested_city_circle"] == "kansai_classic_circle"
+    assert phase2_case.input_contract["do_not_go_places"] == ["osa_usj_themepark"]
+    assert report.dimension_avgs["safety"] >= 7.0

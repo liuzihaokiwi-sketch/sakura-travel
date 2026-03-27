@@ -1,13 +1,15 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 """
-行程规划 & 导出 API
-  POST /trips/{id}/generate           → 触发规划 job → 202
-        ?template_code=tokyo_classic_5d&scene=couple  (Phase 1 模板引擎)
-  GET  /trips/{id}/plan               → 返回行程 JSON
-  GET  /trips/{id}/preview            → 返回 H5 预览 URL（从 export_assets 查询）
-  GET  /trips/{id}/exports            → 返回 PDF 下载链接列表
-  GET  /trips/{id}/export             → 直接渲染 HTML/PDF（旧接口保留）
+琛岀▼瑙勫垝涓庡鍑?API銆?
+涓昏鍏ュ彛锛?- POST /trips/{id}/generate
+- GET /trips/{id}/plan
+- GET /trips/{id}/preview
+- GET /trips/{id}/exports
+- GET /trips/{id}/export
+- POST /trips/{id}/page-overrides
+- GET /trips/{id}/page-models
+- GET /trips/{id}/page-render
 """
 
 import uuid
@@ -15,7 +17,7 @@ from typing import Any, Dict, List, Optional
 
 import asyncio
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, Response, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -23,12 +25,20 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.queue import enqueue_job
 from app.db.models.business import TripRequest
 from app.db.models.derived import ExportAsset, ExportJob, ItineraryDay, ItineraryItem, ItineraryPlan
+from app.domains.rendering.page_editing import (
+    apply_persisted_editor_overrides,
+    build_page_render_payload,
+    deserialize_page_models,
+    merge_editor_overrides,
+    sanitize_editor_overrides,
+    serialize_page_models,
+)
 from app.db.session import get_db
 
 router = APIRouter(prefix="/trips", tags=["trips-plan"])
 
 
-# ── 响应模型 ──────────────────────────────────────────────────────────────────
+# 鈹€鈹€ 鍝嶅簲妯″瀷 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 class ItemOut(BaseModel):
     model_config = {"from_attributes": True}
@@ -39,8 +49,7 @@ class ItemOut(BaseModel):
     notes_zh: Optional[str] = None
     estimated_cost_jpy: Optional[int] = None
     is_optional: bool = False
-    # 解析后的富字段
-    entity_name: Optional[str] = None
+    # 瑙ｆ瀽鍚庣殑瀵屽瓧娈?    entity_name: Optional[str] = None
     copy_zh: Optional[str] = None
     tips_zh: Optional[str] = None
     area_name: Optional[str] = None
@@ -69,7 +78,6 @@ class GenerateResponse(BaseModel):
     message: str
     trip_request_id: str
     job_queued: bool
-    template_code: Optional[str] = None
     scene: Optional[str] = None
 
 
@@ -96,34 +104,125 @@ class ExportsResponse(BaseModel):
     total: int
 
 
-# ── POST /trips/{id}/generate ─────────────────────────────────────────────────
+class PageOverrideSaveRequest(BaseModel):
+    edits_by_page: Dict[str, Dict[str, Any]]
+
+
+class PageOverrideSaveResponse(BaseModel):
+    trip_request_id: str
+    plan_id: str
+    saved_pages: int
+    editable_keys_saved: int
+
+
+class PageModelsResponse(BaseModel):
+    trip_request_id: str
+    plan_id: str
+    page_models: Dict[str, Dict[str, Any]]
+    page_editor_overrides: Dict[str, Dict[str, Any]]
+    page_asset_manifest: Optional[Dict[str, Any]] = None
+
+
+class PageRenderResponse(BaseModel):
+    trip_request_id: str
+    plan_id: str
+    mode: str
+    render_payload: Dict[str, Any]
+
+
+async def _load_latest_plan_for_trip(
+    db: AsyncSession,
+    req_uuid: uuid.UUID,
+) -> ItineraryPlan | None:
+    result = await db.execute(
+        select(ItineraryPlan)
+        .where(ItineraryPlan.trip_request_id == req_uuid)
+        .order_by(ItineraryPlan.version.desc())
+        .limit(1)
+    )
+    return result.scalar_one_or_none()
+
+
+def _load_page_models_with_edits(plan: ItineraryPlan) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+    meta = dict(plan.plan_metadata or {})
+    raw_page_models = meta.get("page_models")
+    base_models = deserialize_page_models(raw_page_models if isinstance(raw_page_models, dict) else {})
+    overrides = _read_page_editor_overrides(meta)
+    edited_models = apply_persisted_editor_overrides(base_models, overrides)
+    serialized = serialize_page_models(edited_models)
+    asset_manifest = meta.get("page_asset_manifest")
+    asset_manifest = asset_manifest if isinstance(asset_manifest, dict) else None
+    return serialized, overrides, meta, asset_manifest
+
+
+def _read_page_editor_overrides(meta: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    overrides = meta.get("page_editor_overrides")
+    if isinstance(overrides, dict):
+        return overrides
+    legacy_overrides = meta.get("page_edit_patches")
+    return legacy_overrides if isinstance(legacy_overrides, dict) else {}
+
+
+def _derive_generation_defaults(raw_input: dict[str, Any]) -> str:
+    normalized_input = raw_input if isinstance(raw_input, dict) else {}
+    party = str(normalized_input.get("party_type") or "").strip().lower()
+    scene_map = {
+        "couple": "couple",
+        "solo": "solo",
+        "family_child": "family",
+        "family_no_child": "family",
+        "group": "solo",
+        "senior": "senior",
+    }
+    return scene_map.get(party, "couple")
+
+
+async def _enqueue_generate_trip_job(
+    trip_request_id: str,
+    *,
+    scene: str,
+) -> bool:
+    try:
+        queued = await enqueue_job(
+            "generate_trip",
+            trip_request_id=trip_request_id,
+            scene=scene,
+        )
+    except Exception:
+        queued = None
+
+    if queued:
+        return True
+
+    from app.workers.jobs.generate_trip import generate_trip as _generate_trip_job
+
+    asyncio.ensure_future(
+        _generate_trip_job(
+            {},
+            trip_request_id=trip_request_id,
+            scene=scene,
+        )
+    )
+    return False
+
+
+# 鈹€鈹€ POST /trips/{id}/generate 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 @router.post("/{trip_request_id}/generate", response_model=GenerateResponse, status_code=202)
 async def generate_trip(
     trip_request_id: str,
-    template_code: Optional[str] = Query(
-        None,
-        description="路线模板代码，如 tokyo_classic_5d（使用模板引擎时必填）",
-        examples=["tokyo_classic_5d"],
-    ),
     scene: Optional[str] = Query(
         None,
-        description="出行场景：couple / family / solo / senior",
+        description="鍑鸿鍦烘櫙锛歝ouple / family / solo / senior",
         examples=["couple"],
     ),
     db: AsyncSession = Depends(get_db),
 ):
     """
-    触发行程规划 arq job。
-
-    **两种调用模式：**
-    1. **模板模式（Phase 1 推荐）**：传入 `template_code` + `scene`，
-       使用 `generate_trip` job（模板引擎）生成高质量攻略
-    2. **传统模式**：不传参数，使用 `generate_itinerary_plan` job（要求状态为 profiled）
-
-    返回 202 后，通过 `GET /trips/{id}/status` 轮询状态，
-    完成后用 `GET /trips/{id}/preview` 获取预览链接。
-    """
+    瑙﹀彂琛岀▼瑙勫垝 arq job銆?
+    褰撳墠浠呮敮鎸佸煄甯傚湀涓婚摼鐢熸垚锛屼笉鍐嶅紑鏀炬棫妯℃澘鐢熸垚鍏ュ彛銆?
+    杩斿洖 202 鍚庯紝閫氳繃 `GET /trips/{id}/status` 杞鐘舵€侊紝
+    瀹屾垚鍚庣敤 `GET /trips/{id}/preview` 鑾峰彇棰勮閾炬帴銆?    """
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
@@ -134,103 +233,42 @@ async def generate_trip(
     if trip_req is None:
         raise HTTPException(status_code=404, detail="TripRequest not found")
 
-    if template_code:
-        # ── Phase 1 模板引擎模式 ────────────────────────────────────────────
-        _valid_scenes = {"couple", "family", "solo", "senior"}
-        _scene = scene or "couple"
-        if _scene not in _valid_scenes:
-            raise HTTPException(
-                status_code=422,
-                detail=f"Invalid scene '{_scene}', must be one of {sorted(_valid_scenes)}",
-            )
-
-        # 允许 pending/profiled/failed 状态触发（模板模式不依赖 profiling 流程）
-        if trip_req.status in ("assembling", "reviewing"):
-            raise HTTPException(
-                status_code=409,
-                detail=f"Trip is already being processed (status={trip_req.status})",
-            )
-
-        trip_req.status = "assembling"
-        await db.commit()
-
-        queued = None
-        try:
-            queued = await enqueue_job(
-                "generate_trip",
-                trip_request_id=trip_request_id,
-                template_code=template_code,
-                scene=_scene,
-            )
-        except Exception:
-            queued = None
-
-        if not queued:
-            # Redis 不可用 → 直接在当前进程异步执行装配（开发 / 单机模式）
-            from app.db.session import AsyncSessionLocal as _SessionFactory
-            from app.domains.planning.assembler import assemble_trip, enrich_itinerary_with_copy
-
-            async def _run_inline() -> None:
-                async with _SessionFactory() as _sess:
-                    try:
-                        plan_id = await assemble_trip(
-                            session=_sess,
-                            trip_request_id=req_uuid,
-                            template_code=template_code,
-                            scene=_scene,
-                        )
-                        await enrich_itinerary_with_copy(
-                            session=_sess, plan_id=plan_id, scene=_scene
-                        )
-                        # 更新 trip_request 状态为 reviewing
-                        async with _SessionFactory() as _s2:
-                            _tr = await _s2.get(TripRequest, req_uuid)
-                            if _tr:
-                                _tr.status = "reviewing"
-                                await _s2.commit()
-                    except Exception as _exc:
-                        import logging as _log
-                        _log.getLogger(__name__).exception("inline assemble_trip 失败: %s", _exc)
-                        async with _SessionFactory() as _s3:
-                            _tr = await _s3.get(TripRequest, req_uuid)
-                            if _tr:
-                                _tr.status = "failed"
-                                await _s3.commit()
-
-            asyncio.ensure_future(_run_inline())
-
-        return GenerateResponse(
-            message=f"模板行程生成{'已加入队列' if queued else '正在生成'}（{template_code}/{_scene}），请稍候",
-            trip_request_id=trip_request_id,
-            job_queued=bool(queued),
-            template_code=template_code,
-            scene=_scene,
+    # 鈹€鈹€ 榛樿鍏ュ彛锛氬煄甯傚湀涓婚摼 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+    if trip_req.status in ("assembling", "reviewing", "planning", "normalizing"):
+        raise HTTPException(
+            status_code=409,
+            detail=f"Trip is already being processed (status={trip_req.status})",
         )
 
-    else:
-        # ── 传统 profiling 模式 ─────────────────────────────────────────────
-        if trip_req.status not in ("profiled", "failed"):
-            raise HTTPException(
-                status_code=409,
-                detail=f"Cannot generate: status is '{trip_req.status}', expected 'profiled'",
-            )
+    raw_input = trip_req.raw_input if isinstance(trip_req.raw_input, dict) else {}
+    if not raw_input:
+        raise HTTPException(status_code=409, detail="TripRequest.raw_input is missing")
 
-        trip_req.status = "planning"
-        await db.commit()
+    resolved_scene = scene or _derive_generation_defaults(raw_input)
 
-        queued = await enqueue_job("generate_itinerary_plan", trip_request_id)
-        return GenerateResponse(
-            message="行程规划已加入队列，请稍候",
-            trip_request_id=trip_request_id,
-            job_queued=queued,
-        )
+    trip_req.status = "normalizing"
+    await db.commit()
+
+    from app.workers.__main__ import normalize_trip_profile
+
+    await normalize_trip_profile({}, trip_request_id)
+    queued = await _enqueue_generate_trip_job(
+        trip_request_id,
+        scene=resolved_scene,
+    )
+    return GenerateResponse(
+        message=f"鍩庡競鍦堜富閾剧敓鎴恵'宸插姞鍏ラ槦鍒? if queued else '姝ｅ湪鐢熸垚'}锛坰cene={resolved_scene}锛夛紝璇风◢鍊?,
+        trip_request_id=trip_request_id,
+        job_queued=queued,
+        scene=resolved_scene,
+    )
 
 
-# ── GET /trips/{id}/plan ──────────────────────────────────────────────────────
+# 鈹€鈹€ GET /trips/{id}/plan 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 @router.get("/{trip_request_id}/plan", response_model=PlanOut)
 async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
-    """获取已生成的行程方案"""
+    """鑾峰彇宸茬敓鎴愮殑琛岀▼鏂规"""
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
@@ -261,14 +299,14 @@ async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
         items = items_result.scalars().all()
         rich_items = []
         for i in items:
-            # 解析 notes_zh JSON
+            # 瑙ｆ瀽 notes_zh JSON
             notes = {}
             if i.notes_zh:
                 try:
                     notes = _json.loads(i.notes_zh)
                 except (ValueError, TypeError):
                     notes = {"copy_zh": i.notes_zh}
-            # 关联 entity
+            # 鍏宠仈 entity
             entity = await db.get(EntityBase, i.entity_id) if i.entity_id else None
             entity_name = notes.get("copy_zh") or (
                 getattr(entity, "name_zh", None) or getattr(entity, "name_en", "") if entity else ""
@@ -300,48 +338,141 @@ async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
     )
 
 
-# ── GET /trips/{id}/export ────────────────────────────────────────────────────
+# 鈹€鈹€ GET /trips/{id}/export 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
-@router.get("/{trip_request_id}/export")
-async def export_plan(trip_request_id: str, fmt: str = "html", db: AsyncSession = Depends(get_db)):
-    """导出行程 HTML 或 PDF（?fmt=pdf）"""
+
+
+@router.post("/{trip_request_id}/page-overrides", response_model=PageOverrideSaveResponse)
+@router.post("/{trip_request_id}/page-edits", response_model=PageOverrideSaveResponse)
+async def save_page_overrides(
+    trip_request_id: str,
+    req: PageOverrideSaveRequest,
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Persist editable-only page overrides into plan_metadata.
+    System-owned fields (stable_inputs/internal_state) are ignored by design.
+    """
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
         raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
 
-    plan_result = await db.execute(
-        select(ItineraryPlan).where(ItineraryPlan.trip_request_id == req_uuid)
-        .order_by(ItineraryPlan.version.desc()).limit(1)
-    )
-    plan = plan_result.scalar_one_or_none()
+    plan = await _load_latest_plan_for_trip(db, req_uuid)
     if plan is None:
         raise HTTPException(status_code=404, detail="No itinerary plan found")
 
-    from app.domains.rendering.renderer import render_html, render_pdf
-    html_content = await render_html(db, str(plan.plan_id))
+    meta = dict(plan.plan_metadata or {})
+    base_page_models = deserialize_page_models(meta.get("page_models"))
+    if not base_page_models:
+        raise HTTPException(status_code=409, detail="plan_metadata.page_models is missing")
 
-    if fmt == "pdf":
-        try:
-            pdf_bytes = await render_pdf(html_content)
-            return Response(
-                content=pdf_bytes, media_type="application/pdf",
-                headers={"Content-Disposition": f"attachment; filename=sakura-plan-{trip_request_id[:8]}.pdf"},
-            )
-        except (ImportError, OSError) as pdf_err:
-            import logging as _log
-            _log.getLogger(__name__).warning("PDF 引擎不可用，降级到浏览器打印: %s", pdf_err)
-            print_html = html_content.replace(
-                "</head>",
-                "<style>@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .day-card { break-inside: avoid; } }</style>\n"
-                "<script>window.onload = function() { window.print(); }</script>\n</head>"
-            )
-            return Response(content=print_html, media_type="text/html; charset=utf-8")
+    sanitized_overrides = sanitize_editor_overrides(base_page_models, req.edits_by_page)
+    existing_overrides = _read_page_editor_overrides(meta)
+    merged_overrides = merge_editor_overrides(existing_overrides, sanitized_overrides)
+    meta["page_editor_overrides"] = merged_overrides
+    plan.plan_metadata = meta
+    await db.flush()
 
-    return Response(content=html_content, media_type="text/html; charset=utf-8")
+    editable_key_count = sum(
+        len((x.get("editable_content") or {}))
+        for x in merged_overrides.values()
+        if isinstance(x, dict)
+    )
+    return PageOverrideSaveResponse(
+        trip_request_id=trip_request_id,
+        plan_id=str(plan.plan_id),
+        saved_pages=len(sanitized_overrides),
+        editable_keys_saved=editable_key_count,
+    )
 
 
-# ── GET /trips/{id}/preview ───────────────────────────────────────────────────
+save_page_edits = save_page_overrides
+PageEditSaveRequest = PageOverrideSaveRequest
+PageEditSaveResponse = PageOverrideSaveResponse
+
+
+@router.get("/{trip_request_id}/page-models", response_model=PageModelsResponse)
+async def get_page_models(
+    trip_request_id: str,
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Read page models with persisted editable overrides applied.
+    """
+    try:
+        req_uuid = uuid.UUID(trip_request_id)
+    except ValueError:
+        raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
+
+    plan = await _load_latest_plan_for_trip(db, req_uuid)
+    if plan is None:
+        raise HTTPException(status_code=404, detail="No itinerary plan found")
+
+    meta = dict(plan.plan_metadata or {})
+    base_page_models = deserialize_page_models(meta.get("page_models"))
+    if not base_page_models:
+        raise HTTPException(status_code=409, detail="plan_metadata.page_models is missing")
+
+    persisted_overrides = _read_page_editor_overrides(meta)
+
+    edited_models = apply_persisted_editor_overrides(base_page_models, persisted_overrides)
+    return PageModelsResponse(
+        trip_request_id=trip_request_id,
+        plan_id=str(plan.plan_id),
+        page_models=serialize_page_models(edited_models),
+        page_editor_overrides=persisted_overrides,
+        page_asset_manifest=meta.get("page_asset_manifest") if isinstance(meta.get("page_asset_manifest"), dict) else None,
+    )
+
+
+@router.get("/{trip_request_id}/page-render", response_model=PageRenderResponse)
+async def get_page_render_payload(
+    trip_request_id: str,
+    mode: str = Query("preview", pattern="^(preview|render)$"),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Build preview/render payload from edited page models on the same source data.
+    """
+    try:
+        req_uuid = uuid.UUID(trip_request_id)
+    except ValueError:
+        raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
+
+    plan = await _load_latest_plan_for_trip(db, req_uuid)
+    if plan is None:
+        raise HTTPException(status_code=404, detail="No itinerary plan found")
+
+    meta = dict(plan.plan_metadata or {})
+    base_page_models = deserialize_page_models(meta.get("page_models"))
+    if not base_page_models:
+        raise HTTPException(status_code=409, detail="plan_metadata.page_models is missing")
+
+    persisted_overrides = _read_page_editor_overrides(meta)
+    asset_manifest = meta.get("page_asset_manifest")
+    asset_manifest = asset_manifest if isinstance(asset_manifest, dict) else None
+
+    edited_models = apply_persisted_editor_overrides(base_page_models, persisted_overrides)
+    payload = build_page_render_payload(edited_models, mode=mode, asset_manifest=asset_manifest)
+    return PageRenderResponse(
+        trip_request_id=trip_request_id,
+        plan_id=str(plan.plan_id),
+        mode=mode,
+        render_payload=payload,
+    )
+
+@router.get("/{trip_request_id}/export")
+async def export_plan(trip_request_id: str, fmt: str = "html", db: AsyncSession = Depends(get_db)):
+    raise HTTPException(
+        status_code=410,
+        detail=(
+            "Legacy export endpoint is retired from main flow. "
+            "Use page-model export chain (/api/plan/{id}/pdf or shared_export_contract-based path)."
+        ),
+    )
+
+# 鈹€鈹€ GET /trips/{id}/preview 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 @router.get("/{trip_request_id}/preview", response_model=PreviewResponse)
 async def get_preview(
@@ -349,17 +480,14 @@ async def get_preview(
     db: AsyncSession = Depends(get_db),
 ):
     """
-    获取行程 H5 预览 URL。
-
-    从 `export_assets` 表查询最新的 `h5` 类型产物，返回访问链接。
-    若渲染尚未完成，返回当前状态供前端轮询。
-    """
+    鑾峰彇琛岀▼ H5 棰勮 URL銆?
+    浠?`export_assets` 琛ㄦ煡璇㈡渶鏂扮殑 `h5` 绫诲瀷浜х墿锛岃繑鍥炶闂摼鎺ャ€?    鑻ユ覆鏌撳皻鏈畬鎴愶紝杩斿洖褰撳墠鐘舵€佷緵鍓嶇杞銆?    """
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
         raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
 
-    # 找到最新 plan
+    # 鎵惧埌鏈€鏂?plan
     plan_result = await db.execute(
         select(ItineraryPlan)
         .where(ItineraryPlan.trip_request_id == req_uuid)
@@ -369,8 +497,7 @@ async def get_preview(
     plan = plan_result.scalar_one_or_none()
 
     if plan is None:
-        # 检查 trip 状态
-        trip = await db.get(TripRequest, req_uuid)
+        # 妫€鏌?trip 鐘舵€?        trip = await db.get(TripRequest, req_uuid)
         if trip is None:
             raise HTTPException(status_code=404, detail="TripRequest not found")
         return PreviewResponse(
@@ -378,13 +505,12 @@ async def get_preview(
             plan_id=None,
             preview_url=None,
             status=trip.status,
-            message=f"行程尚未生成完成，当前状态：{trip.status}",
+            message=f"琛岀▼灏氭湭鐢熸垚瀹屾垚锛屽綋鍓嶇姸鎬侊細{trip.status}",
         )
 
     plan_id_str = str(plan.plan_id)
 
-    # 查询最新的完成的 export_job（h5 类型）
-    job_result = await db.execute(
+    # 鏌ヨ鏈€鏂扮殑瀹屾垚鐨?export_job锛坔5 绫诲瀷锛?    job_result = await db.execute(
         select(ExportJob)
         .where(
             ExportJob.plan_id == plan.plan_id,
@@ -397,7 +523,7 @@ async def get_preview(
     job = job_result.scalar_one_or_none()
 
     if job is None:
-        # 检查是否有进行中的 job
+        # 妫€鏌ユ槸鍚︽湁杩涜涓殑 job
         pending_result = await db.execute(
             select(ExportJob)
             .where(
@@ -415,10 +541,10 @@ async def get_preview(
             plan_id=plan_id_str,
             preview_url=None,
             status=job_status,
-            message=f"H5 预览渲染中（状态：{job_status}），请稍后重试",
+            message=f"H5 棰勮娓叉煋涓紙鐘舵€侊細{job_status}锛夛紝璇风◢鍚庨噸璇?,
         )
 
-    # 取 h5 asset URL
+    # 鍙?h5 asset URL
     asset_result = await db.execute(
         select(ExportAsset)
         .where(
@@ -436,33 +562,30 @@ async def get_preview(
         plan_id=plan_id_str,
         preview_url=preview_url,
         status="completed",
-        message="H5 预览已就绪" if preview_url else "H5 Asset 记录异常，请联系管理员",
+        message="H5 棰勮宸插氨缁? if preview_url else "H5 Asset 璁板綍寮傚父锛岃鑱旂郴绠＄悊鍛?,
     )
 
 
-# ── GET /trips/{id}/exports ───────────────────────────────────────────────────
+# 鈹€鈹€ GET /trips/{id}/exports 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 @router.get("/{trip_request_id}/exports", response_model=ExportsResponse)
 async def get_exports(
     trip_request_id: str,
     asset_type: Optional[str] = Query(
         None,
-        description="筛选资产类型：pdf / h5 / cover_image，不传则返回全部",
+        description="绛涢€夎祫浜х被鍨嬶細pdf / h5 / cover_image锛屼笉浼犲垯杩斿洖鍏ㄩ儴",
     ),
     db: AsyncSession = Depends(get_db),
 ):
     """
-    获取行程导出资产列表（PDF 下载链接、H5 预览链接等）。
-
-    返回最新 plan 对应的所有已完成的 export_assets，
-    按 `asset_type` 过滤（可选）。
-    """
+    鑾峰彇琛岀▼瀵煎嚭璧勪骇鍒楄〃锛圥DF 涓嬭浇閾炬帴銆丠5 棰勮閾炬帴绛夛級銆?
+    杩斿洖鏈€鏂?plan 瀵瑰簲鐨勬墍鏈夊凡瀹屾垚鐨?export_assets锛?    鎸?`asset_type` 杩囨护锛堝彲閫夛級銆?    """
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
         raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
 
-    # 找到最新 plan
+    # 鎵惧埌鏈€鏂?plan
     plan_result = await db.execute(
         select(ItineraryPlan)
         .where(ItineraryPlan.trip_request_id == req_uuid)
@@ -476,7 +599,7 @@ async def get_exports(
 
     plan_id_str = str(plan.plan_id)
 
-    # 查询所有完成的 export_jobs
+    # 鏌ヨ鎵€鏈夊畬鎴愮殑 export_jobs
     jobs_result = await db.execute(
         select(ExportJob)
         .where(
@@ -497,7 +620,7 @@ async def get_exports(
 
     job_ids = [j.export_job_id for j in jobs]
 
-    # 查询 assets
+    # 鏌ヨ assets
     assets_query = select(ExportAsset).where(ExportAsset.export_job_id.in_(job_ids))
     if asset_type:
         assets_query = assets_query.where(ExportAsset.asset_type == asset_type)
@@ -523,3 +646,4 @@ async def get_exports(
         exports=exports_out,
         total=len(exports_out),
     )
+

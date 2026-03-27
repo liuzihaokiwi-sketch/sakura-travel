@@ -74,6 +74,9 @@ class DetailForm(Base):
         JSONB,
         comment='[{"city_code": "tokyo", "city_name": "东京", "nights": 3, "place_id": "xxx"}, ...]'
     )
+    requested_city_circle: Mapped[Optional[str]] = mapped_column(
+        String(80), comment="Layer 2 canonical requested city circle"
+    )
     travel_start_date: Mapped[Optional[str]] = mapped_column(
         String(10), comment="YYYY-MM-DD"
     )
@@ -108,6 +111,9 @@ class DetailForm(Base):
     budget_level: Mapped[Optional[str]] = mapped_column(
         String(10), comment="budget / mid / premium / luxury"
     )
+    budget_total_jpy: Mapped[Optional[int]] = mapped_column(
+        Integer, comment="总预算 (JPY)"
+    )
     budget_total_cny: Mapped[Optional[int]] = mapped_column(
         Integer, comment="人均总预算 (CNY)"
     )
@@ -118,6 +124,11 @@ class DetailForm(Base):
     accommodation_pref: Mapped[Optional[dict]] = mapped_column(
         JSONB,
         comment='{"type": "hotel", "star_min": 3, "prefer_onsen": true, "location_pref": "near_station"}'
+    )
+    hotel_area_pref: Mapped[Optional[str]] = mapped_column(Text)
+    hotel_booking_status: Mapped[Optional[str]] = mapped_column(String(20))
+    booked_hotels: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment='[{"name": "xx", "area": "kyoto_station", "check_in": "2026-04-01"}]'
     )
 
     # ── Step 4: 兴趣偏好 ──
@@ -134,6 +145,8 @@ class DetailForm(Base):
         JSONB,
         comment='{"must_try": ["sushi", "wagyu"], "avoid": ["raw_fish"], "budget_per_meal": 3000}'
     )
+    food_restrictions: Mapped[Optional[list]] = mapped_column(JSONB)
+    food_restrictions_note: Mapped[Optional[str]] = mapped_column(Text)
     theme_family: Mapped[Optional[str]] = mapped_column(
         String(30),
         comment="classic_first / couple_aesthetic / food_shopping / onsen_healing / culture_deep / family_easy"
@@ -149,6 +162,15 @@ class DetailForm(Base):
     must_visit_places: Mapped[Optional[list]] = mapped_column(
         JSONB, comment='["fushimi_inari", "teamlab"]'
     )
+    visited_places: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment='["already_visited_place_a", "already_visited_place_b"]'
+    )
+    must_go_places: Mapped[Optional[list]] = mapped_column(JSONB)
+    dont_want_places: Mapped[Optional[list]] = mapped_column(JSONB)
+    pace_preference: Mapped[Optional[str]] = mapped_column(String(20))
+    trip_style: Mapped[Optional[str]] = mapped_column(String(20))
+    stamina_level: Mapped[Optional[str]] = mapped_column(String(10))
+    fixed_events: Mapped[Optional[list]] = mapped_column(JSONB)
     free_text_wishes: Mapped[Optional[str]] = mapped_column(
         Text, comment="用户自由输入的期望（限 500 字）"
     )
@@ -161,10 +183,20 @@ class DetailForm(Base):
     arrival_airport: Mapped[Optional[str]] = mapped_column(
         String(10), comment="NRT / HND / KIX / NGO / CTS"
     )
+    arrival_date: Mapped[Optional[str]] = mapped_column(String(10))
+    arrival_time: Mapped[Optional[str]] = mapped_column(String(5))
+    arrival_place: Mapped[Optional[str]] = mapped_column(String(100))
     departure_airport: Mapped[Optional[str]] = mapped_column(
         String(10), comment="NRT / HND / KIX / NGO / CTS"
     )
+    departure_date: Mapped[Optional[str]] = mapped_column(String(10))
+    departure_time: Mapped[Optional[str]] = mapped_column(String(5))
+    departure_place: Mapped[Optional[str]] = mapped_column(String(100))
     has_jr_pass: Mapped[Optional[bool]] = mapped_column(Boolean)
+    transport_locked: Mapped[Optional[bool]] = mapped_column(Boolean)
+    jr_pass_type: Mapped[Optional[str]] = mapped_column(String(50))
+    has_pocket_wifi: Mapped[Optional[bool]] = mapped_column(Boolean)
+    transport_notes: Mapped[Optional[str]] = mapped_column(Text)
     transport_pref: Mapped[Optional[dict]] = mapped_column(
         JSONB,
         comment='{"jr_pass": true, "pocket_wifi": true, "suica": true, "prefer_taxi": false}'

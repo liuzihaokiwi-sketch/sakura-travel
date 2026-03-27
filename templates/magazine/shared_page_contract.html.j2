@@ -1,0 +1,56 @@
+﻿<section class="shared-page-export page-break-before">
+  <div class="shared-page-export-header">
+    <h2>共享页面导出</h2>
+    <p>以下内容来自共享页面模型，并包含已保存编辑与资源槽位解析结果。</p>
+    <p class="shared-page-export-meta">
+      页面数: {{ shared_page_export.page_count }}
+      {% if shared_page_export.asset_manifest_version %}
+        | 资源清单 {{ shared_page_export.asset_manifest_version }}
+      {% endif %}
+      {% if shared_page_export.has_persisted_edits %}
+        | 包含人工编辑
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="shared-page-export-grid">
+    {% for page in shared_page_export.pages %}
+      <article class="shared-page-card">
+        {% if page.hero_url %}
+          <img src="{{ page.hero_url }}" alt="{{ page.title or page.page_type }}">
+        {% endif %}
+
+        <h3>
+          {% if page.page_number %}
+            P{{ page.page_number }} |
+          {% endif %}
+          {{ page.title or page.page_type }}
+        </h3>
+
+        {% if page.subtitle %}
+          <p class="subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+
+        {% if page.summary %}
+          <p class="summary">{{ page.summary }}</p>
+        {% endif %}
+
+        <p class="summary">hero_fallback={{ page.hero_fallback or "missing" }}{% if page.hero_source %} | {{ page.hero_source }}{% endif %}</p>
+
+        {% if page.asset_slots %}
+          <ul class="shared-page-slots">
+            {% for slot in page.asset_slots %}
+              <li>
+                {{ slot.slot_name }}
+                {% if slot.asset_id %} | {{ slot.asset_id }}{% endif %}
+                {% if slot.asset_kind %} | {{ slot.asset_kind }}{% endif %}
+                {% if slot.asset_url %} | {{ slot.asset_url }}{% endif %}
+                {% if slot.is_placeholder %} | placeholder{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

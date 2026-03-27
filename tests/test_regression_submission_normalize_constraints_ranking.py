@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from types import SimpleNamespace
 
 import pytest
@@ -106,6 +106,8 @@ class _RankingSession:
             return _Result(self._alias_rows, scalar_mode=False)
         if "join entity_base" in sql:
             return _Result(self._name_rows, scalar_mode=False)
+        if "from pois" in sql:
+            return _Result([], scalar_mode=False)
         if "from activity_clusters" in sql:
             return _Result(self._clusters)
         if "from circle_entity_roles" in sql:
@@ -140,23 +142,41 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
         budget_total_cny=8000,
         budget_focus="balanced",
         accommodation_pref={},
+        booked_hotels=[
+            {
+                "name": "Kyoto Station Hotel",
+                "area": "kyoto_station",
+                "check_in": "2026-04-01",
+                "check_out": "2026-04-03",
+            }
+        ],
         must_have_tags=[],
         nice_to_have_tags=[],
         avoid_tags=[],
         food_preferences={},
-        pace="moderate",
+        pace_preference="balanced",
         wake_up_time="normal",
-        must_visit_places=["伏见稻荷大社"],
+        must_go_places=["伏见稻荷大社"],
+        dont_want_places=["osa_usj_themepark"],
         free_text_wishes="",
         flight_info={},
         arrival_airport="KIX",
         departure_airport="KIX",
+        arrival_date="2026-04-01",
+        arrival_time="18:10",
+        departure_date="2026-04-03",
+        departure_time="11:20",
         has_jr_pass=False,
         transport_pref={},
     )
 
     raw_input = _build_raw_input(submission_id, sub, form)
     assert raw_input["must_visit_places"] == ["伏见稻荷大社"]
+    assert raw_input["do_not_go_places"] == ["osa_usj_themepark"]
+    assert raw_input["requested_city_circle"] == "kansai_classic_circle"
+    assert raw_input["arrival_local_datetime"] == "2026-04-01T18:10"
+    assert raw_input["departure_local_datetime"] == "2026-04-03T11:20"
+    assert raw_input["booked_items"]
 
     store = _Store()
     store.trip.raw_input = raw_input
@@ -166,9 +186,14 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
     assert profiled.startswith("profiled:")
     assert store.profile is not None
     assert "must_visit_places" in (store.profile.special_requirements or {})
+    assert store.profile.requested_city_circle == "kansai_classic_circle"
+    assert store.profile.do_not_go_places == ["osa_usj_themepark"]
+    assert store.profile.booked_items
+    assert store.profile.arrival_local_datetime.isoformat(timespec="minutes") == "2026-04-01T18:10"
 
     constraints = compile_constraints(store.profile)
     assert "伏见稻荷大社".lower() in constraints.must_go_clusters
+    assert "osa_usj_themepark" in constraints.blocked_clusters
 
     must_go_cluster = "kyo_cluster_001"
     normal_cluster = "kyo_higashiyama_gion_classic"
@@ -182,7 +207,7 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
         profile_fit=[],
         seasonality=[],
         is_active=True,
-        created_at=datetime.utcnow(),
+        created_at=datetime.now(timezone.utc),
     )
     c2 = ActivityCluster(
         cluster_id=normal_cluster,
@@ -193,7 +218,7 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
         profile_fit=[],
         seasonality=[],
         is_active=True,
-        created_at=datetime.utcnow(),
+        created_at=datetime.now(timezone.utc),
     )
     e1 = uuid.uuid4()
     e2 = uuid.uuid4()

@@ -1,0 +1,28 @@
+﻿{
+  "version": "page-assets-v1",
+  "slots": {
+    "cover.hero.page_cover": { "asset_id": "hero_cover_default" },
+    "day_execution.hero.page_day_execution_1": { "asset_id": "hero_day1_default" },
+    "booking_window.badge.page_booking_window": { "asset_id": "booking_badge_default" }
+  },
+  "assets": {
+    "hero_cover_default": {
+      "kind": "photo",
+      "url": "/assets/placeholders/cover_default.jpg",
+      "source": "repo_ui_placeholder",
+      "license": "internal"
+    },
+    "hero_day1_default": {
+      "kind": "illustration",
+      "url": "/assets/placeholders/activity_default.jpg",
+      "source": "repo_ui_placeholder",
+      "license": "internal"
+    },
+    "booking_badge_default": {
+      "kind": "illustration",
+      "url": "/assets/placeholders/booking_badge_default.png",
+      "source": "repo_ui_placeholder",
+      "license": "internal"
+    }
+  }
+}

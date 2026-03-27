@@ -63,6 +63,19 @@ If broad code execution starts first, the team risks migrating implementation wi
 
 So this stage is intentionally documentation-first.
 
+## No Patch Governance In This Stage
+
+This stage must not be advanced through patch-style governance.
+
+That means:
+
+- do not keep old assumptions alive by adding more compatibility glue
+- do not treat temporary bridges as execution completion
+- do not patch around unstable contracts instead of fixing them
+- do not let fallback-heavy implementation stand in for truth-source alignment
+
+If a boundary is wrong, this stage should correct the boundary definition first, then implement against that corrected definition.
+
 ## Stage 0: Truth-Source Consolidation
 
 Goal:

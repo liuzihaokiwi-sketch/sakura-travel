@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from typing import Optional
 """
@@ -213,9 +213,39 @@ class TripProfile(Base):
         comment="better_stay / better_food / better_experience / balanced / best_value",
     )
 
-    # 特殊需求
+    # compatibility side-channel only
     special_requirements: Mapped[Optional[dict]] = mapped_column(
-        JSONB, comment="无障碍需求、饮食限制等"
+        JSONB, comment="compatibility side-channel payload; not primary runtime contract"
+    )
+    contract_version: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="layer2 canonical input contract version"
+    )
+    requested_city_circle: Mapped[Optional[str]] = mapped_column(
+        String(80), comment="Layer 2 canonical requested city circle"
+    )
+    arrival_local_datetime: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=False), comment="local arrival datetime without timezone"
+    )
+    departure_local_datetime: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=False), comment="local departure datetime without timezone"
+    )
+    visited_places: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment="Layer 2 canonical visited place ids / names"
+    )
+    must_visit_places: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment="Layer 2 canonical must-visit place ids / names"
+    )
+    do_not_go_places: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment="Layer 2 canonical blocked place ids / names"
+    )
+    booked_items: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment="Layer 2 canonical locked hotel / event items"
+    )
+    companion_breakdown: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="Layer 2 canonical party breakdown"
+    )
+    budget_range: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment="Layer 2 canonical budget expression"
     )
 
     # ── 城市圈决策层新增字段 ──

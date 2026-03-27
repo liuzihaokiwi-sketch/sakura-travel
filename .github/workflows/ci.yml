@@ -44,23 +44,34 @@ jobs:
           pip install -e ".[dev]" 2>/dev/null || pip install -e .
           pip install ruff pytest pytest-asyncio
 
+      - name: Check text encoding
+        run: python scripts/ci/check_text_encoding.py
+
       - name: Lint Python
         run: python scripts/ci/check_ruff_baseline.py
 
-      - name: Run tests
+      - name: Run L2 contract-first blocker (primary gate)
         env:
           DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
           REDIS_URL: "redis://localhost:6379/0"
           APP_ENV: "development"
-        run: pytest tests/ -x -q --tb=short 2>/dev/null || echo "No tests found (ok for now)"
+        run: python scripts/ci/run_dual_track_tests.py --l2-only -q
 
-      - name: Run must-go regression chain test
+      - name: Run L3 handbook delivery blocker
+        env:
+          DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
+          REDIS_URL: "redis://localhost:6379/0"
+          APP_ENV: "development"
+        run: python scripts/ci/run_dual_track_tests.py --l3-only -q
+
+      - name: Run legacy compatibility baseline (non-blocking)
+        continue-on-error: true
         if: ${{ always() }}
         env:
           DATABASE_URL: "postgresql+asyncpg://japan_ai:japan_ai_dev@localhost:5432/japan_ai"
           REDIS_URL: "redis://localhost:6379/0"
           APP_ENV: "development"
-        run: python -m pytest -q tests/test_regression_submission_normalize_constraints_ranking.py
+        run: python scripts/ci/run_dual_track_tests.py --legacy-only -q
 
   build-frontend:
     runs-on: ubuntu-latest

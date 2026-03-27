@@ -17,6 +17,7 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
+from app.domains.intake.layer2_contract import build_layer2_canonical_input
 
 logger = logging.getLogger(__name__)
 
@@ -159,7 +160,7 @@ def _build_raw_input(
     styles = sub.get("styles") or []
 
     if not form:
-        return {
+        raw_input = {
             "submission_id": submission_id,
             "destination": destination,
             "duration_days": duration,
@@ -168,48 +169,81 @@ def _build_raw_input(
             "styles": styles,
             "budget_focus": sub.get("budget_focus"),
         }
+        raw_input.update(build_layer2_canonical_input(raw_input))
+        return raw_input
 
-    special_needs = getattr(form, "special_needs", None)
+    def _form_value(*names: str, default: Any = None) -> Any:
+        for name in names:
+            value = getattr(form, name, None)
+            if value is not None:
+                return value
+        return default
+
+    special_needs = _form_value("special_needs")
     if isinstance(special_needs, str) and special_needs.strip():
         special_needs = {"notes": special_needs.strip()}
     elif not isinstance(special_needs, dict):
         special_needs = {}
+    explicit_requested_circle = _form_value("requested_city_circle")
 
-    budget_total_cny = getattr(form, "budget_total_cny", None)
-
-    return {
+    budget_total_cny = _form_value("budget_total_cny")
+    budget_total_jpy = _form_value("budget_total_jpy")
+    raw_input = {
         "submission_id": submission_id,
         "destination": destination,
-        "cities": _normalize_cities(getattr(form, "cities", None), destination, duration),
-        "duration_days": int(getattr(form, "duration_days", None) or duration),
-        "travel_start_date": getattr(form, "travel_start_date", None),
-        "travel_end_date": getattr(form, "travel_end_date", None),
-        "date_flexible": bool(getattr(form, "date_flexible", False)),
-        "party_type": _normalize_party_type(getattr(form, "party_type", None) or party),
-        "party_size": getattr(form, "party_size", None) or sub.get("people_count") or 2,
-        "has_elderly": bool(getattr(form, "has_elderly", False)),
-        "has_children": bool(getattr(form, "has_children", False)),
-        "children_ages": getattr(form, "children_ages", None) or [],
+        "requested_city_circle": explicit_requested_circle,
+        "cities": _normalize_cities(_form_value("cities"), destination, duration),
+        "duration_days": int(_form_value("duration_days", default=duration) or duration),
+        "travel_start_date": _form_value("travel_start_date"),
+        "travel_end_date": _form_value("travel_end_date"),
+        "date_flexible": bool(_form_value("date_flexible", default=False)),
+        "party_type": _normalize_party_type(_form_value("party_type") or party),
+        "party_size": _form_value("party_size") or sub.get("people_count") or 2,
+        "party_ages": _form_value("party_ages") or [],
+        "has_elderly": bool(_form_value("has_elderly", default=False)),
+        "has_children": bool(_form_value("has_children", default=False)),
+        "children_ages": _form_value("children_ages") or [],
         "special_needs": special_needs,
-        "budget_level": getattr(form, "budget_level", None) or "mid",
+        "budget_level": _form_value("budget_level") or "mid",
         "budget_total_cny": int(budget_total_cny) if budget_total_cny else None,
-        "budget_focus": getattr(form, "budget_focus", None) or sub.get("budget_focus"),
-        "accommodation_pref": getattr(form, "accommodation_pref", None) or {},
-        "must_have_tags": getattr(form, "must_have_tags", None) or [],
-        "nice_to_have_tags": getattr(form, "nice_to_have_tags", None) or [],
-        "avoid_tags": getattr(form, "avoid_tags", None) or [],
-        "food_preferences": getattr(form, "food_preferences", None) or {},
-        "pace": _normalize_pace(getattr(form, "pace", None)),
-        "wake_up_time": _normalize_wake_up_time(getattr(form, "wake_up_time", None)),
-        "must_visit_places": getattr(form, "must_visit_places", None) or [],
-        "free_text_wishes": getattr(form, "free_text_wishes", None) or "",
-        "flight_info": getattr(form, "flight_info", None) or {},
-        "arrival_airport": getattr(form, "arrival_airport", None) or "",
-        "departure_airport": getattr(form, "departure_airport", None) or "",
-        "has_jr_pass": bool(getattr(form, "has_jr_pass", False)),
-        "transport_pref": getattr(form, "transport_pref", None) or {},
+        "budget_total_jpy": int(budget_total_jpy) if budget_total_jpy else None,
+        "budget_focus": _form_value("budget_focus") or sub.get("budget_focus"),
+        "accommodation_pref": _form_value("accommodation_pref") or {},
+        "hotel_area_pref": _form_value("hotel_area_pref"),
+        "hotel_booking_status": _form_value("hotel_booking_status"),
+        "booked_hotels": _form_value("booked_hotels") or [],
+        "must_have_tags": _form_value("must_have_tags") or [],
+        "nice_to_have_tags": _form_value("nice_to_have_tags") or [],
+        "avoid_tags": _form_value("avoid_tags") or [],
+        "food_preferences": _form_value("food_preferences") or {},
+        "food_restrictions": _form_value("food_restrictions") or [],
+        "food_restrictions_note": _form_value("food_restrictions_note") or "",
+        "pace": _normalize_pace(_form_value("pace", "pace_preference")),
+        "wake_up_time": _normalize_wake_up_time(_form_value("wake_up_time")),
+        "must_visit_places": _form_value("must_visit_places", "must_go_places") or [],
+        "do_not_go_places": _form_value("do_not_go_places", "dont_want_places") or [],
+        "visited_places": _form_value("visited_places") or [],
+        "fixed_events": _form_value("fixed_events") or [],
+        "free_text_wishes": _form_value("free_text_wishes") or "",
+        "flight_info": _form_value("flight_info") or {},
+        "arrival_airport": _form_value("arrival_airport") or "",
+        "arrival_date": _form_value("arrival_date") or _form_value("travel_start_date"),
+        "arrival_time": _form_value("arrival_time"),
+        "arrival_place": _form_value("arrival_place"),
+        "departure_airport": _form_value("departure_airport") or "",
+        "departure_date": _form_value("departure_date") or _form_value("travel_end_date"),
+        "departure_time": _form_value("departure_time"),
+        "departure_place": _form_value("departure_place"),
+        "has_jr_pass": bool(_form_value("has_jr_pass", default=False)),
+        "transport_locked": bool(_form_value("transport_locked", default=False)),
+        "jr_pass_type": _form_value("jr_pass_type"),
+        "has_pocket_wifi": bool(_form_value("has_pocket_wifi", default=False)),
+        "transport_notes": _form_value("transport_notes") or "",
+        "transport_pref": _form_value("transport_pref") or {},
         "styles": styles,
     }
+    raw_input.update(build_layer2_canonical_input(raw_input))
+    return raw_input
 
 
 def _legacy_template_and_scene(raw_input: dict[str, Any]) -> tuple[str, str]:
@@ -383,7 +417,7 @@ async def generate_from_submission(
     1. 构建统一 raw_input
     2. upsert trip_requests（按 submission_id 幂等）
     3. 先执行 normalize_trip_profile
-    4. 触发 generate_trip（城市圈优先，旧模板 fallback）
+    4. 触发 generate_trip（仅城市圈主链）
     5. 更新 quiz_submission 状态为 generating
     """
     import asyncio
@@ -436,7 +470,7 @@ async def generate_from_submission(
         await db.commit()
         await db.refresh(new_tr)
 
-    template_code, scene = _legacy_template_and_scene(raw_input)
+    _, scene = _legacy_template_and_scene(raw_input)
 
     await db.execute(
         text("UPDATE trip_requests SET status='normalizing', updated_at=NOW() WHERE trip_request_id = :id"),
@@ -456,7 +490,6 @@ async def generate_from_submission(
         queued = await enqueue_job(
             "generate_trip",
             trip_request_id=str(tr_id),
-            template_code=template_code,
             scene=scene,
         )
     except Exception:
@@ -470,7 +503,6 @@ async def generate_from_submission(
                 await _generate_trip_job(
                     {},
                     trip_request_id=str(tr_id),
-                    template_code=template_code,
                     scene=scene,
                 )
             except Exception as _exc:
@@ -483,7 +515,6 @@ async def generate_from_submission(
         "ok": True,
         "submission_id": submission_id,
         "trip_request_id": str(tr_id),
-        "template_code": template_code,
         "scene": scene,
         "job_queued": bool(queued),
         "message": "攻略生成已启动，请稍候刷新查看",

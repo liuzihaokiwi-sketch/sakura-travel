@@ -173,6 +173,19 @@ So the current phase is:
 
 Only after that should broader execution planning begin.
 
+## No Patch Governance
+
+The current phase must not be advanced by patch-style governance.
+
+That means:
+
+- do not keep layering patches, bridges, and temporary glue on top of obsolete assumptions
+- do not describe compatibility fixes as if they prove main-path completion
+- do not use patch logic to hide unresolved truth-source, contract, or main-path problems
+- when structure is wrong, fix the truth source, contract, source-of-truth object, or main path directly
+
+In short, current-phase stabilization means reducing ambiguity at the source, not extending the life of broken boundaries through more patching.
+
 ## Truth Source Set
 
 The current truth-source file set is:

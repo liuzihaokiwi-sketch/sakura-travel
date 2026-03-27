@@ -1,4 +1,4 @@
-"""
+﻿"""
 test_cases.py — 三类回归测试用例定义 (v2 — 硬断言版)
 
 标准型: 最常见用户，验证主链稳定
@@ -515,3 +515,261 @@ ALL_CASES = [
     CASE_STANDARD, CASE_CONSTRAINED, CASE_EDGE, CASE_SAKURA, CASE_NICHE,
     CASE_MUST_NOT_GO, CASE_AVOID_CUISINE, CASE_AIRPORT_RETURN, CASE_THEME_PARK, CASE_ELDERLY,
 ]
+
+
+# Phase 2 contract-first cases
+CASE_PHASE2_MIGRATED = {
+    "case_id": "phase2_migrated_contract",
+    "case_label": "phase2_migrated_contract",
+    "case_desc": "Single migrated contract sample for Phase 2 entry migration.",
+    "contract_version": "v2",
+    "party_type": "couple",
+    "party_size": 2,
+    "budget_level": "mid",
+    "budget_total_cny": 12000,
+    "budget_currency": "CNY",
+    "budget_focus": "value_balance",
+    "pace": "moderate",
+    "city_circle_intent": {
+        "circle_id": "kansai_classic_circle",
+        "destination_intent": ["kyoto", "osaka"],
+    },
+    "trip_window": {
+        "start_date": "2026-10-10",
+        "end_date": "2026-10-14",
+        "arrival": {"airport": "KIX", "time": "19:10"},
+        "departure": {"airport": "KIX", "time": "13:20"},
+    },
+    "must_visit_places": ["fushimi_inari_taisha"],
+    "do_not_go_places": ["osa_usj_themepark"],
+    "visited_places": ["kyo_kinkakuji_kinugasa"],
+    "booked_items": [
+        {
+            "type": "hotel",
+            "city_code": "kyoto",
+            "name": "Kyoto Station Hotel",
+            "checkin": "2026-10-10",
+            "checkout": "2026-10-12",
+        }
+    ],
+    "special_requirements": {
+        "mobility_notes": ["avoid_tight_transfers"],
+        "dietary_notes": ["no_raw_seafood"],
+    },
+}
+
+CASE_PHASE2_KANTO_BOOKED = {
+    "case_id": "phase2_kanto_booked",
+    "case_label": "phase2_kanto_booked",
+    "case_desc": "Kanto city circle contract sample with booked hotel and fixed item.",
+    "contract_version": "v2",
+    "party_type": "friends",
+    "party_size": 3,
+    "budget_level": "mid",
+    "budget_total_cny": 15000,
+    "budget_currency": "CNY",
+    "budget_focus": "experience",
+    "pace": "moderate",
+    "city_circle_intent": {
+        "circle_id": "kanto_city_circle",
+        "destination_intent": ["tokyo", "yokohama"],
+    },
+    "trip_window": {
+        "start_date": "2026-11-05",
+        "end_date": "2026-11-09",
+        "arrival": {"airport": "HND", "time": "15:20"},
+        "departure": {"airport": "NRT", "time": "10:30"},
+    },
+    "must_visit_places": ["tok_asakusa_senso_ji"],
+    "do_not_go_places": ["tok_shinjuku_shibuya_night"],
+    "visited_places": ["tok_tokyo_tower"],
+    "booked_items": [
+        {
+            "type": "hotel",
+            "city_code": "tokyo",
+            "name": "Asakusa Riverside Hotel",
+            "checkin": "2026-11-05",
+            "checkout": "2026-11-09",
+        },
+        {
+            "type": "activity",
+            "entity_hint": "tok_asakusa_senso_ji",
+            "day_hint": 2,
+            "time_hint": "09:00",
+            "locked": True,
+        },
+    ],
+    "special_requirements": {
+        "mobility_notes": ["avoid_long_night_walks"],
+        "dietary_notes": ["no_raw_seafood"],
+    },
+}
+
+CASE_PHASE2_HOKKAIDO = {
+    "case_id": "phase2_hokkaido",
+    "case_label": "phase2_hokkaido",
+    "case_desc": "Hokkaido circle contract sample with arrival/departure strict semantics.",
+    "contract_version": "v2",
+    "party_type": "couple",
+    "party_size": 2,
+    "budget_level": "mid",
+    "budget_total_cny": 14000,
+    "budget_currency": "CNY",
+    "budget_focus": "weather_resilience",
+    "pace": "moderate",
+    "city_circle_intent": {
+        "circle_id": "hokkaido_city_circle",
+        "destination_intent": ["sapporo"],
+    },
+    "trip_window": {
+        "start_date": "2026-12-10",
+        "end_date": "2026-12-14",
+        "arrival": {"airport": "CTS", "time": "20:15"},
+        "departure": {"airport": "CTS", "time": "12:10"},
+    },
+    "must_visit_places": ["hok_sapporo_odori_susukino"],
+    "do_not_go_places": ["hok_niseko_skiing"],
+    "visited_places": ["hok_otaru_canal"],
+    "booked_items": [
+        {
+            "type": "hotel",
+            "city_code": "sapporo",
+            "name": "Sapporo Station Hotel",
+            "checkin": "2026-12-10",
+            "checkout": "2026-12-14",
+        }
+    ],
+    "special_requirements": {
+        "weather_risk_tolerance": "low",
+    },
+}
+
+CASE_PHASE2_SOUTH_CHINA = {
+    "case_id": "phase2_south_china",
+    "case_label": "phase2_south_china",
+    "case_desc": "South China five-city circle sample with fixed item lock.",
+    "contract_version": "v2",
+    "party_type": "friends",
+    "party_size": 2,
+    "budget_level": "mid",
+    "budget_total_cny": 9000,
+    "budget_currency": "CNY",
+    "budget_focus": "photo_first",
+    "pace": "moderate",
+    "city_circle_intent": {
+        "circle_id": "south_china_five_city_circle",
+        "destination_intent": ["guangzhou", "shenzhen"],
+    },
+    "trip_window": {
+        "start_date": "2026-07-12",
+        "end_date": "2026-07-16",
+        "arrival": {"airport": "CAN", "time": "14:10"},
+        "departure": {"airport": "SZX", "time": "16:40"},
+    },
+    "must_visit_places": ["gz_canton_tower_river_night"],
+    "do_not_go_places": ["sz_window_of_the_world"],
+    "visited_places": ["gz_beijing_road_pedestrian"],
+    "booked_items": [
+        {
+            "type": "activity",
+            "entity_hint": "gz_canton_tower_river_night",
+            "day_hint": 1,
+            "time_hint": "10:00",
+            "locked": True,
+        }
+    ],
+    "special_requirements": {
+        "photo_priority": "high",
+    },
+}
+
+CASE_PHASE2_KANSAI_FAMILY = {
+    "case_id": "phase2_kansai_family",
+    "case_label": "phase2_kansai_family",
+    "case_desc": "Kansai family contract sample with do-not-go and booked hotel split.",
+    "contract_version": "v2",
+    "party_type": "family_child",
+    "party_size": 4,
+    "has_children": True,
+    "children_ages": [4, 8],
+    "budget_level": "mid",
+    "budget_total_cny": 18000,
+    "budget_currency": "CNY",
+    "budget_focus": "comfort",
+    "pace": "relaxed",
+    "city_circle_intent": {
+        "circle_id": "kansai_classic_circle",
+        "destination_intent": ["kyoto", "osaka"],
+    },
+    "trip_window": {
+        "start_date": "2026-09-20",
+        "end_date": "2026-09-25",
+        "arrival": {"airport": "KIX", "time": "18:25"},
+        "departure": {"airport": "KIX", "time": "11:45"},
+    },
+    "must_visit_places": ["kyo_higashiyama_gion_classic"],
+    "do_not_go_places": ["osa_usj_themepark"],
+    "visited_places": ["kyo_kiyomizu_temple"],
+    "booked_items": [
+        {
+            "type": "hotel",
+            "city_code": "kyoto",
+            "name": "Kyoto Family Stay",
+            "checkin": "2026-09-20",
+            "checkout": "2026-09-23",
+        },
+        {
+            "type": "hotel",
+            "city_code": "osaka",
+            "name": "Osaka Bay Family Stay",
+            "checkin": "2026-09-23",
+            "checkout": "2026-09-25",
+        },
+    ],
+    "special_requirements": {
+        "mobility_notes": ["stroller_needed"],
+        "queue_tolerance": "low",
+    },
+}
+
+PHASE2_CASES = [
+    CASE_PHASE2_MIGRATED,
+    CASE_PHASE2_KANTO_BOOKED,
+    CASE_PHASE2_HOKKAIDO,
+    CASE_PHASE2_SOUTH_CHINA,
+    CASE_PHASE2_KANSAI_FAMILY,
+]
+
+
+def _attach_case_trace_metadata(
+    case: dict,
+    *,
+    source_set: str,
+    proof_level: str,
+    entry_anchor: str,
+    notes: str,
+) -> dict:
+    case["test_source_set"] = source_set
+    case["proof_level"] = proof_level
+    case["entry_anchor"] = entry_anchor
+    case["coverage_notes"] = notes
+    return case
+
+
+for _case in PHASE2_CASES:
+    _attach_case_trace_metadata(
+        _case,
+        source_set="phase2_contract_cases",
+        proof_level="main_chain_proof",
+        entry_anchor="normalize_trip_profile -> generate_trip._try_city_circle_pipeline",
+        notes="phase2 contract-first case; should be counted as main-chain proof coverage",
+    )
+
+for _case in ALL_CASES:
+    _attach_case_trace_metadata(
+        _case,
+        source_set="legacy_profile_cases",
+        proof_level="compatibility_baseline",
+        entry_anchor="run_regression direct profile assembly path",
+        notes="legacy-profile regression case; should be counted as compatibility baseline coverage",
+    )

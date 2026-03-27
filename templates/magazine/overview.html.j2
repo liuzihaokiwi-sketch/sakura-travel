@@ -77,9 +77,9 @@
     <h2 class="overview-block-title">✈️ 出发前准备</h2>
     {% for category in overview.pre_trip_checklist %}
     <div class="checklist-category">
-      <h3 class="checklist-category-title">{{ category.category }}</h3>
+      <h3 class="checklist-category-title">{{ category["category"] }}</h3>
       <ul class="checklist-items">
-        {% for item in category.items %}
+        {% for item in category["items"] %}
         <li>{{ item }}</li>
         {% endfor %}
       </ul>

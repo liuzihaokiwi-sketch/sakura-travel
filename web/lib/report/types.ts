@@ -1,14 +1,14 @@
-/**
- * web/lib/report/types.ts — 报告渲染层 TypeScript 类型定义（L3-06）
+﻿/**
+ * web/lib/report/types.ts 鈥?鎶ュ憡娓叉煋灞?TypeScript 绫诲瀷瀹氫箟锛圠3-06锛?
  *
- * 对应 Python 端：
+ * 瀵瑰簲 Python 绔細
  *   app/domains/rendering/page_view_model.py
  *   app/domains/rendering/page_planner.py
  *   app/domains/rendering/chapter_planner.py
  *   app/domains/planning/report_schema.py
  */
 
-// ── Section Content 类型（F10 discriminated union） ────────────────────────────
+// 鈹€鈹€ Section Content 绫诲瀷锛團10 discriminated union锛?鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface TimelineItem {
   time: string
@@ -29,7 +29,7 @@ export type SectionContent =
   | { type: "fulfillment_list";  items: Array<{ preference_text: string; fulfillment_type: string; evidence: string; explanation: string }> }
   | { type: "toc_list";          entries: Array<{ title: string; page_number: number; chapter_id: string; page_type: string }> }
 
-// ── View Model ────────────────────────────────────────────────────────────────
+// 鈹€鈹€ View Model 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface HeadingVM {
   title: string
@@ -65,9 +65,13 @@ export interface PageViewModel {
   footer?: FooterVM
   day_index?: number
   chapter_id?: string
+  stable_inputs?: Record<string, unknown>
+  editable_content?: Record<string, unknown>
+  internal_state?: Record<string, unknown>
+  asset_slots?: Record<string, { slot_id: string; asset_id?: string; resolved?: Record<string, unknown> }>
 }
 
-// ── Page Plan ────────────────────────────────────────────────────────────────
+// 鈹€鈹€ Page Plan 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface PageObjectRef {
   object_type: "entity" | "cluster" | "day" | "chapter" | "trip"
@@ -92,7 +96,7 @@ export interface PagePlan {
   day_index?: number
 }
 
-// ── Chapter Plan ─────────────────────────────────────────────────────────────
+// 鈹€鈹€ Chapter Plan 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface ChapterPlan {
   chapter_id: string
@@ -107,7 +111,7 @@ export interface ChapterPlan {
   importance: "high" | "medium" | "low"
 }
 
-// ── Page Type Definition ──────────────────────────────────────────────────────
+// 鈹€鈹€ Page Type Definition 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface PageTypeDefinition {
   page_type: string
@@ -122,7 +126,7 @@ export interface PageTypeDefinition {
   primary_promise: string
 }
 
-// ── Report Payload（前端用字段子集） ──────────────────────────────────────────
+// 鈹€鈹€ Report Payload锛堝墠绔敤瀛楁瀛愰泦锛?鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface ReportMeta {
   trip_id: string
@@ -194,7 +198,7 @@ export interface ReportPayload {
   selection_evidence: Record<string, unknown>[]
 }
 
-// ── API Response ──────────────────────────────────────────────────────────────
+// 鈹€鈹€ API Response 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 
 export interface ReportApiResponse {
   meta: ReportMeta
@@ -202,3 +206,4 @@ export interface ReportApiResponse {
   page_models: Record<string, PageViewModel>
   chapters: ChapterPlan[]
 }
+
