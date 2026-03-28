@@ -127,17 +127,14 @@ async def set_intensity(
 
     await db.commit()
 
-    # 入队重新生成（如果状态已变为 pending）
+    # 入队重新生成（纯新链，不再携带 legacy template_code）
     job_queued = False
     if old_intensity != body.intensity:
         try:
-            template_code = (quiz_answers.get("cities") or [{}])[0]
-            tc = "tokyo_classic_5d"  # 默认模板
             scene = quiz_answers.get("travel_style", "general")
             await enqueue_job(
                 "generate_trip",
                 trip_request_id=str(trip_id),
-                template_code=tc,
                 scene=scene,
             )
             job_queued = True

@@ -1,4 +1,4 @@
-﻿"""
+"""
 Detail Forms API — 付费后详细表单 CRUD 端点 (M1)
 
 端点：
@@ -53,13 +53,14 @@ class DetailFormPatch(BaseModel):
     has_elderly: Optional[bool] = None
     has_children: Optional[bool] = None
     children_ages: Optional[list[int]] = None
-    special_needs: Optional[str] = None
+    special_needs: Optional[dict[str, Any] | str] = None
 
     # Step 3 — 预算与住宿（匹配 ORM: JSONB dict）
     budget_level: Optional[str] = None
     budget_total_cny: Optional[int] = None
     budget_focus: Optional[str] = None
     accommodation_pref: Optional[dict] = None
+    booked_items: Optional[list[dict[str, Any]]] = None
 
     # Step 4 — 兴趣偏好（匹配 ORM: JSONB list/dict）
     must_have_tags: Optional[list[str]] = None
@@ -72,6 +73,8 @@ class DetailFormPatch(BaseModel):
     pace: Optional[str] = None
     wake_up_time: Optional[str] = None
     must_visit_places: Optional[list[str]] = None
+    visited_places: Optional[list[str]] = None
+    do_not_go_places: Optional[list[str]] = None
     free_text_wishes: Optional[str] = None
 
     # Step 6 — 航班与交通（匹配 ORM: JSONB dict）
@@ -134,6 +137,7 @@ def _form_to_dict(form: DetailForm) -> dict:
         "budget_total_cny": form.budget_total_cny,
         "budget_focus": form.budget_focus,
         "accommodation_pref": form.accommodation_pref,
+        "booked_items": form.booked_items,
         # Step 4: 兴趣偏好
         "must_have_tags": form.must_have_tags,
         "nice_to_have_tags": form.nice_to_have_tags,
@@ -144,6 +148,8 @@ def _form_to_dict(form: DetailForm) -> dict:
         "pace": form.pace,
         "wake_up_time": form.wake_up_time,
         "must_visit_places": form.must_visit_places,
+        "visited_places": form.visited_places,
+        "do_not_go_places": form.do_not_go_places,
         "free_text_wishes": form.free_text_wishes,
         # Step 6: 航班与交通
         "flight_info": form.flight_info,
@@ -234,6 +240,14 @@ async def patch_detail_form(
     patch_data = body.model_dump(exclude_none=True)
     if not patch_data:
         return _form_to_dict(form)
+
+    # Keep runtime field shape stable: DB expects JSON object for special_needs.
+    if "special_needs" in patch_data:
+        raw_special = patch_data.get("special_needs")
+        if isinstance(raw_special, str):
+            patch_data["special_needs"] = {"notes": raw_special.strip()} if raw_special.strip() else {}
+        elif not isinstance(raw_special, dict):
+            patch_data["special_needs"] = {}
 
     for field_name, value in patch_data.items():
         if hasattr(form, field_name):
@@ -387,6 +401,7 @@ async def validate_detail_form(
     # 合并各步骤数据为完整的 form_data 字典
     form_data: dict = {}
     if form.cities:           form_data["cities"] = form.cities
+    if form.requested_city_circle: form_data["requested_city_circle"] = form.requested_city_circle
     if form.travel_start_date: form_data["travel_start_date"] = form.travel_start_date
     if form.travel_end_date:   form_data["travel_end_date"] = form.travel_end_date
     if form.duration_days:     form_data["duration_days"] = form.duration_days
@@ -397,17 +412,21 @@ async def validate_detail_form(
     if form.budget_level:      form_data["budget_level"] = form.budget_level
     if form.budget_total_cny:  form_data["budget_total_cny"] = form.budget_total_cny
     if form.accommodation_pref: form_data["accommodation_pref"] = form.accommodation_pref
+    if form.booked_items:      form_data["booked_items"] = form.booked_items
     if form.must_have_tags:    form_data["must_have_tags"] = form.must_have_tags
     if form.nice_to_have_tags: form_data["nice_to_have_tags"] = form.nice_to_have_tags
     if form.avoid_tags:        form_data["avoid_tags"] = form.avoid_tags
     if form.food_preferences:  form_data["food_preferences"] = form.food_preferences
-    if form.pace_preference:   form_data["pace_preference"] = form.pace_preference
+    if form.pace:              form_data["pace"] = form.pace
+    if form.must_visit_places: form_data["must_visit_places"] = form.must_visit_places
+    if form.visited_places:    form_data["visited_places"] = form.visited_places
+    if form.do_not_go_places:  form_data["do_not_go_places"] = form.do_not_go_places
     if form.arrival_date:      form_data["arrival_date"] = form.arrival_date
     if form.arrival_time:      form_data["arrival_time"] = form.arrival_time
-    if form.arrival_place:     form_data["arrival_place"] = form.arrival_place
+    if form.arrival_airport:   form_data["arrival_airport"] = form.arrival_airport
     if form.departure_date:    form_data["departure_date"] = form.departure_date
     if form.departure_time:    form_data["departure_time"] = form.departure_time
-    if form.departure_place:   form_data["departure_place"] = form.departure_place
+    if form.departure_airport: form_data["departure_airport"] = form.departure_airport
     if form.free_text_wishes:  form_data["free_text_wishes"] = form.free_text_wishes
 
     engine = ValidationEngine()
@@ -423,3 +442,4 @@ async def validate_detail_form(
         pass
 
     return result.to_dict()
+

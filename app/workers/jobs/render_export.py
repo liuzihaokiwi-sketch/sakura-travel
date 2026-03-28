@@ -1,14 +1,11 @@
-"""
-arq Job: render_export
-调用渲染引擎生成 PDF + H5，写入 export_jobs / export_assets，更新 trip 状态为 completed
-"""
-from __future__ import annotations
+﻿from __future__ import annotations
+
+"""arq job: render handbook export (PDF-only main chain)."""
 
 import logging
 import uuid
 from pathlib import Path
 
-from app.core.queue import enqueue_job
 from app.db.models.business import TripRequest
 from app.db.models.derived import ExportAsset, ExportJob, ItineraryPlan
 from app.db.session import AsyncSessionLocal as async_session_factory
@@ -22,109 +19,101 @@ async def render_export(
     ctx: dict,
     *,
     plan_id: str,
+    run_id: str = "",
 ) -> dict:
     """
-    arq Job: 渲染行程 PDF + H5，写入文件系统和数据库。
+    Render and persist handbook PDF.
+
+    Legacy HTML/H5 export path is retired from the main runtime chain.
     """
+    del ctx
     pid = uuid.UUID(plan_id)
-    logger.info("render_export 开始 plan=%s", pid)
+    logger.info("render_export start plan=%s run_id=%s", pid, run_id[:8] if run_id else "N/A")
 
     EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
     async with async_session_factory() as session:
         plan = await session.get(ItineraryPlan, pid)
         if plan is None:
-            logger.error("plan_id=%s 不存在", pid)
+            logger.error("plan_id=%s not found", pid)
             return {"status": "error", "reason": "plan not found"}
 
         trip = await session.get(TripRequest, plan.trip_request_id)
 
-        # 组装水印文字：从 trip.raw_input 取 wechat_id（用户昵称/微信号）+ 订单尾号
-        _watermark_text: str | None = None
+        watermark_text: str | None = None
         if trip:
-            _raw = trip.raw_input or {}
-            _wechat = _raw.get("wechat_id", "") or ""
-            # 订单尾号：取 trip_request_id 最后 4 位（无真实订单号时用请求 ID 代替）
-            _order_tail = str(trip.trip_request_id).replace("-", "")[-4:].upper()
-            _nickname = _wechat[:10] if _wechat else f"用户{_order_tail}"
-            _watermark_text = f"{_nickname} · {_order_tail} · 仅供本人行程使用"
+            raw = trip.raw_input or {}
+            wechat = str(raw.get("wechat_id") or "")
+            order_tail = str(trip.trip_request_id).replace("-", "")[-4:].upper()
+            nickname = wechat[:10] if wechat else f"USER{order_tail}"
+            watermark_text = f"{nickname} | {order_tail} | personal itinerary copy"
 
-        # 创建 h5 export_job 记录
         export_job = ExportJob(
             plan_id=pid,
-            export_type="h5",
+            export_type="pdf",
             status="rendering",
         )
         session.add(export_job)
-        await session.flush()  # 获取 export_job.export_job_id
+        await session.flush()
 
         try:
-            # ── HTML 渲染（独立 session 避免 greenlet 上下文冲突）────────
-            from app.domains.rendering.magazine.html_renderer import render_html
+            from app.domains.rendering.magazine.pdf_renderer import render_pdf
 
-            async with async_session_factory() as render_session:
-                html_content = await render_html(pid, render_session)
-            html_path = EXPORTS_DIR / f"{pid}.html"
-            html_path.write_text(html_content, encoding="utf-8")
-            logger.info("HTML 写入 %s", html_path)
+            pdf_bytes = await render_pdf(pid, session, watermark_text=watermark_text)
+            pdf_path = EXPORTS_DIR / f"{pid}.pdf"
+            pdf_path.write_bytes(pdf_bytes)
+            logger.info("PDF written: %s", pdf_path)
 
-            # 写入 export_assets（HTML）
-            html_asset = ExportAsset(
+            pdf_asset = ExportAsset(
                 export_job_id=export_job.export_job_id,
-                asset_type="h5",
-                storage_url=f"/exports/{pid}.html",
+                asset_type="pdf",
+                storage_url=f"/exports/{pid}.pdf",
             )
-            session.add(html_asset)
+            session.add(pdf_asset)
 
-            # ── PDF 渲染 ──────────────────────────────────────────────
-            try:
-                from app.domains.rendering.magazine.pdf_renderer import render_pdf
-
-                pdf_bytes = await render_pdf(pid, session, watermark_text=_watermark_text)
-                pdf_path = EXPORTS_DIR / f"{pid}.pdf"
-                pdf_path.write_bytes(pdf_bytes)
-                logger.info("PDF 写入 %s", pdf_path)
-
-                # 为 PDF 单独创建一条 export_job 记录
-                pdf_job = ExportJob(
-                    plan_id=pid,
-                    export_type="pdf",
-                    status="done",
-                )
-                session.add(pdf_job)
-                await session.flush()
-
-                pdf_asset = ExportAsset(
-                    export_job_id=pdf_job.export_job_id,
-                    asset_type="pdf",
-                    storage_url=f"/exports/{pid}.pdf",
-                )
-                session.add(pdf_asset)
-
-            except Exception as pdf_err:
-                # PDF 失败不阻断，H5 仍可交付
-                logger.warning("PDF 渲染失败（跳过）: %s", pdf_err)
-
-            # 更新 h5 export_job 状态
             export_job.status = "done"
-
-            # 更新 trip 状态为 completed
             if trip:
                 trip.status = "completed"
-
             await session.commit()
 
+            # 通知运营：行程生成完成
+            try:
+                from app.core.wecom_notify import notify_trip_done
+                meta = plan.plan_metadata or {}
+                duration = meta.get("duration_days") or 0
+                await notify_trip_done(
+                    trip_request_id=str(plan.trip_request_id),
+                    plan_id=str(pid),
+                    duration_days=duration,
+                    nickname=nickname if trip else None,
+                )
+            except Exception:
+                pass  # 通知失败不影响主流程
+
         except Exception as exc:
-            logger.exception("render_export 失败 plan=%s: %s", pid, exc)
+            logger.exception("render_export failed plan=%s: %s", pid, exc)
             export_job.status = "failed"
             if trip:
                 trip.status = "failed"
             await session.commit()
+
+            # 通知运营：生成失败
+            try:
+                from app.core.wecom_notify import notify_trip_failed
+                await notify_trip_failed(
+                    trip_request_id=str(plan.trip_request_id) if plan else plan_id,
+                    reason=str(exc)[:200],
+                    nickname=nickname if trip else None,
+                )
+            except Exception:
+                pass
+
             return {"status": "error", "reason": str(exc)}
 
-    logger.info("render_export 完成 plan=%s", pid)
+    logger.info("render_export done plan=%s", pid)
     return {
         "status": "ok",
         "plan_id": plan_id,
-        "html_url": f"/exports/{pid}.html",
+        "pdf_url": f"/exports/{pid}.pdf",
     }
+

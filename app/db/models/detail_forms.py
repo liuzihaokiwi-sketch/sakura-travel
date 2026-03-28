@@ -125,6 +125,9 @@ class DetailForm(Base):
         JSONB,
         comment='{"type": "hotel", "star_min": 3, "prefer_onsen": true, "location_pref": "near_station"}'
     )
+    booked_items: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment='[{"type":"hotel","city_code":"kyoto","name":"xx","locked":true}]'
+    )
     hotel_area_pref: Mapped[Optional[str]] = mapped_column(Text)
     hotel_booking_status: Mapped[Optional[str]] = mapped_column(String(20))
     booked_hotels: Mapped[Optional[list]] = mapped_column(
@@ -164,6 +167,9 @@ class DetailForm(Base):
     )
     visited_places: Mapped[Optional[list]] = mapped_column(
         JSONB, comment='["already_visited_place_a", "already_visited_place_b"]'
+    )
+    do_not_go_places: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment='["avoid_place_a", "avoid_place_b"]'
     )
     must_go_places: Mapped[Optional[list]] = mapped_column(JSONB)
     dont_want_places: Mapped[Optional[list]] = mapped_column(JSONB)

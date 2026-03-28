@@ -34,8 +34,8 @@ class ReviewOrderSummary(BaseModel):
     # Unified operator surface fields (P1-B3)
     operator_surface: str = "order_review_surface"
     operator_stage: str = "action_needed"
-    operator_action_boundary: str = "compatibility_support"
-    proof_lane: str = "compatibility_baseline"
+    operator_action_boundary: str = "main_proof_flow"
+    proof_lane: str = "main_chain_proof"
 
 
 class ReviewListResponse(BaseModel):
@@ -78,8 +78,8 @@ def _derive_operator_surface_state(
     if order_status in terminal_status:
         return OperatorSurfaceState(
             stage="terminal",
-            action_boundary="compatibility_support",
-            proof_lane="compatibility_baseline",
+            action_boundary="main_proof_flow",
+            proof_lane="main_chain_proof",
         )
 
     if order_status in main_flow_status or has_active_review_job:
@@ -92,8 +92,8 @@ def _derive_operator_surface_state(
 
     return OperatorSurfaceState(
         stage="read_ready",
-        action_boundary="compatibility_support",
-        proof_lane="compatibility_baseline",
+        action_boundary="main_proof_flow",
+        proof_lane="main_chain_proof",
     )
 
 

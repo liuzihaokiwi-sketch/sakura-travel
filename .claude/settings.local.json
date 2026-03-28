@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pytest tests/test_phase2_tail_closure.py tests/e2e/test_full_pipeline.py -x -q --tb=short)"
+    ]
+  }
+}

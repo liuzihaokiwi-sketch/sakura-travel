@@ -51,4 +51,4 @@ def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
             continue
 
         if rel_path_obj == PHASE2_E2E_FILE or rel_path_obj in LEGACY_BASELINE_FILES:
-            item.add_marker(pytest.mark.legacy_compatibility)
+            item.add_marker(pytest.mark.l2_contract_blocker)

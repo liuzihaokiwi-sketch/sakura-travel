@@ -21,12 +21,14 @@ from app.db.session import AsyncSessionLocal
 from app.domains.intake.layer2_contract import (
     build_layer2_canonical_input,
     parse_layer2_datetime,
+    unpack_canonical_values,
 )
 from app.workers.jobs.score_entities import score_entities
 from app.workers.jobs.generate_plan import generate_itinerary_plan
 from app.workers.jobs.run_guardrails import run_guardrails
 from app.workers.jobs.render_export import render_export
-from app.workers.jobs.scan_flight_prices import scan_flight_prices
+from app.workers.jobs.send_booking_reminders import send_booking_reminders
+from app.workers.jobs.decay_recommendation_counts import decay_recommendation_counts
 
 
 # ── Job 推导规则 ───────────────────────────────────────────────────────────────
@@ -113,6 +115,30 @@ _CELEBRATION_KEYWORDS = {
 }
 
 
+def _extract_special_needs(raw: dict[str, Any]) -> dict[str, Any]:
+    value = raw.get("special_needs")
+    if isinstance(value, dict):
+        return value
+    return {}
+
+
+def _sanitize_special_requirements(raw: dict[str, Any]) -> dict[str, Any]:
+    incoming = raw.get("special_requirements")
+    if not isinstance(incoming, dict):
+        return {}
+    # Keep only known operator/runtime knobs; drop generic side-channel noise.
+    allowed_keys = {
+        "celebration_flags",
+        "mobility_notes",
+        "queue_tolerance",
+        "weather_risk_tolerance",
+        "food_priority",
+        "photo_priority",
+        "shopping_priority",
+    }
+    return {k: v for k, v in incoming.items() if k in allowed_keys}
+
+
 def _derive_circle_signals(
     raw: dict,
     cities: list[dict],
@@ -126,7 +152,8 @@ def _derive_circle_signals(
     """
     result: dict[str, Any] = {}
     special = dict(raw.get("special_requirements") or {})
-    canonical_input = build_layer2_canonical_input(raw)
+    canonical_raw = build_layer2_canonical_input(raw)
+    canonical_input = unpack_canonical_values(canonical_raw)
     # special_requirements keeps only compatibility side-channel semantics.
     must_visit_places = raw.get("must_visit_places") or []
     if isinstance(must_visit_places, list):
@@ -271,6 +298,22 @@ def _derive_circle_signals(
     if must_tags & shopping_tags:
         special["shopping_priority"] = "high"
 
+    # Strip known first-class contract keys from special_requirements side-channel.
+    for key in (
+        "requested_city_circle",
+        "arrival_local_datetime",
+        "departure_local_datetime",
+        "must_visit_places",
+        "visited_places",
+        "do_not_go_places",
+        "booked_items",
+        "locked_items",
+        "companion_breakdown",
+        "budget_range",
+        "contract_version",
+    ):
+        special.pop(key, None)
+
     result["special_requirements"] = special
     return result
 
@@ -330,7 +373,7 @@ async def normalize_trip_profile(ctx: dict, trip_request_id: str) -> str:
 
         raw = trip.raw_input
         tags = derive_profile_tags(raw)
-        canonical_input = build_layer2_canonical_input(raw)
+        canonical_input = unpack_canonical_values(build_layer2_canonical_input(raw))
 
         # 计算总天数
         cities = raw.get("cities", [])
@@ -426,12 +469,15 @@ class WorkerSettings:
         _generate_trip_entry,
         run_guardrails,
         render_export,
-        scan_flight_prices,
+        send_booking_reminders,
+        decay_recommendation_counts,
     ]
 
-    # 定时任务：每6小时扫描一次机票特价（6/12/18/0点）
     cron_jobs = [
-        cron(scan_flight_prices, hour={0, 6, 12, 18}, minute=0, timeout=600),
+        # 每天早9点发送预约提醒
+        cron(send_booking_reminders, hour=9, minute=0, timeout=120),
+        # 每天凌晨2点衰减推荐计数
+        cron(decay_recommendation_counts, hour=2, minute=0, timeout=300),
     ]
 
     redis_settings = RedisSettings.from_dsn(settings.redis_url)

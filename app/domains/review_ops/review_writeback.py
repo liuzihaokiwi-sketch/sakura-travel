@@ -40,7 +40,7 @@ async def writeback_review_issues(
     Returns:
         {"entities_updated": N, "temporal_fixes": M, "decisions_written": K}
     """
-    from app.domains.planning.decision_writer import write_decision
+    from app.domains.planning.decision_writer import write_decision, write_standard_decision
 
     stats = {"entities_updated": 0, "temporal_fixes": 0, "decisions_written": 0}
 
@@ -74,11 +74,28 @@ async def writeback_review_issues(
                 stats["entities_updated"] += 1
 
     # 3. 写入 review 阶段 decision 快照
-    await write_decision(
-        session, trip_request_id=trip_request_id, plan_id=plan_id,
-        stage="review_pipeline",
-        key="final_verdict",
-        value=pipeline_result.final_verdict.value if hasattr(pipeline_result.final_verdict, "value") else str(pipeline_result.final_verdict),
+    verdict = (
+        pipeline_result.final_verdict.value
+        if hasattr(pipeline_result.final_verdict, "value")
+        else str(pipeline_result.final_verdict)
+    )
+    status_bucket = "compatibility_residual" if any(
+        i.category in {"legacy_fallback", "compatibility_residual"} for i in all_issues
+    ) else ("operator_required" if verdict == "human" else ("main_chain_failed" if verdict == "rewrite" else "main_chain_ok"))
+    await write_standard_decision(
+        session,
+        trip_request_id=trip_request_id,
+        plan_id=plan_id,
+        stage="review_writeback",
+        verdict=verdict,
+        reason=pipeline_result.final_reason,
+        operator_action="manual_review" if verdict == "human" else None,
+        status_bucket=status_bucket,
+        payload={
+            "qa_issue_count": len(pipeline_result.qa_result.issues) if pipeline_result.qa_result else 0,
+            "ops_issue_count": len(pipeline_result.ops_proxy_result.issues) if pipeline_result.ops_proxy_result else 0,
+            "user_proxy_score": pipeline_result.user_proxy_result.score if pipeline_result.user_proxy_result else None,
+        },
         alternatives=[
             {
                 "agent": "qa", "issues": len(pipeline_result.qa_result.issues) if pipeline_result.qa_result else 0,
@@ -92,7 +109,6 @@ async def writeback_review_issues(
                 "issues": len(pipeline_result.ops_proxy_result.issues) if pipeline_result.ops_proxy_result else 0,
             },
         ],
-        reason=pipeline_result.final_reason,
     )
     stats["decisions_written"] += 1
 
@@ -136,7 +152,16 @@ async def writeback_review_issues(
         "review_writeback: plan=%s entities=%d temporal=%d decisions=%d",
         plan_id, stats["entities_updated"], stats["temporal_fixes"], stats["decisions_written"],
     )
-    return stats
+    return {
+        **stats,
+        "writeback": {
+            "stage": "review_writeback",
+            "verdict": verdict,
+            "reason": pipeline_result.final_reason,
+            "operator_action": "manual_review" if verdict == "human" else None,
+            "status_bucket": status_bucket,
+        },
+    }
 
 
 async def _mark_entity_stale(

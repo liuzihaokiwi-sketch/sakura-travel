@@ -36,8 +36,8 @@ def _import_builder():
 
 
 def _import_report_gen():
-    from app.domains.planning.report_generator import generate_report_v2
-    return generate_report_v2
+    from app.domains.rendering.planning_output import build_planning_output
+    return build_planning_output
 
 
 def _import_eval():
@@ -269,9 +269,9 @@ class TestHappyPath:
     def test_pipeline_versions_in_meta(self, kansai_profile):
         """meta 必须包含 pipeline_versions 字段（L4-04）。"""
         plan = _minimal_plan_json(days=5)
-        # pipeline_versions 由 report_generator 注入
+        # pipeline_versions 由 planning_output 注入
         # 在 happy path 中模拟验证
-        # 真实 plan 由 generate_report_v2 生成后会含此字段
+        # 真实 plan 由 planning_output 生成后会含此字段
         # 此处仅验证字段结构预期
         mock_meta = {
             "pipeline_versions": {
@@ -287,24 +287,27 @@ class TestHappyPath:
 # ── TC-02: Fallback path ──────────────────────────────────────────────────────
 
 class TestFallbackPath:
-    """TC-02: 缺数据圈 → 降级到旧 assembler。"""
+    """TC-02: 缺数据圈 → 新链显式失败（不再默认降级旧 assembler）。"""
 
-    def test_missing_circle_returns_fallback_flag(self, missing_circle_profile):
-        """当 circle_id 不存在时，生成结果应包含 fallback 标志。"""
+    def test_missing_circle_returns_explicit_failure(self, missing_circle_profile):
+        """当 circle_id 不存在时，生成结果应显式失败。"""
         plan = _minimal_plan_json(days=4)
-        # 模拟降级后的 plan 带有 fallback 标记
-        plan["meta"]["generation_path"] = "legacy_assembler"
-        plan["meta"]["fallback_reason"] = "circle_not_found: hokkaido_v99"
+        plan["meta"]["generation_path"] = "city_circle_main_chain"
+        plan["meta"]["legacy_fallback_used"] = False
+        error = {"status": "error", "reason": "city_circle_pipeline_failed"}
 
-        assert plan["meta"]["generation_path"] == "legacy_assembler"
-        assert "fallback_reason" in plan["meta"]
+        assert plan["meta"]["generation_path"] == "city_circle_main_chain"
+        assert plan["meta"]["legacy_fallback_used"] is False
+        assert error["reason"] == "city_circle_pipeline_failed"
 
     def test_fallback_plan_still_has_valid_days(self, missing_circle_profile):
         """降级后的 plan 仍应有合理的天数结构。"""
         plan = _minimal_plan_json(days=4)
-        plan["meta"]["generation_path"] = "legacy_assembler"
+        plan["meta"]["generation_path"] = "city_circle_main_chain"
+        plan["meta"]["legacy_fallback_used"] = False
 
         assert len(plan["days"]) == 4
+        assert plan["meta"]["legacy_fallback_used"] is False
         for day in plan["days"]:
             assert "day_index" in day
             assert "items" in day
@@ -673,19 +676,19 @@ def test_phase2_contract_smoke_single_case():
     assert "osa_usj_themepark" in constraints.blocked_clusters
     assert constraints.arrival_evening_only is True
     assert constraints.departure_day_no_poi is True
-    assert profile.special_requirements["visited_places"] == case["visited_places"]
-    assert profile.special_requirements["requested_city_circle"] == intent["circle_id"]
-    assert profile.special_requirements["companion_breakdown"]["party_size"] == case["party_size"]
-    assert profile.special_requirements["budget_range"]["total"] == case["budget_total_cny"]
+    assert "visited_places" not in profile.special_requirements
+    assert "requested_city_circle" not in profile.special_requirements
+    assert "companion_breakdown" not in profile.special_requirements
+    assert "budget_range" not in profile.special_requirements
 
 
 def test_phase2_contract_batch_cases_preserve_new_fields():
-    from app.domains.intake.layer2_contract import build_layer2_canonical_input
+    from app.domains.intake.layer2_contract import build_layer2_canonical_input, unpack_canonical_values
     from scripts.test_cases import PHASE2_CASES
 
     for case in PHASE2_CASES:
         window = case["trip_window"]
-        canonical = build_layer2_canonical_input(
+        canonical = unpack_canonical_values(build_layer2_canonical_input(
             {
                 **case,
                 "requested_city_circle": case["city_circle_intent"]["circle_id"],
@@ -698,7 +701,7 @@ def test_phase2_contract_batch_cases_preserve_new_fields():
                 "do_not_go_places": case.get("do_not_go_places", []),
                 "visited_places": case.get("visited_places", []),
             }
-        )
+        ))
 
         assert canonical["requested_city_circle"] == case["city_circle_intent"]["circle_id"]
         assert canonical["do_not_go_places"] == case.get("do_not_go_places", [])

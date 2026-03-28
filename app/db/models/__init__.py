@@ -12,7 +12,6 @@ from app.db.models.catalog import (  # noqa: F401
     Restaurant,
 )
 from app.db.models.snapshots import (  # noqa: F401
-    FlightOfferSnapshot,
     HotelOfferLine,
     HotelOfferSnapshot,
     PoiOpeningSnapshot,
@@ -131,7 +130,7 @@ __all__ = [
     "EntityAlias", "EntityFieldProvenance", "EntityMappingReview",
     # Snapshots
     "SourceSnapshot", "HotelOfferSnapshot", "HotelOfferLine",
-    "FlightOfferSnapshot", "PoiOpeningSnapshot", "WeatherSnapshot",
+    "PoiOpeningSnapshot", "WeatherSnapshot",
     # Business
     "User", "ProductSku", "Order", "TripRequest", "TripProfile",
     "TripVersion", "ReviewJob", "ReviewAction",

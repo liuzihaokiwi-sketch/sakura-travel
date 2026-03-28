@@ -5,7 +5,7 @@
 步骤 2-5 可并行（asyncio.gather），步骤 6 等全部完成后裁决。
 
 角色：
-  1. Planner    — 已有（assemble_trip + copywriter），不在此模块
+  1. Planner    — 城市圈决策链 + page pipeline，不在此模块
   2. QA Checker — hard_fail / soft_fail 检查
   3. User Proxy — 客群视角 satisfaction_score + complaints
   4. Ops Proxy  — 执行风险检查（预约/定休/交通/天气）

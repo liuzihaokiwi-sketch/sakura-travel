@@ -128,6 +128,7 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
     }
     form = SimpleNamespace(
         cities=[{"city_code": "kyoto", "nights": 2}],
+        requested_city_circle="kansai_classic_circle",
         duration_days=3,
         travel_start_date="2026-04-01",
         travel_end_date="2026-04-03",
@@ -142,12 +143,15 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
         budget_total_cny=8000,
         budget_focus="balanced",
         accommodation_pref={},
-        booked_hotels=[
+        booked_items=[
             {
+                "type": "hotel",
+                "city_code": "kyoto",
                 "name": "Kyoto Station Hotel",
                 "area": "kyoto_station",
-                "check_in": "2026-04-01",
-                "check_out": "2026-04-03",
+                "checkin": "2026-04-01",
+                "checkout": "2026-04-03",
+                "locked": True,
             }
         ],
         must_have_tags=[],
@@ -156,8 +160,8 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
         food_preferences={},
         pace_preference="balanced",
         wake_up_time="normal",
-        must_go_places=["伏见稻荷大社"],
-        dont_want_places=["osa_usj_themepark"],
+        must_visit_places=["伏见稻荷大社"],
+        do_not_go_places=["osa_usj_themepark"],
         free_text_wishes="",
         flight_info={},
         arrival_airport="KIX",
@@ -185,7 +189,7 @@ async def test_regression_submission_normalize_constraints_ranking(monkeypatch):
     profiled = await normalize_trip_profile({}, str(store.trip_request_id))
     assert profiled.startswith("profiled:")
     assert store.profile is not None
-    assert "must_visit_places" in (store.profile.special_requirements or {})
+    assert "must_visit_places" not in (store.profile.special_requirements or {})
     assert store.profile.requested_city_circle == "kansai_classic_circle"
     assert store.profile.do_not_go_places == ["osa_usj_themepark"]
     assert store.profile.booked_items

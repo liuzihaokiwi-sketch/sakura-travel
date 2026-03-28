@@ -3,8 +3,8 @@ from __future__ import annotations
 from typing import Optional
 """
 Layer B – Live Snapshots (动态事实层)
-6 tables: source_snapshots, hotel_offer_snapshots, hotel_offer_lines,
-          flight_offer_snapshots, poi_opening_snapshots, weather_snapshots
+5 tables: source_snapshots, hotel_offer_snapshots, hotel_offer_lines,
+          poi_opening_snapshots, weather_snapshots
 """
 
 import uuid
@@ -120,38 +120,6 @@ class HotelOfferLine(Base):
     )
 
     __table_args__ = (Index("ix_hotel_offer_lines_snapshot", "offer_snapshot_id"),)
-
-
-# ── flight_offer_snapshots ────────────────────────────────────────────────────
-class FlightOfferSnapshot(Base):
-    """航班报价快照"""
-
-    __tablename__ = "flight_offer_snapshots"
-
-    flight_snapshot_id: Mapped[int] = mapped_column(
-        BigInteger, primary_key=True, autoincrement=True
-    )
-    origin_iata: Mapped[str] = mapped_column(String(3), nullable=False)
-    dest_iata: Mapped[str] = mapped_column(String(3), nullable=False, default="TYO")
-    departure_date: Mapped[str] = mapped_column(String(10), nullable=False, comment="YYYY-MM-DD")
-    return_date: Mapped[Optional[str]] = mapped_column(String(10))
-    source_name: Mapped[str] = mapped_column(String(50), nullable=False)
-    fetched_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False, server_default=func.now()
-    )
-    expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
-    currency: Mapped[str] = mapped_column(String(3), default="CNY")
-    min_price: Mapped[Optional[float]] = mapped_column(Numeric(10, 2))
-    raw_payload: Mapped[Optional[dict]] = mapped_column(JSONB)
-
-    __table_args__ = (
-        Index(
-            "ix_flight_snapshots_route_date",
-            "origin_iata",
-            "dest_iata",
-            "departure_date",
-        ),
-    )
 
 
 # ── poi_opening_snapshots ─────────────────────────────────────────────────────

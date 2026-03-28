@@ -9,10 +9,10 @@ from fastapi import HTTPException
 from app.api import trips_generate as tg
 from app.domains.rendering.asset_manifest import hero_slot_id, page_slot_id
 from app.domains.rendering.chapter_planner import plan_chapters
-from app.domains.rendering.layer2_handoff import build_layer2_delivery_handoff
 from app.domains.rendering.page_editing import serialize_page_models
 from app.domains.rendering.page_planner import plan_pages
 from app.domains.rendering.page_view_model import build_view_models
+from tests.helpers.build_test_planning_output import build_test_planning_output
 
 
 class _DummyDB:
@@ -40,92 +40,8 @@ class _TripDB:
         self.commit_count += 1
 
 
-def _report_content() -> dict:
-    return {
-        "schema_version": "v2",
-        "version": "circle-v1",
-        "generated_at": "2026-03-26T10:00:00+00:00",
-        "layer1_overview": {
-            "booking_reminders": [{"item": "Sagano Train", "deadline": "7 days before", "impact": "queue risk"}],
-            "prep_checklist": {"title": "Departure checklist", "items": ["Passport", "eSIM"]},
-        },
-        "layer2_daily": [
-            {
-                "day_number": 1,
-                "city_code": "kyoto",
-                "day_type": "arrival",
-                "day_theme": "Higashiyama slow day",
-                "primary_area": "higashiyama",
-                "day_goal": "Adapt with light pace",
-                "must_keep": "Kiyomizu",
-                "first_cut": "Night photo walk",
-                "start_anchor": "Kyoto station",
-                "end_anchor": "Gion",
-                "route_integrity_score": 0.88,
-                "intensity": "balanced",
-                "items": [
-                    {
-                        "sort": 1,
-                        "type": "poi",
-                        "duration": 90,
-                        "entity_id": "kyo_kiyomizu",
-                        "name": "Kiyomizu-dera",
-                        "entity_type": "poi",
-                        "area": "higashiyama",
-                        "is_optional": False,
-                    }
-                ],
-                "report": {
-                    "why_this_arrangement": ["Arrival day keeps low transfer cost"],
-                    "highlights": [{"name": "Kiyomizu", "description": "Golden hour view"}],
-                    "notes_and_planb": {"weather_plan": "Switch to museum", "energy_plan": "Skip night photo walk"},
-                    "execution_overview": {"top_expectation": "Kiyomizu sunset"},
-                },
-                "conditional_pages": ["booking_window"],
-            }
-        ],
-        "preference_fulfillment": [],
-        "skipped_options": [],
-        "emotional_goals": [{"day_index": 1, "mood_keyword": "explore", "mood_sentence": "Easy first-day exploration."}],
-        "meta": {
-            "total_days": 1,
-            "destination": "kansai",
-            "party_type": "couple",
-            "budget_level": "mid",
-            "pace": "moderate",
-            "structure_warnings": [],
-        },
-    }
-
-
-def _plan_metadata() -> dict:
-    return {
-        "evidence_bundle": {
-            "run_id": "run-123",
-            "hard_unconsumed_count": 0,
-            "compiled_constraints": {"must_go_clusters": ["kyo_kiyomizu"], "climate_risk_flags": ["rainy_season"]},
-            "resolved_policy": {"circle_id": "kansai_classic_circle"},
-            "input_contract": {
-                "contract_version": "layer2_v1",
-                "requested_city_circle": "kansai_classic_circle",
-                "arrival_local_datetime": "2026-09-20T18:25",
-                "departure_local_datetime": "2026-09-25T11:45",
-                "companion_breakdown": {"party_type": "couple", "party_size": 2},
-                "budget_range": {"budget_level": "mid", "currency": "CNY", "total": 18000},
-                "booked_items": [{"type": "hotel", "city_code": "kyoto", "name": "Kyoto Stay"}],
-                "do_not_go_places": ["osa_usj_themepark"],
-                "visited_places": ["kyo_kiyomizu"],
-            },
-        }
-    }
-
-
 def _build_page_models():
-    payload, _ = build_layer2_delivery_handoff(
-        report_content=_report_content(),
-        plan_metadata=_plan_metadata(),
-        plan_id="plan-1",
-    )
+    payload = build_test_planning_output()
     chapters = plan_chapters(payload)
     pages = plan_pages(chapters, payload)
     return build_view_models(pages, payload)

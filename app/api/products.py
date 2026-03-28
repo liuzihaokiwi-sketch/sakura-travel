@@ -83,7 +83,6 @@ def _sku_to_item(sku: ProductSku) -> SkuItem:
         "avoid_traps_deep":        "避坑指南（深度版）",
         "photo_spots":             "摄影机位攻略",
         "instagrammable_guide":    "出片+穿搭攻略",
-        "flight_compare_report":   "机票比价报告",
         "hotel_compare_report":    "酒店比价报告",
         "savings_summary":         "省钱总结报告",
         "version_comparison":      "多版本行程对比",
@@ -140,14 +139,38 @@ def _build_description(name: str, price: float, features: dict) -> str:
 # ── 静态 fallback（DB 为空时返回）────────────────────────────────────────────
 _FALLBACK_PRODUCTS: List[SkuItem] = [
     SkuItem(
-        sku_id="basic_20",
-        name="日本旅行行程·模板版",
-        description="¥19.9 · 固定 7 天模板行程，含杂志级 PDF + H5 预览。",
-        price_cny=19.9,
+        sku_id="standard_198",
+        name="关西经典·个性化手账本",
+        description="¥198 · 基础 5 天个性化行程，每多 1 天加 ¥20，含杂志级 PDF 手账本。",
+        price_cny=198.0,
+        sku_type="personalized",
+        max_days=10,
+        includes=["AI 智能行程时间轴", "路线地图", "景点详细信息", "住宿区域建议",
+                  "交通卡攻略", "餐厅推荐报告", "出行前准备攻略", "避坑指南（基础版）"],
+        template_codes=["kansai_classic_5d", "kansai_classic_6d"],
+        supported_scenes=["couple", "family", "solo", "senior"],
+    ),
+    SkuItem(
+        sku_id="quick_98",
+        name="速览版·3天模板行程",
+        description="¥98 · 固定 3 天模板行程，快速上手关西攻略。",
+        price_cny=98.0,
         sku_type="template",
-        max_days=7,
-        includes=["AI 智能行程时间轴", "路线地图", "景点详细信息", "住宿区域建议"],
-        template_codes=["tokyo_classic_5d", "kansai_classic_6d"],
+        max_days=3,
+        includes=["AI 智能行程时间轴", "路线地图", "景点详细信息", "住宿区域建议",
+                  "基础交通指南", "出行前准备攻略"],
+        template_codes=["kansai_classic_3d"],
+        supported_scenes=["couple", "family", "solo", "senior"],
+    ),
+    SkuItem(
+        sku_id="single_册_29",
+        name="单城单日·拆册版",
+        description="¥29/册 · 单城单日行程，可自由拼装多册。",
+        price_cny=29.0,
+        sku_type="template",
+        max_days=1,
+        includes=["AI 智能行程时间轴", "景点详细信息", "餐厅推荐报告"],
+        template_codes=["kansai_day_single"],
         supported_scenes=["couple", "family", "solo", "senior"],
     ),
 ]
@@ -214,7 +237,7 @@ async def calculate_price(
     - days <= base_days: 按基础价
     - days > base_days: base_price + (days - base_days) * extra_day_price
 
-    示例: flex_68 选 10 天 → ¥68 + 3×¥10 = ¥98
+    示例: standard_198 选 7 天 → ¥198 + 2×¥20 = ¥238
     """
     sku = (await db.execute(
         select(ProductSku).where(

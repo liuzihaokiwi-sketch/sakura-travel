@@ -93,6 +93,9 @@ class EntitySignals:
     # ── 通用风险 ──────────────────────────────────────────────────────────────
     homogeneity_count: int = 0     # 同城市同类型已推荐数量（景点同质化判断）
 
+    # ── 轮转机制 ──────────────────────────────────────────────────────────────
+    recommendation_count_30d: int = 0  # 过去30天被推荐次数，用于轮转降权
+
     # ── 编辑 boost（来自 entity_editor_notes） ────────────────────────────────
     editorial_boost: int = 0       # -8 ~ +8
 
@@ -412,10 +415,15 @@ def compute_base_score(
     risk_penalty, risk_breakdown = _compute_risk_penalty(signals)
     raw_base = system_score_adjusted - risk_penalty
 
-    # Step 4: clamp
-    base_score = round(_clamp(raw_base), 2)
+    # Step 4: 轮转降权
+    from app.domains.ranking.rotation import compute_rotation_penalty
+    rotation_penalty = compute_rotation_penalty(signals.recommendation_count_30d)
+    raw_base_rotated = raw_base - rotation_penalty
 
-    # Step 5: 合并 breakdown
+    # Step 5: clamp
+    base_score = round(_clamp(raw_base_rotated), 2)
+
+    # Step 6: 合并 breakdown
     breakdown = {
         "dimensions": dim_breakdown,
         "system_score_raw": round(system_score, 2),
@@ -423,10 +431,12 @@ def compute_base_score(
         "system_score_adjusted": round(system_score_adjusted, 2),
         "risk_penalty": round(risk_penalty, 2),
         "risk_details": risk_breakdown,
+        "rotation_penalty": round(rotation_penalty, 3),
+        "recommendation_count_30d": signals.recommendation_count_30d,
         "score_version": SCORE_VERSION,
     }
 
-    # Step 6: 叠加 boost 得到 final_score（boost 在 base 上直接加）
+    # Step 7: 叠加 boost 得到 final_score（boost 在 base 上直接加）
     final_score = apply_editorial_boost(base_score, signals.editorial_boost)
 
     return ScoreResult(

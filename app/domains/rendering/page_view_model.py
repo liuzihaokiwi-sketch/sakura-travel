@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
 from typing import Any, Optional, Union
 
-from app.domains.planning.report_schema import ReportPayloadV2
+from app.domains.rendering.planning_output import PlanningOutput
 from app.domains.rendering.page_planner import PagePlan
 
 logger = logging.getLogger(__name__)
@@ -140,7 +140,7 @@ def _entity_id_from_page(page: PagePlan) -> str:
     return page.object_refs[0].object_id if page.object_refs else ""
 
 
-def _resolve_hero_image(entity_id: Optional[str], page_type: str, payload: ReportPayloadV2) -> Optional[HeroVM]:
+def _resolve_hero_image(entity_id: Optional[str], page_type: str, payload: PlanningOutput) -> Optional[HeroVM]:
     if entity_id:
         for ev in payload.selection_evidence:
             if ev.get("entity_id") == entity_id and ev.get("hero_image_url"):
@@ -187,7 +187,7 @@ def _inject_day_boundaries(vm: PageViewModel, day: Any, mood_sentence: str) -> N
     }
 
 
-def _build_cover_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_cover_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, f"{payload.meta.destination} {payload.meta.total_days}D", payload.profile_summary.budget_bias or None)
     vm.hero = _resolve_hero_image(None, "cover", payload)
     vm.sections.append(
@@ -205,7 +205,7 @@ def _build_cover_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) 
     return vm
 
 
-def _build_toc_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int, page_number_map: dict[str, int], all_pages: list[PagePlan]) -> PageViewModel:
+def _build_toc_vm(page: PagePlan, payload: PlanningOutput, page_number: int, page_number_map: dict[str, int], all_pages: list[PagePlan]) -> PageViewModel:
     vm = _base_vm(page, page_number, "TOC")
     entries: list[dict[str, Any]] = []
     for p in all_pages:
@@ -224,7 +224,7 @@ def _build_toc_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int, pa
     return vm
 
 
-def _build_preference_fulfillment_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_preference_fulfillment_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Preference Fulfillment")
     items = [
         {
@@ -239,7 +239,7 @@ def _build_preference_fulfillment_vm(page: PagePlan, payload: ReportPayloadV2, p
     return vm
 
 
-def _build_day_execution_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_day_execution_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     day = next((d for d in payload.days if d.day_index == page.day_index), None)
     if not day:
         return _build_skeleton_vm(page, payload, page_number)
@@ -274,14 +274,14 @@ def _build_day_execution_vm(page: PagePlan, payload: ReportPayloadV2, page_numbe
     return vm
 
 
-def _build_major_activity_overview_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_major_activity_overview_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Major Activities")
     spots = [{"name": d.must_keep or d.title, "day_index": d.day_index, "area": d.primary_area} for d in payload.days]
     vm.sections.append(SectionVM(section_type="entity_card", content={"spots": spots}))
     return vm
 
 
-def _build_route_overview_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_route_overview_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Route Overview")
     timeline_items = [
         TimelineItemVM(time=f"Day {d.day_index}", name=d.title, type_icon="day", duration=d.intensity, note=d.primary_area)
@@ -291,7 +291,7 @@ def _build_route_overview_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_hotel_strategy_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_hotel_strategy_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Hotel Strategy")
     hotels = []
     for hc in payload.profile_summary.hotel_constraints:
@@ -300,7 +300,7 @@ def _build_hotel_strategy_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_booking_window_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_booking_window_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Booking Window", "Reserve these early")
     items: list[dict[str, Any]] = []
     for alert in payload.booking_alerts:
@@ -331,7 +331,7 @@ def _build_booking_window_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_departure_prep_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_departure_prep_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     title = str(payload.prep_notes.get("title") or "Departure Prep")
     items = [str(x) for x in list(payload.prep_notes.get("items") or []) if str(x).strip()]
     vm = _base_vm(page, page_number, "Departure Prep", "Pre-departure checklist")
@@ -342,7 +342,7 @@ def _build_departure_prep_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_live_notice_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_live_notice_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Live Notice")
     vm.sections.append(
         SectionVM(
@@ -363,7 +363,7 @@ def _build_live_notice_vm(page: PagePlan, payload: ReportPayloadV2, page_number:
     return vm
 
 
-def _build_chapter_opener_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_chapter_opener_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     summary = next((c for c in payload.chapter_summaries if c.chapter_id == page.chapter_id), None)
     title = summary.title if summary else f"Chapter {page.chapter_id}"
     subtitle = summary.subtitle if summary else None
@@ -382,7 +382,7 @@ def _build_chapter_opener_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_entity_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int, default_title: str) -> PageViewModel:
+def _build_entity_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int, default_title: str) -> PageViewModel:
     entity_id = _entity_id_from_page(page)
     ev = next((x for x in payload.selection_evidence if x.get("entity_id") == entity_id), None)
     title = str((ev or {}).get("name") or default_title)
@@ -393,25 +393,25 @@ def _build_entity_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_numbe
     return vm
 
 
-def _build_major_activity_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_major_activity_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     return _build_entity_detail_vm(page, payload, page_number, "Major Activity")
 
 
-def _build_hotel_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_hotel_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     return _build_entity_detail_vm(page, payload, page_number, "Hotel Detail")
 
 
-def _build_restaurant_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_restaurant_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     return _build_entity_detail_vm(page, payload, page_number, "Restaurant Detail")
 
 
-def _build_photo_theme_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_photo_theme_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _build_entity_detail_vm(page, payload, page_number, "Photo Theme")
     vm.sections.append(SectionVM(section_type="photo_tips", content={"tips": []}))
     return vm
 
 
-def _build_transit_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_transit_detail_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, f"Transit Day {page.day_index}" if page.day_index else "Transit Detail")
     day = next((d for d in payload.days if d.day_index == page.day_index), None)
     steps = []
@@ -423,7 +423,7 @@ def _build_transit_detail_vm(page: PagePlan, payload: ReportPayloadV2, page_numb
     return vm
 
 
-def _build_supplemental_spots_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_supplemental_spots_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Supplemental Spots")
     spots = [{"name": s.name, "entity_type": s.entity_type, "why_worth_it": s.would_fit_if or s.why_skipped} for s in payload.skipped_options[:8]]
     if spots:
@@ -433,7 +433,7 @@ def _build_supplemental_spots_vm(page: PagePlan, payload: ReportPayloadV2, page_
     return vm
 
 
-def _build_skeleton_vm(page: PagePlan, payload: ReportPayloadV2, page_number: int) -> PageViewModel:
+def _build_skeleton_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     return _base_vm(page, page_number, page.page_type)
 
 
@@ -457,7 +457,7 @@ _BUILDERS = {
 }
 
 
-def build_view_models(pages: list[PagePlan], payload: ReportPayloadV2) -> dict[str, PageViewModel]:
+def build_view_models(pages: list[PagePlan], payload: PlanningOutput) -> dict[str, PageViewModel]:
     result: dict[str, PageViewModel] = {}
     page_number_map: dict[str, int] = {}
 

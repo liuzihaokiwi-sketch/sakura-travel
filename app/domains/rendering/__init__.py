@@ -1,10 +1,12 @@
 """
 app/domains/rendering — 渲染层（L3）
 
-负责将 ReportPayloadV2 转换为 PagePlan → PageViewModel，
+负责将 PlanningOutput 转换为 PagePlan → PageViewModel，
 供 Web 组件和 PDF 导出使用。
 
 模块：
+  planning_output     — 决策链直出的页面数据源
+  copy_enrichment     — AI 文案填充（可选）
   page_type_registry  — 17 种页型定义（L3-02）
   chapter_planner     — 章节规划器（L3-03）
   page_planner        — 页面规划器（L3-04）

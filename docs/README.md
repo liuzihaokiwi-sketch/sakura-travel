@@ -1,50 +1,57 @@
-> Superseded（文档收口阶段）：本文件已被 architecture 真相源覆盖。请优先参考：
-> `docs/architecture/00_scope_and_truth.md`
-> `docs/architecture/01_current_state.md`
-> `docs/architecture/02_target_architecture.md`
-> `docs/architecture/03_gap_and_priorities.md`
-> `docs/architecture/04_execution_staging.md`
-> 本文件仅作为历史参考，不作为当前阶段决策依据。
-
 # Travel AI — 文档索引
 
-> 13 份文档，每份有明确职责，无重复。最后更新：2026-03-22
+## 核心文档（5篇，必读）
 
-## 📂 文档清单
+| 文件 | 内容 |
+|------|------|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构：主链6步、6大子系统、评分机制、关键边界 |
+| [DECISIONS.md](DECISIONS.md) | 关键决策记录（14条）：每个重大选择的背景、理由、后果 |
+| [STATUS.md](STATUS.md) | 当前状态：上线路线图、并行任务排列、验收里程碑 |
+| [DATA_STRATEGY.md](DATA_STRATEGY.md) | 数据策略：采集渠道、质量档位、避雷机制、多样性、更新频率 |
+| [GROWTH_MODULES.md](GROWTH_MODULES.md) | 增长模块设计：营销内容生成 + 独立工具页（流量磁铁） |
+| [FRONTEND_REDESIGN.md](FRONTEND_REDESIGN.md) | 前端重构设计：页面结构、UI参考、色彩体系、核心页面wireframe |
+| [TASKS_GROWTH.md](TASKS_GROWTH.md) | 增长模块任务清单：Sonnet 可直接执行 |
+| [TASKS_FRONTEND.md](TASKS_FRONTEND.md) | 前端重构任务清单：4批次、含 Sonnet 配置和并行计划 |
 
-| # | 文件 | 行数 | 给谁看 | 存在意义 |
-|---|------|------|--------|---------|
-| 01 | `01_system_core.md` | ~470 | 全员 | **系统总纲**：免费流程→付费表单→校验→客服角色→生成主链路→画像标准化 |
-| 02 | `02_fragment_system.md` | ~320 | 开发 | **片段攻略库**：Schema、复用流程、命中策略、硬软规则对接 |
-| 03 | `03_report_delivery_rules.md` | ~240 | 开发 | **报告结构+交付规则**：3层正文、静态/规则/AI块、PDF/H5、微调修改、状态机 |
-| 04 | `04_positioning_pricing_themes.md` | ~310 | 产品/运营 | **商业基础**：产品定位、价格体系、主题线、高客单方向 |
-| 05 | `05_content_and_growth.md` | ~275 | 运营 | **内容+增长**：账号打法、内容支柱、引流到成交路径、页面职责 |
-| 06 | `06_retention_and_roadmap.md` | ~195 | 产品/CEO | **私域+路线图**：用户分层、复购转介绍、4阶段长期规划 |
-| 07 | `07_ops_playbook.md` | ~440 | 运营 | **运营手册**：旅后回访+反馈、小红书增长引擎 |
-| 08 | `08_eval_cases.md` | ~400 | 开发/QA | **评测用例**：20个核心 case（A标准/B高价值/C复杂/D边界/E回归） |
-| 09 | `09_eval_graders.md` | ~315 | 开发/QA | **评测标准**：3个 grader rubric + 飞轮运行方式 + 失败归因 |
-| 10 | `10_e2e_testing_guide.md` | ~470 | 开发 | **E2E 测试操作指引**：13步完整流程 + API 调用示例 |
-| 11 | `11_copywriting_audit.md` | ~82 | 产品/运营 | **文案审查报告**：首页/问卷/价格页/交付页逐页审查 |
-| 12 | `12_report_structure.md` | ~220 | 开发/设计 | **攻略详细骨架**：总纲4节+每日4节+6种条件页+页数控制 |
-| 13 | `13_ai_codebase_map.md` | ~430 | AI agent | **AI 工作手册**：仓库结构、模型、管线、风险文件、命名、启动方式 |
+## 城市圈数据（编辑实体数据时参考）
 
-## 🔗 文档关系
+| 文件 | 内容 |
+|------|------|
+| [city_circles/kansai.md](city_circles/kansai.md) | 关西圈结构：核心基地、日游节点、12主活动cluster、10次要cluster |
+| [city_circles/kansai_activities.md](city_circles/kansai_activities.md) | 关西圈活动S/A/B分级定义 |
+| [city_circles/kanto.md](city_circles/kanto.md) | 关东圈结构 |
+| [city_circles/hokkaido.md](city_circles/hokkaido.md) | 北海道圈结构（含季节切换逻辑） |
+| [city_circles/guangfu.md](city_circles/guangfu.md) | 广府圈结构 |
+| [city_circles/guangfu_activities.md](city_circles/guangfu_activities.md) | 广府圈活动分级 |
+| [city_circles/xinjiang.md](city_circles/xinjiang.md) | 北疆圈结构 |
+| [city_circles/xinjiang_activities.md](city_circles/xinjiang_activities.md) | 北疆圈活动分级 |
 
-```
-01 系统总纲 ──→ 02 片段库 ──→ 03 报告规则
-    │                              ↑
-    ├──→ 04 商业基础      12 攻略骨架 ──┘
-    ├──→ 05 内容增长
-    ├──→ 06 私域路线
-    └──→ 07 运营手册
+## 页面系统规范（开发渲染层时参考）
 
-08+09 评测体系 ──→ 10 E2E 测试
-11 文案审查（独立）
-13 AI 工作手册（独立）
-```
+| 文件 | 内容 |
+|------|------|
+| [page_system/01_page_types.md](page_system/01_page_types.md) | 17种页型总表与整本框架 |
+| [page_system/02_intro_pages.md](page_system/02_intro_pages.md) | 前置页与总纲页详细说明 |
+| [page_system/03_daily_pages.md](page_system/03_daily_pages.md) | 章节/每日/专题页详细说明 |
+| [page_system/04_data_contracts.md](page_system/04_data_contracts.md) | 页面数据协议与实现顺序 |
+| [page_system/05_design_checklist.md](page_system/05_design_checklist.md) | 设计感与验收清单 |
 
-## ⚠️ 规则
+## 产品规范
 
-- **01 是源头** — 有冲突时以 01 为准
-- **12 和 03 有交叉** — 12 是详细骨架定义，03 是交付规则，角度不同
-- **13 只给 AI 看** — 人不需要读
+| 文件 | 内容 |
+|------|------|
+| [product/SERVICE_FLOW.md](product/SERVICE_FLOW.md) | 服务完整流程：获客→表单→生成→预览→修改→交付→回访 |
+| [product/travel_handbook_60p_for_engineer.md](product/travel_handbook_60p_for_engineer.md) | 60页手账本工程规范 |
+| [product/travel_handbook_60p_for_owner.md](product/travel_handbook_60p_for_owner.md) | 60页手账本产品规范 |
+| [product/travel_form_multistep_frontend_v3.md](product/travel_form_multistep_frontend_v3.md) | V3多步表单设计（8屏+1确认） |
+
+## 素材目录
+
+`assets/` — 手账本插画/图片素材，按城市圈 → 类型（成品/素材）组织。目前仅北海道有素材。
+
+## 归档
+
+`_archive/` — 历史文档，不作为当前决策依据。
+- `architecture/` — 旧14篇架构文档集
+- `legacy/` — 旧13篇系统文档 + Layer设计方案
+- `design_notes/` — 生成流程设计、旅行前指引模块、软硬规则说明等设计讨论

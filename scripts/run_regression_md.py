@@ -88,6 +88,18 @@ def generate_regression_md(all_data: list[dict], output_path: str) -> None:
         observation_chain = (cd.get("evidence_bundle") or {}).get("observation_chain", {})
         if observation_chain:
             lines.append(f"- observation_chain: `{observation_chain}`")
+        decision_node = (cd.get("evidence_bundle") or {}).get("decision", {})
+        handoff_node = (cd.get("evidence_bundle") or {}).get("handoff", {})
+        eval_node = (cd.get("evidence_bundle") or {}).get("eval", {})
+        regression_node = (cd.get("evidence_bundle") or {}).get("regression", {})
+        if decision_node:
+            lines.append(f"- decision: `{decision_node}`")
+        if handoff_node:
+            lines.append(f"- handoff: `{handoff_node}`")
+        if eval_node:
+            lines.append(f"- eval: `{eval_node}`")
+        if regression_node:
+            lines.append(f"- regression: `{regression_node}`")
         lines.append(f"- day_count: {len(days)}")
         lines.append(f"- cities: {', '.join(meta.get('actual_cities', []) or [])}")
         lines.append(f"- hotel_cities: {', '.join(meta.get('hotel_cities', []) or [])}")
@@ -133,9 +145,9 @@ async def main() -> None:
     case_filter = {c.strip() for c in os.getenv("REGRESSION_CASE_IDS", "").split(",") if c.strip()}
     run_phase2 = _env_flag("REGRESSION_INCLUDE_PHASE2", default=False)
     run_cases = _select_run_cases(run_phase2=run_phase2, case_filter=case_filter)
-    logger.info("cases selected: %d include_phase2=%s", len(run_cases), run_phase2)
-    if not run_phase2:
-        logger.warning("REGRESSION_INCLUDE_PHASE2 is off; markdown report covers compatibility baseline only by default")
+    logger.info("cases selected: %d include_extra_legacy_pool=%s", len(run_cases), run_phase2)
+    if run_phase2:
+        logger.warning("REGRESSION_INCLUDE_PHASE2 is on; markdown report includes extra legacy-style sample pool")
 
     async with AsyncSessionLocal() as session:
         for case in run_cases:
@@ -166,8 +178,8 @@ async def main() -> None:
     total_fail = sum(1 for cd in all_data for a in cd.get("_assert_results", []) if not a.get("passed"))
     print(f"\n{'=' * 70}")
     print(f"  Total: {total_pass} PASS / {total_fail} FAIL ({elapsed:.1f}s)")
-    if not run_phase2:
-        print("  note: main_chain_proof coverage not included (set REGRESSION_INCLUDE_PHASE2=1)")
+    if run_phase2:
+        print("  note: extra legacy-style sample pool included for comparison")
     print(f"{'=' * 70}\n")
 
 

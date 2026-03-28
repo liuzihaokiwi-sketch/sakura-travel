@@ -2,6 +2,8 @@
 
 // 通过 Next.js API route 代理，避免浏览器跨域和手机无法访问 localhost 的问题
 const API_BASE = "/api/admin/submissions";
+const SUBMISSION_API_BASE = "/api/admin/submissions";
+const REVIEW_API_BASE = "/api/admin/reviews";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -132,6 +134,40 @@ export async function archiveOrder(id: string): Promise<boolean> {
   try {
     const res = await fetch(`${API_BASE}?id=${id}&action=archive`, {
       method: "POST",
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// ── Operator review surface types ─────────────────────────────────────────────
+
+export interface ReviewOrderItem {
+  order_id: string;
+  trip_request_id: string | null;
+  status: string;
+  plan_id?: string | null;
+  review_score?: number | null;
+  review_summary?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export type OperatorAction = "publish" | "reject" | "edit" | "writeback";
+
+// ── Unified operator action surface ──────────────────────────────────────────
+
+export async function performOperatorAction(
+  planId: string,
+  action: OperatorAction,
+  payload?: Record<string, unknown>
+): Promise<boolean> {
+  try {
+    const res = await fetch(`${REVIEW_API_BASE}/${planId}/action`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action, ...payload }),
     });
     return res.ok;
   } catch {

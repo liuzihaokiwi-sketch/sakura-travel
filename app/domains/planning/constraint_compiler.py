@@ -205,6 +205,19 @@ def compile_constraints(profile, resolved_policy: ResolvedPolicySet | None = Non
     c = PlanningConstraints()
     trace = c.constraint_trace
     must_tags = set(t.lower() for t in (getattr(profile, "must_have_tags", None) or []))
+    special_requirements = getattr(profile, "special_requirements", None) or {}
+    if isinstance(special_requirements, dict) and special_requirements:
+        trace.append(
+            ConstraintTraceItem(
+                constraint_name="special_requirements_side_channel",
+                source_inputs=f"profile.special_requirements.keys={sorted(special_requirements.keys())}",
+                compiled_value="ignored_for_main_runtime_contract",
+                strength="soft",
+                intended_consumers=[],
+                final_status="unconsumed",
+                ignored_reason="compatibility_side_channel_only",
+            )
+        )
 
     if resolved_policy is None:
         requested_circle = getattr(profile, "requested_city_circle", None) or ""

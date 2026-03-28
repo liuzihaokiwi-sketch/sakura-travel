@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app.core.logging_config import setup_logging
+from app.core.rate_limit import RateLimitMiddleware
+from app.core.sentry import init_sentry
 from app.api import trips
 from app.api import trips_generate
 from app.api import trips_preview
@@ -25,6 +27,7 @@ from app.api import intensity as intensity_api
 from app.api import self_adjustment as self_adjustment_api
 from app.api import detail_forms
 from app.api import destinations
+from app.api import attribution
 from app.api.ops import editorial, entities, ranked, catalog as catalog_ops
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
@@ -43,6 +46,7 @@ async def lifespan(app: FastAPI):
         json_output=settings.is_production,
         log_level="DEBUG" if settings.app_debug else "INFO",
     )
+    init_sentry()
 
     # Startup: 自动建表（开发模式，失败不阻断启动）
     from app.db.session import Base
@@ -90,6 +94,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(RateLimitMiddleware)
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(chat.router)                              # /chat/*
@@ -114,6 +119,7 @@ app.include_router(intensity_api.router, tags=["trips-intensity"])  # /trips/{id
 app.include_router(self_adjustment_api.router, tags=["self-adjustment"])  # /trips/{id}/alternatives, /swap
 app.include_router(detail_forms.router, tags=["detail-forms"])           # /detail-forms/*
 app.include_router(destinations.router, tags=["destinations"])           # /destinations/*
+app.include_router(attribution.router, tags=["attribution"])             # /attribution/*
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────

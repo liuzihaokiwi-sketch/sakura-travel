@@ -43,6 +43,7 @@ class AssetManifest:
             "records": [asdict(r) for r in self.records],
             "ui_assets": self.ui_assets,
             "export_targets": self.export_targets,
+            "channels": list(self.export_targets),
         }
 
 
@@ -130,6 +131,7 @@ def resolve_slot_asset(manifest: dict[str, Any], slot_id: str) -> dict[str, Any]
     merged = dict(asset)
     merged["asset_id"] = asset_id
     merged["slot_id"] = slot_id
+    merged["channel"] = list(manifest.get("channels") or manifest.get("export_targets") or [])
     return merged
 
 

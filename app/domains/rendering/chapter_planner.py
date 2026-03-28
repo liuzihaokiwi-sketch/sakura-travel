@@ -1,26 +1,24 @@
 """
 chapter_planner.py — 章节规划器（L3-03）
 
-输入：ReportPayloadV2
+输入：PlanningOutput
 输出：list[ChapterPlan]
 
-章节划分规则（report/01 §3）：
+章节划分规则：
   - 所有报告：ch_frontmatter（封面 → 动态注意事项）
   - 3-5 天：不拆章节，所有天放一个 ch_days
   - 6-8 天：如果跨 2 个城市圈，按圈拆 ch_{circle_id}
   - 9-14 天：必须按城市圈拆章节，每圈一个 chapter
   - 所有报告：ch_appendix
 
-F3 补丁：多圈时读 payload.day_circle_map 决定拆分方式
-
-依赖：app.domains.planning.report_schema
+依赖：planning_output.PlanningOutput
 """
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Optional
 
-from app.domains.planning.report_schema import ReportPayloadV2
+from app.domains.rendering.planning_output import PlanningOutput
 
 
 @dataclass
@@ -37,12 +35,12 @@ class ChapterPlan:
     importance: str = "high"       # "high" / "medium" / "low"
 
 
-def plan_chapters(payload: ReportPayloadV2) -> list[ChapterPlan]:
+def plan_chapters(payload: PlanningOutput) -> list[ChapterPlan]:
     """
     根据行程长度和城市圈分布决定章节结构。
 
     Args:
-        payload: ReportPayloadV2，必须含 meta.total_days + days + circles + day_circle_map
+        payload: PlanningOutput，必须含 meta.total_days + days + circles + day_circle_map
 
     Returns:
         有序的 ChapterPlan 列表，始终以 ch_frontmatter 开头，ch_appendix 结尾
@@ -112,7 +110,7 @@ def plan_chapters(payload: ReportPayloadV2) -> list[ChapterPlan]:
 
 def _append_circle_chapters(
     chapters: list[ChapterPlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
     circles: list,
     day_circle_map: dict[int, str],
     trigger_reason: str,

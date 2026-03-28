@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { type OrderItem, fetchOrderById, updateOrderStatus } from "@/lib/admin-api";
+import { type OrderItem, fetchOrderById, publishOrder, rejectOrder, updateOrderStatus } from "@/lib/admin-api";
 
 /* ── 11 状态完整标签配置 ─────────────────────────────────────────────────────── */
 
@@ -227,7 +227,14 @@ export default function OrderDetailPage() {
   async function handleAction(action: StatusAction) {
     if (action.confirm && !window.confirm(action.confirm)) return;
     setActionLoading(action.target);
-    const ok = await updateOrderStatus(orderId, action.target, action.label);
+    let ok: boolean;
+    if (action.target === "delivered") {
+      ok = await publishOrder(orderId);
+    } else if (action.target === "rejected") {
+      ok = await rejectOrder(orderId);
+    } else {
+      ok = await updateOrderStatus(orderId, action.target, action.label);
+    }
     if (ok) {
       const fresh = await fetchOrderById(orderId);
       setOrder(fresh);

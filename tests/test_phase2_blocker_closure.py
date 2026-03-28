@@ -6,7 +6,7 @@ from types import SimpleNamespace
 import pytest
 
 from app.db.models.city_circles import CityCircle, HotelStrategyPreset
-from app.domains.intake.layer2_contract import build_layer2_canonical_input
+from app.domains.intake.layer2_contract import build_layer2_canonical_input, unpack_canonical_values
 from app.domains.planning.city_circle_selector import select_city_circle
 from app.domains.planning.constraint_compiler import compile_constraints
 from app.domains.planning.hotel_base_builder import build_hotel_strategy
@@ -46,8 +46,37 @@ class _PresetSession:
         return _Result(self._presets)
 
 
+def test_phase2_canonical_source_annotations():
+    """P1-1 验收：build_layer2_canonical_input 返回带 source 标记的字段。"""
+    raw = build_layer2_canonical_input({
+        "requested_city_circle": "kansai_classic_circle",
+        "arrival_date": "2026-09-20",
+        "arrival_time": "14:00",
+        "departure_date": "2026-09-25",
+        "party_size": 2,
+        "budget_level": "mid",
+    })
+    # 每个业务字段均包含 value + source
+    assert raw["requested_city_circle"]["value"] == "kansai_classic_circle"
+    assert raw["requested_city_circle"]["source"] == "explicit"
+    # 有 arrival_time → explicit
+    assert raw["arrival_local_datetime"]["source"] == "explicit"
+    # 有 party_size → explicit
+    assert raw["companion_breakdown"]["source"] == "explicit"
+    # 有 budget_level → explicit
+    assert raw["budget_range"]["source"] == "explicit"
+
+    # 没填 requested_city_circle → inferred
+    raw2 = build_layer2_canonical_input({"destination": "tokyo"})
+    assert raw2["requested_city_circle"]["source"] == "inferred"
+    assert raw2["requested_city_circle"]["value"] is None
+    # 只有 travel_start_date 没有 arrival_time → inferred
+    raw3 = build_layer2_canonical_input({"travel_start_date": "2026-09-20"})
+    assert raw3["arrival_local_datetime"]["source"] == "inferred"
+
+
 def test_phase2_contract_missing_requested_city_circle_is_explicit_none():
-    canonical = build_layer2_canonical_input(
+    canonical = unpack_canonical_values(build_layer2_canonical_input(
         {
             "destination": "unknown_destination",
             "arrival_date": "2026-09-20",
@@ -55,34 +84,34 @@ def test_phase2_contract_missing_requested_city_circle_is_explicit_none():
             "departure_date": "2026-09-25",
             "departure_time": "11:45",
         }
-    )
+    ))
     assert canonical["requested_city_circle"] is None
 
 
 def test_phase2_contract_does_not_infer_requested_city_circle_from_destination():
-    canonical = build_layer2_canonical_input(
+    canonical = unpack_canonical_values(build_layer2_canonical_input(
         {
             "destination": "kansai",
             "arrival_date": "2026-09-20",
             "departure_date": "2026-09-25",
         }
-    )
+    ))
     assert canonical["requested_city_circle"] is None
 
 
 def test_phase2_contract_does_not_infer_requested_city_circle_from_circle_intent():
-    canonical = build_layer2_canonical_input(
+    canonical = unpack_canonical_values(build_layer2_canonical_input(
         {
             "city_circle_intent": {"circle_id": "kansai_classic_circle"},
             "arrival_date": "2026-09-20",
             "departure_date": "2026-09-25",
         }
-    )
+    ))
     assert canonical["requested_city_circle"] is None
 
 
 def test_phase2_contract_datetime_and_boundary_normalization():
-    canonical = build_layer2_canonical_input(
+    canonical = unpack_canonical_values(build_layer2_canonical_input(
         {
             "requested_city_circle": "kansai_classic_circle",
             "arrival_date": "bad-date",
@@ -96,7 +125,7 @@ def test_phase2_contract_datetime_and_boundary_normalization():
             "budget_total_cny": "invalid",
             "budget_currency": "cny",
         }
-    )
+    ))
 
     assert canonical["arrival_local_datetime"] is None
     assert canonical["departure_local_datetime"] is None
@@ -110,7 +139,7 @@ def test_phase2_contract_datetime_and_boundary_normalization():
 
 @pytest.mark.asyncio
 async def test_phase2_minimal_chain_emits_required_l2_artifacts():
-    canonical = build_layer2_canonical_input(
+    canonical = unpack_canonical_values(build_layer2_canonical_input(
         {
             "requested_city_circle": "kansai_classic_circle",
             "arrival_date": "2026-09-20",
@@ -126,7 +155,7 @@ async def test_phase2_minimal_chain_emits_required_l2_artifacts():
             "visited_places": ["kyo_kiyomizu"],
             "booked_items": [{"type": "hotel", "city_code": "kyoto", "name": "Kyoto Stay"}],
         }
-    )
+    ))
 
     profile = SimpleNamespace(
         duration_days=6,
@@ -156,14 +185,7 @@ async def test_phase2_minimal_chain_emits_required_l2_artifacts():
         departure_local_datetime=datetime.fromisoformat("2026-09-25T11:45"),
         departure_day_shape="airport_only",
         arrival_time="18:25",
-        special_requirements={
-            "requested_city_circle": canonical["requested_city_circle"],
-            "booked_items": canonical["booked_items"],
-            "do_not_go_places": canonical["do_not_go_places"],
-            "visited_places": canonical["visited_places"],
-            "companion_breakdown": canonical["companion_breakdown"],
-            "budget_range": canonical["budget_range"],
-        },
+        special_requirements={},
         must_stay_area=None,
         last_flight_time="11:45",
     )

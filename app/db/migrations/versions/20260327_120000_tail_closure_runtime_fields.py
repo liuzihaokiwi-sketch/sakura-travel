@@ -29,10 +29,19 @@ def upgrade() -> None:
         "detail_forms",
         sa.Column("visited_places", postgresql.JSONB(astext_type=sa.Text()), nullable=True),
     )
+    op.add_column(
+        "detail_forms",
+        sa.Column("do_not_go_places", postgresql.JSONB(astext_type=sa.Text()), nullable=True),
+    )
+    op.add_column(
+        "detail_forms",
+        sa.Column("booked_items", postgresql.JSONB(astext_type=sa.Text()), nullable=True),
+    )
 
 
 def downgrade() -> None:
+    op.drop_column("detail_forms", "booked_items")
+    op.drop_column("detail_forms", "do_not_go_places")
     op.drop_column("detail_forms", "visited_places")
     op.drop_column("detail_forms", "requested_city_circle")
     op.drop_column("trip_profiles", "must_visit_places")
-

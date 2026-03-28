@@ -1,8 +1,8 @@
 ﻿from __future__ import annotations
 
 """
-琛岀▼瑙勫垝涓庡鍑?API銆?
-涓昏鍏ュ彛锛?- POST /trips/{id}/generate
+鐞涘瞼鈻肩憴鍕灊娑撳骸顕遍崙?API閵?
+娑撴槒顩﹂崗銉ュ經閿?- POST /trips/{id}/generate
 - GET /trips/{id}/plan
 - GET /trips/{id}/preview
 - GET /trips/{id}/exports
@@ -38,7 +38,7 @@ from app.db.session import get_db
 router = APIRouter(prefix="/trips", tags=["trips-plan"])
 
 
-# 鈹€鈹€ 鍝嶅簲妯″瀷 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# 閳光偓閳光偓 閸濆秴绨插Ο鈥崇€?閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 class ItemOut(BaseModel):
     model_config = {"from_attributes": True}
@@ -49,7 +49,7 @@ class ItemOut(BaseModel):
     notes_zh: Optional[str] = None
     estimated_cost_jpy: Optional[int] = None
     is_optional: bool = False
-    # 瑙ｆ瀽鍚庣殑瀵屽瓧娈?    entity_name: Optional[str] = None
+    # 鐟欙絾鐎介崥搴ｆ畱鐎靛苯鐡у▓?    entity_name: Optional[str] = None
     copy_zh: Optional[str] = None
     tips_zh: Optional[str] = None
     area_name: Optional[str] = None
@@ -71,7 +71,6 @@ class PlanOut(BaseModel):
     status: str
     plan_metadata: Optional[Dict[str, Any]]
     days: List[DayOut]
-    report_content: Optional[Dict[str, Any]] = None
 
 
 class GenerateResponse(BaseModel):
@@ -159,8 +158,7 @@ def _read_page_editor_overrides(meta: dict[str, Any]) -> dict[str, dict[str, Any
     overrides = meta.get("page_editor_overrides")
     if isinstance(overrides, dict):
         return overrides
-    legacy_overrides = meta.get("page_edit_patches")
-    return legacy_overrides if isinstance(legacy_overrides, dict) else {}
+    return {}
 
 
 def _derive_generation_defaults(raw_input: dict[str, Any]) -> str:
@@ -206,23 +204,23 @@ async def _enqueue_generate_trip_job(
     return False
 
 
-# 鈹€鈹€ POST /trips/{id}/generate 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# 閳光偓閳光偓 POST /trips/{id}/generate 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 @router.post("/{trip_request_id}/generate", response_model=GenerateResponse, status_code=202)
 async def generate_trip(
     trip_request_id: str,
     scene: Optional[str] = Query(
         None,
-        description="鍑鸿鍦烘櫙锛歝ouple / family / solo / senior",
+        description="閸戦缚顢戦崷鐑樻珯閿涙瓭ouple / family / solo / senior",
         examples=["couple"],
     ),
     db: AsyncSession = Depends(get_db),
 ):
     """
-    瑙﹀彂琛岀▼瑙勫垝 arq job銆?
-    褰撳墠浠呮敮鎸佸煄甯傚湀涓婚摼鐢熸垚锛屼笉鍐嶅紑鏀炬棫妯℃澘鐢熸垚鍏ュ彛銆?
-    杩斿洖 202 鍚庯紝閫氳繃 `GET /trips/{id}/status` 杞鐘舵€侊紝
-    瀹屾垚鍚庣敤 `GET /trips/{id}/preview` 鑾峰彇棰勮閾炬帴銆?    """
+    鐟欙箑褰傜悰宀€鈻肩憴鍕灊 arq job閵?
+    瑜版挸澧犳禒鍛暜閹镐礁鐓勭敮鍌氭箑娑撳鎽奸悽鐔稿灇閿涘奔绗夐崘宥呯磻閺€鐐＋濡剝婢橀悽鐔稿灇閸忋儱褰涢妴?
+    鏉╂柨娲?202 閸氬函绱濋柅姘崇箖 `GET /trips/{id}/status` 鏉烆喛顕楅悩鑸碘偓渚婄礉
+    鐎瑰本鍨氶崥搴ｆ暏 `GET /trips/{id}/preview` 閼惧嘲褰囨０鍕潔闁剧偓甯撮妴?    """
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
@@ -233,7 +231,7 @@ async def generate_trip(
     if trip_req is None:
         raise HTTPException(status_code=404, detail="TripRequest not found")
 
-    # 鈹€鈹€ 榛樿鍏ュ彛锛氬煄甯傚湀涓婚摼 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+    # 閳光偓閳光偓 姒涙顓婚崗銉ュ經閿涙艾鐓勭敮鍌氭箑娑撳鎽?閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
     if trip_req.status in ("assembling", "reviewing", "planning", "normalizing"):
         raise HTTPException(
             status_code=409,
@@ -256,19 +254,20 @@ async def generate_trip(
         trip_request_id,
         scene=resolved_scene,
     )
+    queue_text = "queued" if queued else "running"
     return GenerateResponse(
-        message=f"鍩庡競鍦堜富閾剧敓鎴恵'宸插姞鍏ラ槦鍒? if queued else '姝ｅ湪鐢熸垚'}锛坰cene={resolved_scene}锛夛紝璇风◢鍊?,
+        message=f"city-circle generation {queue_text} (scene={resolved_scene})",
         trip_request_id=trip_request_id,
         job_queued=queued,
         scene=resolved_scene,
     )
 
 
-# 鈹€鈹€ GET /trips/{id}/plan 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# 閳光偓閳光偓 GET /trips/{id}/plan 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 @router.get("/{trip_request_id}/plan", response_model=PlanOut)
 async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
-    """鑾峰彇宸茬敓鎴愮殑琛岀▼鏂规"""
+    """閼惧嘲褰囧鑼晸閹存劗娈戠悰宀€鈻奸弬瑙勵攳"""
     try:
         req_uuid = uuid.UUID(trip_request_id)
     except ValueError:
@@ -299,14 +298,14 @@ async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
         items = items_result.scalars().all()
         rich_items = []
         for i in items:
-            # 瑙ｆ瀽 notes_zh JSON
+            # 鐟欙絾鐎?notes_zh JSON
             notes = {}
             if i.notes_zh:
                 try:
                     notes = _json.loads(i.notes_zh)
                 except (ValueError, TypeError):
                     notes = {"copy_zh": i.notes_zh}
-            # 鍏宠仈 entity
+            # 閸忓疇浠?entity
             entity = await db.get(EntityBase, i.entity_id) if i.entity_id else None
             entity_name = notes.get("copy_zh") or (
                 getattr(entity, "name_zh", None) or getattr(entity, "name_en", "") if entity else ""
@@ -334,11 +333,10 @@ async def get_plan(trip_request_id: str, db: AsyncSession = Depends(get_db)):
     return PlanOut(
         plan_id=str(plan.plan_id), trip_request_id=str(plan.trip_request_id),
         status=plan.status, plan_metadata=plan.plan_metadata, days=days_out,
-        report_content=plan.report_content,
     )
 
 
-# 鈹€鈹€ GET /trips/{id}/export 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# 閳光偓閳光偓 GET /trips/{id}/export 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 
 
@@ -472,178 +470,40 @@ async def export_plan(trip_request_id: str, fmt: str = "html", db: AsyncSession 
         ),
     )
 
-# 鈹€鈹€ GET /trips/{id}/preview 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# 閳光偓閳光偓 GET /trips/{id}/preview 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 @router.get("/{trip_request_id}/preview", response_model=PreviewResponse)
 async def get_preview(
     trip_request_id: str,
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    鑾峰彇琛岀▼ H5 棰勮 URL銆?
-    浠?`export_assets` 琛ㄦ煡璇㈡渶鏂扮殑 `h5` 绫诲瀷浜х墿锛岃繑鍥炶闂摼鎺ャ€?    鑻ユ覆鏌撳皻鏈畬鎴愶紝杩斿洖褰撳墠鐘舵€佷緵鍓嶇杞銆?    """
-    try:
-        req_uuid = uuid.UUID(trip_request_id)
-    except ValueError:
-        raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
-
-    # 鎵惧埌鏈€鏂?plan
-    plan_result = await db.execute(
-        select(ItineraryPlan)
-        .where(ItineraryPlan.trip_request_id == req_uuid)
-        .order_by(ItineraryPlan.version.desc())
-        .limit(1)
-    )
-    plan = plan_result.scalar_one_or_none()
-
-    if plan is None:
-        # 妫€鏌?trip 鐘舵€?        trip = await db.get(TripRequest, req_uuid)
-        if trip is None:
-            raise HTTPException(status_code=404, detail="TripRequest not found")
-        return PreviewResponse(
-            trip_request_id=trip_request_id,
-            plan_id=None,
-            preview_url=None,
-            status=trip.status,
-            message=f"琛岀▼灏氭湭鐢熸垚瀹屾垚锛屽綋鍓嶇姸鎬侊細{trip.status}",
-        )
-
-    plan_id_str = str(plan.plan_id)
-
-    # 鏌ヨ鏈€鏂扮殑瀹屾垚鐨?export_job锛坔5 绫诲瀷锛?    job_result = await db.execute(
-        select(ExportJob)
-        .where(
-            ExportJob.plan_id == plan.plan_id,
-            ExportJob.export_type == "h5",
-            ExportJob.status == "done",
-        )
-        .order_by(ExportJob.completed_at.desc())
-        .limit(1)
-    )
-    job = job_result.scalar_one_or_none()
-
-    if job is None:
-        # 妫€鏌ユ槸鍚︽湁杩涜涓殑 job
-        pending_result = await db.execute(
-            select(ExportJob)
-            .where(
-                ExportJob.plan_id == plan.plan_id,
-                ExportJob.export_type == "h5",
-            )
-            .order_by(ExportJob.created_at.desc())
-            .limit(1)
-        )
-        pending_job = pending_result.scalar_one_or_none()
-        job_status = pending_job.status if pending_job else "not_started"
-
-        return PreviewResponse(
-            trip_request_id=trip_request_id,
-            plan_id=plan_id_str,
-            preview_url=None,
-            status=job_status,
-            message=f"H5 棰勮娓叉煋涓紙鐘舵€侊細{job_status}锛夛紝璇风◢鍚庨噸璇?,
-        )
-
-    # 鍙?h5 asset URL
-    asset_result = await db.execute(
-        select(ExportAsset)
-        .where(
-            ExportAsset.export_job_id == job.export_job_id,
-            ExportAsset.asset_type == "h5",
-        )
-        .limit(1)
-    )
-    asset = asset_result.scalar_one_or_none()
-
-    preview_url = asset.storage_url if asset else None
-
-    return PreviewResponse(
-        trip_request_id=trip_request_id,
-        plan_id=plan_id_str,
-        preview_url=preview_url,
-        status="completed",
-        message="H5 棰勮宸插氨缁? if preview_url else "H5 Asset 璁板綍寮傚父锛岃鑱旂郴绠＄悊鍛?,
+    del trip_request_id, db
+    raise HTTPException(
+        status_code=410,
+        detail=(
+            "Legacy H5 preview endpoint is retired from main flow. "
+            "Use /trips/{id}/preview-data for page semantics preview."
+        ),
     )
 
-
-# 鈹€鈹€ GET /trips/{id}/exports 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+# GET /trips/{id}/exports 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓
 
 @router.get("/{trip_request_id}/exports", response_model=ExportsResponse)
 async def get_exports(
     trip_request_id: str,
     asset_type: Optional[str] = Query(
         None,
-        description="绛涢€夎祫浜х被鍨嬶細pdf / h5 / cover_image锛屼笉浼犲垯杩斿洖鍏ㄩ儴",
+        description="legacy endpoint retired",
     ),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    鑾峰彇琛岀▼瀵煎嚭璧勪骇鍒楄〃锛圥DF 涓嬭浇閾炬帴銆丠5 棰勮閾炬帴绛夛級銆?
-    杩斿洖鏈€鏂?plan 瀵瑰簲鐨勬墍鏈夊凡瀹屾垚鐨?export_assets锛?    鎸?`asset_type` 杩囨护锛堝彲閫夛級銆?    """
-    try:
-        req_uuid = uuid.UUID(trip_request_id)
-    except ValueError:
-        raise HTTPException(status_code=422, detail="Invalid trip_request_id format")
-
-    # 鎵惧埌鏈€鏂?plan
-    plan_result = await db.execute(
-        select(ItineraryPlan)
-        .where(ItineraryPlan.trip_request_id == req_uuid)
-        .order_by(ItineraryPlan.version.desc())
-        .limit(1)
+    del trip_request_id, asset_type, db
+    raise HTTPException(
+        status_code=410,
+        detail=(
+            "Legacy exports listing endpoint is retired from main flow. "
+            "Use /trips/{id}/preview-data for page semantics preview and /api/plan/{id}/pdf for handbook PDF."
+        ),
     )
-    plan = plan_result.scalar_one_or_none()
 
-    if plan is None:
-        raise HTTPException(status_code=404, detail="No itinerary plan found for this trip")
-
-    plan_id_str = str(plan.plan_id)
-
-    # 鏌ヨ鎵€鏈夊畬鎴愮殑 export_jobs
-    jobs_result = await db.execute(
-        select(ExportJob)
-        .where(
-            ExportJob.plan_id == plan.plan_id,
-            ExportJob.status == "done",
-        )
-        .order_by(ExportJob.completed_at.desc())
-    )
-    jobs = jobs_result.scalars().all()
-
-    if not jobs:
-        return ExportsResponse(
-            trip_request_id=trip_request_id,
-            plan_id=plan_id_str,
-            exports=[],
-            total=0,
-        )
-
-    job_ids = [j.export_job_id for j in jobs]
-
-    # 鏌ヨ assets
-    assets_query = select(ExportAsset).where(ExportAsset.export_job_id.in_(job_ids))
-    if asset_type:
-        assets_query = assets_query.where(ExportAsset.asset_type == asset_type)
-    assets_query = assets_query.order_by(ExportAsset.created_at.desc())
-
-    assets_result = await db.execute(assets_query)
-    assets = assets_result.scalars().all()
-
-    exports_out = [
-        ExportAssetOut(
-            asset_id=a.asset_id,
-            asset_type=a.asset_type,
-            storage_url=a.storage_url,
-            file_size_bytes=a.file_size_bytes,
-            created_at=a.created_at.isoformat(),
-        )
-        for a in assets
-    ]
-
-    return ExportsResponse(
-        trip_request_id=trip_request_id,
-        plan_id=plan_id_str,
-        exports=exports_out,
-        total=len(exports_out),
-    )
 

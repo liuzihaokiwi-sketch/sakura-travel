@@ -18,13 +18,24 @@ from __future__ import annotations
 
 import json
 import logging
+from datetime import date
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Any
 
+from app.domains.intake.layer2_contract import build_layer2_canonical_input, unpack_canonical_values
+
 logger = logging.getLogger(__name__)
 
 EVAL_CASES_DIR = Path(__file__).resolve().parents[3] / "data" / "eval"
+EXPECTED_CITY_CIRCLES = {
+    "kansai_classic_circle",
+    "kanto_city_circle",
+    "hokkaido_city_circle",
+    "south_china_five_city_circle",
+    "northern_xinjiang_city_circle",
+    "guangdong_city_circle",
+}
 
 
 # ── 数据结构 ───────────────────────────────────────────────────────────────────
@@ -61,6 +72,11 @@ class EvalCase:
     description: str
     user_profile: dict[str, Any]
     expected_constraints: dict[str, Any]  # 必须满足的约束
+    input_contract: dict[str, Any] | None = None
+    matrix_city_circle: str | None = None
+    matrix_scenario_types: list[str] = field(default_factory=list)
+    matrix_contract_semantics: list[str] = field(default_factory=list)
+    matrix_assertion_level: str = "smoke"
     plan_json: dict[str, Any] | None = None  # 待评测的行程
     score: EvalScore | None = None
     issues: list[str] = field(default_factory=list)
@@ -76,6 +92,7 @@ class EvalReport:
     dimension_avgs: dict[str, float]
     regressions: list[dict[str, Any]]
     cases: list[dict[str, Any]]
+    matrix_summary: dict[str, Any] = field(default_factory=dict)
 
 
 # ── 评测用例加载 ──────────────────────────────────────────────────────────────
@@ -96,6 +113,107 @@ def load_eval_cases(cases_file: str = "eval_cases_v1.json") -> list[EvalCase]:
         )
         for c in raw
     ]
+
+
+def build_eval_case_from_contract(
+    *,
+    case_id: str,
+    description: str,
+    contract: dict[str, Any],
+    expected_constraints: dict[str, Any] | None = None,
+    matrix: dict[str, Any] | None = None,
+) -> EvalCase:
+    """Build a contract-first eval case from v2 contract payload."""
+    trip_window = contract.get("trip_window") or {}
+    start_date = str(trip_window.get("start_date") or "").strip()
+    end_date = str(trip_window.get("end_date") or "").strip()
+    duration_days = int(contract.get("duration_days") or 0)
+    if duration_days <= 0 and start_date and end_date:
+        try:
+            duration_days = (date.fromisoformat(end_date) - date.fromisoformat(start_date)).days + 1
+        except ValueError:
+            duration_days = 0
+    if duration_days <= 0:
+        duration_days = max(1, len(list((contract.get("city_circle_intent") or {}).get("destination_intent") or [])))
+
+    raw_for_canonical = {
+        **contract,
+        "requested_city_circle": (contract.get("city_circle_intent") or {}).get("circle_id"),
+        "travel_start_date": start_date,
+        "travel_end_date": end_date,
+        "arrival_date": start_date,
+        "arrival_time": ((trip_window.get("arrival") or {}).get("time")),
+        "departure_date": end_date,
+        "departure_time": ((trip_window.get("departure") or {}).get("time")),
+    }
+    canonical = unpack_canonical_values(build_layer2_canonical_input(raw_for_canonical))
+    canonical["contract_version"] = str(contract.get("contract_version") or "v2")
+
+    matrix_data = matrix or {}
+    circle_id = str(canonical.get("requested_city_circle") or "")
+
+    constraints = dict(expected_constraints or {})
+    constraints.setdefault("min_days", duration_days)
+    constraints.setdefault("max_poi_per_day", 6)
+    constraints.setdefault("must_include_types", ["poi", "restaurant"])
+
+    profile = {
+        "segment": str(contract.get("party_type") or "unknown"),
+        "days": duration_days,
+        "pace": str(contract.get("pace") or "moderate"),
+        "city_circle": circle_id,
+        "budget": str(contract.get("budget_level") or "mid"),
+    }
+
+    contract_semantics = list(matrix_data.get("contract_semantics") or [])
+    if not contract_semantics:
+        contract_semantics = [
+            "requested_city_circle",
+            "trip_window",
+            "booked_items",
+            "do_not_go_places",
+            "must_visit_places",
+            "visited_places",
+            "companion_breakdown",
+            "budget_range",
+        ]
+
+    return EvalCase(
+        case_id=case_id,
+        description=description,
+        user_profile=profile,
+        expected_constraints=constraints,
+        input_contract=canonical,
+        matrix_city_circle=circle_id or None,
+        matrix_scenario_types=list(matrix_data.get("scenario_types") or []),
+        matrix_contract_semantics=contract_semantics,
+        matrix_assertion_level=str(matrix_data.get("assertion_level") or "smoke"),
+    )
+
+
+def load_contract_v2_eval_cases(cases_file: str = "eval_cases_v2_contract.json") -> list[EvalCase]:
+    fp = EVAL_CASES_DIR / cases_file
+    if not fp.exists():
+        logger.warning("Contract-v2 eval cases file not found: %s", fp)
+        return []
+    with open(fp, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+
+    cases: list[EvalCase] = []
+    for item in raw:
+        contract = item.get("contract")
+        if not isinstance(contract, dict):
+            continue
+        cases.append(
+            build_eval_case_from_contract(
+                case_id=str(item.get("case_id") or contract.get("case_id") or "unknown"),
+                description=str(item.get("description") or ""),
+                contract=contract,
+                expected_constraints=item.get("expected_constraints"),
+                matrix=item.get("matrix"),
+            )
+        )
+    return cases
 
 
 def _builtin_cases() -> list[EvalCase]:
@@ -229,6 +347,12 @@ def score_plan(plan: dict[str, Any], case: EvalCase) -> EvalScore:
             if eid:
                 day_ids.add(eid)
                 all_entity_ids.append(eid)
+
+    # Observation consistency checks are only enforced for contract-first cases.
+    observation_issues = _validate_observation_chain(plan, case)
+    if observation_issues:
+        safety -= min(3.0, float(len(observation_issues)))
+        issues.extend(observation_issues)
 
     # 7. Factual Reliability（L4-05）
     factual_reliability = _score_factual_reliability(plan, case)
@@ -482,6 +606,7 @@ def run_eval(
         dim_avgs[dim] = round(sum(vals) / len(vals), 2) if vals else 0
 
     avg_overall = round(sum(s.overall for s in scores) / len(scores), 2) if scores else 0
+    matrix_summary = _build_matrix_summary(cases)
 
     report = EvalReport(
         version=version,
@@ -492,6 +617,7 @@ def run_eval(
         dimension_avgs=dim_avgs,
         regressions=regressions,
         cases=case_results,
+        matrix_summary=matrix_summary,
     )
 
     # 输出摘要
@@ -514,3 +640,92 @@ def save_baseline(scores: list[EvalScore], filename: str = "baseline_latest.json
     with open(fp, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     logger.info("Baseline saved: %s", fp)
+
+
+def _build_matrix_summary(cases: list[EvalCase]) -> dict[str, Any]:
+    contract_cases = [c for c in cases if isinstance(c.input_contract, dict)]
+    circles = sorted({c.matrix_city_circle for c in contract_cases if c.matrix_city_circle})
+    missing = sorted(EXPECTED_CITY_CIRCLES.difference(circles))
+
+    scenario_counts: dict[str, int] = {}
+    semantics_counts: dict[str, int] = {}
+    assertion_counts: dict[str, int] = {}
+    for case in contract_cases:
+        if case.matrix_assertion_level:
+            assertion_counts[case.matrix_assertion_level] = assertion_counts.get(case.matrix_assertion_level, 0) + 1
+        for scenario in case.matrix_scenario_types:
+            if scenario:
+                scenario_counts[scenario] = scenario_counts.get(scenario, 0) + 1
+        for semantic in case.matrix_contract_semantics:
+            if semantic:
+                semantics_counts[semantic] = semantics_counts.get(semantic, 0) + 1
+
+    scenario_rows = [
+        {"key": k, "count": scenario_counts[k]}
+        for k in sorted(scenario_counts.keys())
+    ]
+    semantics_rows = [
+        {"key": k, "count": semantics_counts[k]}
+        for k in sorted(semantics_counts.keys())
+    ]
+
+    return {
+        "contract_cases": len(contract_cases),
+        "city_circle": {
+            "covered": circles,
+            "missing": missing,
+        },
+        "scenario_type": {
+            "rows": scenario_rows,
+        },
+        "contract_semantics": {
+            "rows": semantics_rows,
+        },
+        "assertion_level": {
+            "rows": [
+                {"key": k, "count": assertion_counts[k]}
+                for k in sorted(assertion_counts.keys())
+            ],
+        },
+    }
+
+
+def _validate_observation_chain(plan: dict[str, Any], case: EvalCase) -> list[str]:
+    issues: list[str] = []
+    if not isinstance(case.input_contract, dict):
+        return issues
+
+    meta = plan.get("metadata")
+    if not isinstance(meta, dict):
+        return ["missing_plan_metadata_for_observation_chain"]
+
+    chain = meta.get("observation_chain")
+    if not isinstance(chain, dict):
+        return ["missing_observation_chain"]
+
+    required_surfaces = (
+        "run_id",
+        "decision_surface",
+        "handoff_surface",
+        "eval_surface",
+        "regression_surface",
+        "replay_surface",
+    )
+    for key in required_surfaces:
+        if not chain.get(key):
+            issues.append(f"observation_chain_missing:{key}")
+
+    if chain.get("legacy_fallback_used") is True:
+        issues.append("observation_chain_legacy_fallback_used")
+
+    evidence = meta.get("evidence_bundle")
+    if isinstance(evidence, dict):
+        input_contract = evidence.get("input_contract")
+        if isinstance(input_contract, dict):
+            expected_visited = list(case.input_contract.get("visited_places") or [])
+            actual_visited = list(input_contract.get("visited_places") or [])
+            if expected_visited and actual_visited != expected_visited:
+                issues.append("visited_places_not_aligned_with_contract")
+    return issues
+
+

@@ -88,11 +88,11 @@ def test_case_trace_metadata_classifies_main_vs_compatibility():
         assert "generate_trip._try_city_circle_pipeline" in case["entry_anchor"]
 
     for case in ALL_CASES:
-        assert case["test_source_set"] == "legacy_profile_cases"
-        assert case["proof_level"] == "compatibility_baseline"
+        assert case["test_source_set"] == "main_chain_cases"
+        assert case["proof_level"] == "main_chain_proof"
 
 
-def test_case_coverage_summary_keeps_main_vs_compatibility_split():
+def test_case_coverage_summary_all_main_chain_after_legacy_cleanup():
     all_case_data = [
         {
             "case": case,
@@ -106,10 +106,10 @@ def test_case_coverage_summary_keeps_main_vs_compatibility_split():
 
     coverage = summarize_case_coverage(all_case_data)
 
-    assert coverage["proof_counts"]["main_chain_proof"] == len(PHASE2_CASES)
-    assert coverage["proof_counts"]["compatibility_baseline"] == len(ALL_CASES)
+    assert coverage["proof_counts"]["main_chain_proof"] == len(PHASE2_CASES) + len(ALL_CASES)
     assert coverage["source_set_counts"]["phase2_contract_cases"] == len(PHASE2_CASES)
-    assert coverage["source_set_counts"]["legacy_profile_cases"] == len(ALL_CASES)
-    assert sorted(coverage["case_ids_by_proof"]["main_chain_proof"]) == sorted(c["case_id"] for c in PHASE2_CASES)
-    assert sorted(coverage["case_ids_by_proof"]["compatibility_baseline"]) == sorted(c["case_id"] for c in ALL_CASES)
+    assert coverage["source_set_counts"]["main_chain_cases"] == len(ALL_CASES)
+    assert sorted(coverage["case_ids_by_proof"]["main_chain_proof"]) == sorted(
+        [c["case_id"] for c in PHASE2_CASES] + [c["case_id"] for c in ALL_CASES]
+    )
 

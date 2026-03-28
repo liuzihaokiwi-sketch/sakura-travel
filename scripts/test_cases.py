@@ -768,8 +768,8 @@ for _case in PHASE2_CASES:
 for _case in ALL_CASES:
     _attach_case_trace_metadata(
         _case,
-        source_set="legacy_profile_cases",
-        proof_level="compatibility_baseline",
-        entry_anchor="run_regression direct profile assembly path",
-        notes="legacy-profile regression case; should be counted as compatibility baseline coverage",
+        source_set="main_chain_cases",
+        proof_level="main_chain_proof",
+        entry_anchor="run_regression synthetic main-chain sample path",
+        notes="main-chain regression sample case",
     )

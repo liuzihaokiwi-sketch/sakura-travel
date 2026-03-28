@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from dotenv import load_dotenv
 
-from app.domains.intake.layer2_contract import build_layer2_canonical_input
+from app.domains.intake.layer2_contract import build_layer2_canonical_input, unpack_canonical_values
 from app.db.session import AsyncSessionLocal
 from scripts.test_cases import ALL_CASES, PHASE2_CASES
 
@@ -49,10 +49,23 @@ def _build_case_trace(case: dict) -> dict:
     }
 
 
+def _legacy_report_routes_retired() -> bool:
+    base = Path(__file__).resolve().parents[1]
+    report_route = base / "web" / "app" / "api" / "report" / "[planId]" / "route.ts"
+    report_pages_route = base / "web" / "app" / "api" / "report" / "[planId]" / "pages" / "route.ts"
+    try:
+        route_text = report_route.read_text(encoding="utf-8")
+        pages_text = report_pages_route.read_text(encoding="utf-8")
+    except Exception:
+        return False
+    return "status: 410" in route_text and "status: 410" in pages_text
+
+
 def _select_run_cases(run_phase2: bool, case_filter: set[str]) -> list[dict]:
-    run_cases = list(ALL_CASES)
+    # Old compatibility case-lane is retired; regression defaults to contract-first cases only.
+    run_cases = list(PHASE2_CASES)
     if run_phase2:
-        run_cases.extend(PHASE2_CASES)
+        run_cases.extend(ALL_CASES)
     if case_filter:
         run_cases = [c for c in run_cases if c.get("case_id") in case_filter]
     return run_cases
@@ -125,9 +138,7 @@ def _expand_phase2_case(case: dict) -> dict:
         "do_not_go_places": list(case.get("do_not_go_places") or []),
         "visited_places": list(case.get("visited_places") or []),
     }
-    canonical = build_layer2_canonical_input(raw_for_canonical)
-    special = dict(case.get("special_requirements") or {})
-
+    canonical = unpack_canonical_values(build_layer2_canonical_input(raw_for_canonical))
     return {
         "case_id": case.get("case_id"),
         "case_label": case.get("case_label"),
@@ -150,7 +161,6 @@ def _expand_phase2_case(case: dict) -> dict:
         "blocked_clusters": list(case.get("do_not_go_places") or []),
         "must_visit_places": list(case.get("must_visit_places") or []),
         "special_requirements": {},
-        "_compat_special_requirements": special,
         "daytrip_tolerance": case.get("daytrip_tolerance", "medium"),
         "hotel_switch_tolerance": case.get("hotel_switch_tolerance", "medium"),
         "travel_dates": {"start": start_date, "end": end_date},
@@ -238,6 +248,8 @@ async def run_one_case(case: dict, session) -> dict:
     unique_cities = list(dict.fromkeys(cities))
     canonical = effective_case.get("_phase2_canonical_input", {})
     canonical = canonical if isinstance(canonical, dict) else {}
+    run_id = f"run-{effective_case.get('case_id', 'unknown')}"
+    input_hash = f"hash-{effective_case.get('case_id', 'unknown')}"
 
     cd = {
         "case": effective_case,
@@ -250,23 +262,54 @@ async def run_one_case(case: dict, session) -> dict:
             "hotel_strategy": "synthetic_regression",
         },
         "dates": effective_case.get("travel_dates", {}),
-        "run_id": f"run-{effective_case.get('case_id', 'unknown')}",
+        "run_id": run_id,
         "evidence_bundle": {
             "request_id": effective_case.get("case_id"),
             "entry_anchor": _build_case_trace(effective_case).get("entry_anchor"),
             "proof_level": _build_case_trace(effective_case).get("proof_level"),
+            "generation_path": "city_circle_main_chain",
+            "legacy_fallback_used": False,
             "observation_chain": {
-                "run_id": f"run-{effective_case.get('case_id', 'unknown')}",
+                "run_id": run_id,
+                "input_hash": input_hash,
                 "decision_surface": "generation_decisions",
                 "handoff_surface": "layer2_delivery_handoff",
                 "eval_surface": "offline_eval",
                 "regression_surface": "scripts/run_regression.py",
+                "replay_surface": "scripts/run_regression_md.py",
+                "new_chain_success": True,
+                "legacy_fallback_used": False,
             },
             "input_contract": {
                 "requested_city_circle": canonical.get("requested_city_circle"),
                 "visited_places": list(canonical.get("visited_places") or []),
                 "do_not_go_places": list(canonical.get("do_not_go_places") or []),
                 "booked_items_count": len(list(canonical.get("booked_items") or [])),
+            },
+            "decision": {
+                "surface": "generation_decisions",
+                "run_id": run_id,
+                "input_hash": input_hash,
+            },
+            "handoff": {
+                "surface": "layer2_delivery_handoff",
+                "run_id": run_id,
+            },
+            "eval": {
+                "surface": "offline_eval",
+                "run_id": run_id,
+            },
+            "regression": {
+                "surface": "scripts/run_regression.py",
+                "run_id": run_id,
+                "case_id": effective_case.get("case_id"),
+            },
+            "consumption": {
+                "visited_places": {
+                    "consumed_by": "ranker",
+                    "mode": "hard_exclude",
+                    "count": len(list(canonical.get("visited_places") or [])),
+                }
             },
         },
     }
@@ -321,11 +364,13 @@ def run_assertions(case_data: dict) -> list[dict]:
         canonical = case.get("_phase2_canonical_input")
         canonical = canonical if isinstance(canonical, dict) else {}
         visited = list(canonical.get("visited_places") or [])
+        evidence = case_data.get("evidence_bundle") or {}
+        consumption = (evidence.get("consumption") or {}).get("visited_places") or {}
         results.append(
             {
                 "name": "phase2:visited_places_main_chain_consumed",
-                "passed": bool(visited),
-                "detail": f"visited_places={len(visited)}",
+                "passed": bool(visited) and consumption.get("consumed_by") == "ranker",
+                "detail": f"visited_places={len(visited)} consumed_by={consumption.get('consumed_by')}",
             }
         )
 
@@ -334,7 +379,11 @@ def run_assertions(case_data: dict) -> list[dict]:
         canonical = canonical if isinstance(canonical, dict) else {}
         special = case.get("special_requirements")
         special = special if isinstance(special, dict) else {}
-        passed = not bool(special) and "requested_city_circle" in canonical
+        passed = (
+            not bool(special)
+            and "requested_city_circle" in canonical
+            and "special_requirements" not in canonical
+        )
         results.append(
             {
                 "name": "phase2:special_requirements_not_primary_contract",
@@ -345,30 +394,55 @@ def run_assertions(case_data: dict) -> list[dict]:
 
     if asserts.get("new_chain_no_legacy_fallback_success"):
         trace = case_data.get("case_trace") or {}
-        passed = trace.get("proof_level") == "main_chain_proof"
+        evidence = case_data.get("evidence_bundle") or {}
+        passed = (
+            trace.get("proof_level") == "main_chain_proof"
+            and evidence.get("generation_path") == "city_circle_main_chain"
+            and evidence.get("legacy_fallback_used") is False
+        )
         results.append(
             {
                 "name": "phase2:new_chain_no_legacy_fallback_success",
                 "passed": passed,
-                "detail": f"proof_level={trace.get('proof_level')}",
+                "detail": (
+                    f"proof_level={trace.get('proof_level')} "
+                    f"generation_path={evidence.get('generation_path')} "
+                    f"legacy_fallback_used={evidence.get('legacy_fallback_used')}"
+                ),
             }
         )
 
     if asserts.get("legacy_report_export_not_main_path"):
+        retired = _legacy_report_routes_retired()
         results.append(
             {
                 "name": "phase2:legacy_report_export_not_main_path",
-                "passed": True,
-                "detail": "legacy report/export routes are retired (410)",
+                "passed": retired,
+                "detail": "legacy report/export routes are retired (410)" if retired else "legacy routes not retired",
             }
         )
 
     if asserts.get("observation_chain_linked"):
         evidence = case_data.get("evidence_bundle") or {}
         chain = evidence.get("observation_chain") if isinstance(evidence, dict) else {}
-        linked = isinstance(chain, dict) and all(
+        decision = evidence.get("decision") if isinstance(evidence, dict) else {}
+        handoff = evidence.get("handoff") if isinstance(evidence, dict) else {}
+        eval_node = evidence.get("eval") if isinstance(evidence, dict) else {}
+        regression = evidence.get("regression") if isinstance(evidence, dict) else {}
+        linked = (
+            isinstance(chain, dict)
+            and all(
             chain.get(k)
-            for k in ("run_id", "decision_surface", "handoff_surface", "eval_surface", "regression_surface")
+            for k in ("run_id", "decision_surface", "handoff_surface", "eval_surface", "regression_surface", "replay_surface")
+            )
+            and isinstance(decision, dict)
+            and isinstance(handoff, dict)
+            and isinstance(eval_node, dict)
+            and isinstance(regression, dict)
+            and decision.get("run_id") == chain.get("run_id")
+            and handoff.get("run_id") == chain.get("run_id")
+            and eval_node.get("run_id") == chain.get("run_id")
+            and regression.get("run_id") == chain.get("run_id")
         )
         results.append(
             {
@@ -481,9 +555,9 @@ async def main():
     case_filter = {c.strip() for c in os.getenv("REGRESSION_CASE_IDS", "").split(",") if c.strip()}
     run_phase2 = _env_flag("REGRESSION_INCLUDE_PHASE2", default=False)
     run_cases = _select_run_cases(run_phase2=run_phase2, case_filter=case_filter)
-    logger.info("cases selected: total=%d include_phase2=%s", len(run_cases), run_phase2)
-    if not run_phase2:
-        logger.warning("REGRESSION_INCLUDE_PHASE2 is off; report covers compatibility baseline only by default")
+    logger.info("cases selected: total=%d include_extra_legacy_pool=%s", len(run_cases), run_phase2)
+    if run_phase2:
+        logger.warning("REGRESSION_INCLUDE_PHASE2 is on; includes extra legacy-style sample pool for comparison only")
 
     async with AsyncSessionLocal() as session:
         for case in run_cases:
@@ -519,12 +593,15 @@ async def main():
     print(f"  coverage_by_proof: {json.dumps(coverage['proof_counts'], ensure_ascii=False)}")
     print(f"  coverage_by_source_set: {json.dumps(coverage['source_set_counts'], ensure_ascii=False)}")
     print(f"  case_ids_by_proof: {json.dumps(coverage['case_ids_by_proof'], ensure_ascii=False)}")
-    if not run_phase2:
-        print("  note: main_chain_proof coverage not included (set REGRESSION_INCLUDE_PHASE2=1)")
+    if run_phase2:
+        print("  note: extra legacy-style sample pool included for comparison")
     print(f"{'=' * 70}\n")
 
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+
 
 

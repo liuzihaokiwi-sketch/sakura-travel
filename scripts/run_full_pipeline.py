@@ -386,29 +386,40 @@ async def main():
                 item.notes_zh = json.dumps(notes, ensure_ascii=False)
         await session.commit()
 
-        # 4b. 总纲 + 每日攻略报告 (report_generator)
-        logger.info("--- 4b: 总纲 + 每日攻略报告 ---")
-        from app.domains.planning.report_generator import generate_report
+        # 4b. PlanningOutput 构建（直通，无 report 中间层）
+        logger.info("--- 4b: PlanningOutput + page pipeline ---")
+        from app.domains.rendering.planning_output import build_planning_output
+        from app.domains.rendering.chapter_planner import plan_chapters
+        from app.domains.rendering.page_planner import plan_pages_and_persist
+        from app.domains.rendering.page_view_model import build_view_models
 
-        user_context = {
-            "party_type": "couple",
-            "styles": ["文化", "美食"],
-            "budget_level": "mid",
-            "pace": "moderate",
-        }
-
+        report = None
         try:
-            report = await generate_report(session, plan_id, user_context)
-            ai_call_count += 1 + len(skeleton.frames)  # 总纲 + 每天
-            logger.info("攻略报告生成完成! schema=%s", report.get("schema_version", "?"))
-
-            # 统计字数
-            overview = report.get("layer1_overview", {})
-            daily = report.get("layer2_daily", [])
-            total_chars = len(json.dumps(report, ensure_ascii=False))
-            logger.info("报告总字符: %d (总纲 + %d 天)", total_chars, len(daily))
+            import dataclasses as _dc
+            frame_dicts = [_dc.asdict(f) for f in skeleton.frames]
+            design_brief = {
+                "route_strategy": [f"城市圈: {circle_id}"],
+                "tradeoffs": [],
+                "stay_strategy": [f"hotel: {hotel.preset_name or 'default'}"],
+                "budget_strategy": ["mid"],
+                "execution_principles": ["moderate"],
+            }
+            planning_output = await build_planning_output(
+                session,
+                plan_id=plan_id,
+                trip_request_id=trip_request_id,
+                day_frames=frame_dicts,
+                design_brief=design_brief,
+                circle_id=circle_id,
+                profile=profile,
+            )
+            chapters = plan_chapters(planning_output)
+            pages = await plan_pages_and_persist(chapters, planning_output, session, plan_id)
+            view_models = build_view_models(pages, planning_output)
+            report = {"schema_version": "v2", "pages": len(pages), "vms": len(view_models)}
+            logger.info("page pipeline 完成: chapters=%d pages=%d vms=%d", len(chapters), len(pages), len(view_models))
         except Exception as e:
-            logger.error("攻略报告生成失败: %s", e, exc_info=True)
+            logger.error("page pipeline 失败: %s", e, exc_info=True)
             report = None
 
         t_phase4 = time.time() - t_ai_start

@@ -2,120 +2,56 @@
 
 ## Project Definition
 
-This repository is a travel decision and handbook delivery system, not a one-shot LLM itinerary writer.
+AI 旅行手账生成系统：用户填表 → 结构化决策 → 60页手账本 → PDF 交付。
 
-Its stable end-to-end shape is:
-
-- lead capture / sample preview / paid detail form intake
-- decision and orchestration
-- page-based rendering
-- PDF/H5 handbook delivery
-- evaluation, review, feedback, and operational loop
+Not a one-shot LLM itinerary writer. Not Japan-only. Not a standalone site.
 
 ## Truth Source Order
 
-When documents disagree, use the following order:
+1. `docs/ARCHITECTURE.md` — 系统全景
+2. `docs/DECISIONS.md` — 关键决策记录
+3. `docs/STATUS.md` — 当前状态 + 剩余工作
+4. `docs/city_circles/` — 城市圈结构定义
+5. `docs/page_system/` — 页面系统规范
 
-1. `docs/architecture/00_scope_and_truth.md`
-2. `docs/architecture/02_target_architecture.md`
-3. `docs/architecture/01_current_state.md`
-4. `docs/architecture/03_gap_and_priorities.md`
-5. `docs/architecture/04_execution_staging.md`
-6. older topic documents under `docs/`
+## Current Boundary
 
-Older documents are still useful as historical design input, but they are no longer the top-level source of truth once the `docs/architecture/` set exists.
+- Six city circles: Kansai, Kanto, Hokkaido, Guangfu (广府), Northern Xinjiang, Guangdong
+- Delivery: 60-page travel handbook (paper + sticker DIY pack)
+- Intake priority: Douyin form, not standalone site
+- Pricing: ¥298 domestic / ¥348 international
+- No flight service: users book flights themselves, system only takes landing/departure times
+- No deep price comparison: only entity-level value-for-money in hotel/restaurant selection, no cross-day route optimization
 
-## Deprecated Assumptions
+## Main Chain
 
-The following old assumptions are no longer valid as default premises:
+```
+表单输入 → 归一化 → 城市圈决策链 → 页面生成 → PDF渲染 → 交付
+```
 
-- the system only targets Japan
-- the current primary entry point is a standalone website
-- the final output is just a long-form travel report
-- the current task is to fully refactor the codebase
-- the codebase is still only at concept stage
+Key files:
+- `app/workers/jobs/generate_trip.py` — main orchestrator
+- `app/domains/rendering/planning_output.py` — decision chain → page data (no report intermediate)
+- `app/domains/rendering/page_planner.py` — 17 page types + budget trim
+- `app/domains/rendering/copy_enrichment.py` — optional AI copy
 
-If older files use these assumptions, treat them as historical-phase statements, not current truth.
+## Deleted Modules (do not reference)
 
-## New Boundary Changes
-
-The current planning boundary changes multiple layers at once:
-
-- scope layer: destination scope is now six city circles, not Japan-only
-- intake layer: current acquisition priority is Douyin form intake, not standalone site completeness
-- delivery layer: output is a 60-page travel handbook with image / illustration slots
-- rendering layer: rendering must serve page semantics and visual slots, not only long report flow
-- configuration layer: rules must become city-circle-aware rather than Japan-core-city-only
-
-The six city circles are:
-
-- Kansai city circle
-- Kanto city circle
-- Hokkaido city circle
-- South China five-city circle
-- Northern Xinjiang city circle
-- Guangdong city circle
-
-## Persistent Gaps
-
-The following gap inventory remains valid and must not be lost:
-
-- old and new decision chains coexist
-- old and new rendering chains coexist
-- truth sources are distributed across files
-- quality and operations are still attached in a distributed way
-
-These are architecture facts, not short-term task items.
-
-## Current-Stage Rule
-
-The current stage is documentation consolidation and truth-source unification first.
-
-Do not default to:
-
-- large-scale code refactor
-- deep implementation scheduling
-- standalone-site-first planning
-- Japan-only framing
-
-The reason is simple: the current risk is not just missing code, but conflicting boundaries, mixed planning assumptions, and scattered truth sources. Changing code before stabilizing these files would harden obsolete assumptions into implementation.
-
-## Handling Old and New Chains
-
-When describing the system, always acknowledge coexistence:
-
-- old decision chain: `assemble_trip` and template-driven assembly
-- new decision chain: city-circle-based staged orchestration
-- old rendering chain: old renderer and long-template flow
-- new rendering chain: `chapter_plan -> page_plan -> page_view_model -> render adapters`
-
-Do not describe either migration as already complete unless code and truth-source files are explicitly aligned.
+- `app/domains/planning/report_generator.py` — replaced by planning_output.py
+- `app/domains/rendering/layer2_handoff.py` — eliminated
+- `app/domains/planning/assembler.py` — replaced by city-circle pipeline
+- `app/domains/rendering/renderer.py` — replaced by magazine/
+- `app/domains/flights/` — removed (no flight service)
 
 ## Communication Default
 
-- keep progress updates minimal
-- report only at key milestones, before high-risk modifications, when blocked, and in final summary
-- do not repeat background or already-confirmed constraints
+- Keep progress updates minimal
+- Content for end users defaults to Chinese
+- Internal technical docs may use English
 
-## Language Default
+## Task Handling
 
-- content shown to users defaults to Chinese
-- content generated for end users defaults to Chinese
-- internal technical documentation may remain in English only when it is more practical for agent maintenance
-
-## Task Handling Default
-
-- handle fast tasks directly
-- for complex tasks, classify by difficulty first, record the task shape, then route to a more suitable AI / model path
-- do not enter large-scale code modification before truth-source documents and planning are aligned
-
-## Document Update Rules
-
-When adding or updating planning documents:
-
-- state which old assumptions are deprecated
-- state which layers changed under the new boundary
-- state which previous gaps remain valid
-- state why the current phase still prioritizes file and planning cleanup before broad code change
-
-If a file cannot answer these four questions, it is not complete enough to serve as current planning documentation.
+- Handle fast tasks directly
+- For complex tasks: classify difficulty, plan, then execute
+- Prefer direct replacement over compatibility layering
+- Let runtime paths fail explicitly when appropriate

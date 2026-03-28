@@ -149,7 +149,7 @@ export default function TraceListPage() {
   const [stepLoading, setStepLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`${API}/admin/generation-runs?limit=50`)
+    fetch(`/api/admin/trace?limit=50`)
       .then((r) => r.ok ? r.json() : { runs: _MOCK_RUNS })
       .then((d) => setRuns(d.runs ?? d))
       .catch(() => setRuns(_MOCK_RUNS))
@@ -160,7 +160,7 @@ export default function TraceListPage() {
     setSelected(run);
     setStepLoading(true);
     try {
-      const r = await fetch(`${API}/admin/generation-runs/${run.run_id}/steps`);
+      const r = await fetch(`/api/admin/trace/${run.run_id}`);
       const d = r.ok ? await r.json() : { steps: _MOCK_STEPS };
       setSteps(d.steps ?? _MOCK_STEPS);
     } catch {

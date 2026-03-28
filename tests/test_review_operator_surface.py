@@ -21,8 +21,8 @@ def test_operator_surface_state_terminal_for_cancelled():
         has_active_review_job=False,
     )
     assert state.stage == "terminal"
-    assert state.action_boundary == "compatibility_support"
-    assert state.proof_lane == "compatibility_baseline"
+    assert state.action_boundary == "main_proof_flow"
+    assert state.proof_lane == "main_chain_proof"
 
 
 def test_operator_surface_state_pending_modification_marks_action_needed():

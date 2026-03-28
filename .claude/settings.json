@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(python -m py_compile app/workers/__main__.py app/api/submissions.py app/api/trips.py)",
+      "Bash(grep -n \"error\\\\|Error\\\\|catch\\\\|try\\\\|throw\" /d/projects/projects/travel-ai/web/app/preview/[id]/page.tsx)",
+      "Bash(mv architecture/*.md _archive/architecture/)",
+      "Bash(mv 01_system_core.md 02_fragment_system.md 03_report_delivery_rules.md 04_positioning_pricing_themes.md 05_content_and_growth.md 06_retention_and_roadmap.md 07_ops_playbook.md 08_eval_cases.md 09_eval_graders.md 10_e2e_testing_guide.md 11_api_dependency_map.md 11_copywriting_audit.md 12_report_structure.md 13_ai_codebase_map.md Layer_2_决策与编排层实现方案_v1.md Layer_3_报告与渲染层补充设计方案_v1.md Layer_4_评测校验运营层修改建议_v1.md encoding_guardrail.md testing_layers.md 修改.md _archive/legacy/)",
+      "Bash(mv \"travel_handbook_60p_for_engineer \\(1\\).md\" product/travel_handbook_60p_for_engineer.md)",
+      "Bash(mv travel_handbook_60p_for_owner.md product/)",
+      "Bash(mv architecture/travel_form_multistep_frontend_v3.md product/)",
+      "Bash(mv REFACTOR_WORKPLAN.md _archive/)",
+      "Bash(rmdir architecture:*)",
+      "Bash(for d:*)",
+      "Read(//d/projects/projects/travel-ai/**)",
+      "Bash(done)",
+      "Bash(ls app/domains/planning/*.py)",
+      "Bash(find /d/projects/projects/travel-ai/app -type f -name *.py)",
+      "Bash(grep -r \"amadeus\\\\|scan_flight\\\\|Amadeus\" /d/projects/projects/travel-ai --include=*.py --include=*.json --include=*.env* --include=*.yml --include=*.yaml)",
+      "Bash(xargs grep:*)",
+      "Bash(xargs wc:*)",
+      "Bash(find /d/projects/projects/travel-ai -iname *moj* -o -iname *major*)"
+    ]
+  }
+}

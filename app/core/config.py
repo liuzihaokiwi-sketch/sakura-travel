@@ -38,10 +38,6 @@ class Settings(BaseSettings):
     openai_base_url: str = "https://api.openai.com/v1"
     ai_base_url: str = "https://api.openai.com/v1"   # 中转站地址
 
-    # Amadeus 机票特价监控
-    amadeus_client_id: str = ""
-    amadeus_client_secret: str = ""
-
     # 通知渠道
     wecom_webhook_url: str = ""      # 企业微信机器人
     smtp_host: str = ""
@@ -62,9 +58,12 @@ class Settings(BaseSettings):
     deepl_api_key: str = ""
     admin_password: str = "admin123"
 
+    # ── Sentry ────────────────────────────────────────────────
+    sentry_dsn: str = ""              # 空字符串=禁用
+    sentry_traces_sample_rate: float = 0.1   # 生产环境 10% 采样
+
     # ── Snapshot TTL (days) ───────────────────────────────────
     snapshot_ttl_hotel_offer: int = 1
-    snapshot_ttl_flight_offer: int = 1
     snapshot_ttl_poi_opening: int = 7
     snapshot_ttl_weather: int = 1
 

@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from app.domains.intake.layer2_contract import build_layer2_canonical_input
+from app.domains.intake.layer2_contract import build_layer2_canonical_input, unpack_canonical_values
 from app.domains.planning.constraint_compiler import compile_constraints
 from app.workers.__main__ import _derive_circle_signals, derive_profile_tags
 from scripts.test_cases import PHASE2_CASES
@@ -60,7 +60,7 @@ def _departure_no_poi_expected(departure_time: str) -> bool:
 @pytest.mark.parametrize("case", PHASE2_CASES, ids=[c["case_id"] for c in PHASE2_CASES])
 def test_phase2_quick_contract_fields_preserved(case: dict):
     raw = _build_raw(case)
-    canonical = build_layer2_canonical_input(raw)
+    canonical = unpack_canonical_values(build_layer2_canonical_input(raw))
 
     assert canonical["contract_version"] == "layer2_v1"
     assert canonical["requested_city_circle"] == case["city_circle_intent"]["circle_id"]
@@ -117,8 +117,8 @@ def test_phase2_quick_constraints_and_semantics(case: dict):
         case["trip_window"]["departure"]["time"]
     )
 
-    special = profile.special_requirements
-    assert special.get("requested_city_circle") == case["city_circle_intent"]["circle_id"]
-    assert special.get("visited_places") == case.get("visited_places", [])
-    assert special.get("do_not_go_places") == case.get("do_not_go_places", [])
-    assert special.get("booked_items") == case.get("booked_items", [])
+    special = profile.special_requirements or {}
+    assert "requested_city_circle" not in special
+    assert "visited_places" not in special
+    assert "do_not_go_places" not in special
+    assert "booked_items" not in special

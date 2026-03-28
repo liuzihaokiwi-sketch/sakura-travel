@@ -7,7 +7,6 @@ from pathlib import Path
 
 L2_MARKER = "l2_contract_blocker"
 L3_MARKER = "l3_handbook_delivery_blocker"
-LEGACY_MARKER = "legacy_compatibility"
 
 
 def _paths_for_marker(marker: str) -> list[str]:
@@ -22,11 +21,7 @@ def _paths_for_marker(marker: str) -> list[str]:
             "tests/test_page_editing_workflow.py",
             "tests/test_page_edit_api_workflow.py",
         ]
-    return [
-        "tests/e2e/test_full_pipeline.py",
-        "tests/test_regression_submission_normalize_constraints_ranking.py",
-        "tests/test_pdf_watermark.py",
-    ]
+    return []
 
 
 def _run_marker(marker: str, passthrough: list[str]) -> int:
@@ -42,7 +37,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Run layered tests with explicit policy: "
-            "L2 and L3 are blocking; legacy_compatibility is baseline."
+            "L2 and L3 are blocking."
         )
     )
     parser.add_argument(
@@ -68,12 +63,12 @@ def main() -> int:
     parser.add_argument(
         "--legacy-only",
         action="store_true",
-        help="Run only legacy_compatibility (baseline).",
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--strict-legacy",
         action="store_true",
-        help="When running both tracks, make legacy_compatibility failures blocking.",
+        help=argparse.SUPPRESS,
     )
 
     args, passthrough = parser.parse_known_args()
@@ -81,9 +76,9 @@ def main() -> int:
     if args.phase2_only:
         args.l2_only = True
 
-    enabled_primary_modes = [args.l2_only, args.l3_only, args.blockers_only, args.legacy_only]
+    enabled_primary_modes = [args.l2_only, args.l3_only, args.blockers_only]
     if sum(bool(x) for x in enabled_primary_modes) > 1:
-        parser.error("--l2-only/--l3-only/--blockers-only/--legacy-only cannot be combined")
+        parser.error("--l2-only/--l3-only/--blockers-only cannot be combined")
 
     if args.l2_only:
         return _run_marker(L2_MARKER, passthrough)
@@ -102,9 +97,6 @@ def main() -> int:
             return l3_code
         return 0
 
-    if args.legacy_only:
-        return _run_marker(LEGACY_MARKER, passthrough)
-
     l2_code = _run_marker(L2_MARKER, passthrough)
     if l2_code != 0:
         print("[dual-track] l2_contract_blocker failed: this is blocking.")
@@ -115,14 +107,6 @@ def main() -> int:
         print("[dual-track] l3_handbook_delivery_blocker failed: this is blocking.")
         return l3_code
 
-    legacy_code = _run_marker(LEGACY_MARKER, passthrough)
-
-    if legacy_code != 0 and args.strict_legacy:
-        print("[dual-track] legacy_compatibility failed with --strict-legacy.")
-        return legacy_code
-
-    if legacy_code != 0:
-        print("[dual-track] legacy_compatibility failed: non-blocking by default.")
     return 0
 
 

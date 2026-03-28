@@ -202,91 +202,14 @@ async def submit_questionnaire(
     body: QuestionnaireSubmit,
     db: AsyncSession = Depends(get_db),
 ) -> dict:
-    """
-    提交问卷答案，触发完整推荐链路：
-    问卷 → theme_weights → user_type → 推荐区域 → 推荐线路
-    结果写入 trip_profiles.special_requirements['recommendations']
-    """
-    from app.domains.ranking.theme_weights import compute_weights_from_answers
-    from app.domains.geography.region_router import recommend_regions_for_profile
-    from app.domains.geography.route_selector import recommend_routes_for_profile
-
-    # 校验 trip 存在
-    trip = await db.get(TripRequest, uuid.UUID(trip_id))
-    if not trip:
-        raise HTTPException(status_code=404, detail="Trip not found")
-
-    # Step 1: 问卷 → theme_weights
-    theme_weights = compute_weights_from_answers(body.answers)
-
-    # Step 2: 从 trip raw_input 拿 party_type
-    raw = trip.raw_input or {}
-    party_type = raw.get("party_type", "couple")
-    duration_days = sum(c.get("nights", 1) for c in raw.get("cities", [{"nights": 5}]))
-
-    # Step 3: 推荐区域
-    region_result = recommend_regions_for_profile(
-        party_type=party_type,
-        is_repeat_visitor=body.is_repeat_visitor,
-        theme_weights=theme_weights,
-        top_n=3,
+    del trip_id, body, db
+    raise HTTPException(
+        status_code=410,
+        detail=(
+            "Legacy questionnaire entry is retired. "
+            "Use detail-form canonical input and city-circle main-chain generation."
+        ),
     )
-
-    # Step 4: 推荐线路
-    preferred_regions = [r["region_id"] for r in region_result["regions"]]
-    route_result = recommend_routes_for_profile(
-        user_type=region_result["user_type"],
-        duration_days=duration_days,
-        travel_season=body.travel_season,
-        preferred_regions=preferred_regions,
-        top_n=3,
-    )
-
-    recommendations = {
-        "theme_weights": theme_weights,
-        "user_type": region_result["user_type"],
-        "recommended_regions": region_result["regions"],
-        "recommended_routes": route_result["routes"],
-    }
-
-    # Step 5: 写入 trip_profiles（如存在则更新，否则创建）
-    profile_result = await db.execute(
-        select(TripProfile).where(TripProfile.trip_request_id == trip.trip_request_id)
-    )
-    profile = profile_result.scalar_one_or_none()
-    if profile:
-        sr = dict(profile.special_requirements or {})
-        sr["recommendations"] = recommendations
-        profile.special_requirements = sr
-    else:
-        # 创建基础 profile
-        profile = TripProfile(
-            trip_request_id=trip.trip_request_id,
-            cities=raw.get("cities", []),
-            duration_days=duration_days,
-            party_type=party_type,
-            party_size=raw.get("party_size", 2),
-            budget_level=raw.get("budget_level", "mid"),
-            must_have_tags=[],
-            nice_to_have_tags=[],
-            avoid_tags=[],
-            special_requirements={"recommendations": recommendations},
-        )
-        db.add(profile)
-
-    await db.flush()
-
-    # Step 6: 自动触发行程生成 job（标记 profiled → 入队）
-    trip.status = "profiled"
-    await db.flush()
-    await enqueue_job("generate_itinerary_plan", trip_id)
-
-    return {
-        "trip_request_id": trip_id,
-        "status": "recommendations_ready",
-        "message": "行程规划已自动加入队列，请稍后通过 GET /trips/{id}/plan 查看",
-        "recommendations": recommendations,
-    }
 
 
 @router.get("/{trip_id}/recommendations")
@@ -294,25 +217,11 @@ async def get_recommendations(
     trip_id: str,
     db: AsyncSession = Depends(get_db),
 ) -> dict:
-    """
-    获取已生成的推荐结果（需先 POST /questionnaire）。
-    """
-    trip = await db.get(TripRequest, uuid.UUID(trip_id))
-    if not trip:
-        raise HTTPException(status_code=404, detail="Trip not found")
-
-    profile_result = await db.execute(
-        select(TripProfile).where(TripProfile.trip_request_id == trip.trip_request_id)
+    del trip_id, db
+    raise HTTPException(
+        status_code=410,
+        detail=(
+            "Legacy recommendation read API is retired. "
+            "Use page-model-first delivery endpoints."
+        ),
     )
-    profile = profile_result.scalar_one_or_none()
-
-    if not profile or not (profile.special_requirements or {}).get("recommendations"):
-        raise HTTPException(
-            status_code=404,
-            detail="No recommendations yet. Submit questionnaire first via POST /trips/{id}/questionnaire",
-        )
-
-    return {
-        "trip_request_id": trip_id,
-        "recommendations": profile.special_requirements["recommendations"],
-    }

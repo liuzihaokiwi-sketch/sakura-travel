@@ -28,6 +28,19 @@ def compute_profile_hash(profile_dict: dict) -> str:
     return hashlib.sha256(canonical.encode()).hexdigest()
 
 
+def _serialize_decision_value(value: Any) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (dict, list, tuple, set, int, float, bool)):
+        try:
+            return json.dumps(value, ensure_ascii=False, sort_keys=True, default=str)
+        except Exception:
+            return str(value)
+    return str(value)
+
+
 async def write_decision(
     session: AsyncSession,
     *,
@@ -59,7 +72,7 @@ async def write_decision(
             input_hash=input_hash,
             decision_stage=stage,
             decision_key=key,
-            decision_value=str(value) if value is not None else None,
+            decision_value=_serialize_decision_value(value),
             alternatives_considered=alternatives,
             decision_reason=reason[:2000] if reason else None,
             is_current=True,
@@ -104,6 +117,39 @@ async def write_stage_snapshot(
             alternatives=alternatives if k == next(iter(snapshot)) else None,
             reason=reason if k == next(iter(snapshot)) else "",
         )
+
+
+async def write_standard_decision(
+    session: AsyncSession,
+    *,
+    trip_request_id: uuid.UUID,
+    plan_id: Optional[uuid.UUID] = None,
+    input_hash: Optional[str] = None,
+    stage: str,
+    verdict: str,
+    reason: str = "",
+    operator_action: str | None = None,
+    status_bucket: str | None = None,
+    payload: dict[str, Any] | None = None,
+    alternatives: Optional[list[dict]] = None,
+) -> None:
+    await write_decision(
+        session,
+        trip_request_id=trip_request_id,
+        plan_id=plan_id,
+        input_hash=input_hash,
+        stage=stage,
+        key="result",
+        value={
+            "verdict": verdict,
+            "reason": reason,
+            "operator_action": operator_action,
+            "status_bucket": status_bucket,
+            "payload": payload or {},
+        },
+        alternatives=alternatives,
+        reason=reason,
+    )
 
 
 async def invalidate_previous_decisions(

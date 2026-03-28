@@ -1,10 +1,13 @@
-﻿"""
+"""
 arq Job: generate_trip
-瑙﹀彂琛岀▼瑁呴厤 鈫?AI 鏂囨娑﹁壊 鈫?澶氭ā鍨嬭瘎瀹?鈫?鍙戝竷/閲嶅啓/杞汉宸?
-娴佺▼锛?    city-circle pipeline 鈫?enrich_itinerary_with_copy
-    鈫?run_review_with_retry
-        鈫?publish  鈫?鏍囪 delivered锛屽叆闃熸覆鏌?        鈫?rewrite  鈫?鑷姩閲嶅啓鍙楀奖鍝嶅ぉ锛堟渶澶?2 杞級
-        鈫?human    鈫?鏍囪 review锛屽叆闃熶汉宸ュ鏍?"""
+
+流程：
+    city-circle pipeline → build_planning_output → page pipeline
+    → copy enrichment → quality gate → review pipeline
+        → publish  → 渲染交付
+        → rewrite  → 自动重写（最多 2 轮）
+        → human    → 人工审核队列
+"""
 from __future__ import annotations
 
 import logging
@@ -15,14 +18,41 @@ from app.core.queue import enqueue_job
 from app.db.models.business import TripRequest
 from app.db.session import AsyncSessionLocal as async_session_factory
 from app.domains.intake.layer2_contract import build_layer2_profile_contract
-from app.domains.planning.assembler import enrich_itinerary_with_copy
 from app.core.quality_gate import run_quality_gate, QualityGateResult
 
 logger = logging.getLogger(__name__)
 
 # Feature flags
 REVIEW_PIPELINE_ENABLED = True
-CITY_CIRCLE_ENABLED = True  # 鍩庡競鍦堥摼璺紑鍏筹紙False 鏃舵樉寮忓け璐ワ級
+
+
+def _plan_json_from_planning_output(planning_output: Any, plan_id: Any) -> dict:
+    """
+    从已构建的 PlanningOutput 直接组装 plan_json，跳过 DB 二次查询。
+
+    用于 quality gate 和 offline_eval——这两处在 planning_output 已可用时调用，
+    无需重新从 DB 读 ItineraryDay/ItineraryItem。
+    """
+    days = []
+    for day in planning_output.days:
+        items = []
+        for slot in day.slots:
+            items.append({
+                "time": slot.start_time_hint or "",
+                "name": slot.title or "未知",
+                "entity_type": slot.kind or "poi",
+                "entity_id": slot.entity_id or "",
+            })
+        days.append({
+            "day_number": day.day_index,
+            "city": day.primary_area or "",
+            "theme": day.title or "",
+            "items": items,
+        })
+    return {
+        "plan_id": str(plan_id),
+        "days": days,
+    }
 
 
 async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
@@ -190,11 +220,11 @@ async def _try_city_circle_pipeline(
     session: Any,
     trip: TripRequest,
     scene: str,
-) -> tuple[bool, uuid.UUID | None, list | None, dict | None]:
+) -> tuple[bool, uuid.UUID | None, list | None, dict | None, dict | None]:
     """
     灏濊瘯璧板煄甯傚湀鍐崇瓥閾捐矾锛堝甫 trace锛夈€?
     Returns:
-        (success, plan_id, day_frames_dicts, design_brief)
+        (success, plan_id, day_frames_dicts, design_brief, runtime_context)
         success=False 琛ㄧず涓婚摼澶辫触锛岄渶瑕佹樉寮忓け璐ヨ繑鍥炪€?    """
     from app.domains.planning.fallback_router import (
         FallbackLevel,
@@ -218,7 +248,7 @@ async def _try_city_circle_pipeline(
         profile = profile_q.scalar_one_or_none()
         if not profile:
             logger.info("no TripProfile, city-circle main chain failed")
-            return False, None, None, None
+            return False, None, None, None, None
 
         trip_id = trip.trip_request_id
 
@@ -266,7 +296,7 @@ async def _try_city_circle_pipeline(
         if not circle_result.selected:
             logger.info("no matched city circle, main chain failed")
             await trace.finish_run(status="failed")
-            return False, None, None, None
+            return False, None, None, None, None
 
         circle_id = circle_result.selected_circle_id
         logger.info("閫変腑鍩庡競鍦? %s (%s)", circle_id, circle_result.selected.name_zh)
@@ -448,7 +478,7 @@ async def _try_city_circle_pipeline(
         if getattr(ranking_result, "must_go_unresolved", None):
             unresolved = list(ranking_result.must_go_unresolved)
             if fallback.level == FallbackLevel.NONE:
-                fallback.level = FallbackLevel.SECTION_ADAPTER
+                fallback.level = FallbackLevel.PAYLOAD_INCOMPATIBLE
             fallback.reasons.append(
                 f"F-MUSTGO: unresolved must-go places={unresolved}"
             )
@@ -471,7 +501,7 @@ async def _try_city_circle_pipeline(
                 reason="; ".join(fallback.reasons) if fallback.reasons else "main_chain_explicit_failure",
             )
             await trace.finish_run(status="failed")
-            return False, None, None, None
+            return False, None, None, None, None
 
         # Step 5: 閰掑簵绛栫暐
         from app.domains.planning.hotel_base_builder import build_hotel_strategy
@@ -780,7 +810,7 @@ async def _try_city_circle_pipeline(
             logger.warning("CIRCLE_WRITE_MODE=%s 闈?live锛屾寜鏃ч摼娓呴€€绛栫暐鏄惧紡澶辫触", CIRCLE_WRITE_MODE)
             if trace:
                 await trace.finish_run(status="failed")
-            return False, None, None, None
+            return False, None, None, None, None
 
         # E1: 鍥炲啓 plan_id 鍒版湰娆℃墍鏈?decisions
         try:
@@ -836,7 +866,15 @@ async def _try_city_circle_pipeline(
             hotel_result.preset_name, len(skeleton.frames),
         )
 
-        return True, plan_id, frame_dicts, design_brief
+        runtime_context = {
+            "run_id": _run_id,
+            "profile_hash": profile_hash,
+            "travel_date_list": [d.isoformat() for d in travel_date_list],
+            "enable_live_risk_monitor": bool(
+                resolved_cfg.switch("enable_live_risk_monitor", default=True)
+            ),
+        }
+        return True, plan_id, frame_dicts, design_brief, runtime_context
 
     except Exception as exc:
         logger.warning("鍩庡競鍦堥摼璺紓甯革紝涓婚摼澶辫触: %s", exc, exc_info=True)
@@ -845,14 +883,13 @@ async def _try_city_circle_pipeline(
                 await trace.finish_run(status="failed")
             except Exception:
                 pass
-        return False, None, None, None
+        return False, None, None, None, None
 
 
 async def generate_trip(
     ctx: dict,
     *,
     trip_request_id: str,
-    template_code: str | None = None,
     scene: str = "general",
 ) -> dict:
     """
@@ -867,6 +904,8 @@ async def generate_trip(
     logger.info("generate_trip 寮€濮?trip=%s scene=%s", trip_id, scene)
 
     async with async_session_factory() as session:
+        from app.domains.planning.decision_writer import write_decision
+
         trip = await session.get(TripRequest, trip_id)
         if trip is None:
             logger.error("trip_request_id=%s not found", trip_id)
@@ -913,144 +952,195 @@ async def generate_trip(
         plan_id = None
         day_frames = None
         design_brief = None
+        runtime_context: dict[str, Any] = {}
         circle_path = False
 
-        if CITY_CIRCLE_ENABLED:
-            circle_path, plan_id, day_frames, design_brief = await _try_city_circle_pipeline(
-                session, trip, scene,
-            )
+        circle_path, plan_id, day_frames, design_brief, runtime_context = await _try_city_circle_pipeline(
+            session, trip, scene,
+        )
 
-        # 涓婚摼澶辫触鍗虫樉寮忓け璐ワ紝涓嶅洖閫€鏃фā鏉块摼璺?        if not circle_path:
+        # 涓婚摼澶辫触鍗虫樉寮忓け璐ワ紝涓嶅洖閫€鏃фā鏉块摼璺?
+        if not circle_path:
             trip.status = "failed"
+            trip.last_job_error = "city_circle_pipeline_failed"
             await session.commit()
             return {"status": "error", "reason": "city_circle_pipeline_failed"}
 
-        # Step 2: AI 鏂囨娑﹁壊
+        run_id = str(runtime_context.get("run_id") or "")
+        profile_hash = runtime_context.get("profile_hash")
+        enable_live_risk_monitor = bool(runtime_context.get("enable_live_risk_monitor", True))
+        travel_date_list: list[Any] = []
+        for iso_day in runtime_context.get("travel_date_list") or []:
+            try:
+                from datetime import date as _date
+
+                travel_date_list.append(_date.fromisoformat(str(iso_day)))
+            except Exception:
+                continue
+
+        planning_output = None  # 供 step 2.5 / 2.6 使用，避免 step 2 失败时未定义
+
+        # ── Step 2: PlanningOutput → page pipeline（直通，无 report 中间层） ──
         try:
-            await enrich_itinerary_with_copy(
-                session=session,
-                plan_id=plan_id,
-                scene=scene,
-            )
-        except Exception as exc:
-            logger.warning("鏂囨娑﹁壊澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
-
-        # Step 2.2: 鎶ュ憡鐢熸垚锛堜富閾句粎 v2锛?        try:
-            if day_frames:
-                from app.domains.planning.report_generator import generate_report_v2
-                # 閲嶆柊鍔犺浇 profile锛坃try_city_circle_pipeline 鍐呴儴鍙橀噺涓嶅湪姝や綔鐢ㄥ煙锛?                from app.db.models.business import TripProfile as _TP
-                from sqlalchemy import select as _sel2
-                _pq = await session.execute(
-                    _sel2(_TP).where(_TP.trip_request_id == trip_id).limit(1)
-                )
-                _profile = _pq.scalar_one_or_none()
-                user_ctx = {
-                    "party_type": scene,
-                    "styles": [],
-                    "budget_level": getattr(_profile, "budget_level", "mid") or "mid" if _profile else "mid",
-                    "pace": getattr(_profile, "pace", "moderate") or "moderate" if _profile else "moderate",
-                    "trip_goals": (
-                        (getattr(_profile, "must_have_tags", None) or [])
-                        + (getattr(_profile, "nice_to_have_tags", None) or [])
-                    ) if _profile else [],
-                }
-                report_v2 = await generate_report_v2(
-                    session=session,
-                    plan_id=plan_id,
-                    day_frames=day_frames,
-                    design_brief_override=design_brief,
-                    user_context=user_ctx,
-                )
-
-                # 鈹€鈹€ Step 2.3: Layer 3 page pipeline 鈹€鈹€
-                try:
-                    from app.domains.rendering.chapter_planner import plan_chapters
-                    from app.domains.rendering.layer2_handoff import build_layer2_delivery_handoff
-                    from app.domains.rendering.page_planner import plan_pages_and_persist
-                    from app.domains.rendering.page_view_model import build_view_models
-
-                    chapters = []
-                    pages = []
-                    view_models = {}
-
-                    # 鍏堝皢 Layer2 杈撳嚭閫傞厤涓轰氦浠樺眰绋冲畾 payload锛屽啀杩涘叆 L3 pipeline
-                    if isinstance(report_v2, dict) and report_v2.get("schema_version") == "v2":
-                        from app.db.models.derived import ItineraryPlan as _IP
-
-                        _plan = await session.get(_IP, plan_id)
-                        payload, handoff_boundary = build_layer2_delivery_handoff(
-                            report_content=report_v2,
-                            plan_metadata=(_plan.plan_metadata if _plan else {}) or {},
-                            plan_id=str(plan_id),
-                        )
-                        chapters = plan_chapters(payload)
-                        pages = await plan_pages_and_persist(chapters, payload, session, plan_id)
-                        view_models = build_view_models(pages, payload)
-
-                        # 鍐欏叆 plan_metadata
-                        if _plan:
-                            meta = _plan.plan_metadata or {}
-                            meta["layer2_delivery_handoff"] = handoff_boundary
-                            meta["page_pipeline"] = {
-                                "chapters": len(chapters),
-                                "pages": len(pages),
-                                "view_models": len(view_models),
-                            }
-                            meta["observation_chain"] = {
-                                "run_id": _run_id,
-                                "decision_surface": "generation_decisions",
-                                "handoff_surface": "layer2_delivery_handoff",
-                                "eval_surface": "offline_eval",
-                                "regression_surface": "scripts/run_regression.py",
-                            }
-                            _plan.plan_metadata = meta
-                        await write_decision(
-                            session,
-                            trip_request_id=trip_id,
-                            plan_id=plan_id,
-                            input_hash=profile_hash,
-                            stage="layer2_handoff",
-                            key="handoff_boundary",
-                            value={
-                                "chapters": len(chapters),
-                                "pages": len(pages),
-                                "view_models": len(view_models),
-                                "run_id": _run_id,
-                            },
-                            reason="layer2 handoff committed to page-model-first delivery boundary",
-                        )
-
-                    logger.info(
-                        "L3 page pipeline: plan=%s chapters=%d pages=%d vms=%d",
-                        plan_id, len(chapters), len(pages), len(view_models),
-                    )
-                except Exception as exc:
-                    logger.warning("L3 page pipeline 澶辫触锛堥潪鑷村懡锛? %s", exc)
-
-                # 鈹€鈹€ Step 2.4: LiveRiskMonitor 椋庨櫓鎵弿锛圠4-03锛夆攢鈹€
-                if resolved_cfg.switch("enable_live_risk_monitor", default=True):
-                    try:
-                        from app.domains.planning.live_risk_monitor import LiveRiskMonitor
-                        risk_monitor = LiveRiskMonitor(session)
-                        await risk_monitor.load_rules()
-                        risk_alerts = await risk_monitor.scan_plan(plan_id, travel_date_list)
-                        if risk_alerts:
-                            logger.info(
-                                "LiveRiskMonitor: plan=%s 鐢熸垚 %d 鏉￠闄╄鎶?"
-                                "(critical=%d warning=%d)",
-                                plan_id,
-                                len(risk_alerts),
-                                sum(1 for a in risk_alerts if a.get("severity") == "critical"),
-                                sum(1 for a in risk_alerts if a.get("severity") == "warning"),
-                            )
-                    except Exception as exc:
-                        logger.warning("LiveRiskMonitor 鎵弿澶辫触锛堥潪鑷村懡锛? %s", exc)
-
-                logger.info("鎶ュ憡 v2(circle) 鐢熸垚瀹屾垚 plan=%s", plan_id)
-            else:
+            if not day_frames:
                 raise RuntimeError("city_circle_pipeline_missing_day_frames")
+
+            from app.db.models.business import TripProfile as _TP
+            from sqlalchemy import select as _sel2
+            from app.domains.rendering.planning_output import build_planning_output
+            from app.domains.rendering.chapter_planner import plan_chapters
+            from app.domains.rendering.page_planner import plan_pages_and_persist
+            from app.domains.rendering.page_view_model import build_view_models
+            from app.domains.rendering.copy_enrichment import enrich_page_copy
+            from app.db.models.derived import ItineraryPlan as _IP
+
+            _pq = await session.execute(
+                _sel2(_TP).where(_TP.trip_request_id == trip_id).limit(1)
+            )
+            _profile = _pq.scalar_one_or_none()
+
+            # 从 pipeline 上下文取 circle_id
+            _plan_obj = await session.get(_IP, plan_id)
+            _evidence = (_plan_obj.plan_metadata or {}).get("evidence_bundle") if _plan_obj else None
+            _circle_id_for_output = (
+                (_evidence or {}).get("circle_id")
+                or (design_brief.get("route_strategy", [""])[0].split()[-1] if design_brief.get("route_strategy") else "")
+            )
+            # 从 decisions 表取 circle_id（更可靠）
+            try:
+                from app.db.models.derived import GenerationDecision
+                _cd_q = await session.execute(
+                    _sel2(GenerationDecision).where(
+                        GenerationDecision.trip_request_id == trip_id,
+                        GenerationDecision.stage == "circle_selection",
+                        GenerationDecision.key == "selected_circle_id",
+                        GenerationDecision.is_current == True,
+                    ).limit(1)
+                )
+                _cd = _cd_q.scalar_one_or_none()
+                if _cd and _cd.value:
+                    import json as _json
+                    _raw = _cd.value
+                    if isinstance(_raw, str):
+                        try:
+                            _raw = _json.loads(_raw)
+                        except Exception:
+                            pass
+                    _circle_id_for_output = str(_raw) if _raw else _circle_id_for_output
+            except Exception:
+                pass
+
+            # 构建 PlanningOutput（直接从 DB + pipeline 结果，无 AI / 无 report）
+            planning_output = await build_planning_output(
+                session,
+                plan_id=plan_id,
+                trip_request_id=trip_id,
+                day_frames=day_frames,
+                design_brief=design_brief or {},
+                circle_id=_circle_id_for_output,
+                profile=_profile,
+                evidence_bundle=_evidence,
+            )
+
+            # Chapter → Page → ViewModel pipeline
+            chapters = plan_chapters(planning_output)
+            pages = await plan_pages_and_persist(chapters, planning_output, session, plan_id)
+            view_models = build_view_models(pages, planning_output)
+            if not pages or not view_models:
+                raise RuntimeError("page_pipeline_empty")
+
+            # AI 文案填充（可选，失败不阻塞）
+            try:
+                from app.domains.rendering.page_editing import serialize_page_models
+                serialized_vms = serialize_page_models(view_models)
+                await enrich_page_copy(serialized_vms, planning_output, session)
+                # 回写到 plan_metadata
+                if _plan_obj:
+                    meta = _plan_obj.plan_metadata or {}
+                    meta["page_models"] = serialized_vms
+                    _plan_obj.plan_metadata = meta
+                    await session.flush()
+            except Exception as exc:
+                logger.warning("copy enrichment 失败（非致命）: %s", exc)
+
+            # D5: 每日预算估算写入 plan_metadata
+            try:
+                from app.domains.planning.budget_estimator import attach_budget_to_plan
+                budget_level = getattr(profile, "budget_level", "mid") or "mid"
+                await attach_budget_to_plan(session, plan_id, budget_level)
+            except Exception as exc:
+                logger.warning("每日预算估算失败（非致命）: %s", exc)
+
+            # 写入 plan_metadata
+            if _plan_obj:
+                meta = _plan_obj.plan_metadata or {}
+                meta["page_pipeline"] = {
+                    "chapters": len(chapters),
+                    "pages": len(pages),
+                    "view_models": len(view_models),
+                    "source": "planning_output_direct",
+                }
+                meta["observation_chain"] = {
+                    "run_id": run_id,
+                    "decision_surface": "generation_decisions",
+                    "handoff_surface": "planning_output_direct",
+                    "eval_surface": "offline_eval",
+                    "regression_surface": "scripts/run_regression.py",
+                    "replay_surface": "scripts/run_regression_md.py",
+                    "new_chain_success": True,
+                    "legacy_fallback_used": False,
+                }
+                _plan_obj.plan_metadata = meta
+            await write_decision(
+                session,
+                trip_request_id=trip_id,
+                plan_id=plan_id,
+                input_hash=profile_hash,
+                stage="page_pipeline",
+                key="pipeline_result",
+                value={
+                    "chapters": len(chapters),
+                    "pages": len(pages),
+                    "view_models": len(view_models),
+                    "run_id": run_id,
+                    "source": "planning_output_direct",
+                },
+                reason="page pipeline built from PlanningOutput (no report intermediate)",
+            )
+
+            logger.info(
+                "L3 page pipeline: plan=%s chapters=%d pages=%d vms=%d (direct)",
+                plan_id, len(chapters), len(pages), len(view_models),
+            )
+
+            # LiveRiskMonitor 风险扫描
+            if enable_live_risk_monitor:
+                try:
+                    from app.domains.planning.live_risk_monitor import LiveRiskMonitor
+                    risk_monitor = LiveRiskMonitor(session)
+                    await risk_monitor.load_rules()
+                    risk_alerts = await risk_monitor.scan_plan(plan_id, travel_date_list)
+                    if risk_alerts:
+                        logger.info(
+                            "LiveRiskMonitor: plan=%s alerts=%d",
+                            plan_id, len(risk_alerts),
+                        )
+                except Exception as exc:
+                    logger.warning("LiveRiskMonitor 扫描失败（非致命）: %s", exc)
+
+            logger.info("page pipeline 完成 plan=%s", plan_id)
         except Exception as exc:
-            logger.warning("鎶ュ憡鐢熸垚澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
+            logger.warning("delivery pipeline 失败，转 failed：trip=%s: %s", trip_id, exc)
+            trip.status = "failed"
+            trip.last_job_error = f"delivery_pipeline_failed:{exc}"
+            await session.commit()
+            return {
+                "status": "error",
+                "plan_id": str(plan_id) if plan_id else None,
+                "run_id": run_id,
+                "reason": "delivery_pipeline_failed",
+                "error": str(exc),
+            }
 
         # Step 2.3: 棰勮澶╂爣璁?        try:
             from app.domains.ranking.soft_rules.preview_engine import select_preview_day
@@ -1105,23 +1195,37 @@ async def generate_trip(
         except Exception as exc:
             logger.warning("preview_day 鏍囪澶辫触锛堥潪鑷村懡锛塼rip=%s: %s", trip_id, exc)
 
-        # Step 2.5: 璐ㄩ噺闂ㄦ帶鏍￠獙锛?1鏉?QTY 纭鍒欙級
+        # Step 2.5: 质量门控（11 条 QTY 硬规则）
         try:
-            plan_json_for_gate = await _build_plan_json(session, plan_id)
+            # 优先从 planning_output 直接构建，避免重新查库
+            if planning_output is not None:
+                plan_json_for_gate = _plan_json_from_planning_output(planning_output, plan_id)
+            else:
+                plan_json_for_gate = await _build_plan_json(session, plan_id)
             gate_result: QualityGateResult = await run_quality_gate(plan_json_for_gate, db=session)
             logger.info(
                 "璐ㄩ噺闂ㄦ帶缁撴灉 trip=%s plan=%s %s",
                 trip_id, plan_id, gate_result.summary(),
             )
             if not gate_result.passed:
-                # Hard error 鈫?鐩存帴杞汉宸ワ紝闄勪笂閿欒淇℃伅
+                # Hard error → 直接转人工，附上错误信息
                 trip.status = "review"
                 await session.commit()
                 error_summary = "; ".join(gate_result.errors[:5])
                 logger.warning(
-                    "璐ㄩ噺闂ㄦ帶鏈€氳繃锛岃浆浜哄伐瀹℃牳 trip=%s errors=%s",
+                    "质量门控未通过，转人工审核 trip=%s errors=%s",
                     trip_id, error_summary,
                 )
+                # 通知运营
+                try:
+                    from app.core.wecom_notify import notify_review_required
+                    await notify_review_required(
+                        trip_request_id=str(trip_id),
+                        score=gate_result.score,
+                        reason=error_summary[:200],
+                    )
+                except Exception:
+                    pass
                 return {
                     "status": "ok",
                     "plan_id": str(plan_id),
@@ -1136,7 +1240,12 @@ async def generate_trip(
         # Step 2.6: 绂荤嚎璇勬祴锛坥ffline_eval锛夆€?鑷姩璇勫垎 + 鍥炲綊妫€娴?        eval_score_dict = None
         try:
             from app.domains.evaluation.offline_eval import score_plan, EvalCase
-            plan_json_for_eval = plan_json_for_gate if "plan_json_for_gate" in locals() else await _build_plan_json(session, plan_id)
+            plan_json_for_eval = (
+                plan_json_for_gate
+                if "plan_json_for_gate" in locals()
+                else (_plan_json_from_planning_output(planning_output, plan_id) if planning_output is not None
+                      else await _build_plan_json(session, plan_id))
+            )
 
             # 鏋勫缓璇勬祴 case锛堜娇鐢ㄥ疄闄呯敾鍍忕害鏉燂級
             eval_case = EvalCase(
@@ -1173,7 +1282,7 @@ async def generate_trip(
                 key="overall",
                 value={
                     "overall": eval_result.overall,
-                    "run_id": _run_id,
+                    "run_id": run_id,
                     "case_id": eval_case.case_id,
                 },
                 reason="offline eval attached to same observation chain",
@@ -1332,9 +1441,12 @@ async def generate_trip(
             return {
                 "status": "error",
                 "plan_id": str(plan_id),
-                "run_id": _run_id,
+                "run_id": run_id,
                 "review": "failed",
                 "error": str(exc),
             }
+
+
+
 
 

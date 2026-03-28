@@ -402,3 +402,50 @@ class ReviewAction(Base):
     review_job: Mapped["ReviewJob"] = relationship("ReviewJob", back_populates="actions")
 
     __table_args__ = (Index("ix_review_actions_job", "review_job_id"),)
+
+
+# ── marketing_attribution ─────────────────────────────────────────────────────
+class MarketingAttribution(Base):
+    """营销归因表：记录每个行程请求的流量来源（UTM参数/工具页/推荐码）"""
+
+    __tablename__ = "marketing_attribution"
+
+    attr_id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    trip_request_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("trip_requests.trip_request_id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+    )
+
+    # UTM 标准参数
+    utm_source: Mapped[Optional[str]] = mapped_column(
+        String(100), comment="如 xhs / douyin / google / direct"
+    )
+    utm_medium: Mapped[Optional[str]] = mapped_column(
+        String(100), comment="如 social / organic / cpc"
+    )
+    utm_campaign: Mapped[Optional[str]] = mapped_column(
+        String(200), comment="如 sakura_2026 / kansai_ramen"
+    )
+    utm_content: Mapped[Optional[str]] = mapped_column(
+        String(200), comment="具体内容标识，如帖子ID"
+    )
+
+    # 简化 from 参数
+    from_tool: Mapped[Optional[str]] = mapped_column(
+        String(100), comment="如 sakura_tool / budget_tool / koyo_tool"
+    )
+    referral_code: Mapped[Optional[str]] = mapped_column(String(100), comment="老用户推荐码")
+    landing_page: Mapped[Optional[str]] = mapped_column(Text, comment="用户进来时的落地页 URL")
+    referrer: Mapped[Optional[str]] = mapped_column(Text, comment="HTTP Referer")
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+
+    __table_args__ = (
+        Index("ix_marketing_attribution_utm_source", "utm_source"),
+        Index("ix_marketing_attribution_from_tool", "from_tool"),
+        Index("ix_marketing_attribution_referral", "referral_code"),
+    )

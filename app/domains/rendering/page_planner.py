@@ -1,10 +1,10 @@
 """
 page_planner.py — 页面规划器（L3-04）
 
-输入：list[ChapterPlan] + ReportPayloadV2
+输入：list[ChapterPlan] + PlanningOutput
 输出：list[PagePlan]（持久化到 plan_metadata.page_plan）
 
-生成规则（report/01 §6 §8）：
+生成规则：
   固定前置页 → 章节主体（chapter_opener + day_execution + detail 页）→ 附录
 
 条件页规则（F2）：booking_window / live_notice 等条件触发，数据不足直接跳过。
@@ -15,7 +15,7 @@ page_planner.py — 页面规划器（L3-04）
 依赖：
   chapter_planner.ChapterPlan
   page_type_registry.PAGE_TYPE_REGISTRY
-  app.domains.planning.report_schema.ReportPayloadV2
+  planning_output.PlanningOutput
   app.db.models.derived.ItineraryPlan（持久化用）
 """
 from __future__ import annotations
@@ -24,7 +24,7 @@ import logging
 from dataclasses import asdict, dataclass, field
 from typing import Any, Callable, Optional
 
-from app.domains.planning.report_schema import ReportPayloadV2
+from app.domains.rendering.planning_output import PlanningOutput
 from app.domains.rendering.chapter_planner import ChapterPlan
 from app.domains.rendering.page_type_registry import PAGE_TYPE_REGISTRY, get_page_type
 
@@ -73,11 +73,14 @@ class PagePlan:
     overflow_policy: Optional[str] = None
     priority: int = 50
     day_index: Optional[int] = None
+    # 手账本 DIY 区域：贴纸位和手写留白
+    sticker_zone: Optional[str] = None     # "top_right" / "bottom_left" / "corner" / None
+    freewrite_zone: Optional[str] = None   # "bottom_strip" / "side_margin" / "full_half" / None
 
 
 # ── 条件页触发规则（F2） ──────────────────────────────────────────────────────
 
-def _has_booking_items(payload: ReportPayloadV2) -> bool:
+def _has_booking_items(payload: PlanningOutput) -> bool:
     for d in payload.days:
         for slot in d.slots:
             if slot.booking_required:
@@ -85,29 +88,29 @@ def _has_booking_items(payload: ReportPayloadV2) -> bool:
     return len(payload.risk_watch_items) > 0
 
 
-def _has_live_notice(payload: ReportPayloadV2) -> bool:
+def _has_live_notice(payload: PlanningOutput) -> bool:
     return any(
         r.risk_type in ("weather", "seasonal")
         for r in payload.risk_watch_items
     )
 
 
-def _has_photo_themes(payload: ReportPayloadV2) -> bool:
+def _has_photo_themes(payload: PlanningOutput) -> bool:
     return bool(getattr(payload, "photo_themes", None))
 
 
-def _has_transfer_day(payload: ReportPayloadV2) -> bool:
+def _has_transfer_day(payload: PlanningOutput) -> bool:
     return any(
         getattr(d, "trigger_tags", []) and "transfer" in d.trigger_tags
         for d in payload.days
     )
 
 
-def _has_supplemental(payload: ReportPayloadV2) -> bool:
+def _has_supplemental(payload: PlanningOutput) -> bool:
     return bool(getattr(payload, "supplemental_items", None))
 
 
-CONDITIONAL_PAGES: dict[str, bool | Callable[[ReportPayloadV2], bool]] = {
+CONDITIONAL_PAGES: dict[str, bool | Callable[[PlanningOutput], bool]] = {
     "preference_fulfillment": lambda p: len(p.preference_fulfillment) > 0,
     "booking_window":         _has_booking_items,
     "departure_prep":         True,          # 始终生成
@@ -118,7 +121,7 @@ CONDITIONAL_PAGES: dict[str, bool | Callable[[ReportPayloadV2], bool]] = {
 }
 
 
-def _should_include(page_type: str, payload: ReportPayloadV2) -> bool:
+def _should_include(page_type: str, payload: PlanningOutput) -> bool:
     rule = CONDITIONAL_PAGES.get(page_type, True)
     if rule is True:
         return True
@@ -145,6 +148,20 @@ def _page_id(prefix: str, suffix: Any = "") -> str:
     return f"page_{prefix}_{suffix}".rstrip("_")
 
 
+# 页型 → (sticker_zone, freewrite_zone) 规则
+# 纸质手账本：每日执行页留底部贴纸位和侧边手写区；封面留角落贴纸位；
+# 其余重要内容页不加贴纸（保持整洁）
+_DIY_ZONE_RULES: dict[str, tuple[Optional[str], Optional[str]]] = {
+    "day_execution":         ("bottom_left", "side_margin"),   # 每日行程页：最需要手写备注
+    "cover":                 ("corner", None),                  # 封面：角落小贴纸
+    "toc":                   (None, None),
+    "hotel_detail":          (None, "bottom_strip"),            # 酒店页：可写入住感受
+    "restaurant_detail":     ("top_right", "bottom_strip"),     # 餐厅页：贴餐厅贴纸+写点评
+    "photo_theme_detail":    ("corner", None),                  # 出片页：可贴照片装饰
+    "departure_prep":        (None, "side_margin"),             # 出发准备页：旁边记备注
+}
+
+
 def _make_page(
     page_type: str,
     chapter_id: str,
@@ -159,6 +176,7 @@ def _make_page(
 ) -> PagePlan:
     defn = get_page_type(page_type)
     size = page_size or defn.default_size
+    sticker_zone, freewrite_zone = _DIY_ZONE_RULES.get(page_type, (None, None))
     return PagePlan(
         page_id=_page_id(page_type, suffix),
         page_order=order,
@@ -173,6 +191,8 @@ def _make_page(
         merge_policy=merge_policy,
         day_index=day_index,
         priority=priority,
+        sticker_zone=sticker_zone,
+        freewrite_zone=freewrite_zone,
     )
 
 
@@ -180,7 +200,7 @@ def _make_page(
 
 def plan_pages(
     chapters: list[ChapterPlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
 ) -> list[PagePlan]:
     """
     根据章节计划和 payload 生成有序 PagePlan 列表。
@@ -351,7 +371,7 @@ def plan_pages(
 
 def _add_major_activity_detail_pages(
     pages: list[PagePlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
     chapter: ChapterPlan,
     next_order_fn: Callable,
     assigned: set[str],
@@ -389,7 +409,7 @@ def _add_major_activity_detail_pages(
 
 def _add_hotel_detail_pages(
     pages: list[PagePlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
     chapter: ChapterPlan,
     next_order_fn: Callable,
     assigned: set[str],
@@ -431,7 +451,7 @@ def _add_hotel_detail_pages(
 
 def _add_restaurant_detail_pages(
     pages: list[PagePlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
     chapter: ChapterPlan,
     next_order_fn: Callable,
     assigned: set[str],
@@ -569,7 +589,7 @@ def _trim_to_budget(pages: list[PagePlan], total_days: int) -> list[PagePlan]:
 
 async def plan_pages_and_persist(
     chapters: list[ChapterPlan],
-    payload: ReportPayloadV2,
+    payload: PlanningOutput,
     session: Any,
     plan_id: str,
 ) -> list[PagePlan]:

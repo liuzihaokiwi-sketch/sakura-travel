@@ -4,8 +4,7 @@ Fragment-Aware Generation Pipeline — 片段库接入生成管线 (H10)
 对应文档 §9 步骤 5-8：
   profile norm → 片段复用 → 硬规则 → 软规则 → AI 补充 → 质量门控
 
-本模块在 generate_trip 和 assemble_trip 之间插入片段复用层，
-将 ReusePlan 的结果转化为 assembler 可消费的 skeleton hints。
+本模块在生成管线中插入片段复用层。
 """
 
 from __future__ import annotations
@@ -258,8 +257,8 @@ async def run_fragment_aware_pipeline(
 
     调用方式（在 generate_trip.py 中）：
         ctx = await run_fragment_aware_pipeline(session, submission_id)
-        # ctx.skeleton_hints 传给 assemble_trip
-        # ctx.generation_mode 决定装配策略
+        # ctx.skeleton_hints 传给决策链
+        # ctx.generation_mode 决定生成策略
     """
     profile = await normalize_profile(session, submission_id)
     context = await prepare_fragment_context(session, profile)

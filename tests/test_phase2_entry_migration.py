@@ -8,7 +8,7 @@ import pytest
 
 from app.api.submissions import _build_raw_input
 from app.db.models.city_circles import ActivityCluster, CircleEntityRole
-from app.domains.intake.layer2_contract import build_layer2_canonical_input, build_layer2_profile_contract
+from app.domains.intake.layer2_contract import build_layer2_canonical_input, build_layer2_profile_contract, unpack_canonical_values
 from app.domains.planning.constraint_compiler import compile_constraints
 from app.domains.planning.major_activity_ranker import rank_major_activities
 from app.workers.__main__ import _derive_circle_signals, derive_profile_tags
@@ -100,7 +100,7 @@ def _build_profile(case: dict) -> SimpleNamespace:
     }
     tags = derive_profile_tags(raw)
     derived = _derive_circle_signals(raw, raw["cities"], raw["duration_days"], tags)
-    canonical = build_layer2_canonical_input(raw)
+    canonical = unpack_canonical_values(build_layer2_canonical_input(raw))
     special_requirements = dict(derived["special_requirements"])
 
     return SimpleNamespace(
@@ -246,8 +246,8 @@ async def test_phase2_migrated_contract_sample_assertions(monkeypatch):
     assert blocked_cluster in constraints.blocked_clusters
     assert blocked_cluster not in selected_ids
 
-    assert profile.special_requirements.get("booked_items")
-    assert profile.special_requirements.get("locked_items")
+    assert "booked_items" not in (profile.special_requirements or {})
+    assert "locked_items" not in (profile.special_requirements or {})
     assert build_layer2_profile_contract(profile)["requested_city_circle"] == case["city_circle_intent"]["circle_id"]
 
     assert profile.arrival_day_shape == "evening_only"

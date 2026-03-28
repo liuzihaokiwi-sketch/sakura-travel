@@ -87,6 +87,36 @@ class EntityBase(Base):
         String(10), comment="stable / moderate / volatile"
     )
 
+    # A3: 新增内容质量与预约字段
+    quality_tier: Mapped[Optional[str]] = mapped_column(
+        String(1), comment="S/A/B/C — 内容深度等级，影响规划权重和自动发布门槛"
+    )
+    budget_tier: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="free/budget/mid/premium/luxury — 统一预算分层"
+    )
+    risk_flags: Mapped[Optional[list]] = mapped_column(
+        JSONB, default=list,
+        comment="风险标签列表，如 ['requires_reservation','seasonal_closure','long_queue']"
+    )
+    booking_method: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="walk_in/online_advance/phone/impossible — 主要预约方式"
+    )
+    best_time_of_day: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="morning/afternoon/evening/night/anytime — 最佳游览时段"
+    )
+    visit_duration_min: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, comment="建议游览时长汇总（分钟）"
+    )
+
+    # A6: 推荐计数与轮转
+    recommendation_count_30d: Mapped[int] = mapped_column(
+        Integer, nullable=False, default=0,
+        comment="过去30天被推荐进行程的次数，用于轮转降权"
+    )
+    last_recommended_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="最后一次被推荐的时间"
+    )
+
     # 外部 ID 映射
     google_place_id: Mapped[Optional[str]] = mapped_column(String(200), unique=True)
     tabelog_id: Mapped[Optional[str]] = mapped_column(String(200))
@@ -152,6 +182,15 @@ class Poi(Base):
         String(10), comment="low / medium / high"
     )
     requires_advance_booking: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    # A3: 预约与排队
+    advance_booking_days: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, comment="建议提前预约天数（-1=无需，0=当天，7=提前一周）"
+    )
+    booking_url: Mapped[Optional[str]] = mapped_column(Text, comment="官方预约/购票链接")
+    queue_wait_typical_min: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, comment="典型排队等候时间（分钟）"
+    )
 
     # 评分
     google_rating: Mapped[Optional[float]] = mapped_column(Numeric(3, 1))
@@ -249,6 +288,14 @@ class Restaurant(Base):
     has_english_menu: Mapped[bool] = mapped_column(Boolean, default=False)
     is_vegetarian_friendly: Mapped[bool] = mapped_column(Boolean, default=False)
     is_halal: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    # A3: 预约
+    advance_booking_days: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, comment="建议提前预约天数"
+    )
+    booking_url: Mapped[Optional[str]] = mapped_column(
+        Text, comment="官方预约链接（Tablecheck / Omakase 等）"
+    )
 
     entity: Mapped["EntityBase"] = relationship("EntityBase", back_populates="restaurant")
 

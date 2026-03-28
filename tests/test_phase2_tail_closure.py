@@ -158,7 +158,7 @@ def test_special_requirements_no_longer_drive_main_constraint_compilation():
 
 def test_new_chain_fallback_levels_require_explicit_failure():
     decision = evaluate_fallback(circle_found=False, cluster_count=0, selected_major_count=0)
-    assert decision.level == FallbackLevel.FULL_LEGACY
+    assert decision.level == FallbackLevel.NO_CIRCLE_DATA
     assert decision.requires_explicit_failure is True
     assert decision.use_legacy_assembler is False
     assert decision.use_legacy_major_selection is False
@@ -167,8 +167,13 @@ def test_new_chain_fallback_levels_require_explicit_failure():
 def test_legacy_report_and_export_routes_are_retired():
     route_text = open("web/app/api/report/[planId]/route.ts", "r", encoding="utf-8").read()
     pages_route_text = open("web/app/api/report/[planId]/pages/route.ts", "r", encoding="utf-8").read()
+    html_renderer_text = open("app/domains/rendering/magazine/html_renderer.py", "r", encoding="utf-8").read()
+    report_generator_text = open("app/domains/planning/report_generator.py", "r", encoding="utf-8").read()
     assert "status: 410" in route_text
     assert "status: 410" in pages_route_text
+    assert "build_shared_page_export_contract" in html_renderer_text
+    assert "day_card.html.j2" not in html_renderer_text
+    assert "visited_places_consumed" in report_generator_text
 
 
 @pytest.mark.asyncio

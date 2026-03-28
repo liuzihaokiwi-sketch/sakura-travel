@@ -17,7 +17,12 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db
-from app.domains.intake.layer2_contract import build_layer2_canonical_input
+from app.domains.intake.layer2_contract import (
+    build_layer2_canonical_input,
+    normalize_party_type,
+    normalize_pace,
+    unpack_canonical_values,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -59,29 +64,7 @@ _CITY_ALIAS_MAP: dict[str, str] = {
 }
 
 
-def _normalize_party_type(raw: Optional[str]) -> str:
-    mapping = {
-        "family_with_kids": "family_child",
-        "family_no_kids": "family_no_child",
-        "family": "family_child",
-        "friends": "group",
-        "besties": "group",
-        "parents": "senior",
-        "business": "group",
-    }
-    party = (raw or "couple").strip().lower()
-    return mapping.get(party, party or "couple")
-
-
-def _normalize_pace(raw: Optional[str]) -> str:
-    mapping = {
-        "balanced": "moderate",
-        "intensive": "packed",
-        "light": "relaxed",
-        "dense": "packed",
-    }
-    pace = (raw or "moderate").strip().lower()
-    return mapping.get(pace, pace or "moderate")
+# normalize_party_type 和 normalize_pace 已统一到 layer2_contract，此处直接 import 使用。
 
 
 def _normalize_wake_up_time(raw: Optional[str]) -> Optional[str]:
@@ -156,7 +139,7 @@ def _build_raw_input(
 ) -> dict[str, Any]:
     destination = (sub.get("destination") or "").strip().lower()
     duration = int(sub.get("duration_days") or 5)
-    party = _normalize_party_type(sub.get("party_type") or "couple")
+    party = normalize_party_type(sub.get("party_type") or "couple")
     styles = sub.get("styles") or []
 
     if not form:
@@ -169,7 +152,7 @@ def _build_raw_input(
             "styles": styles,
             "budget_focus": sub.get("budget_focus"),
         }
-        raw_input.update(build_layer2_canonical_input(raw_input))
+        raw_input.update(unpack_canonical_values(build_layer2_canonical_input(raw_input)))
         return raw_input
 
     def _form_value(*names: str, default: Any = None) -> Any:
@@ -197,7 +180,7 @@ def _build_raw_input(
         "travel_start_date": _form_value("travel_start_date"),
         "travel_end_date": _form_value("travel_end_date"),
         "date_flexible": bool(_form_value("date_flexible", default=False)),
-        "party_type": _normalize_party_type(_form_value("party_type") or party),
+        "party_type": normalize_party_type(_form_value("party_type") or party),
         "party_size": _form_value("party_size") or sub.get("people_count") or 2,
         "party_ages": _form_value("party_ages") or [],
         "has_elderly": bool(_form_value("has_elderly", default=False)),
@@ -212,13 +195,14 @@ def _build_raw_input(
         "hotel_area_pref": _form_value("hotel_area_pref"),
         "hotel_booking_status": _form_value("hotel_booking_status"),
         "booked_hotels": _form_value("booked_hotels") or [],
+        "booked_items": _form_value("booked_items") or _form_value("booked_hotels") or [],
         "must_have_tags": _form_value("must_have_tags") or [],
         "nice_to_have_tags": _form_value("nice_to_have_tags") or [],
         "avoid_tags": _form_value("avoid_tags") or [],
         "food_preferences": _form_value("food_preferences") or {},
         "food_restrictions": _form_value("food_restrictions") or [],
         "food_restrictions_note": _form_value("food_restrictions_note") or "",
-        "pace": _normalize_pace(_form_value("pace", "pace_preference")),
+        "pace": normalize_pace(_form_value("pace", "pace_preference")),
         "wake_up_time": _normalize_wake_up_time(_form_value("wake_up_time")),
         "must_visit_places": _form_value("must_visit_places", "must_go_places") or [],
         "do_not_go_places": _form_value("do_not_go_places", "dont_want_places") or [],
@@ -242,7 +226,7 @@ def _build_raw_input(
         "transport_pref": _form_value("transport_pref") or {},
         "styles": styles,
     }
-    raw_input.update(build_layer2_canonical_input(raw_input))
+    raw_input.update(unpack_canonical_values(build_layer2_canonical_input(raw_input)))
     return raw_input
 
 
@@ -256,7 +240,7 @@ def _legacy_template_and_scene(raw_input: dict[str, Any]) -> tuple[str, str]:
     base_code = "kansai_classic" if first_city in {"osaka", "kyoto", "nara", "kobe", "uji"} else "tokyo_classic"
     template_code = f"{base_code}_{days}d"
 
-    party = _normalize_party_type(raw_input.get("party_type"))
+    party = normalize_party_type(raw_input.get("party_type"))
     scene_map = {
         "couple": "couple",
         "solo": "solo",

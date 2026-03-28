@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import uuid
 from typing import AsyncGenerator
@@ -15,12 +15,12 @@ from app.db.models.derived import ItineraryPlan
 from app.db.session import Base
 from app.domains.rendering.asset_manifest import hero_slot_id, page_slot_id
 from app.domains.rendering.chapter_planner import plan_chapters
-from app.domains.rendering.layer2_handoff import build_layer2_delivery_handoff
 from app.domains.rendering.magazine.html_renderer import render_html
 from app.domains.rendering.shared_export_contract import build_shared_page_export_contract
 from app.domains.rendering.page_editing import serialize_page_models
 from app.domains.rendering.page_planner import plan_pages
 from app.domains.rendering.page_view_model import build_view_models
+from tests.helpers.build_test_planning_output import build_test_planning_output
 
 
 @pytest.fixture
@@ -172,11 +172,7 @@ def _handoff_metadata() -> dict:
 
 
 def _build_page_models():
-    payload, _ = build_layer2_delivery_handoff(
-        report_content=_report_content(),
-        plan_metadata=_handoff_metadata(),
-        plan_id="plan-1",
-    )
+    payload = build_test_planning_output()
     chapters = plan_chapters(payload)
     pages = plan_pages(chapters, payload)
     return build_view_models(pages, payload)
