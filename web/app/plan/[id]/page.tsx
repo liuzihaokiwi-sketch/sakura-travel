@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import BookingWindowPage from "@/components/report/page-types/BookingWindowPage";
@@ -28,7 +28,7 @@ interface PageModelsResponse {
   error?: string;
 }
 
-type PageComponent = (props: { vm: PageViewModel; mode?: "screen" | "print" }) => JSX.Element;
+type PageComponent = (props: { vm: PageViewModel; mode?: "screen" | "print" }) => React.ReactElement;
 
 const PAGE_COMPONENTS: Record<string, PageComponent> = {
   booking_window: BookingWindowPage,
