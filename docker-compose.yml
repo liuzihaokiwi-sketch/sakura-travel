@@ -36,6 +36,9 @@ services:
     container_name: japan_ai_api
     env_file:
       - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-japan_ai}:${POSTGRES_PASSWORD:-japan_ai_dev}@postgres:5432/${POSTGRES_DB:-japan_ai}
     ports:
       - "8000:8000"
     depends_on:
@@ -54,6 +57,9 @@ services:
     container_name: japan_ai_worker
     env_file:
       - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-japan_ai}:${POSTGRES_PASSWORD:-japan_ai_dev}@postgres:5432/${POSTGRES_DB:-japan_ai}
     depends_on:
       postgres:
         condition: service_healthy
