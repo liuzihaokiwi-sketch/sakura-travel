@@ -29,6 +29,9 @@ from app.api import detail_forms
 from app.api import destinations
 from app.api import attribution
 from app.api.ops import editorial, entities, ranked, catalog as catalog_ops
+from app.api.ops import dashboard as dashboard_ops
+from app.api.ops import clusters as clusters_ops
+from app.api.ops import crawl as crawl_ops
 from app.api import admin_review
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
@@ -115,6 +118,9 @@ app.include_router(entities.router, prefix="/ops", tags=["ops"])
 app.include_router(editorial.router, prefix="/ops", tags=["ops-editorial"])
 app.include_router(ranked.router, prefix="/ops", tags=["ops-ranked"])
 app.include_router(catalog_ops.router, prefix="/ops", tags=["ops-catalog"])
+app.include_router(dashboard_ops.router, prefix="/ops", tags=["ops-dashboard"])
+app.include_router(clusters_ops.router, prefix="/ops", tags=["ops-clusters"])
+app.include_router(crawl_ops.router, prefix="/ops", tags=["ops-crawl"])
 app.include_router(quiz.router, tags=["quiz"])               # /quiz
 app.include_router(submissions.router)                       # /submissions
 app.include_router(orders.router, tags=["orders"])           # /orders
