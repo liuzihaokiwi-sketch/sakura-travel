@@ -80,12 +80,8 @@ class EntityBase(Base):
     typical_duration_baseline: Mapped[Optional[int]] = mapped_column(
         SmallInteger, comment="基准游览时长（分钟），非时态值，时态值在 entity_temporal_profiles"
     )
-    price_band: Mapped[Optional[str]] = mapped_column(
-        String(10), comment="free / budget / mid / premium / luxury"
-    )
-    operating_stability_level: Mapped[Optional[str]] = mapped_column(
-        String(10), comment="stable / moderate / volatile"
-    )
+    # price_band — REMOVED (migration 20260329_140000), 用 budget_tier 替代
+    # operating_stability_level — REMOVED (migration 20260329_140000)
 
     # A3: 新增内容质量与预约字段
     quality_tier: Mapped[Optional[str]] = mapped_column(
@@ -101,12 +97,8 @@ class EntityBase(Base):
     booking_method: Mapped[Optional[str]] = mapped_column(
         String(20), comment="walk_in/online_advance/phone/impossible — 主要预约方式"
     )
-    best_time_of_day: Mapped[Optional[str]] = mapped_column(
-        String(20), comment="morning/afternoon/evening/night/anytime — 最佳游览时段"
-    )
-    visit_duration_min: Mapped[Optional[int]] = mapped_column(
-        SmallInteger, comment="建议游览时长汇总（分钟）"
-    )
+    # best_time_of_day — REMOVED (migration 20260329_140000), 用 entity_temporal_profiles 替代
+    # visit_duration_min — REMOVED (migration 20260329_140000), 用 pois.typical_duration_min 替代
 
     # A6: 推荐计数与轮转
     recommendation_count_30d: Mapped[int] = mapped_column(
@@ -116,6 +108,15 @@ class EntityBase(Base):
     last_recommended_at: Mapped[Optional[datetime]] = mapped_column(
         DateTime(timezone=True), comment="最后一次被推荐的时间"
     )
+
+    # 数据可信度
+    trust_status: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="unverified",
+        comment="verified / unverified / ai_generated / suspicious / rejected"
+    )
+    verified_by: Mapped[Optional[str]] = mapped_column(String(100))
+    verified_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    trust_note: Mapped[Optional[str]] = mapped_column(Text)
 
     # 定时刷新
     last_refreshed_at: Mapped[Optional[datetime]] = mapped_column(
@@ -152,6 +153,7 @@ class EntityBase(Base):
         Index("ix_entity_base_city_type", "city_code", "entity_type"),
         Index("ix_entity_base_data_tier", "data_tier"),
         Index("ix_entity_base_google_place_id", "google_place_id"),
+        Index("ix_entity_base_trust_status", "trust_status"),
     )
 
 

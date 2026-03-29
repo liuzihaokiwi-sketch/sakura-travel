@@ -3,12 +3,22 @@ from __future__ import annotations
 from typing import Optional
 
 """
-Soft Rules Layer – 软规则评分系统
-12 tables: entity_soft_scores, editorial_seed_overrides, soft_rule_explanations,
-           segment_weight_packs, stage_weight_packs, preview_trigger_scores,
-           swap_candidate_soft_scores, soft_rule_feedback_log,
-           area_profiles, timeslot_rules, seasonal_events, transport_links,
-           audience_fit, entity_operating_facts, product_config, feature_flags, user_events
+Soft Rules Layer – 软规则评分系统 + 混入的其他层级表
+
+核心软规则表（正确归属此文件）：
+  entity_soft_scores, editorial_seed_overrides, soft_rule_explanations,
+  segment_weight_packs, audience_fit, soft_rule_feedback_log
+
+已废弃（DEPRECATED，无代码读写）：
+  preview_trigger_scores, swap_candidate_soft_scores,
+  stage_weight_packs, product_config, feature_flags, user_events
+
+归属错误（历史原因留在此文件，逻辑上应属其他层）：
+  entity_operating_facts → 应属 catalog 层（营业事实是硬数据）
+  area_profiles → 应属 city_circles 层（区域画像）
+  transport_links → 应属 corridors 层（交通连接）
+  timeslot_rules → 应合并到 temporal 层 entity_temporal_profiles
+  seasonal_events → 应属 temporal 层（季节活动）
 """
 
 import uuid
@@ -205,7 +215,7 @@ class SegmentWeightPack(Base):
 
 # ── stage_weight_packs ─────────────────────────────────────────────────────────
 class StageWeightPack(Base):
-    """阶段权重包"""
+    """DEPRECATED: 阶段权重包 — 零读写，阶段区分逻辑未实现"""
 
     __tablename__ = "stage_weight_packs"
 
@@ -220,97 +230,6 @@ class StageWeightPack(Base):
     version: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
-    )
-
-
-# ── preview_trigger_scores ─────────────────────────────────────────────────────
-class PreviewTriggerScore(Base):
-    """预览触发分（用于选天）"""
-
-    __tablename__ = "preview_trigger_scores"
-
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    day_id: Mapped[int] = mapped_column(
-        BigInteger,
-        ForeignKey("itinerary_days.day_id", ondelete="CASCADE"),
-        nullable=False,
-    )
-    visual_appeal: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="视觉吸引力 0-100"
-    )
-    wow_factor: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="惊喜因子 0-100"
-    )
-    variety: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="多样性 0-100"
-    )
-    evidence_density: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="证据密度 0-100"
-    )
-    route_compactness: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="路线紧凑度 0-100"
-    )
-    preview_score: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="预览总分 0-100"
-    )
-    calculated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False, server_default=func.now()
-    )
-
-    __table_args__ = (
-        Index(
-            "ix_preview_trigger_scores_day_id",
-            "day_id",
-        ),
-    )
-
-
-# ── swap_candidate_soft_scores ─────────────────────────────────────────────────
-class SwapCandidateSoftScore(Base):
-    """替换候选软规则分（用于自助微调排序）"""
-
-    __tablename__ = "swap_candidate_soft_scores"
-
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    original_entity_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
-        ForeignKey("entity_base.entity_id", ondelete="CASCADE"),
-        nullable=False,
-    )
-    candidate_entity_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
-        ForeignKey("entity_base.entity_id", ondelete="CASCADE"),
-        nullable=False,
-    )
-    slot_type: Mapped[str] = mapped_column(
-        String(50), nullable=False, comment="时段类型，如 morning_lunch"
-    )
-    compatibility_score: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="兼容性分 0-100"
-    )
-    differentiation_score: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="差异化分 0-100"
-    )
-    soft_rule_score: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="软规则分 0-100"
-    )
-    total_score: Mapped[float] = mapped_column(
-        Numeric(5, 2), nullable=False, comment="总分 0-100"
-    )
-    calculated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False, server_default=func.now()
-    )
-
-    __table_args__ = (
-        Index(
-            "ix_swap_candidate_soft_scores_original",
-            "original_entity_id",
-            "slot_type",
-        ),
-        Index(
-            "ix_swap_candidate_soft_scores_candidate",
-            "candidate_entity_id",
-        ),
     )
 
 
@@ -579,64 +498,6 @@ class EntityOperatingFact(Base):
     )
 
 
-# ── product_config ─────────────────────────────────────────────────────────────
-class ProductConfig(Base):
-    """产品配置表"""
-
-    __tablename__ = "product_config"
-
-    config_key: Mapped[str] = mapped_column(String(100), primary_key=True)
-    config_value: Mapped[dict] = mapped_column(JSONB, nullable=False)
-    version: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
-    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False,
-        server_default=func.now(), onupdate=func.now()
-    )
-
-
-# ── feature_flags ──────────────────────────────────────────────────────────────
-class FeatureFlag(Base):
-    """功能开关表"""
-
-    __tablename__ = "feature_flags"
-
-    flag_key: Mapped[str] = mapped_column(String(100), primary_key=True)
-    flag_value: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
-    description: Mapped[Optional[str]] = mapped_column(Text, comment="功能描述")
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False,
-        server_default=func.now(), onupdate=func.now()
-    )
-
-
-# ── user_events ────────────────────────────────────────────────────────────────
-class UserEvent(Base):
-    """用户事件表"""
-
-    __tablename__ = "user_events"
-
-    event_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, server_default=func.gen_random_uuid()
-    )
-    user_id: Mapped[Optional[uuid.UUID]] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("users.user_id", ondelete="SET NULL")
-    )
-    session_id: Mapped[Optional[str]] = mapped_column(String(100), comment="会话ID")
-    event_type: Mapped[str] = mapped_column(String(50), nullable=False)
-    event_data: Mapped[Optional[dict]] = mapped_column(JSONB, comment="事件数据")
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False, server_default=func.now()
-    )
-
-    __table_args__ = (
-        Index(
-            "ix_user_events_user_type",
-            "user_id",
-            "event_type",
-        ),
-        Index(
-            "ix_user_events_created_at",
-            "created_at",
-        ),
-    )
+# product_config / feature_flags / user_events — DEPRECATED model classes removed.
+# DB tables are dropped via migration 20260330_100000_drop_deprecated_tables.
+# If you need these tables back, restore from git history.
