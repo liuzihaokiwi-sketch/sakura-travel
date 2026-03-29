@@ -79,16 +79,19 @@ async def record_recommendations(
     if not entity_ids:
         return
 
+    import uuid as _uuid
     now = datetime.now(timezone.utc)
     try:
+        uuids = [_uuid.UUID(eid) if isinstance(eid, str) else eid for eid in entity_ids]
+        from app.db.models.catalog import EntityBase
+        from sqlalchemy import update
         await session.execute(
-            text("""
-                UPDATE entity_base
-                SET recommendation_count_30d = recommendation_count_30d + 1,
-                    last_recommended_at = :now
-                WHERE entity_id = ANY(:ids::uuid[])
-            """),
-            {"now": now, "ids": list(entity_ids)},
+            update(EntityBase)
+            .where(EntityBase.entity_id.in_(uuids))
+            .values(
+                recommendation_count_30d=EntityBase.recommendation_count_30d + 1,
+                last_recommended_at=now,
+            )
         )
         logger.debug("推荐计数更新: %d 个实体", len(entity_ids))
     except Exception as e:
