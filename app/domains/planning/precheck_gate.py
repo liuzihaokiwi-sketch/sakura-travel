@@ -114,7 +114,7 @@ async def _load_opening_snapshots(
     q = await session.execute(
         select(PoiOpeningSnapshot)
         .where(PoiOpeningSnapshot.entity_id.in_(entity_ids))
-        .order_by(PoiOpeningSnapshot.snapshot_date.desc())
+        .order_by(PoiOpeningSnapshot.check_date.desc())
     )
     result: dict[uuid.UUID, PoiOpeningSnapshot] = {}
     for snap in q.scalars().all():

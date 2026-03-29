@@ -427,7 +427,8 @@ async def _try_city_circle_pipeline(
         # 开关：是否启用运营干预
         _enable_override = resolved_cfg.switch("enable_operator_override", default=True)
 
-        # Step 1b: 加载 OverrideResolver（L4-02）        from app.domains.planning.override_resolver import OverrideResolver
+        # Step 1b: 加载 OverrideResolver（L4-02）
+        from app.domains.planning.override_resolver import OverrideResolver
         override_resolver = None
         if _enable_override:
             override_resolver = OverrideResolver(session)
