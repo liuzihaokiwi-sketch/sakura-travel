@@ -78,6 +78,13 @@ async def trigger_crawl(
         "error": None,
     }
     background_tasks.add_task(_run_crawl, job_id, req)
+
+    # 保留最近 100 条，避免内存无限增长
+    if len(_jobs) > 100:
+        oldest_keys = sorted(_jobs, key=lambda k: _jobs[k].get("created_at", ""))[:len(_jobs) - 100]
+        for k in oldest_keys:
+            del _jobs[k]
+
     return {"job_id": job_id, "status": "queued", "city_code": req.city_code}
 
 

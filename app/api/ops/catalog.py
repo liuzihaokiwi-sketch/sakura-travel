@@ -133,7 +133,11 @@ def _serialize_entity(entity: EntityBase, poi=None, hotel=None, restaurant=None,
         "verified_by": getattr(entity, "verified_by", None),
         "verified_at": entity.verified_at.isoformat() if getattr(entity, "verified_at", None) else None,
         "trust_note": getattr(entity, "trust_note", None),
-        "data_source": "google" if entity.google_place_id else "ai",
+        "data_source": (
+            "google" if entity.google_place_id
+            else "tabelog" if getattr(entity, "tabelog_id", None)
+            else "ai"
+        ),
     }
     if poi:
         base["poi_category"] = poi.poi_category
@@ -352,6 +356,35 @@ async def create_entity(body: EntityCreate, db: AsyncSession = Depends(get_db)) 
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# BATCH TRUST UPDATE（必须在 {entity_id} 动态路由之前注册）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+class TrustUpdate(BaseModel):
+    entity_ids: list[str]
+    trust_status: str  # verified / suspicious / rejected / unverified / ai_generated
+    trust_note: Optional[str] = None
+
+
+@router.patch("/catalog/entities/batch-trust")
+async def batch_update_trust(body: TrustUpdate, db: AsyncSession = Depends(get_db)) -> dict:
+    """批量更新 trust_status"""
+    from sqlalchemy import update
+    uids = [uuid.UUID(eid) for eid in body.entity_ids]
+    await db.execute(
+        update(EntityBase)
+        .where(EntityBase.entity_id.in_(uids))
+        .values(
+            trust_status=body.trust_status,
+            trust_note=body.trust_note,
+            verified_by="admin",
+            verified_at=func.now(),
+        )
+    )
+    await db.commit()
+    return {"updated": len(uids), "trust_status": body.trust_status}
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # UPDATE
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -421,35 +454,6 @@ async def delete_entity(
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # SCORE：更新 editorial_boost
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# BATCH TRUST UPDATE
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-class TrustUpdate(BaseModel):
-    entity_ids: list[str]
-    trust_status: str  # verified / suspicious / rejected / unverified / ai_generated
-    trust_note: Optional[str] = None
-
-
-@router.patch("/catalog/entities/batch-trust")
-async def batch_update_trust(body: TrustUpdate, db: AsyncSession = Depends(get_db)) -> dict:
-    """批量更新 trust_status"""
-    from sqlalchemy import update
-    uids = [uuid.UUID(eid) for eid in body.entity_ids]
-    await db.execute(
-        update(EntityBase)
-        .where(EntityBase.entity_id.in_(uids))
-        .values(
-            trust_status=body.trust_status,
-            trust_note=body.trust_note,
-            verified_by="admin",
-            verified_at=func.now(),
-        )
-    )
-    await db.commit()
-    return {"updated": len(uids), "trust_status": body.trust_status}
-
 
 @router.patch("/catalog/entities/{entity_id}/score")
 async def update_score(entity_id: str, body: ScoreUpdate, db: AsyncSession = Depends(get_db)) -> dict:

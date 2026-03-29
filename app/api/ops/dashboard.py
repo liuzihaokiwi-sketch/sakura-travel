@@ -61,13 +61,14 @@ async def get_dashboard_stats(db: AsyncSession = Depends(get_db)) -> dict:
         select(
             case(
                 (EntityBase.google_place_id.isnot(None), "google"),
+                (EntityBase.tabelog_id.isnot(None), "tabelog"),
                 else_="ai",
             ).label("source"),
             func.count().label("cnt"),
         )
         .group_by("source")
     )
-    source_distribution: dict = {"google": 0, "ai": 0}
+    source_distribution: dict = {"google": 0, "tabelog": 0, "ai": 0}
     for source, cnt in source_res.all():
         source_distribution[source] = cnt
 
