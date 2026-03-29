@@ -367,7 +367,7 @@ async function send(text) {
   chat.scrollTop = chat.scrollHeight;
 
   try {
-    const res = await fetch('/chat', {
+    const base=location.pathname.replace(/\/+$/,'');const res = await fetch(base+'/chat', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({message: msg})
@@ -412,7 +412,7 @@ button{width:100%;padding:12px;background:#e94560;color:white;border:none;border
 <script>
 async function login(){
   const pw=document.getElementById('pw').value;
-  const res=await fetch('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});
+  const base=location.pathname.replace(/\/+$/,'');const res=await fetch(base+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});
   const data=await res.json();
   if(data.ok){document.cookie='ops_token='+data.token+';path=/';location.reload()}
   else{document.getElementById('err').textContent='密码错误'}
