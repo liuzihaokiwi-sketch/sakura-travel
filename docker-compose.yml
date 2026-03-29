@@ -64,6 +64,33 @@ services:
       - exports_data:/app/exports
     command: python -m app.workers
 
+  frontend:
+    image: node:20-alpine
+    container_name: travel-web
+    environment:
+      - BACKEND_URL=http://api:8000
+      - NEXT_PUBLIC_BACKEND_URL=http://api:8000
+    volumes:
+      - ./web:/app
+    depends_on:
+      - api
+    command: sh -c "cd /app && node .next/standalone/server.js"
+
+  nginx:
+    image: nginx:alpine
+    container_name: japan_ai_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./deploy/ssl:/etc/nginx/ssl
+      - /var/www/certbot:/var/www/certbot
+    depends_on:
+      - api
+      - frontend
+
 volumes:
   postgres_data:
   redis_data:

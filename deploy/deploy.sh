@@ -43,15 +43,19 @@ if [ "$DEPLOY_BACKEND" = true ]; then
   docker compose -f "$COMPOSE_FILE" up -d api worker
 fi
 
-# ── 前端：重启 ───────────────────────────────────────────────
+# ── 前端：构建 + 重启 ────────────────────────────────────────
 if [ "$DEPLOY_FRONTEND" = true ]; then
-  echo "--- 重启前端服务 ---"
-  docker restart travel-web 2>/dev/null || echo "WARN: travel-web 容器不存在"
+  echo "--- 重建前端 ---"
+  docker compose -f "$COMPOSE_FILE" up -d frontend
+  # standalone 模式需要复制 static 文件
+  docker exec travel-web sh -c "cd /app && npm install && npm run build" 2>&1 | tail -5
+  cp -r web/.next/static web/.next/standalone/.next/static 2>/dev/null || true
+  docker compose -f "$COMPOSE_FILE" restart frontend
 fi
 
 # ── nginx 确保运行 ────────────────────────────────────────────
 echo "--- 确保 nginx 运行 ---"
-docker start japan_ai_nginx 2>/dev/null || echo "WARN: nginx 容器不存在"
+docker compose -f "$COMPOSE_FILE" up -d nginx
 
 # ── 清理 + 状态 ───────────────────────────────────────────────
 echo "--- 清理旧镜像 ---"
@@ -79,9 +83,8 @@ fi
 echo ""
 if [ "$HEALTH_OK" = true ]; then
   echo "=== 部署完成 ==="
-  echo "  前端: https://47.242.209.129/"
-  echo "  API:  https://47.242.209.129/api/"
-  echo "  健康: https://47.242.209.129/health"
+  echo "  站点: https://kiwitrip.cn/"
+  echo "  健康: https://kiwitrip.cn/health"
   exit 0
 else
   echo "=== 部署完成但健康检查失败 ==="

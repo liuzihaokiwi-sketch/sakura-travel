@@ -58,21 +58,21 @@ if ! docker ps --filter "name=japan_ai_worker" --filter "status=running" -q | gr
   fi
 fi
 
-# ── 检查 nginx ────────────────────────────────────────────────
-if ! docker ps --filter "name=japan_ai_nginx" --filter "status=running" -q | grep -q .; then
-  echo "[$(date)] nginx 未运行，正在启动..."
-  docker start japan_ai_nginx 2>/dev/null || true
-  if should_alert "nginx"; then
-    notify "Nginx 异常已启动" "nginx 容器未运行，已自动启动"
+# ── 检查 frontend ─────────────────────────────────────────────
+if ! docker ps --filter "name=travel-web" --filter "status=running" -q | grep -q .; then
+  echo "[$(date)] frontend 未运行，正在重启..."
+  docker compose -f "$COMPOSE_FILE" restart frontend
+  if should_alert "frontend"; then
+    notify "Frontend 异常已重启" "前端容器未运行，已自动重启"
   fi
 fi
 
-# ── 检查 frontend ─────────────────────────────────────────────
-if ! curl -sf --max-time 5 http://localhost:3000 > /dev/null 2>&1; then
-  echo "[$(date)] frontend 健康检查失败，正在重启..."
-  docker restart travel-web 2>/dev/null || true
-  if should_alert "frontend"; then
-    notify "Frontend 异常已重启" "前端服务无响应，已自动重启"
+# ── 检查 nginx ────────────────────────────────────────────────
+if ! docker ps --filter "name=japan_ai_nginx" --filter "status=running" -q | grep -q .; then
+  echo "[$(date)] nginx 未运行，正在启动..."
+  docker compose -f "$COMPOSE_FILE" up -d nginx
+  if should_alert "nginx"; then
+    notify "Nginx 异常已启动" "nginx 容器未运行，已自动启动"
   fi
 fi
 
