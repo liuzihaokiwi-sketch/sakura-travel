@@ -65,7 +65,7 @@ _LEGACY_STATUS_MAP = {
 
 class OrderCreateRequest(BaseModel):
     trip_request_id: str = Field(..., description="关联的问卷提交 ID")
-    sku_id: str = Field("standard_248", description="SKU ID")
+    sku_id: str = Field("standard_198", description="SKU ID")
     amount_cny: Optional[float] = Field(None, description="实际支付金额（不填则取 SKU 价格）")
     payment_channel: str = Field("wechat_manual", description="支付渠道")
     notes: Optional[str] = Field(None, description="运营备注")

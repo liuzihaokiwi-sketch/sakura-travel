@@ -239,7 +239,7 @@ export default function BudgetPage() {
         <p className="text-sm font-bold text-stone-900 mb-1">想要精确到每餐每景点的行程？</p>
         <p className="text-xs text-stone-500 mb-3">AI定制行程 · 30-40页手册 · 拿到就能出发</p>
         <Link
-          href="/quiz?from=budget_tool"
+          href="/order"
           className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm px-5 py-2.5 rounded-full shadow hover:shadow-md transition-all"
         >
           免费定制行程 →

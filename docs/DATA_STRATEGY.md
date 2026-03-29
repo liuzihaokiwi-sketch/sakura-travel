@@ -1,6 +1,6 @@
 # 数据策略
 
-> 最后更新: 2026-03-28
+> 最后更新: 2026-03-29
 >
 > 定义实体数据的采集、评分、避雷、更新、多样性机制。
 > 影响：实体 schema、ranker 逻辑、表单字段、爬虫系统。
@@ -397,3 +397,45 @@ poi 新增:
   crawl_sources                    # 可配置爬虫源
   entity_recommendation_log        # 推荐计数（轮转用）
 ```
+
+---
+
+## 十、统一口径（2026-03-29 定稿）
+
+> 以下标准消除本文档与 OPS_GUIDE.md、代码之间的矛盾。详见 `DATA_FIRST_PRINCIPLES.md`。
+
+### quality_tier → 不再使用独立字段
+
+本文档 §二 设计了 1-5 数字档位，OPS_GUIDE 用 S/A/B/C 字母，代码中字段存在但 scorer 从不读取。
+
+**统一为**：不设独立的 quality_tier 字段。
+- 客观质量由 `entity_scores.final_score` 体现（google_rating + review_count + freshness）
+- 体验品质由 `entity_experience_dims`（6维，见 DATA_FIRST_PRINCIPLES.md §五）体现
+- 数据完整度由 `data_tier`（S/A/B）管理，scorer 中 DATA_TIER_MULTIPLIER: S=1.0, A=0.95, B=0.75
+
+### budget_tier → 4 级
+
+统一为 4 级，与 `budget_estimator.py` 的 TIER 映射表一致：
+- `budget`: 经济
+- `mid`: 中档
+- `premium`: 高档
+- `luxury`: 奢华
+
+OPS_GUIDE 中多出的 `free` 级取消。
+
+### arrival_friendly / indoor_friendly → 归 activity_clusters 层
+
+这是"这条活动线适不适合到达日/雨天"的判断，不是单个 POI 的属性。
+
+### meal_break_minutes → 删除
+
+与 `meal_buffer_minutes` 重复，已通过 migration 删除。
+
+### 已归档的设计（不实现）
+
+| 字段 | 原位置 | 归档原因 |
+|------|--------|---------|
+| `walking_routes_to` | poi | 被 corridor_tags 替代 |
+| `crowd_calendar` | poi | 被 entity_temporal_profiles 替代 |
+| `signature_dishes` | restaurant | 归并至 entity_descriptions.ordering_hint |
+| `meal_style` | restaurant | 从未实现，角色信息存储在 circle_entity_roles.role 中 |

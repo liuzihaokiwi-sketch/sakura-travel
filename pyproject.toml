@@ -42,6 +42,8 @@ dependencies = [
     "tenacity>=9.0.0",
     # AI observability
     "langfuse>=2.0.0",
+    # Error monitoring
+    "sentry-sdk[fastapi]>=2.0.0",
 ]
 
 [project.optional-dependencies]

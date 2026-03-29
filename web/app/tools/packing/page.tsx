@@ -369,7 +369,7 @@ export default function PackingPage() {
       <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 text-center">
         <p className="text-sm font-bold text-stone-900 mb-1">行李打好了，行程定好了吗？</p>
         <p className="text-xs text-stone-500 mb-2">AI定制30-40页完整手册</p>
-        <Link href="/quiz?from=packing_tool" className="text-amber-600 font-bold text-sm hover:underline">
+        <Link href="/order" className="text-amber-600 font-bold text-sm hover:underline">
           免费定制行程 →
         </Link>
       </div>

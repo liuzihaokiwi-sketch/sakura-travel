@@ -39,7 +39,9 @@ class Settings(BaseSettings):
     ai_base_url: str = "https://api.openai.com/v1"   # 中转站地址
 
     # 通知渠道
-    wecom_webhook_url: str = ""      # 企业微信机器人
+    wecom_webhook_url: str = ""      # 企业微信机器人（旧版 wecom_notify）
+    wechat_work_webhook_url: str = ""  # 企业微信群机器人 webhook（新版 wechat_notify）
+    enable_wechat_notify: bool = False  # 企微通知开关（默认关闭）
     smtp_host: str = ""
     smtp_user: str = ""
     smtp_password: str = ""

@@ -87,8 +87,9 @@ from app.db.models.corridors import (  # noqa: F401 - T14
 from app.db.models.page_assets import (  # noqa: F401 - T12
     PageHeroRegistry,
 )
-from app.db.models.derived import (  # noqa: F401 - T11 追加
+from app.db.models.derived import (  # noqa: F401 - T11 追加 + booking reminders
     GenerationDecision,
+    BookingReminderLog,
 )
 from app.db.models.operator_overrides import (  # noqa: F401 - L4-01
     OperatorOverride,
@@ -162,6 +163,8 @@ __all__ = [
     "PageHeroRegistry",
     # Generation Decisions
     "GenerationDecision",
+    # Booking Reminders
+    "BookingReminderLog",
     # Operator Overrides (L4-01)
     "OperatorOverride",
     # Live Risk Rules (L4-03)

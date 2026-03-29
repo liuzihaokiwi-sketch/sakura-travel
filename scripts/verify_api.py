@@ -81,15 +81,15 @@ def run_verify(base_url: str) -> None:
             ok, msg = False, f"{FAIL} [GET /products] 连接失败: {e}"
         results.append((ok, msg))
 
-        # ── 2. GET /products/standard_248 ────────────────────────────────────
+        # ── 2. GET /products/standard_198 ────────────────────────────────────
         try:
-            r = client.get("/products/standard_248")
-            ok, msg = check("GET /products/standard_248", r, 200, ["sku_id", "price_cny", "sku_type"])
+            r = client.get("/products/standard_198")
+            ok, msg = check("GET /products/standard_198", r, 200, ["sku_id", "price_cny", "sku_type"])
             if ok:
                 d = r.json()
                 msg += f"  → ¥{d.get('price_cny')} {d.get('name', '')}"
         except Exception as e:
-            ok, msg = False, f"{FAIL} [GET /products/standard_248] {e}"
+            ok, msg = False, f"{FAIL} [GET /products/standard_198] {e}"
         results.append((ok, msg))
 
         # ── 3. GET /products/premium_888/price?days=10 ───────────────────────

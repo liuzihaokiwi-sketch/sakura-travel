@@ -134,8 +134,16 @@ class OverviewSection(BaseModel):
 
 class BookingAlertItem(BaseModel):
     entity_id: Optional[str] = None
+    entity_name: str = ""
+    entity_type: str = ""                # poi / restaurant / hotel / activity
     label: str
     booking_level: Literal["must_book", "should_book", "good_to_book", "walkin_ok"] = "good_to_book"
+    booking_method: Optional[str] = None  # online_advance / phone / walk_in
+    booking_url: Optional[str] = None
+    advance_booking_days: Optional[int] = None
+    visit_day: Optional[int] = None       # 行程第几天使用
+    deadline_date: Optional[str] = None   # YYYY-MM-DD 实际截止日期（需 departure_date）
+    queue_wait_min: Optional[int] = None  # 不预约时典型排队时间
     deadline_hint: str = ""
     impact_if_missed: str = ""
     fallback_label: Optional[str] = None

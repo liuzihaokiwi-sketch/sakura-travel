@@ -16,6 +16,7 @@ from arq import cron
 from sqlalchemy import select
 
 from app.core.config import settings
+from app.core.sentry import init_sentry
 from app.db.models.business import TripProfile, TripRequest
 from app.db.session import AsyncSessionLocal
 from app.domains.intake.layer2_contract import (
@@ -29,6 +30,7 @@ from app.workers.jobs.run_guardrails import run_guardrails
 from app.workers.jobs.render_export import render_export
 from app.workers.jobs.send_booking_reminders import send_booking_reminders
 from app.workers.jobs.decay_recommendation_counts import decay_recommendation_counts
+from app.workers.jobs.refresh_entities import refresh_entities
 
 
 # ── Job 推导规则 ───────────────────────────────────────────────────────────────
@@ -471,6 +473,7 @@ class WorkerSettings:
         render_export,
         send_booking_reminders,
         decay_recommendation_counts,
+        refresh_entities,
     ]
 
     cron_jobs = [
@@ -478,6 +481,8 @@ class WorkerSettings:
         cron(send_booking_reminders, hour=9, minute=0, timeout=120),
         # 每天凌晨2点衰减推荐计数
         cron(decay_recommendation_counts, hour=2, minute=0, timeout=300),
+        # 每天凌晨3点刷新最旧的20个实体（超过30天未刷新）
+        cron(refresh_entities, hour=3, minute=0, timeout=600),
     ]
 
     redis_settings = RedisSettings.from_dsn(settings.redis_url)
@@ -492,8 +497,12 @@ class WorkerSettings:
     # 健康检查间隔（秒）
     health_check_interval = 30
 
-    # 启动/关闭钩子（可扩展）
-    on_startup = None
+    # 启动/关闭钩子
+    @staticmethod
+    async def on_startup(ctx: dict) -> None:
+        """arq worker 启动时初始化 Sentry 等基础设施。"""
+        init_sentry()
+
     on_shutdown = None
 
 

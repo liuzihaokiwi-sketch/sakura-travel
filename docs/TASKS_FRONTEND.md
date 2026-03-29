@@ -1,19 +1,25 @@
 # 前端重构任务清单
 
 > 交给 Sonnet 执行。按批次排列，批次1最优先。
-> 设计参考见 `docs/FRONTEND_REDESIGN.md`。
+> 设计参考见 `docs/FRONTEND_DESIGN_SPEC.md`（含重构背景、设计参考网站、色彩方案）。
 
 ---
 
 ## 执行前须知
 
-**设计参考网站**（让 Sonnet 在实现前先看看这些网站的设计风格）：
-- **Airbnb** (airbnb.com) — 温暖色调、大图片、信任感、步骤引导
-- **Headspace** (headspace.com) — 温和入门、一步步引导、圆润
-- **Notion** (notion.so) — 干净排版、留白、信息层次
-- **Apple** (apple.com) — 产品展示高级感、大留白、精炼文案
-- **Craft.do** (craft.do) — 文档类产品质感、纸质感
-- **MUJI** (muji.com) — 简洁温暖、自然材质感
+**设计参考网站**（Sonnet 在实现前用 WebFetch 看以下网站，提取视觉风格）：
+
+产品质感参考：
+- **Craft.do** (craft.do) — 暖米色底色、纸质纹理感、圆角、慢过渡动画 → 参考底色和纸质感
+- **Headspace** (headspace.com) — 暖米白#F9F4F2、自定义圆润字体、SVG装饰点缀 → 参考表单引导流程
+
+高端旅行定制参考：
+- **Boutique Japan** (boutiquejapan.com) — 全幅实拍hero、105条评价展示、行业认证logo → 参考信任感构建
+- **The Japan Concierge** (thejapanconcierge.com) — 奶油底色、高质量摄影、"先了解你再设计"姿态 → 参考服务气质
+- **Jacada Travel** (jacadatravel.com/asia/japan/) — 视频hero、金色线条图标、浅棕/白交替分区 → 参考视觉节奏
+
+日式手账美学参考：
+- **Bungu Store** (bungu.store) — 纯白+深棕+金色点缀、极简网格 → 参考日式克制美学
 
 **色彩体系**：
 ```

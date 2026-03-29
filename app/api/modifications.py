@@ -3,7 +3,7 @@ Modifications API — 用户端结构化修改请求。
 
 核心逻辑：
 - 用户通过 /plan/[id]/edit 页面提交结构化修改
-- 校验精调次数（248 包 1 次，888 包 3 次）
+- 校验精调次数（198 包 2 次，888 包不限次）
 - 扣减次数 → 入队重新生成 → 返回 202
 """
 from __future__ import annotations
@@ -28,9 +28,11 @@ router = APIRouter(prefix="/orders", tags=["modifications"])
 
 # ── SKU → max modifications mapping ──────────────────────────────────────────
 SKU_MAX_MODIFICATIONS = {
-    "standard_248": 1,
-    "premium_888": 3,
+    "standard_198": 2,
+    "standard_248": 2,   # 旧 SKU 兼容
+    "premium_888": -1,   # 不限次
     "basic_free": 0,
+    "free_preview": 0,
 }
 
 

@@ -24,6 +24,11 @@ def get_circle_content(circle_family: str) -> "CircleContent":
         "south_china": "south_china",
         "guangdong": "guangdong",
         "northern_xinjiang": "northern_xinjiang",
+        "kyushu": "kyushu",
+        "okinawa": "okinawa",
+        "chubu": "chubu",
+        "huadong": "huadong",
+        "chaoshan": "chaoshan",
     }
     module_name = _map.get(circle_family, "kansai")
     import importlib
@@ -55,6 +60,16 @@ def get_circle_family_from_circle_id(circle_id: str) -> str:
         return "guangdong"
     if "xinjiang" in lower or "northern" in lower:
         return "northern_xinjiang"
+    if "kyushu" in lower or "onsen" in lower:
+        return "kyushu"
+    if "okinawa" in lower:
+        return "okinawa"
+    if "chubu" in lower or "mountain" in lower:
+        return "chubu"
+    if "huadong" in lower or "shanghai" in lower:
+        return "huadong"
+    if "chaoshan" in lower or "chaozhou" in lower:
+        return "chaoshan"
     return "kansai"
 
 

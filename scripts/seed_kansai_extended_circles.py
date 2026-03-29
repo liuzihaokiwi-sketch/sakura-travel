@@ -45,6 +45,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_uji_day_trip",
         "circle_id": "kansai_classic_circle",
+        "city_code": "uji",
         "name_zh": "宇治日归（平等院·宇治上神社·中村藤吉）",
         "name_en": "Uji Day Trip – Byodoin & Uji Kami Shrine",
         "level": "A",
@@ -75,6 +76,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_zen_garden_circuit",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·枯山水庭园线（龙安寺·大德寺·东福寺）",
         "name_en": "Kyoto Zen Garden Circuit – Ryoanji, Daitokuji, Tofukuji",
         "level": "A",
@@ -105,6 +107,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_katsura_modern_arch",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·桂离宫+现代建筑线（京都站大楼·陶板名画之庭）",
         "name_en": "Kyoto Katsura Rikyu & Modern Architecture",
         "level": "B",
@@ -135,6 +138,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_eikando_shinnyodo",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·永观堂·真如堂红叶深度线",
         "name_en": "Kyoto Eikando & Shinnyodo Autumn Leaves",
         "level": "A",
@@ -165,6 +169,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_saihoji_moss_temple",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·西芳寺（苔寺）",
         "name_en": "Kyoto Saihoji (Moss Temple)",
         "level": "B",
@@ -195,6 +200,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "nara_deep_kasuga_kofuku",
         "circle_id": "kansai_classic_circle",
+        "city_code": "nara",
         "name_zh": "奈良深度（春日大社·兴福寺·新药师寺）",
         "name_en": "Nara Deep – Kasuga Taisha, Kofukuji, Shinyakushiji",
         "level": "B",
@@ -225,6 +231,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kobe_kitano_nankinmachi",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kobe",
         "name_zh": "神户·北野异人馆+南京町+旧居留地",
         "name_en": "Kobe Kitano Ijinkan & Nankinmachi",
         "level": "B",
@@ -255,6 +262,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_fushimi_sake_town",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·伏见酒藏街·月桂冠大仓纪念馆",
         "name_en": "Kyoto Fushimi Sake District",
         "level": "B",
@@ -284,6 +292,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "osa_nakanoshima_temma",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·中之岛+天满桥文化线",
         "name_en": "Osaka Nakanoshima & Temmabashi Culture",
         "level": "B",
@@ -313,6 +322,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "kyo_nijo_nishijin",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·二条城+西阵织会馆",
         "name_en": "Kyoto Nijo Castle & Nishijin",
         "level": "A",
@@ -336,6 +346,9 @@ NEW_CLUSTERS = [
         "secondary_attach_capacity": 1,
         "default_selected": False,
         "notes": "二条城（世界遗产，德川幕府大政奉还之地）+ 西阵织会馆（传统纺织工艺展示/体验）。适合文化爱好者。",
+        "experience_family": "locallife",
+        "rhythm_role": "contrast",
+        "energy_level": "medium",
         "upgrade_triggers": {"tags": ["culture", "history", "architecture"], "party_types": ["couple"]},
         "is_active": True,
     },
@@ -343,6 +356,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "arima_onsen_day_trip",
         "circle_id": "kansai_classic_circle",
+        "city_code": "arima_onsen",
         "name_zh": "有马温泉日归（金汤·银汤·炭酸源泉）",
         "name_en": "Arima Onsen Day Trip",
         "level": "B",
@@ -373,6 +387,7 @@ NEW_CLUSTERS = [
     {
         "cluster_id": "osa_kaiyukan_tempozan",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·海游馆+天保山摩天轮",
         "name_en": "Osaka Kaiyukan Aquarium & Tempozan",
         "level": "A",

@@ -60,6 +60,13 @@ class TextBlockContent:
 
 
 @dataclass
+class DiyZoneContent:
+    """Content model for sticker_zone and freewrite_zone DIY areas on printed handbook pages."""
+    sticker_zone: Optional[str] = None     # "top_right" / "bottom_left" / "corner" / None
+    freewrite_zone: Optional[str] = None   # "bottom_strip" / "side_margin" / "full_half" / None
+
+
+@dataclass
 class FulfillmentListContent:
     items: list[dict[str, Any]] = field(default_factory=list)
 
@@ -76,6 +83,7 @@ SectionContent = Union[
     EntityCardContent,
     RiskCardContent,
     TextBlockContent,
+    DiyZoneContent,
     FulfillmentListContent,
     TocListContent,
     dict[str, Any],
@@ -165,6 +173,20 @@ def _base_vm(page: PagePlan, page_number: int, title: str, subtitle: Optional[st
     )
 
 
+def _inject_diy_zones(vm: PageViewModel, page: PagePlan) -> None:
+    """Append a diy_zone section to the VM if the PagePlan has sticker/freewrite zones."""
+    if page.sticker_zone or page.freewrite_zone:
+        vm.sections.append(
+            SectionVM(
+                section_type="diy_zone",
+                content=DiyZoneContent(
+                    sticker_zone=page.sticker_zone,
+                    freewrite_zone=page.freewrite_zone,
+                ),
+            )
+        )
+
+
 def _inject_day_boundaries(vm: PageViewModel, day: Any, mood_sentence: str) -> None:
     vm.stable_inputs = {
         "day_index": day.day_index,
@@ -184,6 +206,7 @@ def _inject_day_boundaries(vm: PageViewModel, day: Any, mood_sentence: str) -> N
         "route_integrity_score": day.route_integrity_score,
         "slot_entity_ids": [slot.entity_id for slot in day.slots if slot.entity_id],
         "trigger_tags": list(day.trigger_tags or []),
+        "plan_b_count": len(day.plan_b) if day.plan_b else 0,
     }
 
 
@@ -202,6 +225,7 @@ def _build_cover_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -
             ),
         )
     )
+    _inject_diy_zones(vm, page)
     return vm
 
 
@@ -270,7 +294,24 @@ def _build_day_execution_vm(page: PagePlan, payload: PlanningOutput, page_number
             )
         )
 
+    # D3: Plan B alternatives (weather / low_energy / booking_fail)
+    if day.plan_b:
+        plan_b_items = [
+            {
+                "trigger": pb.trigger,
+                "alternative": pb.alternative,
+                "entity_ids": pb.entity_ids,
+            }
+            for pb in day.plan_b
+        ]
+        vm.sections.append(SectionVM(
+            section_type="plan_b",
+            heading="Plan B",
+            content={"items": plan_b_items},
+        ))
+
     _inject_day_boundaries(vm, day, mood)
+    _inject_diy_zones(vm, page)
     return vm
 
 
@@ -307,21 +348,55 @@ def _build_booking_window_vm(page: PagePlan, payload: PlanningOutput, page_numbe
         items.append(
             {
                 "label": alert.label,
+                "entity_id": alert.entity_id,
+                "entity_name": alert.entity_name,
+                "entity_type": alert.entity_type,
                 "booking_level": alert.booking_level,
+                "booking_method": alert.booking_method,
+                "booking_url": alert.booking_url,
+                "advance_booking_days": alert.advance_booking_days,
+                "visit_day": alert.visit_day,
+                "deadline_date": alert.deadline_date,
+                "queue_wait_min": alert.queue_wait_min,
                 "deadline_hint": alert.deadline_hint,
                 "impact_if_missed": alert.impact_if_missed,
-                "entity_id": alert.entity_id,
+                "fallback_label": alert.fallback_label,
             }
         )
-    vm.sections.append(SectionVM(section_type="stat_strip", content=StatStripContent(stats=[{"label": "count", "value": str(len(items)), "unit": ""}])))
-    vm.sections.append(SectionVM(section_type="booking_timeline", heading="Booking List", content={"items": items}))
+
+    # Sort by urgency: must_book first, then by deadline_date (earliest first)
+    _LEVEL_ORDER = {"must_book": 0, "should_book": 1, "good_to_book": 2, "walkin_ok": 3}
+    items.sort(key=lambda x: (
+        _LEVEL_ORDER.get(x.get("booking_level", ""), 9),
+        x.get("deadline_date") or "9999-99-99",
+    ))
+
+    must_book_count = sum(1 for i in items if i.get("booking_level") == "must_book")
+    should_book_count = sum(1 for i in items if i.get("booking_level") == "should_book")
+
+    vm.sections.append(SectionVM(
+        section_type="stat_strip",
+        content=StatStripContent(stats=[
+            {"label": "必订", "value": str(must_book_count), "unit": "项"},
+            {"label": "建议预订", "value": str(should_book_count), "unit": "项"},
+            {"label": "总计", "value": str(len(items)), "unit": "项"},
+        ]),
+    ))
+    vm.sections.append(SectionVM(
+        section_type="booking_timeline",
+        heading="Booking List",
+        content={"items": items},
+    ))
     vm.stable_inputs = {"booking_items_count": len(items)}
     vm.editable_content = {
         "booking_headline_draft": "Reserve these early",
         "booking_copy_draft": [
             {
                 "label": item.get("label"),
+                "entity_name": item.get("entity_name"),
+                "booking_level": item.get("booking_level"),
                 "deadline_hint": item.get("deadline_hint"),
+                "deadline_date": item.get("deadline_date"),
                 "impact_if_missed": item.get("impact_if_missed"),
             }
             for item in items
@@ -333,12 +408,44 @@ def _build_booking_window_vm(page: PagePlan, payload: PlanningOutput, page_numbe
 
 def _build_departure_prep_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     title = str(payload.prep_notes.get("title") or "Departure Prep")
-    items = [str(x) for x in list(payload.prep_notes.get("items") or []) if str(x).strip()]
-    vm = _base_vm(page, page_number, "Departure Prep", "Pre-departure checklist")
-    vm.sections.append(SectionVM(section_type="text_block", content=TextBlockContent(text=title, items=items)))
-    vm.stable_inputs = {"checklist_item_count": len(items)}
+    vm = _base_vm(page, page_number, title, "Pre-departure checklist")
+
+    # D1: 如果有结构化知识 sections，每个 section 独立渲染
+    knowledge_sections = payload.prep_notes.get("knowledge_sections")
+    if knowledge_sections:
+        for ks in knowledge_sections:
+            sec_title = ks.get("title", "")
+            sec_items = [str(x) for x in ks.get("items", []) if str(x).strip()]
+            sec_tips = [str(x) for x in ks.get("tips", []) if str(x).strip()]
+            # items 作为主体内容
+            vm.sections.append(SectionVM(
+                section_type="text_block",
+                heading=sec_title,
+                content=TextBlockContent(text=sec_title, items=sec_items),
+            ))
+            # tips 作为该 section 的实用提示（非空时追加）
+            if sec_tips:
+                vm.sections.append(SectionVM(
+                    section_type="text_block",
+                    heading=f"{sec_title} — Tips",
+                    content=TextBlockContent(text="", items=sec_tips),
+                ))
+    else:
+        # fallback：旧的 flat list 渲染
+        items = [str(x) for x in list(payload.prep_notes.get("items") or []) if str(x).strip()]
+        vm.sections.append(SectionVM(section_type="text_block", content=TextBlockContent(text=title, items=items)))
+
+    total_items = sum(
+        len(ks.get("items", [])) + len(ks.get("tips", []))
+        for ks in (knowledge_sections or [])
+    ) if knowledge_sections else len(payload.prep_notes.get("items") or [])
+    vm.stable_inputs = {"checklist_item_count": total_items}
     vm.editable_content = {"prep_intro_draft": title}
-    vm.internal_state = {"risk_watch_count": len(payload.risk_watch_items)}
+    vm.internal_state = {
+        "risk_watch_count": len(payload.risk_watch_items),
+        "has_knowledge_pack": bool(knowledge_sections),
+    }
+    _inject_diy_zones(vm, page)
     return vm
 
 
@@ -379,6 +486,7 @@ def _build_chapter_opener_vm(page: PagePlan, payload: PlanningOutput, page_numbe
     vm.stable_inputs = {"chapter_id": page.chapter_id}
     vm.editable_content = {"chapter_goal_draft": goal}
     vm.internal_state = {"covered_days": summary.covered_days if summary else []}
+    _inject_diy_zones(vm, page)
     return vm
 
 
@@ -390,6 +498,7 @@ def _build_entity_detail_vm(page: PagePlan, payload: PlanningOutput, page_number
     vm.hero = _resolve_hero_image(entity_id or None, page.page_type, payload)
     if ev and ev.get("why_selected"):
         vm.sections.append(SectionVM(section_type="key_reasons", content=KeyReasonsContent(reasons=[str(ev.get("why_selected"))])))
+    _inject_diy_zones(vm, page)
     return vm
 
 

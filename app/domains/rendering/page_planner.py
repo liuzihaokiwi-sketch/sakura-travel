@@ -152,9 +152,10 @@ def _page_id(prefix: str, suffix: Any = "") -> str:
 # 纸质手账本：每日执行页留底部贴纸位和侧边手写区；封面留角落贴纸位；
 # 其余重要内容页不加贴纸（保持整洁）
 _DIY_ZONE_RULES: dict[str, tuple[Optional[str], Optional[str]]] = {
-    "day_execution":         ("bottom_left", "side_margin"),   # 每日行程页：最需要手写备注
+    "day_execution":         ("bottom_left", "bottom_strip"),  # 每日行程页：底部贴纸+手写区
     "cover":                 ("corner", None),                  # 封面：角落小贴纸
     "toc":                   (None, None),
+    "chapter_opener":        ("top_right", "bottom_strip"),    # 章节开页：贴纸+底部手写
     "hotel_detail":          (None, "bottom_strip"),            # 酒店页：可写入住感受
     "restaurant_detail":     ("top_right", "bottom_strip"),     # 餐厅页：贴餐厅贴纸+写点评
     "photo_theme_detail":    ("corner", None),                  # 出片页：可贴照片装饰

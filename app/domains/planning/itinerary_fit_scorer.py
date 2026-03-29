@@ -574,3 +574,128 @@ def _find_corridor_candidates(
 
     scored.sort(key=lambda x: x[0], reverse=True)
     return [s[1] for s in scored[:top_k]]
+
+
+# ── 跨天节奏评分 ────────────────────────────────────────────────────────────
+
+@dataclass
+class RhythmScoreResult:
+    """跨天节奏评分结果。"""
+    rhythm_score: float = 80.0  # 0-100
+    violations: list[str] = field(default_factory=list)
+    breakdown: dict[str, float] = field(default_factory=dict)
+
+
+def compute_rhythm_score(
+    day_rhythms: list[dict[str, str]],
+) -> RhythmScoreResult:
+    """
+    评估整个行程序列的节奏质量。
+
+    Args:
+        day_rhythms: 按天序的节奏属性列表，每个元素：
+            {"experience_family": "shrine", "rhythm_role": "peak", "energy_level": "high"}
+            空 dict 或 None 表示该天无主活动（到达日/离开日）
+
+    Returns:
+        RhythmScoreResult，含总分、违规列表、维度分拆
+
+    评分维度（3 维，各 100 分，加权平均）：
+      family_variety  (0.35) — experience_family 不连续 + 整体多样性
+      peak_spacing    (0.35) — peak 间距合理、peak 数量适度
+      energy_flow     (0.30) — high 后跟 low/medium、整体能量曲线合理
+    """
+    result = RhythmScoreResult()
+    driven = [(i, d) for i, d in enumerate(day_rhythms) if d]
+
+    if len(driven) < 2:
+        result.rhythm_score = 80.0
+        result.breakdown = {"family_variety": 80, "peak_spacing": 80, "energy_flow": 80}
+        return result
+
+    # ── family_variety ──
+    family_score = 100.0
+    families = [d.get("experience_family", "") for _, d in driven]
+    families_valid = [f for f in families if f]
+
+    # R1 检查：相邻同 family 每次 -20
+    for i in range(len(families_valid) - 1):
+        if families_valid[i] and families_valid[i] == families_valid[i + 1]:
+            family_score -= 20.0
+            result.violations.append(
+                f"R1: day{driven[i][0]+1}-{driven[i+1][0]+1} same family '{families_valid[i]}'")
+
+    # 多样性奖励：不同 family 种类越多越好
+    unique_families = len(set(f for f in families_valid if f))
+    if unique_families >= 4:
+        family_score = min(100, family_score + 10)
+    elif unique_families <= 2 and len(families_valid) >= 4:
+        family_score -= 10
+
+    family_score = max(0, min(100, family_score))
+
+    # ── peak_spacing ──
+    peak_score = 100.0
+    roles = [d.get("rhythm_role", "") for _, d in driven]
+
+    peak_indices = [i for i, r in enumerate(roles) if r == "peak"]
+    peak_count = len(peak_indices)
+
+    # R2 检查：连续 peak -25
+    for i in range(len(peak_indices) - 1):
+        gap = peak_indices[i + 1] - peak_indices[i]
+        if gap == 1:
+            peak_score -= 25.0
+            result.violations.append(
+                f"R2: consecutive peaks at positions {peak_indices[i]+1},{peak_indices[i+1]+1}")
+        elif gap == 2:
+            # 间隔只有 1 天，检查中间是否是 recovery/contrast
+            mid_role = roles[peak_indices[i] + 1] if peak_indices[i] + 1 < len(roles) else ""
+            if mid_role not in ("recovery", "contrast"):
+                peak_score -= 10.0
+
+    # peak 密度检查：每 7 天最多 3 个 peak
+    total_days = len(driven)
+    max_peaks = max(2, int(total_days * 3 / 7) + 1)
+    if peak_count > max_peaks:
+        peak_score -= 15.0 * (peak_count - max_peaks)
+    elif peak_count == 0 and total_days >= 3:
+        peak_score -= 15.0  # 完全没有 peak 也扣分
+
+    peak_score = max(0, min(100, peak_score))
+
+    # ── energy_flow ──
+    energy_score = 100.0
+    energies = [d.get("energy_level", "") for _, d in driven]
+
+    # R3 检查：连续 high -20
+    for i in range(len(energies) - 1):
+        if energies[i] == "high" and energies[i + 1] == "high":
+            energy_score -= 20.0
+            result.violations.append(
+                f"R3: consecutive high energy at positions {i+1},{i+2}")
+
+    # 能量曲线：理想是波浪形（high→low→medium→high...）
+    transitions = 0
+    for i in range(len(energies) - 1):
+        if energies[i] != energies[i + 1]:
+            transitions += 1
+    if len(energies) >= 3:
+        transition_rate = transitions / (len(energies) - 1)
+        if transition_rate >= 0.6:
+            energy_score = min(100, energy_score + 5)  # 奖励变化多
+        elif transition_rate <= 0.3:
+            energy_score -= 10  # 太单调
+
+    energy_score = max(0, min(100, energy_score))
+
+    # ── 加权汇总 ──
+    result.breakdown = {
+        "family_variety": round(family_score, 1),
+        "peak_spacing": round(peak_score, 1),
+        "energy_flow": round(energy_score, 1),
+    }
+    result.rhythm_score = round(
+        family_score * 0.35 + peak_score * 0.35 + energy_score * 0.30, 1
+    )
+    return result

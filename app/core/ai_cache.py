@@ -162,8 +162,13 @@ async def cached_ai_call(
         except Exception as e:
             logger.warning("AI cache read failed: %s", e)
 
-    # 2. 缓存未命中，调用 AI
+    # 2. 缓存未命中，限速后调用 AI
     logger.debug("AI cache MISS: %s (model=%s)", cache_key[:60], model)
+    try:
+        from app.core.rate_limiter import ai_rate_limiter
+        await ai_rate_limiter.wait()
+    except Exception:
+        pass  # 限速器异常不阻塞主流程
     result = await _call_ai(
         prompt=prompt,
         model=model,

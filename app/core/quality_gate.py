@@ -115,9 +115,18 @@ def _get_all_text(plan: dict) -> str:
 # ── 11 条规则实现 ─────────────────────────────────────────────────────────────
 
 def check_qty_01(plan: dict) -> RuleResult:
-    """QTY-01: 每天景点数量（3-6个）"""
+    """QTY-01: 每天景点数量（3-6个），且至少有1天"""
+    days = plan.get("days", [])
+    if not days:
+        return RuleResult(
+            rule_id="QTY-01",
+            passed=False,
+            message="行程无天数（days 为空）",
+            severity="error",
+            details=["plan.days is empty"],
+        )
     errors = []
-    for day in plan.get("days", []):
+    for day in days:
         day_num = day.get("day_number", "?")
         spots = [i for i in day.get("items", []) if i.get("item_type") not in ("restaurant", "transport")]
         count = len(spots)
@@ -592,17 +601,9 @@ async def run_quality_gate(
     results.append(check_qty_09(plan))
     results.append(check_qty_11(plan))
 
-    # T7: v2 结构规则（STR — 只对 schema_version=v2 的报告有效）
-    # 传入的是 report_content（layer2_daily 里的内容），而非 plan.days
-    # 为兼容 run_quality_gate 的现有接口，优先从 plan 顶层找 schema_version
-    report_content = plan if plan.get("schema_version") == "v2" else {}
-    if not report_content and plan.get("report_content"):
-        report_content = plan["report_content"]
-    results.append(check_str_01(report_content))
-    results.append(check_str_02(report_content))
-    results.append(check_str_03(report_content))
-    results.append(check_str_04(report_content))
-    results.append(check_str_05(report_content))
+    # STR 规则（v2 report 结构检查）已随 report_generator 删除而停用。
+    # 当前 pipeline 通过 planning_output 直出页面数据，不产生 v2 schema。
+    # STR check_str_01~05 函数保留供未来复用，但不再纳入 gate 计分。
 
     # 异步（需要 DB）规则
     results.append(await check_qty_06(plan, db))

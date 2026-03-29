@@ -165,15 +165,18 @@ def test_new_chain_fallback_levels_require_explicit_failure():
 
 
 def test_legacy_report_and_export_routes_are_retired():
+    import os
     route_text = open("web/app/api/report/[planId]/route.ts", "r", encoding="utf-8").read()
     pages_route_text = open("web/app/api/report/[planId]/pages/route.ts", "r", encoding="utf-8").read()
     html_renderer_text = open("app/domains/rendering/magazine/html_renderer.py", "r", encoding="utf-8").read()
-    report_generator_text = open("app/domains/planning/report_generator.py", "r", encoding="utf-8").read()
     assert "status: 410" in route_text
     assert "status: 410" in pages_route_text
     assert "build_shared_page_export_contract" in html_renderer_text
     assert "day_card.html.j2" not in html_renderer_text
-    assert "visited_places_consumed" in report_generator_text
+    # report_generator.py 已在架构重构中删除（2026-03-27），规划链直出 planning_output
+    assert not os.path.exists("app/domains/planning/report_generator.py"), (
+        "report_generator.py should be deleted — use planning_output.py instead"
+    )
 
 
 @pytest.mark.asyncio

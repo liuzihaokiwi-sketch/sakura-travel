@@ -111,6 +111,11 @@ class ActivityCluster(Base):
 
     如"东山祇园经典线"由清水寺 + 二年坂 + 八坂神社 + 祇园组成。
     一个簇不是一个实体，而是一条体验线。
+
+    节奏编排三字段（rhythm scheduling）：
+      experience_family — 体验家族，解决"像不像"（同族不连续两天）
+      rhythm_role       — 节奏角色，解决"放在旅程哪里"（peak 间隔 recovery）
+      energy_level      — 精力消耗，解决"累不累"（high 后跟 low/medium）
     """
 
     __tablename__ = "activity_clusters"
@@ -123,6 +128,10 @@ class ActivityCluster(Base):
         String(80),
         ForeignKey("city_circles.circle_id", ondelete="CASCADE"),
         nullable=False,
+    )
+    city_code: Mapped[Optional[str]] = mapped_column(
+        String(30),
+        comment="归属城市: kyoto / osaka / nara — 规划时按城市分配天数再选活动",
     )
 
     name_zh: Mapped[str] = mapped_column(String(200), nullable=False)
@@ -209,11 +218,6 @@ class ActivityCluster(Base):
         Numeric(3, 1), default=1.0,
         comment="1.0=全天 / 0.5=半天，用于日程容量计算",
     )
-    # meal_break_minutes: 簇本身包含的餐饮中断（区别于 meal_buffer_minutes）
-    meal_break_minutes: Mapped[Optional[int]] = mapped_column(
-        SmallInteger, default=0,
-        comment="簇内餐饮中断时长（分钟），与 meal_buffer_minutes 不同",
-    )
     # transit_minutes: 到达该簇的平均交通时间
     transit_minutes: Mapped[Optional[int]] = mapped_column(
         SmallInteger, default=30,
@@ -243,6 +247,20 @@ class ActivityCluster(Base):
     description_zh: Mapped[Optional[str]] = mapped_column(
         Text,
         comment="簇的中文简要描述，用于 PDF / 前端展示",
+    )
+
+    # ── 节奏编排三字段 ────────────────────────────────────────────────────────
+    experience_family: Mapped[Optional[str]] = mapped_column(
+        String(20),
+        comment="体验家族: flower/mountain/sea/shrine/citynight/art/food/locallife/themepark/onsen — 同族不连续两天",
+    )
+    rhythm_role: Mapped[Optional[str]] = mapped_column(
+        String(20),
+        comment="节奏角色: peak/contrast/recovery/utility — peak 间隔 recovery，utility 补缝",
+    )
+    energy_level: Mapped[Optional[str]] = mapped_column(
+        String(10),
+        comment="精力消耗: low/medium/high — high 后跟 low 或 medium",
     )
 
     # 调度属性
@@ -280,6 +298,14 @@ class ActivityCluster(Base):
     default_selected: Mapped[bool] = mapped_column(Boolean, default=False)
 
     notes: Mapped[Optional[str]] = mapped_column(Text)
+
+    # 核心实体声明（结构化，由 AI 填充）
+    # [{"name":"清水寺","type":"poi","role":"anchor"}, ...]
+    anchor_entities: Mapped[Optional[list]] = mapped_column(
+        JSONB,
+        comment='核心实体列表 [{"name":"富士山五合目","type":"poi","role":"anchor"},...]',
+    )
+
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(),

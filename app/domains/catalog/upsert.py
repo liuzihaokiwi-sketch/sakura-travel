@@ -67,6 +67,18 @@ def _filter(data: Dict[str, Any], allowed: set) -> Dict[str, Any]:
     return {k: v for k, v in data.items() if k in allowed}
 
 
+def _sanitize_subtype_data(entity_type: str, data: Dict[str, Any]) -> Dict[str, Any]:
+    cleaned = dict(data)
+
+    # AI 生成有时会把单值枚举字段返回成 list，这里收敛成单值，避免写库失败。
+    if entity_type == "poi":
+        best_season = cleaned.get("best_season")
+        if isinstance(best_season, list):
+            cleaned["best_season"] = next((x for x in best_season if x), None)
+
+    return cleaned
+
+
 async def upsert_entity(
     session: AsyncSession,
     entity_type: str,
@@ -140,7 +152,7 @@ async def upsert_entity(
 
     # ── 4. 创建或更新子表 ─────────────────────────────────────────────────────
     SubModel = _SUBTYPE_MODEL[entity_type]
-    sub_data = _filter(data, _SUBTYPE_FIELDS[entity_type])
+    sub_data = _sanitize_subtype_data(entity_type, _filter(data, _SUBTYPE_FIELDS[entity_type]))
 
     if is_new:
         sub = SubModel(entity_id=entity.entity_id, **sub_data)

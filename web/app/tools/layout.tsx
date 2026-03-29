@@ -50,7 +50,7 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
             <span className="opacity-80 text-[11px]">30-40页手册 · 精确到每餐每景点</span>
           </p>
           <Link
-            href="/quiz?from=tools_cta"
+            href="/order"
             className="shrink-0 bg-white text-amber-600 text-xs font-bold px-4 py-2 rounded-full shadow hover:shadow-md transition-shadow whitespace-nowrap"
           >
             7天手账 ¥298 →

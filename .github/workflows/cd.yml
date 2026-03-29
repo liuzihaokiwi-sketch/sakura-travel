@@ -1,0 +1,33 @@
+name: CD
+
+on:
+  # 在 CI 成功完成后自动触发
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+  # 手动触发（跳过 CI 等待）
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # workflow_run 触发时：只在 CI 成功后才部署
+    # workflow_dispatch 触发时：直接部署
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to ECS via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.ECS_HOST }}
+          username: ${{ secrets.ECS_USER }}
+          key: ${{ secrets.ECS_SSH_KEY }}
+          timeout: 600s
+          script: |
+            cd /opt/travel-ai
+            bash deploy/auto-deploy.sh

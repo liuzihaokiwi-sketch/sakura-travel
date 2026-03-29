@@ -23,11 +23,15 @@ from app.core.snapshots import record_snapshot
 from app.domains.catalog.ai_generator import (
     CITY_MAP,
     POI_CATEGORIES,
+    POI_CATEGORIES_CN,
     RESTAURANT_CUISINES,
+    RESTAURANT_CUISINES_CN,
     HOTEL_TIERS,
+    _CN_CITIES,
     generate_pois,
     generate_restaurants,
     generate_hotels,
+    validate_entity,
 )
 from app.domains.catalog.web_crawler import (
     check_connectivity,
@@ -44,8 +48,36 @@ logger = logging.getLogger(__name__)
 # 数据写入 DB
 # ─────────────────────────────────────────────────────────────────────────────
 
+async def _check_duplicate(session: AsyncSession, name_zh: str, city_code: str, entity_type: str) -> bool:
+    """检查 name_zh + city_code + entity_type 是否已存在，存在则返回 True。"""
+    from app.db.models.catalog import EntityBase
+    from sqlalchemy import select
+    try:
+        existing = (await session.execute(
+            select(EntityBase.entity_id).where(
+                EntityBase.name_zh == name_zh,
+                EntityBase.city_code == city_code,
+                EntityBase.entity_type == entity_type,
+            ).limit(1)
+        )).scalar_one_or_none()
+        return existing is not None
+    except Exception:
+        return False
+
+
 async def _write_poi(session: AsyncSession, data: Dict[str, Any]) -> Optional[str]:
     """将 POI 数据写入数据库，返回 entity_id"""
+    # 数据质量校验
+    errs = validate_entity(data)
+    if errs:
+        logger.debug("跳过无效 POI [%s]: %s", data.get("name_zh", "?"), errs)
+        return None
+    # 去重检查
+    name_zh = data.get("name_zh") or data.get("name_ja", "")
+    city_code = data.get("city_code", "")
+    if name_zh and city_code and await _check_duplicate(session, name_zh, city_code, "poi"):
+        logger.debug("跳过重复 POI: %s / %s", name_zh, city_code)
+        return None
     # 字段映射：ai_generator / web_crawler → upsert_entity 白名单字段
     db_data = {
         # entity_base 字段
@@ -102,6 +134,15 @@ async def _write_poi(session: AsyncSession, data: Dict[str, Any]) -> Optional[st
 
 async def _write_restaurant(session: AsyncSession, data: Dict[str, Any]) -> Optional[str]:
     """将餐厅数据写入数据库"""
+    errs = validate_entity(data)
+    if errs:
+        logger.debug("跳过无效餐厅 [%s]: %s", data.get("name_zh", "?"), errs)
+        return None
+    name_zh = data.get("name_zh") or data.get("name_ja", "")
+    city_code = data.get("city_code", "")
+    if name_zh and city_code and await _check_duplicate(session, name_zh, city_code, "restaurant"):
+        logger.debug("跳过重复餐厅: %s / %s", name_zh, city_code)
+        return None
     db_data = {
         # entity_base 字段
         "name_zh":              data.get("name_zh") or data.get("name_ja", ""),
@@ -153,6 +194,15 @@ async def _write_restaurant(session: AsyncSession, data: Dict[str, Any]) -> Opti
 
 async def _write_hotel(session: AsyncSession, data: Dict[str, Any]) -> Optional[str]:
     """将酒店数据写入数据库"""
+    errs = validate_entity(data)
+    if errs:
+        logger.debug("跳过无效酒店 [%s]: %s", data.get("name_zh", "?"), errs)
+        return None
+    name_zh = data.get("name_zh") or data.get("name_ja", "")
+    city_code = data.get("city_code", "")
+    if name_zh and city_code and await _check_duplicate(session, name_zh, city_code, "hotel"):
+        logger.debug("跳过重复酒店: %s / %s", name_zh, city_code)
+        return None
     db_data = {
         "name_zh":                  data.get("name_zh") or data.get("name_ja", ""),
         "name_ja":                  data.get("name_ja", ""),
@@ -301,7 +351,6 @@ async def run_city_pipeline(
             for osm_cat in ["shrine", "temple", "castle", "museum", "park", "attraction"]:
                 try:
                     raw_list = await fetch_osm_pois(city_code, osm_cat, limit=poi_count)
-                    # 可选：用 Wikipedia 补充描述
                     for raw in raw_list:
                         if use_wiki and raw.get("name_ja") and not raw.get("short_desc_zh"):
                             wiki = await fetch_wikipedia_summary(raw["name_ja"])
@@ -317,19 +366,73 @@ async def run_city_pipeline(
                 except Exception as e:
                     stats["errors"].append(f"OSM POI [{osm_cat}]: {e}")
         else:
-            # AI 生成
-            for cat in POI_CATEGORIES:
-                try:
-                    raw_list = await generate_pois(city_code, cat, count=poi_count)
-                    for raw in raw_list:
-                        eid = await _write_poi(session, raw)
-                        if eid:
-                            poi_ids.append(eid)
-                    await asyncio.sleep(0.3)
-                except Exception as e:
-                    stats["errors"].append(f"AI POI [{cat}]: {e}")
+            # AI 批量生成 — 一次调用生成所有类别的 POI（减少 API 调用次数）
+            _poi_cats = POI_CATEGORIES_CN if city_code in _CN_CITIES else POI_CATEGORIES
+            all_cats = ", ".join(f"{v}({k})" for k, v in _poi_cats.items())
+            total_count = poi_count * len(_poi_cats)
+            try:
+                # 单次调用，让 AI 一口气生成所有类别
+                from app.domains.catalog.ai_generator import _extract_json_array, _CN_CITIES as _CN
+                from app.core.ai_cache import cached_ai_call
+                from app.core.config import settings as _settings
+
+                city_zh, city_en = CITY_MAP[city_code]
+                is_cn = city_code in _CN
+
+                if is_cn:
+                    prompt = (
+                        f"你是中国旅游数据库工程师。请生成{city_zh}（{city_en}）的景点数据。\n\n"
+                        f"要求：\n1. 只生成真实存在的知名景点\n2. 严格输出 JSON 数组\n"
+                        f"3. 覆盖以下所有类别，每类 {poi_count} 条，共 {total_count} 条：{all_cats}\n\n"
+                        f"输出格式同标准 POI 格式，包含 name_zh, name_en, city_code, poi_category, "
+                        f"lat, lng, address_zh, google_rating, avg_visit_minutes, entrance_fee_cny, "
+                        f"opening_hours, best_season, tags, short_desc_zh, tip_zh"
+                    )
+                else:
+                    prompt = (
+                        f"你是日本旅游数据库工程师。请生成{city_zh}（{city_en}）的景点数据。\n\n"
+                        f"要求：\n1. 只生成真实存在的知名景点\n2. 严格输出 JSON 数组\n"
+                        f"3. 覆盖以下所有类别，每类 {poi_count} 条，共 {total_count} 条：{all_cats}\n\n"
+                        f"输出格式同标准 POI 格式，包含 name_zh, name_ja, name_en, city_code, poi_category, "
+                        f"lat, lng, address_ja, google_rating, avg_visit_minutes, entrance_fee_jpy, "
+                        f"opening_hours, best_season, tags, short_desc_zh, tip_zh"
+                    )
+
+                import json as _json
+                raw_list = []
+                for attempt in range(3):
+                    try:
+                        raw = await cached_ai_call(prompt=prompt, model=_settings.ai_model, temperature=0.3, max_tokens=8000)
+                        parsed = _json.loads(_extract_json_array(raw or "[]"))
+                        if parsed:
+                            raw_list = parsed
+                            break
+                        logger.warning(f"[{city_code}] POI JSON 解析为空, attempt {attempt+1}/3")
+                    except (_json.JSONDecodeError, Exception) as parse_err:
+                        logger.warning(f"[{city_code}] POI JSON 解析失败, attempt {attempt+1}/3: {parse_err}")
+                    if attempt < 2:
+                        await asyncio.sleep(5)
+                else:
+                    stats["errors"].append(f"AI POI batch: JSON parse failed after 3 attempts")
+
+                for raw_item in raw_list:
+                    raw_item["city_code"] = city_code
+                    if is_cn and "entrance_fee_cny" in raw_item:
+                        raw_item["entrance_fee_jpy"] = int((raw_item.pop("entrance_fee_cny") or 0) * 21)
+                    eid = await _write_poi(session, raw_item)
+                    if eid:
+                        poi_ids.append(eid)
+
+                logger.info(f"[{city_code}] AI POI 批量生成: {len(poi_ids)} 条（1次API调用）")
+            except Exception as e:
+                stats["errors"].append(f"AI POI batch: {e}")
+                logger.warning(f"[{city_code}] AI POI 批量失败: {e}")
 
         stats["pois"] = len(poi_ids)
+
+    # ── 等待间隔（POI → 餐厅之间）─────────────────────────────────────────────
+    if sync_pois and (sync_restaurants or sync_hotels):
+        await asyncio.sleep(10)
 
     # ── 餐厅采集 ─────────────────────────────────────────────────────────────
     if sync_restaurants:
@@ -344,39 +447,147 @@ async def run_city_pipeline(
                         eid = await _write_restaurant(session, raw)
                         if eid:
                             rest_ids.append(eid)
-                    await asyncio.sleep(1.5)  # Tabelog 限速：避免被封
+                    await asyncio.sleep(1.5)
                 except Exception as e:
                     stats["errors"].append(f"Tabelog [{cuisine}]: {e}")
         else:
-            # AI 生成
-            for cuisine in RESTAURANT_CUISINES:
-                try:
-                    raw_list = await generate_restaurants(
-                        city_code, cuisine, count=restaurant_count
+            # AI 批量生成 — 一次调用生成所有菜系
+            _rest_cuisines = RESTAURANT_CUISINES_CN if city_code in _CN_CITIES else RESTAURANT_CUISINES
+            all_cuisines = ", ".join(f"{v}({k})" for k, v in _rest_cuisines.items())
+            total_rest = restaurant_count * len(_rest_cuisines)
+            try:
+                from app.domains.catalog.ai_generator import _extract_json_array, _CN_CITIES as _CN
+                from app.core.ai_cache import cached_ai_call
+                from app.core.config import settings as _settings
+
+                city_zh, city_en = CITY_MAP[city_code]
+                is_cn = city_code in _CN
+
+                if is_cn:
+                    prompt = (
+                        f"你是中国美食数据库工程师。请生成{city_zh}（{city_en}）的餐厅数据。\n\n"
+                        f"要求：\n1. 只生成真实存在的知名餐厅\n2. 严格输出 JSON 数组\n"
+                        f"3. 覆盖以下菜系，每类 {restaurant_count} 条，共 {total_rest} 条：{all_cuisines}\n\n"
+                        f"输出格式同标准餐厅格式，包含 name_zh, name_en, city_code, cuisine_type, "
+                        f"district, lat, lng, dianping_score, price_lunch_cny, price_dinner_cny, "
+                        f"price_tier, reservation_required, tags, short_desc_zh, tip_zh"
                     )
-                    for raw in raw_list:
-                        eid = await _write_restaurant(session, raw)
-                        if eid:
-                            rest_ids.append(eid)
-                    await asyncio.sleep(0.3)
-                except Exception as e:
-                    stats["errors"].append(f"AI Restaurant [{cuisine}]: {e}")
+                else:
+                    prompt = (
+                        f"你是日本美食数据库工程师。请生成{city_zh}（{city_en}）的餐厅数据。\n\n"
+                        f"要求：\n1. 只生成真实存在的知名餐厅\n2. 严格输出 JSON 数组\n"
+                        f"3. 覆盖以下菜系，每类 {restaurant_count} 条，共 {total_rest} 条：{all_cuisines}\n\n"
+                        f"输出格式同标准餐厅格式，包含 name_zh, name_ja, name_en, city_code, cuisine_type, "
+                        f"district, lat, lng, tabelog_score, price_lunch_jpy, price_dinner_jpy, "
+                        f"price_tier, reservation_required, tags, short_desc_zh, tip_zh"
+                    )
+
+                import json as _json
+                raw_list = []
+                for attempt in range(3):
+                    try:
+                        raw = await cached_ai_call(prompt=prompt, model=_settings.ai_model, temperature=0.3, max_tokens=8000)
+                        parsed = _json.loads(_extract_json_array(raw or "[]"))
+                        if parsed:
+                            raw_list = parsed
+                            break
+                        logger.warning(f"[{city_code}] 餐厅 JSON 解析为空, attempt {attempt+1}/3")
+                    except (_json.JSONDecodeError, Exception) as parse_err:
+                        logger.warning(f"[{city_code}] 餐厅 JSON 解析失败, attempt {attempt+1}/3: {parse_err}")
+                    if attempt < 2:
+                        await asyncio.sleep(5)
+                else:
+                    stats["errors"].append(f"AI Restaurant batch: JSON parse failed after 3 attempts")
+
+                for raw_item in raw_list:
+                    raw_item["city_code"] = city_code
+                    if is_cn:
+                        for key in ("price_lunch_cny", "price_dinner_cny"):
+                            jpy_key = key.replace("_cny", "_jpy")
+                            if key in raw_item:
+                                raw_item[jpy_key] = int((raw_item.pop(key) or 0) * 21)
+                        if "dianping_score" in raw_item:
+                            raw_item["tabelog_score"] = raw_item.pop("dianping_score")
+                    eid = await _write_restaurant(session, raw_item)
+                    if eid:
+                        rest_ids.append(eid)
+
+                logger.info(f"[{city_code}] AI 餐厅批量生成: {len(rest_ids)} 条（1次API调用）")
+            except Exception as e:
+                stats["errors"].append(f"AI Restaurant batch: {e}")
+                logger.warning(f"[{city_code}] AI 餐厅批量失败: {e}")
 
         stats["restaurants"] = len(rest_ids)
 
-    # ── 酒店采集（只有 AI 生成，暂无免费酒店 API）────────────────────────────
+    # ── 等待间隔（餐厅 → 酒店之间）──────────────────────────────────────────
+    if sync_restaurants and sync_hotels:
+        await asyncio.sleep(10)
+
+    # ── 酒店采集（AI 批量生成）──────────────────────────────────────────────
     if sync_hotels:
         hotel_ids = []
-        for tier in HOTEL_TIERS:
-            try:
-                raw_list = await generate_hotels(city_code, tier, count=hotel_count)
-                for raw in raw_list:
-                    eid = await _write_hotel(session, raw)
-                    if eid:
-                        hotel_ids.append(eid)
-                await asyncio.sleep(0.3)
-            except Exception as e:
-                stats["errors"].append(f"AI Hotel [{tier}]: {e}")
+        tier_zh_map = {"budget": "经济", "mid": "中档", "premium": "高档", "luxury": "豪华"}
+        all_tiers = ", ".join(f"{tier_zh_map[t]}({t})" for t in HOTEL_TIERS)
+        total_hotel = hotel_count * len(HOTEL_TIERS)
+        try:
+            from app.domains.catalog.ai_generator import _extract_json_array, _CN_CITIES as _CN
+            from app.core.ai_cache import cached_ai_call
+            from app.core.config import settings as _settings
+
+            city_zh, city_en = CITY_MAP[city_code]
+            is_cn = city_code in _CN
+            tier_list = "经济(budget), 中档(mid), 高档(premium), 豪华(luxury)"
+
+            if is_cn:
+                prompt = (
+                    f"你是中国酒店数据库工程师。请生成{city_zh}（{city_en}）的酒店数据。\n\n"
+                    f"要求：\n1. 只生成真实存在的酒店\n2. 严格输出 JSON 数组\n"
+                    f"3. 覆盖以下档位，每档 {hotel_count} 条，共 {total_hotel} 条：{tier_list}\n\n"
+                    f"输出格式同标准酒店格式，包含 name_zh, name_en, city_code, district, "
+                    f"lat, lng, star_rating, price_tier, price_per_night_cny, google_rating, "
+                    f"nearest_station, walk_minutes_to_station, hotel_type, tags, short_desc_zh, tip_zh"
+                )
+            else:
+                prompt = (
+                    f"你是日本酒店数据库工程师。请生成{city_zh}（{city_en}）的酒店数据。\n\n"
+                    f"要求：\n1. 只生成真实存在的酒店\n2. 严格输出 JSON 数组\n"
+                    f"3. 覆盖以下档位，每档 {hotel_count} 条，共 {total_hotel} 条：{tier_list}\n\n"
+                    f"输出格式同标准酒店格式，包含 name_zh, name_ja, name_en, city_code, district, "
+                    f"lat, lng, star_rating, price_tier, price_per_night_jpy, google_rating, "
+                    f"nearest_station, walk_minutes_to_station, has_onsen, hotel_type, tags, short_desc_zh, tip_zh"
+                )
+
+            import json as _json
+            raw_list = []
+            for attempt in range(3):
+                try:
+                    raw = await cached_ai_call(prompt=prompt, model=_settings.ai_model, temperature=0.3, max_tokens=8000)
+                    parsed = _json.loads(_extract_json_array(raw or "[]"))
+                    if parsed:
+                        raw_list = parsed
+                        break
+                    logger.warning(f"[{city_code}] 酒店 JSON 解析为空, attempt {attempt+1}/3")
+                except (_json.JSONDecodeError, Exception) as parse_err:
+                    logger.warning(f"[{city_code}] 酒店 JSON 解析失败, attempt {attempt+1}/3: {parse_err}")
+                if attempt < 2:
+                    await asyncio.sleep(5)
+            else:
+                stats["errors"].append(f"AI Hotel batch: JSON parse failed after 3 attempts")
+
+            for raw_item in raw_list:
+                raw_item["city_code"] = city_code
+                if "price_tier" not in raw_item:
+                    raw_item["price_tier"] = "mid"
+                if is_cn and "price_per_night_cny" in raw_item:
+                    raw_item["price_per_night_jpy"] = int((raw_item.pop("price_per_night_cny") or 0) * 21)
+                eid = await _write_hotel(session, raw_item)
+                if eid:
+                    hotel_ids.append(eid)
+
+            logger.info(f"[{city_code}] AI 酒店批量生成: {len(hotel_ids)} 条（1次API调用）")
+        except Exception as e:
+            stats["errors"].append(f"AI Hotel batch: {e}")
+            logger.warning(f"[{city_code}] AI 酒店批量失败: {e}")
 
         stats["hotels"] = len(hotel_ids)
 

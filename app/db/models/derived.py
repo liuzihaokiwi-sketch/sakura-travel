@@ -506,3 +506,53 @@ class GenerationDecision(Base):
         Index("ix_gen_decisions_input_hash", "input_hash"),
         Index("ix_gen_decisions_trip_current", "trip_request_id", "is_current"),
     )
+
+
+# ── booking_reminder_log ─────────────────────────────────────────────────────
+class BookingReminderLog(Base):
+    """
+    预约提醒发送记录表。
+
+    每条记录表示一次提醒（first / second / overdue），
+    通过 (trip_request_id, entity_id, reminder_type) 唯一约束避免重复推送。
+    """
+
+    __tablename__ = "booking_reminder_log"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    trip_request_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("trip_requests.trip_request_id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    plan_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("itinerary_plans.plan_id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    entity_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("entity_base.entity_id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    entity_name: Mapped[str] = mapped_column(String(200), nullable=False)
+    booking_url: Mapped[Optional[str]] = mapped_column(Text)
+    reminder_type: Mapped[str] = mapped_column(
+        String(20), nullable=False,
+        comment="first / second / overdue"
+    )
+    visit_date: Mapped[str] = mapped_column(
+        String(10), nullable=False, comment="YYYY-MM-DD actual visit date"
+    )
+    sent_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+
+    __table_args__ = (
+        Index("ix_booking_reminder_trip", "trip_request_id"),
+        Index(
+            "uq_booking_reminder_dedup",
+            "trip_request_id", "entity_id", "reminder_type",
+            unique=True,
+        ),
+    )

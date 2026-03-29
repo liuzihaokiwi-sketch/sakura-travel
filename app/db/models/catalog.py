@@ -117,6 +117,11 @@ class EntityBase(Base):
         DateTime(timezone=True), comment="最后一次被推荐的时间"
     )
 
+    # 定时刷新
+    last_refreshed_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="上次 AI 刷新实体数据的时间，用于定时更新调度"
+    )
+
     # 外部 ID 映射
     google_place_id: Mapped[Optional[str]] = mapped_column(String(200), unique=True)
     tabelog_id: Mapped[Optional[str]] = mapped_column(String(200))

@@ -63,7 +63,7 @@ def build_test_planning_output(
             day_index=d,
             title=f"Day {d} Theme",
             primary_area="higashiyama",
-            day_goal="Explore the area",
+            day_goal="Adapt with light pace",
             intensity=intensity,
             start_anchor="Station",
             end_anchor="Hotel",
@@ -80,7 +80,7 @@ def build_test_planning_output(
         emotional_goals.append(EmotionalGoal(
             day_index=d,
             mood_keyword="explore",
-            mood_sentence="Easy exploration day.",
+            mood_sentence="Easy first-day exploration.",
         ))
 
         route_summary.append(RouteSummaryCard(
@@ -106,8 +106,8 @@ def build_test_planning_output(
         booking_alerts.append(BookingAlertItem(
             label="Reservation required",
             booking_level="should_book",
-            deadline_hint="7 days before",
-            impact_if_missed="queue risk",
+            deadline_hint="5 days before",
+            impact_if_missed="Need backup scenic route",
         ))
         risk_watch.append(RiskWatchItem(
             risk_type="booking",

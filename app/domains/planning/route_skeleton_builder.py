@@ -148,6 +148,7 @@ def build_route_skeleton(
         constraints=constraints,
         result=result,
     )
+    _apply_rhythm_check(frames, selected_majors, result)
     _calc_capacity_and_budget(
         frames,
         pace,
@@ -255,13 +256,28 @@ def _assign_major_drivers(
     if accept_departure:
         remaining_slots += [frame for frame in edge_days if frame.day_type == "departure"]
 
-    for major in half_day:
+    # 到达日/离开日优先分配 arrival_friendly 的 half_day 活动
+    def _is_arrival_friendly(major) -> bool:
+        pf = getattr(major, "profile_fit", None) or []
+        return "arrival_friendly" in pf
+
+    # 排序：arrival_friendly 的排前面，优先分到 edge days
+    half_day_sorted = sorted(half_day, key=lambda m: (0 if _is_arrival_friendly(m) else 1))
+
+    for major in half_day_sorted:
         chosen = None
         cluster_id = getattr(major, "cluster_id", "")
         allowed = allowed_bases(cluster_id)
         for frame in remaining_slots:
             if frame.day_type == "departure" and not _is_departure_compatible(major):
                 continue
+            # 到达日/离开日优先给 arrival_friendly 的活动
+            if frame.day_type in ("arrival", "departure") and not _is_arrival_friendly(major):
+                # 如果还有 arrival_friendly 的活动没分配，跳过 edge day
+                has_friendly = any(_is_arrival_friendly(m) for m in half_day_sorted
+                                   if getattr(m, "cluster_id", "") != cluster_id)
+                if has_friendly:
+                    continue
             if not allowed or frame.sleep_base in allowed:
                 chosen = frame
                 break
@@ -627,6 +643,150 @@ def _generate_title_hints(frames: list[DayFrame]) -> None:
         if frame.day_type == "departure":
             parts.append("轻松收尾")
         frame.title_hint = " · ".join([part for part in parts if part]) or f"Day {frame.day_index}"
+
+
+# ── 节奏检查后处理 ──────────────────────────────────────────────────────────
+
+def _apply_rhythm_check(
+    frames: list[DayFrame],
+    selected_majors: list,
+    result: SkeletonResult,
+) -> None:
+    """
+    3 条节奏硬规则后处理。检查连续天的 driver 节奏属性，
+    违规时尝试交换相邻天的 driver 来修复。
+
+    硬规则：
+      R1: 相邻两天 experience_family 不能相同
+      R2: 两个 peak 之间至少隔一个 recovery 或 contrast
+      R3: energy_level=high 后面必须跟 medium 或 low
+    """
+    # 构建 cluster_id → 节奏属性映射
+    rhythm_map: dict[str, dict[str, str]] = {}
+    for major in selected_majors:
+        cid = getattr(major, "cluster_id", "")
+        if cid:
+            rhythm_map[cid] = {
+                "experience_family": getattr(major, "experience_family", "") or "",
+                "rhythm_role": getattr(major, "rhythm_role", "") or "",
+                "energy_level": getattr(major, "energy_level", "") or "",
+            }
+
+    if not rhythm_map:
+        return
+
+    def _get_rhythm(frame: DayFrame) -> dict[str, str]:
+        return rhythm_map.get(frame.main_driver or "", {})
+
+    max_passes = 3
+    for pass_num in range(max_passes):
+        violations = _find_rhythm_violations(frames, _get_rhythm)
+        if not violations:
+            return
+
+        result.trace.append(
+            f"rhythm_check pass={pass_num+1} violations={len(violations)}: "
+            + ", ".join(f"{v[0]}@day{v[1]}" for v in violations)
+        )
+
+        fixed_any = False
+        for rule, day_idx, *_ in violations:
+            if _try_swap_to_fix(frames, day_idx, _get_rhythm, rule):
+                fixed_any = True
+                result.trace.append(f"  rhythm_fix: swapped day{day_idx} driver")
+                break  # 每轮只修一个，重新检查
+
+        if not fixed_any:
+            result.trace.append("rhythm_check: unfixable violations remain")
+            return
+
+
+def _find_rhythm_violations(
+    frames: list[DayFrame],
+    get_rhythm,
+) -> list[tuple]:
+    """返回所有节奏违规: [(rule_id, day_index, detail), ...]"""
+    violations = []
+    driven_frames = [f for f in frames if f.main_driver]
+
+    for i in range(len(driven_frames) - 1):
+        curr = get_rhythm(driven_frames[i])
+        next_ = get_rhythm(driven_frames[i + 1])
+        day_idx = driven_frames[i].day_index
+
+        if not curr or not next_:
+            continue
+
+        # R1: 同 experience_family 不连续
+        cf = curr.get("experience_family")
+        nf = next_.get("experience_family")
+        if cf and nf and cf == nf:
+            violations.append(("R1_same_family", day_idx, cf))
+
+        # R2: peak 后面不能紧跟 peak
+        cr = curr.get("rhythm_role")
+        nr = next_.get("rhythm_role")
+        if cr == "peak" and nr == "peak":
+            violations.append(("R2_consecutive_peaks", day_idx))
+
+        # R3: high energy 后面必须跟 medium 或 low
+        ce = curr.get("energy_level")
+        ne = next_.get("energy_level")
+        if ce == "high" and ne == "high":
+            violations.append(("R3_consecutive_high", day_idx))
+
+    return violations
+
+
+def _try_swap_to_fix(
+    frames: list[DayFrame],
+    problem_day: int,
+    get_rhythm,
+    rule: str,
+) -> bool:
+    """
+    尝试将 problem_day 的 driver 与其他非相邻天交换来修复违规。
+    只交换 normal 类型的天，不动 arrival/departure/theme_park。
+    """
+    problem_frame = None
+    for f in frames:
+        if f.day_index == problem_day:
+            problem_frame = f
+            break
+    if not problem_frame or not problem_frame.main_driver:
+        return False
+
+    # 找候选交换天：有 driver、normal 类型、不是 problem_day 本身及其相邻天
+    candidates = [
+        f for f in frames
+        if f.main_driver
+        and f.day_type == "normal"
+        and abs(f.day_index - problem_day) >= 2
+    ]
+
+    old_count = len(_find_rhythm_violations(frames, get_rhythm))
+
+    for candidate in candidates:
+        # 模拟交换
+        _swap_drivers(problem_frame, candidate)
+
+        new_violations = _find_rhythm_violations(frames, get_rhythm)
+        if len(new_violations) < old_count:
+            return True  # 改善了
+
+        # 没用，换回来
+        _swap_drivers(problem_frame, candidate)
+
+    return False
+
+
+def _swap_drivers(a: DayFrame, b: DayFrame) -> None:
+    """交换两个 frame 的 driver 信息。"""
+    (a.main_driver, b.main_driver) = (b.main_driver, a.main_driver)
+    (a.main_driver_name, b.main_driver_name) = (b.main_driver_name, a.main_driver_name)
+    (a.primary_corridor, b.primary_corridor) = (b.primary_corridor, a.primary_corridor)
+    (a.secondary_corridor, b.secondary_corridor) = (b.secondary_corridor, a.secondary_corridor)
+    (a.activity_load_minutes, b.activity_load_minutes) = (b.activity_load_minutes, a.activity_load_minutes)
 
 
 def display_corridor(corridor: str) -> str:

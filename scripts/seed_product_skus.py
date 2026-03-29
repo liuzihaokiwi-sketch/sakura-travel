@@ -22,11 +22,39 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 # ── SKU 定义 ──────────────────────────────────────────────────────────────────
-# 参考 docs/PRODUCT_TIERS_V2.md 第十节
+# 参考 docs/STATUS.md 新定价模型（2026.03 更新）
+#
+# 新定价公式:
+#   base = ¥198（含 3 天）
+#   + ¥20 × max(0, total_days - 3)       按天加价
+#   + ¥29 × max(0, volumes - 1)          拆册费（多册）
+#
+# 三档 SKU: 免费预览 / ¥198 标准版（主推） / ¥888 尊享定制
 
-# ── 新三档 SKU（2026.03 产品重构）────────────────────────────────────────────
-# 免费预览 / ¥248 首发主推 / ¥888 尊享定制
-# 旧 SKU 下线（is_active=False）但保留记录
+# ── 价格计算常量 ──────────────────────────────────────────────────────────────
+BASE_PRICE_CNY = 198          # 基础价（含 3 天）
+BASE_DAYS_INCLUDED = 3        # 基础价包含天数
+EXTRA_DAY_PRICE = 20          # 每多 1 天加价
+SPLIT_BOOK_PRICE = 29         # 拆册费（每多 1 册）
+
+
+def calculate_price(total_days: int, volumes: int = 1) -> float:
+    """
+    计算标准版实际价格。
+
+    Parameters
+    ----------
+    total_days : int  行程总天数（>= 1）
+    volumes    : int  手账本册数（>= 1，默认 1）
+
+    Returns
+    -------
+    float  总价（元）
+    """
+    extra_days = max(0, total_days - BASE_DAYS_INCLUDED)
+    extra_volumes = max(0, volumes - 1)
+    return BASE_PRICE_CNY + EXTRA_DAY_PRICE * extra_days + SPLIT_BOOK_PRICE * extra_volumes
+
 
 SKUS = [
     # ── 免费预览版 ────────────────────────────────────────────
@@ -54,15 +82,14 @@ SKUS = [
             },
         },
     },
-    # ── ¥248 完整攻略·首发特惠（主推） ────────────────────────
+    # ── ¥198 标准版（主推，含 3 天，每多 1 天 +¥20）─────────
     {
-        "sku_id": "standard_248",
+        "sku_id": "standard_198",
         "sku_name": "日本旅行·完整攻略",
-        "price_cny": 248.0,
+        "price_cny": BASE_PRICE_CNY,
         "sku_type": "standard",
         "max_days": 21,
         "features": {
-            "original_price_cny": 368,
             "refine_count": 2,
             "pages_estimate": "30-40",
             "sections": [
@@ -76,14 +103,29 @@ SKUS = [
             "workflow_config": {
                 "mode": "personalized",
                 "allow_custom_days": True,
-                "base_days": 7,
+                "base_days": BASE_DAYS_INCLUDED,
+                "extra_day_price": EXTRA_DAY_PRICE,
+                "split_book_price": SPLIT_BOOK_PRICE,
+            },
+            "pricing": {
+                "base_price_cny": BASE_PRICE_CNY,
+                "base_days_included": BASE_DAYS_INCLUDED,
+                "extra_day_price": EXTRA_DAY_PRICE,
+                "split_book_price": SPLIT_BOOK_PRICE,
+                "formula": "¥198 + ¥20×(天数-3) + ¥29×(册数-1)",
+                "examples": {
+                    "3天1册": "¥198",
+                    "5天1册": "¥238",
+                    "7天1册": "¥278",
+                    "7天2册": "¥307",
+                    "10天2册": "¥367",
+                },
             },
             "display": {
-                "name": "完整攻略·首发特惠",
+                "name": "完整攻略",
                 "tagline": "完整行程 · 每一天都安排好",
                 "badge": "🔥 90%用户选择",
                 "is_featured": True,
-                "original_price_label": "¥368",
             },
         },
     },
@@ -111,7 +153,9 @@ SKUS = [
             "workflow_config": {
                 "mode": "premium",
                 "allow_custom_days": True,
-                "base_days": 7,
+                "base_days": BASE_DAYS_INCLUDED,
+                "extra_day_price": EXTRA_DAY_PRICE,
+                "split_book_price": SPLIT_BOOK_PRICE,
             },
             "display": {
                 "name": "尊享定制版",
@@ -127,6 +171,7 @@ SKUS = [
 LEGACY_SKUS_TO_DEACTIVATE = [
     "basic_20", "flex_68", "standard_128", "deep_298",
     "compare_888", "honeymoon_1999",
+    "standard_248",  # 旧 ¥248 首发特惠版
 ]
 
 

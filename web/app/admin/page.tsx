@@ -95,9 +95,11 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const SKU_LABELS: Record<string, string> = {
-  standard_248: "行程优化版 ¥248",
-  premium_888: "深度管家版 ¥888",
+  standard_198: "完整攻略 ¥198起",
+  standard_248: "行程优化版 ¥248（旧）",
+  premium_888: "尊享定制版 ¥888",
   basic_free: "免费预览",
+  free_preview: "免费预览",
 };
 
 function timeAgo(dateStr: string): string {

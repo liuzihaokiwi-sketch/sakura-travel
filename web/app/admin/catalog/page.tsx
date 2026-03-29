@@ -4,6 +4,379 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// AI Chat 类型
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+interface AIAction {
+  type: "search" | "create" | "update" | "delete" | "boost" | "confirm_needed";
+  params?: Record<string, string>;
+  entity_type?: string;
+  data?: Record<string, unknown>;
+  entity_id?: string;
+  editorial_boost?: number;
+  score_profile?: string;
+  description?: string;
+}
+
+interface AIResponse {
+  reply: string;
+  action: AIAction | null;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// AI Chat Panel 组件
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+function AIChatPanel({
+  activeTab,
+  city,
+  onSearch,
+  onRefresh,
+}: {
+  activeTab: EntityType;
+  city: string;
+  onSearch: (q: string, entityType?: string, cityCode?: string) => void;
+  onRefresh: () => void;
+}) {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  // 待确认的操作
+  const [pendingAction, setPendingAction] = useState<AIAction | null>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
+
+  // 执行 action（search 除外，search 只更新过滤器）
+  const executeAction = useCallback(
+    async (action: AIAction): Promise<string> => {
+      try {
+        if (action.type === "search") {
+          onSearch(
+            action.params?.q ?? "",
+            action.params?.entity_type,
+            action.params?.city_code
+          );
+          return "已更新列表筛选条件。";
+        }
+
+        if (action.type === "create") {
+          const res = await fetch("/api/admin/catalog/entities", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ entity_type: action.entity_type, ...action.data }),
+          });
+          if (!res.ok) {
+            const err = await res.json();
+            return `创建失败：${err.detail ?? err.error ?? res.statusText}`;
+          }
+          onRefresh();
+          return "✅ 创建成功，列表已刷新。";
+        }
+
+        if (action.type === "update") {
+          const res = await fetch(`/api/admin/catalog/entities/${action.entity_id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(action.data),
+          });
+          if (!res.ok) {
+            const err = await res.json();
+            return `修改失败：${err.detail ?? err.error ?? res.statusText}`;
+          }
+          onRefresh();
+          return "✅ 修改成功，列表已刷新。";
+        }
+
+        if (action.type === "delete") {
+          const res = await fetch(`/api/admin/catalog/entities/${action.entity_id}`, {
+            method: "DELETE",
+          });
+          if (!res.ok) {
+            const err = await res.json();
+            return `停用失败：${err.detail ?? err.error ?? res.statusText}`;
+          }
+          onRefresh();
+          return "✅ 已停用，列表已刷新。";
+        }
+
+        if (action.type === "boost") {
+          const res = await fetch(
+            `/api/admin/catalog/entities/${action.entity_id}/score`,
+            {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                editorial_boost: action.editorial_boost,
+                score_profile: action.score_profile ?? "general",
+              }),
+            }
+          );
+          if (!res.ok) {
+            const err = await res.json();
+            return `调权失败：${err.detail ?? err.error ?? res.statusText}`;
+          }
+          onRefresh();
+          return `✅ editorial_boost 已设为 ${action.editorial_boost}，列表已刷新。`;
+        }
+
+        return "未知操作类型。";
+      } catch (e: any) {
+        return `操作出错：${e.message}`;
+      }
+    },
+    [onSearch, onRefresh]
+  );
+
+  const sendMessage = useCallback(
+    async (text: string) => {
+      if (!text.trim() || loading) return;
+      const userMsg: ChatMessage = { role: "user", content: text };
+      const newMessages = [...messages, userMsg];
+      setMessages(newMessages);
+      setInput("");
+      setLoading(true);
+
+      try {
+        const res = await fetch("/api/admin/catalog/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: newMessages,
+            context: {
+              activeTab,
+              currentFilter: city ? { city_code: city } : {},
+            },
+          }),
+        });
+
+        const aiResp: AIResponse = await res.json();
+        let replyText = aiResp.reply;
+
+        if (aiResp.action) {
+          if (aiResp.action.type === "confirm_needed") {
+            // 需要确认，暂存 action 描述，等用户点确认
+            setPendingAction(aiResp.action);
+          } else {
+            // 直接执行
+            const result = await executeAction(aiResp.action);
+            replyText = `${aiResp.reply}\n\n${result}`;
+          }
+        }
+
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: replyText },
+        ]);
+      } catch (e: any) {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: `出错了：${e.message}` },
+        ]);
+      } finally {
+        setLoading(false);
+        inputRef.current?.focus();
+      }
+    },
+    [messages, loading, activeTab, city, executeAction]
+  );
+
+  const handleConfirm = async () => {
+    if (!pendingAction) return;
+    const action = pendingAction;
+    setPendingAction(null);
+
+    // 把确认的 action 发回 AI，让它生成真正的执行 action
+    setLoading(true);
+    const confirmMsg: ChatMessage = {
+      role: "user",
+      content: "确认，请执行。",
+    };
+    const newMessages = [...messages, confirmMsg];
+    setMessages(newMessages);
+
+    try {
+      const res = await fetch("/api/admin/catalog/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: newMessages,
+          context: { activeTab },
+        }),
+      });
+      const aiResp: AIResponse = await res.json();
+      let replyText = aiResp.reply;
+
+      if (aiResp.action && aiResp.action.type !== "confirm_needed") {
+        const result = await executeAction(aiResp.action);
+        replyText = `${aiResp.reply}\n\n${result}`;
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: replyText },
+      ]);
+    } catch (e: any) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: `执行出错：${e.message}` },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const QUICK_PROMPTS = [
+    "找一下当前城市的酒店",
+    "新建一个餐厅",
+    "把某个景点的权重调高",
+    "停用一个重复的条目",
+  ];
+
+  return (
+    <div
+      className="flex flex-col h-full bg-white border-l border-slate-200"
+      style={{ minHeight: 0 }}
+    >
+      {/* 面板头 */}
+      <div className="px-4 py-3 border-b border-slate-200 flex-shrink-0">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs">
+            AI
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-slate-800">AI 内容助手</p>
+            <p className="text-xs text-slate-400">用自然语言增删改查</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 消息区 */}
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ minHeight: 0 }}>
+        {messages.length === 0 && (
+          <div className="space-y-2">
+            <p className="text-xs text-slate-400 text-center py-4">
+              说说你想做什么，例如：
+            </p>
+            {QUICK_PROMPTS.map((p) => (
+              <button
+                key={p}
+                onClick={() => sendMessage(p)}
+                className="w-full text-left px-3 py-2 text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-lg hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 transition-colors"
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`max-w-[85%] px-3 py-2 rounded-xl text-xs leading-relaxed whitespace-pre-wrap ${
+                msg.role === "user"
+                  ? "bg-indigo-600 text-white rounded-br-sm"
+                  : "bg-slate-100 text-slate-800 rounded-bl-sm"
+              }`}
+            >
+              {msg.content}
+            </div>
+          </div>
+        ))}
+
+        {loading && (
+          <div className="flex justify-start">
+            <div className="bg-slate-100 rounded-xl rounded-bl-sm px-3 py-2 flex gap-1 items-center">
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 待确认操作 */}
+        {pendingAction && (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs">
+            <p className="text-amber-800 font-medium mb-2">⚠️ 需要确认</p>
+            <p className="text-amber-700 mb-3">{pendingAction.description}</p>
+            <div className="flex gap-2">
+              <button
+                onClick={handleConfirm}
+                className="px-3 py-1.5 bg-amber-600 text-white rounded-lg text-xs font-medium hover:bg-amber-700"
+              >
+                确认执行
+              </button>
+              <button
+                onClick={() => setPendingAction(null)}
+                className="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs hover:bg-slate-200"
+              >
+                取消
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div ref={bottomRef} />
+      </div>
+
+      {/* 清空按钮 */}
+      {messages.length > 0 && (
+        <div className="px-4 pb-1 flex-shrink-0">
+          <button
+            onClick={() => { setMessages([]); setPendingAction(null); }}
+            className="text-xs text-slate-400 hover:text-slate-600"
+          >
+            清空对话
+          </button>
+        </div>
+      )}
+
+      {/* 输入区 */}
+      <div className="px-4 pb-4 pt-2 border-t border-slate-100 flex-shrink-0">
+        <div className="flex gap-2 items-end">
+          <textarea
+            ref={inputRef}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage(input);
+              }
+            }}
+            placeholder="输入指令… (Enter 发送)"
+            rows={2}
+            className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs resize-none focus:outline-none focus:ring-1 focus:ring-indigo-400 placeholder-slate-400"
+          />
+          <button
+            onClick={() => sendMessage(input)}
+            disabled={!input.trim() || loading}
+            className="px-3 py-2 bg-indigo-600 text-white rounded-lg text-xs font-medium hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+          >
+            发送
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 类型定义
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -808,7 +1181,17 @@ export default function CatalogPage() {
   const [data, setData] = useState<ListResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
+  const [showAI, setShowAI] = useState(true);
   const searchTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // AI 面板触发搜索：更新过滤器
+  const handleAISearch = useCallback((q: string, entityType?: string, cityCode?: string) => {
+    if (entityType && ["hotel", "restaurant", "poi"].includes(entityType)) {
+      setActiveTab(entityType as EntityType);
+    }
+    if (cityCode !== undefined) setCity(cityCode);
+    if (q !== undefined) setQuery(q);
+  }, []);
 
   const LIMIT = 50;
 
@@ -869,10 +1252,10 @@ export default function CatalogPage() {
   const totalPages = data ? Math.ceil(data.total / LIMIT) : 0;
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <header className="bg-white border-b border-slate-200 px-6 py-3 flex-shrink-0">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/admin" className="text-slate-400 hover:text-slate-700 text-sm">← 返回后台</Link>
             <span className="text-slate-300">|</span>
@@ -881,16 +1264,31 @@ export default function CatalogPage() {
               <p className="text-xs text-slate-400">酒店 · 餐厅 · 景点 CRUD 与评分</p>
             </div>
           </div>
-          <button
-            onClick={() => setShowCreate(true)}
-            className="px-3 py-1.5 bg-indigo-600 text-white text-xs rounded-lg hover:bg-indigo-700 font-medium"
-          >
-            ➕ 新建
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowAI((v) => !v)}
+              className={`px-3 py-1.5 text-xs rounded-lg border font-medium transition-colors ${
+                showAI
+                  ? "bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100"
+                  : "bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200"
+              }`}
+            >
+              {showAI ? "✦ AI 助手 ●" : "✦ AI 助手"}
+            </button>
+            <button
+              onClick={() => setShowCreate(true)}
+              className="px-3 py-1.5 bg-indigo-600 text-white text-xs rounded-lg hover:bg-indigo-700 font-medium"
+            >
+              ➕ 新建
+            </button>
+          </div>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6 py-6">
+      {/* 主体：左侧列表 + 右侧 AI 面板 */}
+      <div className="flex flex-1 overflow-hidden" style={{ height: "calc(100vh - 57px)" }}>
+        {/* 左侧列表区 */}
+        <div className="flex-1 overflow-y-auto px-6 py-6" style={{ minWidth: 0 }}>
         {/* 小页签 */}
         <div className="flex gap-1 mb-6 bg-white border border-slate-200 rounded-xl p-1 w-fit">
           {TABS.map((tab) => (
@@ -983,7 +1381,20 @@ export default function CatalogPage() {
             )}
           </>
         )}
-      </div>
+        </div>{/* end 左侧列表区 */}
+
+        {/* 右侧 AI 面板 */}
+        {showAI && (
+          <div className="flex-shrink-0 flex flex-col" style={{ width: "340px" }}>
+            <AIChatPanel
+              activeTab={activeTab}
+              city={city}
+              onSearch={handleAISearch}
+              onRefresh={() => load(true)}
+            />
+          </div>
+        )}
+      </div>{/* end 主体 */}
 
       {/* 新建弹窗 */}
       {showCreate && (

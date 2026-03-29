@@ -49,8 +49,11 @@ class PriceResponse(BaseModel):
     requested_days: int
     extra_days: int
     extra_day_price: float
+    volumes: int = 1
+    split_book_price: float = 0.0
     total_price_cny: float
     currency: str = "CNY"
+    formula: str = ""
 
 
 # ── 辅助函数 ──────────────────────────────────────────────────────────────────
@@ -136,41 +139,42 @@ def _build_description(name: str, price: float, features: dict) -> str:
     return desc
 
 
+# ── 价格常量（与 seed_product_skus.py 保持一致）─────────────────────────────
+_BASE_PRICE_CNY = 198
+_BASE_DAYS_INCLUDED = 3
+_EXTRA_DAY_PRICE = 20
+_SPLIT_BOOK_PRICE = 29
+
 # ── 静态 fallback（DB 为空时返回）────────────────────────────────────────────
 _FALLBACK_PRODUCTS: List[SkuItem] = [
     SkuItem(
         sku_id="standard_198",
-        name="关西经典·个性化手账本",
-        description="¥198 · 基础 5 天个性化行程，每多 1 天加 ¥20，含杂志级 PDF 手账本。",
+        name="日本旅行·完整攻略",
+        description="¥198起 · 含3天行程，每多1天+¥20，拆册+¥29/册。",
         price_cny=198.0,
-        sku_type="personalized",
-        max_days=10,
+        sku_type="standard",
+        max_days=21,
+        features={
+            "pricing": {
+                "base_price_cny": _BASE_PRICE_CNY,
+                "base_days_included": _BASE_DAYS_INCLUDED,
+                "extra_day_price": _EXTRA_DAY_PRICE,
+                "split_book_price": _SPLIT_BOOK_PRICE,
+                "formula": "¥198 + ¥20×(天数-3) + ¥29×(册数-1)",
+            },
+            "workflow_config": {
+                "mode": "personalized",
+                "allow_custom_days": True,
+                "base_days": _BASE_DAYS_INCLUDED,
+                "extra_day_price": _EXTRA_DAY_PRICE,
+                "split_book_price": _SPLIT_BOOK_PRICE,
+            },
+        },
         includes=["AI 智能行程时间轴", "路线地图", "景点详细信息", "住宿区域建议",
-                  "交通卡攻略", "餐厅推荐报告", "出行前准备攻略", "避坑指南（基础版）"],
-        template_codes=["kansai_classic_5d", "kansai_classic_6d"],
-        supported_scenes=["couple", "family", "solo", "senior"],
-    ),
-    SkuItem(
-        sku_id="quick_98",
-        name="速览版·3天模板行程",
-        description="¥98 · 固定 3 天模板行程，快速上手关西攻略。",
-        price_cny=98.0,
-        sku_type="template",
-        max_days=3,
-        includes=["AI 智能行程时间轴", "路线地图", "景点详细信息", "住宿区域建议",
-                  "基础交通指南", "出行前准备攻略"],
-        template_codes=["kansai_classic_3d"],
-        supported_scenes=["couple", "family", "solo", "senior"],
-    ),
-    SkuItem(
-        sku_id="single_册_29",
-        name="单城单日·拆册版",
-        description="¥29/册 · 单城单日行程，可自由拼装多册。",
-        price_cny=29.0,
-        sku_type="template",
-        max_days=1,
-        includes=["AI 智能行程时间轴", "景点详细信息", "餐厅推荐报告"],
-        template_codes=["kansai_day_single"],
+                  "交通卡攻略", "餐厅推荐报告", "出行前准备攻略", "避坑指南（基础版）",
+                  "拍照攻略", "Plan B 备选方案", "预订优先级提醒", "全程预算参考"],
+        template_codes=["kansai_classic_5d", "kansai_classic_6d",
+                        "tokyo_classic_3d", "tokyo_classic_5d"],
         supported_scenes=["couple", "family", "solo", "senior"],
     ),
 ]
@@ -224,20 +228,22 @@ async def get_product(
     return _sku_to_item(sku)
 
 
-@router.get("/{sku_id}/price", response_model=PriceResponse, summary="计算实际价格（含加天费）")
+@router.get("/{sku_id}/price", response_model=PriceResponse, summary="计算实际价格（含加天费+拆册费）")
 async def calculate_price(
     sku_id: str,
     days: int = Query(..., ge=1, le=90, description="实际出行天数"),
+    volumes: int = Query(1, ge=1, le=10, description="手账本册数（拆册）"),
     db: AsyncSession = Depends(get_db),
 ) -> PriceResponse:
     """
-    计算指定 SKU + 天数的实际价格。
+    计算指定 SKU + 天数 + 册数的实际价格。
 
-    规则:
-    - days <= base_days: 按基础价
-    - days > base_days: base_price + (days - base_days) * extra_day_price
+    新定价公式（2026.03）:
+      total = base_price + max(0, days - base_days) * extra_day_price
+                         + max(0, volumes - 1) * split_book_price
 
-    示例: standard_198 选 7 天 → ¥198 + 2×¥20 = ¥238
+    示例: standard_198 选 7 天 1 册 → ¥198 + 4×¥20 = ¥278
+    示例: standard_198 选 7 天 2 册 → ¥198 + 4×¥20 + 1×¥29 = ¥307
     """
     sku = (await db.execute(
         select(ProductSku).where(
@@ -252,11 +258,13 @@ async def calculate_price(
     features = sku.features or {}
     workflow = features.get("workflow_config", {})
     base_days: int = workflow.get("base_days") or workflow.get("fixed_days") or (sku.max_days or 7)
-    extra_day_price: float = float(workflow.get("extra_day_price", 0))
+    extra_day_price: float = float(workflow.get("extra_day_price", _EXTRA_DAY_PRICE))
+    split_book_price: float = float(workflow.get("split_book_price", _SPLIT_BOOK_PRICE))
     base_price = float(sku.price_cny)
 
     extra_days = max(0, days - base_days)
-    total_price = base_price + extra_days * extra_day_price
+    extra_volumes = max(0, volumes - 1)
+    total_price = base_price + extra_days * extra_day_price + extra_volumes * split_book_price
 
     return PriceResponse(
         sku_id=sku_id,
@@ -265,5 +273,8 @@ async def calculate_price(
         requested_days=days,
         extra_days=extra_days,
         extra_day_price=extra_day_price,
+        volumes=volumes,
+        split_book_price=split_book_price if extra_volumes > 0 else 0.0,
         total_price_cny=round(total_price, 2),
+        formula=f"¥{base_price:.0f} + ¥{extra_day_price:.0f}×{extra_days} + ¥{split_book_price:.0f}×{extra_volumes}",
     )

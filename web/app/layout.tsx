@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import { Suspense } from "react";
 import { Navbar } from "@/components/shared/Navbar";
 import { FloatingCTA } from "@/components/shared/FloatingCTA";
-import { SakuraParticles } from "@/components/shared/SakuraParticles";
 import "@fontsource/noto-serif-sc/400.css";
 import "@fontsource/noto-serif-sc/700.css";
 import "@fontsource/noto-serif-sc/900.css";
@@ -14,16 +13,7 @@ const inter = localFont({
     { path: "../public/fonts/inter-latin-400-normal.woff2", weight: "400", style: "normal" },
     { path: "../public/fonts/inter-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const playfair = localFont({
-  src: [
-    { path: "../public/fonts/playfair-display-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/playfair-display-latin-700-normal.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-display",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -36,9 +26,13 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Sakura Rush 2026 · 全日本樱花追踪",
-  description:
-    "4大权威数据源融合 · 240+赏樱景点 · 每天3次更新 · 精准追樱不踩坑",
+  title: "旅行手账 · AI定制你的旅行规划",
+  description: "一本替你想好一切的旅行手账。路线·餐厅·酒店·预算·Plan B，全部安排好。7天起 ¥198。",
+  openGraph: {
+    title: "旅行手账 · AI定制你的旅行规划",
+    description: "一本替你想好一切的旅行手账。路线·餐厅·酒店·预算·Plan B，全部安排好。",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -49,14 +43,13 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans antialiased bg-warm-50 text-stone-900">
-        <SakuraParticles />
+      <body>
         <Suspense>
           <Navbar />
         </Suspense>
-        <main className="relative z-10 pt-14">{children}</main>
+        <main style={{ paddingTop: "64px" }}>{children}</main>
         <Suspense>
           <FloatingCTA />
         </Suspense>

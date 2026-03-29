@@ -87,7 +87,7 @@ function CardResult({ city, days, origin }: { city: string; days: number; origin
             免费先看第一天
           </div>
           <div style={{ border: "1px solid #334155", borderRadius: 8, padding: "10px 20px", fontSize: 14, color: "#94a3b8" }}>
-            完整版 ¥248
+            完整版 ¥198起
           </div>
         </div>
       </div>

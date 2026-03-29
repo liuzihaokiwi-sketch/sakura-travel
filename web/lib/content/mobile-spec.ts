@@ -118,7 +118,7 @@ export const ACCEPTANCE_CHECKLIST = [
   },
   {
     id: "AC-04",
-    page: "/quiz",
+    page: "/order",
     check: "3 选项题目单列显示，选项高度 ≥ 56px",
     priority: "P0",
   },

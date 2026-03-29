@@ -5,6 +5,14 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { type OrderItem, fetchOrderById, publishOrder, rejectOrder, updateOrderStatus } from "@/lib/admin-api";
 
+const SKU_LABELS: Record<string, string> = {
+  standard_198: "完整攻略 ¥198起",
+  standard_248: "行程优化版 ¥248（旧）",
+  premium_888: "尊享定制版 ¥888",
+  basic_free: "免费预览",
+  free_preview: "免费预览",
+};
+
 /* ── 11 状态完整标签配置 ─────────────────────────────────────────────────────── */
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: string }> = {
@@ -208,20 +216,14 @@ export default function OrderDetailPage() {
   const [order, setOrder] = useState<OrderItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
-  const [formId, setFormId] = useState<string | null>(null);
-  const [formLoading, setFormLoading] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [guideLinkCopied, setGuideLinkCopied] = useState(false);
 
   useEffect(() => {
     fetchOrderById(orderId).then((data) => {
       setOrder(data);
       setLoading(false);
     });
-    // 检查是否已有表单
-    fetch(`/api/detail-forms/by-submission/${orderId}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => { if (d?.form_id) setFormId(d.form_id); })
-      .catch(() => {});
   }, [orderId]);
 
   async function handleAction(action: StatusAction) {
@@ -312,6 +314,25 @@ export default function OrderDetailPage() {
             📋 用户需求
           </h2>
 
+          {/* 计价明细 */}
+          <div className="flex flex-wrap gap-3 mb-4 p-3 bg-slate-50 rounded-xl text-sm">
+            <span className="text-slate-500">SKU：<span className="text-slate-800 font-medium">{SKU_LABELS[order.sku_id] || order.sku_id}</span></span>
+            <span className="text-slate-300">·</span>
+            <span className="text-slate-500">金额：<span className="text-slate-800 font-semibold">¥{order.amount_cny}</span></span>
+            {order.paid_at && (
+              <>
+                <span className="text-slate-300">·</span>
+                <span className="text-slate-500">付款：<span className="text-green-600 font-medium">{new Date(order.paid_at).toLocaleDateString("zh-CN")}</span></span>
+              </>
+            )}
+            {order.payment_channel && (
+              <>
+                <span className="text-slate-300">·</span>
+                <span className="text-slate-500">渠道：<span className="text-slate-700">{order.payment_channel}</span></span>
+              </>
+            )}
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <InfoItem label="姓名" value={order.name || "—"} />
             <InfoItem label="目的地" value={order.destination} highlight />
@@ -379,13 +400,13 @@ export default function OrderDetailPage() {
           )}
 
           {/* done 状态 — 预览按钮 */}
-          {(order.status === "done" || order.status === "delivered") && (
+          {(order.status === "done" || order.status === "delivered") && order.trip_request_id && (
             <div className="mb-4">
               <button
-                onClick={() => window.open(`/plan/${orderId}`, "_blank")}
+                onClick={() => window.open(`/guide/${order.trip_request_id}`, "_blank")}
                 className="w-full py-3 px-4 rounded-xl border-2 border-indigo-200 text-indigo-600 font-semibold text-sm hover:bg-indigo-50 transition-colors flex items-center justify-center gap-2"
               >
-                👁️ 预览攻略
+                👁️ 预览手账
               </button>
             </div>
           )}
@@ -405,26 +426,27 @@ export default function OrderDetailPage() {
           )}
         </div>
 
-        {/* ── 📝 表单管理 ── */}
-        {!isTerminal && (
+        {/* ── 🔗 专属链接 ── */}
+        {!isTerminal && order.trip_request_id && (
           <div className="bg-white rounded-2xl border border-gray-200/60 shadow-sm p-6">
             <h2 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-              📝 详细表单
+              🔗 客户链接
             </h2>
+            <div className="space-y-3">
+              {/* 专属码 */}
+              <div className="flex items-center gap-2 bg-slate-50 rounded-xl px-4 py-3">
+                <span className="text-xs text-slate-400">专属码</span>
+                <span className="font-mono text-sm text-slate-800 flex-1">
+                  {order.trip_request_id}
+                </span>
+              </div>
 
-            {formId ? (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="text-green-500">✓</span>
-                  表单已创建
-                  <span className="font-mono text-xs text-gray-400">#{formId.slice(0, 8)}</span>
-                </div>
-
-                {/* 复制链接按钮 */}
+              {/* 填表链接（paid → detail_filling 状态发给用户） */}
+              {["paid", "detail_filling", "detail_submitted", "needs_fix", "validating", "validated"].includes(order.status) && (
                 <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => {
-                      const url = `${window.location.origin}/detail-form/${formId}`;
+                      const url = `${window.location.origin}/form/${order.trip_request_id}`;
                       navigator.clipboard.writeText(url).then(() => {
                         setLinkCopied(true);
                         setTimeout(() => setLinkCopied(false), 2000);
@@ -432,61 +454,45 @@ export default function OrderDetailPage() {
                     }}
                     className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                   >
-                    {linkCopied ? "✓ 链接已复制！" : "📋 复制表单链接（发给客户）"}
+                    {linkCopied ? "✓ 已复制！" : "📋 复制表单链接（发给客户）"}
                   </button>
                   <button
-                    onClick={() => window.open(`/detail-form/${formId}`, "_blank")}
+                    onClick={() => window.open(`/form/${order.trip_request_id}`, "_blank")}
                     className="py-3 px-4 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 transition-all"
                   >
-                    👁️ 查看/编辑表单
+                    👁️ 查看表单
                   </button>
                 </div>
+              )}
 
-                <p className="text-xs text-gray-400">
-                  💡 客服和用户都可以通过此链接反复修改表单内容，无需登录
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                <p className="text-sm text-gray-500">用户付费后，创建表单并将链接发给客户填写</p>
-                <button
-                  onClick={async () => {
-                    setFormLoading(true);
-                    try {
-                      const res = await fetch(`/api/detail-forms/${orderId}/create`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ submission_id: orderId }),
+              {/* 手账链接（generating 之后发给用户） */}
+              {["generating", "done", "delivered", "using"].includes(order.status) && (
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    onClick={() => {
+                      const url = `${window.location.origin}/guide/${order.trip_request_id}`;
+                      navigator.clipboard.writeText(url).then(() => {
+                        setGuideLinkCopied(true);
+                        setTimeout(() => setGuideLinkCopied(false), 2000);
                       });
-                      if (res.ok) {
-                        const data = await res.json();
-                        setFormId(data.form_id);
-                      } else {
-                        const err = await res.json().catch(() => ({}));
-                        alert(err.detail || "创建失败");
-                      }
-                    } catch {
-                      alert("网络错误，请重试");
-                    }
-                    setFormLoading(false);
-                  }}
-                  disabled={formLoading}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {formLoading ? (
-                    <>
-                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      创建中…
-                    </>
-                  ) : (
-                    "📝 创建详细表单"
-                  )}
-                </button>
-              </div>
-            )}
+                    }}
+                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    {guideLinkCopied ? "✓ 已复制！" : "📋 复制手账链接（发给客户）"}
+                  </button>
+                  <button
+                    onClick={() => window.open(`/guide/${order.trip_request_id}`, "_blank")}
+                    className="py-3 px-4 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 transition-all"
+                  >
+                    👁️ 预览手账
+                  </button>
+                </div>
+              )}
+
+              <p className="text-xs text-gray-400">
+                💡 用户用专属码访问，无需登录。表单链接 → 填写偏好；手账链接 → 查看内容。
+              </p>
+            </div>
           </div>
         )}
 

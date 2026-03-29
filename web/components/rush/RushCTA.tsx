@@ -3,7 +3,7 @@
 /**
  * RushCTA.tsx — M2: 定制服务 CTA Section
  * 包含: 痛点 + 流程 + 微信复制按钮 + 信任标签
- * CTA 按钮跳转到 /quiz
+ * CTA 按钮跳转到 /order
  * Client Component（微信复制需要 navigator.clipboard）
  */
 
@@ -162,7 +162,7 @@ export default function RushCTA() {
 
             {/* 前往问卷 */}
             <Link
-              href="/quiz"
+              href="/order"
               className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95"
             >
               🌸 免费定制行程 →

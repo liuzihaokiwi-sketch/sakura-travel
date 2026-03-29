@@ -107,6 +107,21 @@ async def build_plan_b_for_day(
                     "replacement_entity_id": str(easy_alt["entity_id"]),
                 })
 
+        # ── 预约失败替代规则 ──────────────────────────────────────────────────
+        if _needs_booking(ent, poi):
+            booking_alt = await _find_booking_alternative(
+                session, ent.entity_id, ent.entity_type,
+                ent.city_code, area, category, budget_level
+            )
+            if booking_alt:
+                plan_b_options.append({
+                    "trigger": "预约失败",
+                    "alternative": f"{slot.title}约不到，改去{booking_alt['name_zh']}（同类型，无需预约或更易约）",
+                    "entity_ids": [slot.entity_id, str(booking_alt["entity_id"])],
+                    "original_entity_id": slot.entity_id,
+                    "replacement_entity_id": str(booking_alt["entity_id"]),
+                })
+
     return plan_b_options
 
 
@@ -125,6 +140,90 @@ def _is_high_intensity(ent: Any, poi: Any) -> bool:
         dur = poi.typical_duration_min or 0
         return dur > 180  # 超过3小时通常体力消耗较大
     return False
+
+
+def _needs_booking(ent: Any, poi: Any) -> bool:
+    """判断实体是否需要预约（预约失败时需要替代方案）。"""
+    booking = getattr(ent, "booking_method", None) or ""
+    if booking in ("online_advance", "phone", "impossible"):
+        return True
+    risk_flags = getattr(ent, "risk_flags", None) or []
+    if "requires_reservation" in risk_flags:
+        return True
+    if poi and getattr(poi, "requires_advance_booking", False):
+        return True
+    return False
+
+
+async def _find_booking_alternative(
+    session: Any,
+    exclude_id: Any,
+    entity_type: str,
+    city_code: str,
+    area: str,
+    category: str,
+    budget_level: str,
+) -> dict | None:
+    """找一个同类型但不需要预约（或更容易预约）的替代。"""
+    from sqlalchemy import text
+    try:
+        # 对 POI：同类别优先，退而求其次同区域
+        # 对 Restaurant：同城同区域，booking_method = walk_in 优先
+        if entity_type == "restaurant":
+            result = await session.execute(
+                text("""
+                    SELECT eb.entity_id, eb.name_zh, eb.area_name
+                    FROM entity_base eb
+                    JOIN restaurants r ON r.entity_id = eb.entity_id
+                    WHERE eb.city_code = :city_code
+                      AND eb.entity_id != :exclude_id
+                      AND eb.is_active = true
+                      AND eb.quality_tier IN ('S', 'A', 'B')
+                      AND (r.requires_reservation = false
+                           OR eb.booking_method = 'walk_in'
+                           OR eb.booking_method IS NULL)
+                      AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                    ORDER BY
+                      CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
+                      eb.quality_tier
+                    LIMIT 1
+                """),
+                {"city_code": city_code, "exclude_id": exclude_id, "area": area or ""},
+            )
+        else:
+            result = await session.execute(
+                text("""
+                    SELECT eb.entity_id, eb.name_zh, eb.area_name
+                    FROM entity_base eb
+                    LEFT JOIN pois p ON p.entity_id = eb.entity_id
+                    WHERE eb.city_code = :city_code
+                      AND eb.entity_id != :exclude_id
+                      AND eb.entity_type = :entity_type
+                      AND eb.is_active = true
+                      AND eb.quality_tier IN ('S', 'A', 'B')
+                      AND (eb.booking_method IS NULL
+                           OR eb.booking_method = 'walk_in')
+                      AND (p.requires_advance_booking = false
+                           OR p.requires_advance_booking IS NULL)
+                      AND (:category = '' OR p.poi_category = :category OR p.poi_category IS NULL)
+                      AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                    ORDER BY
+                      CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
+                      CASE WHEN p.poi_category = :category THEN 0 ELSE 1 END,
+                      eb.quality_tier
+                    LIMIT 1
+                """),
+                {
+                    "city_code": city_code, "exclude_id": exclude_id,
+                    "entity_type": entity_type, "area": area or "",
+                    "category": category or "",
+                },
+            )
+        row = result.mappings().first()
+        return dict(row) if row else None
+    except Exception as e:
+        logger.debug("预约替代查询失败: %s", e)
+        return None
 
 
 async def _find_indoor_alternative(

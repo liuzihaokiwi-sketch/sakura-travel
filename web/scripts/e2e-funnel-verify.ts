@@ -133,7 +133,7 @@ async function main() {
 
     // ── 2. 问卷页 ──────────────────────────────────────────────
     console.log("\n📋 问卷页检查");
-    await checkPage(page, "问卷页加载", "/quiz", {
+    await checkPage(page, "问卷页加载", "/order", {
       textContains: ["你想去哪里"],
     });
 
@@ -146,7 +146,7 @@ async function main() {
     // ── 4. 价格页 ──────────────────────────────────────────────
     console.log("\n💰 价格页检查");
     await checkPage(page, "价格页加载", "/pricing", {
-      textContains: ["248"],
+      textContains: ["198"],
     });
 
     // ── 5. 交付页（正常模式）────────────────────────────────
@@ -198,7 +198,7 @@ async function main() {
     await checkPage(page, "首页（移动端）", "/", {
       textContains: ["你的日本行程"],
     });
-    await checkPage(page, "问卷（移动端）", "/quiz", {
+    await checkPage(page, "问卷（移动端）", "/order", {
       textContains: ["你想去哪里"],
     });
     await checkPage(page, "交付页（移动端）", "/plan/demo-001", {

@@ -36,9 +36,9 @@ const DEVICES = [
 
 const PAGES = [
   { path: "/",                        name: "首页",         text: ["你的日本行程"] },
-  { path: "/quiz",                    name: "问卷",         text: ["你想去哪里"] },
+  { path: "/order",                    name: "问卷",         text: ["你想去哪里"] },
   { path: "/submitted?id=test",       name: "提交成功",     text: ["已收到你的需求"] },
-  { path: "/pricing",                 name: "价格页",       text: ["248"] },
+  { path: "/pricing",                 name: "价格页",       text: ["198"] },
   { path: "/plan/demo-001",           name: "交付页",       text: ["东京 7 日"] },
   { path: "/plan/demo-001?mode=preview", name: "预览页",    text: ["免费预览"] },
   { path: "/custom",                  name: "定制服务",     text: ["微信"] },

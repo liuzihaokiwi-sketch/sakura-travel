@@ -29,11 +29,18 @@ logger = logging.getLogger(__name__)
 # 基于 design.md 的 D1 部分配置模型
 PRODUCT_CONFIGS = [
     {
-        "config_key": "sku_standard_248",
+        "config_key": "sku_standard_198",
         "config_value": {
-            "sku_id": "standard_248",
+            "sku_id": "standard_198",
             "display_name": "标准版",
-            "price_cny": 248,
+            "price_cny": 198,
+            "pricing": {
+                "base_price_cny": 198,
+                "base_days_included": 3,
+                "extra_day_price": 20,
+                "split_book_price": 29,
+                "formula": "¥198 + ¥20×(天数-3) + ¥29×(册数-1)",
+            },
             "preview": {
                 "days_shown": 1,
                 "modules_shown": [
@@ -71,7 +78,8 @@ PRODUCT_CONFIGS = [
             "copywriting": {
                 "tagline": "完整行程 + 随时问我",
                 "value_props": [
-                    "5-7天完整规划",
+                    "¥198起（含3天）",
+                    "每多1天+¥20",
                     "餐厅精选+避坑",
                     "2次深度修改",
                     "无限微信咨询"
@@ -79,7 +87,7 @@ PRODUCT_CONFIGS = [
                 "cta_text": "立即获取完整方案"
             }
         },
-        "version": 1,
+        "version": 2,
         "is_active": True
     },
     {

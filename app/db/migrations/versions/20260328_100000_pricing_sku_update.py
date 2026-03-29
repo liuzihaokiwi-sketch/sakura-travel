@@ -112,7 +112,7 @@ def upgrade() -> None:
                 INSERT INTO product_sku
                     (sku_id, sku_name, price_cny, sku_type, max_days, features, is_active)
                 VALUES
-                    (:sku_id, :sku_name, :price_cny, :sku_type, :max_days, :features::jsonb, true)
+                    (:sku_id, :sku_name, :price_cny, :sku_type, :max_days, cast(:features as jsonb), true)
                 ON CONFLICT (sku_id) DO UPDATE SET
                     sku_name    = EXCLUDED.sku_name,
                     price_cny   = EXCLUDED.price_cny,

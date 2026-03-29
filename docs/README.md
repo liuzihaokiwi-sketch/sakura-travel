@@ -1,17 +1,33 @@
 # Travel AI — 文档索引
 
-## 核心文档（5篇，必读）
+## 核心文档
 
 | 文件 | 内容 |
 |------|------|
 | [ARCHITECTURE.md](ARCHITECTURE.md) | 系统架构：主链6步、6大子系统、评分机制、关键边界 |
 | [DECISIONS.md](DECISIONS.md) | 关键决策记录（14条）：每个重大选择的背景、理由、后果 |
-| [STATUS.md](STATUS.md) | 当前状态：上线路线图、并行任务排列、验收里程碑 |
+| [STATUS.md](STATUS.md) | 当前状态：系统成熟度、MVP定义、剩余工作 |
 | [DATA_STRATEGY.md](DATA_STRATEGY.md) | 数据策略：采集渠道、质量档位、避雷机制、多样性、更新频率 |
-| [GROWTH_MODULES.md](GROWTH_MODULES.md) | 增长模块设计：营销内容生成 + 独立工具页（流量磁铁） |
-| [FRONTEND_REDESIGN.md](FRONTEND_REDESIGN.md) | 前端重构设计：页面结构、UI参考、色彩体系、核心页面wireframe |
-| [TASKS_GROWTH.md](TASKS_GROWTH.md) | 增长模块任务清单：Sonnet 可直接执行 |
-| [TASKS_FRONTEND.md](TASKS_FRONTEND.md) | 前端重构任务清单：4批次、含 Sonnet 配置和并行计划 |
+
+## 前端
+
+| 文件 | 内容 |
+|------|------|
+| [FRONTEND_DESIGN_SPEC.md](FRONTEND_DESIGN_SPEC.md) | 前端完整设计规范：重构背景、设计参考、站点地图、每页详细设计、色彩方案 |
+| [TASKS_FRONTEND.md](TASKS_FRONTEND.md) | 前端重构任务清单：4批次、Sonnet 可直接执行 |
+
+## 增长与运营
+
+| 文件 | 内容 |
+|------|------|
+| [GROWTH.md](GROWTH.md) | 增长模块设计+任务清单：营销内容生成、工具页、UTM追踪（Sonnet 可直接执行） |
+| [OPS_GUIDE.md](OPS_GUIDE.md) | 运营手册：后台操作 + 异常处理 SOP + 日常巡检 |
+
+## 活动系统
+
+| 文件 | 内容 |
+|------|------|
+| [TASKS_ACTIVITY_SYSTEM.md](TASKS_ACTIVITY_SYSTEM.md) | 活动簇系统问题清单与修复任务 |
 
 ## 城市圈数据（编辑实体数据时参考）
 
@@ -47,11 +63,8 @@
 
 ## 素材目录
 
-`assets/` — 手账本插画/图片素材，按城市圈 → 类型（成品/素材）组织。目前仅北海道有素材。
+`assets/` — 手账本插画/图片素材，按城市圈 → 类型组织。目前仅北海道有素材。
 
 ## 归档
 
-`_archive/` — 历史文档，不作为当前决策依据。
-- `architecture/` — 旧14篇架构文档集
-- `legacy/` — 旧13篇系统文档 + Layer设计方案
-- `design_notes/` — 生成流程设计、旅行前指引模块、软硬规则说明等设计讨论
+`_archive/` — 历史文档，不作为当前决策依据。含旧架构文档、旧系统文档、设计讨论、已实现的设计文档（Plan B、节奏编排、旧前端重构背景等）。

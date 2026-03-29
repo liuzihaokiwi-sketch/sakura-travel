@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app.core.logging_config import setup_logging
-from app.core.rate_limit import RateLimitMiddleware
+from app.core.rate_limiter import RateLimitMiddleware, InMemoryBackend
 from app.core.sentry import init_sentry
 from app.api import trips
 from app.api import trips_generate
@@ -94,7 +94,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.add_middleware(RateLimitMiddleware)
+app.add_middleware(RateLimitMiddleware, backend=InMemoryBackend())
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(chat.router)                              # /chat/*

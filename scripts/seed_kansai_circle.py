@@ -101,6 +101,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_higashiyama_gion_classic",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·东山祇园经典线",
         "name_en": "Kyoto Higashiyama & Gion Classic",
         "level": "S",
@@ -120,6 +121,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_arashiyama_sagano",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·岚山嵯峨野线",
         "name_en": "Kyoto Arashiyama & Sagano",
         "level": "S",
@@ -139,6 +141,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_fushimi_inari",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·伏见稻荷",
         "name_en": "Kyoto Fushimi Inari",
         "level": "S",
@@ -159,6 +162,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_kinkakuji_kinugasa",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·金阁寺衣笠线",
         "name_en": "Kyoto Kinkakuji & Kinugasa",
         "level": "A",
@@ -178,6 +182,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_philosopher_path_nanzen",
         "circle_id": "kansai_classic_circle",
+        "city_code": "kyoto",
         "name_zh": "京都·哲学之道南禅寺线",
         "name_en": "Kyoto Philosopher's Path & Nanzenji",
         "level": "A",
@@ -197,6 +202,7 @@ CLUSTERS = [
     {
         "cluster_id": "kyo_nara_day_trip",
         "circle_id": "kansai_classic_circle",
+        "city_code": "nara",
         "name_zh": "奈良日归（从京都/大阪）",
         "name_en": "Nara Day Trip",
         "level": "A",
@@ -218,6 +224,7 @@ CLUSTERS = [
     {
         "cluster_id": "osa_dotonbori_minami_food",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·道顿堀南区美食夜游",
         "name_en": "Osaka Dotonbori & Minami Food Night",
         "level": "S",
@@ -237,6 +244,7 @@ CLUSTERS = [
     {
         "cluster_id": "osa_usj_themepark",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·USJ 环球影城",
         "name_en": "Osaka Universal Studios Japan",
         "level": "S",
@@ -257,6 +265,7 @@ CLUSTERS = [
     {
         "cluster_id": "osa_osaka_castle_tenmabashi",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·大阪城天满桥线",
         "name_en": "Osaka Castle & Tenmabashi",
         "level": "A",
@@ -276,6 +285,7 @@ CLUSTERS = [
     {
         "cluster_id": "osa_shinsekai_tenno",
         "circle_id": "kansai_classic_circle",
+        "city_code": "osaka",
         "name_zh": "大阪·新世界天王寺线",
         "name_en": "Osaka Shinsekai & Tenoji",
         "level": "B",

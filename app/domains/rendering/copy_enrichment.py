@@ -44,7 +44,10 @@ async def enrich_page_copy(
             tasks.append(_enrich_cover(vm, planning_output))
 
     if tasks:
-        await asyncio.gather(*tasks, return_exceptions=True)
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        failures = sum(1 for r in results if isinstance(r, Exception))
+        if failures:
+            logger.warning("[CopyEnrichment] %d/%d enrichment tasks failed", failures, len(tasks))
 
     logger.info("[CopyEnrichment] enriched %d pages", len(tasks))
     return page_models
@@ -77,7 +80,7 @@ async def _enrich_day_execution(vm: Any, planning_output: Any) -> None:
             mood = ai_copy.get("mood_sentence", mood)
             day_goal = ai_copy.get("day_intro", day_goal)
     except Exception as exc:
-        logger.debug("[CopyEnrichment] AI day copy failed (using rule fallback): %s", exc)
+        logger.warning("[CopyEnrichment] AI day copy failed day=%s (using rule fallback): %s", day_index, exc)
 
     # 写入 editable_content
     ec = _get_field(vm, "editable_content") or {}
@@ -105,7 +108,7 @@ async def _enrich_cover(vm: Any, planning_output: Any) -> None:
         if ai_copy and ai_copy.get("tagline"):
             tagline = ai_copy["tagline"]
     except Exception as exc:
-        logger.debug("[CopyEnrichment] AI cover copy failed (using rule fallback): %s", exc)
+        logger.warning("[CopyEnrichment] AI cover copy failed (using rule fallback): %s", exc)
 
     ec = _get_field(vm, "editable_content") or {}
     if isinstance(vm, dict):
@@ -132,30 +135,45 @@ async def _ai_generate_day_copy(day_index: int, planning_output: Any) -> dict | 
         return None
 
     slot_names = [s.title for s in day.slots[:6]]
-    prompt = (
-        f"为旅行手账第 {day_index} 天写一句简短的心情描述和一段简短的日程介绍。\n"
+    persona = _load_persona(planning_output)
+
+    system_prompt = (
+        f"你是{persona['name']}，{persona['bio']}\n\n"
+        "你正在帮朋友写旅行手账。语气像一个去过很多次的朋友在微信上给你划重点——\n"
+        "口语化、有画面感、偶尔带一点小得意（\"这个我私藏很久了\"），但绝不做作。\n"
+        "避免：旅游广告腔（\"感受当地风情\"）、空洞形容词（\"美丽的\"\"壮观的\"）、感叹号堆砌。\n"
+        "好的例子：\"岚山早上人少得离谱，趁这会儿慢慢走\" \"这天节奏松，睡到自然醒也来得及\"\n"
+        "差的例子：\"今天我们将开启一段美好的旅程！\" \"感受千年古都的魅力\""
+    )
+
+    user_prompt = (
+        f"手账第 {day_index} 天：\n"
         f"区域: {day.primary_area}\n"
         f"节奏: {day.intensity}\n"
-        f"景点: {', '.join(slot_names)}\n"
-        f"要求: 口语化，温暖，不超过30字。\n"
-        f"返回 JSON: {{\"mood_sentence\": \"...\", \"day_intro\": \"...\"}}"
+        f"安排: {', '.join(slot_names)}\n\n"
+        "请写：\n"
+        "1. mood_sentence — 这天的一句话心情/氛围（15字以内，像朋友随口说的）\n"
+        "2. day_intro — 这天的简介（30-50字，划重点式，告诉朋友今天怎么玩）\n\n"
+        "返回 JSON: {\"mood_sentence\": \"...\", \"day_intro\": \"...\"}"
     )
 
     try:
         import json
         response = await client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
             max_tokens=200,
             temperature=0.7,
         )
         text = response.choices[0].message.content.strip()
-        # 提取 JSON
         if "{" in text:
             json_str = text[text.index("{"):text.rindex("}") + 1]
             return json.loads(json_str)
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.warning("[CopyEnrichment] AI day copy API/parse error: %s", exc)
     return None
 
 
@@ -170,21 +188,32 @@ async def _ai_generate_cover_copy(planning_output: Any) -> dict | None:
     dest = planning_output.meta.destination
     days = planning_output.meta.total_days
     party = planning_output.profile_summary.party_type
+    persona = _load_persona(planning_output)
 
-    prompt = (
-        f"为一本旅行手账写一句封面标语。\n"
+    system_prompt = (
+        f"你是{persona['name']}，{persona['bio']}\n\n"
+        "你在帮朋友做一本旅行手账的封面标语。\n"
+        "风格：简洁、有期待感、稍带文艺但不矫情。像在手账封面用好看的字写下的一句话。\n"
+        "好的例子：\"京都的风，大阪的胃\" \"五天四夜，把关西装进口袋\" \"带着好胃口出发\"\n"
+        "差的例子：\"开启一段难忘的旅程\" \"感受日本文化的魅力\""
+    )
+
+    user_prompt = (
         f"目的地: {dest}\n"
-        f"天数: {days}\n"
-        f"同行: {party}\n"
-        f"要求: 文艺感，不超过15字。\n"
-        f"返回 JSON: {{\"tagline\": \"...\"}}"
+        f"天数: {days}天\n"
+        f"同行: {party}\n\n"
+        "写一句封面标语，15字以内。\n"
+        "返回 JSON: {\"tagline\": \"...\"}"
     )
 
     try:
         import json
         response = await client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
             max_tokens=100,
             temperature=0.8,
         )
@@ -192,9 +221,41 @@ async def _ai_generate_cover_copy(planning_output: Any) -> dict | None:
         if "{" in text:
             json_str = text[text.index("{"):text.rindex("}") + 1]
             return json.loads(json_str)
+    except Exception as exc:
+        logger.warning("[CopyEnrichment] AI cover copy API/parse error: %s", exc)
+    return None
+
+
+def _load_persona(planning_output: Any) -> dict[str, str]:
+    """从 circle_content 加载角色信息，失败时返回通用默认值。"""
+    default = {
+        "name": "小旅",
+        "bio": '你热爱旅行，去过无数次，对每个街区了如指掌，特别懂得如何在"不踩坑"和"有惊喜"之间找到平衡。',
+    }
+    try:
+        from app.domains.planning.circle_content import get_circle_content, get_circle_family_from_circle_id
+        # 从 meta.circle（SelectedCircleInfo）取 circle_id
+        circle_id = ""
+        circle = getattr(planning_output.meta, "circle", None)
+        if circle:
+            circle_id = getattr(circle, "circle_id", "") or ""
+        # fallback: 从 circles 列表取
+        if not circle_id:
+            circles = getattr(planning_output, "circles", []) or []
+            if circles:
+                circle_id = getattr(circles[0], "circle_id", "") or ""
+        if not circle_id:
+            return default
+        circle_family = get_circle_family_from_circle_id(circle_id)
+        content = get_circle_content(circle_family)
+        if content:
+            return {
+                "name": content.persona_name,
+                "bio": content.persona_bio,
+            }
     except Exception:
         pass
-    return None
+    return default
 
 
 def _get_field(obj: Any, field: str) -> Any:

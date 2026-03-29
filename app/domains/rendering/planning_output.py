@@ -206,11 +206,18 @@ async def build_planning_output(
 
                     advance_days = getattr(sub, "advance_booking_days", None) if sub else None
                     booking_url = getattr(sub, "booking_url", None) if sub else None
+                    queue_wait = getattr(sub, "queue_wait_typical_min", None) if sub else None
+
                     deadline_hint = ""
                     if advance_days and advance_days > 0:
                         deadline_hint = f"建议出发前 {advance_days} 天预约"
                     elif advance_days == 0:
                         deadline_hint = "可当天预约"
+
+                    # D4: 计算实际截止日期 deadline_date
+                    deadline_date = _compute_deadline_date(
+                        profile, day.day_number, advance_days,
+                    )
 
                     booking_level = (
                         "must_book" if booking_method == "online_advance"
@@ -218,8 +225,16 @@ async def build_planning_output(
                     )
                     all_booking_alerts.append(BookingAlertItem(
                         entity_id=str(ent.entity_id),
+                        entity_name=name,
+                        entity_type=ent.entity_type or "",
                         label=f"{name}{'（预约链接）' if booking_url else ''}",
                         booking_level=booking_level,
+                        booking_method=booking_method,
+                        booking_url=booking_url,
+                        advance_booking_days=advance_days,
+                        visit_day=day.day_number,
+                        deadline_date=deadline_date,
+                        queue_wait_min=queue_wait,
                         deadline_hint=deadline_hint,
                         impact_if_missed="可能无法入场或排队时间超长",
                         fallback_label=booking_url,
@@ -259,14 +274,23 @@ async def build_planning_output(
                     },
                 ))
 
-            # 构建 selection_evidence
+            # 构建 selection_evidence（E2: 自动查找本地成品图）
             if ent:
+                hero_url = None
+                try:
+                    from app.domains.rendering.asset_loader import find_asset_url
+                    cat = "food" if ent.entity_type == "restaurant" else (
+                        "hotels" if ent.entity_type == "hotel" else "spots"
+                    )
+                    hero_url = find_asset_url(circle_id, name, category=cat)
+                except Exception as _asset_err:
+                    logger.warning("图片资源查找失败 entity=%s: %s", name, _asset_err)
                 evidence_items.append({
                     "entity_id": str(item.entity_id),
                     "name": name,
                     "entity_type": ent.entity_type,
                     "area": area,
-                    "hero_image_url": None,
+                    "hero_image_url": hero_url,
                     "orientation": "landscape",
                     "why_selected": notes.get("copy_zh", ""),
                 })
@@ -301,7 +325,7 @@ async def build_planning_output(
                 session, slots, frame.get("primary_corridor") or day.city_code or "", budget_level
             )
         except Exception as _pb_err:
-            logger.debug("Plan B 生成跳过: %s", _pb_err)
+            logger.warning("Plan B 生成失败 day=%s: %s", day.day_number, _pb_err)
 
         from app.domains.planning.report_schema import PlanBOption
         plan_b = [
@@ -478,16 +502,41 @@ async def build_planning_output(
         from app.domains.planning.circle_knowledge import get_circle_knowledge
         knowledge = get_circle_knowledge(circle_id)
         if knowledge:
-            # 将知识包转为 prep_notes 格式（取交通卡+支付两个核心 section）
             sections = knowledge.get("sections", {})
+            # 遍历所有知识 section，合并 items + tips 为 flat list（兼容旧渲染）
+            _ALL_SECTION_KEYS = (
+                "airport_transport", "ic_card", "communication",
+                "luggage", "payment", "useful_apps", "emergency", "seasonal_tips",
+            )
             combined_items: list[str] = []
-            for section_key in ("ic_card", "payment", "luggage", "communication"):
+            knowledge_sections: list[dict] = []
+            for section_key in _ALL_SECTION_KEYS:
                 sec = sections.get(section_key, {})
-                if sec:
-                    combined_items.append(f"【{sec.get('title', section_key)}】")
-                    combined_items.extend(sec.get("tips", []))
+                if not sec:
+                    continue
+                title = sec.get("title", section_key)
+                items = sec.get("items", [])
+                tips = sec.get("tips", [])
+                # flat list：section header + items + tips
+                combined_items.append(f"【{title}】")
+                combined_items.extend(items)
+                if tips:
+                    combined_items.extend(tips)
+                # structured sections：供 view model 按 section 渲染
+                knowledge_sections.append({
+                    "key": section_key,
+                    "title": title,
+                    "items": items,
+                    "tips": tips,
+                })
+            dest_name = destination or circle_id or "出行"
             if combined_items:
-                prep_notes = {"title": "关西出行准备", "items": combined_items, "knowledge": knowledge}
+                prep_notes = {
+                    "title": f"{dest_name}出行准备",
+                    "items": combined_items,
+                    "knowledge": knowledge,
+                    "knowledge_sections": knowledge_sections,
+                }
     except Exception:
         # fallback：尝试旧的 circle_content
         try:
@@ -582,6 +631,41 @@ def _parse_notes(notes_zh: Any) -> dict:
     except (json.JSONDecodeError, TypeError):
         pass
     return {}
+
+
+def _compute_deadline_date(
+    profile: Any,
+    visit_day_number: int,
+    advance_booking_days: int | None,
+) -> str | None:
+    """
+    D4: 用 departure_date + visit_day + advance_booking_days 计算
+    实际截止预约日期 (YYYY-MM-DD)。
+
+    departure_date 来自 profile.travel_dates.start；
+    visit_day_number 是行程的第几天（1-based）；
+    advance_booking_days 是建议提前天数。
+
+    返回 None 当信息不足时。
+    """
+    if advance_booking_days is None or advance_booking_days < 0:
+        return None
+    from datetime import datetime as _dt, timedelta as _td
+    travel_dates = getattr(profile, "travel_dates", None) or {}
+    if isinstance(travel_dates, dict):
+        start_str = travel_dates.get("start", "")
+    else:
+        start_str = ""
+    if not start_str:
+        return None
+    try:
+        trip_start = _dt.strptime(str(start_str), "%Y-%m-%d").date()
+    except (ValueError, TypeError):
+        return None
+    # visit_date = trip_start + (visit_day_number - 1)
+    visit_date = trip_start + _td(days=visit_day_number - 1)
+    deadline = visit_date - _td(days=advance_booking_days)
+    return deadline.isoformat()
 
 
 _MOOD_MAP = {

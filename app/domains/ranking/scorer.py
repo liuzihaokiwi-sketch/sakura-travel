@@ -439,6 +439,13 @@ def compute_base_score(
     # Step 7: 叠加 boost 得到 final_score（boost 在 base 上直接加）
     final_score = apply_editorial_boost(base_score, signals.editorial_boost)
 
+    # Step 8: 轮转百分比降权（与 Step 4 的绝对扣分互补）
+    from app.domains.ranking.rotation import apply_rotation_penalty
+    final_score_before_rotation_pct = final_score
+    final_score = apply_rotation_penalty(final_score, signals.recommendation_count_30d)
+    rotation_pct_applied = round(final_score_before_rotation_pct - final_score, 2)
+    breakdown["rotation_pct_penalty"] = rotation_pct_applied
+
     return ScoreResult(
         entity_type=entity_type,
         score_profile=score_profile,

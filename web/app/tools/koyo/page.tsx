@@ -182,7 +182,7 @@ export default function KoyoPage() {
           精确到每日路线 · 含交通换乘 · 推荐餐厅 · 30-40页手册
         </p>
         <Link
-          href="/quiz?from=koyo_tool"
+          href="/order"
           className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
         >
           免费定制行程 →

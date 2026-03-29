@@ -56,13 +56,13 @@ function Day1Landing({ data }: { data: ShareCardData }) {
         ))}
       </div>
 
-      <Link href={data.plan_id ? `/preview/${data.plan_id}` : "/quiz"}>
+      <Link href={data.plan_id ? "/order" : "/order"}>
         <Button variant="warm" size="lg" className="w-full">
           🆓 免费查看第一天行程 →
         </Button>
       </Link>
       <p className="text-center text-xs text-stone-400">
-        或者 <Link href="/quiz" className="underline">填写我的出行信息，生成专属方案</Link>
+        或者 <Link href="/order" className="underline">填写我的出行信息，生成专属方案</Link>
       </p>
     </div>
   );
@@ -108,13 +108,13 @@ function InviteLanding({ data }: { data: ShareCardData }) {
         </div>
       )}
 
-      <Link href={`/quiz?invite=${data.invite_code ?? ""}`}>
+      <Link href="/order">
         <Button variant="warm" size="lg" className="w-full">
           🆓 免费试试，填写出行信息 →
         </Button>
       </Link>
       <p className="text-center text-xs text-stone-400">
-        免费看第一天 · 满意再付费 ¥{248 - (data.discount ?? 20)}（已减）
+        免费看第一天 · 满意再付费 ¥198起
       </p>
     </div>
   );
@@ -133,7 +133,7 @@ function GenericLanding({ data }: { data: ShareCardData }) {
         </p>
       </div>
 
-      <Link href="/quiz">
+      <Link href="/order">
         <Button variant="warm" size="lg" className="w-full">
           🆓 免费生成我的专属行程 →
         </Button>
@@ -188,7 +188,7 @@ export default function SharePage({ params }: { params: { card_id: string } }) {
             </p>
           </motion.div>
           <motion.div variants={fadeInUp}>
-            <Link href="/quiz">
+            <Link href="/order">
               <Button variant="warm" size="lg" className="w-full">
                 🆓 免费生成我的专属行程 →
               </Button>

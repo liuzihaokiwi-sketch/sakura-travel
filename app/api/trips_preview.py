@@ -246,7 +246,7 @@ async def get_preview_data(
     preview_cfg = config.get("preview", {})
     lock_ratio = preview_cfg.get("lock_ratio", 0.35)
     teaser_templates = preview_cfg.get("lock_teaser_templates", [])
-    default_sku_key = preview_cfg.get("default_sku", "premium_248")
+    default_sku_key = preview_cfg.get("default_sku", "standard_198")
     sku_data = config.get("skus", {}).get(default_sku_key, {})
 
     # ── 构建输出 ──
@@ -306,7 +306,7 @@ async def get_preview_data(
         preview_day_index=selected_idx,
         days=days_out,
         sku=SkuOut(
-            price=sku_data.get("price", 248),
+            price=sku_data.get("price", 198),
             name=sku_data.get("name", "日本定制行程"),
             tagline=sku_data.get("tagline", ""),
             cta_text=sku_data.get("cta_text", "解锁完整方案"),

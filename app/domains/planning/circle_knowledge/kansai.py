@@ -29,13 +29,14 @@ def get_kansai_knowledge() -> dict[str, Any]:
     """
     return {
         "circle_id": "kansai_classic",
-        "version": "v1.0",
+        "version": "v1.1",
         "sections": {
             "airport_transport": _airport_transport(),
             "ic_card": _ic_card(),
             "communication": _communication(),
             "luggage": _luggage(),
             "payment": _payment(),
+            "useful_apps": _useful_apps(),
             "emergency": _emergency(),
             "seasonal_tips": _seasonal_tips(),
         },
@@ -146,6 +147,26 @@ def _payment() -> dict:
             "锦市场/哲学之道沿途小店多只收现金",
             "拉面、寿司回转等小店大多现金优先",
             "7-11 ATM取款最稳定，24小时可用",
+        ],
+    }
+
+
+def _useful_apps() -> dict:
+    return {
+        "title": "常用 App",
+        "items": [
+            "【Google Maps（必装）】导航+公共交通换乘方案，日本数据极准。",
+            "【Yahoo!乗換案内】日本本土换乘 App，时刻表比 Google Maps 更精准，支持「定期券」等本地功能。",
+            "【Suica / ICOCA App（iPhone）】Apple Wallet 内直接充值 IC 卡，免实体卡。",
+            "【Tabelog（食べログ）】日本最权威餐厅评分，3.5 分以上即可信赖。",
+            "【PayPay】日本扫码支付，部分店铺支持绑定支付宝。",
+            "【翻译：Google Translate / DeepL】拍照翻译菜单；DeepL 翻译更自然。",
+            "【Klook / KKday】提前买门票、一日券、体验类项目，常有折扣。",
+        ],
+        "tips": [
+            "出发前下载好离线地图（Google Maps→关西区域→下载离线地图）",
+            "Tabelog 3.5+ 基本不会踩坑，3.0-3.5 看评论，3.0以下慎入",
+            "景点门票提前在 Klook 买通常比现场便宜 10-20%",
         ],
     }
 

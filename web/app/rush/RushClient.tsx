@@ -301,7 +301,7 @@ export default function RushClient({ data }: { data: RushData }) {
 
       {/* 引流框 */}
       <div className="max-w-7xl mx-auto px-4 pt-2 pb-1">
-        <Link href="/quiz" className="block">
+        <Link href="/order" className="block">
           <div className="flex items-center justify-between bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl px-4 py-3 hover:shadow-md transition-shadow">
             <div>
               <p className="text-sm font-bold text-stone-800">想要一份专属于你的日本行程攻略</p>
