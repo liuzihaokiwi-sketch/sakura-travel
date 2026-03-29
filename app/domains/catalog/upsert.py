@@ -70,6 +70,33 @@ def _filter(data: Dict[str, Any], allowed: set) -> Dict[str, Any]:
     return {k: v for k, v in data.items() if k in allowed}
 
 
+# ── 城市 bbox 校验 ────────────────────────────────────────────────────────────
+# 宽松容差 0.15 度（~17km），覆盖城市边缘和郊区景点
+_BBOX_TOLERANCE = 0.15
+
+
+def _get_city_bbox() -> Dict[str, tuple]:
+    """懒加载 CITY_BBOX（从 web_crawler 拿，避免循环导入用 try）。"""
+    try:
+        from app.domains.catalog.web_crawler import CITY_BBOX
+        return CITY_BBOX
+    except ImportError:
+        return {}
+
+
+def _is_outside_city_bbox(city_code: str, lat: float, lng: float) -> bool:
+    """坐标是否超出城市 bbox + 容差。无 bbox 数据时不判定超出。"""
+    bbox_map = _get_city_bbox()
+    bbox = bbox_map.get(city_code)
+    if not bbox:
+        return False  # 无 bbox 数据，不做判定
+    s, w, n, e = bbox
+    return (
+        lat < s - _BBOX_TOLERANCE or lat > n + _BBOX_TOLERANCE
+        or lng < w - _BBOX_TOLERANCE or lng > e + _BBOX_TOLERANCE
+    )
+
+
 def _sanitize_subtype_data(entity_type: str, data: Dict[str, Any]) -> Dict[str, Any]:
     cleaned = dict(data)
 
@@ -168,17 +195,23 @@ async def upsert_entity(
             if match_type != "exact":
                 data.setdefault("trust_status", "suspicious")
 
-    # ── 坐标校验：0/0 或缺失坐标 → 降级为 suspicious（若调用方未设置 trust_status）
+    # ── 坐标校验：缺失/0,0/超出城市 bbox → 降级为 suspicious ────────────────
     _lat = data.get("lat")
     _lng = data.get("lng")
+    _city = data.get("city_code", "")
+    _coords_suspect = False
     try:
-        _coords_invalid = (
-            _lat is None or _lng is None
-            or (float(_lat) == 0.0 and float(_lng) == 0.0)
-        )
+        if _lat is None or _lng is None:
+            _coords_suspect = True
+        else:
+            _flat, _flng = float(_lat), float(_lng)
+            if _flat == 0.0 and _flng == 0.0:
+                _coords_suspect = True
+            elif _city:
+                _coords_suspect = _is_outside_city_bbox(_city, _flat, _flng)
     except (TypeError, ValueError):
-        _coords_invalid = True
-    if _coords_invalid and "trust_status" not in data:
+        _coords_suspect = True
+    if _coords_suspect and "trust_status" not in data:
         data = dict(data)
         data["trust_status"] = "suspicious"
 

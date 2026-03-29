@@ -9,9 +9,9 @@ Soft Rules Layer – 软规则评分系统 + 混入的其他层级表
   entity_soft_scores, editorial_seed_overrides, soft_rule_explanations,
   segment_weight_packs, audience_fit, soft_rule_feedback_log
 
-已废弃（DEPRECATED，无代码读写）：
+已废弃（DEPRECATED）：
   preview_trigger_scores, swap_candidate_soft_scores,
-  stage_weight_packs, product_config, feature_flags, user_events
+  stage_weight_packs, product_config, feature_flags
 
 归属错误（历史原因留在此文件，逻辑上应属其他层）：
   entity_operating_facts → 应属 catalog 层（营业事实是硬数据）
@@ -498,6 +498,22 @@ class EntityOperatingFact(Base):
     )
 
 
-# product_config / feature_flags / user_events — DEPRECATED model classes removed.
-# DB tables are dropped via migration 20260330_100000_drop_deprecated_tables.
-# If you need these tables back, restore from git history.
+# product_config / feature_flags — DEPRECATED model classes removed.
+
+
+# ── user_events（仍在使用：app/domains/tracking/events.py）─────────────────────
+class UserEvent(Base):
+    """用户事件埋点"""
+
+    __tablename__ = "user_events"
+
+    event_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
+    user_id: Mapped[Optional[uuid.UUID]] = mapped_column(UUID(as_uuid=True), nullable=True)
+    session_id: Mapped[Optional[str]] = mapped_column(String(200), nullable=True)
+    event_type: Mapped[str] = mapped_column(String(100), nullable=False)
+    event_data: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
