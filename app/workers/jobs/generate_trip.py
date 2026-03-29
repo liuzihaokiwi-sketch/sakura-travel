@@ -933,6 +933,7 @@ async def _try_city_circle_pipeline(
         # ── fit scorer 结果持久化 ──
         if fit_scores or swap_suggestions:
             try:
+                from app.db.models.derived import ItineraryPlan
                 _plan_obj = await session.get(ItineraryPlan, plan_id)
                 if _plan_obj:
                     meta = _plan_obj.plan_metadata or {}
@@ -1266,7 +1267,8 @@ async def generate_trip(
                     from app.domains.planning.live_risk_monitor import LiveRiskMonitor
                     risk_monitor = LiveRiskMonitor(session)
                     await risk_monitor.load_rules()
-                    risk_alerts = await risk_monitor.scan_plan(plan_id, travel_date_list)
+                    await risk_monitor.load_rules()
+                    risk_alerts = await risk_monitor.evaluate_plan(plan_id, travel_date_list)
                     if risk_alerts:
                         logger.info(
                             "LiveRiskMonitor: plan=%s alerts=%d",
