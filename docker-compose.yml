@@ -96,6 +96,7 @@ services:
     depends_on:
       - api
       - frontend
+      - ai-ops
 
   ai-ops:
     build:

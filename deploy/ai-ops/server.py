@@ -11,6 +11,7 @@ import json
 import logging
 import os
 import subprocess
+import time
 import urllib.request
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from threading import Thread
@@ -166,6 +167,33 @@ def execute_tool(name: str, input_data: dict) -> str:
     return f"未知工具: {name}"
 
 
+# ── 服务状态（状态面板用）───────────────────────────────────
+
+def get_service_status() -> dict:
+    """返回各容器的运行状态，供前端状态面板使用"""
+    output = run("docker compose ps --format json", timeout=10)
+    result = {}
+    # docker compose ps --format json 每行一个 JSON 对象
+    for line in output.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = json.loads(line)
+            name = obj.get("Service", "")
+            state = obj.get("State", "")
+            health = obj.get("Health", "")
+            status_text = health if health else state
+            result[name] = {"running": state == "running", "status": status_text}
+        except Exception:
+            continue
+    # 补全缺失的服务（未启动的不会出现在 ps 输出中）
+    for svc in ["api", "worker", "frontend", "nginx", "postgres", "redis"]:
+        if svc not in result:
+            result[svc] = {"running": False, "status": "未启动"}
+    return result
+
+
 # ── AI 对话 ──────────────────────────────────────────────────
 
 DEFAULT_MAX_TOOL_ROUNDS = 10  # 默认每次对话最多 10 轮工具调用
@@ -286,61 +314,128 @@ HTML_PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 运维助手</title>
+<title>KiwiTrip 运维控制台</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:-apple-system,system-ui,sans-serif; background:#1a1a2e; color:#e0e0e0; height:100vh; display:flex; flex-direction:column; }
-.header { padding:16px 20px; background:#16213e; border-bottom:1px solid #0f3460; }
-.header h1 { font-size:16px; color:#e94560; }
-.header p { font-size:12px; color:#888; margin-top:4px; }
-.chat { flex:1; overflow-y:auto; padding:20px; }
-.msg { margin-bottom:16px; max-width:85%; }
-.msg.user { margin-left:auto; }
-.msg .bubble { padding:12px 16px; border-radius:12px; font-size:14px; line-height:1.6; white-space:pre-wrap; word-break:break-word; }
-.msg.user .bubble { background:#0f3460; color:#e0e0e0; border-bottom-right-radius:4px; }
-.msg.ai .bubble { background:#16213e; color:#e0e0e0; border-bottom-left-radius:4px; border:1px solid #0f3460; }
-.msg .time { font-size:11px; color:#666; margin-top:4px; padding:0 4px; }
-.msg.user .time { text-align:right; }
-.input-area { padding:16px 20px; background:#16213e; border-top:1px solid #0f3460; display:flex; gap:12px; }
-.input-area textarea { flex:1; background:#1a1a2e; border:1px solid #0f3460; border-radius:8px; padding:12px; color:#e0e0e0; font-size:14px; resize:none; outline:none; font-family:inherit; }
-.input-area textarea:focus { border-color:#e94560; }
-.input-area button { background:#e94560; color:white; border:none; border-radius:8px; padding:12px 24px; font-size:14px; cursor:pointer; font-weight:600; }
-.input-area button:hover { background:#c73e54; }
-.input-area button:disabled { opacity:0.5; cursor:not-allowed; }
-.loading { display:inline-block; }
-.loading span { display:inline-block; width:6px; height:6px; background:#e94560; border-radius:50%; margin:0 2px; animation:bounce 1s infinite; }
-.loading span:nth-child(2) { animation-delay:0.15s; }
-.loading span:nth-child(3) { animation-delay:0.3s; }
-@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }
-.quick-btns { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
-.quick-btns button { background:#0f3460; color:#e0e0e0; border:1px solid #1a3a6e; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; }
-.quick-btns button:hover { background:#1a3a6e; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,'PingFang SC','Microsoft YaHei',sans-serif;background:#0d1117;color:#e0e0e0;height:100vh;display:flex;flex-direction:column}
+.header{padding:12px 20px;background:#161b22;border-bottom:1px solid #30363d;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-logo{font-size:20px}
+.header-title{font-size:15px;color:#f0f6fc;font-weight:600}
+.header-sub{font-size:11px;color:#8b949e;margin-top:2px}
+.header-logout{margin-left:auto;font-size:12px;color:#8b949e;cursor:pointer;padding:4px 10px;border:1px solid #30363d;border-radius:6px;background:none;color:#8b949e}
+.header-logout:hover{color:#f0f6fc;border-color:#58a6ff}
+
+/* 状态面板 */
+.status-bar{padding:12px 20px;background:#161b22;border-bottom:1px solid #21262d;flex-shrink:0}
+.status-title{font-size:11px;color:#8b949e;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.status-refresh{cursor:pointer;font-size:11px;color:#58a6ff;background:none;border:none;padding:0}
+.status-cards{display:flex;gap:8px;flex-wrap:wrap}
+.scard{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:8px 12px;min-width:100px;flex:1}
+.scard-name{font-size:11px;color:#8b949e;margin-bottom:4px}
+.scard-status{font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot.up{background:#3fb950}
+.dot.down{background:#f85149}
+.dot.loading{background:#d29922;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* 聊天区 */
+.chat{flex:1;overflow-y:auto;padding:16px 20px}
+.quick-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.quick-btns button{background:#161b22;color:#c9d1d9;border:1px solid #30363d;border-radius:6px;padding:5px 11px;font-size:12px;cursor:pointer}
+.quick-btns button:hover{background:#21262d;border-color:#58a6ff}
+.msg{margin-bottom:14px;max-width:86%}
+.msg.user{margin-left:auto}
+.msg .bubble{padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.65;white-space:pre-wrap;word-break:break-word}
+.msg.user .bubble{background:#1f6feb;color:#fff;border-bottom-right-radius:3px}
+.msg.ai .bubble{background:#161b22;color:#c9d1d9;border-bottom-left-radius:3px;border:1px solid #30363d}
+.msg .time{font-size:10px;color:#484f58;margin-top:3px;padding:0 4px}
+.msg.user .time{text-align:right}
+.loading span{display:inline-block;width:6px;height:6px;background:#58a6ff;border-radius:50%;margin:0 2px;animation:bounce .9s infinite}
+.loading span:nth-child(2){animation-delay:.15s}
+.loading span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+
+/* 输入区 */
+.input-area{padding:12px 20px;background:#161b22;border-top:1px solid #30363d;display:flex;gap:10px;flex-shrink:0}
+.input-area textarea{flex:1;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px 12px;color:#f0f6fc;font-size:13px;resize:none;outline:none;font-family:inherit}
+.input-area textarea:focus{border-color:#58a6ff}
+.input-area button{background:#238636;color:white;border:none;border-radius:8px;padding:10px 20px;font-size:13px;cursor:pointer;font-weight:600}
+.input-area button:hover{background:#2ea043}
+.input-area button:disabled{opacity:.45;cursor:not-allowed}
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>AI 运维助手</h1>
-  <p>travel-ai · kiwitrip.cn</p>
+  <span class="header-logo">🥝</span>
+  <div>
+    <div class="header-title">KiwiTrip 运维控制台</div>
+    <div class="header-sub">kiwitrip.cn · 阿里云香港 47.242.209.129</div>
+  </div>
+  <button class="header-logout" onclick="logout()">退出登录</button>
 </div>
+
+<div class="status-bar">
+  <div class="status-title">
+    服务状态
+    <button class="status-refresh" onclick="refreshStatus()">↻ 刷新</button>
+    <span id="status-time" style="color:#484f58"></span>
+  </div>
+  <div class="status-cards" id="status-cards">
+    <div class="scard"><div class="scard-name">加载中...</div><div class="scard-status"><span class="dot loading"></span></div></div>
+  </div>
+</div>
+
 <div class="chat" id="chat">
   <div class="quick-btns">
     <button onclick="send('检查所有服务状态')">检查服务</button>
-    <button onclick="send('看一下后端日志')">后端日志</button>
-    <button onclick="send('前端为什么报500')">前端诊断</button>
-    <button onclick="send('worker为什么一直重启')">Worker诊断</button>
-    <button onclick="send('磁盘和内存使用情况')">系统资源</button>
-    <button onclick="send('重启所有服务')">重启全部</button>
+    <button onclick="send('查看后端最近日志')">后端日志</button>
+    <button onclick="send('前端为什么报500，查看日志分析原因')">前端诊断</button>
+    <button onclick="send('worker为什么一直重启，查看日志')">Worker诊断</button>
+    <button onclick="send('查看磁盘和内存使用情况')">系统资源</button>
+    <button onclick="send('重启nginx服务')">重启Nginx</button>
   </div>
 </div>
+
 <div class="input-area">
-  <textarea id="input" rows="2" placeholder="输入指令... (Enter 发送)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"></textarea>
-  <button id="btn" onclick="send()">发送</button>
+  <textarea id="input" rows="2" placeholder="输入运维指令... (Enter 发送，Shift+Enter 换行)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
+  <button id="btn" onclick="sendMsg()">发送</button>
 </div>
+
 <script>
 const chat = document.getElementById('chat');
 const input = document.getElementById('input');
 const btn = document.getElementById('btn');
+const BASE = location.pathname.replace(/\\/+$/, '');
 
+// ── 状态面板 ──
+const SERVICES = ['api','worker','frontend','nginx','postgres','redis'];
+const SERVICE_LABELS = {api:'后端 API',worker:'Worker',frontend:'前端',nginx:'Nginx',postgres:'数据库',redis:'Redis'};
+
+async function refreshStatus() {
+  document.getElementById('status-time').textContent = '';
+  const cards = document.getElementById('status-cards');
+  cards.innerHTML = SERVICES.map(s =>
+    `<div class="scard" id="sc-${s}"><div class="scard-name">${SERVICE_LABELS[s]}</div><div class="scard-status"><span class="dot loading"></span> 检查中</div></div>`
+  ).join('');
+  try {
+    const res = await fetch(BASE + '/status');
+    const data = await res.json();
+    for (const s of SERVICES) {
+      const el = document.getElementById('sc-'+s);
+      if (!el) continue;
+      const info = data[s] || {};
+      const up = info.running;
+      el.innerHTML = `<div class="scard-name">${SERVICE_LABELS[s]}</div>
+        <div class="scard-status"><span class="dot ${up?'up':'down'}"></span>${up ? info.status||'运行中' : '已停止'}</div>`;
+    }
+    document.getElementById('status-time').textContent = '更新于 ' + new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  } catch(e) {
+    cards.innerHTML = '<div class="scard"><div class="scard-name" style="color:#f85149">状态获取失败</div></div>';
+  }
+}
+
+// ── 聊天 ──
 function addMsg(role, text) {
   const div = document.createElement('div');
   div.className = 'msg ' + role;
@@ -348,12 +443,11 @@ function addMsg(role, text) {
   div.innerHTML = '<div class="bubble">' + escHtml(text) + '</div><div class="time">' + time + '</div>';
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
-  return div;
 }
 
 function escHtml(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-async function send(text) {
+async function sendMsg(text) {
   const msg = text || input.value.trim();
   if (!msg) return;
   input.value = '';
@@ -367,7 +461,7 @@ async function send(text) {
   chat.scrollTop = chat.scrollHeight;
 
   try {
-    const base=location.pathname.replace(/\/+$/,'');const res = await fetch(base+'/chat', {
+    const res = await fetch(BASE + '/chat', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({message: msg})
@@ -382,6 +476,19 @@ async function send(text) {
   btn.disabled = false;
   input.focus();
 }
+
+// 兼容旧 quick-btn onclick="send(...)"
+function send(t) { sendMsg(t); }
+
+function logout() {
+  document.cookie = 'ops_token=;path=/;max-age=0';
+  location.reload();
+}
+
+// 进入页面自动加载状态
+refreshStatus();
+// 每 30 秒自动刷新
+setInterval(refreshStatus, 30000);
 </script>
 </body>
 </html>"""
@@ -395,27 +502,42 @@ def make_token(password: str) -> str:
 
 LOGIN_PAGE = """<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 运维 - 登录</title>
+<title>KiwiTrip 运维控制台</title>
 <style>
-body{font-family:sans-serif;background:#1a1a2e;color:#e0e0e0;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-.box{background:#16213e;padding:40px;border-radius:16px;border:1px solid #0f3460;width:300px}
-h2{margin:0 0 20px;color:#e94560;font-size:18px;text-align:center}
-input{width:100%;padding:12px;background:#1a1a2e;border:1px solid #0f3460;border-radius:8px;color:#e0e0e0;font-size:14px;margin-bottom:16px;box-sizing:border-box}
-button{width:100%;padding:12px;background:#e94560;color:white;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:600}
-.err{color:#e94560;font-size:12px;text-align:center;margin-bottom:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,'PingFang SC','Microsoft YaHei',sans-serif;background:#0d1117;color:#e0e0e0;display:flex;align-items:center;justify-content:center;height:100vh}
+.box{background:#161b22;padding:40px 36px;border-radius:16px;border:1px solid #30363d;width:320px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.logo{text-align:center;margin-bottom:28px}
+.logo-icon{font-size:36px;display:block;margin-bottom:8px}
+.logo h1{font-size:18px;color:#f0f6fc;font-weight:600}
+.logo p{font-size:12px;color:#8b949e;margin-top:4px}
+label{display:block;font-size:12px;color:#8b949e;margin-bottom:6px}
+input{width:100%;padding:11px 14px;background:#0d1117;border:1px solid #30363d;border-radius:8px;color:#f0f6fc;font-size:14px;margin-bottom:16px;outline:none;transition:border-color .2s}
+input:focus{border-color:#388bfd}
+button{width:100%;padding:11px;background:#238636;color:white;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:600;transition:background .2s}
+button:hover{background:#2ea043}
+.err{color:#f85149;font-size:12px;text-align:center;margin-bottom:12px;min-height:16px}
 </style></head><body>
-<div class="box"><h2>AI 运维助手</h2>
-<div id="err" class="err"></div>
-<input id="pw" type="password" placeholder="输入密码" onkeydown="if(event.key==='Enter')login()">
-<button onclick="login()">登录</button>
+<div class="box">
+  <div class="logo">
+    <span class="logo-icon">🥝</span>
+    <h1>KiwiTrip 运维控制台</h1>
+    <p>kiwitrip.cn · 阿里云香港</p>
+  </div>
+  <div id="err" class="err"></div>
+  <label>管理员密码</label>
+  <input id="pw" type="password" placeholder="请输入密码" onkeydown="if(event.key==='Enter')login()">
+  <button onclick="login()">登录</button>
 </div>
 <script>
 async function login(){
   const pw=document.getElementById('pw').value;
-  const base=location.pathname.replace(/\/+$/,'');const res=await fetch(base+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});
+  if(!pw)return;
+  const base=location.pathname.replace(/\/+$/,'');
+  const res=await fetch(base+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});
   const data=await res.json();
   if(data.ok){document.cookie='ops_token='+data.token+';path=/';location.reload()}
-  else{document.getElementById('err').textContent='密码错误'}
+  else{document.getElementById('err').textContent='密码错误，请重试'}
 }
 </script></body></html>"""
 
@@ -436,7 +558,24 @@ class Handler(BaseHTTPRequestHandler):
         token = self._get_token()
         return token and token in active_sessions
 
+    def _path(self):
+        """去掉 query string，只返回路径部分"""
+        return self.path.split("?")[0].rstrip("/") or "/"
+
     def do_GET(self):
+        p = self._path()
+        if p == "/status":
+            if not self._is_authed():
+                self.send_response(401)
+                self.end_headers()
+                return
+            status = get_service_status()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(json.dumps(status, ensure_ascii=False).encode())
+            return
+
         if not self._is_authed():
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -451,8 +590,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         length = int(self.headers.get("Content-Length", 0))
         body = json.loads(self.rfile.read(length))
+        p = self._path()
 
-        if self.path == "/login":
+        if p == "/login":
             password = body.get("password", "")
             if password == OPS_PASSWORD:
                 token = make_token(password + str(time.time()))
@@ -468,7 +608,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({"ok": False}).encode())
             return
 
-        if self.path == "/chat":
+        if p == "/chat":
             if not self._is_authed():
                 self.send_response(401)
                 self.end_headers()
