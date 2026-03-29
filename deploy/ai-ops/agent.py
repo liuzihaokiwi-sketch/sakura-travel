@@ -29,8 +29,8 @@ PROJECT_DIR = "/opt/travel-ai"
 COMPOSE_FILE = "docker-compose.yml"
 CHECK_INTERVAL = 300  # 5 分钟
 MAX_RESTART_ATTEMPTS = 3
-AI_DAILY_LIMIT = 20           # 每天最多调 AI 20 次
-AI_SAME_ISSUE_COOLDOWN = 7200 # 同一问题 2 小时内不重复调 AI
+AI_PASSIVE_DAILY_LIMIT = 20       # 被动巡检：每天最多调 AI 20 次
+AI_SAME_ISSUE_COOLDOWN = 7200     # 被动巡检：同一问题 2 小时冷却
 
 # 从环境变量读取
 ANTHROPIC_BASE_URL = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
@@ -165,8 +165,8 @@ def should_call_ai(service_name: str) -> tuple[bool, str]:
         ai_call_count_today = 0
         ai_call_date = today
 
-    # 每日上限
-    if ai_call_count_today >= AI_DAILY_LIMIT:
+    # 每日上限（仅被动巡检）
+    if ai_call_count_today >= AI_PASSIVE_DAILY_LIMIT:
         return False, f"今日 AI 调用已达上限 ({AI_DAILY_LIMIT} 次)"
 
     # 同一服务冷却

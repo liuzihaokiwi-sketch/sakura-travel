@@ -168,6 +168,8 @@ def execute_tool(name: str, input_data: dict) -> str:
 
 # ── AI 对话 ──────────────────────────────────────────────────
 
+DEFAULT_MAX_TOOL_ROUNDS = 10  # 默认每次对话最多 10 轮工具调用
+
 SYSTEM_PROMPT = """你是 travel-ai 项目的运维 AI 助手，运行在阿里云 ECS 上。
 
 项目架构:
@@ -195,10 +197,23 @@ docker-compose.yml 在 /opt/travel-ai/，所有服务同一网络。
 conversation_history: list[dict] = []
 
 
+def parse_max_rounds(message: str) -> tuple[str, int]:
+    """解析用户消息中的次数限制，如 '检查前端问题 工作20次'"""
+    import re
+    match = re.search(r'工作\s*(\d+)\s*次', message)
+    if match:
+        rounds = min(int(match.group(1)), 50)  # 上限 50
+        clean_msg = re.sub(r'\s*工作\s*\d+\s*次\s*', '', message).strip()
+        return clean_msg, rounds
+    return message, DEFAULT_MAX_TOOL_ROUNDS
+
+
 def chat_with_ai(user_message: str) -> str:
+    """主动对话 — 不受被动巡检的熔断限制"""
     global conversation_history
 
-    conversation_history.append({"role": "user", "content": user_message})
+    clean_message, max_rounds = parse_max_rounds(user_message)
+    conversation_history.append({"role": "user", "content": clean_message})
 
     # 保留最近 20 轮对话
     if len(conversation_history) > 40:
@@ -207,7 +222,7 @@ def chat_with_ai(user_message: str) -> str:
     messages = conversation_history.copy()
 
     # 多轮 tool use 循环
-    for _ in range(10):
+    for _ in range(max_rounds):
         data = json.dumps({
             "model": AI_MODEL,
             "max_tokens": 2000,
