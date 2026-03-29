@@ -504,7 +504,8 @@ async def _try_city_circle_pipeline(
         # ── Step 3b: 缂栬瘧缁熶竴绾︽潫 ──
         from app.domains.planning.constraint_compiler import compile_constraints
         constraints = compile_constraints(profile, resolved_policy=resolved_policy)
-        # 同源锁步：run_id 贯穿全链路        _run_id = constraints.run_id
+        # 同源锁步：run_id 贯穿全链路
+        _run_id = constraints.run_id
         logger.info("同源 run_id=%s plan 将绑定此 ID", _run_id[:8])
 
         # Step 4: 主要活动排序
@@ -652,6 +653,13 @@ async def _try_city_circle_pipeline(
             logger.warning("CorridorResolver 加载失败（降级为字符串匹配）: %s", exc)
             corridor_resolver = None
 
+        # 提前构建 profile_dict（供 secondary_filler 和 meal_filler 共用）
+        profile_dict = {
+            "party_type": profile.party_type,
+            "pace": profile.pace or "moderate",
+            "budget_level": profile.budget_level,
+        }
+
         # ── Step 7: 次要活动填充 ──
         from app.domains.planning.secondary_filler import fill_secondary_activities
         secondary_fills = []
@@ -678,23 +686,18 @@ async def _try_city_circle_pipeline(
                         "entity_type": ent.entity_type,
                         "area_name": ent.area_name,
                         "corridor_tags": ent.corridor_tags or [],
-                        "final_score": ent.google_rating * 20 if ent.google_rating else 50.0,
-                        "base_score": ent.google_rating * 20 if ent.google_rating else 50.0,
+                        "final_score": getattr(ent, "google_rating", None) and float(ent.google_rating) * 20 or 50.0,
+                        "base_score": getattr(ent, "google_rating", None) and float(ent.google_rating) * 20 or 50.0,
                         "data_tier": getattr(ent, "data_tier", "A"),
-                        "sub_category": ent.sub_category,
+                        "sub_category": getattr(ent, "sub_category", None),
                         "typical_duration_min": getattr(ent, "typical_duration_min", 60),
                     })
 
-                # 已被 major 占用的实体                used_ids = set()
+                # 已被 major 占用的实体
+                used_ids = set()
                 for m in ranking_result.selected_majors:
                     for eid in m.anchor_entity_ids:
                         used_ids.add(str(eid))
-
-                profile_dict = {
-                    "party_type": profile.party_type,
-                    "pace": profile.pace or "moderate",
-                    "budget_level": profile.budget_level,
-                }
 
                 secondary_fills = fill_secondary_activities(
                     frames=skeleton.frames,
@@ -770,13 +773,12 @@ async def _try_city_circle_pipeline(
                         slot_index=0,
                         primary_corridor=frame.primary_corridor,
                         secondary_corridor=frame.secondary_corridor or "",
-                        current_time_hint=("14:00" if frame.day_type == "arrival"
-                                           else "08:30" if frame.day_type == "departure"
-                                           else "09:30"),
+                        slot_time_hint=("14:00" if frame.day_type == "arrival"
+                                        else "08:30" if frame.day_type == "departure"
+                                        else "09:30"),
                         transfer_budget_remaining=frame.transfer_budget_minutes,
                         prev_entity_area="",
                         next_entity_area="",
-                        day_entity_types_so_far=[],
                     )
 
                     # 收集该天的 secondary 实体
@@ -1405,7 +1407,8 @@ async def generate_trip(
         except Exception as exc:
             logger.warning("质量门控异常（非致命，继续评审）trip=%s: %s", trip_id, exc)
 
-        # Step 2.6: 离线评测（offline_eval）— 自动评分 + 回归检测        eval_score_dict = None
+        # Step 2.6: 离线评测（offline_eval）— 自动评分 + 回归检测
+        eval_score_dict = None
         try:
             from app.domains.evaluation.offline_eval import score_plan, EvalCase
             plan_json_for_eval = (
@@ -1482,7 +1485,8 @@ async def generate_trip(
         except Exception as exc:
             logger.warning("offline_eval 异常（非致命）trip=%s: %s", trip_id, exc)
 
-        # Step 3: 多模型评审        if not REVIEW_PIPELINE_ENABLED:
+        # Step 3: 多模型评审
+        if not REVIEW_PIPELINE_ENABLED:
             trip.status = "failed"
             trip.last_job_error = "review_pipeline_disabled"
             await session.commit()

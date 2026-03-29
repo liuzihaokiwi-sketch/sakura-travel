@@ -22,6 +22,8 @@ class HotelBase:
     base_city: str
     area: str = ""
     nights: int = 1
+    check_in_day: int = 0
+    hotel_entity_id: Optional[str] = None
     served_cluster_ids: list[str] = field(default_factory=list)
     switch_cost_minutes: int = 0
     switch_reason_code: str = ""
@@ -191,6 +193,12 @@ def _allocate_bases(preset: HotelStrategyPreset, days: int) -> list[HotelBase]:
 
     if bases and sum(base.nights for base in bases) < total_nights:
         bases[-1].nights += total_nights - sum(base.nights for base in bases)
+
+    # 按顺序设置 check_in_day
+    day_cursor = 0
+    for base in bases:
+        base.check_in_day = day_cursor
+        day_cursor += base.nights
     return bases
 
 
@@ -391,7 +399,7 @@ def _build_default_strategy(
     days = profile.duration_days or 5
     city_codes = [c.get("city_code", "") for c in (profile.cities or []) if isinstance(c, dict)]
     base_city = city_codes[0] if city_codes else "unknown"
-    result.bases = [HotelBase(base_city=base_city, nights=max(1, days - 1))]
+    result.bases = [HotelBase(base_city=base_city, nights=max(1, days - 1), check_in_day=0)]
     result.total_nights = max(1, days - 1)
     result.switch_count = 0
     result.last_night_safe = True
