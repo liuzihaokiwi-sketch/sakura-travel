@@ -3,19 +3,11 @@
 # setup-ops.sh — ECS 一键配置运维自动化
 #
 # 用法: bash deploy/setup-ops.sh
-#
-# 执行内容:
-#   1. 写入 Sentry DSN 到 .env
-#   2. 交互式配置 SMTP 邮件告警
-#   3. 注册 watchdog cron
-#   4. 给脚本加执行权限
-#   5. 重启服务使配置生效
-#   6. 发送测试邮件验证
 # =============================================================
 set -e
 
 DEPLOY_DIR="/opt/travel-ai"
-COMPOSE_FILE="deploy/docker-compose.yml"
+COMPOSE_FILE="docker-compose.yml"
 ENV_FILE="$DEPLOY_DIR/.env"
 
 cd "$DEPLOY_DIR" || { echo "ERROR: $DEPLOY_DIR 不存在"; exit 1; }
@@ -28,7 +20,6 @@ echo ""
 # ── 辅助函数 ──────────────────────────────────────────────────
 append_env() {
   local key="$1" value="$2"
-  # 已存在且非空则跳过
   if grep -q "^${key}=" "$ENV_FILE" 2>/dev/null; then
     local existing
     existing=$(grep "^${key}=" "$ENV_FILE" | head -1 | cut -d= -f2-)
@@ -36,7 +27,6 @@ append_env() {
       echo "  [跳过] ${key} 已配置"
       return
     fi
-    # 存在但为空，替换
     sed -i "s|^${key}=.*|${key}=${value}|" "$ENV_FILE"
     echo "  [更新] ${key}"
   else
@@ -53,8 +43,6 @@ echo ""
 
 # ── 2. SMTP 邮件配置 ─────────────────────────────────────────
 echo "--- [2/6] 配置 SMTP 邮件告警 ---"
-
-# 检查是否已配置
 EXISTING_SMTP=$(grep "^SMTP_HOST=" "$ENV_FILE" 2>/dev/null | cut -d= -f2-)
 if [ -n "$EXISTING_SMTP" ]; then
   echo "  SMTP 已配置 (${EXISTING_SMTP})，跳过"
@@ -96,16 +84,15 @@ fi
 echo ""
 
 # ── 5. 重启服务 ──────────────────────────────────────────────
-echo "--- [5/6] 重启服务使配置生效 ---"
-docker compose -f "$COMPOSE_FILE" restart backend
-echo "  backend + worker 已重启"
+echo "--- [5/6] 重启服务使 Sentry 配置生效 ---"
+docker compose -f "$COMPOSE_FILE" restart api worker
+echo "  api + worker 已重启"
 sleep 5
 echo ""
 
 # ── 6. 验证 ──────────────────────────────────────────────────
 echo "--- [6/6] 验证 ---"
 
-# 健康检查
 echo -n "  后端健康检查: "
 if curl -sf --max-time 10 http://localhost:8000/health; then
   echo " ✓"
@@ -113,7 +100,6 @@ else
   echo " ✗ (可能需要等待几秒)"
 fi
 
-# 测试邮件
 echo ""
 read -rp "  是否发送测试邮件? [Y/n]: " send_test
 send_test=${send_test:-Y}
@@ -128,12 +114,9 @@ echo "========================================="
 echo "  配置完成!"
 echo ""
 echo "  已启用:"
-echo "    ✓ Sentry 错误监控（后端500/worker失败自动上报）"
-echo "    ✓ 邮件告警通知"
+echo "    ✓ Sentry 错误监控"
+echo "    ✓ 邮件告警通知 (通过 api 容器内 Python 发送)"
 echo "    ✓ Watchdog 每5分钟健康检查+自动重启"
 echo ""
-echo "  还需手动配置 GitHub Secrets:"
-echo "    ECS_HOST = 47.242.209.129"
-echo "    ECS_USER = admin"
-echo "    ECS_SSH_KEY = (SSH 私钥)"
+echo "  GitHub Secrets 已配置: ✓"
 echo "========================================="

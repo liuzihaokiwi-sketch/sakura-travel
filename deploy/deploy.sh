@@ -10,8 +10,7 @@
 set -e
 
 DEPLOY_DIR="/opt/travel-ai"
-COMPOSE_FILE="deploy/docker-compose.yml"
-IMAGE_NAME="japan_ai_api"
+COMPOSE_FILE="docker-compose.yml"
 
 # ── 参数解析 ──────────────────────────────────────────────────
 DEPLOY_BACKEND=true
@@ -35,27 +34,24 @@ fi
 # ── 后端：构建 + 迁移 + 重启 ─────────────────────────────────
 if [ "$DEPLOY_BACKEND" = true ]; then
   echo "--- 构建后端镜像 ---"
-  docker compose -f "$COMPOSE_FILE" build backend
+  docker compose -f "$COMPOSE_FILE" build api
 
   echo "--- 运行数据库迁移 ---"
-  docker compose -f "$COMPOSE_FILE" run --rm backend alembic upgrade head
+  docker compose -f "$COMPOSE_FILE" run --rm api alembic upgrade head
 
   echo "--- 重启后端服务 ---"
-  docker compose -f "$COMPOSE_FILE" up -d backend
+  docker compose -f "$COMPOSE_FILE" up -d api worker
 fi
 
-# ── 前端：构建 + 重启 ─────────────────────────────────────────
+# ── 前端：重启 ───────────────────────────────────────────────
 if [ "$DEPLOY_FRONTEND" = true ]; then
-  echo "--- 构建前端镜像 ---"
-  docker compose -f "$COMPOSE_FILE" build frontend
-
   echo "--- 重启前端服务 ---"
-  docker compose -f "$COMPOSE_FILE" up -d frontend
+  docker restart travel-web 2>/dev/null || echo "WARN: travel-web 容器不存在"
 fi
 
 # ── nginx 确保运行 ────────────────────────────────────────────
 echo "--- 确保 nginx 运行 ---"
-docker compose -f "$COMPOSE_FILE" up -d nginx
+docker start japan_ai_nginx 2>/dev/null || echo "WARN: nginx 容器不存在"
 
 # ── 清理 + 状态 ───────────────────────────────────────────────
 echo "--- 清理旧镜像 ---"
@@ -63,13 +59,13 @@ docker image prune -f
 
 echo "--- 等待健康检查 ---"
 sleep 8
-docker compose -f "$COMPOSE_FILE" ps
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 # ── 验证部署结果 ─────────────────────────────────────────────
 HEALTH_OK=true
 if [ "$DEPLOY_BACKEND" = true ]; then
   if ! curl -sf --max-time 10 http://localhost:8000/health > /dev/null 2>&1; then
-    echo "ERROR: backend 健康检查失败"
+    echo "ERROR: api 健康检查失败"
     HEALTH_OK=false
   fi
 fi

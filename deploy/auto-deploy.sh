@@ -7,6 +7,7 @@
 set -o pipefail
 
 DEPLOY_DIR="/opt/travel-ai"
+COMPOSE_FILE="docker-compose.yml"
 LOG_FILE="/tmp/deploy-$(date +%Y%m%d-%H%M%S).log"
 
 cd "$DEPLOY_DIR" || exit 1

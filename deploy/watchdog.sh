@@ -7,7 +7,7 @@
 # =============================================================
 
 DEPLOY_DIR="/opt/travel-ai"
-COMPOSE_FILE="deploy/docker-compose.yml"
+COMPOSE_FILE="docker-compose.yml"
 LOCK_FILE="/tmp/watchdog.lock"
 
 cd "$DEPLOY_DIR" || exit 1
@@ -33,42 +33,46 @@ should_alert() {
   if [ -f "$alert_file" ]; then
     local age=$(( $(date +%s) - $(stat -c %Y "$alert_file" 2>/dev/null || echo 0) ))
     if [ "$age" -lt 1800 ]; then
-      return 1  # 30分钟内已告警，跳过
+      return 1
     fi
   fi
   touch "$alert_file"
   return 0
 }
 
-ISSUES=""
-
-# ── 检查 backend ──────────────────────────────────────────────
+# ── 检查 api ──────────────────────────────────────────────────
 if ! curl -sf --max-time 5 http://localhost:8000/health > /dev/null 2>&1; then
-  echo "[$(date)] backend 健康检查失败，正在重启..."
-  docker compose -f "$COMPOSE_FILE" restart backend
-  ISSUES="${ISSUES}backend 已重启\n"
-  if should_alert "backend"; then
-    notify "Backend 异常已重启" "健康检查 /health 失败，已自动重启 backend"
+  echo "[$(date)] api 健康检查失败，正在重启..."
+  docker compose -f "$COMPOSE_FILE" restart api
+  if should_alert "api"; then
+    notify "API 异常已重启" "健康检查 /health 失败，已自动重启 api 容器"
+  fi
+fi
+
+# ── 检查 worker ───────────────────────────────────────────────
+if ! docker ps --filter "name=japan_ai_worker" --filter "status=running" -q | grep -q .; then
+  echo "[$(date)] worker 未运行，正在重启..."
+  docker compose -f "$COMPOSE_FILE" restart worker
+  if should_alert "worker"; then
+    notify "Worker 异常已重启" "worker 容器未运行，已自动重启"
+  fi
+fi
+
+# ── 检查 nginx ────────────────────────────────────────────────
+if ! docker ps --filter "name=japan_ai_nginx" --filter "status=running" -q | grep -q .; then
+  echo "[$(date)] nginx 未运行，正在启动..."
+  docker start japan_ai_nginx 2>/dev/null || true
+  if should_alert "nginx"; then
+    notify "Nginx 异常已启动" "nginx 容器未运行，已自动启动"
   fi
 fi
 
 # ── 检查 frontend ─────────────────────────────────────────────
 if ! curl -sf --max-time 5 http://localhost:3000 > /dev/null 2>&1; then
   echo "[$(date)] frontend 健康检查失败，正在重启..."
-  docker compose -f "$COMPOSE_FILE" restart frontend
-  ISSUES="${ISSUES}frontend 已重启\n"
+  docker restart travel-web 2>/dev/null || true
   if should_alert "frontend"; then
     notify "Frontend 异常已重启" "前端服务无响应，已自动重启"
-  fi
-fi
-
-# ── 检查 nginx ────────────────────────────────────────────────
-if ! docker compose -f "$COMPOSE_FILE" ps nginx 2>/dev/null | grep -q "Up\|running"; then
-  echo "[$(date)] nginx 未运行，正在启动..."
-  docker compose -f "$COMPOSE_FILE" up -d nginx
-  ISSUES="${ISSUES}nginx 已启动\n"
-  if should_alert "nginx"; then
-    notify "Nginx 异常已启动" "nginx 容器未运行，已自动启动"
   fi
 fi
 
@@ -81,9 +85,4 @@ if [ "$DISK_USAGE" -gt 90 ]; then
   if should_alert "disk"; then
     notify "磁盘空间告警 ${DISK_USAGE}%" "已自动清理 72h 前的旧镜像和容器"
   fi
-fi
-
-if [ -z "$ISSUES" ]; then
-  # 一切正常，静默
-  :
 fi
