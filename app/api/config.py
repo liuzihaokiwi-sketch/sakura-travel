@@ -4,12 +4,7 @@ GET /config/product-tiers
 """
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
-
-from app.db.session import get_db
-from app.db.models.soft_rules import ProductConfig
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/config", tags=["config"])
 
@@ -116,23 +111,5 @@ _DEFAULT_TIERS = {
 
 
 @router.get("/product-tiers")
-async def get_product_tiers(db: AsyncSession = Depends(get_db)) -> dict:
-    """
-    返回产品定价配置。
-    优先从 product_config 表读取 key='product_tiers'，
-    不存在则返回硬编码默认值。
-    """
-    try:
-        result = await db.execute(
-            select(ProductConfig).where(
-                ProductConfig.config_key == "product_tiers",
-                ProductConfig.is_active == True,  # noqa: E712
-            )
-        )
-        cfg = result.scalar_one_or_none()
-        if cfg and cfg.config_value:
-            return cfg.config_value
-    except Exception:
-        pass
-
+async def get_product_tiers() -> dict:
     return _DEFAULT_TIERS
