@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.admin_auth import verify_admin_token
 from app.db.models.catalog import EntityBase
 from app.db.session import AsyncSessionLocal
 
@@ -27,11 +28,7 @@ router = APIRouter(prefix="/admin/entities", tags=["admin-review"])
 TrustStatus = Literal["verified", "unverified", "ai_generated", "suspicious", "rejected"]
 
 
-# ── 依赖：Admin 认证（复用 main.py 的认证函数） ────────────────────────────────
-def _get_admin_dep():
-    """懒导入，避免循环依赖。"""
-    from app.main import verify_admin_token
-    return Depends(verify_admin_token)
+_auth_dep = Depends(verify_admin_token)
 
 
 async def _get_session():
@@ -74,7 +71,7 @@ async def list_review_entities(
     limit: int = Query(50, ge=1, le=500),
     offset: int = Query(0, ge=0),
     session: AsyncSession = Depends(_get_session),
-    _auth: Any = _get_admin_dep(),
+    _auth: Any = _auth_dep,
 ):
     """列出待审核实体。默认返回所有 trust_status != 'verified' 的记录。"""
     q = select(EntityBase)
@@ -116,7 +113,7 @@ async def update_trust_status(
     entity_id: UUID,
     body: TrustUpdateRequest,
     session: AsyncSession = Depends(_get_session),
-    _auth: Any = _get_admin_dep(),
+    _auth: Any = _auth_dep,
 ):
     """更新实体 trust_status，可附带 verified_by 和 trust_note。"""
     entity = await session.get(EntityBase, entity_id)
@@ -144,7 +141,7 @@ async def update_trust_status(
 @router.get("/stats")
 async def get_trust_stats(
     session: AsyncSession = Depends(_get_session),
-    _auth: Any = _get_admin_dep(),
+    _auth: Any = _auth_dep,
 ):
     """各 trust_status 数量统计。"""
     result = await session.execute(

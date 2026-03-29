@@ -1,0 +1,186 @@
+{
+  "circle_id": "hokkaido",
+  "version": "1.1",
+  "base_path": "assets/hokkaido",
+  "_note": "entity_map key 只写数据库 name_zh 的精确值或主要别名，不写城市名或品类词",
+  "categories": {
+    "spots": {
+      "description": "景点成品图（直接用于 PDF 渲染）",
+      "files": {
+        "furano_flowers": "spots/furano_flowers.png",
+        "furano_flowers_wide": "spots/furano_flowers_wide.png",
+        "biei_blue_pond": "spots/biei_blue_pond.png",
+        "toya_lake": "spots/toya_lake.png",
+        "shikotsu_lake": "spots/shikotsu_lake.png",
+        "mashu_lake": "spots/mashu_lake.png",
+        "kussharo_lake": "spots/kussharo_lake.png",
+        "kussharo_lake2": "spots/kussharo_lake2.png",
+        "akan_lake": "spots/akan_lake.png",
+        "yotei_mountain": "spots/yotei_mountain.png",
+        "noboribetsu_jigokudani": "spots/noboribetsu_jigokudani.png",
+        "noboribetsu_jigokudani_statue": "spots/noboribetsu_jigokudani_statue.png",
+        "tokachidake_view": "spots/tokachidake_view.png",
+        "tokachidake_hut": "spots/tokachidake_hut.png"
+      },
+      "entity_map": {
+        "富田农场": ["furano_flowers", "furano_flowers_wide"],
+        "美瑛拼布之路": ["furano_flowers_wide"],
+        "青池（白金青い池）": ["biei_blue_pond"],
+        "洞爷湖": ["toya_lake"],
+        "支笏湖": ["shikotsu_lake"],
+        "摩周湖": ["mashu_lake"],
+        "屈斜路湖": ["kussharo_lake", "kussharo_lake2"],
+        "阿寒湖": ["akan_lake"],
+        "羊蹄山": ["yotei_mountain"],
+        "登别地狱谷": ["noboribetsu_jigokudani", "noboribetsu_jigokudani_statue"],
+        "十胜岳": ["tokachidake_view", "tokachidake_hut"],
+        "大雪山旭岳": ["tokachidake_view"]
+      }
+    },
+    "food": {
+      "description": "美食成品图",
+      "files": {
+        "uni_seafood_bowl": "food/uni_seafood_bowl.png",
+        "horsehair_crab": "food/horsehair_crab.png",
+        "jingisukan": "food/jingisukan.png",
+        "seafood_soup_curry": "food/seafood_soup_curry.png",
+        "chicken_soup_curry": "food/chicken_soup_curry.png",
+        "shiro_ramen": "food/shiro_ramen.png",
+        "sapporo_beer": "food/sapporo_beer.png",
+        "shiroi_koibito": "food/shiroi_koibito.png",
+        "letao_cheesecake": "food/letao_cheesecake.png",
+        "hokkaido_icecream": "food/hokkaido_icecream.png",
+        "lucky_pierrot_burger": "food/lucky_pierrot_burger.png",
+        "tokachi_pork": "food/tokachi_pork.png",
+        "rokkatei_cookie": "food/rokkatei_cookie.png",
+        "castella": "food/castella.png",
+        "taiyaki": "food/taiyaki.png"
+      },
+      "entity_map": {
+        "函馆朝市（鸡二郎）": ["uni_seafood_bowl"],
+        "鱗友朝市（小樽）": ["uni_seafood_bowl"],
+        "回转寿司 根室花まる（ESTA店）": ["uni_seafood_bowl"],
+        "海鲜丼 おたる政寿司": ["uni_seafood_bowl"],
+        "蟹本家（かに本家）": ["horsehair_crab"],
+        "成吉思汗（松尾ジンギスカン 札幌本店）": ["jingisukan"],
+        "汤咖喱 Suage+（札幌总店）": ["seafood_soup_curry"],
+        "北海道农家汤咖喱 Rojiura Curry SAMURAI.": ["chicken_soup_curry"],
+        "函馆盐味拉面 あじさい": ["shiro_ramen"],
+        "旭川拉面 蜂屋（本店）": ["shiro_ramen"],
+        "拉面共和国（ラーメン共和国）": ["shiro_ramen"],
+        "LeTAO 本店（小樽）": ["letao_cheesecake"],
+        "Lucky Pierrot（函馆本地汉堡）": ["lucky_pierrot_burger"],
+        "六花亭": ["rokkatei_cookie"]
+      }
+    },
+    "landmarks": {
+      "description": "地标建筑成品图",
+      "files": {
+        "hokkaido_university": "landmarks/hokkaido_university.png",
+        "sapporo_tv_tower": "landmarks/sapporo_tv_tower.png",
+        "red_brick_office": "landmarks/red_brick_office.png"
+      },
+      "entity_map": {
+        "北海道大学银杏大道": ["hokkaido_university"],
+        "札幌电视塔": ["sapporo_tv_tower"],
+        "北海道厅旧本厅舍": ["red_brick_office"]
+      }
+    },
+    "onsen": {
+      "description": "温泉成品图",
+      "files": {
+        "daiichi_takimotokan": "onsen/daiichi_takimotokan.png",
+        "daiichi_takimotokan_outdoor": "onsen/daiichi_takimotokan_outdoor.png",
+        "akan_onsen": "onsen/akan_onsen.png",
+        "akan_onsen_cave": "onsen/akan_onsen_cave.png",
+        "private_onsen": "onsen/private_onsen.png"
+      },
+      "entity_map": {
+        "第一滝本馆": ["daiichi_takimotokan", "daiichi_takimotokan_outdoor"],
+        "阿寒湖温泉": ["akan_onsen", "akan_onsen_cave"],
+        "新大雪旅馆（温泉旅馆晚膳）": ["private_onsen"]
+      }
+    },
+    "streets": {
+      "description": "街景成品图",
+      "files": {
+        "otaru_canal": "streets/otaru_canal.png",
+        "otaru_canal_lights": "streets/otaru_canal_lights.png",
+        "otaru_street": "streets/otaru_street.png",
+        "sapporo_street": "streets/sapporo_street.png",
+        "odori_snow_festival": "streets/odori_snow_festival.png"
+      },
+      "entity_map": {
+        "小樽运河": ["otaru_canal", "otaru_canal_lights"],
+        "堺町通（北一硝子）": ["otaru_street"],
+        "大通公园": ["odori_snow_festival"],
+        "北海道神宫": ["sapporo_street"]
+      }
+    },
+    "hotels": {
+      "description": "酒店成品图",
+      "files": {
+        "lavista": "hotels/lavista.png",
+        "toya_ko_no_sumi": "hotels/toya_ko_no_sumi.png",
+        "toya_ko_no_sumi_corridor": "hotels/toya_ko_no_sumi_corridor.png",
+        "century_marine_hotel": "hotels/century_marine_hotel.png"
+      },
+      "entity_map": {
+        "La Vista 大雪山": ["lavista"],
+        "洞爷湖温泉": ["toya_ko_no_sumi", "toya_ko_no_sumi_corridor"],
+        "湯の川温泉": ["century_marine_hotel"]
+      }
+    },
+    "animals": {
+      "description": "动物成品图（手账装饰贴纸用，按 poi_category=wildlife 触发）",
+      "files": {
+        "crane_wings": "animals/crane_wings.png",
+        "crane_standing": "animals/crane_standing.png",
+        "penguin_walking": "animals/penguin_walking.png",
+        "penguin_lying": "animals/penguin_lying.png",
+        "brown_bear": "animals/brown_bear.png",
+        "brown_bear_side": "animals/brown_bear_side.png",
+        "otter": "animals/otter.png",
+        "otter_standing": "animals/otter_standing.png",
+        "seal": "animals/seal.png",
+        "fox_front": "animals/fox_front.png",
+        "fox_side": "animals/fox_side.png",
+        "ezo_squirrel_front": "animals/ezo_squirrel_front.png",
+        "ezo_squirrel_side": "animals/ezo_squirrel_side.png",
+        "ezo_deer": "animals/ezo_deer.png"
+      },
+      "entity_map": {
+        "丹顶鹤自然公园": ["crane_wings", "crane_standing"],
+        "旭山动物园（企鹅）": ["penguin_walking", "penguin_lying"],
+        "知床五湖": ["brown_bear", "brown_bear_side"],
+        "网走流冰（破冰船体验）": ["seal"],
+        "北海道狐狸村": ["fox_front", "fox_side"],
+        "北海道松鼠公园": ["ezo_squirrel_front", "ezo_squirrel_side"],
+        "大雪山国立公园": ["ezo_deer"]
+      }
+    },
+    "themes": {
+      "description": "特色主题成品图",
+      "files": {
+        "shiroi_koibito_factory": "themes/shiroi_koibito_factory.png",
+        "shiroi_koibito_factory_line": "themes/shiroi_koibito_factory_line.png",
+        "lucky_pierrot_front": "themes/lucky_pierrot_front.png",
+        "lucky_pierrot_statue": "themes/lucky_pierrot_statue.png",
+        "furano_forest_clock_cafe": "themes/furano_forest_clock_cafe.png",
+        "furano_forest_clock_cafe_front": "themes/furano_forest_clock_cafe_front.png",
+        "otaru_orgel_cafe": "themes/otaru_orgel_cafe.png",
+        "otaru_orgel_cafe_cup": "themes/otaru_orgel_cafe_cup.png"
+      },
+      "entity_map": {
+        "白色恋人公园": ["shiroi_koibito_factory", "shiroi_koibito_factory_line"],
+        "Lucky Pierrot（函馆本地汉堡）": ["lucky_pierrot_front", "lucky_pierrot_statue"],
+        "森の時計（富良野咖啡馆）": ["furano_forest_clock_cafe", "furano_forest_clock_cafe_front"],
+        "小樽音乐盒堂": ["otaru_orgel_cafe", "otaru_orgel_cafe_cup"]
+      }
+    },
+    "raw": {
+      "description": "原始参考素材（小红书来源，126张），不直接用于 PDF，供运营筛选",
+      "path": "raw/"
+    }
+  }
+}

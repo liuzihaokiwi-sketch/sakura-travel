@@ -18,7 +18,7 @@ from threading import Thread
 
 # ── 配置 ──────────────────────────────────────────────────────
 
-PROJECT_DIR = "/opt/travel-ai"
+PROJECT_DIR = os.getenv("PROJECT_DIR", "/opt/travel-ai")
 COMPOSE_FILE = "docker-compose.yml"
 PORT = 9090
 

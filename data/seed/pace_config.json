@@ -1,0 +1,36 @@
+{
+  "_comment": "骨架编排 pace 参数，可运营调参。route_skeleton_builder.py 启动时加载。",
+  "daily_capacity": {
+    "relaxed":  {"arrival": 240, "normal": 390, "departure": 180, "theme_park": 480},
+    "moderate": {"arrival": 300, "normal": 480, "departure": 240, "theme_park": 540},
+    "packed":   {"arrival": 360, "normal": 570, "departure": 270, "theme_park": 600}
+  },
+  "transit": {
+    "relaxed":  {"arrival": 60,  "normal": 80,  "departure": 60,  "theme_park": 20},
+    "moderate": {"arrival": 90,  "normal": 100, "departure": 90,  "theme_park": 30},
+    "packed":   {"arrival": 120, "normal": 120, "departure": 90,  "theme_park": 40}
+  },
+  "slack": {
+    "relaxed":  {"arrival": 120, "normal": 90,  "departure": 120, "theme_park": 90},
+    "moderate": {"arrival": 90,  "normal": 75,  "departure": 90,  "theme_park": 60},
+    "packed":   {"arrival": 75,  "normal": 60,  "departure": 75,  "theme_park": 45}
+  },
+  "capacity_units": {
+    "relaxed":  {"arrival": 0.3, "normal": 0.7, "departure": 0.3, "theme_park": 0.1},
+    "moderate": {"arrival": 0.5, "normal": 1.0, "departure": 0.5, "theme_park": 0.2},
+    "packed":   {"arrival": 0.7, "normal": 1.3, "departure": 0.5, "theme_park": 0.3}
+  },
+  "transfer_budget": {
+    "relaxed":  {"arrival": 60,  "normal": 90,  "departure": 60,  "theme_park": 30},
+    "moderate": {"arrival": 90,  "normal": 120, "departure": 90,  "theme_park": 45},
+    "packed":   {"arrival": 120, "normal": 150, "departure": 90,  "theme_park": 60}
+  },
+  "driver_load_fallback": {"full_day": 360, "half_day": 200, "quarter_day": 100},
+  "wake_breakfast": {
+    "early":  ["07:00", "08:00"],
+    "normal": ["08:00", "09:30"],
+    "late":   ["09:00", "10:30"]
+  },
+  "lunch_window": ["11:30", "13:30"],
+  "dinner_window": ["17:30", "20:00"]
+}

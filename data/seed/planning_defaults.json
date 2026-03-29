@@ -1,0 +1,54 @@
+{
+  "_comment": "行程规划默认配置，由 itinerary_builder.py / budget_estimator.py 读取",
+
+  "slot_duration_minutes": 75,
+
+  "meal_times": {
+    "breakfast": "08:00",
+    "lunch": "12:00",
+    "dinner": "18:30"
+  },
+
+  "meal_duration_minutes": {
+    "breakfast": 30,
+    "lunch": 45,
+    "dinner": 60
+  },
+
+  "default_admission_jpy": {
+    "temple": 500,
+    "shrine": 0,
+    "museum": 1000,
+    "theme_park": 7000,
+    "park": 0,
+    "castle": 600,
+    "garden": 500
+  },
+
+  "transport_budget_jpy": {
+    "budget": 800,
+    "mid": 1200,
+    "premium": 2000,
+    "luxury": 3000
+  },
+
+  "hotel_budget_jpy": {
+    "budget": 5000,
+    "mid": 10000,
+    "premium": 20000,
+    "luxury": 40000
+  },
+
+  "food_floor_jpy": {
+    "budget": 2000,
+    "mid": 3500,
+    "premium": 6000,
+    "luxury": 10000
+  },
+
+  "misc_buffer_rate": 0.10,
+
+  "driver_capacity_deduction": 0.3,
+
+  "cny_to_jpy_rate": 21
+}

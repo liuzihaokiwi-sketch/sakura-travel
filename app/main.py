@@ -32,9 +32,8 @@ from app.api.ops import editorial, entities, ranked, catalog as catalog_ops
 from app.api import admin_review
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
-from fastapi import Depends, HTTPException, status
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
-import secrets
+from app.core.admin_auth import verify_admin_token
+from fastapi import Depends
 import logging
 import traceback
 from app.db.session import AsyncSessionLocal, engine
@@ -128,24 +127,6 @@ app.include_router(detail_forms.router, tags=["detail-forms"])           # /deta
 app.include_router(destinations.router, tags=["destinations"])           # /destinations/*
 app.include_router(attribution.router, tags=["attribution"])             # /attribution/*
 app.include_router(admin_review.router, tags=["admin-review"])           # /admin/entities/*
-
-
-# ── Admin 认证 ────────────────────────────────────────────────────────────────
-_http_basic = HTTPBasic()
-
-
-def verify_admin_token(credentials: HTTPBasicCredentials = Depends(_http_basic)) -> None:
-    """验证 Admin 端点的 HTTP Basic 认证（username=admin, password=ADMIN_PASSWORD env）。"""
-    correct_password = settings.admin_password.encode("utf-8")
-    provided_password = credentials.password.encode("utf-8")
-    password_ok = secrets.compare_digest(provided_password, correct_password)
-    username_ok = secrets.compare_digest(credentials.username.encode("utf-8"), b"admin")
-    if not (password_ok and username_ok):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Unauthorized",
-            headers={"WWW-Authenticate": "Basic"},
-        )
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────

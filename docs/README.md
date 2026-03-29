@@ -8,6 +8,8 @@
 | [DECISIONS.md](DECISIONS.md) | 关键决策记录（14条）：每个重大选择的背景、理由、后果 |
 | [STATUS.md](STATUS.md) | 当前状态：系统成熟度、MVP定义、剩余工作 |
 | [DATA_STRATEGY.md](DATA_STRATEGY.md) | 数据策略：采集渠道、质量档位、避雷机制、多样性、更新频率 |
+| [DATA_FIRST_PRINCIPLES.md](DATA_FIRST_PRINCIPLES.md) | 数据第一性原理：从手账体验倒推数据需求、6层结构、统一口径 |
+| [API_PROVIDERS.md](API_PROVIDERS.md) | AI API 供应商配置：DashScope / saiai / Claude 切换方法 |
 
 ## 前端
 
@@ -27,7 +29,8 @@
 
 | 文件 | 内容 |
 |------|------|
-| [TASKS_ACTIVITY_SYSTEM.md](TASKS_ACTIVITY_SYSTEM.md) | 活动簇系统问题清单与修复任务 |
+| [TASKS_ACTIVITY_SYSTEM.md](TASKS_ACTIVITY_SYSTEM.md) | 活动簇系统：待办任务 + 新城市圈自动化流程 |
+| [TASKS_DATA_PIPELINE.md](TASKS_DATA_PIPELINE.md) | 数据管线待办：结构层 / 采集层 / 消费层三层审计 |
 
 ## 城市圈数据（编辑实体数据时参考）
 

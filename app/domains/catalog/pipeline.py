@@ -744,7 +744,7 @@ async def run_city_pipeline(
                 # 日本/全球城市: Google Places 优先（复用开头已懒加载的 _gp_fetch_hotels）
                 if _gp_fetch_hotels:
                     try:
-                        raw_list = await gp_hotels(city_code, limit=_hotel_target)
+                        raw_list = await _gp_fetch_hotels(city_code, limit=_hotel_target)
                         for raw in raw_list:
                             eid = await _write_hotel(session, raw)
                             if eid:
