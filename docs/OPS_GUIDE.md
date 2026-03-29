@@ -360,3 +360,108 @@ Trace 页面展示某次生成的完整链路，用于排查问题。
 | 审核放行 | 待审核列 → 点击 → 审核 → 发布 |
 | 回滚配置 | 配置管理 → 版本历史 → 回滚 |
 | 查看系统质量趋势 | 评测结果页 |
+
+---
+
+## 9. 服务器运维
+
+### 环境信息
+
+| 项目 | 值 |
+|------|-----|
+| 服务器 | 阿里云 ECS 香港 2vCPU/2GB |
+| IP | 47.242.209.129 |
+| 域名 | kiwitrip.cn |
+| 项目目录 | /opt/travel-ai |
+| 到期时间 | 2026-04-23 |
+
+### Docker 服务架构
+
+```
+docker-compose.yml 统一管理 7 个服务:
+
+  postgres (pgvector:16)  ─── 数据库
+  redis (7-alpine)        ─── 缓存/队列
+  api (FastAPI)           ─── 后端 API
+  worker (arq)            ─── 后台任务
+  frontend (Next.js)      ─── 前端
+  nginx                   ─── 反向代理 + HTTPS
+  ai-ops                  ─── AI 运维助手
+```
+
+### 自动化运维
+
+| 机制 | 说明 |
+|------|------|
+| **GitHub CD** | push main → CI 通过 → 自动 SSH 部署到 ECS |
+| **Watchdog** | cron 每 5 分钟检查健康，异常自动重启 + 邮件通知 |
+| **AI Agent** | 重启 3 次失败后调 AI 分析日志，每天上限 20 次被动调用 |
+| **Sentry** | 后端 500 / worker 失败自动上报 |
+| **邮件告警** | 部署成功/失败、服务异常都会发邮件到 QQ 邮箱 |
+| **SSL 自动续期** | certbot cron 每 2 个月续期 |
+
+### 常用运维命令
+
+```bash
+# 查看所有服务状态
+docker compose ps
+
+# 查看某服务日志
+docker logs japan_ai_api --tail 50
+docker logs japan_ai_worker --tail 50
+docker logs travel-web --tail 50
+
+# 重启某个服务
+docker compose restart api
+docker compose restart worker
+docker compose restart frontend
+
+# 重建镜像（代码更新后）
+docker compose build api && docker compose up -d api worker
+
+# 健康检查
+curl http://localhost:8000/health
+
+# 手动部署
+bash deploy/deploy.sh
+bash deploy/deploy.sh --backend
+bash deploy/deploy.sh --frontend
+
+# 同步本地数据库到 ECS（在本地执行）
+bash scripts/sync-db-to-ecs.sh
+
+# AI 运维助手
+# 访问: https://kiwitrip.cn/ops-ai/
+# 密码: admin123（可通过 .env 的 OPS_PASSWORD 修改）
+```
+
+### Nginx 路由规则
+
+| 路径 | 转发到 |
+|------|--------|
+| `/ops-ai/*` | ai-ops:9090 (AI 运维助手) |
+| `/health` | api:8000 (健康检查) |
+| `/(trips\|orders\|ops\|...)` | api:8000 (后端 API) |
+| `/*` | frontend:3000 (Next.js 前端 + /api/* 路由) |
+
+### .env 关键配置
+
+| 变量 | 说明 |
+|------|------|
+| `DATABASE_URL` | 数据库连接（compose 里被覆盖为 postgres:5432） |
+| `REDIS_URL` | Redis 连接（compose 里被覆盖为 redis:6379） |
+| `SENTRY_DSN` | Sentry 错误监控 |
+| `SMTP_HOST/USER/PASSWORD` | QQ 邮箱告警 |
+| `ALERT_EMAIL` | 接收告警的邮箱 |
+| `ANTHROPIC_BASE_URL` | AI Agent API 地址 |
+| `ANTHROPIC_AUTH_TOKEN` | AI Agent API 密钥 |
+| `OPS_PASSWORD` | AI 运维助手登录密码 |
+| `ADMIN_PASSWORD` | 后台管理登录密码 |
+
+### GitHub Secrets
+
+| Secret | 值 |
+|--------|-----|
+| `ECS_HOST` | 47.242.209.129 |
+| `ECS_USER` | root |
+| `ECS_SSH_KEY` | SSH 私钥（ed25519） |
