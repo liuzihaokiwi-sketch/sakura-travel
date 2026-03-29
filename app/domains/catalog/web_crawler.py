@@ -40,18 +40,46 @@ _OVERPASS_ENDPOINTS = [
 ]
 
 # 城市边界框 (south, west, north, east)
+# 格式：中心点 ± 约 0.1 度（~10km），小城市用更大范围
 CITY_BBOX = {
-    "tokyo":     (35.53, 139.45, 35.82, 139.92),
-    "osaka":     (34.55, 135.40, 34.75, 135.65),
-    "kyoto":     (34.90, 135.65, 35.10, 135.85),
-    "nara":      (34.60, 135.75, 34.75, 135.90),
-    "hakone":    (35.15, 138.95, 35.30, 139.10),
-    "kamakura":  (35.28, 139.50, 35.34, 139.58),
-    "sapporo":   (42.98, 141.25, 43.18, 141.45),
-    "fukuoka":   (33.52, 130.33, 33.66, 130.48),
-    "hiroshima": (34.32, 132.40, 34.45, 132.52),
-    "naha":      (26.18, 127.65, 26.25, 127.73),
-    "kanazawa":  (36.53, 136.60, 36.60, 136.68),
+    # 关东
+    "tokyo":      (35.53, 139.45, 35.82, 139.92),
+    "yokohama":   (35.38, 139.57, 35.52, 139.72),
+    "kamakura":   (35.28, 139.50, 35.34, 139.58),
+    "hakone":     (35.15, 138.95, 35.30, 139.10),
+    "nikko":      (36.70, 139.55, 36.80, 139.65),
+    "kawaguchiko":(35.46, 138.69, 35.57, 138.83),
+    # 関西
+    "osaka":      (34.55, 135.40, 34.75, 135.65),
+    "kyoto":      (34.90, 135.65, 35.10, 135.85),
+    "nara":       (34.60, 135.75, 34.75, 135.90),
+    "kobe":       (34.62, 135.08, 34.76, 135.30),
+    # 中部・北陸
+    "nagoya":     (35.10, 136.83, 35.25, 137.05),
+    "kanazawa":   (36.53, 136.60, 36.60, 136.68),
+    # 中国・四国
+    "hiroshima":  (34.32, 132.40, 34.45, 132.52),
+    # 九州
+    "fukuoka":    (33.52, 130.33, 33.66, 130.48),
+    "nagasaki":   (32.71, 129.84, 32.80, 129.92),
+    "kumamoto":   (32.73, 130.64, 32.84, 130.78),
+    "beppu":      (33.25, 131.44, 33.35, 131.52),
+    # 北海道
+    "sapporo":    (42.98, 141.25, 43.18, 141.45),
+    "otaru":      (43.14, 140.93, 43.24, 141.07),
+    "hakodate":   (41.73, 140.69, 41.82, 140.78),
+    "asahikawa":  (43.73, 142.31, 43.82, 142.42),
+    "furano":     (43.27, 142.32, 43.42, 142.47),
+    "biei":       (43.54, 142.41, 43.63, 142.54),
+    "noboribetsu":(42.38, 141.05, 42.46, 141.17),
+    "niseko":     (42.82, 140.61, 42.91, 140.74),
+    "abashiri":   (43.95, 144.22, 44.06, 144.35),
+    "kushiro":    (42.93, 144.31, 43.04, 144.45),
+    # 沖縄
+    "naha":       (26.18, 127.65, 26.25, 127.73),
+    "ishigaki":   (24.29, 124.08, 24.41, 124.23),
+    # 東北
+    "sendai":     (38.21, 140.82, 38.34, 140.96),
 }
 
 # OSM tourism 标签 → poi_category 映射
@@ -258,17 +286,37 @@ def _parse_fee(fee_str: str) -> Optional[int]:
 
 # 城市代码 → Tabelog URL 路径前缀
 TABELOG_CITY_PREFIX = {
-    "tokyo":     "tokyo",
-    "osaka":     "osaka",
-    "kyoto":     "kyoto",
-    "nara":      "nara",
-    "sapporo":   "hokkaido/A0101",
-    "fukuoka":   "fukuoka/A4001",
-    "hiroshima": "hiroshima/A3401",
-    "naha":      "okinawa/A4701",
-    "kanazawa":  "ishikawa/A1701",
-    "hakone":    "kanagawa/A1410",
-    "kamakura":  "kanagawa/A1407",
+    # 関東
+    "tokyo":       "tokyo",
+    "yokohama":    "kanagawa/A1401",
+    "kamakura":    "kanagawa/A1407",
+    "hakone":      "kanagawa/A1410",
+    "nikko":       "tochigi/A0901",
+    "kawaguchiko": "yamanashi/A1901",
+    # 関西
+    "osaka":       "osaka",
+    "kyoto":       "kyoto",
+    "nara":        "nara",
+    "kobe":        "hyogo/A2801",
+    # 中部・北陸
+    "nagoya":      "aichi/A2301",
+    "kanazawa":    "ishikawa/A1701",
+    # 中国
+    "hiroshima":   "hiroshima/A3401",
+    # 九州
+    "fukuoka":     "fukuoka/A4001",
+    "nagasaki":    "nagasaki/A4201",
+    "kumamoto":    "kumamoto/A4301",
+    "beppu":       "oita/A4402",
+    # 北海道
+    "sapporo":     "hokkaido/A0101",
+    "otaru":       "hokkaido/A0103",
+    "hakodate":    "hokkaido/A0105",
+    "asahikawa":   "hokkaido/A0102",
+    # 沖縄
+    "naha":        "okinawa/A4701",
+    # 東北
+    "sendai":      "miyagi/A0401",
 }
 
 # 菜系 → Tabelog 分类代码

@@ -77,14 +77,43 @@ def _extract_json_array(text: str) -> str:
     return '[]'
 
 
+_VALID_POI_CATEGORIES = frozenset([
+    "temple", "shrine", "museum", "art_gallery", "castle", "garden", "park",
+    "theme_park", "aquarium", "zoo", "market", "shopping_mall", "indoor_market",
+    "scenic_spot", "lake", "mountain", "waterfall", "beach", "hot_spring",
+    "theater", "cycling", "hiking", "water_sport", "observation_deck",
+    "historic_district", "street", "bridge", "tower", "station",
+    "specialty_shop",   # 攻略推荐级别的特色小店（手工艺品、本地特产、文创、老字号等）
+    "landmark",         # 地标（通用兜底）
+])
+_VALID_CUISINE_TYPES = frozenset([
+    "ramen", "sushi", "tempura", "udon", "soba", "tonkatsu", "yakitori",
+    "izakaya", "kaiseki", "yakiniku", "okonomiyaki", "takoyaki", "curry",
+    "cafe", "bakery", "sweets", "seafood", "chinese", "western", "italian",
+    "french", "korean", "thai", "vietnamese", "indian", "buffet",
+    "teppanyaki", "shabu_shabu", "sukiyaki", "unagi", "fugu",
+    "local_cuisine", "street_food", "fast_food", "family_restaurant",
+])
+_VALID_HOTEL_TYPES = frozenset([
+    "business_hotel", "resort_hotel", "ryokan", "capsule_hotel",
+    "hostel", "apartment", "guesthouse", "luxury_hotel", "boutique_hotel",
+    "minshuku", "pension", "onsen_ryokan",
+])
+_VALID_BUDGET_TIERS = frozenset(["budget", "mid", "premium", "luxury"])
+
+
 def validate_entity(data: dict) -> list[str]:
     """
     校验实体数据质量，返回错误列表（空列表 = 合法）。
-    检查：name_zh 非空、坐标范围、评分范围。
+    检查：name_zh 非空、坐标范围、评分范围、枚举合法性、价格范围。
     """
     errors: list[str] = []
+
+    # 名称
     if not data.get("name_zh"):
         errors.append("name_zh is empty")
+
+    # 坐标
     lat = data.get("lat")
     lng = data.get("lng")
     if lat is not None:
@@ -101,14 +130,58 @@ def validate_entity(data: dict) -> list[str]:
                 errors.append(f"lng {lng_f} out of range [-180, 180]")
         except (TypeError, ValueError):
             errors.append(f"lng is not numeric: {lng!r}")
-    rating = data.get("google_rating") or data.get("tabelog_score")
-    if rating is not None:
+
+    # 评分
+    for rating_key in ("google_rating", "tabelog_score", "booking_score"):
+        rating = data.get(rating_key)
+        if rating is not None:
+            try:
+                r = float(rating)
+                max_r = 10.0 if rating_key == "booking_score" else 5.0
+                if r < 0 or r > max_r:
+                    errors.append(f"{rating_key} {r} out of range [0, {max_r}]")
+            except (TypeError, ValueError):
+                errors.append(f"{rating_key} is not numeric: {rating!r}")
+
+    # 枚举校验
+    poi_cat = data.get("poi_category")
+    if poi_cat and poi_cat not in _VALID_POI_CATEGORIES:
+        errors.append(f"poi_category '{poi_cat}' not in allowed values")
+    cuisine = data.get("cuisine_type")
+    if cuisine and cuisine not in _VALID_CUISINE_TYPES:
+        errors.append(f"cuisine_type '{cuisine}' not in allowed values")
+    hotel_type = data.get("hotel_type")
+    if hotel_type and hotel_type not in _VALID_HOTEL_TYPES:
+        errors.append(f"hotel_type '{hotel_type}' not in allowed values")
+    budget = data.get("budget_tier")
+    if budget and budget not in _VALID_BUDGET_TIERS:
+        errors.append(f"budget_tier '{budget}' not in allowed values")
+
+    # 价格范围（日元）
+    for price_key in ("admission_fee_jpy", "typical_price_min_jpy",
+                       "budget_lunch_jpy", "budget_dinner_jpy",
+                       "price_range_min_jpy", "price_range_max_jpy"):
+        price = data.get(price_key)
+        if price is not None:
+            try:
+                p = int(price)
+                if p < 0:
+                    errors.append(f"{price_key} {p} is negative")
+                if p > 500000:
+                    errors.append(f"{price_key} {p} exceeds 500,000 JPY (suspicious)")
+            except (TypeError, ValueError):
+                errors.append(f"{price_key} is not numeric: {price!r}")
+
+    # star_rating
+    star = data.get("star_rating")
+    if star is not None:
         try:
-            r = float(rating)
-            if r < 0 or r > 5:
-                errors.append(f"rating {r} out of range [0, 5]")
+            s = float(star)
+            if s < 0 or s > 5:
+                errors.append(f"star_rating {s} out of range [0, 5]")
         except (TypeError, ValueError):
-            pass
+            errors.append(f"star_rating is not numeric: {star!r}")
+
     return errors
 
 
@@ -237,6 +310,9 @@ CITY_MAP = {
     "biei":          ("美瑛", "Biei"),
     "asahikawa":     ("旭川", "Asahikawa"),
     "toya":          ("洞爷湖", "Lake Toya"),
+    "niseko":        ("二世谷", "Niseko"),
+    "abashiri":      ("网走", "Abashiri"),
+    "kushiro":       ("釧路", "Kushiro"),
     # ── 广府圈（广深港澳）──
     "guangzhou":     ("广州", "Guangzhou"),
     "shenzhen":      ("深圳", "Shenzhen"),
@@ -274,7 +350,6 @@ CITY_MAP = {
     "huangshan":     ("黄山", "Huangshan"),
     "moganshan":     ("莫干山", "Moganshan"),
     # ── 其他日本城市（保持兼容）──
-    "abashiri":      ("网走", "Abashiri"),
     "fukuoka":       ("福冈", "Fukuoka"),
     "hiroshima":     ("广岛", "Hiroshima"),
     "naha":          ("那霸", "Naha"),

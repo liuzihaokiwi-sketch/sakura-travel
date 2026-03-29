@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     # PostgreSQL 示例: postgresql+asyncpg://user:pass@localhost:5432/japan_ai
     database_url: str = "sqlite+aiosqlite:///./japan_ai.db"
     postgres_user: str = "japan_ai"
-    postgres_password: str = "japan_ai_dev"
+    postgres_password: str = "japan_ai_dev"   # 生产环境必须通过 env 覆盖
     postgres_db: str = "japan_ai"
 
     # ── Redis ─────────────────────────────────────────────────
@@ -88,6 +88,22 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env == "production"
+
+    def validate_production_secrets(self) -> None:
+        """生产环境启动时检查关键凭证是否仍为默认值，是则直接抛出 RuntimeError。"""
+        if not self.is_production:
+            return
+        _INSECURE_DEFAULTS = {
+            "secret_key": "change_me_in_production",
+            "admin_password": "admin123",
+            "postgres_password": "japan_ai_dev",
+        }
+        for field_name, insecure_value in _INSECURE_DEFAULTS.items():
+            if getattr(self, field_name) == insecure_value:
+                raise RuntimeError(
+                    f"[SECURITY] {field_name} is set to the default insecure value. "
+                    f"Set the {field_name.upper()} environment variable before starting in production."
+                )
 
 
 @lru_cache

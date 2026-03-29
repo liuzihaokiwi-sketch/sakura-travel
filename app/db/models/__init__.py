@@ -110,18 +110,13 @@ from app.db.models.soft_rules import (  # noqa: F401
     EditorialSeedOverride,
     EntityOperatingFact,
     EntitySoftScore,
-    FeatureFlag,
-    PreviewTriggerScore,
-    ProductConfig,
     SeasonalEvent,
     SegmentWeightPack,
     SoftRuleExplanation,
     SoftRuleFeedbackLog,
     StageWeightPack,
-    SwapCandidateSoftScore,
     TimeslotRule,
     TransportLink,
-    UserEvent,
 )
 
 __all__ = [
@@ -141,10 +136,9 @@ __all__ = [
     "RouteTemplate", "RenderTemplate", "ExportJob", "ExportAsset", "PlanArtifact",
     # Soft Rules
     "EntitySoftScore", "EditorialSeedOverride", "SoftRuleExplanation",
-    "SegmentWeightPack", "StageWeightPack", "PreviewTriggerScore",
-    "SwapCandidateSoftScore", "SoftRuleFeedbackLog",
+    "SegmentWeightPack", "StageWeightPack", "SoftRuleFeedbackLog",
     "AreaProfile", "TimeslotRule", "SeasonalEvent", "TransportLink",
-    "AudienceFit", "EntityOperatingFact", "ProductConfig", "FeatureFlag", "UserEvent",
+    "AudienceFit", "EntityOperatingFact",
     # Detail Forms
     "DetailForm", "DetailFormStep",
     # Trace

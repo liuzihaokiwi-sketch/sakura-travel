@@ -19,6 +19,7 @@ Skipped paths: /ops/*, /admin/sync*, /health, /docs, /redoc, /openapi
 from __future__ import annotations
 
 import asyncio
+import os
 import logging
 import time
 from abc import ABC, abstractmethod
@@ -312,4 +313,6 @@ class GlobalRateLimiter:
 
 
 # 模块级单例，供 ai_cache.py 直接 import 使用
-ai_rate_limiter = GlobalRateLimiter(min_interval_seconds=10.0)
+# DashScope 不封 IP，可以快跑。saiai 用时改为 30
+_AI_MIN_INTERVAL = float(os.environ.get("AI_RATE_LIMIT_INTERVAL", "1.0"))
+ai_rate_limiter = GlobalRateLimiter(min_interval_seconds=_AI_MIN_INTERVAL)

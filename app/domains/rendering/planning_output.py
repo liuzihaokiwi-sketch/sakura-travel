@@ -72,6 +72,7 @@ class PlanningOutput:
     circles: list[SelectedCircleInfo] = field(default_factory=list)
     day_circle_map: dict[int, str] = field(default_factory=dict)
     quality_flags: QualityFlags = field(default_factory=QualityFlags)
+    hero_registry: dict = field(default_factory=dict)
 
 
 # ── 构建函数 ─────────────────────────────────────────────────────────────────
@@ -145,6 +146,46 @@ async def build_planning_output(
         for ent in ent_q.scalars().all():
             entities[ent.entity_id] = ent
 
+    # 批量加载 temporal profiles（查空则 fallback）
+    temporal_by_entity: dict[Any, Any] = {}
+    if entity_ids:
+        try:
+            from app.db.models.temporal import EntityTemporalProfile
+            # 取每个实体的 all_year / all_day 通用记录
+            tp_q = await session.execute(
+                select(EntityTemporalProfile).where(
+                    EntityTemporalProfile.entity_id.in_(entity_ids),
+                )
+            )
+            for tp in tp_q.scalars().all():
+                key = tp.entity_id
+                # 优先存最通用的记录，如有具体季节的覆盖则替换
+                if key not in temporal_by_entity or tp.season_code != "all_year":
+                    temporal_by_entity[key] = tp
+        except Exception:
+            pass  # 表不存在或查询失败，fallback 到无 temporal 数据
+
+    # 批量加载 page_hero_registry（查空则 fallback 到 placeholder）
+    hero_registry: dict[tuple, dict] = {}
+    try:
+        from app.db.models.page_assets import PageHeroRegistry
+        hr_q = await session.execute(
+            select(PageHeroRegistry).where(
+                PageHeroRegistry.is_active == True,
+                PageHeroRegistry.render_mode == "web",
+            ).order_by(PageHeroRegistry.visual_priority)
+        )
+        for hr in hr_q.scalars().all():
+            key = (hr.page_type, str(hr.object_id))
+            if key not in hero_registry:  # 优先级最高的先入
+                hero_registry[key] = {
+                    "media_url": hr.media_url,
+                    "alt_text_zh": hr.alt_text_zh or "",
+                    "color_palette": hr.color_palette,
+                }
+    except Exception:
+        pass  # 表不存在或无数据，fallback 到 placeholder
+
     # ── 2. frame index → frame dict 映射 ────────────────────────────────────
 
     frame_map: dict[int, dict] = {}
@@ -174,6 +215,14 @@ async def build_planning_output(
             # 解析 notes_zh 获取额外信息
             notes = _parse_notes(item.notes_zh)
 
+            # 从 temporal_profiles 读天气敏感度（有数据则用，否则 fallback "low"）
+            tp = temporal_by_entity.get(item.entity_id)
+            weather_dep = "low"
+            if tp:
+                ws = getattr(tp, "weather_sensitivity", None) or ""
+                if ws in ("high", "medium", "low", "none"):
+                    weather_dep = ws
+
             slots.append(DaySlot(
                 slot_index=idx,
                 kind=kind,
@@ -183,7 +232,7 @@ async def build_planning_output(
                 start_time_hint=item.start_time or _time_hint(idx, frame.get("day_type", "normal")),
                 duration_mins=item.duration_min or 60,
                 booking_required=notes.get("booking_required", False),
-                weather_dependency="low",
+                weather_dependency=weather_dep,
                 replaceable=True,
             ))
 
@@ -295,7 +344,7 @@ async def build_planning_output(
                     "why_selected": notes.get("copy_zh", ""),
                 })
 
-        # 构建 risks
+        # 构建 risks（booking alerts + temporal profiles 排队/天气风险）
         risks: list[DayRisk] = []
         for alert in frame.get("booking_alerts", []):
             risks.append(DayRisk(
@@ -303,6 +352,31 @@ async def build_planning_output(
                 description=alert.get("message", ""),
                 mitigation=alert.get("fallback", ""),
             ))
+        # 从 temporal_profiles 补充排队和天气风险
+        for slot in slots:
+            if not slot.entity_id:
+                continue
+            try:
+                eid = uuid.UUID(slot.entity_id)
+            except (ValueError, AttributeError):
+                continue
+            tp = temporal_by_entity.get(eid)
+            if not tp:
+                continue
+            qrl = getattr(tp, "queue_risk_level", None) or ""
+            if qrl in ("high", "extreme"):
+                risks.append(DayRisk(
+                    risk_type="queue",
+                    description=f"{slot.title}排队风险{'极高' if qrl == 'extreme' else '较高'}，建议提前到达",
+                    mitigation=getattr(tp, "availability_notes", "") or "建议避开高峰时段",
+                ))
+            ws = getattr(tp, "weather_sensitivity", None) or ""
+            if ws == "high":
+                risks.append(DayRisk(
+                    risk_type="weather",
+                    description=f"{slot.title}受天气影响较大",
+                    mitigation="关注天气预报，雨天考虑替代方案",
+                ))
 
         # 构建 trigger_tags
         trigger_tags: list[str] = []
@@ -571,6 +645,7 @@ async def build_planning_output(
         selection_evidence=evidence_items,
         circles=circles_list,
         day_circle_map=day_circle_map,
+        hero_registry=hero_registry,
     )
 
     logger.info(

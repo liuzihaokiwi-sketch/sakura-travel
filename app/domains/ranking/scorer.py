@@ -43,6 +43,15 @@ CANDIDATE_SOFT_RULE_WEIGHT_3D = 0.25
 
 # ── 输入信号 DataClass ─────────────────────────────────────────────────────────
 
+_TRUST_MULTIPLIER: dict[str, float] = {
+    "verified":     1.0,
+    "unverified":   0.9,
+    "ai_generated": 0.6,
+    "suspicious":   0.3,
+    "rejected":     0.0,  # 排除：compute_base_score 返回 0
+}
+
+
 @dataclass
 class EntitySignals:
     """
@@ -52,6 +61,7 @@ class EntitySignals:
     """
     entity_type: str = "poi"          # poi | hotel | restaurant
     data_tier: str = "B"              # S | A | B
+    trust_status: str = "unverified"  # verified / unverified / ai_generated / suspicious / rejected
 
     # ── 通用评分信号 ──────────────────────────────────────────────────────────
     google_rating: float | None = None        # 0-5
@@ -407,9 +417,21 @@ def compute_base_score(
     else:
         raise ValueError(f"Unsupported entity_type: {entity_type!r}")
 
-    # Step 2: data_tier 置信度折扣
+    # Step 2a: rejected 直接排除
+    trust_multiplier = _TRUST_MULTIPLIER.get(signals.trust_status, 0.9)
+    if trust_multiplier == 0.0:
+        return ScoreResult(
+            entity_type=entity_type,
+            score_profile=score_profile,
+            base_score=0.0,
+            editorial_boost=0,
+            final_score=0.0,
+            score_breakdown={"rejected": True, "trust_status": signals.trust_status},
+        )
+
+    # Step 2b: data_tier 置信度折扣
     tier_multiplier = DATA_TIER_MULTIPLIER.get(signals.data_tier, 0.75)
-    system_score_adjusted = system_score * tier_multiplier
+    system_score_adjusted = system_score * tier_multiplier * trust_multiplier
 
     # Step 3: 风险扣分
     risk_penalty, risk_breakdown = _compute_risk_penalty(signals)
@@ -428,6 +450,8 @@ def compute_base_score(
         "dimensions": dim_breakdown,
         "system_score_raw": round(system_score, 2),
         "tier_multiplier": tier_multiplier,
+        "trust_status": signals.trust_status,
+        "trust_multiplier": trust_multiplier,
         "system_score_adjusted": round(system_score_adjusted, 2),
         "risk_penalty": round(risk_penalty, 2),
         "risk_details": risk_breakdown,
@@ -438,13 +462,6 @@ def compute_base_score(
 
     # Step 7: 叠加 boost 得到 final_score（boost 在 base 上直接加）
     final_score = apply_editorial_boost(base_score, signals.editorial_boost)
-
-    # Step 8: 轮转百分比降权（与 Step 4 的绝对扣分互补）
-    from app.domains.ranking.rotation import apply_rotation_penalty
-    final_score_before_rotation_pct = final_score
-    final_score = apply_rotation_penalty(final_score, signals.recommendation_count_30d)
-    rotation_pct_applied = round(final_score_before_rotation_pct - final_score, 2)
-    breakdown["rotation_pct_penalty"] = rotation_pct_applied
 
     return ScoreResult(
         entity_type=entity_type,

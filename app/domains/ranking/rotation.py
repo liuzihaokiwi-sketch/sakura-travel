@@ -49,16 +49,9 @@ def apply_rotation_penalty(base_score: float, count_30d: int) -> float:
     """
     对高频推荐实体施加百分比软降权。
 
-    分档规则：
-      - 0-5 次推荐：无惩罚
-      - 6-10 次：-5% score
-      - 11-20 次：-10% score
-      - 21+ 次：-15% score
-
-    与 compute_rotation_penalty（对数绝对扣分）互补：
-      compute_rotation_penalty 在 base_score 计算内部扣绝对分，
-      apply_rotation_penalty 在 final_score 层做百分比缩放，
-      两者共同实现平滑的轮转压制。
+    注意: 此函数不再被 scorer.py 调用（2026-03-29 移除双重扣分）。
+    scorer 现在只用 compute_rotation_penalty() 做对数绝对扣分。
+    此函数保留供独立使用场景。
     """
     if count_30d <= 5:
         return base_score

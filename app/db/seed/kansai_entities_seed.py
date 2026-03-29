@@ -1314,13 +1314,11 @@ async def _upsert_poi(session, data: dict) -> None:
         INSERT INTO entity_base
             (entity_id, entity_type, name_zh, name_ja, name_en, city_code, area_name,
              lat, lng, data_tier, is_active, quality_tier, budget_tier,
-             risk_flags, booking_method, best_time_of_day, visit_duration_min,
-             nearest_station)
+             risk_flags, booking_method, nearest_station)
         VALUES
             (:entity_id, 'poi', :name_zh, :name_ja, :name_en, :city_code, :area_name,
              :lat, :lng, :quality_tier, true, :quality_tier, :budget_tier,
-             :risk_flags::jsonb, :booking_method, :best_time_of_day, :visit_duration_min,
-             :nearest_station)
+             :risk_flags::jsonb, :booking_method, :nearest_station)
         ON CONFLICT (name_zh, city_code) DO NOTHING
     """), {
         "entity_id": entity_id,
@@ -1331,8 +1329,6 @@ async def _upsert_poi(session, data: dict) -> None:
         "budget_tier": data.get("budget_tier", "mid"),
         "risk_flags": risk_flags,
         "booking_method": data.get("booking_method", "walk_in"),
-        "best_time_of_day": data.get("best_time_of_day"),
-        "visit_duration_min": data.get("visit_duration_min"),
         "nearest_station": data.get("nearest_station"),
     })
 

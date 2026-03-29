@@ -22,27 +22,52 @@ from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
 
+# ── 预算常量（可通过 config_packs 覆盖） ─────────────────────────────────────
+#
+# 以下为默认值。运营可通过 config_packs 表的 "budget_estimator" pack 覆盖。
+# 覆盖格式：{"jpy_to_cny": 0.048, "transport_budget": {...}, ...}
+
+def _load_budget_config() -> dict:
+    """从 data/seed/planning_defaults.json 加载预算配置，失败时返回空 dict。"""
+    import json, pathlib
+    path = pathlib.Path(__file__).parents[3] / "data" / "seed" / "planning_defaults.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return {
+            "transport_budget": data.get("transport_budget_jpy", {}),
+            "hotel_budget": data.get("hotel_budget_jpy", {}),
+            "default_admission": data.get("default_admission_jpy", {}),
+            "food_floor": data.get("food_floor_jpy", {}),
+            "misc_buffer_rate": data.get("misc_buffer_rate", 0.10),
+        }
+    except Exception as _exc:
+        import logging
+        logging.getLogger(__name__).warning("planning_defaults.json 加载失败，使用内置默认值: %s", _exc)
+        return {}
+
+_cfg = _load_budget_config()
+
 # 默认汇率（日元 → 人民币）
-JPY_TO_CNY = 0.047
+JPY_TO_CNY: float = _cfg.get("jpy_to_cny", 0.047)
 
 # budget_level → 每天交通费估算（日元）
-TRANSPORT_BUDGET_BY_TIER: dict[str, int] = {
+TRANSPORT_BUDGET_BY_TIER: dict[str, int] = _cfg.get("transport_budget", {
     "budget":  800,
     "mid":    1200,
     "premium": 2000,
     "luxury":  3000,
-}
+})
 
 # budget_level → 每晚住宿费默认值（日元，无酒店 entity 时使用）
-HOTEL_BUDGET_BY_TIER: dict[str, int] = {
+HOTEL_BUDGET_BY_TIER: dict[str, int] = _cfg.get("hotel_budget", {
     "budget":  5000,
     "mid":    10000,
     "premium": 20000,
     "luxury":  40000,
-}
+})
 
 # 无 admission_fee_jpy 时按景点类型的默认门票（日元）
-DEFAULT_ADMISSION_BY_POI_CATEGORY: dict[str, int] = {
+DEFAULT_ADMISSION_BY_POI_CATEGORY: dict[str, int] = _cfg.get("default_admission", {
     "temple":      500,
     "shrine":        0,
     "museum":     1000,
@@ -50,18 +75,18 @@ DEFAULT_ADMISSION_BY_POI_CATEGORY: dict[str, int] = {
     "park":          0,
     "castle":      600,
     "garden":      500,
-}
+})
 
 # 餐饮保底（无餐厅 entity 时）
-FOOD_FLOOR_BY_TIER: dict[str, int] = {
+FOOD_FLOOR_BY_TIER: dict[str, int] = _cfg.get("food_floor", {
     "budget": 2000,
     "mid":    3500,
     "premium": 6000,
     "luxury": 10000,
-}
+})
 
 # misc buffer 比例
-MISC_BUFFER_RATE = 0.10
+MISC_BUFFER_RATE: float = _cfg.get("misc_buffer_rate", 0.10)
 
 
 @dataclass
@@ -78,9 +103,12 @@ class DayBudgetEstimate:
         """门票 + 餐饮 + 交通 + 住宿（不含杂费）"""
         return self.admission_jpy + self.food_jpy + self.transport_jpy + self.hotel_jpy
 
+    def finalize(self) -> None:
+        """计算并锁定 misc_jpy。在所有费用写入完成后调用一次。"""
+        self.misc_jpy = int(self.subtotal_jpy * MISC_BUFFER_RATE)
+
     @property
     def total_jpy(self) -> int:
-        self.misc_jpy = int(self.subtotal_jpy * MISC_BUFFER_RATE)
         return self.subtotal_jpy + self.misc_jpy
 
     @property
@@ -219,7 +247,7 @@ async def estimate_day_budgets(
             if hotel and hotel.typical_price_min_jpy:
                 hotel_price_by_day[h_day.day_number] = hotel.typical_price_min_jpy
     except Exception as exc:
-        logger.debug("hotel price lookup skipped: %s", exc)
+        logger.warning("hotel price lookup failed, using tier defaults: %s", exc)
 
     results: list[DayBudgetEstimate] = []
     total_days = len(db_days)
@@ -282,6 +310,7 @@ async def estimate_day_budgets(
         if estimate.food_jpy == 0:
             estimate.food_jpy = FOOD_FLOOR_BY_TIER.get(budget_level, 3500)
 
+        estimate.finalize()  # 锁定 misc_jpy，避免 total_jpy property 的副作用
         results.append(estimate)
 
     return results

@@ -23,8 +23,9 @@ from app.core.sentry import set_sentry_context, capture_exception_with_context
 
 logger = logging.getLogger(__name__)
 
-# Feature flags
-REVIEW_PIPELINE_ENABLED = True
+# Feature flags（从 env 读取，支持运行时关闭）
+import os as _os
+REVIEW_PIPELINE_ENABLED: bool = _os.environ.get("REVIEW_PIPELINE_ENABLED", "true").lower() != "false"
 
 
 def _plan_json_from_planning_output(planning_output: Any, plan_id: Any) -> dict:
@@ -112,22 +113,42 @@ async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
         "days": [],
     }
 
-    for day in days:
-        items_result = await session.execute(
-            select(ItineraryItem)
-            .where(ItineraryItem.day_id == day.day_id)
-            .order_by(ItineraryItem.sort_order)
+    # 批量拉取所有 items，避免 N+1
+    all_items_result = await session.execute(
+        select(ItineraryItem)
+        .join(ItineraryDay, ItineraryItem.day_id == ItineraryDay.day_id)
+        .where(ItineraryDay.plan_id == plan_id)
+        .order_by(ItineraryDay.day_number, ItineraryItem.sort_order)
+    )
+    all_items = all_items_result.scalars().all()
+
+    # 批量拉取所有 entity_ids 对应的 EntityBase，避免循环 N+1
+    entity_ids = list({item.entity_id for item in all_items if item.entity_id})
+    entity_map: dict[Any, EntityBase] = {}
+    if entity_ids:
+        ents_result = await session.execute(
+            select(EntityBase).where(EntityBase.entity_id.in_(entity_ids))
         )
-        items = items_result.scalars().all()
+        for ent in ents_result.scalars().all():
+            entity_map[ent.entity_id] = ent
+
+    # 按 day_id 分组
+    from collections import defaultdict
+    items_by_day: dict[Any, list] = defaultdict(list)
+    for item in all_items:
+        items_by_day[item.day_id].append(item)
+
+    for day in days:
+        items = items_by_day.get(day.day_id, [])
 
         day_items = []
         for item in items:
             entity_name = "未知"
             entity_type = item.item_type or "poi"
             if item.entity_id:
-                entity = await session.get(EntityBase, item.entity_id)
+                entity = entity_map.get(item.entity_id)
                 if entity:
-                    entity_name = entity.name_local or entity.name or "未知"
+                    entity_name = getattr(entity, "name_local", None) or getattr(entity, "name", None) or entity.name_zh or "未知"
                     entity_type = entity.entity_type or "poi"
 
             copy_zh = ""
@@ -136,8 +157,8 @@ async def _build_plan_json(session: Any, plan_id: uuid.UUID) -> dict:
                 try:
                     notes = _json.loads(item.notes_zh) if isinstance(item.notes_zh, str) else item.notes_zh
                     copy_zh = notes.get("copy_zh", "")
-                except Exception:
-                    pass
+                except Exception as _exc:
+                    logger.warning("notes_zh parse failed for item %s: %s", item.item_id, _exc)
 
             item_dict: dict[str, Any] = {
                 "time": item.start_time or "",
@@ -207,14 +228,16 @@ async def _build_review_context(session: Any, trip: TripRequest, scene: str) -> 
                     .where(EntityOperatingFact.entity_id.in_(entity_ids))
                 )
                 facts = facts_q.scalars().all()
-                warnings = [
-                    f"{f.fact_key}={f.fact_value} (entity={f.entity_id})"
-                    for f in facts
-                    if (f.fact_value or "").lower() in (
-                        "permanently_closed", "long_term_closed",
-                        "temporarily_closed", "limited_hours",
-                    )
-                ]
+                # EntityOperatingFact 存储营业时段；检查 holiday_schedule 中的关闭标记
+                warnings = []
+                for f in facts:
+                    hs = f.holiday_schedule or {}
+                    status = str(hs.get("status", "")).lower()
+                    if status in ("permanently_closed", "long_term_closed",
+                                  "temporarily_closed", "limited_hours"):
+                        warnings.append(
+                            f"status={status} day={f.day_of_week} (entity={f.entity_id})"
+                        )
                 context["operational_context"] = "; ".join(warnings) if warnings else "no_operational_alerts"
             else:
                 context["operational_context"] = "no_entities"
@@ -903,6 +926,23 @@ async def _try_city_circle_pipeline(
             await session.flush()
         except Exception:
             pass
+
+        # ── fit scorer 结果持久化 ──
+        if fit_scores or swap_suggestions:
+            try:
+                _plan_obj = await session.get(ItineraryPlan, plan_id)
+                if _plan_obj:
+                    meta = _plan_obj.plan_metadata or {}
+                    avg_fit = round(sum(f.itinerary_fit_score for f in fit_scores) / max(1, len(fit_scores)), 1) if fit_scores else 0
+                    meta["fit_scoring"] = {
+                        "avg_fit_score": avg_fit,
+                        "total_scored": len(fit_scores),
+                        "swap_suggestion_count": len(swap_suggestions),
+                    }
+                    _plan_obj.plan_metadata = meta
+                    await session.flush()
+            except Exception as _fit_exc:
+                logger.warning("fit scorer 结果写入失败（非致命）: %s", _fit_exc)
 
         # ── constraint_trace finalize + evidence_bundle 钀藉簱 ──
         constraints.finalize_trace()

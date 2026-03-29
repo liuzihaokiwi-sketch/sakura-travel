@@ -47,6 +47,7 @@ async def build_plan_b_for_day(
     day_slots: list[Any],   # list[DaySlot]
     day_city_code: str,
     budget_level: str = "mid",
+    travel_date: str | None = None,
 ) -> list[dict]:
     """
     为某天的 slot 列表生成 Plan B 备用方案。
@@ -56,6 +57,7 @@ async def build_plan_b_for_day(
         day_slots: 该天的 DaySlot 列表
         day_city_code: 该天主城市代码
         budget_level: 用户预算档次
+        travel_date: 旅行日期 YYYY-MM-DD（可选，用于查天气快照）
 
     Returns:
         list of PlanBOption dicts
@@ -64,6 +66,24 @@ async def build_plan_b_for_day(
     from app.db.models.catalog import EntityBase, Poi
 
     plan_b_options: list[dict] = []
+
+    # 查询天气快照（有数据则用于触发雨天替代，无数据不影响）
+    weather_is_rainy = False
+    if travel_date and day_city_code:
+        try:
+            from app.db.models.snapshots import WeatherSnapshot
+            ws_q = await session.execute(
+                select(WeatherSnapshot).where(
+                    WeatherSnapshot.city_code == day_city_code,
+                    WeatherSnapshot.forecast_date == travel_date,
+                ).order_by(WeatherSnapshot.fetched_at.desc()).limit(1)
+            )
+            ws = ws_q.scalar_one_or_none()
+            if ws and ws.condition in ("rainy", "snowy"):
+                weather_is_rainy = True
+                logger.info("天气快照: %s %s condition=%s，触发全天雨天替代", day_city_code, travel_date, ws.condition)
+        except Exception as _exc:
+            logger.warning("weather snapshot lookup failed for %s %s: %s", day_city_code, travel_date, _exc)
 
     for slot in day_slots:
         if slot.kind not in ("poi", "activity"):
@@ -79,8 +99,8 @@ async def build_plan_b_for_day(
         category = (poi.poi_category or "") if poi else ""
         area = ent.area_name or ""
 
-        # ── 雨天替代规则 ──────────────────────────────────────────────────────
-        if category in _OUTDOOR_CATEGORIES or _is_weather_sensitive(ent, poi):
+        # ── 雨天替代规则（天气快照 or 户外类别 or risk_flags） ────────────────
+        if weather_is_rainy or category in _OUTDOOR_CATEGORIES or _is_weather_sensitive(ent, poi):
             indoor_alt = await _find_indoor_alternative(
                 session, ent.entity_id, ent.city_code, area, budget_level
             )
@@ -155,6 +175,17 @@ def _needs_booking(ent: Any, poi: Any) -> bool:
     return False
 
 
+def _budget_compatible_tiers(budget_level: str) -> list[str]:
+    """返回与用户预算兼容的 budget_tier 列表（允许同级或更低一级）。"""
+    tiers_map = {
+        "budget":  ["budget"],
+        "mid":     ["budget", "mid"],
+        "premium": ["mid", "premium"],
+        "luxury":  ["mid", "premium", "luxury"],
+    }
+    return tiers_map.get(budget_level, ["budget", "mid", "premium"])
+
+
 async def _find_booking_alternative(
     session: Any,
     exclude_id: Any,
@@ -164,8 +195,9 @@ async def _find_booking_alternative(
     category: str,
     budget_level: str,
 ) -> dict | None:
-    """找一个同类型但不需要预约（或更容易预约）的替代。"""
+    """找一个同类型但不需要预约的替代，budget_tier 兼容。"""
     from sqlalchemy import text
+    allowed_tiers = _budget_compatible_tiers(budget_level)
     try:
         # 对 POI：同类别优先，退而求其次同区域
         # 对 Restaurant：同城同区域，booking_method = walk_in 优先
@@ -183,12 +215,14 @@ async def _find_booking_alternative(
                            OR eb.booking_method = 'walk_in'
                            OR eb.booking_method IS NULL)
                       AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                      AND (eb.budget_tier IS NULL OR eb.budget_tier = ANY(:tiers))
                     ORDER BY
                       CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
                       eb.quality_tier
                     LIMIT 1
                 """),
-                {"city_code": city_code, "exclude_id": exclude_id, "area": area or ""},
+                {"city_code": city_code, "exclude_id": exclude_id, "area": area or "",
+                 "tiers": allowed_tiers},
             )
         else:
             result = await session.execute(
@@ -207,6 +241,7 @@ async def _find_booking_alternative(
                            OR p.requires_advance_booking IS NULL)
                       AND (:category = '' OR p.poi_category = :category OR p.poi_category IS NULL)
                       AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                      AND (eb.budget_tier IS NULL OR eb.budget_tier = ANY(:tiers))
                     ORDER BY
                       CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
                       CASE WHEN p.poi_category = :category THEN 0 ELSE 1 END,
@@ -216,7 +251,7 @@ async def _find_booking_alternative(
                 {
                     "city_code": city_code, "exclude_id": exclude_id,
                     "entity_type": entity_type, "area": area or "",
-                    "category": category or "",
+                    "category": category or "", "tiers": allowed_tiers,
                 },
             )
         row = result.mappings().first()
@@ -233,10 +268,10 @@ async def _find_indoor_alternative(
     area: str,
     budget_level: str,
 ) -> dict | None:
-    """在同区域/城市内找室内替代景点。"""
-    from sqlalchemy import select, text
+    """在同区域/城市内找室内替代景点，budget_tier 兼容。"""
+    from sqlalchemy import text
+    allowed_tiers = _budget_compatible_tiers(budget_level)
     try:
-        # 优先同区域室内
         result = await session.execute(
             text("""
                 SELECT eb.entity_id, eb.name_zh, eb.area_name
@@ -249,12 +284,14 @@ async def _find_indoor_alternative(
                   AND p.poi_category IN ('museum', 'art_gallery', 'aquarium',
                                          'shopping_mall', 'indoor_market', 'theater')
                   AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                  AND (eb.budget_tier IS NULL OR eb.budget_tier = ANY(:tiers))
                 ORDER BY
                   CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
                   eb.quality_tier
                 LIMIT 1
             """),
-            {"city_code": city_code, "exclude_id": exclude_id, "area": area or ""},
+            {"city_code": city_code, "exclude_id": exclude_id, "area": area or "",
+             "tiers": allowed_tiers},
         )
         row = result.mappings().first()
         return dict(row) if row else None
@@ -270,8 +307,9 @@ async def _find_easy_alternative(
     area: str,
     budget_level: str,
 ) -> dict | None:
-    """在同区域/城市内找低强度替代景点。"""
+    """在同区域/城市内找低强度替代景点，budget_tier 兼容。"""
     from sqlalchemy import text
+    allowed_tiers = _budget_compatible_tiers(budget_level)
     try:
         result = await session.execute(
             text("""
@@ -286,12 +324,14 @@ async def _find_easy_alternative(
                                               'cycling', 'water_sport')
                   AND (p.typical_duration_min IS NULL OR p.typical_duration_min <= 120)
                   AND (:area = '' OR eb.area_name = :area OR eb.area_name IS NULL)
+                  AND (eb.budget_tier IS NULL OR eb.budget_tier = ANY(:tiers))
                 ORDER BY
                   CASE WHEN eb.area_name = :area THEN 0 ELSE 1 END,
                   eb.quality_tier
                 LIMIT 1
             """),
-            {"city_code": city_code, "exclude_id": exclude_id, "area": area or ""},
+            {"city_code": city_code, "exclude_id": exclude_id, "area": area or "",
+             "tiers": allowed_tiers},
         )
         row = result.mappings().first()
         return dict(row) if row else None

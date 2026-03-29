@@ -36,14 +36,31 @@ from app.db.models.derived import (
 
 logger = logging.getLogger(__name__)
 
-# Feature flag
-CIRCLE_WRITE_MODE = "live"  # disabled / shadow / live
+# Feature flag（从 env 读取，支持运行时覆盖）
+import os as _os
+CIRCLE_WRITE_MODE = _os.environ.get("CIRCLE_WRITE_MODE", "live")
+
+
+def _load_planning_defaults() -> dict:
+    import json, pathlib
+    path = pathlib.Path(__file__).parents[3] / "data" / "seed" / "planning_defaults.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+_DEFAULTS = _load_planning_defaults()
 
 
 # ── 核心数据结构 ──────────────────────────────────────────────────────────────
 
-def _time_for_slot(slot_index: int, day_type: str) -> str:
-    """根据槽位序号估算 HH:MM 时间。"""
+def _time_for_slot(slot_index: int, day_type: str, offset_minutes: int = 0) -> str:
+    """根据槽位序号和累计偏移估算 HH:MM 时间。
+
+    offset_minutes 为已经消耗的分钟数（从当天起点算）。
+    如果不传，退化为 slot_index × 75 的旧逻辑。
+    """
     if day_type == "arrival":
         base_hour = 14  # 到达日下午开始
     elif day_type == "departure":
@@ -51,7 +68,11 @@ def _time_for_slot(slot_index: int, day_type: str) -> str:
     else:
         base_hour = 9   # 普通日上午开始
 
-    minutes = base_hour * 60 + slot_index * 75  # 每个槽位 ~75 分钟间隔
+    _slot_mins = _DEFAULTS.get("slot_duration_minutes", 75)
+    if offset_minutes > 0:
+        minutes = base_hour * 60 + offset_minutes
+    else:
+        minutes = base_hour * 60 + slot_index * _slot_mins
     h = min(22, minutes // 60)
     m = minutes % 60
     return f"{h:02d}:{m:02d}"
@@ -59,7 +80,9 @@ def _time_for_slot(slot_index: int, day_type: str) -> str:
 
 def _meal_time(meal_type: str) -> str:
     """餐厅的默认时间。"""
-    return {"breakfast": "08:00", "lunch": "12:00", "dinner": "18:30"}.get(meal_type, "12:00")
+    return _DEFAULTS.get("meal_times", {
+        "breakfast": "08:00", "lunch": "12:00", "dinner": "18:30"
+    }).get(meal_type, "12:00")
 
 
 # ── 主构建函数 ────────────────────────────────────────────────────────────────
@@ -204,6 +227,9 @@ async def build_itinerary_records(
             # 找 anchor entity 及对应推荐理由
             anchor_ids = _get_anchor_entities(frame, ranking_result)
             anchor_why = _get_anchor_why_selected(frame, ranking_result)
+            # 用骨架编排的实际时长，均分给各 anchor entity
+            total_load = getattr(frame, "activity_load_minutes", 0) or 0
+            per_anchor_min = max(30, total_load // max(1, len(anchor_ids))) if total_load > 0 else 90
             for eid in anchor_ids:
                 item = ItineraryItem(
                     day_id=itinerary_day.day_id,
@@ -211,7 +237,7 @@ async def build_itinerary_records(
                     item_type="poi",
                     entity_id=eid,
                     start_time=_time_for_slot(sort_order, frame.day_type),
-                    duration_min=90,
+                    duration_min=per_anchor_min,
                     notes_zh=_make_notes_zh(anchor_why, "poi"),
                     is_optional=False,
                 )

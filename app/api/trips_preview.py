@@ -34,15 +34,14 @@ router = APIRouter(prefix="/trips", tags=["trips-preview"])
 # ── 配置加载 ──────────────────────────────────────────────────────────────────
 
 _CONFIG_PATH = Path(__file__).resolve().parents[2] / "data" / "config" / "product_config.json"
-_config_cache: dict | None = None
 
 
+from functools import lru_cache
+
+@lru_cache(maxsize=1)
 def _load_config() -> dict:
-    global _config_cache
-    if _config_cache is None:
-        with open(_CONFIG_PATH, "r", encoding="utf-8") as f:
-            _config_cache = json.load(f)
-    return _config_cache
+    with open(_CONFIG_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 # ── 响应模型 ──────────────────────────────────────────────────────────────────

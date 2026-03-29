@@ -148,7 +148,13 @@ def _entity_id_from_page(page: PagePlan) -> str:
     return page.object_refs[0].object_id if page.object_refs else ""
 
 
-def _resolve_hero_image(entity_id: Optional[str], page_type: str, payload: PlanningOutput) -> Optional[HeroVM]:
+def _resolve_hero_image(
+    entity_id: Optional[str],
+    page_type: str,
+    payload: PlanningOutput,
+    hero_registry: Optional[dict] = None,
+) -> Optional[HeroVM]:
+    # 1. 先查 selection_evidence（行程生成时已关联的图片）
     if entity_id:
         for ev in payload.selection_evidence:
             if ev.get("entity_id") == entity_id and ev.get("hero_image_url"):
@@ -157,6 +163,17 @@ def _resolve_hero_image(entity_id: Optional[str], page_type: str, payload: Plann
                     image_alt=str(ev.get("name") or ""),
                     orientation=str(ev.get("orientation") or "landscape"),
                 )
+    # 2. 查 page_hero_registry（预加载的注册表数据）
+    if hero_registry:
+        # key 格式: (page_type, object_id) 或 (page_type, entity_id)
+        reg = hero_registry.get((page_type, entity_id)) or hero_registry.get((page_type, "default"))
+        if reg:
+            return HeroVM(
+                image_url=reg.get("media_url", ""),
+                image_alt=reg.get("alt_text_zh", page_type),
+                orientation="landscape",
+            )
+    # 3. 最终 fallback: 占位图
     placeholder = _PAGE_TYPE_PLACEHOLDERS.get(page_type)
     return HeroVM(image_url=placeholder, image_alt=page_type) if placeholder else None
 
@@ -317,7 +334,7 @@ def _build_day_execution_vm(page: PagePlan, payload: PlanningOutput, page_number
 
 def _build_major_activity_overview_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Major Activities")
-    spots = [{"name": d.must_keep or d.title, "day_index": d.day_index, "area": d.primary_area} for d in payload.days]
+    spots = [{"name": d.must_keep or d.title, "day_index": d.day_index, "area": d.primary_area} for d in (payload.days or [])]
     vm.sections.append(SectionVM(section_type="entity_card", content={"spots": spots}))
     return vm
 
@@ -326,7 +343,7 @@ def _build_route_overview_vm(page: PagePlan, payload: PlanningOutput, page_numbe
     vm = _base_vm(page, page_number, "Route Overview")
     timeline_items = [
         TimelineItemVM(time=f"Day {d.day_index}", name=d.title, type_icon="day", duration=d.intensity, note=d.primary_area)
-        for d in payload.days
+        for d in (payload.days or [])
     ]
     vm.sections.append(SectionVM(section_type="timeline", content=TimelineContent(items=timeline_items)))
     return vm
@@ -344,7 +361,7 @@ def _build_hotel_strategy_vm(page: PagePlan, payload: PlanningOutput, page_numbe
 def _build_booking_window_vm(page: PagePlan, payload: PlanningOutput, page_number: int) -> PageViewModel:
     vm = _base_vm(page, page_number, "Booking Window", "Reserve these early")
     items: list[dict[str, Any]] = []
-    for alert in payload.booking_alerts:
+    for alert in (payload.booking_alerts or []):
         items.append(
             {
                 "label": alert.label,

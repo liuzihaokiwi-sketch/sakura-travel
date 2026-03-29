@@ -159,8 +159,10 @@ async def _ai_generate_day_copy(day_index: int, planning_output: Any) -> dict | 
 
     try:
         import json
+        from app.core.config import get_settings
+        _model = get_settings().ai_model_light
         response = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
@@ -208,8 +210,10 @@ async def _ai_generate_cover_copy(planning_output: Any) -> dict | None:
 
     try:
         import json
+        from app.core.config import get_settings
+        _model = get_settings().ai_model_light
         response = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},

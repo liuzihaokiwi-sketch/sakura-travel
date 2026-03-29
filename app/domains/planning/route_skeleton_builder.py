@@ -85,40 +85,59 @@ class _HotelBaseInfo:
 
 
 _THEME_PARK_KEYWORDS = {"usj", "themepark", "theme_park", "universal", "disney", "disneyland", "disneysea"}
+_DEPARTURE_BLOCKED_KEYWORDS = {"night", "nightlife", "food_night", "theme_park", "bar"}
+
+# ── Pace 参数（从 data/seed/pace_config.json 加载，支持运营调参） ──
+def _load_pace_config() -> dict:
+    """加载 pace 配置，失败时返回空 dict（使用内联默认值）。"""
+    import json
+    from pathlib import Path
+    cfg_path = Path(__file__).resolve().parents[3] / "data" / "seed" / "pace_config.json"
+    try:
+        with open(cfg_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+_PACE_CFG = _load_pace_config()
+
 _WAKE_BREAKFAST = {
-    "early": ("07:00", "08:00"),
-    "normal": ("08:00", "09:30"),
-    "late": ("09:00", "10:30"),
+    k: tuple(v) for k, v in _PACE_CFG.get("wake_breakfast", {
+        "early": ["07:00", "08:00"],
+        "normal": ["08:00", "09:30"],
+        "late": ["09:00", "10:30"],
+    }).items()
 }
-_LUNCH_WINDOW = ("11:30", "13:30")
-_DINNER_WINDOW = ("17:30", "20:00")
-_PACE_DAILY_CAPACITY: dict[str, dict[str, int]] = {
+_LUNCH_WINDOW = tuple(_PACE_CFG.get("lunch_window", ["11:30", "13:30"]))
+_DINNER_WINDOW = tuple(_PACE_CFG.get("dinner_window", ["17:30", "20:00"]))
+_PACE_DAILY_CAPACITY: dict[str, dict[str, int]] = _PACE_CFG.get("daily_capacity", {
     "relaxed": {"arrival": 240, "normal": 390, "departure": 180, "theme_park": 480},
     "moderate": {"arrival": 300, "normal": 480, "departure": 240, "theme_park": 540},
     "packed": {"arrival": 360, "normal": 570, "departure": 270, "theme_park": 600},
-}
-_PACE_TRANSIT: dict[str, dict[str, int]] = {
+})
+_PACE_TRANSIT: dict[str, dict[str, int]] = _PACE_CFG.get("transit", {
     "relaxed": {"arrival": 60, "normal": 80, "departure": 60, "theme_park": 20},
     "moderate": {"arrival": 90, "normal": 100, "departure": 90, "theme_park": 30},
     "packed": {"arrival": 120, "normal": 120, "departure": 90, "theme_park": 40},
-}
-_PACE_SLACK: dict[str, dict[str, int]] = {
+})
+_PACE_SLACK: dict[str, dict[str, int]] = _PACE_CFG.get("slack", {
     "relaxed": {"arrival": 120, "normal": 90, "departure": 120, "theme_park": 90},
     "moderate": {"arrival": 90, "normal": 75, "departure": 90, "theme_park": 60},
     "packed": {"arrival": 75, "normal": 60, "departure": 75, "theme_park": 45},
-}
-_PACE_CAPACITY = {
+})
+_PACE_CAPACITY = _PACE_CFG.get("capacity_units", {
     "relaxed": {"arrival": 0.3, "normal": 0.7, "departure": 0.3, "theme_park": 0.1},
     "moderate": {"arrival": 0.5, "normal": 1.0, "departure": 0.5, "theme_park": 0.2},
     "packed": {"arrival": 0.7, "normal": 1.3, "departure": 0.5, "theme_park": 0.3},
-}
-_PACE_TRANSFER = {
+})
+_PACE_TRANSFER = _PACE_CFG.get("transfer_budget", {
     "relaxed": {"arrival": 60, "normal": 90, "departure": 60, "theme_park": 30},
     "moderate": {"arrival": 90, "normal": 120, "departure": 90, "theme_park": 45},
     "packed": {"arrival": 120, "normal": 150, "departure": 90, "theme_park": 60},
-}
-_DRIVER_LOAD_FALLBACK: dict[str, int] = {"full_day": 360, "half_day": 200, "quarter_day": 100}
-_DEPARTURE_BLOCKED_KEYWORDS = {"night", "nightlife", "food_night", "theme_park", "bar"}
+})
+_DRIVER_LOAD_FALLBACK: dict[str, int] = _PACE_CFG.get("driver_load_fallback", {
+    "full_day": 360, "half_day": 200, "quarter_day": 100,
+})
 
 
 def build_route_skeleton(
@@ -239,7 +258,18 @@ def _assign_major_drivers(
     def allowed_bases(cluster_id: str) -> set[str]:
         return {area for area, served in base_serves.items() if cluster_id in served}
 
-    for major in full_day:
+    # 按 best_time_window 排序：morning 类优先分配到较早的 day_index
+    def _time_sort_key(major):
+        btw = str(getattr(major, "best_time_window", "") or "").lower()
+        if "morning" in btw or "sunrise" in btw:
+            return 0
+        if "evening" in btw or "night" in btw or "sunset" in btw:
+            return 2
+        return 1
+
+    full_day_sorted = sorted(full_day, key=_time_sort_key)
+
+    for major in full_day_sorted:
         chosen = _choose_frame(
             candidates=normal_days,
             cluster_id=getattr(major, "cluster_id", ""),
@@ -333,6 +363,11 @@ def _attach_major(frame: DayFrame, major: _MajorInfo) -> None:
         frame.secondary_corridor = corridor
     frame.must_keep_ids.append(frame.main_driver or "")
     frame.activity_load_minutes = int(getattr(major, "activity_load_minutes", 0) or 0)
+    # 记录活动最佳时段偏好，供时间线生成使用
+    btw = getattr(major, "best_time_window", None) or ""
+    if btw:
+        frame.extras = getattr(frame, "extras", {}) or {}
+        frame.extras["best_time_window"] = btw
 
 
 def _is_departure_compatible(major: _MajorInfo) -> bool:

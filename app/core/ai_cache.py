@@ -59,15 +59,19 @@ def _get_langfuse_client() -> Any:
         return None
 
 
-# 模块级别懒加载（首次使用时初始化）
+# 模块级别懒加载（首次使用时初始化，Lock 保护并发初始化）
+import threading as _threading
 _langfuse: Any = None
+_langfuse_lock = _threading.Lock()
 
 
 def _lf() -> Any:
-    """获取全局 Langfuse 实例（None = 追踪禁用）。"""
+    """获取全局 Langfuse 实例（None = 追踪禁用）。线程安全的懒加载。"""
     global _langfuse
     if _langfuse is None:
-        _langfuse = _get_langfuse_client()
+        with _langfuse_lock:
+            if _langfuse is None:
+                _langfuse = _get_langfuse_client()
     return _langfuse
 
 _CACHE_TTL = 7 * 24 * 3600  # 7 天（秒）

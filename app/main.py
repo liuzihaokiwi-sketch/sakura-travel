@@ -29,8 +29,12 @@ from app.api import detail_forms
 from app.api import destinations
 from app.api import attribution
 from app.api.ops import editorial, entities, ranked, catalog as catalog_ops
+from app.api import admin_review
 from app.core.config import settings
 from app.core.queue import close_redis_pool, init_redis_pool
+from fastapi import Depends, HTTPException, status
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+import secrets
 import logging
 import traceback
 from app.db.session import AsyncSessionLocal, engine
@@ -41,6 +45,9 @@ from app.db.models import detail_forms as _df, fragments as _frag, trace as _tra
 # ── Lifespan ──────────────────────────────────────────────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Startup: 生产环境凭证校验（测试/开发环境跳过）
+    settings.validate_production_secrets()
+
     # Startup: 结构化日志初始化
     setup_logging(
         json_output=settings.is_production,
@@ -91,8 +98,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Request-ID"],
 )
 app.add_middleware(RateLimitMiddleware, backend=InMemoryBackend())
 
@@ -120,6 +127,25 @@ app.include_router(self_adjustment_api.router, tags=["self-adjustment"])  # /tri
 app.include_router(detail_forms.router, tags=["detail-forms"])           # /detail-forms/*
 app.include_router(destinations.router, tags=["destinations"])           # /destinations/*
 app.include_router(attribution.router, tags=["attribution"])             # /attribution/*
+app.include_router(admin_review.router, tags=["admin-review"])           # /admin/entities/*
+
+
+# ── Admin 认证 ────────────────────────────────────────────────────────────────
+_http_basic = HTTPBasic()
+
+
+def verify_admin_token(credentials: HTTPBasicCredentials = Depends(_http_basic)) -> None:
+    """验证 Admin 端点的 HTTP Basic 认证（username=admin, password=ADMIN_PASSWORD env）。"""
+    correct_password = settings.admin_password.encode("utf-8")
+    provided_password = credentials.password.encode("utf-8")
+    password_ok = secrets.compare_digest(provided_password, correct_password)
+    username_ok = secrets.compare_digest(credentials.username.encode("utf-8"), b"admin")
+    if not (password_ok and username_ok):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic"},
+        )
 
 
 # ── 数据采集管理接口 ──────────────────────────────────────────────────────────
@@ -133,6 +159,7 @@ async def admin_sync_city(
     poi_count: int = 5,
     restaurant_count: int = 5,
     hotel_count: int = 4,
+    _: None = Depends(verify_admin_token),
 ):
     """
     管理接口：一键采集指定城市的景点/餐厅/酒店数据。
@@ -172,6 +199,7 @@ async def admin_sync_all_cities(
     poi_count: int = 5,
     restaurant_count: int = 5,
     hotel_count: int = 4,
+    _: None = Depends(verify_admin_token),
 ):
     """
     管理接口：批量采集所有城市数据（东京、大阪、京都等12个城市）。

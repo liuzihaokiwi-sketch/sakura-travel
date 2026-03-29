@@ -28,6 +28,9 @@ _BASE_FIELDS = {
     "address_ja", "address_en", "lat", "lng",
     "data_tier", "is_active",
     "google_place_id", "tabelog_id",
+    "quality_tier", "budget_tier", "risk_flags", "booking_method",
+    "nearest_station", "corridor_tags", "typical_duration_baseline",
+    "trust_status", "verified_by", "verified_at", "trust_note",
 }
 
 # 各子表字段白名单
@@ -129,6 +132,55 @@ async def upsert_entity(
             )
         )
         entity = result.scalar_one_or_none()
+
+    # ── 2b. 按 booking_hotel_id / agoda_hotel_id 查找（酒店）──────────────────
+    if entity is None and entity_type == "hotel":
+        bid = data.get("booking_hotel_id")
+        aid = data.get("agoda_hotel_id")
+        if bid:
+            result = await session.execute(
+                select(EntityBase).join(Hotel, Hotel.entity_id == EntityBase.entity_id)
+                .where(Hotel.booking_hotel_id == bid)
+            )
+            entity = result.scalar_one_or_none()
+        if entity is None and aid:
+            result = await session.execute(
+                select(EntityBase).join(Hotel, Hotel.entity_id == EntityBase.entity_id)
+                .where(Hotel.agoda_hotel_id == aid)
+            )
+            entity = result.scalar_one_or_none()
+
+    # ── 2c. 按 name_zh + city_code + entity_type 兜底（精确 + 模糊）──────────
+    if entity is None and data.get("name_zh") and data.get("city_code"):
+        from app.domains.catalog.dedup import find_fuzzy_duplicate
+
+        matched, match_type = await find_fuzzy_duplicate(
+            session=session,
+            name_zh=data["name_zh"],
+            city_code=data["city_code"],
+            entity_type=entity_type,
+            lat=data.get("lat"),
+            lng=data.get("lng"),
+        )
+        if matched is not None:
+            entity = matched
+            # 模糊匹配（非精确）时标记 suspicious，提示管理员复核
+            if match_type != "exact":
+                data.setdefault("trust_status", "suspicious")
+
+    # ── 坐标校验：0/0 或缺失坐标 → 降级为 suspicious（若调用方未设置 trust_status）
+    _lat = data.get("lat")
+    _lng = data.get("lng")
+    try:
+        _coords_invalid = (
+            _lat is None or _lng is None
+            or (float(_lat) == 0.0 and float(_lng) == 0.0)
+        )
+    except (TypeError, ValueError):
+        _coords_invalid = True
+    if _coords_invalid and "trust_status" not in data:
+        data = dict(data)
+        data["trust_status"] = "suspicious"
 
     base_data = _filter(data, _BASE_FIELDS)
     if gid:
