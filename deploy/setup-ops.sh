@@ -97,7 +97,7 @@ echo ""
 
 # ── 5. 重启服务 ──────────────────────────────────────────────
 echo "--- [5/6] 重启服务使配置生效 ---"
-docker compose -f "$COMPOSE_FILE" restart backend worker
+docker compose -f "$COMPOSE_FILE" restart backend
 echo "  backend + worker 已重启"
 sleep 5
 echo ""

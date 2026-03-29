@@ -41,7 +41,7 @@ if [ "$DEPLOY_BACKEND" = true ]; then
   docker compose -f "$COMPOSE_FILE" run --rm backend alembic upgrade head
 
   echo "--- 重启后端服务 ---"
-  docker compose -f "$COMPOSE_FILE" up -d backend worker
+  docker compose -f "$COMPOSE_FILE" up -d backend
 fi
 
 # ── 前端：构建 + 重启 ─────────────────────────────────────────

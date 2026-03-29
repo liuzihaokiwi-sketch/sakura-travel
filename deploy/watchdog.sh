@@ -45,10 +45,10 @@ ISSUES=""
 # ── 检查 backend ──────────────────────────────────────────────
 if ! curl -sf --max-time 5 http://localhost:8000/health > /dev/null 2>&1; then
   echo "[$(date)] backend 健康检查失败，正在重启..."
-  docker compose -f "$COMPOSE_FILE" restart backend worker
-  ISSUES="${ISSUES}backend+worker 已重启\n"
+  docker compose -f "$COMPOSE_FILE" restart backend
+  ISSUES="${ISSUES}backend 已重启\n"
   if should_alert "backend"; then
-    notify "Backend 异常已重启" "健康检查 /health 失败，已自动重启 backend + worker"
+    notify "Backend 异常已重启" "健康检查 /health 失败，已自动重启 backend"
   fi
 fi
 
