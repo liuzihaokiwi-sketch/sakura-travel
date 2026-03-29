@@ -303,7 +303,7 @@ class LiveRiskMonitor:
         try:
             result = await self._session.execute(
                 text("""
-                    SELECT ii.entity_id, ii.item_type AS entity_type, id.day_index
+                    SELECT ii.entity_id, ii.item_type AS entity_type, id.day_number AS day_index
                     FROM itinerary_items ii
                     JOIN itinerary_days id ON ii.day_id = id.day_id
                     WHERE id.plan_id = :plan_id

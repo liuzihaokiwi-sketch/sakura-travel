@@ -74,6 +74,7 @@ async def record_recommendations(
       - recommendation_count_30d += 1
       - last_recommended_at = now()
 
+    使用独立 session 避免污染调用方的事务。
     调用方：generate_trip.py 在行程生成完成后调用。
     """
     if not entity_ids:
@@ -84,15 +85,20 @@ async def record_recommendations(
     try:
         uuids = [_uuid.UUID(eid) if isinstance(eid, str) else eid for eid in entity_ids]
         from app.db.models.catalog import EntityBase
+        from app.db.session import AsyncSessionLocal
         from sqlalchemy import update
-        await session.execute(
-            update(EntityBase)
-            .where(EntityBase.entity_id.in_(uuids))
-            .values(
-                recommendation_count_30d=EntityBase.recommendation_count_30d + 1,
-                last_recommended_at=now,
+
+        # 用独立 session，不污染主事务
+        async with AsyncSessionLocal() as independent_session:
+            await independent_session.execute(
+                update(EntityBase)
+                .where(EntityBase.entity_id.in_(uuids))
+                .values(
+                    recommendation_count_30d=EntityBase.recommendation_count_30d + 1,
+                    last_recommended_at=now,
+                )
             )
-        )
+            await independent_session.commit()
         logger.debug("推荐计数更新: %d 个实体", len(entity_ids))
     except Exception as e:
         logger.warning("推荐计数更新失败（不阻断流程）: %s", e)
