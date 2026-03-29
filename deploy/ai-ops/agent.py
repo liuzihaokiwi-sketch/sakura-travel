@@ -29,7 +29,8 @@ PROJECT_DIR = "/opt/travel-ai"
 COMPOSE_FILE = "docker-compose.yml"
 CHECK_INTERVAL = 300  # 5 分钟
 MAX_RESTART_ATTEMPTS = 3
-AI_COOLDOWN = 1800  # AI 分析冷却 30 分钟
+AI_DAILY_LIMIT = 20           # 每天最多调 AI 20 次
+AI_SAME_ISSUE_COOLDOWN = 7200 # 同一问题 2 小时内不重复调 AI
 
 # 从环境变量读取
 ANTHROPIC_BASE_URL = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
@@ -51,7 +52,9 @@ log = logging.getLogger("ai-ops")
 # ── 状态追踪 ──────────────────────────────────────────────────
 
 restart_counts: dict[str, int] = {}
-last_ai_call: float = 0
+ai_call_count_today: int = 0
+ai_call_date: str = ""
+ai_issue_tracker: dict[str, float] = {}  # service_name -> last AI call timestamp
 
 
 # ── 工具函数 ──────────────────────────────────────────────────
@@ -153,18 +156,45 @@ def get_logs(service: dict) -> str:
 
 # ── AI 分析 ──────────────────────────────────────────────────
 
+def should_call_ai(service_name: str) -> tuple[bool, str]:
+    """熔断检查：是否应该调用 AI"""
+    global ai_call_count_today, ai_call_date
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    if ai_call_date != today:
+        ai_call_count_today = 0
+        ai_call_date = today
+
+    # 每日上限
+    if ai_call_count_today >= AI_DAILY_LIMIT:
+        return False, f"今日 AI 调用已达上限 ({AI_DAILY_LIMIT} 次)"
+
+    # 同一服务冷却
+    last_call = ai_issue_tracker.get(service_name, 0)
+    elapsed = time.time() - last_call
+    if elapsed < AI_SAME_ISSUE_COOLDOWN:
+        remaining = int((AI_SAME_ISSUE_COOLDOWN - elapsed) / 60)
+        return False, f"{service_name} 的 AI 分析冷却中（还剩 {remaining} 分钟）"
+
+    return True, ""
+
+
 def call_ai(service_name: str, logs: str, error_context: str) -> str:
     """调用 AI 分析故障日志"""
-    global last_ai_call
+    global ai_call_count_today
 
     if not ANTHROPIC_API_KEY:
         return "AI API key 未配置"
 
-    # 冷却检查
-    if time.time() - last_ai_call < AI_COOLDOWN:
-        return "AI 分析冷却中（30分钟内已调用过）"
+    # 熔断检查
+    ok, reason = should_call_ai(service_name)
+    if not ok:
+        log.info(f"AI 熔断: {reason}")
+        return reason
 
-    last_ai_call = time.time()
+    ai_call_count_today += 1
+    ai_issue_tracker[service_name] = time.time()
+    log.info(f"调用 AI 分析 {service_name} (今日第 {ai_call_count_today} 次)")
 
     prompt = f"""你是一个运维 AI。以下是 travel-ai 项目中 {service_name} 服务的故障信息。
 

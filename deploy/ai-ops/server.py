@@ -24,6 +24,7 @@ PORT = 9090
 ANTHROPIC_BASE_URL = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_AUTH_TOKEN", "")
 AI_MODEL = os.getenv("AI_OPS_MODEL", "claude-sonnet-4-20250514")
+OPS_PASSWORD = os.getenv("OPS_PASSWORD", "admin123")
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger("ai-ops-server")
@@ -371,34 +372,106 @@ async function send(text) {
 </html>"""
 
 
+active_sessions: set[str] = set()
+
+import hashlib
+def make_token(password: str) -> str:
+    return hashlib.sha256(f"ops-{password}-salt".encode()).hexdigest()[:32]
+
+LOGIN_PAGE = """<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 运维 - 登录</title>
+<style>
+body{font-family:sans-serif;background:#1a1a2e;color:#e0e0e0;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+.box{background:#16213e;padding:40px;border-radius:16px;border:1px solid #0f3460;width:300px}
+h2{margin:0 0 20px;color:#e94560;font-size:18px;text-align:center}
+input{width:100%;padding:12px;background:#1a1a2e;border:1px solid #0f3460;border-radius:8px;color:#e0e0e0;font-size:14px;margin-bottom:16px;box-sizing:border-box}
+button{width:100%;padding:12px;background:#e94560;color:white;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:600}
+.err{color:#e94560;font-size:12px;text-align:center;margin-bottom:12px}
+</style></head><body>
+<div class="box"><h2>AI 运维助手</h2>
+<div id="err" class="err"></div>
+<input id="pw" type="password" placeholder="输入密码" onkeydown="if(event.key==='Enter')login()">
+<button onclick="login()">登录</button>
+</div>
+<script>
+async function login(){
+  const pw=document.getElementById('pw').value;
+  const res=await fetch('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw})});
+  const data=await res.json();
+  if(data.ok){document.cookie='ops_token='+data.token+';path=/';location.reload()}
+  else{document.getElementById('err').textContent='密码错误'}
+}
+</script></body></html>"""
+
+
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
-        pass  # 静默 HTTP 日志
+        pass
+
+    def _get_token(self):
+        cookies = self.headers.get("Cookie", "")
+        for part in cookies.split(";"):
+            part = part.strip()
+            if part.startswith("ops_token="):
+                return part.split("=", 1)[1]
+        return None
+
+    def _is_authed(self):
+        token = self._get_token()
+        return token and token in active_sessions
 
     def do_GET(self):
+        if not self._is_authed():
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(LOGIN_PAGE.encode())
+            return
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.end_headers()
         self.wfile.write(HTML_PAGE.encode())
 
     def do_POST(self):
-        if self.path != "/chat":
-            self.send_response(404)
-            self.end_headers()
-            return
-
         length = int(self.headers.get("Content-Length", 0))
         body = json.loads(self.rfile.read(length))
-        message = body.get("message", "")
 
-        log.info(f"用户: {message}")
-        reply = chat_with_ai(message)
-        log.info(f"AI: {reply[:100]}...")
+        if self.path == "/login":
+            password = body.get("password", "")
+            if password == OPS_PASSWORD:
+                token = make_token(password + str(time.time()))
+                active_sessions.add(token)
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps({"ok": True, "token": token}).encode())
+            else:
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                self.wfile.write(json.dumps({"ok": False}).encode())
+            return
 
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
+        if self.path == "/chat":
+            if not self._is_authed():
+                self.send_response(401)
+                self.end_headers()
+                return
+
+            message = body.get("message", "")
+            log.info(f"用户: {message}")
+            reply = chat_with_ai(message)
+            log.info(f"AI: {reply[:100]}...")
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(json.dumps({"reply": reply}, ensure_ascii=False).encode())
+            return
+
+        self.send_response(404)
         self.end_headers()
-        self.wfile.write(json.dumps({"reply": reply}, ensure_ascii=False).encode())
 
 
 def main():
