@@ -97,6 +97,29 @@ services:
       - api
       - frontend
 
+  ai-ops:
+    build:
+      context: .
+      dockerfile: deploy/ai-ops/Dockerfile
+    container_name: ai_ops_agent
+    env_file:
+      - .env
+    environment:
+      - ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-https://api.anthropic.com}
+      - ANTHROPIC_AUTH_TOKEN=${ANTHROPIC_AUTH_TOKEN:-}
+      - AI_OPS_MODEL=${AI_OPS_MODEL:-claude-sonnet-4-20250514}
+    ports:
+      - "9090:9090"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./deploy/ai-ops:/app/ai-ops
+      - .:/opt/travel-ai
+    working_dir: /opt/travel-ai
+    command: python deploy/ai-ops/server.py
+    restart: always
+    depends_on:
+      - api
+
 volumes:
   postgres_data:
   redis_data:
