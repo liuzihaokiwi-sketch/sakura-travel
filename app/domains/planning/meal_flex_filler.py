@@ -324,18 +324,26 @@ def fill_meals(
         sb = frame.sleep_base if hasattr(frame, "sleep_base") else frame.get("sleep_base", "")
         if sb:
             _trip_cities.add(sb)
-    # sleep_base 可能是 area key（如 kawaramachi, namba），需要映射到 city_code
+    # sleep_base 可能是 area key，需要映射到 city_code
     _AREA_TO_CITY = {
+        # 关西
         "kawaramachi": "kyoto", "gion": "kyoto", "kyoto_station": "kyoto",
         "namba": "osaka", "shinsaibashi": "osaka", "umeda": "osaka",
         "nara": "nara", "kobe": "kobe",
+        # 北海道（corridor 名 → city_code）
+        "sapporo_central": "sapporo", "susukino": "sapporo", "tanukikoji": "sapporo",
+        "otaru_port": "otaru", "hakodate_bay": "hakodate", "hak_yunokawa_onsen": "hakodate",
+        "jozankei_toyohira_gorge": "sapporo",
     }
     trip_city_codes: set[str] = set()
     for sb in _trip_cities:
         trip_city_codes.add(_AREA_TO_CITY.get(sb, sb))
-    # 关西行程额外包含关联城市
+    # 城市圈关联城市扩展
     if trip_city_codes & {"kyoto", "osaka"}:
         trip_city_codes |= {"kyoto", "osaka", "nara", "kobe"}
+    if trip_city_codes & {"sapporo", "otaru", "hakodate"}:
+        trip_city_codes |= {"sapporo", "otaru", "hakodate", "noboribetsu",
+                            "furano", "biei", "asahikawa", "toya", "niseko"}
 
     if trip_city_codes:
         before = len(rest_pool)
@@ -344,6 +352,16 @@ def fill_meals(
             if (r.get("city_code") or "") in trip_city_codes
         ]
         logger.info("城市过滤: %d → %d（保留城市: %s）", before, len(rest_pool), trip_city_codes)
+        # 如果过滤后太少（<5），放弃城市过滤
+        if len(rest_pool) < 5 and before > 0:
+            rest_pool = [
+                r for r in restaurant_pool
+                if r.get("entity_type") == "restaurant"
+                and r.get("is_active", True)
+                and _price_ok(r, budget)
+                and _cuisine_ok(r, avoid_list)
+            ]
+            logger.warning("城市过滤后餐厅太少（%d），放弃过滤回退到 %d", len(rest_pool), len(rest_pool))
 
     results: list[MealFillResult] = []
 

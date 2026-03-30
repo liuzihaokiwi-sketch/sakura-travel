@@ -665,9 +665,10 @@ async def _try_city_circle_pipeline(
         secondary_fills = []
         async with trace.step("secondary_fill") as s:
             try:
-                # 构建候选池：circle 内通过 eligibility 的 POI
+                # 构建候选池：circle_entity_roles + entity_base 直接补充
                 from app.db.models.city_circles import CircleEntityRole
-                from app.db.models.catalog import EntityBase
+                from app.db.models.catalog import EntityBase, Poi
+                # 1. 从 circle_entity_roles 拿有绑定的 POI
                 role_q = await session.execute(
                     select(CircleEntityRole, EntityBase).join(
                         EntityBase, CircleEntityRole.entity_id == EntityBase.entity_id
@@ -678,12 +679,15 @@ async def _try_city_circle_pipeline(
                     )
                 )
                 candidate_pool = []
+                _seen_poi_ids = set()
                 for role, ent in role_q.all():
+                    _seen_poi_ids.add(ent.entity_id)
                     candidate_pool.append({
                         "entity_id": str(ent.entity_id),
                         "name_zh": ent.name_zh,
                         "name_en": ent.name_en,
                         "entity_type": ent.entity_type,
+                        "city_code": ent.city_code,
                         "area_name": ent.area_name,
                         "corridor_tags": ent.corridor_tags or [],
                         "final_score": getattr(ent, "google_rating", None) and float(ent.google_rating) * 20 or 50.0,
@@ -692,6 +696,40 @@ async def _try_city_circle_pipeline(
                         "sub_category": getattr(ent, "sub_category", None),
                         "typical_duration_min": getattr(ent, "typical_duration_min", 60),
                     })
+
+                # 2. 如果候选池太小（<20），从 entity_base 按城市直接补充 POI
+                if len(candidate_pool) < 20:
+                    _circle_cities = set()
+                    if circle and circle.base_city_codes:
+                        _circle_cities.update(circle.base_city_codes)
+                    if _circle_cities:
+                        _extra_poi_q = await session.execute(
+                            select(EntityBase, Poi).join(
+                                Poi, Poi.entity_id == EntityBase.entity_id
+                            ).where(
+                                EntityBase.entity_type == "poi",
+                                EntityBase.is_active == True,
+                                EntityBase.city_code.in_(list(_circle_cities)),
+                                EntityBase.entity_id.notin_(list(_seen_poi_ids)) if _seen_poi_ids else True,
+                            ).order_by(Poi.google_rating.desc().nullslast())
+                            .limit(50)
+                        )
+                        for ent, poi in _extra_poi_q.all():
+                            candidate_pool.append({
+                                "entity_id": str(ent.entity_id),
+                                "name_zh": ent.name_zh,
+                                "name_en": ent.name_en,
+                                "entity_type": ent.entity_type,
+                                "city_code": ent.city_code,
+                                "area_name": ent.area_name,
+                                "corridor_tags": ent.corridor_tags or [],
+                                "final_score": float(poi.google_rating) * 20 if poi.google_rating else 50.0,
+                                "data_tier": getattr(ent, "data_tier", "A"),
+                                "sub_category": poi.poi_category,
+                                "typical_duration_min": poi.typical_duration_min or 60,
+                            })
+                        logger.info("POI候选池补充: roles=%d + entity_base=%d = %d",
+                                    len(_seen_poi_ids), len(candidate_pool) - len(_seen_poi_ids), len(candidate_pool))
 
                 # 已被 major 占用的实体
                 used_ids = set()
@@ -720,6 +758,7 @@ async def _try_city_circle_pipeline(
         async with trace.step("meal_fill") as s:
             try:
                 # 构建餐厅候选池
+                # 1. 从 circle_entity_roles 拿有角色绑定的餐厅
                 rest_q = await session.execute(
                     select(CircleEntityRole, EntityBase).join(
                         EntityBase, CircleEntityRole.entity_id == EntityBase.entity_id
@@ -730,11 +769,14 @@ async def _try_city_circle_pipeline(
                     )
                 )
                 restaurant_pool = []
+                _seen_rest_ids = set()
                 for role, ent in rest_q.all():
+                    _seen_rest_ids.add(ent.entity_id)
                     restaurant_pool.append({
                         "entity_id": str(ent.entity_id),
                         "name_zh": ent.name_zh,
                         "entity_type": "restaurant",
+                        "city_code": ent.city_code,
                         "area_name": ent.area_name,
                         "corridor_tags": ent.corridor_tags or [],
                         "cuisine_type": getattr(ent, "cuisine_type", None),
@@ -743,7 +785,48 @@ async def _try_city_circle_pipeline(
                         "price_band": getattr(ent, "price_band", None),
                         "meal_style": role.role_notes or "route_meal",
                         "role": role.role,
+                        "is_active": True,
                     })
+
+                # 2. 如果角色绑定的餐厅太少（<10），直接从 entity_base 按城市补充
+                if len(restaurant_pool) < 10:
+                    from app.db.models.catalog import Restaurant
+                    _circle_cities = set()
+                    for _f in skeleton.frames:
+                        _sc = getattr(_f, 'sleep_base', '') or getattr(_f, 'primary_corridor', '') or ''
+                        if _sc:
+                            _circle_cities.add(_sc)
+                    # 也从 circle 的 base_city_codes 拿
+                    if circle and circle.base_city_codes:
+                        for _cc in circle.base_city_codes:
+                            _circle_cities.add(_cc)
+                    if _circle_cities:
+                        _extra_rest_q = await session.execute(
+                            select(EntityBase, Restaurant).join(
+                                Restaurant, Restaurant.entity_id == EntityBase.entity_id
+                            ).where(
+                                EntityBase.entity_type == "restaurant",
+                                EntityBase.is_active == True,
+                                EntityBase.city_code.in_(list(_circle_cities)),
+                                EntityBase.entity_id.notin_(list(_seen_rest_ids)) if _seen_rest_ids else True,
+                            ).order_by(Restaurant.tabelog_score.desc().nullslast())
+                            .limit(50)
+                        )
+                        for ent, rest in _extra_rest_q.all():
+                            restaurant_pool.append({
+                                "entity_id": str(ent.entity_id),
+                                "name_zh": ent.name_zh,
+                                "entity_type": "restaurant",
+                                "city_code": ent.city_code,
+                                "area_name": ent.area_name,
+                                "corridor_tags": ent.corridor_tags or [],
+                                "cuisine_type": rest.cuisine_type,
+                                "tabelog_score": float(rest.tabelog_score) if rest.tabelog_score else None,
+                                "final_score": (float(rest.tabelog_score) if rest.tabelog_score else 3.5) * 20,
+                                "is_active": True,
+                            })
+                        logger.info("餐厅候选池补充: circle_roles=%d + entity_base=%d = %d",
+                                    len(_seen_rest_ids), len(restaurant_pool) - len(_seen_rest_ids), len(restaurant_pool))
 
                 meal_fills = fill_meals(
                     frames=skeleton.frames,

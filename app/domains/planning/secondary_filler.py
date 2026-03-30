@@ -173,13 +173,42 @@ def fill_secondary_activities(
         main_driver = frame.main_driver if hasattr(frame, "main_driver") else frame.get("main_driver")
         day_type = frame.day_type if hasattr(frame, "day_type") else frame.get("day_type", "normal")
 
-        # 到达/离开日容量收缩，不加次要活动
+        # 到达/离开日容量收缩，但仍加 1 个轻量活动
         if day_type in ("arrival", "departure"):
+            # 选 1 个轻量级活动（duration <= 60min 的）
+            _light_candidates = []
+            for ent in poi_pool:
+                eid = str(ent.get("entity_id") or "")
+                if _entity_already_used(ent, used_ids):
+                    continue
+                dur = ent.get("typical_duration_min", 90)
+                if dur <= 60:
+                    score = _score_entity(ent, corridor, fallback, corridor_resolver)
+                    _light_candidates.append((score, ent))
+            _light_candidates.sort(key=lambda x: x[0], reverse=True)
+
+            _light_items = []
+            if _light_candidates:
+                _best_score, _best_ent = _light_candidates[0]
+                _light_items.append({
+                    "entity_id": str(_best_ent.get("entity_id") or ""),
+                    "name": _best_ent.get("name_zh") or _best_ent.get("name", ""),
+                    "entity_type": _best_ent.get("entity_type", "poi"),
+                    "area_name": _best_ent.get("area_name", ""),
+                    "data_tier": _best_ent.get("data_tier", "B"),
+                    "final_score": _best_score,
+                    "duration_min": _best_ent.get("typical_duration_min", 45),
+                    "is_optional": True,
+                    "source": "secondary_filler_arrival_departure",
+                })
+                used_ids.add(str(_best_ent.get("entity_id") or ""))
+
             results.append(FilledDay(
                 day_index=day_idx,
                 primary_corridor=corridor,
                 secondary_corridor=fallback,
                 main_driver_id=main_driver,
+                secondary_items=_light_items,
                 remaining_capacity=capacity,
             ))
             continue
@@ -221,7 +250,8 @@ def fill_secondary_activities(
         for score, ent in candidates:
             if count >= MAX_SECONDARY:
                 break
-            if remaining < SECONDARY_UNIT_CAPACITY:
+            # 最低保障：至少填 1 个，即使容量不足
+            if count >= 1 and remaining < SECONDARY_UNIT_CAPACITY:
                 break
 
             filled_items.append({
