@@ -233,11 +233,13 @@ async def match_and_store_scores(
 ) -> Tuple[int, int]:
     """
     将 Japan Guide 景点与 entity_base 关联，存入 entity_source_scores。
+    未匹配的存入 discovery_candidates 表。
 
     Returns:
         (matched_count, unmatched_count)
     """
     from sqlalchemy import text
+    import json
 
     matched = 0
     unmatched = 0
@@ -249,8 +251,13 @@ async def match_and_store_scores(
         if not name_en:
             continue
 
-        # 尝试通过英文名匹配（忽略大小写）
+        # 尝试多种匹配策略
         normalized = normalize_name_for_match(name_en)
+        # 取关键词（去掉 Sapporo, Park, Museum 等通用词）
+        keywords = [w for w in normalized.split()
+                    if w not in ("sapporo", "park", "museum", "garden", "market",
+                                 "resort", "village", "temple", "shrine")]
+
         result = await session.execute(text("""
             SELECT entity_id FROM entity_base
             WHERE city_code = :city_code
@@ -266,6 +273,29 @@ async def match_and_store_scores(
             "pattern": f"%{normalized}%",
         })
         row = result.fetchone()
+
+        # 如果全名没匹配到，尝试关键词匹配
+        if not row and keywords:
+            for kw in keywords[:2]:  # 最多试前2个关键词
+                if len(kw) < 3:
+                    continue
+                result2 = await session.execute(text("""
+                    SELECT entity_id FROM entity_base
+                    WHERE city_code = :city_code
+                      AND is_active = true
+                      AND (
+                        LOWER(name_en) LIKE :pattern
+                        OR LOWER(name_ja) LIKE :pattern
+                        OR LOWER(name_zh) LIKE :pattern
+                      )
+                    LIMIT 1
+                """), {
+                    "city_code": city_code,
+                    "pattern": f"%{kw}%",
+                })
+                row = result2.fetchone()
+                if row:
+                    break
 
         if row:
             entity_id = row[0]
@@ -312,6 +342,30 @@ async def match_and_store_scores(
             matched += 1
         else:
             unmatched += 1
+            # 未匹配的存入 discovery_candidates 供后续处理
+            await session.execute(text("""
+                INSERT INTO discovery_candidates
+                  (city_code, name_raw, name_normalized, source_count, sources,
+                   mention_contexts, entity_type_guess, status)
+                VALUES
+                  (:city_code, :name_raw, :name_normalized, 1,
+                   CAST(:sources AS jsonb), CAST(:contexts AS jsonb),
+                   'poi', 'pending')
+                ON CONFLICT DO NOTHING
+            """), {
+                "city_code": city_code,
+                "name_raw": name_en,
+                "name_normalized": normalize_name_for_match(name_en),
+                "sources": json.dumps(["japan_guide"]),
+                "contexts": json.dumps([{
+                    "source": "japan_guide",
+                    "url": attraction.get("url"),
+                    "jg_rating_stars": attraction.get("rating_stars"),
+                    "user_rating": attraction.get("user_rating"),
+                    "description": attraction.get("description_en"),
+                    "category": attraction.get("category_hint"),
+                }]),
+            })
 
     await session.commit()
     return matched, unmatched
