@@ -54,7 +54,32 @@
       "Bash(python -c \"from app.db.models.catalog import EntityBase; cols = [c.key for c in EntityBase.__table__.columns]; print\\(''price_band'' in cols, ''trust_status'' in cols, ''last_refreshed_at'' in cols\\)\")",
       "Bash(del \"d:\\\\projects\\\\projects\\\\travel-ai\\\\app\\\\workers\\\\scripts\\\\candidate_pool_precompute.py\")",
       "Read(//d/projects/projects/projects/travel-ai/app/domains/catalog/**)",
-      "Bash(find . -name \"*.py\" -type f -exec grep -l \"SourceSnapshot\" {})"
+      "Bash(find . -name \"*.py\" -type f -exec grep -l \"SourceSnapshot\" {})",
+      "Read(//c/Users/csr64/AppData/Local/Temp/claude/d--projects-projects-travel-ai/729e86db-b4de-4262-8c27-241d7dd1a03b/tasks/**)",
+      "Read(//d D:/projects/projects/**)",
+      "Bash(pip show:*)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader)",
+      "Bash(python -c \"from app.main import app\")",
+      "Bash(python -c \"from app.main import app; print\\(''OK''\\)\")",
+      "Bash(python test_one.py)",
+      "Bash(echo $https_proxy)",
+      "Bash(echo $http_proxy)",
+      "Bash(echo $HTTPS_PROXY)",
+      "Bash(echo $HTTP_PROXY)",
+      "Bash(python -c \"import httpx; print\\(httpx.__version__\\)\")",
+      "Bash(bash d:/projects/projects/travel-ai/scripts/ops/db.sh \"SELECT entity_type, COUNT\\(*\\) FROM entity_base GROUP BY entity_type ORDER BY count DESC;\")",
+      "Bash(ssh root@47.242.209.129 \"docker exec japan_ai_postgres psql -U japan_ai -d japan_ai -c \"\"SELECT column_name FROM information_schema.columns WHERE table_name=''entity_base'' AND column_name=''trust_status'';\"\"\")",
+      "Bash(ssh root@47.242.209.129 \"docker exec japan_ai_postgres psql -U japan_ai -d japan_ai -c \"\"SELECT COUNT\\(*\\) FROM activity_clusters;\"\"\")",
+      "Bash(ssh root@47.242.209.129 \"curl -s http://localhost:8000/admin/catalog/hotels 2>&1 | head -200\")",
+      "Bash(ssh root@47.242.209.129 \"curl -s http://localhost:8000/docs 2>&1 | grep -i catalog | head -10\")",
+      "Bash(ssh root@47.242.209.129 \"docker logs japan_ai_api --tail 20 2>&1\")",
+      "Bash(ssh root@47.242.209.129 \"cd /opt/travel-ai && git pull && docker compose up -d --build api worker && sleep 10 && docker logs japan_ai_api --tail 5\")",
+      "Bash(wmic logicaldisk:*)",
+      "Bash(du -sh /c/Users/csr64/AppData/Local/*/)"
+    ],
+    "additionalDirectories": [
+      "D:\\style-transfer",
+      "C:\\Users\\csr64\\.claude"
     ]
   }
 }

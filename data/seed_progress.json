@@ -1,0 +1,86 @@
+{
+  "cities": {
+    "kyoto": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 9,
+      "restaurants": 6,
+      "hotels": 12,
+      "finished_at": "2026-03-28T18:42:11.824922+00:00"
+    },
+    "osaka": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 2,
+      "restaurants": 32,
+      "hotels": 13,
+      "finished_at": "2026-03-28T18:51:04.775703+00:00"
+    },
+    "nara": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 16,
+      "restaurants": 36,
+      "hotels": 6,
+      "finished_at": "2026-03-28T19:00:54.436013+00:00"
+    },
+    "kobe": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 30,
+      "restaurants": 36,
+      "hotels": 7,
+      "finished_at": "2026-03-28T19:11:41.686380+00:00"
+    },
+    "uji": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 28,
+      "restaurants": 24,
+      "hotels": 4,
+      "finished_at": "2026-03-28T19:20:07.124863+00:00"
+    },
+    "arima_onsen": {
+      "circle": "kansai",
+      "status": "ok",
+      "pois": 20,
+      "restaurants": 24,
+      "hotels": 10,
+      "finished_at": "2026-03-28T19:28:05.037686+00:00"
+    },
+    "tokyo": {
+      "circle": "kanto",
+      "status": "ok",
+      "pois": 12,
+      "restaurants": 29,
+      "hotels": 9,
+      "finished_at": "2026-03-28T19:38:10.095561+00:00"
+    },
+    "yokohama": {
+      "circle": "kanto",
+      "status": "ok",
+      "pois": 0,
+      "restaurants": 0,
+      "hotels": 8,
+      "finished_at": "2026-03-28T20:02:14.030109+00:00"
+    },
+    "kamakura": {
+      "circle": "kanto",
+      "status": "ok",
+      "pois": 1,
+      "restaurants": 0,
+      "hotels": 4,
+      "finished_at": "2026-03-28T20:04:32.986483+00:00"
+    },
+    "hakone": {
+      "circle": "kanto",
+      "status": "ok",
+      "pois": 1,
+      "restaurants": 0,
+      "hotels": 8,
+      "finished_at": "2026-03-28T20:14:52.467955+00:00"
+    }
+  },
+  "started_at": "2026-03-28T18:34:39.174859+00:00",
+  "updated_at": "2026-03-28T20:14:52.467966+00:00"
+}

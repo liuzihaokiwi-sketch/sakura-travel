@@ -1,0 +1,2194 @@
+{
+  "total_entities_needed": 160,
+  "matched": 25,
+  "missing": 135,
+  "match_rate": "16%",
+  "matched_list": [
+    {
+      "name": "富田农场",
+      "entity_id": "2627a640-06ee-4087-a45b-57422bbc91bc",
+      "entity_name_zh": "富良野花田（富田农场）",
+      "match_type": "contains",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "拼布之路",
+      "entity_id": "e720adc9-8c83-4ebb-8eb0-b0e463980d11",
+      "entity_name_zh": "拼布之路",
+      "match_type": "exact_diff_city",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "青池",
+      "entity_id": "ca6acb2f-b468-495e-84ff-11ca6b4892ed",
+      "entity_name_zh": "青池",
+      "match_type": "exact_diff_city",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "美瑛选果",
+      "entity_id": "f7fab226-3d6c-459e-acb6-9b1393ab45f8",
+      "entity_name_zh": "美瑛选果",
+      "match_type": "exact_diff_city",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "restaurant"
+    },
+    {
+      "name": "神仙沼",
+      "entity_id": "111908a2-af21-4320-9e71-d879fd0ad8d5",
+      "entity_name_zh": "神仙沼",
+      "match_type": "exact_diff_city",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "地狱谷",
+      "entity_id": "8b0f9f8c-2bbf-4708-af29-9e476c0b1d2b",
+      "entity_name_zh": "登别地狱谷",
+      "match_type": "contains",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "登别熊牧场",
+      "entity_id": "29ef62bf-b101-4a4d-bbbb-85598beac494",
+      "entity_name_zh": "登别熊牧场",
+      "match_type": "exact",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "登别格兰酒店",
+      "entity_id": "a39024c0-3a24-4a7e-a331-834303cae94d",
+      "entity_name_zh": "登别格兰酒店 怀石餐厅 花",
+      "match_type": "contains",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "hotel"
+    },
+    {
+      "name": "大汤沼",
+      "entity_id": "0a123ab8-77b0-4b36-a7a4-6715dfda2e69",
+      "entity_name_zh": "大汤沼",
+      "match_type": "exact",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "小樽运河",
+      "entity_id": "53042eeb-4f2a-4ab6-b1d4-13a5c0d840a3",
+      "entity_name_zh": "小樽运河畔酒店",
+      "match_type": "contains",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "洞爷湖温泉街",
+      "entity_id": "07a940e5-10bd-473c-ab7d-0923e73731c7",
+      "entity_name_zh": "洞爷湖",
+      "match_type": "reverse_contains",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "洞爷湖",
+      "entity_id": "07a940e5-10bd-473c-ab7d-0923e73731c7",
+      "entity_name_zh": "洞爷湖",
+      "match_type": "exact",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "有珠山缆车",
+      "entity_id": "ab91def5-37e8-4a46-8e42-8e5b276cf379",
+      "entity_name_zh": "有珠山缆车",
+      "match_type": "exact",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "昭和新山",
+      "entity_id": "9f51da08-dc72-4c27-8b2d-a8862c065596",
+      "entity_name_zh": "昭和新山",
+      "match_type": "exact",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "洞爷湖温莎度假酒店",
+      "entity_id": "07a940e5-10bd-473c-ab7d-0923e73731c7",
+      "entity_name_zh": "洞爷湖",
+      "match_type": "reverse_contains",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "hotel"
+    },
+    {
+      "name": "洞爷湖万世阁",
+      "entity_id": "07a940e5-10bd-473c-ab7d-0923e73731c7",
+      "entity_name_zh": "洞爷湖",
+      "match_type": "reverse_contains",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "hotel"
+    },
+    {
+      "name": "洞爷湖烟火船",
+      "entity_id": "07a940e5-10bd-473c-ab7d-0923e73731c7",
+      "entity_name_zh": "洞爷湖",
+      "match_type": "reverse_contains",
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "旭川市博物馆",
+      "entity_id": "4a4d3a0a-24d6-4124-9dc1-da8f0c4162df",
+      "entity_name_zh": "旭川市博物馆",
+      "match_type": "exact",
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "青池",
+      "entity_id": "ca6acb2f-b468-495e-84ff-11ca6b4892ed",
+      "entity_name_zh": "青池",
+      "match_type": "exact",
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "拼布之路",
+      "entity_id": "e720adc9-8c83-4ebb-8eb0-b0e463980d11",
+      "entity_name_zh": "拼布之路",
+      "match_type": "exact",
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "小樽运河",
+      "entity_id": "53042eeb-4f2a-4ab6-b1d4-13a5c0d840a3",
+      "entity_name_zh": "小樽运河畔酒店",
+      "match_type": "contains",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "secondary",
+      "type": "poi"
+    },
+    {
+      "name": "藻岩山展望台",
+      "entity_id": "7d2bc1d7-9696-40df-92d5-972e5cd77c11",
+      "entity_name_zh": "藻岩山展望台",
+      "match_type": "exact",
+      "cluster_id": "sap_moiwa_nightview",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "poi"
+    },
+    {
+      "name": "登别格兰酒店",
+      "entity_id": "a39024c0-3a24-4a7e-a331-834303cae94d",
+      "entity_name_zh": "登别格兰酒店 怀石餐厅 花",
+      "match_type": "contains",
+      "cluster_id": "hok_onsen_ryokan_rest",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "hotel"
+    },
+    {
+      "name": "登别石水亭",
+      "entity_id": "26a9f6a3-649e-4f0b-a4e3-aa5c39f89413",
+      "entity_name_zh": "登别石水亭",
+      "match_type": "exact",
+      "cluster_id": "hok_onsen_ryokan_rest",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "hotel"
+    },
+    {
+      "name": "登别万世阁",
+      "entity_id": "cd1bec54-cf7e-4161-8b66-e10f1430c2c9",
+      "entity_name_zh": "登别万世阁 天妇罗柜台",
+      "match_type": "contains",
+      "cluster_id": "hok_onsen_ryokan_rest",
+      "circle_id": "hokkaido_nature_circle",
+      "role": "anchor",
+      "type": "hotel"
+    }
+  ],
+  "missing_list": [
+    {
+      "name": "四季彩之丘",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "fur_furano_biei_flower_drive"
+      ]
+    },
+    {
+      "name": "北西之丘展望公园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "fur_furano_biei_flower_drive"
+      ]
+    },
+    {
+      "name": "函馆朝市",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full"
+      ]
+    },
+    {
+      "name": "元町公园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full",
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "函馆山夜景",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full"
+      ]
+    },
+    {
+      "name": "函馆明治馆",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full",
+        "hak_goryokaku_westdistrict_depth",
+        "hak_kanemori_warehouse"
+      ]
+    },
+    {
+      "name": "函馆湾拉维斯塔酒店",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full"
+      ]
+    },
+    {
+      "name": "登别温泉街",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "noboribetsu",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "nob_noboribetsu_onsen_healing"
+      ]
+    },
+    {
+      "name": "第一泷本馆",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "noboribetsu",
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "nob_noboribetsu_onsen_healing"
+      ]
+    },
+    {
+      "name": "堺町通商店街",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "小樽音乐盒堂本馆",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "小樽寿司街",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "政寿司本店",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "大通公园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival",
+        "sap_moiwa_nightview"
+      ]
+    },
+    {
+      "name": "札幌电视塔",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival",
+        "sap_moiwa_nightview"
+      ]
+    },
+    {
+      "name": "薄野冰雕会场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival"
+      ]
+    },
+    {
+      "name": "札幌站前雪雕会场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival"
+      ]
+    },
+    {
+      "name": "富良野奶酪工房",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "fur_furano_biei_flower_drive",
+        "fur_furano_winter_snow_resort",
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "函馆金森红砖仓库",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full"
+      ]
+    },
+    {
+      "name": "函馆圣约翰教堂",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "hak_hakodate_bay_nightview_full"
+      ]
+    },
+    {
+      "name": "北一硝子三号馆",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "小樽运河仓库群",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "小樽君乐酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_otaru_port_town_walk",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "ota_otaru_port_town_walk"
+      ]
+    },
+    {
+      "name": "札幌京王广场饭店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival"
+      ]
+    },
+    {
+      "name": "札幌全日空皇冠假日酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_snow_festival",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "S",
+      "all_cluster_ids": [
+        "sap_sapporo_snow_festival"
+      ]
+    },
+    {
+      "name": "知床五湖游步道",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "shari",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "知床峠",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "shari",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "知床观光船（知床游览船）",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "utoro",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "旭岳缆车",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking"
+      ]
+    },
+    {
+      "name": "旭岳温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking"
+      ]
+    },
+    {
+      "name": "层云峡温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking",
+        "asa_kurodake_autumn_leaves",
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "黑岳缆车",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking",
+        "asa_kurodake_autumn_leaves",
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "层云峡红叶谷",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_kurodake_autumn_leaves",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_kurodake_autumn_leaves"
+      ]
+    },
+    {
+      "name": "富良野滑雪场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_winter_snow_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_furano_winter_snow_resort"
+      ]
+    },
+    {
+      "name": "富良野王子酒店",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_winter_snow_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_furano_winter_snow_resort",
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "新富良野王子酒店",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_winter_snow_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_furano_winter_snow_resort",
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "二世谷比罗夫滑雪场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_niseko_onsen_resort"
+      ]
+    },
+    {
+      "name": "羊蹄山",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_niseko_onsen_resort"
+      ]
+    },
+    {
+      "name": "二世谷希尔顿度假酒店",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_niseko_onsen_resort"
+      ]
+    },
+    {
+      "name": "二世谷绿叶酒店",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_niseko_onsen_resort"
+      ]
+    },
+    {
+      "name": "支笏湖",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "支笏湖温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "支笏湖冰涛祭",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "丸驹温泉旅馆",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "札幌场外市场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_food_crawl",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_sapporo_food_crawl"
+      ]
+    },
+    {
+      "name": "札幌拉面共和国",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_food_crawl",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_sapporo_food_crawl"
+      ]
+    },
+    {
+      "name": "汤咖喱 GARAKU",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_food_crawl",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_sapporo_food_crawl"
+      ]
+    },
+    {
+      "name": "旭山动物园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_asahiyama_zoo_family_day"
+      ]
+    },
+    {
+      "name": "旭川拉面村",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_asahiyama_zoo_family_day",
+        "asa_ramen_village_city_half"
+      ]
+    },
+    {
+      "name": "白须瀑布",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "biei",
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_biei_bluepond_shirahige"
+      ]
+    },
+    {
+      "name": "森之时计咖啡厅",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_ningle_terrace_forest",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "Ningle Terrace",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "furano",
+      "cluster_id": "fur_ningle_terrace_forest",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "五棱郭公园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_late_sakura",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_late_sakura",
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "五棱郭塔",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_late_sakura",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_late_sakura",
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "白色恋人公园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_shiroi_koibito_maruyama_family",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_shiroi_koibito_maruyama_family"
+      ]
+    },
+    {
+      "name": "圆山动物园",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_shiroi_koibito_maruyama_family",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_shiroi_koibito_maruyama_family"
+      ]
+    },
+    {
+      "name": "汤之川温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "函馆汤之川温泉 平成馆 海羊亭",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "神威岬",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "shakotan",
+      "cluster_id": "ota_shakotan_coast_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_shakotan_coast_drive"
+      ]
+    },
+    {
+      "name": "岛武意海岸",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "shakotan",
+      "cluster_id": "ota_shakotan_coast_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_shakotan_coast_drive"
+      ]
+    },
+    {
+      "name": "天狗山展望台",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_tenguyama_night_onsen"
+      ]
+    },
+    {
+      "name": "天狗山缆车",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_tenguyama_night_onsen"
+      ]
+    },
+    {
+      "name": "小樽朝里川温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_tenguyama_night_onsen"
+      ]
+    },
+    {
+      "name": "定山溪温泉",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_daytrip_onsen",
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "豊平峡水坝",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_onsen_gorge_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "定山溪第一宝亭留 翠山亭",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_onsen_gorge_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "藻岩山缆车",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_moiwa_nightview",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_moiwa_nightview"
+      ]
+    },
+    {
+      "name": "拉面共和国",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_susukino_nightlife_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "札幌拉面横丁",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_susukino_nightlife_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "薄野欢乐街",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_susukino_nightlife_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "知床自然中心",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "shari",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "罗臼国后展望台",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "rausu",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "知床格兰酒店北辛夷",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "utoro",
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "shi_shiretoko_worldheritage_cruise"
+      ]
+    },
+    {
+      "name": "旭岳格兰酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking"
+      ]
+    },
+    {
+      "name": "层云峡观光酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_daisetsuzan_green_hiking",
+        "asa_kurodake_autumn_leaves",
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "流星瀑布",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_kurodake_autumn_leaves",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_kurodake_autumn_leaves",
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "银河瀑布",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_kurodake_autumn_leaves",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_kurodake_autumn_leaves",
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "层云峡朝阳亭度假酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_sounkyo_kurodake_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_sounkyo_kurodake_onsen"
+      ]
+    },
+    {
+      "name": "富良野果酱园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "furano",
+      "cluster_id": "fur_furano_winter_snow_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_furano_winter_snow_resort"
+      ]
+    },
+    {
+      "name": "二世谷温泉",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "hok_niseko_onsen_resort",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_niseko_onsen_resort"
+      ]
+    },
+    {
+      "name": "支笏湖第一宝亭留",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "苔之洞门",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hok_shikotsu_lake_nature_escape"
+      ]
+    },
+    {
+      "name": "根室花丸 札幌站前店",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_food_crawl",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_sapporo_food_crawl"
+      ]
+    },
+    {
+      "name": "札幌王子酒店",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_food_crawl",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_sapporo_food_crawl",
+        "sap_sapporo_snow_festival"
+      ]
+    },
+    {
+      "name": "雪之美术馆",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_asahiyama_zoo_family_day"
+      ]
+    },
+    {
+      "name": "旭川站前永旺梦乐城",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "asa_asahiyama_zoo_family_day"
+      ]
+    },
+    {
+      "name": "白金温泉",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "biei",
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_biei_bluepond_shirahige"
+      ]
+    },
+    {
+      "name": "四季彩之丘",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "biei",
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_biei_bluepond_shirahige"
+      ]
+    },
+    {
+      "name": "富良野葡萄酒工场",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "furano",
+      "cluster_id": "fur_ningle_terrace_forest",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "fur_ningle_terrace_forest"
+      ]
+    },
+    {
+      "name": "函馆护国神社",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_late_sakura",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_late_sakura"
+      ]
+    },
+    {
+      "name": "函馆公园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_late_sakura",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_late_sakura"
+      ]
+    },
+    {
+      "name": "北海道神宫",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_shiroi_koibito_maruyama_family",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_shiroi_koibito_maruyama_family"
+      ]
+    },
+    {
+      "name": "圆山公园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_shiroi_koibito_maruyama_family",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_shiroi_koibito_maruyama_family"
+      ]
+    },
+    {
+      "name": "函馆市旧英国领事馆",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_westdistrict_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "函馆市旧公会堂",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_westdistrict_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "函馆哈利斯特斯东正教堂",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_goryokaku_westdistrict_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_goryokaku_westdistrict_depth"
+      ]
+    },
+    {
+      "name": "函馆热带植物园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "汤仓神社",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "函馆机场",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "函馆汤之川温泉 啄木亭",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "hak_yunokawa_onsen_stay"
+      ]
+    },
+    {
+      "name": "积丹岬",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "shakotan",
+      "cluster_id": "ota_shakotan_coast_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_shakotan_coast_drive"
+      ]
+    },
+    {
+      "name": "美国海岸",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "shakotan",
+      "cluster_id": "ota_shakotan_coast_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_shakotan_coast_drive"
+      ]
+    },
+    {
+      "name": "积丹町海鲜市场",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "shakotan",
+      "cluster_id": "ota_shakotan_coast_drive",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_shakotan_coast_drive"
+      ]
+    },
+    {
+      "name": "小樽政寿司",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_tenguyama_night_onsen"
+      ]
+    },
+    {
+      "name": "小樽运河食堂",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "ota_tenguyama_night_onsen",
+        "ota_sushiya_dori_gourmet"
+      ]
+    },
+    {
+      "name": "定山源泉公园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_daytrip_onsen",
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "二见吊桥",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_daytrip_onsen",
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "定山溪观光中心",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_daytrip_onsen"
+      ]
+    },
+    {
+      "name": "定山溪鹤雅度假温泉酒店森之謌",
+      "type": "hotel",
+      "role": "secondary",
+      "city_code": "jozankei",
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_jozankei_daytrip_onsen",
+        "sap_jozankei_onsen_gorge_stay"
+      ]
+    },
+    {
+      "name": "札幌站前地下街",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_susukino_nightlife_depth",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "A",
+      "all_cluster_ids": [
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "二条市场",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_nijo_market_breakfast",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_nijo_market_breakfast"
+      ]
+    },
+    {
+      "name": "狸小路商店街",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_tanukikoji_shopping",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_tanukikoji_shopping",
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "余市蒸馏所",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "hok_yoichi_whisky_distillery",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hok_yoichi_whisky_distillery"
+      ]
+    },
+    {
+      "name": "余市蒸馏所博物馆",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "hok_yoichi_whisky_distillery",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hok_yoichi_whisky_distillery"
+      ]
+    },
+    {
+      "name": "札幌啤酒博物馆",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_beer_heritage",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_sapporo_beer_heritage",
+        "sap_shiroi_koibito_maruyama_family"
+      ]
+    },
+    {
+      "name": "札幌啤酒园",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_beer_heritage",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_sapporo_beer_heritage",
+        "sap_sapporo_food_crawl"
+      ]
+    },
+    {
+      "name": "金森红砖仓库",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "hakodate",
+      "cluster_id": "hak_kanemori_warehouse",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hak_kanemori_warehouse"
+      ]
+    },
+    {
+      "name": "登别第一泷本馆",
+      "type": "hotel",
+      "role": "anchor",
+      "city_code": "noboribetsu",
+      "cluster_id": "hok_onsen_ryokan_rest",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hok_onsen_ryokan_rest"
+      ]
+    },
+    {
+      "name": "寿司屋通",
+      "type": "poi",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_sushiya_dori_gourmet",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "ota_sushiya_dori_gourmet"
+      ]
+    },
+    {
+      "name": "政寿司",
+      "type": "restaurant",
+      "role": "anchor",
+      "city_code": "otaru",
+      "cluster_id": "ota_sushiya_dori_gourmet",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "ota_sushiya_dori_gourmet"
+      ]
+    },
+    {
+      "name": "大矶",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_nijo_market_breakfast",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_nijo_market_breakfast"
+      ]
+    },
+    {
+      "name": "どんぶり茶屋",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_nijo_market_breakfast",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_nijo_market_breakfast"
+      ]
+    },
+    {
+      "name": "大国药妆 狸小路店",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_tanukikoji_shopping",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_tanukikoji_shopping"
+      ]
+    },
+    {
+      "name": "札幌药妆 狸小路店",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_tanukikoji_shopping",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_tanukikoji_shopping"
+      ]
+    },
+    {
+      "name": "串鸟 狸小路店",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_tanukikoji_shopping",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_tanukikoji_shopping"
+      ]
+    },
+    {
+      "name": "成吉思汗 达摩本店",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_tanukikoji_shopping",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_tanukikoji_shopping",
+        "sap_sapporo_food_crawl",
+        "sap_susukino_nightlife_depth"
+      ]
+    },
+    {
+      "name": "余市水果村",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "hok_yoichi_whisky_distillery",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hok_yoichi_whisky_distillery"
+      ]
+    },
+    {
+      "name": "余市海鲜市场",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "hok_yoichi_whisky_distillery",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hok_yoichi_whisky_distillery"
+      ]
+    },
+    {
+      "name": "北海道开拓之村",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_beer_heritage",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_sapporo_beer_heritage"
+      ]
+    },
+    {
+      "name": "札幌工厂",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "sapporo",
+      "cluster_id": "sap_sapporo_beer_heritage",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "sap_sapporo_beer_heritage",
+        "sap_moiwa_nightview"
+      ]
+    },
+    {
+      "name": "旭川平和通买物公园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_ramen_village_city_half",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "asa_ramen_village_city_half"
+      ]
+    },
+    {
+      "name": "常磐公园",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "asahikawa",
+      "cluster_id": "asa_ramen_village_city_half",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "asa_ramen_village_city_half"
+      ]
+    },
+    {
+      "name": "函馆啤酒馆",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_kanemori_warehouse",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hak_kanemori_warehouse"
+      ]
+    },
+    {
+      "name": "BAY 函馆",
+      "type": "poi",
+      "role": "secondary",
+      "city_code": "hakodate",
+      "cluster_id": "hak_kanemori_warehouse",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "hak_kanemori_warehouse"
+      ]
+    },
+    {
+      "name": "旭寿司",
+      "type": "restaurant",
+      "role": "secondary",
+      "city_code": "otaru",
+      "cluster_id": "ota_sushiya_dori_gourmet",
+      "circle_id": "hokkaido_nature_circle",
+      "cluster_level": "B",
+      "all_cluster_ids": [
+        "ota_sushiya_dori_gourmet"
+      ]
+    }
+  ],
+  "cluster_summary": [
+    {
+      "cluster_id": "shi_shiretoko_worldheritage_cruise",
+      "level": "A",
+      "name_zh": "知床·世界遗产游轮徒步线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "sap_nijo_market_breakfast",
+      "level": "B",
+      "name_zh": "札幌·二条市场朝食线",
+      "total": 3,
+      "matched": 0,
+      "missing": 3
+    },
+    {
+      "cluster_id": "sap_tanukikoji_shopping",
+      "level": "B",
+      "name_zh": "札幌·狸小路商店街购物线",
+      "total": 5,
+      "matched": 0,
+      "missing": 5
+    },
+    {
+      "cluster_id": "asa_daisetsuzan_green_hiking",
+      "level": "A",
+      "name_zh": "大雪山·绿季自然徒步线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "asa_kurodake_autumn_leaves",
+      "level": "A",
+      "name_zh": "黑岳·红叶缆车线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "asa_sounkyo_kurodake_onsen",
+      "level": "A",
+      "name_zh": "层云峡·温泉峡谷大雪山线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "fur_furano_biei_flower_drive",
+      "level": "S",
+      "name_zh": "富良野美瑛·花田自驾全日线",
+      "total": 7,
+      "matched": 4,
+      "missing": 3
+    },
+    {
+      "cluster_id": "fur_furano_winter_snow_resort",
+      "level": "A",
+      "name_zh": "富良野·冬季雪场体验线",
+      "total": 5,
+      "matched": 0,
+      "missing": 5
+    },
+    {
+      "cluster_id": "hak_hakodate_bay_nightview_full",
+      "level": "S",
+      "name_zh": "函馆·港城夜景完整版",
+      "total": 7,
+      "matched": 0,
+      "missing": 7
+    },
+    {
+      "cluster_id": "hok_niseko_onsen_resort",
+      "level": "A",
+      "name_zh": "二世谷·温泉度假线",
+      "total": 6,
+      "matched": 1,
+      "missing": 5
+    },
+    {
+      "cluster_id": "hok_shikotsu_lake_nature_escape",
+      "level": "A",
+      "name_zh": "支笏湖·自然避世线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "hok_yoichi_whisky_distillery",
+      "level": "B",
+      "name_zh": "余市·威士忌蒸馏所线",
+      "total": 4,
+      "matched": 0,
+      "missing": 4
+    },
+    {
+      "cluster_id": "nob_noboribetsu_onsen_healing",
+      "level": "S",
+      "name_zh": "登别·温泉疗愈线",
+      "total": 6,
+      "matched": 4,
+      "missing": 2
+    },
+    {
+      "cluster_id": "ota_otaru_port_town_walk",
+      "level": "S",
+      "name_zh": "小樽·港町经典完整线",
+      "total": 8,
+      "matched": 1,
+      "missing": 7
+    },
+    {
+      "cluster_id": "sap_sapporo_beer_heritage",
+      "level": "B",
+      "name_zh": "札幌·啤酒博物馆历史线",
+      "total": 4,
+      "matched": 0,
+      "missing": 4
+    },
+    {
+      "cluster_id": "sap_sapporo_food_crawl",
+      "level": "A",
+      "name_zh": "札幌·都市美食巡游线",
+      "total": 7,
+      "matched": 0,
+      "missing": 7
+    },
+    {
+      "cluster_id": "sap_sapporo_snow_festival",
+      "level": "S",
+      "name_zh": "札幌·雪祭冬季限定线",
+      "total": 7,
+      "matched": 0,
+      "missing": 7
+    },
+    {
+      "cluster_id": "toy_lake_toya_volcano_onsen",
+      "level": "S",
+      "name_zh": "洞爷湖·火山温泉景观线",
+      "total": 7,
+      "matched": 7,
+      "missing": 0
+    },
+    {
+      "cluster_id": "asa_asahiyama_zoo_family_day",
+      "level": "A",
+      "name_zh": "旭川·旭山动物园亲子全日线",
+      "total": 5,
+      "matched": 1,
+      "missing": 4
+    },
+    {
+      "cluster_id": "asa_ramen_village_city_half",
+      "level": "B",
+      "name_zh": "旭川·拉面村市区半日线",
+      "total": 3,
+      "matched": 0,
+      "missing": 3
+    },
+    {
+      "cluster_id": "fur_biei_bluepond_shirahige",
+      "level": "A",
+      "name_zh": "富良野·美瑛青池白须瀑布线",
+      "total": 5,
+      "matched": 2,
+      "missing": 3
+    },
+    {
+      "cluster_id": "fur_ningle_terrace_forest",
+      "level": "A",
+      "name_zh": "富良野·森之时计Ningle Terrace森林线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "hak_goryokaku_late_sakura",
+      "level": "A",
+      "name_zh": "函馆·五棱郭晚樱季线",
+      "total": 4,
+      "matched": 0,
+      "missing": 4
+    },
+    {
+      "cluster_id": "sap_shiroi_koibito_maruyama_family",
+      "level": "A",
+      "name_zh": "札幌·白色恋人公园圆山动物园亲子线",
+      "total": 5,
+      "matched": 0,
+      "missing": 5
+    },
+    {
+      "cluster_id": "hak_goryokaku_westdistrict_depth",
+      "level": "A",
+      "name_zh": "函馆·五棱郭西部地区深度线",
+      "total": 7,
+      "matched": 0,
+      "missing": 7
+    },
+    {
+      "cluster_id": "hak_yunokawa_onsen_stay",
+      "level": "A",
+      "name_zh": "函馆·汤之川温泉住宿线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "ota_shakotan_coast_drive",
+      "level": "A",
+      "name_zh": "小樽出发·积丹半岛夏季海岸线",
+      "total": 5,
+      "matched": 0,
+      "missing": 5
+    },
+    {
+      "cluster_id": "ota_tenguyama_night_onsen",
+      "level": "A",
+      "name_zh": "小樽·天狗山夜景温泉线",
+      "total": 6,
+      "matched": 1,
+      "missing": 5
+    },
+    {
+      "cluster_id": "sap_jozankei_daytrip_onsen",
+      "level": "A",
+      "name_zh": "札幌·定山溪温泉日归线",
+      "total": 5,
+      "matched": 0,
+      "missing": 5
+    },
+    {
+      "cluster_id": "sap_jozankei_onsen_gorge_stay",
+      "level": "A",
+      "name_zh": "札幌·定山溪峡谷温泉住宿线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "sap_moiwa_nightview",
+      "level": "A",
+      "name_zh": "札幌·藻岩山夜景线",
+      "total": 5,
+      "matched": 1,
+      "missing": 4
+    },
+    {
+      "cluster_id": "sap_susukino_nightlife_depth",
+      "level": "A",
+      "name_zh": "札幌·薄野夜生活深度线",
+      "total": 6,
+      "matched": 0,
+      "missing": 6
+    },
+    {
+      "cluster_id": "hak_kanemori_warehouse",
+      "level": "B",
+      "name_zh": "函馆·金森红砖仓库购物线",
+      "total": 4,
+      "matched": 0,
+      "missing": 4
+    },
+    {
+      "cluster_id": "hok_onsen_ryokan_rest",
+      "level": "B",
+      "name_zh": "温泉旅馆·一泊二食休息线",
+      "total": 4,
+      "matched": 3,
+      "missing": 1
+    },
+    {
+      "cluster_id": "ota_sushiya_dori_gourmet",
+      "level": "B",
+      "name_zh": "小樽·寿司屋通美食线",
+      "total": 4,
+      "matched": 0,
+      "missing": 4
+    }
+  ]
+}

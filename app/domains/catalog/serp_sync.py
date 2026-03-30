@@ -183,7 +183,7 @@ async def sync_restaurant_via_serp(
             "city_code": city_code,
             "data_tier": "B",
             "tabelog_score": raw.get("tabelog_rating"),
-            "cuisine_type": cuisine or "japanese",
+            "cuisine_type": cuisine or "unknown",
         }
         # tabelog URL 作为去重 key
         tabelog_id = _extract_tabelog_id(raw.get("url", ""))
