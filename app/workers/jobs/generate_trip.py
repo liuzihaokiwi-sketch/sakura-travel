@@ -688,6 +688,8 @@ async def _try_city_circle_pipeline(
                         "name_en": ent.name_en,
                         "entity_type": ent.entity_type,
                         "city_code": ent.city_code,
+                        "lat": float(ent.lat) if ent.lat else None,
+                        "lng": float(ent.lng) if ent.lng else None,
                         "area_name": ent.area_name,
                         "corridor_tags": ent.corridor_tags or [],
                         "final_score": getattr(ent, "google_rating", None) and float(ent.google_rating) * 20 or 50.0,
@@ -721,6 +723,8 @@ async def _try_city_circle_pipeline(
                                 "name_en": ent.name_en,
                                 "entity_type": ent.entity_type,
                                 "city_code": ent.city_code,
+                                "lat": float(ent.lat) if ent.lat else None,
+                                "lng": float(ent.lng) if ent.lng else None,
                                 "area_name": ent.area_name,
                                 "corridor_tags": ent.corridor_tags or [],
                                 "final_score": float(poi.google_rating) * 20 if poi.google_rating else 50.0,
@@ -777,6 +781,8 @@ async def _try_city_circle_pipeline(
                         "name_zh": ent.name_zh,
                         "entity_type": "restaurant",
                         "city_code": ent.city_code,
+                        "lat": float(ent.lat) if ent.lat else None,
+                        "lng": float(ent.lng) if ent.lng else None,
                         "area_name": ent.area_name,
                         "corridor_tags": ent.corridor_tags or [],
                         "cuisine_type": getattr(ent, "cuisine_type", None),
@@ -818,6 +824,8 @@ async def _try_city_circle_pipeline(
                                 "name_zh": ent.name_zh,
                                 "entity_type": "restaurant",
                                 "city_code": ent.city_code,
+                                "lat": float(ent.lat) if ent.lat else None,
+                                "lng": float(ent.lng) if ent.lng else None,
                                 "area_name": ent.area_name,
                                 "corridor_tags": ent.corridor_tags or [],
                                 "cuisine_type": rest.cuisine_type,
@@ -939,29 +947,32 @@ async def _try_city_circle_pipeline(
             ],
         }
 
-        # ── E6b: 根据 CIRCLE_WRITE_MODE 决定走旧 assembler 还是新 builder ──
-        from app.domains.planning.itinerary_builder import (
-            build_itinerary_records, CIRCLE_WRITE_MODE,
-        )
+        # ── E6b: 使用 timeline_filler 时间线填充 ──
+        from app.domains.planning.itinerary_builder import CIRCLE_WRITE_MODE
+        from app.domains.planning.timeline_filler import fill_and_write_timeline
+        from app.db.models.derived import ItineraryPlan
 
         if CIRCLE_WRITE_MODE == "live":
-            # ── LIVE 模式：新链路直写，跳过旧 assembler ──
-            logger.info("E6b live mode: 跳过旧 assembler，使用 itinerary_builder")
-            live_result = await build_itinerary_records(
-                session,
-                trip_request_id=trip_id,
-                circle_id=circle_id,
-                skeleton_frames=skeleton.frames,
-                secondary_fills=secondary_fills,
-                meal_fills=meal_fills,
-                hotel_result=hotel_result,
+            logger.info("E6b: timeline_filler 时间线填充")
+
+            # 创建 plan 记录
+            plan = ItineraryPlan(trip_request_id=trip_id, status="draft")
+            session.add(plan)
+            await session.flush()
+            plan_id = plan.plan_id
+
+            live_result = await fill_and_write_timeline(
+                session=session,
+                plan_id=plan_id,
+                frames=skeleton.frames,
+                poi_pool=candidate_pool,
+                restaurant_pool=restaurant_pool,
+                profile=profile_dict,
                 ranking_result=ranking_result,
-                design_brief=design_brief,
-                existing_plan_id=None,
+                hotel_result=hotel_result,
             )
-            plan_id = live_result["plan_id"]
             logger.info(
-                "E6b live write: plan=%s days=%s items=%s",
+                "E6b timeline: plan=%s days=%s items=%s",
                 plan_id, live_result.get("days_created"), live_result.get("items_created"),
             )
 
