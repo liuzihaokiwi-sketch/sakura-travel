@@ -104,6 +104,13 @@ from app.db.models.config_center import (  # noqa: F401 - 运营配置中心
     ConfigPreviewRun,
     ConfigReleaseRecord,
 )
+from app.db.models.data_sources import (  # noqa: F401 - A1
+    DataSourceRegistry,
+    EntitySourceScore,
+    CityDataCoverage,
+    CityFoodSpecialty,
+    DiscoveryCandidate,
+)
 from app.db.models.soft_rules import (  # noqa: F401
     AreaProfile,
     AudienceFit,
@@ -166,4 +173,7 @@ __all__ = [
     # Config Center
     "ConfigPack", "ConfigPackVersion", "ConfigScope",
     "ConfigPreviewRun", "ConfigReleaseRecord",
+    # Data Sources (A1)
+    "DataSourceRegistry", "EntitySourceScore",
+    "CityDataCoverage", "CityFoodSpecialty", "DiscoveryCandidate",
 ]
