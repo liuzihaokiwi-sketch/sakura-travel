@@ -397,17 +397,22 @@ def fill_meals(
         _city_strict_types = constraints.city_strict_day_types if constraints else {"theme_park", "arrival", "departure"}
         _day_required_city: str = ""
         _day_city_strict: bool = False
-        if day_type == "theme_park":
-            # USJ 日：必须在大阪城市圈内（sakurajima / namba / osakajo 周边）
-            _day_required_city = _CORRIDOR_TO_CITY.get(corridor, "")
-            _day_city_strict = day_type in _city_strict_types
-        elif day_type == "arrival":
-            # 到达日：只允许住宿所在城市
-            _day_required_city = _CORRIDOR_TO_CITY.get(sleep_base, "")
-            _day_city_strict = day_type in _city_strict_types
-        elif day_type == "departure":
-            # 返程日：只允许住宿/当日走廊所在城市
-            _day_required_city = _CORRIDOR_TO_CITY.get(sleep_base or corridor, "")
+
+        # 所有天都推断当日城市（从 corridor 或 driver 推断）
+        _day_required_city = _CORRIDOR_TO_CITY.get(corridor, "")
+        if not _day_required_city and sleep_base and sleep_base != "unknown":
+            _day_required_city = _CORRIDOR_TO_CITY.get(sleep_base, sleep_base)
+        # 从 main_driver cluster_id 前缀推断
+        if not _day_required_city:
+            _driver = frame.main_driver if hasattr(frame, "main_driver") else frame.get("main_driver", "")
+            if _driver:
+                _prefix = (_driver or "")[:4].rstrip("_")
+                _PREFIX_CITY = {"sap": "sapporo", "hak": "hakodate", "ota": "otaru",
+                                "fur": "furano", "asa": "asahikawa", "nob": "noboribetsu",
+                                "toy": "toya", "shi": "abashiri", "hok": "sapporo"}
+                _day_required_city = _PREFIX_CITY.get(_prefix, "")
+
+        if day_type in ("theme_park", "arrival", "departure"):
             _day_city_strict = day_type in _city_strict_types
 
         if _day_city_strict and constraints:
@@ -438,12 +443,15 @@ def fill_meals(
                     if _is_michelin(r) and meal_type != "dinner":
                         continue
 
-                    # 城市硬约束（theme_park / arrival / departure）
-                    # round 0-2 严格；round 3 也保留城市约束（只有 normal 日才完全放开）
-                    if _day_city_strict and _day_required_city:
-                        rest_city = (r.get("city_code") or "").lower()
-                        if rest_city and rest_city != _day_required_city:
+                    # 城市约束：
+                    # - theme_park/arrival/departure: 所有 round 硬约束
+                    # - normal: round 0-2 硬约束，round 3 放开
+                    rest_city = (r.get("city_code") or "").lower()
+                    if _day_required_city and rest_city:
+                        if _day_city_strict and rest_city != _day_required_city:
                             continue
+                        elif not _day_city_strict and round_idx < 3 and rest_city != _day_required_city:
+                            continue  # normal 天 round 0-2 也过滤城市，round 3 放开
 
                     # 走廊过滤
                     if round_idx == 0 and serving_corridor:
