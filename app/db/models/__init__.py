@@ -125,6 +125,9 @@ from app.db.models.soft_rules import (  # noqa: F401
     TimeslotRule,
     TransportLink,
 )
+from app.db.models.fragments_v2 import (  # noqa: F401 - D1
+    DayFragment,
+)
 
 __all__ = [
     # Catalog
@@ -154,6 +157,7 @@ __all__ = [
     # Fragments
     "GuideFragment", "FragmentEntity", "FragmentEmbedding",
     "FragmentCompatibility", "FragmentUsageStats", "FragmentDistillationQueue",
+    "DayFragment",
     # City Circles
     "CityCircle", "ActivityCluster", "CircleEntityRole", "HotelStrategyPreset",
     # Corridors

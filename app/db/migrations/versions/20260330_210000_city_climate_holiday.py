@@ -36,7 +36,7 @@ def upgrade() -> None:
                   comment="days with snowfall"),
         sa.Column("notes", sa.Text(), nullable=True),
         sa.Column("data_source", sa.String(100), nullable=True,
-                  server_default="'Japan Meteorological Agency'"),
+                  server_default="Japan Meteorological Agency"),
         sa.PrimaryKeyConstraint("id"),
         sa.UniqueConstraint("city_code", "month", name="uq_city_month"),
     )
@@ -53,7 +53,7 @@ def upgrade() -> None:
         sa.Column("name_ja", sa.String(100), nullable=True),
         sa.Column("name_en", sa.String(100), nullable=False),
         sa.Column("country_code", sa.String(5), nullable=False,
-                  server_default="'JP'"),
+                  server_default="JP"),
         sa.Column("city_code", sa.String(50), nullable=True,
                   comment="NULL = nationwide, else city-specific festival"),
         sa.Column("type", sa.String(30), nullable=False,
