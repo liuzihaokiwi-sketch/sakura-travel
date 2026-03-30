@@ -445,3 +445,393 @@ Plan B 准备
 | 前置约束 | planning_defaults.json 有部分 | 定休日/气候/节假日/交通全套 | 需要数据表 + 查询接口 |
 | 管理后台 | 基本 CRUD + trust_status | 片段编辑器 + 模板预览 + 数据覆盖看板 | 大量前端工作 |
 | 数据源 | Google Places + Tabelog 列表页 | 10+ 个源按城市圈配置 | 爬虫开发 + 注册中心 |
+
+---
+
+## 附录 A：数据源层级 & 信任标记规则
+
+### 四层数据源层级
+
+```
+第1层 权威评分源（决定推不推荐）
+  → Japan Guide 2-3星景点 → data_tier='S', trust_status='unverified'
+  → Tabelog 3.5+ 餐厅 → data_tier='A', trust_status='unverified'
+  → Tabelog 3.0-3.5 → data_tier='B', trust_status='unverified'
+  → 大众点评必吃榜 → data_tier='S', trust_status='unverified'
+  → Jalan/携程酒店 → data_tier='A', trust_status='unverified'
+
+第2层 基础设施源（补坐标/营业时间，不做推荐决策）
+  → Google Places API → 只补字段，不改 data_tier
+  → 高德 API → 同上
+
+第3层 感知层（调分+打标签）
+  → 小红书/马蜂窝/TripAdvisor → 只影响 entity_tags 和 soft_scores
+  → 不改 data_tier 和 trust_status
+
+第4层 兜底（极偏远地区）
+  → AI 生成 → data_tier='C', trust_status='ai_generated'
+  → 手账本上注明"建议出发前确认"
+```
+
+### trust_status 自动标记规则
+
+| 数据来源 | trust_status | data_tier |
+|----------|-------------|-----------|
+| Japan Guide / 官方旅游网站 | unverified | S |
+| Tabelog 3.5+ / 大众点评必吃榜 | unverified | A |
+| Google Places / Jalan / 携程 | unverified | A |
+| Tabelog 3.0-3.5 / 普通攻略提及 | unverified | B |
+| 小红书/马蜂窝提取 | unverified | B |
+| AI 生成 | ai_generated | C |
+| 坐标异常/名称疑似重复 | suspicious | 不变 |
+| 人工审核通过 | verified | 不变 |
+| 人工拒绝 | rejected | 不变 |
+
+### 多源评分归一化
+
+```
+Tabelog 3.0-5.0 → 0-100:  score = (tabelog - 2.5) * 40  (3.0→20, 3.5→40, 4.0→60, 4.5→80)
+Google  1.0-5.0 → 0-100:  score = (google - 1.0) * 25   (3.0→50, 4.0→75, 4.5→87.5)
+Japan Guide 1-3 → 0-100:  1星→50, 2星→75, 3星→95
+大众点评 1-5    → 0-100:  score = (dp - 2.0) * 33       (3.5→50, 4.0→66, 4.5→83)
+
+综合评分加权（日本餐厅）：
+  Tabelog × 0.5 + Google × 0.2 + 攻略提及度 × 0.3
+
+综合评分加权（日本景点）：
+  Japan Guide × 0.4 + Google × 0.2 + 攻略提及度 × 0.4
+```
+
+---
+
+## 附录 B：评价维度完整定义
+
+### 餐厅 6 维度
+
+| 维度 | 字段名 | 类型 | 说明 |
+|------|--------|------|------|
+| 招牌菜明确度 | signature_dish_clarity | clear/vague/none | 有没有"来了必点"的菜 |
+| 排队风险 | queue_risk | none/low/medium/high | 是否经常排队 |
+| 预约难度 | reservation_difficulty | walk_in/easy/hard/impossible | 能否直接去 |
+| 语言友好度 | language_friendliness | japanese_only/menu_ok/english_ok | 有没有图片菜单 |
+| 支付方式 | payment_method | cash_only/card_ok | 很多日本小店只收现金 |
+| 性价比感知 | value_perception | below/fair/above | 值不值 |
+
+### 景点 8 维度
+
+| 维度 | 字段名 | 类型 |
+|------|--------|------|
+| 最佳时段 | best_timing | 字符串 "早上8-9点" |
+| 天气敏感度 | weather_sensitivity | any/prefer_clear/rain_ruins |
+| 体力要求 | physical_demand | easy/moderate/demanding |
+| 拍照价值 | photo_value | low/medium/high/iconic |
+| 人群密度模式 | crowd_pattern | 字符串 "旅行团10-14点集中" |
+| 停留弹性 | duration_flexibility | fixed/flexible |
+| 儿童适合度 | child_friendly | not_suitable/ok/great |
+| 季节依赖 | season_dependency | any_season/specific_season |
+
+### 酒店 7 维度
+
+| 维度 | 字段名 | 类型 |
+|------|--------|------|
+| 位置便利度 | location_convenience | remote/ok/convenient/excellent |
+| 房间状况 | room_condition | dated/acceptable/good/excellent |
+| 温泉/浴场 | bath_quality | none/basic/good/exceptional |
+| 早餐评价 | breakfast_quality | none/basic/good/highlight |
+| 隔音情况 | soundproofing | poor/acceptable/good |
+| 性价比 | value_perception | below/fair/above |
+| 适合人群 | best_for | 字符串[] ["couple","family"] |
+
+### 一句话摘要类型
+
+```
+review_why_go          — "二条市场最老的海鲜盖饭店，三色丼是招牌"
+review_practical_tip   — "只收现金，11点前去不用排队"
+review_skip_if         — "不吃生鲜的话可以跳过"
+review_best_experience — "沿木栈道走一圈约30分钟，到大汤沼可以泡免费足汤"
+review_heads_up        — "靠马路的房间有噪音，订房时备注要湖景侧"
+```
+
+### 评论过滤规则
+
+```
+跳过：少于 5 字、纯表情/星级、纯情绪（"太棒了！"/"垃圾！"）
+采信负面评价：3+ 人重复提到同一问题才算客观
+采信正面评价：必须有具体细节（"味噌汤底浓郁"而不是"好吃"）
+维度无信号：留空，不猜测
+```
+
+### 维度 → 标签自动推断
+
+```
+queue_risk=high → tag: long_queue
+payment_method=cash_only → tag: cash_only
+child_friendly=great → tag: family_friendly
+weather_sensitivity=rain_ruins → tag: outdoor_only
+physical_demand=demanding → tag: not_for_elderly
+reservation_difficulty=impossible → tag: reservation_required
+photo_value=iconic → tag: photo_spot
+```
+
+### DB 存储
+
+```
+维度评分 → entity_review_signals.dimension_scores (JSONB)
+一句话摘要 → entity_descriptions (description_type='review_why_go' 等)
+标签 → entity_tags (tag_namespace='practical'/'audience'/'experience')
+```
+
+---
+
+## 附录 C：片段 & 模板表结构
+
+### day_fragments 表
+
+```sql
+CREATE TABLE day_fragments (
+    fragment_id     SERIAL PRIMARY KEY,
+    city_code       VARCHAR(50) NOT NULL,
+    corridor        VARCHAR(100),
+    fragment_type   VARCHAR(20) NOT NULL,        -- 'half_day' / 'full_day'
+    theme           VARCHAR(100),
+
+    items           JSONB NOT NULL,              -- 排好序的活动列表
+    total_duration  SMALLINT,
+    estimated_cost  INTEGER,                     -- 日元/人
+
+    -- 适配条件
+    best_season     VARCHAR(20)[],
+    weather_ok      VARCHAR(20)[] DEFAULT '{any}',
+    suitable_for    VARCHAR(20)[] DEFAULT '{any}',
+    pace            VARCHAR(20) DEFAULT 'moderate',
+    energy_level    VARCHAR(20) DEFAULT 'medium',
+
+    -- 交通
+    start_station   VARCHAR(100),
+    end_station     VARCHAR(100),
+    transit_from_prev VARCHAR(200),
+
+    -- 文案
+    title_zh        VARCHAR(200),
+    summary_zh      TEXT,
+    practical_notes TEXT,
+
+    -- 质量
+    quality_score   NUMERIC(4,2),                -- Opus 审核打分
+    is_verified     BOOLEAN DEFAULT FALSE,
+    created_at      TIMESTAMPTZ DEFAULT NOW()
+);
+```
+
+### 片段变体
+
+同一路线不同条件的变体，不新建片段，通过 items 中的条件标记实现：
+
+```json
+{
+  "entity_id": "xxx",
+  "type": "restaurant",
+  "start": "11:30",
+  "duration": 60,
+  "conditions": {
+    "skip_if_day_of_week": ["monday"],
+    "alternative_entity_id": "yyy",
+    "alternative_reason": "周一定休，改去旁边的旭寿司"
+  }
+}
+```
+
+编排时自动检查 conditions，触发替换。
+
+### itinerary_templates 表
+
+```sql
+CREATE TABLE itinerary_templates (
+    template_id     SERIAL PRIMARY KEY,
+    template_code   VARCHAR(100) UNIQUE NOT NULL,
+    circle_id       VARCHAR(50) NOT NULL,
+    duration_days   SMALLINT NOT NULL,
+
+    party_types     VARCHAR(20)[] NOT NULL,
+    pace            VARCHAR(20) NOT NULL,
+    seasons         VARCHAR(20)[] NOT NULL,
+    budget_levels   VARCHAR(20)[] DEFAULT '{mid}',
+
+    day_plan        JSONB NOT NULL,              -- 引用 fragment_ids + 酒店 + 交通
+
+    total_estimated_cost INTEGER,
+    highlights      VARCHAR(200)[],
+    title_zh        VARCHAR(200),
+    description_zh  TEXT,
+
+    opus_review_score NUMERIC(4,2),
+    is_published    BOOLEAN DEFAULT FALSE,
+    usage_count     INTEGER DEFAULT 0,
+    created_at      TIMESTAMPTZ DEFAULT NOW()
+);
+```
+
+### entity_distance_cache 表
+
+```sql
+CREATE TABLE entity_distance_cache (
+    from_entity_id  UUID NOT NULL,
+    to_entity_id    UUID NOT NULL,
+    walk_minutes    SMALLINT,
+    transit_minutes SMALLINT,
+    transit_summary VARCHAR(200),     -- "JR快速32分钟+步行5分钟"
+    computed_at     TIMESTAMPTZ DEFAULT NOW(),
+    PRIMARY KEY (from_entity_id, to_entity_id)
+);
+```
+
+### discovery_candidates 表
+
+```sql
+CREATE TABLE discovery_candidates (
+    id              SERIAL PRIMARY KEY,
+    name_original   VARCHAR(200) NOT NULL,
+    name_normalized VARCHAR(200),
+    city_code       VARCHAR(50) NOT NULL,
+    entity_type     VARCHAR(20),
+    sub_category    VARCHAR(50),
+    source_count    SMALLINT DEFAULT 1,
+    sources         JSONB NOT NULL,
+    first_seen_at   TIMESTAMPTZ DEFAULT NOW(),
+    status          VARCHAR(20) DEFAULT 'new',
+    entity_id       UUID,
+    UNIQUE(name_normalized, city_code, entity_type)
+);
+```
+
+---
+
+## 附录 D：AI 模型路由 & 质量门控
+
+### 模型路由器 (ai_router.py)
+
+```python
+class ModelTier(str, Enum):
+    CREATIVE = "creative"       # GPT-5.3/4o
+    ANALYTICAL = "analytical"   # Sonnet
+    JUDGE = "judge"             # Opus
+    FAST = "fast"               # Haiku
+    CHEAP_CN = "cheap_cn"       # DeepSeek/Qwen
+
+async def ai_call(prompt: str, tier: ModelTier, ...) -> str:
+    config = MODEL_CONFIG[tier]
+    # 自动选 provider + model + 参数
+```
+
+### 降级链
+
+```
+CREATIVE:   GPT-5.3 → GPT-4o → Sonnet → DeepSeek
+ANALYTICAL: Sonnet → DeepSeek → GPT-4o
+JUDGE:      Opus → Sonnet（降级时标记需人工复核）→ 绝不降到 Haiku
+FAST:       Haiku → Qwen → DeepSeek
+CHEAP_CN:   DeepSeek → Qwen → Haiku
+```
+
+### 三层质量门控
+
+```
+Haiku 快检（0.5秒 $0.001）：
+  - 时间是否连续（09:00→10:30→12:00 不能跳到 09:00）
+  - 营业时间是否对（不安排凌晨去景点）
+  - 格式是否正确
+  → 不过 → 自动修复后重跑
+
+Sonnet 逻辑检查（2秒 $0.01）：
+  - 路线是否合理（不来回折腾）
+  - 同类型是否太密集（连续 3 个寺庙不行）
+  - 预算是否超标
+  - 餐食间隔是否合理（午餐12:00 晚餐18:00）
+  - 交通衔接是否可行
+  → 不过 → 重新编排后重跑
+
+Opus 深度审核（5秒 $0.05）：
+  - 整体体验是否好（有节奏感、有惊喜）
+  - 推荐理由是否令人信服
+  - 有没有明显遗漏（去札幌没安排拉面？）
+  - 这本手账本值不值 298 元
+  → 不过 → 给出具体修改建议 → 人工介入或重新生成
+```
+
+**只有三层都 pass 才发布。**
+
+### 每单 AI 成本明细
+
+```
+一次性预计算（摊销到每单接近 0）：
+  评论维度提取 50实体 × Sonnet ¥0.07 = ¥3.5（总计，不是每单）
+  一句话摘要 50实体 × Sonnet ¥0.035 = ¥1.75
+  标签提取 50实体 × Haiku ¥0.007 = ¥0.35
+  片段文案 10片段 × GPT ¥0.14 = ¥1.4
+  模板审核 1模板 × Opus ¥0.7 = ¥0.7
+  ——总计一次性 ¥7.7，摊到 100 单 = ¥0.077/单
+
+每单运行时：
+  模板匹配 → 规则，¥0
+  微调替换 → 规则或 Haiku ¥0.007
+  定休日检查 → 规则，¥0
+  质量快检 → Haiku ¥0.007
+  逻辑检查 → Sonnet ¥0.07（仅改动大时）
+  ——每单运行时 ¥0.01-0.08
+
+极端情况（无匹配模板，从零生成）：
+  匹配 + 编排 + 文案 + 3层审核 ≈ ¥5
+```
+
+---
+
+## 附录 E：爬虫统一接口
+
+### BaseCrawler
+
+```python
+class CrawlerResult:
+    entities: list[dict]       # upsert_entity 兼容格式
+    raw_snapshots: list[dict]  # 原始数据存 source_snapshots
+    errors: list[str]
+    source_name: str
+
+class BaseCrawler:
+    source_name: str
+
+    async def fetch(self, city_code: str, entity_type: str,
+                    limit: int = 50, **kwargs) -> CrawlerResult:
+        raise NotImplementedError
+
+    async def fetch_reviews(self, entity_id: str,
+                            source_entity_id: str,
+                            limit: int = 50) -> list[dict]:
+        raise NotImplementedError
+```
+
+### CrawlScheduler
+
+```python
+class CrawlScheduler:
+    async def get_pending_tasks(self, city_code: str = None) -> list[CrawlTask]:
+        # 查 data_source_registry 中 next_crawl_at < now() 的活跃源
+
+    async def execute_task(self, task: CrawlTask) -> CrawlResult:
+        # 1. 检查速率限制
+        # 2. 调用 crawler_module.crawler_func
+        # 3. 保存原始数据到 source_snapshots
+        # 4. 更新 last_crawl_at, next_crawl_at
+        # 5. 连续失败 5 次 → status='broken'
+
+    async def run_city(self, city_code: str):
+        # 采集一个城市的所有待执行任务
+```
+
+### 新数据源接入流程
+
+```
+1. data_source_registry 插一条记录
+2. 写 crawler 文件（实现 BaseCrawler.fetch）
+3. pipeline 自动通过 registry 发现并使用
+→ 不改 pipeline 代码
+```
