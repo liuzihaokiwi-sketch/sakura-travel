@@ -54,6 +54,7 @@ def _score_entity(
     corridor: str,
     fallback_corridor: Optional[str],
     resolver: Optional["CorridorResolver"] = None,
+    day_city_code: str = "",
 ) -> float:
     """给候选实体打调度优先级分（不是最终分）。
 
@@ -62,11 +63,21 @@ def _score_entity(
 
     逻辑：
       base = entity.final_score (0-100)
+      + 30 if 同城市（最重要——同一天的活动应该在同一个城市）
       + 20 if 在主走廊（or 相邻走廊 +12）
       + 10 if 在副走廊
       - 15 if data_tier == "B"
+      - 40 if 不同城市（强烈惩罚跨城市）
     """
     base = float(entity.get("final_score") or entity.get("base_score") or 50.0)
+
+    # 城市匹配（最重要的约束）
+    entity_city = (entity.get("city_code") or "").lower()
+    if day_city_code and entity_city:
+        if entity_city == day_city_code.lower():
+            base += 30.0  # 同城市大幅加分
+        else:
+            base -= 40.0  # 不同城市大幅扣分
 
     # E5: corridor 匹配
     corridor_bonus = 0.0
@@ -172,6 +183,25 @@ def fill_secondary_activities(
         cut_order = set(frame.cut_order if hasattr(frame, "cut_order") else frame.get("cut_order", []))
         main_driver = frame.main_driver if hasattr(frame, "main_driver") else frame.get("main_driver")
         day_type = frame.day_type if hasattr(frame, "day_type") else frame.get("day_type", "normal")
+        sleep_base = frame.sleep_base if hasattr(frame, "sleep_base") else frame.get("sleep_base", "")
+
+        # 从 corridor 或 main_driver 推断当天城市（sleep_base 常为 unknown）
+        _CORRIDOR_TO_CITY = {
+            "sapporo_central": "sapporo", "susukino": "sapporo", "tanukikoji": "sapporo",
+            "jozankei_toyohira_gorge": "sapporo", "sap_jozankei_onsen_valley": "sapporo",
+            "otaru_port": "otaru", "hakodate_bay": "hakodate",
+            "hak_yunokawa_onsen": "hakodate", "furano_biei": "furano",
+        }
+        day_city = sleep_base if sleep_base and sleep_base != "unknown" else ""
+        if not day_city and corridor:
+            day_city = _CORRIDOR_TO_CITY.get(corridor, "")
+        if not day_city and main_driver:
+            # 从 driver cluster_id 推断：sap_ → sapporo, hak_ → hakodate, ota_ → otaru
+            _prefix = (main_driver or "")[:4].rstrip("_")
+            _PREFIX_TO_CITY = {"sap": "sapporo", "hak": "hakodate", "ota": "otaru",
+                               "fur": "furano", "asa": "asahikawa", "nob": "noboribetsu",
+                               "toy": "toya", "shi": "abashiri", "hok": "sapporo"}
+            day_city = _PREFIX_TO_CITY.get(_prefix, "")
 
         # 到达/离开日容量收缩，但仍加 1 个轻量活动
         if day_type in ("arrival", "departure"):
@@ -183,7 +213,7 @@ def fill_secondary_activities(
                     continue
                 dur = ent.get("typical_duration_min", 90)
                 if dur <= 60:
-                    score = _score_entity(ent, corridor, fallback, corridor_resolver)
+                    score = _score_entity(ent, corridor, fallback, corridor_resolver, day_city_code=day_city)
                     _light_candidates.append((score, ent))
             _light_candidates.sort(key=lambda x: x[0], reverse=True)
 
@@ -237,7 +267,7 @@ def fill_secondary_activities(
                     ent_tags.add(sub_cat.lower())
                 if ent_tags & _blocked_tags:
                     continue
-            score = _score_entity(ent, corridor, fallback, corridor_resolver)
+            score = _score_entity(ent, corridor, fallback, corridor_resolver, day_city_code=day_city)
             candidates.append((score, ent))
 
         # 按调度分排序
