@@ -504,6 +504,10 @@ class EntityReviewSignal(Base):
         String(10), comment="none / low / medium / high"
     )
     confidence_score: Mapped[Optional[float]] = mapped_column(Numeric(3, 2))
+    dimension_scores: Mapped[Optional[dict]] = mapped_column(
+        JSONB, default=dict,
+        comment="Per-type dimension scores extracted from reviews"
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
