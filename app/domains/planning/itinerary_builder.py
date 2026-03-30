@@ -304,6 +304,27 @@ async def build_itinerary_records(
             sort_order += 1
             total_items += 1
 
+    # ── 3g. 按 start_time 重排 sort_order（确保时间单调递增）──
+    from sqlalchemy import select as _sel
+    for frame in skeleton_frames:
+        day_obj_q = await session.execute(
+            _sel(ItineraryDay).where(
+                ItineraryDay.plan_id == plan_id,
+                ItineraryDay.day_number == frame.day_index,
+            )
+        )
+        day_obj = day_obj_q.scalar_one_or_none()
+        if not day_obj:
+            continue
+        items_q = await session.execute(
+            _sel(ItineraryItem).where(
+                ItineraryItem.day_id == day_obj.day_id,
+            ).order_by(ItineraryItem.start_time)
+        )
+        items_sorted = items_q.scalars().all()
+        for idx, item in enumerate(items_sorted):
+            item.sort_order = idx
+
     # ── 4. 完成 planner_run ──
     planner_run.status = "completed"
     planner_run.completed_at = datetime.now(tz=timezone.utc)
