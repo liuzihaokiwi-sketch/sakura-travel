@@ -448,6 +448,87 @@ Plan B 准备
 
 ---
 
+## 第八章：设计取舍决策
+
+> 2026-03-30 审视后的精简决策。每个去掉的设计都记录原因，避免后续重复讨论。
+
+### 保留的设计
+
+| 设计 | 理由 |
+|------|------|
+| data_source_registry | 数据源会越来越多，需要注册中心统一管理 |
+| city_data_coverage | 追踪每个城市的数据覆盖进度 |
+| entity_source_scores | **展示给用户**（"Tabelog 3.65 / 米其林一星 / Google 4.4"），不做加权综合分 |
+| entity_review_signals + 维度 | 核心内容价值——让手账本有实用信息而不是只有地名 |
+| entity_tags | 标签过滤是推荐的第一层（不吃生的→排除寿司） |
+| day_fragments + 方案A条件替代 | 片段预编排，保存时写死替代方案（定休日/雨天），调用时简单查表替换 |
+| itinerary_templates | 模板复用，90% 订单不需要从零生成 |
+| trust_status | 区分真实/AI/存疑数据 |
+| dedup engine | 防止同一地点存两条 |
+| BaseCrawler 统一接口 | 新爬虫遵循统一格式，方便扩展 |
+| 模板级质量审核（Opus 审一次） | 模板创建时 Opus 审核，后续复用不再审 |
+
+### 去掉的设计
+
+| 设计 | 原因 |
+|------|------|
+| discovery_candidates 表 | 直接写 entity_base，用 trust_status 区分。少一个中间表少一层复杂度 |
+| CrawlScheduler 调度器 | 用 data_source_registry.crawl_frequency + cron 脚本替代。现阶段爬虫少不需要调度系统 |
+| entity_distance_cache | 同城市用 Haversine 实时算，跨城市交通时间写配置。后续可用乘换案内 API |
+| 多源加权综合分计算 | entity_source_scores 只存各源独立评分供展示，不算加权。推荐排序直接用权威源评分 |
+| fragment 变体多版本方案 | 改用方案 A：片段内每个活动保存 alternatives，运行时按条件替换 |
+| 每单三层质量门控 | 模板已审核，每单只需 Haiku 格式快检 + 定休日规则检查 |
+| AI 个性化匹配第三层 | V1.0 用标签过滤 + 评分排序够用，推迟到 V1.5 |
+
+### 片段替代方案数据结构（方案 A）
+
+片段 items 中每个活动可以带替代信息，编排片段时一次性填好：
+
+```json
+{
+  "entity_id": "xxx",
+  "type": "restaurant",
+  "start": "11:30",
+  "duration": 60,
+  "note": "招牌时令五贯盛 ¥2,200",
+  "closed_days": ["monday"],
+  "alternatives": [
+    {
+      "entity_id": "yyy",
+      "reason": "周一定休时替代",
+      "note": "旭寿司，同在寿司屋通，握寿司套餐 ¥1,800"
+    }
+  ],
+  "rain_alternative": {
+    "entity_id": "zzz",
+    "reason": "雨天室内替代",
+    "note": "小樽音乐盒堂二楼咖啡厅"
+  }
+}
+```
+
+调用时判断逻辑极简：
+```python
+if day_of_week in item.get("closed_days", []):
+    item = item["alternatives"][0]
+if weather == "rain" and "rain_alternative" in item:
+    item = item["rain_alternative"]
+```
+
+### 数据源采集频率（替代 CrawlScheduler）
+
+直接在 data_source_registry 中配置，cron 按频率执行：
+
+| 频率 | 数据源 | 说明 |
+|------|--------|------|
+| quarterly（每季度） | Tabelog / Google Places / 大众点评 | 核心评分源，季度更新够用 |
+| yearly（每年） | Japan Guide / 官方旅游网站 / 攻略网站 | 内容变化慢 |
+| manual（手动） | 新发现的攻略网站 | 你手动触发 |
+
+不需要 weekly——手账本不是实时产品，季度更新已经够用。
+
+---
+
 ## 附录 A：数据源层级 & 信任标记规则
 
 ### 四层数据源层级
@@ -671,38 +752,8 @@ CREATE TABLE itinerary_templates (
 );
 ```
 
-### entity_distance_cache 表
-
-```sql
-CREATE TABLE entity_distance_cache (
-    from_entity_id  UUID NOT NULL,
-    to_entity_id    UUID NOT NULL,
-    walk_minutes    SMALLINT,
-    transit_minutes SMALLINT,
-    transit_summary VARCHAR(200),     -- "JR快速32分钟+步行5分钟"
-    computed_at     TIMESTAMPTZ DEFAULT NOW(),
-    PRIMARY KEY (from_entity_id, to_entity_id)
-);
-```
-
-### discovery_candidates 表
-
-```sql
-CREATE TABLE discovery_candidates (
-    id              SERIAL PRIMARY KEY,
-    name_original   VARCHAR(200) NOT NULL,
-    name_normalized VARCHAR(200),
-    city_code       VARCHAR(50) NOT NULL,
-    entity_type     VARCHAR(20),
-    sub_category    VARCHAR(50),
-    source_count    SMALLINT DEFAULT 1,
-    sources         JSONB NOT NULL,
-    first_seen_at   TIMESTAMPTZ DEFAULT NOW(),
-    status          VARCHAR(20) DEFAULT 'new',
-    entity_id       UUID,
-    UNIQUE(name_normalized, city_code, entity_type)
-);
-```
+（entity_distance_cache 和 discovery_candidates 已在第八章中决定去掉。
+距离用 Haversine 实时算；攻略扫描结果直接写 entity_base。）
 
 ---
 
@@ -809,29 +860,13 @@ class BaseCrawler:
         raise NotImplementedError
 ```
 
-### CrawlScheduler
-
-```python
-class CrawlScheduler:
-    async def get_pending_tasks(self, city_code: str = None) -> list[CrawlTask]:
-        # 查 data_source_registry 中 next_crawl_at < now() 的活跃源
-
-    async def execute_task(self, task: CrawlTask) -> CrawlResult:
-        # 1. 检查速率限制
-        # 2. 调用 crawler_module.crawler_func
-        # 3. 保存原始数据到 source_snapshots
-        # 4. 更新 last_crawl_at, next_crawl_at
-        # 5. 连续失败 5 次 → status='broken'
-
-    async def run_city(self, city_code: str):
-        # 采集一个城市的所有待执行任务
-```
+（CrawlScheduler 已在第八章中决定去掉。用 cron + crawl_frequency 替代。）
 
 ### 新数据源接入流程
 
 ```
-1. data_source_registry 插一条记录
+1. data_source_registry 插一条记录（指定 crawl_frequency）
 2. 写 crawler 文件（实现 BaseCrawler.fetch）
-3. pipeline 自动通过 registry 发现并使用
-→ 不改 pipeline 代码
+3. 在 cron 脚本中按 frequency 调用
+→ 简单直接，不需要调度器
 ```
