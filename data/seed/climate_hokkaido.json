@@ -1,0 +1,176 @@
+{
+  "_source": "Japan Meteorological Agency historical averages (30-year normals)",
+  "_note": "avg_temp_high/low in Celsius, precipitation in mm, sunshine_hours per month",
+  "cities": {
+    "sapporo": {
+      "name_ja": "\u672d\u5e4c",
+      "months": [
+        {"month": 1, "avg_temp_high": -0.6, "avg_temp_low": -7.0, "precipitation": 113, "sunshine_hours": 75, "snow_days": 23, "notes": "peak winter, heavy snow"},
+        {"month": 2, "avg_temp_high": 0.3,  "avg_temp_low": -6.5, "precipitation": 94,  "sunshine_hours": 100, "snow_days": 20, "notes": "still cold, Yuki Matsuri (Snow Festival)"},
+        {"month": 3, "avg_temp_high": 4.4,  "avg_temp_low": -2.9, "precipitation": 77,  "sunshine_hours": 145, "snow_days": 14, "notes": "snow melting"},
+        {"month": 4, "avg_temp_high": 12.5, "avg_temp_low": 3.2,  "precipitation": 56,  "sunshine_hours": 175, "snow_days": 2,  "notes": "spring, cherry blossom late April"},
+        {"month": 5, "avg_temp_high": 18.8, "avg_temp_low": 8.7,  "precipitation": 53,  "sunshine_hours": 200, "snow_days": 0,  "notes": "pleasant, lilacs bloom"},
+        {"month": 6, "avg_temp_high": 22.8, "avg_temp_low": 13.5, "precipitation": 57,  "sunshine_hours": 170, "snow_days": 0,  "notes": "early summer, comfortable"},
+        {"month": 7, "avg_temp_high": 26.4, "avg_temp_low": 17.9, "precipitation": 81,  "sunshine_hours": 175, "snow_days": 0,  "notes": "summer, beer garden season"},
+        {"month": 8, "avg_temp_high": 27.8, "avg_temp_low": 19.1, "precipitation": 123, "sunshine_hours": 175, "snow_days": 0,  "notes": "hottest month, summer festivals"},
+        {"month": 9, "avg_temp_high": 22.4, "avg_temp_low": 13.4, "precipitation": 135, "sunshine_hours": 155, "snow_days": 0,  "notes": "autumn begins, comfortable"},
+        {"month": 10, "avg_temp_high": 15.0, "avg_temp_low": 6.1,  "precipitation": 109, "sunshine_hours": 125, "snow_days": 0,  "notes": "autumn foliage"},
+        {"month": 11, "avg_temp_high": 5.9,  "avg_temp_low": -0.7, "precipitation": 104, "sunshine_hours": 75,  "snow_days": 7,  "notes": "first snow possible"},
+        {"month": 12, "avg_temp_high": 0.7,  "avg_temp_low": -5.2, "precipitation": 112, "sunshine_hours": 55,  "snow_days": 19, "notes": "winter begins, illuminations"}
+      ]
+    },
+    "hakodate": {
+      "name_ja": "\u51fd\u9928",
+      "months": [
+        {"month": 1, "avg_temp_high": 0.9,  "avg_temp_low": -5.5, "precipitation": 80,  "sunshine_hours": 90,  "snow_days": 17},
+        {"month": 2, "avg_temp_high": 1.6,  "avg_temp_low": -5.2, "precipitation": 62,  "sunshine_hours": 115, "snow_days": 15},
+        {"month": 3, "avg_temp_high": 5.5,  "avg_temp_low": -1.9, "precipitation": 60,  "sunshine_hours": 155, "snow_days": 9},
+        {"month": 4, "avg_temp_high": 12.3, "avg_temp_low": 3.7,  "precipitation": 69,  "sunshine_hours": 175, "snow_days": 1},
+        {"month": 5, "avg_temp_high": 17.5, "avg_temp_low": 9.0,  "precipitation": 80,  "sunshine_hours": 195, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 21.1, "avg_temp_low": 13.7, "precipitation": 66,  "sunshine_hours": 165, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 24.7, "avg_temp_low": 18.1, "precipitation": 111, "sunshine_hours": 155, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 26.4, "avg_temp_low": 19.5, "precipitation": 149, "sunshine_hours": 165, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.3, "avg_temp_low": 14.5, "precipitation": 142, "sunshine_hours": 155, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 15.8, "avg_temp_low": 7.6,  "precipitation": 110, "sunshine_hours": 130, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 8.3,  "avg_temp_low": 1.2,  "precipitation": 92,  "sunshine_hours": 85,  "snow_days": 5},
+        {"month": 12, "avg_temp_high": 3.0,  "avg_temp_low": -3.3, "precipitation": 78,  "sunshine_hours": 70,  "snow_days": 13}
+      ]
+    },
+    "asahikawa": {
+      "name_ja": "\u65ed\u5ddd",
+      "months": [
+        {"month": 1, "avg_temp_high": -5.2, "avg_temp_low": -13.2, "precipitation": 81,  "sunshine_hours": 65,  "snow_days": 25, "notes": "coldest city in Hokkaido"},
+        {"month": 2, "avg_temp_high": -3.3, "avg_temp_low": -12.2, "precipitation": 56,  "sunshine_hours": 95,  "snow_days": 22},
+        {"month": 3, "avg_temp_high": 2.0,  "avg_temp_low": -6.2,  "precipitation": 50,  "sunshine_hours": 145, "snow_days": 15},
+        {"month": 4, "avg_temp_high": 11.4, "avg_temp_low": 0.8,   "precipitation": 48,  "sunshine_hours": 175, "snow_days": 3},
+        {"month": 5, "avg_temp_high": 19.1, "avg_temp_low": 7.4,   "precipitation": 55,  "sunshine_hours": 210, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 23.6, "avg_temp_low": 12.9,  "precipitation": 62,  "sunshine_hours": 175, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 27.1, "avg_temp_low": 17.5,  "precipitation": 91,  "sunshine_hours": 170, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 28.1, "avg_temp_low": 18.0,  "precipitation": 135, "sunshine_hours": 175, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.3, "avg_temp_low": 11.5,  "precipitation": 130, "sunshine_hours": 155, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.1, "avg_temp_low": 3.6,  "precipitation": 107, "sunshine_hours": 120, "snow_days": 1},
+        {"month": 11, "avg_temp_high": 3.8,  "avg_temp_low": -4.3, "precipitation": 92,  "sunshine_hours": 60,  "snow_days": 14},
+        {"month": 12, "avg_temp_high": -2.5, "avg_temp_low": -10.3,"precipitation": 83,  "sunshine_hours": 45,  "snow_days": 24}
+      ]
+    },
+    "furano": {
+      "name_ja": "\u5bcc\u826f\u91ce",
+      "months": [
+        {"month": 1, "avg_temp_high": -4.5, "avg_temp_low": -12.8, "precipitation": 85,  "sunshine_hours": 70,  "snow_days": 24, "notes": "ski season peak"},
+        {"month": 2, "avg_temp_high": -3.0, "avg_temp_low": -11.5, "precipitation": 60,  "sunshine_hours": 100, "snow_days": 21},
+        {"month": 3, "avg_temp_high": 2.5,  "avg_temp_low": -5.8,  "precipitation": 55,  "sunshine_hours": 150, "snow_days": 14},
+        {"month": 4, "avg_temp_high": 11.0, "avg_temp_low": 0.5,   "precipitation": 50,  "sunshine_hours": 175, "snow_days": 2},
+        {"month": 5, "avg_temp_high": 18.8, "avg_temp_low": 7.0,   "precipitation": 58,  "sunshine_hours": 205, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 23.5, "avg_temp_low": 12.8,  "precipitation": 63,  "sunshine_hours": 175, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 27.0, "avg_temp_low": 17.5,  "precipitation": 88,  "sunshine_hours": 175, "snow_days": 0, "notes": "lavender peak late July"},
+        {"month": 8, "avg_temp_high": 28.0, "avg_temp_low": 18.2,  "precipitation": 132, "sunshine_hours": 178, "snow_days": 0, "notes": "sunflowers bloom"},
+        {"month": 9, "avg_temp_high": 22.0, "avg_temp_low": 11.8,  "precipitation": 128, "sunshine_hours": 150, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.0, "avg_temp_low": 3.8,  "precipitation": 105, "sunshine_hours": 118, "snow_days": 1},
+        {"month": 11, "avg_temp_high": 3.5,  "avg_temp_low": -4.5, "precipitation": 90,  "sunshine_hours": 58,  "snow_days": 13},
+        {"month": 12, "avg_temp_high": -2.8, "avg_temp_low": -10.8,"precipitation": 87,  "sunshine_hours": 48,  "snow_days": 23}
+      ]
+    },
+    "otaru": {
+      "name_ja": "\u5c0f\u6a3d",
+      "months": [
+        {"month": 1, "avg_temp_high": -0.3, "avg_temp_low": -6.2, "precipitation": 100, "sunshine_hours": 78,  "snow_days": 21},
+        {"month": 2, "avg_temp_high": 0.5,  "avg_temp_low": -5.8, "precipitation": 82,  "sunshine_hours": 105, "snow_days": 18},
+        {"month": 3, "avg_temp_high": 4.5,  "avg_temp_low": -2.5, "precipitation": 70,  "sunshine_hours": 148, "snow_days": 12},
+        {"month": 4, "avg_temp_high": 12.0, "avg_temp_low": 3.5,  "precipitation": 58,  "sunshine_hours": 172, "snow_days": 2},
+        {"month": 5, "avg_temp_high": 17.5, "avg_temp_low": 8.5,  "precipitation": 55,  "sunshine_hours": 195, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 21.5, "avg_temp_low": 13.0, "precipitation": 58,  "sunshine_hours": 165, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 25.5, "avg_temp_low": 17.5, "precipitation": 83,  "sunshine_hours": 170, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 27.0, "avg_temp_low": 18.8, "precipitation": 120, "sunshine_hours": 172, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.0, "avg_temp_low": 13.2, "precipitation": 130, "sunshine_hours": 152, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.8, "avg_temp_low": 6.2, "precipitation": 106, "sunshine_hours": 122, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 6.0,  "avg_temp_low": -0.5,"precipitation": 100, "sunshine_hours": 72,  "snow_days": 7},
+        {"month": 12, "avg_temp_high": 1.0,  "avg_temp_low": -4.8,"precipitation": 100, "sunshine_hours": 57,  "snow_days": 18}
+      ]
+    },
+    "noboribetsu": {
+      "name_ja": "\u767b\u5225",
+      "months": [
+        {"month": 1, "avg_temp_high": 0.0,  "avg_temp_low": -6.5, "precipitation": 90,  "sunshine_hours": 80,  "snow_days": 18},
+        {"month": 2, "avg_temp_high": 0.8,  "avg_temp_low": -5.8, "precipitation": 70,  "sunshine_hours": 108, "snow_days": 16},
+        {"month": 3, "avg_temp_high": 5.0,  "avg_temp_low": -2.2, "precipitation": 65,  "sunshine_hours": 148, "snow_days": 10},
+        {"month": 4, "avg_temp_high": 12.5, "avg_temp_low": 3.2,  "precipitation": 62,  "sunshine_hours": 170, "snow_days": 1},
+        {"month": 5, "avg_temp_high": 18.0, "avg_temp_low": 8.2,  "precipitation": 60,  "sunshine_hours": 192, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 22.0, "avg_temp_low": 13.2, "precipitation": 62,  "sunshine_hours": 162, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 25.5, "avg_temp_low": 17.5, "precipitation": 88,  "sunshine_hours": 168, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 27.0, "avg_temp_low": 18.5, "precipitation": 128, "sunshine_hours": 170, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.2, "avg_temp_low": 13.5, "precipitation": 138, "sunshine_hours": 152, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 15.2, "avg_temp_low": 6.5, "precipitation": 108, "sunshine_hours": 122, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 7.0,  "avg_temp_low": 0.0, "precipitation": 98,  "sunshine_hours": 78,  "snow_days": 6},
+        {"month": 12, "avg_temp_high": 1.5,  "avg_temp_low": -4.8,"precipitation": 88,  "sunshine_hours": 60,  "snow_days": 16}
+      ]
+    },
+    "abashiri": {
+      "name_ja": "\u7db2\u8d70",
+      "months": [
+        {"month": 1, "avg_temp_high": -4.2, "avg_temp_low": -11.5, "precipitation": 52,  "sunshine_hours": 88,  "snow_days": 20, "notes": "drift ice season"},
+        {"month": 2, "avg_temp_high": -3.5, "avg_temp_low": -11.2, "precipitation": 42,  "sunshine_hours": 118, "snow_days": 18, "notes": "drift ice viewing peak"},
+        {"month": 3, "avg_temp_high": 1.2,  "avg_temp_low": -6.5,  "precipitation": 42,  "sunshine_hours": 158, "snow_days": 11},
+        {"month": 4, "avg_temp_high": 9.2,  "avg_temp_low": 0.5,   "precipitation": 42,  "sunshine_hours": 178, "snow_days": 2},
+        {"month": 5, "avg_temp_high": 15.8, "avg_temp_low": 5.8,   "precipitation": 48,  "sunshine_hours": 205, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 19.8, "avg_temp_low": 10.8,  "precipitation": 55,  "sunshine_hours": 170, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 23.5, "avg_temp_low": 15.5,  "precipitation": 82,  "sunshine_hours": 165, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 25.5, "avg_temp_low": 16.8,  "precipitation": 120, "sunshine_hours": 175, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 21.2, "avg_temp_low": 11.8,  "precipitation": 128, "sunshine_hours": 158, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.2, "avg_temp_low": 4.5,  "precipitation": 98,  "sunshine_hours": 128, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 5.5,  "avg_temp_low": -2.5, "precipitation": 72,  "sunshine_hours": 75,  "snow_days": 7},
+        {"month": 12, "avg_temp_high": -1.5, "avg_temp_low": -8.0, "precipitation": 55,  "sunshine_hours": 65,  "snow_days": 18}
+      ]
+    },
+    "kushiro": {
+      "name_ja": "\u9488\u8def",
+      "months": [
+        {"month": 1, "avg_temp_high": -1.8, "avg_temp_low": -9.5, "precipitation": 52,  "sunshine_hours": 100, "snow_days": 14},
+        {"month": 2, "avg_temp_high": -1.0, "avg_temp_low": -9.2, "precipitation": 45,  "sunshine_hours": 128, "snow_days": 12},
+        {"month": 3, "avg_temp_high": 3.5,  "avg_temp_low": -4.8, "precipitation": 48,  "sunshine_hours": 158, "snow_days": 7},
+        {"month": 4, "avg_temp_high": 10.2, "avg_temp_low": 1.2,  "precipitation": 52,  "sunshine_hours": 178, "snow_days": 1},
+        {"month": 5, "avg_temp_high": 15.5, "avg_temp_low": 5.5,  "precipitation": 65,  "sunshine_hours": 190, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 18.5, "avg_temp_low": 9.5,  "precipitation": 65,  "sunshine_hours": 155, "snow_days": 0, "notes": "cool foggy summer"},
+        {"month": 7, "avg_temp_high": 21.8, "avg_temp_low": 14.2, "precipitation": 98,  "sunshine_hours": 145, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 23.5, "avg_temp_low": 15.8, "precipitation": 138, "sunshine_hours": 158, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 20.5, "avg_temp_low": 11.5, "precipitation": 128, "sunshine_hours": 152, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.5, "avg_temp_low": 4.5, "precipitation": 98,  "sunshine_hours": 128, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 7.5,  "avg_temp_low": -1.5,"precipitation": 68,  "sunshine_hours": 82,  "snow_days": 3},
+        {"month": 12, "avg_temp_high": 2.0,  "avg_temp_low": -6.5,"precipitation": 50,  "sunshine_hours": 72,  "snow_days": 12}
+      ]
+    },
+    "toya": {
+      "name_ja": "\u6d1e\u7210\u6e56",
+      "months": [
+        {"month": 1, "avg_temp_high": 0.5,  "avg_temp_low": -5.8, "precipitation": 95,  "sunshine_hours": 82,  "snow_days": 17},
+        {"month": 2, "avg_temp_high": 1.2,  "avg_temp_low": -5.2, "precipitation": 75,  "sunshine_hours": 110, "snow_days": 15},
+        {"month": 3, "avg_temp_high": 5.5,  "avg_temp_low": -2.0, "precipitation": 68,  "sunshine_hours": 150, "snow_days": 10},
+        {"month": 4, "avg_temp_high": 13.0, "avg_temp_low": 3.8,  "precipitation": 62,  "sunshine_hours": 172, "snow_days": 1},
+        {"month": 5, "avg_temp_high": 18.5, "avg_temp_low": 8.8,  "precipitation": 58,  "sunshine_hours": 195, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 22.5, "avg_temp_low": 13.5, "precipitation": 60,  "sunshine_hours": 165, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 26.0, "avg_temp_low": 17.8, "precipitation": 88,  "sunshine_hours": 172, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 27.5, "avg_temp_low": 19.2, "precipitation": 125, "sunshine_hours": 172, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.5, "avg_temp_low": 13.8, "precipitation": 135, "sunshine_hours": 152, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 15.5, "avg_temp_low": 6.8, "precipitation": 108, "sunshine_hours": 122, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 7.5,  "avg_temp_low": 0.5, "precipitation": 98,  "sunshine_hours": 75,  "snow_days": 6},
+        {"month": 12, "avg_temp_high": 2.0,  "avg_temp_low": -4.5,"precipitation": 90,  "sunshine_hours": 58,  "snow_days": 15}
+      ]
+    },
+    "niseko": {
+      "name_ja": "\u30cb\u30bb\u30b3",
+      "months": [
+        {"month": 1, "avg_temp_high": -3.2, "avg_temp_low": -10.8, "precipitation": 120, "sunshine_hours": 72,  "snow_days": 24, "notes": "world-class powder snow ski resort"},
+        {"month": 2, "avg_temp_high": -2.0, "avg_temp_low": -9.5,  "precipitation": 95,  "sunshine_hours": 102, "snow_days": 21},
+        {"month": 3, "avg_temp_high": 2.5,  "avg_temp_low": -5.5,  "precipitation": 78,  "sunshine_hours": 148, "snow_days": 14},
+        {"month": 4, "avg_temp_high": 10.0, "avg_temp_low": 0.2,   "precipitation": 62,  "sunshine_hours": 170, "snow_days": 3},
+        {"month": 5, "avg_temp_high": 17.5, "avg_temp_low": 7.0,   "precipitation": 62,  "sunshine_hours": 195, "snow_days": 0},
+        {"month": 6, "avg_temp_high": 22.0, "avg_temp_low": 12.5,  "precipitation": 68,  "sunshine_hours": 162, "snow_days": 0},
+        {"month": 7, "avg_temp_high": 25.5, "avg_temp_low": 16.8,  "precipitation": 92,  "sunshine_hours": 168, "snow_days": 0},
+        {"month": 8, "avg_temp_high": 27.0, "avg_temp_low": 18.2,  "precipitation": 128, "sunshine_hours": 170, "snow_days": 0},
+        {"month": 9, "avg_temp_high": 22.2, "avg_temp_low": 12.8,  "precipitation": 135, "sunshine_hours": 148, "snow_days": 0},
+        {"month": 10, "avg_temp_high": 14.8, "avg_temp_low": 4.5,  "precipitation": 108, "sunshine_hours": 118, "snow_days": 0},
+        {"month": 11, "avg_temp_high": 5.5,  "avg_temp_low": -2.8, "precipitation": 98,  "sunshine_hours": 68,  "snow_days": 9},
+        {"month": 12, "avg_temp_high": -1.0, "avg_temp_low": -8.2, "precipitation": 112, "sunshine_hours": 52,  "snow_days": 21}
+      ]
+    }
+  }
+}
