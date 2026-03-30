@@ -396,6 +396,146 @@ async def fetch_specialty_shops(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# 子分类批量搜索（B2 任务需求）
+# ─────────────────────────────────────────────────────────────────────────────
+
+# 景点子分类：(keyword, place_type, poi_category, duration_min)
+POI_SUB_CATEGORIES = [
+    ("神社 shrine",    "tourist_attraction", "shrine",   60),
+    ("寺 temple",      "tourist_attraction", "temple",   60),
+    ("museum 博物館",  "museum",             "museum",   90),
+    ("公園 park",      "park",               "park",     60),
+    ("展望台 landmark","tourist_attraction", "landmark", 45),
+    ("温泉 onsen",     "spa",                "onsen",    120),
+]
+
+# 酒店子分类：(keyword, place_type, price_tier)
+HOTEL_SUB_CATEGORIES = [
+    ("ビジネスホテル カプセル ゲストハウス", "lodging", "budget"),
+    ("シティホテル 東横イン ルートイン",    "lodging", "mid"),
+    ("温泉旅館 リゾートホテル",             "lodging", "premium"),
+    ("ラグジュアリーホテル 高級旅館",       "lodging", "luxury"),
+]
+
+# 特色店子分类：(keyword, place_type)
+SHOP_SUB_CATEGORIES = [
+    ("お土産 手作り",          "store"),
+    ("工芸品 伝統",            "store"),
+    ("地元 特産品",            "store"),
+    ("北海道 お菓子 スイーツ", "store"),
+    ("アンティーク 雑貨",      "store"),
+]
+
+
+async def fetch_pois_by_subcategory(
+    city_code: str,
+    limit_per_category: int = 20,
+) -> List[Dict[str, Any]]:
+    """
+    按子分类逐类搜索景点（shrine/temple/museum/park/landmark/onsen），
+    比单一 tourist_attraction 搜索结果更均衡。
+    """
+    center = await _get_city_center(city_code)
+    if not center:
+        return []
+
+    radius = CITY_RADIUS.get(city_code, DEFAULT_RADIUS)
+    all_results: List[Dict[str, Any]] = []
+    seen_place_ids: set[str] = set()
+
+    for keyword, place_type, poi_category, duration_min in POI_SUB_CATEGORIES:
+        raw = await _nearby_search(
+            center[0], center[1], radius,
+            place_type, keyword=keyword, limit=limit_per_category,
+        )
+        for place in raw:
+            pid = place.get("place_id", "")
+            if pid in seen_place_ids:
+                continue
+            seen_place_ids.add(pid)
+            parsed = _parse_place(place, city_code, "poi")
+            parsed["poi_category"] = poi_category
+            parsed["typical_duration_min"] = duration_min
+            if parsed.get("lat") and parsed.get("lng"):
+                all_results.append(parsed)
+        await asyncio.sleep(1)
+
+    logger.info("[google_places] %s POIs (subcategory): %d total", city_code, len(all_results))
+    return all_results
+
+
+async def fetch_hotels_by_tier(
+    city_code: str,
+    limit_per_tier: int = 15,
+) -> List[Dict[str, Any]]:
+    """
+    按价位档次搜索酒店（budget/mid/premium/luxury），覆盖更均衡。
+    """
+    center = await _get_city_center(city_code)
+    if not center:
+        return []
+
+    radius = CITY_RADIUS.get(city_code, DEFAULT_RADIUS)
+    all_results: List[Dict[str, Any]] = []
+    seen_place_ids: set[str] = set()
+
+    for keyword, place_type, price_tier in HOTEL_SUB_CATEGORIES:
+        raw = await _nearby_search(
+            center[0], center[1], radius,
+            place_type, keyword=keyword, limit=limit_per_tier,
+        )
+        for place in raw:
+            pid = place.get("place_id", "")
+            if pid in seen_place_ids:
+                continue
+            seen_place_ids.add(pid)
+            parsed = _parse_hotel(place, city_code)
+            parsed["price_tier"] = price_tier  # 用关键词确定的 tier 覆盖 price_level 推断
+            if parsed.get("lat") and parsed.get("lng"):
+                all_results.append(parsed)
+        await asyncio.sleep(1)
+
+    logger.info("[google_places] %s hotels (by tier): %d total", city_code, len(all_results))
+    return all_results
+
+
+async def fetch_specialty_shops_sapporo(
+    city_code: str = "sapporo",
+    limit_per_category: int = 15,
+) -> List[Dict[str, Any]]:
+    """
+    札幌特色店批量搜索（北海道特色关键词）
+    """
+    center = await _get_city_center(city_code)
+    if not center:
+        return []
+
+    radius = CITY_RADIUS.get(city_code, DEFAULT_RADIUS)
+    all_results: List[Dict[str, Any]] = []
+    seen_place_ids: set[str] = set()
+
+    for keyword, place_type in SHOP_SUB_CATEGORIES:
+        if len(all_results) >= limit_per_category * len(SHOP_SUB_CATEGORIES):
+            break
+        raw = await _nearby_search(
+            center[0], center[1], radius,
+            place_type, keyword=keyword, limit=limit_per_category,
+        )
+        for place in raw:
+            pid = place.get("place_id", "")
+            if pid in seen_place_ids:
+                continue
+            seen_place_ids.add(pid)
+            parsed = _parse_specialty_shop(place, city_code)
+            if parsed.get("lat") and parsed.get("lng"):
+                all_results.append(parsed)
+        await asyncio.sleep(1)
+
+    logger.info("[google_places] %s specialty shops: %d total", city_code, len(all_results))
+    return all_results
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Place Details（补充详细信息，单独调用）
 # ─────────────────────────────────────────────────────────────────────────────
 
