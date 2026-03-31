@@ -8,6 +8,7 @@
   2. 在硬约束之间的空闲时段，按"当前时间→当前位置→附近有什么"顺序填充
   3. 根据精力曲线调整：上午放体力活动，午后放休息型，傍晚放轻量
   4. 强度是结果不是输入——一天的活动量由可用时间和候选数量自然决定
+  5. 季节适配由上游 eligibility_gate EG-005 处理，此处信任候选池
 """
 from __future__ import annotations
 
@@ -158,26 +159,36 @@ def _score_candidate(
     # 距离惩罚（每分钟 -1 分）
     base -= travel * 1.0
 
+    # 季节适配已由 eligibility_gate EG-005 在上游处理
+    # timeline_filler 信任通过资格过滤的候选
+
     # 时段适配
     cat = (ent.get("poi_category") or ent.get("sub_category") or "").lower()
     etype = ent.get("entity_type", "poi")
 
     if slot_type == "morning_core":
-        if cat in ("shrine", "temple", "park", "scenic_spot", "landmark", "market"):
+        if cat in ("shrine", "temple", "park", "scenic_spot", "landmark", "market",
+                    "zoo", "garden"):
             base += 15
     elif slot_type == "afternoon_easy":
-        if cat in ("museum", "cafe", "specialty_shop", "shopping_mall"):
+        # 午后低谷：室内/轻松活动加分，但不再惩罚户外景点
+        # （候选池可能只有这些类型，惩罚会导致整个时段空白）
+        if cat in ("museum", "cafe", "specialty_shop", "shopping_mall", "onsen"):
             base += 20
-        elif cat in ("shrine", "temple", "park"):
-            base -= 10
+        elif cat in ("landmark", "observation_deck", "market"):
+            base += 10
+        # shrine/temple/park 不加不减，保持中性
     elif slot_type == "afternoon_light":
-        if cat in ("specialty_shop", "market", "street", "landmark"):
+        if cat in ("specialty_shop", "market", "street", "landmark", "district",
+                    "shrine", "temple"):
             base += 10
     elif slot_type == "evening":
         if "night" in (ent.get("name") or "").lower() or "夜景" in (ent.get("name") or ""):
             base += 25
         if cat in ("landmark", "observation_deck"):
             base += 15
+        if cat in ("onsen",):
+            base += 10
 
     return base, travel
 
@@ -393,16 +404,57 @@ async def fill_and_write_timeline(
     """
     from app.db.models.derived import ItineraryPlan, ItineraryDay, ItineraryItem
 
-    # 城市推断
-    _PREFIX_CITY = {"sap": "sapporo", "hak": "hakodate", "ota": "otaru",
-                    "fur": "furano", "asa": "asahikawa", "nob": "noboribetsu",
-                    "toy": "toya", "shi": "abashiri", "hok": "sapporo"}
+    # 城市推断：从 activity_clusters 表查 cluster_id→city_code 映射
+    # 避免依赖脆弱的前缀硬编码（hok→sapporo 等错误）
+    _cluster_city_map: Dict[str, str] = {}
+    try:
+        from sqlalchemy import select as _sel
+        from app.db.models.city_circles import ActivityCluster
+        _driver_ids = [
+            (f.main_driver if hasattr(f, "main_driver") else "")
+            for f in frames if (f.main_driver if hasattr(f, "main_driver") else "")
+        ]
+        if _driver_ids:
+            _cq = await session.execute(
+                _sel(ActivityCluster.cluster_id, ActivityCluster.city_code)
+                .where(ActivityCluster.cluster_id.in_(_driver_ids))
+            )
+            for cid, cc in _cq.all():
+                _cluster_city_map[cid] = cc
+        logger.info("cluster→city map: %s", _cluster_city_map)
+    except Exception as exc:
+        logger.warning("Failed to load cluster→city mapping: %s", exc)
+
+    # 酒店坐标缓存：从 DB 查各城市酒店实体的中心坐标
+    # 这样新城市上线时自动覆盖，不需要手动维护硬编码表
+    _CITY_HOTEL_COORDS: Dict[str, Tuple[float, float]] = {}
+    try:
+        from sqlalchemy import func as _func
+        from app.db.models.catalog import EntityBase as _EB
+        _hotel_q = await session.execute(
+            _sel(_EB.city_code, _func.avg(_EB.lat), _func.avg(_EB.lng))
+            .where(_EB.entity_type == "hotel", _EB.is_active == True,
+                   _EB.lat.isnot(None), _EB.lng.isnot(None))
+            .group_by(_EB.city_code)
+        )
+        for city, avg_lat, avg_lng in _hotel_q.all():
+            if avg_lat and avg_lng:
+                _CITY_HOTEL_COORDS[city] = (float(avg_lat), float(avg_lng))
+        logger.info("Hotel coords loaded: %d cities", len(_CITY_HOTEL_COORDS))
+    except Exception as exc:
+        logger.warning("Failed to load hotel coords from DB: %s", exc)
 
     party_type = (profile.get("party_type") or "couple").lower()
     pace = (profile.get("pace") or "moderate").lower()
 
-    # 默认酒店坐标（札幌站附近）
-    default_hotel = (43.0687, 141.3508)
+    # 默认起始坐标回退：如果某城市没有酒店，用该城市 POI 坐标的中心
+    # 如果连 POI 都没有，用候选池第一个有坐标的实体
+    default_hotel = (0.0, 0.0)
+    if poi_pool:
+        lats = [float(p["lat"]) for p in poi_pool if p.get("lat")]
+        lngs = [float(p["lng"]) for p in poi_pool if p.get("lng")]
+        if lats and lngs:
+            default_hotel = (sum(lats) / len(lats), sum(lngs) / len(lngs))
 
     total_days = 0
     total_items = 0
@@ -415,11 +467,14 @@ async def fill_and_write_timeline(
         driver = frame.main_driver if hasattr(frame, "main_driver") else ""
         corridor = frame.primary_corridor if hasattr(frame, "primary_corridor") else ""
 
-        # 推断城市
+        # 推断城市：优先从 cluster→city 映射，其次 sleep_base
         day_city = ""
-        if driver:
-            prefix = (driver or "")[:3]
-            day_city = _PREFIX_CITY.get(prefix, "")
+        if driver and driver in _cluster_city_map:
+            day_city = _cluster_city_map[driver]
+        if not day_city:
+            sleep = (frame.sleep_base if hasattr(frame, "sleep_base") else "") or ""
+            if sleep:
+                day_city = sleep
         if not day_city:
             day_city = "sapporo"
 
@@ -472,6 +527,9 @@ async def fill_and_write_timeline(
                       if (r.get("city_code") or "").lower() == day_city.lower()
                       and str(r.get("entity_id", "")) not in global_used]
 
+        # 起始坐标：用该城市的酒店坐标而非全局默认
+        hotel_coords = _CITY_HOTEL_COORDS.get(day_city.lower(), default_hotel)
+
         # 填充
         day_tl = fill_day(
             day_index=day_idx,
@@ -482,8 +540,8 @@ async def fill_and_write_timeline(
             anchor_entities=anchors,
             poi_pool=city_pois,
             restaurant_pool=city_rests,
-            start_lat=default_hotel[0],
-            start_lng=default_hotel[1],
+            start_lat=hotel_coords[0],
+            start_lng=hotel_coords[1],
         )
 
         # 写 DB

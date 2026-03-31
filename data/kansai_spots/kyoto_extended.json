@@ -1,0 +1,597 @@
+{
+  "region": "kyoto",
+  "sub_region": "宇治+天桥立+伊根",
+  "data_sources": [
+    "claude_knowledge"
+  ],
+  "needs_verification": true,
+  "last_updated": "2026-03-31",
+  "spots": [
+    {
+      "id": "kyo_uji_byodoin",
+      "name_zh": "平等院凤凰堂",
+      "name_ja": "平等院鳳凰堂",
+      "name_en": "Byodo-in Phoenix Hall",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "A",
+      "grade_reason": "10日元硬币上的建筑，世界遗产。藤原时代极乐净土的具象化",
+      "profile_boosts": {
+        "culture_deep": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "拍照强",
+        "本地限定"
+      ],
+      "best_time": "上午（水面倒影最清晰）",
+      "visit_minutes": 60,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "秋季红叶映衬凤凰堂",
+        "紫藤花季(4月下旬-5月上旬)"
+      ],
+      "coord": [
+        34.8892,
+        135.8078
+      ],
+      "tips": "凤凰堂内部参观需另外排队买票(300日元)，每20分钟一批限50人。博物馆里的云中供养菩萨像非常精美",
+      "city_code": "uji",
+      "prefecture": "京都府",
+      "address_ja": "京都府宇治市宇治蓮華116",
+      "nearest_station": "JR宇治駅 徒歩10分 / 京阪宇治駅 徒歩10分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "8:30-17:30",
+        "last_entry": "17:15",
+        "closed_notes": "凤凰堂内部参观9:00-16:10，每20分钟一批次"
+      },
+      "cost": {
+        "admission_jpy": 700,
+        "typical_spend_jpy": 1200,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.6,
+        "google_review_count": 28000,
+        "dimension_scores": {
+          "scenery": 10,
+          "cultural_depth": 10,
+          "accessibility": 8,
+          "crowd_comfort": 5,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "10日元硬币图案的真实建筑",
+          "水面倒影极美",
+          "世界遗产品质"
+        ],
+        "negative_tags": [
+          "凤凰堂内部需另排队购票",
+          "旺季等待较长"
+        ]
+      },
+      "queue_wait_minutes": 20,
+      "corridor_tags": [
+        "uji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "10日元硬币上的建筑，世界遗产级别的平安时代净土建筑，关西最具历史价值的庭园建筑之一",
+        "what_to_expect": "走过阿字池边看凤凰堂倒影，进入博物馆鳳翔館欣赏云中供养菩萨原件，可另购票进入凤凰堂内部",
+        "skip_if": "对平安时代建筑无兴趣、时间紧张只做关西精华行程"
+      }
+    },
+    {
+      "id": "kyo_uji_matcha_street",
+      "name_zh": "宇治抹茶老街",
+      "name_ja": "宇治の茶の道",
+      "name_en": "Uji Tea Street",
+      "main_type": "area_dest",
+      "sub_type": "historic_district",
+      "grade": "A",
+      "grade_reason": "日本抹茶发源地，中村藤吉/伊藤久右卫门等百年茶铺云集",
+      "profile_boosts": {
+        "foodie": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "美食控",
+        "百年老店",
+        "本地限定"
+      ],
+      "best_time": "上午到下午",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "coord": [
+        34.889,
+        135.808
+      ],
+      "tips": "中村藤吉本店排队1-2小时常见，建议开店前到。伊藤久右卫门相对好排。宇治桥通商店街有各种抹茶甜品可以边走边吃",
+      "city_code": "uji",
+      "prefecture": "京都府",
+      "address_ja": "京都府宇治市宇治（宇治橋通り〜茶の道周辺）",
+      "nearest_station": "JR宇治駅 徒歩5分 / 京阪宇治駅 徒歩3分",
+      "when": {
+        "open_days": "每日（各店营业时间不同）",
+        "open_hours": "10:00-18:00（多数店铺）",
+        "last_entry": null,
+        "closed_notes": "各店铺各有休业日，元旦附近可能休店"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 12000,
+        "dimension_scores": {
+          "scenery": 7,
+          "cultural_depth": 9,
+          "accessibility": 9,
+          "crowd_comfort": 5,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "日本抹茶发源地",
+          "百年老店集中",
+          "边走边吃甜品"
+        ],
+        "negative_tags": [
+          "中村藤吉等热门店排队1-2小时",
+          "旺季拥挤"
+        ]
+      },
+      "queue_wait_minutes": 60,
+      "corridor_tags": [
+        "uji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本抹茶的发祥地，抹茶文化密度全国最高，百年老铺林立，体验无可替代",
+        "what_to_expect": "漫步宇治桥通和茶の道，品尝各家抹茶甜品与茶，选购抹茶伴手礼",
+        "skip_if": "对抹茶或日本茶文化完全无兴趣"
+      }
+    },
+    {
+      "id": "kyo_uji_ujigami",
+      "name_zh": "宇治上神社",
+      "name_ja": "宇治上神社",
+      "name_en": "Ujigami Shrine",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "C",
+      "grade_reason": "日本最古老的神社建筑（平安时代），世界遗产，但规模很小",
+      "profile_boosts": {
+        "culture_deep": "+1"
+      },
+      "tags": [
+        "免费"
+      ],
+      "best_time": "上午",
+      "visit_minutes": 15,
+      "best_season": "all",
+      "coord": [
+        34.8932,
+        135.8118
+      ],
+      "tips": "从平等院步行10分钟，顺路看一眼。建筑史爱好者会很兴奋，一般游客可能觉得「就这？」",
+      "city_code": "uji",
+      "prefecture": "京都府",
+      "address_ja": "京都府宇治市宇治山田59",
+      "nearest_station": "JR宇治駅 徒歩20分 / 京阪宇治駅 徒歩10分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:00-16:15",
+        "last_entry": null,
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 300,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 3500,
+        "dimension_scores": {
+          "scenery": 6,
+          "cultural_depth": 9,
+          "accessibility": 6,
+          "crowd_comfort": 9,
+          "uniqueness": 8,
+          "value_for_money": 10
+        },
+        "positive_tags": [
+          "日本现存最古老神社建筑",
+          "世界遗产",
+          "免费参拜"
+        ],
+        "negative_tags": [
+          "规模极小",
+          "一般游客感受不深"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "uji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本现存最古老的神社建筑（平安时代），世界遗产，是宇治与平等院组合参观的顺路打卡",
+        "what_to_expect": "规模小而精，本殿建于平安时代，感受千年木构建筑的静谧气息",
+        "skip_if": "对建筑史无特别兴趣、时间紧张"
+      }
+    },
+    {
+      "id": "kyo_amanohashidate",
+      "name_zh": "天桥立",
+      "name_ja": "天橋立",
+      "name_en": "Amanohashidate",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "A",
+      "grade_reason": "日本三景之一，3.6公里松树沙洲横跨宫津湾，从展望台弯腰看如天上架桥",
+      "profile_boosts": {
+        "nature_outdoor": "+1",
+        "photo": "+1",
+        "time_tight": "-1"
+      },
+      "tags": [
+        "拍照强",
+        "本地限定"
+      ],
+      "best_time": "上午（光线好）",
+      "visit_minutes": 180,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "夏季可以在沙洲上游泳",
+        "冬季雪景别有一番风味"
+      ],
+      "coord": [
+        35.5725,
+        135.1868
+      ],
+      "tips": "从京都站坐特急约2小时。「股のぞき」（弯腰从两腿间倒着看）是传统玩法。缆车/索道上展望台后效果最好。建议骑自行车穿越沙洲",
+      "city_code": "amanohashidate",
+      "prefecture": "京都府",
+      "address_ja": "京都府宮津市文珠（天橋立エリア）",
+      "nearest_station": "京都丹後鉄道天橋立駅 徒歩3分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "沙洲全天开放；缆车/索道8:30-17:00（季节变动）",
+        "last_entry": null,
+        "closed_notes": "缆车/索道有维护停运日，出发前确认"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 18000,
+        "dimension_scores": {
+          "scenery": 10,
+          "cultural_depth": 6,
+          "accessibility": 6,
+          "crowd_comfort": 7,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "日本三景景观独特",
+          "骑行沙洲体验佳",
+          "展望台股のぞき趣味性强"
+        ],
+        "negative_tags": [
+          "从京都交通耗时约2小时",
+          "沙洲骑行单程30分钟需体力"
+        ]
+      },
+      "queue_wait_minutes": 10,
+      "corridor_tags": [
+        "amanohashidate"
+      ],
+      "risk_flags": [
+        "remote_transport"
+      ],
+      "descriptions": {
+        "why_selected": "日本三景之一，3.6公里松林沙洲从天桥立展望台俯瞰如天上架桥，是全日本最独特的地理景观之一",
+        "what_to_expect": "坐缆车/索道上展望台俯瞰全景，下山骑自行车穿越沙洲，在对岸傘松公园再看一次视角",
+        "skip_if": "时间非常有限（往返含游览至少需要半天+2小时交通）"
+      }
+    },
+    {
+      "id": "kyo_ine",
+      "name_zh": "伊根舟屋",
+      "name_ja": "伊根の舟屋",
+      "name_en": "Ine Funaya (Boat Houses)",
+      "main_type": "area_dest",
+      "sub_type": "historic_district",
+      "grade": "A",
+      "grade_reason": "230栋水上船屋沿海排列，日本版威尼斯，重要传统建造物群保存地区",
+      "profile_boosts": {
+        "photo": "+1",
+        "revisit": "+1",
+        "nature_outdoor": "+1",
+        "time_tight": "-1"
+      },
+      "tags": [
+        "拍照强",
+        "特色景点",
+        "本地限定"
+      ],
+      "best_time": "上午（海面平静时倒影最美）",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "coord": [
+        35.6758,
+        135.2828
+      ],
+      "tips": "从天桥立坐巴士约1小时。乘观光船(25分钟)从海上看舟屋最壮观。可以住在改造的舟屋民宿里体验渔村生活。游客很少，是关西最佳小众目的地之一",
+      "city_code": "amanohashidate",
+      "prefecture": "京都府",
+      "address_ja": "京都府与謝郡伊根町伊根浦（舟屋エリア）",
+      "nearest_station": "丹後海陸交通バス「伊根」バス停 徒歩3分（天橋立駅から約60分）",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "全天开放（观光船9:00-16:00）",
+        "last_entry": null,
+        "closed_notes": "观光船恶劣天气停运"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1200,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.5,
+        "google_review_count": 9000,
+        "dimension_scores": {
+          "scenery": 10,
+          "cultural_depth": 9,
+          "accessibility": 4,
+          "crowd_comfort": 9,
+          "uniqueness": 10,
+          "value_for_money": 9
+        },
+        "positive_tags": [
+          "230栋水上船屋壮观",
+          "游客稀少体验好",
+          "可住宿舟屋民宿"
+        ],
+        "negative_tags": [
+          "交通极为不便",
+          "公共交通班次稀少"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "ine"
+      ],
+      "risk_flags": [
+        "remote_transport"
+      ],
+      "descriptions": {
+        "why_selected": "日本唯一的舟屋集落，230栋一楼停船二楼住人的独特建筑群沿海湾一字排开，是关西最值得专程造访的小众秘境",
+        "what_to_expect": "乘观光船从海面环视舟屋全景，步行探访舟屋旁的小巷，体验渔村宁静日常",
+        "skip_if": "时间有限、对传统渔村建筑无兴趣"
+      }
+    },
+    {
+      "id": "kyo_uji_matcha_exp",
+      "name_zh": "宇治抹茶体验",
+      "name_ja": "宇治抹茶体験",
+      "name_en": "Uji Matcha Experience",
+      "main_type": "experience",
+      "sub_type": "cultural_exp",
+      "grade": "B",
+      "grade_reason": "在抹茶发源地亲手磨抹茶、学茶道，比京都市区的体验更正宗",
+      "profile_boosts": {
+        "couple": "+1",
+        "culture_deep": "+1"
+      },
+      "tags": [
+        "本地限定",
+        "雨天友好"
+      ],
+      "best_time": "下午",
+      "visit_minutes": 60,
+      "best_season": "all",
+      "coord": [
+        34.889,
+        135.808
+      ],
+      "tips": "福寿园宇治茶工房有系统的体验课程(需预约)。体验后可以品尝自己磨的抹茶配和菓子",
+      "city_code": "uji",
+      "prefecture": "京都府",
+      "address_ja": "京都府宇治市宇治（宇治橋通り周辺・各茶工房）",
+      "nearest_station": "JR宇治駅 徒歩5分 / 京阪宇治駅 徒歩5分",
+      "when": {
+        "open_days": "每日（需预约）",
+        "open_hours": "10:00-16:00（福寿园宇治茶工房等，各设施有别）",
+        "last_entry": null,
+        "closed_notes": "建议至少提前1周预约"
+      },
+      "cost": {
+        "admission_jpy": 1500,
+        "typical_spend_jpy": 2500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 2000,
+        "dimension_scores": {
+          "scenery": 5,
+          "cultural_depth": 9,
+          "accessibility": 8,
+          "crowd_comfort": 8,
+          "uniqueness": 9,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "在发源地学抹茶更有意义",
+          "亲手磨抹茶体验独特",
+          "适合情侣和文化爱好者"
+        ],
+        "negative_tags": [
+          "需提前预约",
+          "课程时间固定"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "uji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "在日本抹茶发源地宇治亲手体验碾磨抹茶和茶道，比京都市区体验更具文化正宗性",
+        "what_to_expect": "亲手用石臼碾磨抹茶粉，学习泡茶和点茶，品尝自制抹茶配和菓子",
+        "skip_if": "不喜欢动手体验类活动"
+      }
+    },
+    {
+      "id": "kyo_miyama",
+      "name_zh": "美山茅葺之里",
+      "name_ja": "美山かやぶきの里",
+      "name_en": "Miyama Kayabuki no Sato",
+      "main_type": "area_dest",
+      "sub_type": "historic_district",
+      "grade": "B",
+      "grade_reason": "京都版白川乡，38栋茅葺屋顶民家保存完好。游客极少，田园风光绝美",
+      "profile_boosts": {
+        "revisit": "+1",
+        "photo": "+1",
+        "nature_outdoor": "+1",
+        "time_tight": "-1"
+      },
+      "tags": [
+        "拍照强",
+        "特色景点",
+        "本地限定"
+      ],
+      "best_time": "上午",
+      "visit_minutes": 120,
+      "best_season": "winter",
+      "seasonal_highlights": [
+        "冬季雪灯廊活动(1-2月)茅葺屋+雪=童话世界",
+        "秋季红叶也很美"
+      ],
+      "coord": [
+        35.2815,
+        135.6185
+      ],
+      "tips": "从京都站开车约1.5小时，公共交通不便建议自驾或包车。比白川乡人少得多，拍照更自在。冬季雪灯廊需要提前查日期",
+      "city_code": "miyama",
+      "prefecture": "京都府",
+      "address_ja": "京都府南丹市美山町北（かやぶきの里）",
+      "nearest_station": "JR日吉駅よりバス約40分「かやぶきの里」バス停（本数少）",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "全天开放（外観）；民俗资料馆9:00-17:00",
+        "last_entry": null,
+        "closed_notes": "雪灯廊等活动期间夜间延长开放"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1500,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 6000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 8,
+          "accessibility": 3,
+          "crowd_comfort": 9,
+          "uniqueness": 9,
+          "value_for_money": 9
+        },
+        "positive_tags": [
+          "游客极少拍照自由",
+          "田园风光与茅葺屋融合",
+          "冬季雪灯廊童话氛围"
+        ],
+        "negative_tags": [
+          "交通极不便须自驾",
+          "设施和餐饮选择少"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "miyama"
+      ],
+      "risk_flags": [
+        "remote_transport"
+      ],
+      "descriptions": {
+        "why_selected": "京都版白川乡，38栋茅葺屋顶民家保存完好，游客远少于白川乡，冬季雪景+灯廊是关西最梦幻的季节景观之一",
+        "what_to_expect": "漫步茅葺聚落，拍摄田园风光，冬季可参加雪灯廊夜间活动，参观民俗资料馆了解传统生活",
+        "skip_if": "无自驾或包车能力、仅做京都市区行程"
+      }
+    }
+  ],
+  "seasonal_events": [
+    {
+      "id": "kyo_uji_fujimatsuri",
+      "name_zh": "宇治紫藤花",
+      "name_ja": "平等院の藤",
+      "name_en": "Byodo-in Wisteria",
+      "event_type": "other",
+      "grade": "B",
+      "date_range": "4月下旬-5月上旬",
+      "recurring": "annual",
+      "location": "平等院",
+      "description": "平等院的紫藤花架盛开，紫色花帘配凤凰堂非常梦幻",
+      "tips": "黄金周期间人很多，建议工作日去",
+      "city_code": "uji",
+      "prefecture": "京都府",
+      "corridor_tags": [
+        "uji"
+      ],
+      "cost": {
+        "admission_jpy": 700,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "budget"
+      },
+      "descriptions": {
+        "why_selected": "平等院凤凰堂与紫藤花同框，是日本最美的藤花观赏场景之一",
+        "what_to_expect": "紫色花帘垂挂于花架，凤凰堂映衬其中，建议工作日清晨前往避开人群",
+        "skip_if": "黄金周期间无法避开人潮"
+      }
+    },
+    {
+      "id": "kyo_amanohashidate_illumination",
+      "name_zh": "天桥立灯光秀",
+      "name_ja": "天橋立まち灯り",
+      "name_en": "Amanohashidate Illumination",
+      "event_type": "illumination",
+      "grade": "C",
+      "date_range": "7月-9月周末",
+      "recurring": "annual",
+      "location": "天桥立",
+      "description": "夏季夜间沙洲两侧点灯，从展望台看效果独特",
+      "tips": "需要配合缆车夜间运行时间",
+      "city_code": "amanohashidate",
+      "prefecture": "京都府",
+      "corridor_tags": [
+        "amanohashidate"
+      ],
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 700,
+        "budget_tier": "free"
+      },
+      "descriptions": {
+        "why_selected": "天桥立松林沙洲夏季夜间点灯，展望台俯瞰夜景与平时日间景色形成鲜明对比",
+        "what_to_expect": "夜间乘缆车至展望台，俯瞰沙洲两侧灯光倒映宫津湾海面，别具一格",
+        "skip_if": "非夏季造访、对灯光秀无特别兴趣"
+      }
+    }
+  ]
+}

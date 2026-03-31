@@ -1,0 +1,899 @@
+{
+  "region": "shiga",
+  "sub_region": "滋贺全域",
+  "data_sources": [
+    "claude_knowledge"
+  ],
+  "needs_verification": true,
+  "last_updated": "2026-03-31",
+  "spots": [
+    {
+      "id": "shiga_hikone_castle",
+      "name_zh": "彦根城",
+      "name_ja": "彦根城",
+      "name_en": "Hikone Castle",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "A",
+      "grade_reason": "日本现存十二天守之一，保存最完好的江户时代城郭，国宝级",
+      "profile_boosts": {
+        "culture_deep": "+1",
+        "first_kansai": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "国宝",
+        "现存天守",
+        "樱花名所",
+        "玄宫园庭院"
+      ],
+      "best_time": "上午开园后(8:30)",
+      "visit_minutes": 120,
+      "best_season": "spring",
+      "seasonal_highlights": [
+        "春季樱花与天守同框，极具画面感",
+        "秋季玄宫园红叶倒影"
+      ],
+      "coord": [
+        35.2761,
+        136.2514
+      ],
+      "tips": "彦根城+玄宫园套票更划算。城内坡道较陡，穿舒适鞋。吉祥物ひこにゃん每天有定时表演，亲子必看",
+      "city_code": "hikone",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県彦根市金亀町1-1",
+      "nearest_station": "JR彦根駅 徒歩15分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "8:30-17:00",
+        "last_entry": "16:30",
+        "closed_notes": "彦根城博物馆周一休馆（祝日除外）"
+      },
+      "cost": {
+        "admission_jpy": 800,
+        "typical_spend_jpy": 1200,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 22000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 10,
+          "accessibility": 8,
+          "crowd_comfort": 6,
+          "uniqueness": 9,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "日本现存国宝天守",
+          "ひこにゃん表演亲子友好",
+          "玄宫园庭园精致"
+        ],
+        "negative_tags": [
+          "天守内部楼梯陡峭",
+          "旺季（樱花期）人多"
+        ]
+      },
+      "queue_wait_minutes": 10,
+      "corridor_tags": [
+        "hikone"
+      ],
+      "risk_flags": [
+        "steep_stairs"
+      ],
+      "descriptions": {
+        "why_selected": "日本12座现存天守之一且为国宝，江户时代城郭原貌保存度最高，配合玄宫园是滋贺最值得半天的历史景点",
+        "what_to_expect": "登天守眺望琵琶湖与城下町，参观玄宫园日式庭园，观看ひこにゃん定时表演",
+        "skip_if": "对城郭历史无兴趣"
+      }
+    },
+    {
+      "id": "shiga_omihachiman_suigo",
+      "name_zh": "近江八幡水乡",
+      "name_ja": "近江八幡水郷",
+      "name_en": "Omihachiman Waterways",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "B",
+      "grade_reason": "保存完好的江户时代水路商家群落，乘手划船穿行芦苇荡是独特体验",
+      "profile_boosts": {
+        "couple": "+1",
+        "culture_deep": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "手划船体验",
+        "传统建筑",
+        "芦苇荡",
+        "预约制"
+      ],
+      "best_time": "上午光线柔和时",
+      "visit_minutes": 150,
+      "best_season": "spring",
+      "seasonal_highlights": [
+        "春季新绿芦苇与白壁仓库",
+        "夏季绿意盎然水面清凉"
+      ],
+      "coord": [
+        35.1285,
+        136.0983
+      ],
+      "tips": "手划船需提前预约（日本文化体験协会）。也可步行游览八幡堀周边商家建筑群，不乘船约60分钟。附近有ヴォーリズ建筑群可额外探访",
+      "city_code": "omihachiman",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県近江八幡市為心町中（八幡堀・水郷エリア）",
+      "nearest_station": "JR近江八幡駅 バス約10分「大杉町」バス停 徒歩5分",
+      "when": {
+        "open_days": "每日（船运营时间9:00-17:00）",
+        "open_hours": "步行区全天；手划船9:00-17:00（需预约）",
+        "last_entry": null,
+        "closed_notes": "恶劣天气船停运"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 3000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 8000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 8,
+          "accessibility": 6,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "手划船穿芦苇荡体验独特",
+          "白壁仓库与水路景观美",
+          "游客量适中"
+        ],
+        "negative_tags": [
+          "手划船需提前预约",
+          "交通略不便"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "omihachiman"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "江户时代豪商水路贸易遗留的八幡堀，手划船穿行芦苇荡是滋贺最独特的体验，商家建筑群保存完整",
+        "what_to_expect": "预约后乘手划船穿行水路芦苇荡，或步行游览八幡堀周边白壁商家建筑群",
+        "skip_if": "未提前预约（手划船体验核心）、对传统水路无兴趣"
+      }
+    },
+    {
+      "id": "shiga_biwako",
+      "name_zh": "琵琶湖",
+      "name_ja": "琵琶湖",
+      "name_en": "Lake Biwa",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "B",
+      "grade_reason": "日本最大淡水湖，近江文化摇篮，湖岸线绵延235km，多处绝景",
+      "profile_boosts": {
+        "nature_outdoor": "+1",
+        "photo": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "日本最大湖",
+        "日落绝景",
+        "游船",
+        "湖岸骑行"
+      ],
+      "best_time": "傍晚日落时分",
+      "visit_minutes": 90,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "8月花火大会湖面倒影",
+        "冬季北湖岸可见白雪与湖面对比"
+      ],
+      "coord": [
+        35.3,
+        136.1
+      ],
+      "tips": "琵琶湖面积太大，建议选定一处：大津港（交通便利）、海津大崎（赏樱名所）或琵琶湖大橋周边。游船班次有限，需提前确认时刻表",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県大津市（大津港周辺）",
+      "nearest_station": "JR大津駅 徒歩15分（大津港地区）",
+      "when": {
+        "open_days": "全天开放",
+        "open_hours": "湖岸全日；游船班次各异（需确认时刻表）",
+        "last_entry": null,
+        "closed_notes": "游船恶劣天气停运"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 15000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 5,
+          "accessibility": 7,
+          "crowd_comfort": 8,
+          "uniqueness": 7,
+          "value_for_money": 9
+        },
+        "positive_tags": [
+          "日本最大淡水湖气势壮阔",
+          "日落景色绝美",
+          "骑行湖岸体验好"
+        ],
+        "negative_tags": [
+          "湖区面积大难以一次游完",
+          "游船班次少需提前规划"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "biwako"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本最大淡水湖，日落和花火大会时的湖面倒影震撼，是近江文化和自然景观的核心载体",
+        "what_to_expect": "选定大津港或白鬚神社等观赏点，傍晚欣赏湖面日落，可乘游船环湖",
+        "skip_if": "对大型自然湖泊景观无特别期待"
+      }
+    },
+    {
+      "id": "shiga_hieizan_enryakuji",
+      "name_zh": "比叡山延暦寺",
+      "name_ja": "比叡山延暦寺",
+      "name_en": "Enryaku-ji Temple, Mt. Hiei",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "A",
+      "grade_reason": "世界文化遗产，日本天台宗总本山，1200年历史，佛教圣地且俯瞰琵琶湖全景",
+      "profile_boosts": {
+        "culture_deep": "+2",
+        "first_kansai": "+1",
+        "nature_outdoor": "+1"
+      },
+      "tags": [
+        "世界遗产",
+        "佛教圣地",
+        "三塔十六谷",
+        "山顶绝景",
+        "坐缆车"
+      ],
+      "best_time": "上午（避开大团队）",
+      "visit_minutes": 180,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "秋季红叶将整座山染成金红色",
+        "冬季雪景庄严肃穆"
+      ],
+      "coord": [
+        35.0694,
+        135.8407
+      ],
+      "tips": "分东塔、西塔、横川三区，全逛需4小时以上。从京都侧可乘叡山电车+ケーブル上山，从大津侧有巴士。东塔区域最核心，时间紧只逛东塔（2小时）",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県大津市坂本本町4220（延暦寺）",
+      "nearest_station": "叡山ロープウェイ比叡山頂駅より連絡バス / JR比叡山坂本駅よりケーブル坂本駅 ケーブル約10分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:00-16:00（3月-11月8:30-16:30）",
+        "last_entry": "16:00",
+        "closed_notes": "1月一部分期间参拜限制"
+      },
+      "cost": {
+        "admission_jpy": 1000,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 18000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 10,
+          "accessibility": 5,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "1200年天台宗总本山气场强大",
+          "秋季红叶绝景",
+          "俯瞰琵琶湖视野开阔"
+        ],
+        "negative_tags": [
+          "三区面积大需大量步行",
+          "上山交通有一定难度"
+        ]
+      },
+      "queue_wait_minutes": 5,
+      "corridor_tags": [
+        "otsu"
+      ],
+      "risk_flags": [
+        "steep_climb"
+      ],
+      "descriptions": {
+        "why_selected": "日本天台宗1200年总本山，世界文化遗产，秋季红叶与庄严伽蓝并存，是关西最具精神重量的山岳宗教地",
+        "what_to_expect": "乘缆车登山，游览东塔区域根本中堂等核心建筑，秋季欣赏漫山红叶，俯瞰琵琶湖全景",
+        "skip_if": "行动不便、时间不足2小时、对佛教圣地无兴趣"
+      }
+    },
+    {
+      "id": "shiga_ishiyamadera",
+      "name_zh": "石山寺",
+      "name_ja": "石山寺",
+      "name_en": "Ishiyama-dera",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "B",
+      "grade_reason": "据传《源氏物语》作者紫式部在此构思长篇，文学圣地兼秋月名所",
+      "profile_boosts": {
+        "culture_deep": "+1",
+        "couple": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "源氏物语圣地",
+        "月见名所",
+        "硅灰石奇岩",
+        "牡丹园"
+      ],
+      "best_time": "中秋前后赏月最佳",
+      "visit_minutes": 75,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "秋季中秋月见特别活动",
+        "春季牡丹100品种盛开"
+      ],
+      "coord": [
+        34.9639,
+        135.9092
+      ],
+      "tips": "寺内硅灰石（けい灰石）是天然奇观，为国家天然纪念物。从大津站乘京阪石山坂本線可直达石山寺站，步行5分钟",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県大津市石山寺1丁目1番1号",
+      "nearest_station": "京阪石山坂本線石山寺駅 徒歩5分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "8:00-16:30",
+        "last_entry": "16:00",
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 600,
+        "typical_spend_jpy": 900,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 7000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 9,
+          "accessibility": 8,
+          "crowd_comfort": 7,
+          "uniqueness": 8,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "源氏物语发想之地文化意义深厚",
+          "天然硅灰石奇岩罕见",
+          "牡丹园春季绝美"
+        ],
+        "negative_tags": [
+          "中秋赏月活动人多",
+          "知名度在大津景点中偏低"
+        ]
+      },
+      "queue_wait_minutes": 5,
+      "corridor_tags": [
+        "otsu"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "紫式部构思《源氏物语》的传说地，天然硅灰石奇岩是国家天然纪念物，秋月赏月与春季牡丹各有极致",
+        "what_to_expect": "参观本堂与紫式部供殿，观赏天然硅灰石岩台，春季游牡丹苑，中秋月见特别开放",
+        "skip_if": "对《源氏物语》或日本文学圣地无共鸣"
+      }
+    },
+    {
+      "id": "shiga_omi_beef_experience",
+      "name_zh": "近江牛料理体验",
+      "name_ja": "近江牛料理体験",
+      "name_en": "Omi Beef Dining",
+      "main_type": "experience",
+      "sub_type": "food_drink",
+      "grade": "B",
+      "grade_reason": "日本三大和牛之一，近江牛历史最久（江户时代已向将军献贡），滋贺在地限定",
+      "profile_boosts": {
+        "foodie": "+2",
+        "couple": "+1",
+        "culture_deep": "+1"
+      },
+      "tags": [
+        "日本三大和牛",
+        "本地限定",
+        "寿喜烧",
+        "铁板烧",
+        "需预约"
+      ],
+      "best_time": "午餐（午间套餐性价比高）",
+      "visit_minutes": 90,
+      "best_season": "all",
+      "coord": [
+        35.2761,
+        136.2514
+      ],
+      "tips": "彦根和近江八幡周边料理店最集中。推荐「毛利志満」（彦根老铺）或近江八幡「近江牛 岡喜」。午间套餐比晚间套餐便宜30-40%，性价比高。需提前预约",
+      "city_code": "hikone",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県彦根市周辺（毛利志満など）",
+      "nearest_station": "JR彦根駅 徒歩15分（毛利志満）",
+      "when": {
+        "open_days": "每日（各店有休业日，需确认）",
+        "open_hours": "11:30-14:00 / 17:00-21:00（各店不同）",
+        "last_entry": null,
+        "closed_notes": "多数高级料理店周一或周二休业"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 5000,
+        "budget_tier": "mid"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 3000,
+        "dimension_scores": {
+          "scenery": 6,
+          "cultural_depth": 8,
+          "accessibility": 7,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "日本三大和牛在地品尝",
+          "午间套餐性价比高",
+          "历史最悠久的和牛品牌"
+        ],
+        "negative_tags": [
+          "高品质店需提前预约",
+          "晚餐预算较高"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "hikone",
+        "omihachiman"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本三大和牛中历史最悠久的近江牛，江户时代已作为将军进贡品，在滋贺当地品尝是全日本最正宗体验",
+        "what_to_expect": "午间以套餐形式享用近江牛寿喜烧或铁板烧，肉质细腻脂肪分布均匀，是彦根游览的完美午餐选择",
+        "skip_if": "不吃牛肉或预算有限"
+      }
+    },
+    {
+      "id": "shiga_miho_museum",
+      "name_zh": "MIHO美术馆",
+      "name_ja": "ミホ ミュージアム",
+      "name_en": "MIHO Museum",
+      "main_type": "fixed_spot",
+      "sub_type": "art_museum",
+      "grade": "B",
+      "grade_reason": "贝聿铭设计，建筑80%藏于山体，隧道入口通向玻璃穹顶展厅，建筑本身即艺术品",
+      "profile_boosts": {
+        "culture_deep": "+2",
+        "couple": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "贝聿铭设计",
+        "建筑名作",
+        "古代东西方艺术",
+        "樱花隧道",
+        "交通不便"
+      ],
+      "best_time": "上午入馆，下午返回",
+      "visit_minutes": 150,
+      "best_season": "spring",
+      "seasonal_highlights": [
+        "春季入口樱花隧道（300株山桜）绝景",
+        "秋季红叶与玻璃建筑相映"
+      ],
+      "coord": [
+        34.8628,
+        136.0628
+      ],
+      "tips": "交通极为不便，需从石山站乘专属接驳巴士（需预约），每天班次极少。务必提前在官网确认营业日（周一、周二闭馆）和巴士时刻表。全年有不同特展",
+      "city_code": "koka",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県甲賀市信楽町田代桃谷300",
+      "nearest_station": "JR石山駅よりミホミュージアム行き直行バス（要予約・1日数便）",
+      "when": {
+        "open_days": "火-日（周一休馆）",
+        "open_hours": "10:00-17:00",
+        "last_entry": "16:00",
+        "closed_notes": "周一・周二休馆（祝日は翌日）；12月中旬〜3月上旬冬季休館"
+      },
+      "cost": {
+        "admission_jpy": 1100,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.5,
+        "google_review_count": 6000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 9,
+          "accessibility": 2,
+          "crowd_comfort": 9,
+          "uniqueness": 10,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "贝聿铭建筑设计杰作",
+          "入口隧道氛围极佳",
+          "古代东西方藏品精良"
+        ],
+        "negative_tags": [
+          "交通极为不便须提前规划巴士",
+          "周一周二闭馆",
+          "冬季休馆"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "koka"
+      ],
+      "risk_flags": [
+        "remote_transport",
+        "closed_mondays"
+      ],
+      "descriptions": {
+        "why_selected": "贝聿铭建筑代表作，80%建筑体藏于山中，入口悬索桥与春季樱花隧道构成极度浪漫的参观前奏，古代东西方藏品水准极高",
+        "what_to_expect": "乘接驳巴士抵达，步过悬索桥穿隧道进入玻璃穹顶美术馆，欣赏古埃及、希腊、中国等古代艺术精品",
+        "skip_if": "周一/周二造访、冬季、未提前确认巴士班次"
+      }
+    },
+    {
+      "id": "shiga_shirahige_shrine",
+      "name_zh": "白鬚神社",
+      "name_ja": "白鬚神社",
+      "name_en": "Shirahige Shrine",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "B",
+      "grade_reason": "琵琶湖水中鸟居与厳島神社相呼应，日出时分鸟居倒映湖面极具震撼",
+      "profile_boosts": {
+        "photo": "+2",
+        "couple": "+1",
+        "nature_outdoor": "+1"
+      },
+      "tags": [
+        "水中鸟居",
+        "日出圣地",
+        "琵琶湖绝景",
+        "近江最古老神社"
+      ],
+      "best_time": "日出前后（光线最佳）",
+      "visit_minutes": 45,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "朝雾弥漫时水中鸟居如仙境",
+        "秋季清晨倒影清晰"
+      ],
+      "coord": [
+        35.4444,
+        136.0083
+      ],
+      "tips": "神社位于国道161号旁，水中鸟居在湖中，需在对岸拍摄。国道车流较大，拍照时注意安全。推荐日出时间前30分钟到达。从大津需驾车或巴士约1小时",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県高島市鵜川215",
+      "nearest_station": "JR近江高島駅 徒歩20分（または自転車・車）",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "终日（神社参拜自由）",
+        "last_entry": null,
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 200,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 9000,
+        "dimension_scores": {
+          "scenery": 10,
+          "cultural_depth": 7,
+          "accessibility": 5,
+          "crowd_comfort": 7,
+          "uniqueness": 10,
+          "value_for_money": 10
+        },
+        "positive_tags": [
+          "琵琶湖水中鸟居视觉震撼",
+          "日出时倒影极美",
+          "近江最古老神社历史价值高"
+        ],
+        "negative_tags": [
+          "需清晨到达（日出前）",
+          "国道旁拍照有安全风险"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "biwako",
+        "otsu"
+      ],
+      "risk_flags": [
+        "early_morning_only"
+      ],
+      "descriptions": {
+        "why_selected": "琵琶湖中矗立的朱红鸟居，与宫岛严岛神社同样壮观，日出时湖面倒影是滋贺最具摄影价值的画面",
+        "what_to_expect": "日出前到达，在国道对侧拍摄湖中鸟居，清晨朝雾弥漫时效果最佳",
+        "skip_if": "无法早起或无自驾前往高岛"
+      }
+    },
+    {
+      "id": "shiga_nagahama_kurokabe",
+      "name_zh": "长浜黑壁スクエア",
+      "name_ja": "長浜黒壁スクエア",
+      "name_en": "Nagahama Kurokabe Square",
+      "main_type": "fixed_spot",
+      "sub_type": "town_district",
+      "grade": "B",
+      "grade_reason": "明治银行建筑改建的玻璃艺术博物馆群，黑白建筑风格与玻璃工艺品完美融合",
+      "profile_boosts": {
+        "couple": "+1",
+        "culture_deep": "+1",
+        "photo": "+1",
+        "foodie": "+1"
+      },
+      "tags": [
+        "玻璃工艺",
+        "体验工坊",
+        "北国街道",
+        "长滨城",
+        "黑壁玻璃馆"
+      ],
+      "best_time": "上午（工坊体验需预约）",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "春季长浜盆梅展（日本三大盆梅展之一）",
+        "秋季曳山节周边热闹"
+      ],
+      "coord": [
+        35.3818,
+        136.2697
+      ],
+      "tips": "黑壁1号館（旧第百三十国立银行）是核心，周边20余栋古建筑改作店铺和工坊。可预约玻璃吹制体验（约45分钟）。附近豊臣秀吉居城长浜城（现历史博物馆）值得顺访",
+      "city_code": "nagahama",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県長浜市元浜町12-38（黒壁1号館）",
+      "nearest_station": "JR長浜駅 徒歩5分",
+      "when": {
+        "open_days": "每日（各馆有休业日）",
+        "open_hours": "10:00-18:00（黒壁1号館等）",
+        "last_entry": null,
+        "closed_notes": "各工坊体验需预约；部分馆不定期休业"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 2500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 7000,
+        "dimension_scores": {
+          "scenery": 7,
+          "cultural_depth": 7,
+          "accessibility": 9,
+          "crowd_comfort": 7,
+          "uniqueness": 8,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "黑白明治建筑群风格独特",
+          "玻璃吹制体验好玩",
+          "交通便利JR长滨站步行即到"
+        ],
+        "negative_tags": [
+          "商业化程度较高",
+          "玻璃体验需提前预约"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "nagahama"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "明治时代银行建筑改建的玻璃艺术街区，黑白建筑群极具视觉特色，玻璃吹制体验是长滨游览的亮点活动",
+        "what_to_expect": "参观黒壁玻璃馆，可预约玻璃吹制或彩绘体验，逛周边20余栋古建筑改建的店铺",
+        "skip_if": "对玻璃工艺或明治建筑无兴趣"
+      }
+    },
+    {
+      "id": "shiga_chikubushima",
+      "name_zh": "竹生岛",
+      "name_ja": "竹生島",
+      "name_en": "Chikubushima Island",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "B",
+      "grade_reason": "琅琶湖上的神圣小岛，宝厥寺与都久夫须麻神社同在一岛，投瓦片许愿是人气体验",
+      "profile_boosts": {
+        "culture_deep": "+1"
+      },
+      "tags": [
+        "琅琶湖离岛",
+        "宝厥寺",
+        "都久夫须麺神社",
+        "かわらけ投げ",
+        "船游体验"
+      ],
+      "best_time": "上午（船班较多）",
+      "visit_minutes": 80,
+      "best_season": "all",
+      "coord": [
+        35.4217,
+        136.1469
+      ],
+      "tips": "从长滨坐船到30分钟。投瓦片(かわらけ投げ)穿过鸟居许愿是人气体验。岛上停留合80分钟，注意末班船时刻避免滞留",
+      "city_code": "nagahama",
+      "prefecture": "滋賀県",
+      "address_ja": "滋賀県長浜市早崎町（竹生島）",
+      "nearest_station": "長浜港より定期船約30分（長浜駅 徒歩10分）",
+      "when": {
+        "open_days": "每日（定期船运航日）",
+        "open_hours": "島内参拝9:30-16:00；船出发时刻表需确认",
+        "last_entry": null,
+        "closed_notes": "恶劣天气船停运；11-3月便数减少"
+      },
+      "cost": {
+        "admission_jpy": 600,
+        "typical_spend_jpy": 3500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 5000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 8,
+          "accessibility": 5,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "琵琶湖离岛体验独特",
+          "かわらけ投げ趣味性强",
+          "弁财天信仰文化厚重"
+        ],
+        "negative_tags": [
+          "需乘船往返，班次有限",
+          "岛上停留时间较短"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "chikubushima",
+        "nagahama"
+      ],
+      "risk_flags": [
+        "boat_dependent"
+      ],
+      "descriptions": {
+        "why_selected": "琵琶湖上的神圣离岛，宝严寺与都久夫須麻神社并列，乘船游湖+投瓦片许愿构成完整的近江湖上朝圣体验",
+        "what_to_expect": "从长滨港乘船30分钟抵岛，参拜宝严寺和都久夫須麻神社，投かわらけ穿过鸟居许愿，80分钟后乘船返回",
+        "skip_if": "恶劣天气、对宗教文化无共鸣"
+      }
+    }
+  ],
+  "seasonal_events": [
+    {
+      "id": "shiga_otsu_matsuri",
+      "name_zh": "大津祭",
+      "name_ja": "大津祭",
+      "name_en": "Otsu Festival",
+      "event_type": "festival",
+      "grade": "A",
+      "date_range": "10月上旬（体育节前后周末）",
+      "recurring": true,
+      "location": "大津市中心（天孫神社）",
+      "description": "400年历史的国家重要无形民俗文化财，13基华丽山车（曳山）在市区巡行。山车上有精巧的机关人偶，称为「からくり」，是看点所在。前夜祭（宵宮）山车点灯尤为梦幻",
+      "tips": "宵宮（前夜）的山车点灯人少且氛围更好。从京都乘JR琵琶湖线约10分钟即达大津站，交通便利，适合与京都行程结合",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "corridor_tags": [
+        "otsu"
+      ],
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "free"
+      },
+      "descriptions": {
+        "why_selected": "400年历史的国家重要无形民俗文化财，精巧机关人偶山车巡行是日本祭典中的顶级工艺展示",
+        "what_to_expect": "观看13基华丽曳山山车巡行，欣赏精巧からくり人偶表演，前夜祭点灯氛围更佳",
+        "skip_if": "无法在10月上旬前往大津"
+      }
+    },
+    {
+      "id": "shiga_biwako_hanabi",
+      "name_zh": "琵琶湖花火大会",
+      "name_ja": "びわ湖大花火大会",
+      "name_en": "Lake Biwa Fireworks Festival",
+      "event_type": "fireworks",
+      "grade": "A",
+      "date_range": "8月上旬（通常8月5日，年份略有调整）",
+      "recurring": true,
+      "location": "大津市 琵琶湖岸",
+      "description": "关西最大规模花火大会之一，约10000发烟花在琵琶湖上空绽放，湖面倒影将视觉效果翻倍。观赏范围广，大津站附近湖岸可免费观看",
+      "tips": "付费观赏席需提前数月预约，免费区域早到抢位。活动结束后JR大津站极为拥挤，可提前离场或等人群散去。夏季湖边蚊虫较多，备好防蚊措施",
+      "city_code": "otsu",
+      "prefecture": "滋賀県",
+      "corridor_tags": [
+        "biwako",
+        "otsu"
+      ],
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "free"
+      },
+      "descriptions": {
+        "why_selected": "关西最大规模花火大会之一，10000发烟花在琵琶湖上空绽放，湖面倒影形成双重震撼视觉效果",
+        "what_to_expect": "大津湖岸免费观赏约60分钟烟花，或提前购买付费席位获得最佳视角，结束后提前离场避开人潮",
+        "skip_if": "8月初无法前往大津"
+      }
+    },
+    {
+      "id": "shiga_nagahama_bonbai",
+      "name_zh": "长浜盆梅展",
+      "name_ja": "長浜盆梅展",
+      "name_en": "Nagahama Bonbai (Bonsai Plum) Exhibition",
+      "event_type": "seasonal_display",
+      "grade": "B",
+      "date_range": "1月下旬—3月中旬",
+      "recurring": true,
+      "location": "长浜市 庆雲館",
+      "description": "日本三大盆梅展之一，树龄超过400年的古梅盆景在明治期建筑庆雲館内展示。最古老的盆梅被称为「天下一」，见其花开有幸福降临之说",
+      "tips": "梅花盛开期（2月上旬至下旬）最值得前往。庆雲館是明治11年建造的迎宾馆，建筑本身也值得欣赏。与长浜黒壁スクエア相距徒步约10分钟",
+      "city_code": "nagahama",
+      "prefecture": "滋賀県",
+      "corridor_tags": [
+        "nagahama"
+      ],
+      "cost": {
+        "admission_jpy": 600,
+        "typical_spend_jpy": 800,
+        "budget_tier": "budget"
+      },
+      "descriptions": {
+        "why_selected": "日本三大盆梅展之一，400年树龄古梅盆景在明治建筑中展出，是日本最高水准的盆梅鉴赏活动",
+        "what_to_expect": "在庆雲館各室欣赏数十盆树龄百年以上的梅盆景，2月盛开期花香满室，与长浜黒壁スクエア组合游览",
+        "skip_if": "1月下旬至3月中旬以外时间造访"
+      }
+    }
+  ]
+}

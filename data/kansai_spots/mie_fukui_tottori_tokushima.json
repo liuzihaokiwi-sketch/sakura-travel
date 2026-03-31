@@ -1,0 +1,1322 @@
+{
+  "region": "mie_fukui_tottori_tokushima",
+  "sub_region": "三重・福井・鸟取・德岛",
+  "data_sources": [
+    "claude_knowledge"
+  ],
+  "needs_verification": true,
+  "last_updated": "2026-03-31",
+  "spots": [
+    {
+      "id": "mie_ise_jingu",
+      "name_zh": "伊势神宫",
+      "name_ja": "伊勢神宮",
+      "name_en": "Ise Jingu (Grand Shrine of Ise)",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "A",
+      "grade_reason": "日本神道信仰的最高圣地，天照大神的神殿，每20年一次式年迁宫，与日本皇室有直接渊源",
+      "profile_boosts": {
+        "culture_deep": "+2",
+        "first_kansai": "+1",
+        "nature_outdoor": "+1"
+      },
+      "tags": [
+        "日本神道总本宫",
+        "式年迁宫",
+        "宇治橋",
+        "内宮+外宮",
+        "五十铃川"
+      ],
+      "best_time": "清晨参拜（人少且空气清新）",
+      "visit_minutes": 180,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "秋季神宫杉林落叶金黄",
+        "朔日（每月1日）参拜传统，人气饼店当日特供"
+      ],
+      "coord": [
+        34.4554,
+        136.7253
+      ],
+      "tips": "内宮（皇大神宮）是核心，外宮（豊受大神宮）也应参拜，标准顺序先外宮后内宮。参道禁止进入正殿内部，只能在外侧参拜。内宮和外宮相距约6km，乗巴士约15分钟。不要拍摄正殿（是禁忌）",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県伊勢市宇治館町1（内宮）/ 三重県伊勢市豊川町279（外宮）",
+      "nearest_station": "近鉄・JR伊勢市駅より外宮徒歩5分；内宮はバス15分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "1-4月・9月5:00-18:00；5-8月5:00-19:00；10-12月5:00-17:00",
+        "last_entry": null,
+        "closed_notes": "正殿内部立入禁止；式年遷宮期間は特別規制あり"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1500,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.7,
+        "google_review_count": 55000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 10,
+          "accessibility": 7,
+          "crowd_comfort": 5,
+          "uniqueness": 10,
+          "value_for_money": 10
+        },
+        "positive_tags": [
+          "日本神道信仰最高圣地",
+          "杉林参道庄严肃穆",
+          "免费参拜"
+        ],
+        "negative_tags": [
+          "内外宫相距6km需乘巴士",
+          "不能进入正殿内部"
+        ]
+      },
+      "queue_wait_minutes": 5,
+      "corridor_tags": [
+        "ise_naiku",
+        "ise_geku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本神道信仰的顶点圣地，皇室御用祭祀场所，千年以上的杉林参道与五十铃川净手是日本最具精神力量的参拜体验",
+        "what_to_expect": "先参拜外宫（豊受大神宫），乘巴士至内宫（皇大神宫），渡宇治橋净手，穿越杉林参道参拜正宫",
+        "skip_if": "对神道信仰和精神文化完全无兴趣"
+      }
+    },
+    {
+      "id": "mie_okage_yokocho",
+      "name_zh": "おかげ横丁・托福横丁",
+      "name_ja": "おかげ横丁",
+      "name_en": "Okage Yokocho",
+      "main_type": "fixed_spot",
+      "sub_type": "town_district",
+      "grade": "B",
+      "grade_reason": "复原江户末期参宫街道，汇集伊势名物（松坂牛、伊势乌冬、赤福）的历史风情商业区",
+      "profile_boosts": {
+        "foodie": "+2",
+        "culture_deep": "+1",
+        "photo": "+1",
+        "time_tight": "+1"
+      },
+      "tags": [
+        "赤福饼本店",
+        "松坂牛可乐饼",
+        "伊势乌冬",
+        "江户情调",
+        "內宫门前"
+      ],
+      "best_time": "上午10点前（店铺陆续开门，人还少）",
+      "visit_minutes": 90,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "朔日（每月1日）赤福朔日饼特别版，排队购买"
+      ],
+      "coord": [
+        34.4545,
+        136.7258
+      ],
+      "tips": "紧邻内宮宇治橋鸟居，参拜后自然流入此区域。赤福本店需现场品尝（与外卖包装内不同，可看到职人当场制作）。松坂牛可乐饼（コロッケ）是步行美食代表。午饭高峰期（11:30-13:00）排队长，建议错开",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県伊勢市宇治中之切町52",
+      "nearest_station": "近鉄・JR伊勢市駅よりバス「神宮会館前」バス停 徒歩すぐ",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:30-17:30（各店不同）",
+        "last_entry": null,
+        "closed_notes": "朔日（每月1日）は赤福朔日餅の特別販売あり"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 20000,
+        "dimension_scores": {
+          "scenery": 7,
+          "cultural_depth": 7,
+          "accessibility": 9,
+          "crowd_comfort": 4,
+          "uniqueness": 8,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "赤福本店品质最佳",
+          "松坂牛可乐饼必吃",
+          "江户复原街道氛围好"
+        ],
+        "negative_tags": [
+          "黄金周和周末极其拥挤",
+          "午间高峰人流密集"
+        ]
+      },
+      "queue_wait_minutes": 20,
+      "corridor_tags": [
+        "okage_yokocho",
+        "ise_naiku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "伊势神宫内宫门前的江户参宫街道，赤福饼本店和松坂牛可乐饼是伊势最具代表性的伴手礼和步行美食",
+        "what_to_expect": "参拜内宫后自然进入おかげ横丁，品赤福现制甜点，尝松坂牛可乐饼边走边吃，逛江户风情店铺",
+        "skip_if": "无特别美食兴趣"
+      }
+    },
+    {
+      "id": "mie_mikimoto_pearl_island",
+      "name_zh": "御木本珍珠岛",
+      "name_ja": "ミキモト真珠島",
+      "name_en": "Mikimoto Pearl Island",
+      "main_type": "fixed_spot",
+      "sub_type": "art_museum",
+      "grade": "C",
+      "grade_reason": "养殖珍珠创始人御木本幸吉的纪念地，海女演示和珍珠博物馆适合顺访",
+      "profile_boosts": {
+        "culture_deep": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "珍珠博物馆",
+        "海女实演",
+        "珍珠购物",
+        "御木本幸吉纪念"
+      ],
+      "best_time": "上午（海女实演场次较多）",
+      "visit_minutes": 75,
+      "best_season": "all",
+      "coord": [
+        34.4833,
+        136.7081
+      ],
+      "tips": "海女潜水实演（约20分钟）是核心吸引力，时刻表当日官网确认。珍珠首饰在岛内专卖店购买，正品认证有保障，但价格偏高。从鸟羽站步行约5分钟",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県鳥羽市鳥羽1-7-1",
+      "nearest_station": "近鉄・JR鳥羽駅 徒歩5分",
+      "when": {
+        "open_days": "每日（12月第一个周二或三休业）",
+        "open_hours": "8:30-17:30（3-10月）；9:00-17:00（11-2月）",
+        "last_entry": "16:30",
+        "closed_notes": "海女実演は荒天時中止（4-11月中心）"
+      },
+      "cost": {
+        "admission_jpy": 1650,
+        "typical_spend_jpy": 2500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.0,
+        "google_review_count": 8000,
+        "dimension_scores": {
+          "scenery": 6,
+          "cultural_depth": 7,
+          "accessibility": 8,
+          "crowd_comfort": 7,
+          "uniqueness": 7,
+          "value_for_money": 6
+        },
+        "positive_tags": [
+          "海女潜水实演体验独特",
+          "养殖珍珠发源地历史意义",
+          "珍珠购物品质有保障"
+        ],
+        "negative_tags": [
+          "门票偏贵",
+          "海女实演天气依赖性强"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "ise_naiku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "世界养殖珍珠产业的发源地，御木本幸吉开创珍珠养殖技术的纪念地，海女潜水实演是独特文化体验",
+        "what_to_expect": "观看海女穿传统白衣潜水演示，参观珍珠博物馆了解养殖技术历史，可在专卖店选购正品珍珠首饰",
+        "skip_if": "对珍珠购物无计划、对海洋文化无特别兴趣"
+      }
+    },
+    {
+      "id": "mie_toba_aquarium",
+      "name_zh": "鸟羽水族馆",
+      "name_ja": "鳥羽水族館",
+      "name_en": "Toba Aquarium",
+      "main_type": "fixed_spot",
+      "sub_type": "theme_park",
+      "grade": "B",
+      "grade_reason": "日本最大规模水族馆之一，是全球极少数饲养儒艮（人鱼原型）的设施，亲子必去",
+      "profile_boosts": {
+        "family_kids": "+2",
+        "couple": "+1",
+        "nature_outdoor": "+1"
+      },
+      "tags": [
+        "儒艮",
+        "海豚表演",
+        "日本最大水族馆之一",
+        "亲子强烈推荐",
+        "海牛"
+      ],
+      "best_time": "开馆即入（海豚表演时刻表早确认）",
+      "visit_minutes": 180,
+      "best_season": "all",
+      "coord": [
+        34.4833,
+        136.7108
+      ],
+      "tips": "儒艮（ジュゴン）是最大亮点，全球少数饲养设施之一。表演时间有限且热门，入馆后先确认当日时刻表。与御木本珍珠岛步行约5分钟，可组合半日游。从鸟羽站步行约5分钟",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県鳥羽市鳥羽3-3-6",
+      "nearest_station": "近鉄・JR鳥羽駅 徒歩5分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:00-17:00（最終入館16:00）",
+        "last_entry": "16:00",
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 2500,
+        "typical_spend_jpy": 3500,
+        "budget_tier": "mid"
+      },
+      "review_signals": {
+        "google_rating": 4.3,
+        "google_review_count": 18000,
+        "dimension_scores": {
+          "scenery": 7,
+          "cultural_depth": 5,
+          "accessibility": 8,
+          "crowd_comfort": 6,
+          "uniqueness": 9,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "全球少有的儒艮饲养展示",
+          "亲子互动体验丰富",
+          "海豚表演精彩"
+        ],
+        "negative_tags": [
+          "门票价格偏高",
+          "旺季人流较多"
+        ]
+      },
+      "queue_wait_minutes": 10,
+      "corridor_tags": [
+        "ise_naiku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本规模最大级别水族馆，全球极少数饲养儒艮（美人鱼原型）的设施，亲子家庭伊势行程的完美搭配",
+        "what_to_expect": "参观儒艮和海牛展区，观看海豚和海狮表演，探索超过1200种海洋生物",
+        "skip_if": "预算有限、对水族馆不感兴趣"
+      }
+    },
+    {
+      "id": "mie_shima_mediterranean_village",
+      "name_zh": "志摩地中海村",
+      "name_ja": "志摩地中海村",
+      "name_en": "Shima Mediterranean Village",
+      "main_type": "fixed_spot",
+      "sub_type": "theme_park",
+      "grade": "B",
+      "grade_reason": "以地中海风情建筑群还原西班牙、意大利、希腊村落，在日本海岸形成独特异国情调，拍照体验独特",
+      "profile_boosts": {
+        "couple": "+2",
+        "photo": "+2",
+        "family_kids": "+1"
+      },
+      "tags": [
+        "地中海风情",
+        "打卡拍照",
+        "异国情调",
+        "海景",
+        "住宿可选"
+      ],
+      "best_time": "上午光线最佳",
+      "visit_minutes": 150,
+      "best_season": "spring",
+      "seasonal_highlights": [
+        "春季鲜花盛开与白墙对比鲜明",
+        "黄金周节日活动丰富"
+      ],
+      "coord": [
+        34.3203,
+        136.8233
+      ],
+      "tips": "可选择日间游览或住宿体验两种方式。餐厅以地中海菜系为主，价格偏高。从鸟羽或近鉄鵜方站有接驳巴士。附近英虞湾（志摩半岛）日落海景壮观，建议傍晚游览",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県志摩市阿児町安乗1219-1",
+      "nearest_station": "近鉄鵜方駅よりシャトルバス約15分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:00-17:00（日帰り）",
+        "last_entry": "16:00",
+        "closed_notes": "不定休あり、公式サイト要確認"
+      },
+      "cost": {
+        "admission_jpy": 1300,
+        "typical_spend_jpy": 3000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.1,
+        "google_review_count": 6000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 4,
+          "accessibility": 5,
+          "crowd_comfort": 7,
+          "uniqueness": 8,
+          "value_for_money": 6
+        },
+        "positive_tags": [
+          "地中海白墙建筑拍照效果极佳",
+          "海景与异国风情组合独特",
+          "情侣出游氛围佳"
+        ],
+        "negative_tags": [
+          "交通需接驳巴士较不便",
+          "餐饮价格偏高"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "ise_naiku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "地中海风情建筑群在志摩半岛海岸还原西班牙村落，白墙蓝海春季鲜花的组合是三重最具异国情调的拍照地",
+        "what_to_expect": "漫步西班牙・意大利・希腊主题街区，品尝地中海料理，可住宿体验异国氛围，傍晚去附近英虞湾看日落",
+        "skip_if": "对异国主题公园无兴趣"
+      }
+    },
+    {
+      "id": "fukui_dinosaur_museum",
+      "name_zh": "福井县立恐龙博物馆",
+      "name_ja": "福井県立恐竜博物館",
+      "name_en": "Fukui Prefectural Dinosaur Museum",
+      "main_type": "fixed_spot",
+      "sub_type": "art_museum",
+      "grade": "A",
+      "grade_reason": "世界三大恐龙博物馆之一，福井出土多种日本新种恐龙（福井龙等），实物标本和复原模型规模亚洲最大级别",
+      "profile_boosts": {
+        "family_kids": "+2",
+        "culture_deep": "+1",
+        "first_kansai": "+1"
+      },
+      "tags": [
+        "世界三大恐龙博物馆",
+        "恐龙化石实物",
+        "恐龙挖掘体验",
+        "亲子必去",
+        "全龄层"
+      ],
+      "best_time": "开馆即入（避开团体参观高峰）",
+      "visit_minutes": 180,
+      "best_season": "all",
+      "coord": [
+        35.9858,
+        136.5192
+      ],
+      "tips": "44具恐龙骨架化石（其中10具真品）是日本最大规模。暑假和黄金周需网上提前购票（可能卖断）。附近勝山恐龙化石发掘现场（野外恐龙博物馆）夏季开放参观，可组合。从福井站乘えちぜん铁道约50分钟",
+      "city_code": "fukui",
+      "prefecture": "福井県",
+      "address_ja": "福井県勝山市村岡町寺尾51-11",
+      "nearest_station": "えちぜん鉄道勝山永平寺線「勝山駅」よりバス約10分またはタクシー",
+      "when": {
+        "open_days": "每日（2月第一周は年次整備休館）",
+        "open_hours": "9:00-17:00（最終入館16:30）",
+        "last_entry": "16:30",
+        "closed_notes": "2月第1週は年次整備休館"
+      },
+      "cost": {
+        "admission_jpy": 1000,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.5,
+        "google_review_count": 22000,
+        "dimension_scores": {
+          "scenery": 6,
+          "cultural_depth": 9,
+          "accessibility": 5,
+          "crowd_comfort": 5,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "世界三大恐龙博物馆规模震撼",
+          "44具骨架展示日本最大",
+          "亲子全龄层皆可乐享"
+        ],
+        "negative_tags": [
+          "旺季（暑假・GW）需提前购票",
+          "从福井市区需约1小时"
+        ]
+      },
+      "queue_wait_minutes": 15,
+      "corridor_tags": [
+        "katsuyama",
+        "eiheiji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "世界三大恐龙博物馆之一，福井县出土日本最多新种恐龙，实物化石44具亚洲规模最大，亲子旅行的压倒性选择",
+        "what_to_expect": "进入巨型半球形展馆，仰望44具恐龙骨架，参观福井龙等福井新种化石，可预约化石发掘体验",
+        "skip_if": "对自然科学和恐龙完全无兴趣"
+      }
+    },
+    {
+      "id": "fukui_eiheiji",
+      "name_zh": "永平寺",
+      "name_ja": "永平寺",
+      "name_en": "Eiheiji Temple",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "A",
+      "grade_reason": "曹洞宗大本山，道元禅师1244年开创，现有200名修行僧在此严格修行，是活着的禅宗道场",
+      "profile_boosts": {
+        "culture_deep": "+2",
+        "nature_outdoor": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "曹洞宗总本山",
+        "禅宗修行道场",
+        "苔藓石畳",
+        "七堂伽蓝",
+        "宿坊体验"
+      ],
+      "best_time": "清晨（感受僧侣作息氛围）",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "秋季红叶将苔藓石板与伽蓝染色",
+        "冬季雪永平寺庄严肃穆"
+      ],
+      "coord": [
+        36.0906,
+        136.5081
+      ],
+      "tips": "70余栋伽蓝建筑相互以廊道连接，雨天参观不淋雨。禁止饮食和大声喧哗。可申请1泊2日坐禅修行体验（提前数月预约，全程日语）。从福井站乘永平寺号巴士约30分钟",
+      "city_code": "fukui",
+      "prefecture": "福井県",
+      "address_ja": "福井県吉田郡永平寺町志比5-15",
+      "nearest_station": "JR福井駅よりバス「永平寺」バス停 徒歩5分（約30分）",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "8:30-17:00（最終受付16:30）",
+        "last_entry": "16:30",
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 700,
+        "typical_spend_jpy": 1200,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.5,
+        "google_review_count": 18000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 10,
+          "accessibility": 6,
+          "crowd_comfort": 7,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "活着的禅宗道场震撼",
+          "苔藓石板廊道极具气场",
+          "秋季红叶与伽蓝完美融合"
+        ],
+        "negative_tags": [
+          "禁止饮食喧哗需保持肃穆",
+          "坐禅体验需提前数月预约"
+        ]
+      },
+      "queue_wait_minutes": 5,
+      "corridor_tags": [
+        "eiheiji"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本曹洞宗总本山，1244年开创至今200名修行僧在此严格修行，是日本「活着的」禅宗道场，苔藓廊道和伽蓝群极具精神震撼",
+        "what_to_expect": "穿越苔藓石板廊道游览70余栋伽蓝，感受修行僧清晨鐘鼓，秋季欣赏红叶与古刹，雨天不淋雨体验佳",
+        "skip_if": "对禅宗或佛教道场无兴趣"
+      }
+    },
+    {
+      "id": "fukui_ichijodani_ruins",
+      "name_zh": "一乗谷朝倉氏遗跡",
+      "name_ja": "一乗谷朝倉氏遺跡",
+      "name_en": "Ichijodani Asakura Clan Ruins",
+      "main_type": "fixed_spot",
+      "sub_type": "history_religion",
+      "grade": "B",
+      "grade_reason": "战国时代大名朝倉氏的城下町遗址，1573年被织田信长焚毁后沉睡400年，发掘复原后是日本保存最完整的战国城下町",
+      "profile_boosts": {
+        "culture_deep": "+2",
+        "nature_outdoor": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "战国城下町遗址",
+        "国家特别史迹",
+        "复原町家",
+        "彼岸花秋季绝景",
+        "刀剑迷圣地"
+      ],
+      "best_time": "上午（光线从正面照射复原区域）",
+      "visit_minutes": 120,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "9月下旬彼岸花（曼珠沙华）数万株与复原武家屋敷同框，极为震撼",
+        "秋季红叶"
+      ],
+      "coord": [
+        35.9431,
+        136.3969
+      ],
+      "tips": "分「复原町家群」（精细复原的建筑区）和「遗跡公园」（发掘现场保留区）两部分。复原区收费，遗跡公园免费。从福井站乘JR越美北線到一乗谷站约20分钟，步行约15分钟。9月彼岸花期间人气极旺",
+      "city_code": "fukui",
+      "prefecture": "福井県",
+      "address_ja": "福井県福井市城戸ノ内町28-37（復原町並）",
+      "nearest_station": "JR越美北線「一乗谷駅」徒歩15分",
+      "when": {
+        "open_days": "每日（遺跡公園は無料・自由）",
+        "open_hours": "9:00-17:00（復原町並・最終入場16:30）",
+        "last_entry": "16:30",
+        "closed_notes": "月曜日休館（祝日は翌平日）；年末年始"
+      },
+      "cost": {
+        "admission_jpy": 220,
+        "typical_spend_jpy": 500,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 7000,
+        "dimension_scores": {
+          "scenery": 8,
+          "cultural_depth": 10,
+          "accessibility": 5,
+          "crowd_comfort": 8,
+          "uniqueness": 9,
+          "value_for_money": 9
+        },
+        "positive_tags": [
+          "日本保存最完整的战国城下町",
+          "9月彼岸花景观绝美",
+          "历史研究价值极高"
+        ],
+        "negative_tags": [
+          "交通需JR越美北線（班次少）",
+          "周一休馆"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "eiheiji",
+        "katsuyama"
+      ],
+      "risk_flags": [
+        "closed_mondays"
+      ],
+      "descriptions": {
+        "why_selected": "织田信长焚毁后400年沉睡的战国城下町，发掘复原度日本第一，9月彼岸花数万株与复原武家屋敷同框是日本最震撼的秋季历史景观之一",
+        "what_to_expect": "游览精细复原的朝倉氏城下町建筑群，探访发掘现场遗迹公园，9月下旬欣赏彼岸花红毯",
+        "skip_if": "对战国历史无特别兴趣、非9月秋季造访（彼岸花期是最佳时机）"
+      }
+    },
+    {
+      "id": "fukui_eiheiji_tocho",
+      "name_zh": "东尋坊",
+      "name_ja": "東尋坊",
+      "name_en": "Tojinbo Cliffs",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "B",
+      "grade_reason": "日本海侧岩柱海蚀崖，25m高安山岩柱群绵延约1km，国家天然纪念物，日本海景观代表",
+      "profile_boosts": {
+        "nature_outdoor": "+2",
+        "photo": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "国家天然纪念物",
+        "安山岩柱群",
+        "游览船",
+        "日本海絶景",
+        "風力体感"
+      ],
+      "best_time": "上午（日本海西侧，午后逆光）",
+      "visit_minutes": 90,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "冬季波浪拍打岩崖最壮观（但风大寒冷）",
+        "夏季游览船穿行岩窟"
+      ],
+      "coord": [
+        36.1636,
+        136.0572
+      ],
+      "tips": "游览船（约30分钟）可从海面视角看岩崖，另有感觉。崖边无护栏区域需小心，风大时尤其危险。附近商业街有越前蟹等海鲜食堂，冬季（11月—3月）越前蟹当季，性价比极高。从福井站乘巴士约60分钟",
+      "city_code": "fukui",
+      "prefecture": "福井県",
+      "address_ja": "福井県坂井市三国町東尋坊",
+      "nearest_station": "JR芦原温泉駅よりバス「東尋坊」バス停（約40分）",
+      "when": {
+        "open_days": "全天开放",
+        "open_hours": "崖边全天；游览船9:00-16:00（天候次第）",
+        "last_entry": null,
+        "closed_notes": "游览船は荒天・強風时中止"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 15000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 4,
+          "accessibility": 5,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "安山岩柱群国家天然纪念物雄伟",
+          "游览船仰视岩崖视角绝佳",
+          "冬季越前蟹季海鲜美味"
+        ],
+        "negative_tags": [
+          "崖边强风危险需注意安全",
+          "从福井市区需约1小时巴士"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "eiheiji"
+      ],
+      "risk_flags": [
+        "weather_dependent"
+      ],
+      "descriptions": {
+        "why_selected": "日本海侧25m高安山岩柱群，国家天然纪念物，游览船从海面仰视岩崖视角震撼，冬季可与越前蟹美食组合",
+        "what_to_expect": "步行崖边观赏岩柱群，可乘游览船穿行岩窟，附近海鲜食堂品尝越前蟹（冬季）",
+        "skip_if": "恶劣天气、对自然地质景观无兴趣"
+      }
+    },
+    {
+      "id": "tottori_sand_dunes",
+      "name_zh": "鸟取砂丘",
+      "name_ja": "鳥取砂丘",
+      "name_en": "Tottori Sand Dunes",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "A",
+      "grade_reason": "日本唯一大规模海岸沙丘，南北2.4km东西16km，最高沙丘约50m，风纹景观在日本无出其右",
+      "profile_boosts": {
+        "nature_outdoor": "+2",
+        "photo": "+2",
+        "couple": "+1",
+        "first_kansai": "+1"
+      },
+      "tags": [
+        "日本唯一大沙丘",
+        "骑骆驼体验",
+        "滑沙",
+        "风纹",
+        "日本百景"
+      ],
+      "best_time": "清晨（风纹保存最清晰，游客最少）",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "冬季砂丘积雪与沙面并存，独特景观",
+        "夏季日落时砂丘金色光影"
+      ],
+      "coord": [
+        35.5408,
+        134.2286
+      ],
+      "tips": "砂丘入口侧有骆驼骑乘体验（约15分钟，付费）。爬上最高沙丘（馬の背）体力消耗较大，建议穿运动鞋。附近砂の美術館（沙雕博物馆）是世界级沙雕艺术展，强烈推荐同游（需额外购票）。从鸟取站乘巴士约20分钟",
+      "city_code": "tottori",
+      "prefecture": "鳥取県",
+      "address_ja": "鳥取県鳥取市福部町湯山2164-661（砂丘センター）",
+      "nearest_station": "JR鳥取駅よりバス「鳥取砂丘」バス停（約20分）",
+      "when": {
+        "open_days": "全天开放",
+        "open_hours": "砂丘全天；骆驼体验9:00-17:00（季节变动）",
+        "last_entry": null,
+        "closed_notes": "砂の美術館は1-4月上旬入替休館"
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1500,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 25000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 3,
+          "accessibility": 7,
+          "crowd_comfort": 6,
+          "uniqueness": 10,
+          "value_for_money": 9
+        },
+        "positive_tags": [
+          "日本唯一大规模海岸沙丘",
+          "风纹景观绝无仅有",
+          "清晨游客极少体验佳"
+        ],
+        "negative_tags": [
+          "夏季沙面温度极高",
+          "爬最高沙丘需消耗体力"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "tottori_dunes"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本唯一的大规模海岸沙丘群，清晨风纹清晰时如撒哈拉景观，与砂の美術馆组合是全日本最独特的自然+艺术体验",
+        "what_to_expect": "清晨步行欣赏风纹沙面，爬馬の背最高沙丘眺望日本海，可体验骑骆驼，之后参观砂の美術馆",
+        "skip_if": "对自然沙丘地貌无兴趣"
+      }
+    },
+    {
+      "id": "tottori_sakaiminato_gegege",
+      "name_zh": "境港鬼太郎之路",
+      "name_ja": "境港 水木しげるロード",
+      "name_en": "Sakaiminato Mizuki Shigeru Road (GeGeGe no Kitaro)",
+      "main_type": "fixed_spot",
+      "sub_type": "town_district",
+      "grade": "C",
+      "grade_reason": "漫画家水木しげる故乡，800m商店街两侧排列177座妖怪铜像，鬼太郎迷和妖怪文化爱好者的圣地",
+      "profile_boosts": {
+        "family_kids": "+1",
+        "culture_deep": "+1",
+        "photo": "+1"
+      },
+      "tags": [
+        "鬼太郎",
+        "妖怪铜像177座",
+        "水木しげる纪念馆",
+        "妖怪主题周边",
+        "家族出行"
+      ],
+      "best_time": "上午（纪念馆开馆时间最长）",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "coord": [
+        35.543,
+        133.2247
+      ],
+      "tips": "境港站出来即是商店街起点。水木しげる纪念馆（800円）是核心，展示作者生涯和妖怪原画。商店街妖怪主题食品和纪念品丰富。从鸟取站到境港乘JR境線约1小时（车厢本身是鬼太郎彩绘）",
+      "city_code": "tottori",
+      "prefecture": "鳥取県",
+      "address_ja": "鳥取県境港市本町（水木しげるロード）",
+      "nearest_station": "JR境線「境港駅」 徒歩すぐ",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "商店街各店9:00-18:00；水木しげる記念館9:30-17:00",
+        "last_entry": "16:30",
+        "closed_notes": "水木しげる記念館は年2回程度休館"
+      },
+      "cost": {
+        "admission_jpy": 800,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.1,
+        "google_review_count": 10000,
+        "dimension_scores": {
+          "scenery": 6,
+          "cultural_depth": 7,
+          "accessibility": 7,
+          "crowd_comfort": 7,
+          "uniqueness": 8,
+          "value_for_money": 7
+        },
+        "positive_tags": [
+          "鬼太郎迷的圣地",
+          "177座妖怪铜像独特趣味",
+          "JR境线彩绘列车已是打卡点"
+        ],
+        "negative_tags": [
+          "从鸟取市区需约1小时",
+          "对妖怪漫画无共鸣者吸引力有限"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "tottori_dunes"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "鬼太郎漫画家水木しげる故乡，800m商店街排列177座妖怪铜像，是日本动漫文化圣地的代表",
+        "what_to_expect": "与妖怪铜像合影，参观水木しげる纪念馆原画展，购买妖怪主题食品和周边，乘彩绘鬼太郎列车往返",
+        "skip_if": "对《鬼太郎》或妖怪文化无兴趣"
+      }
+    },
+    {
+      "id": "tokushima_naruto_whirlpools",
+      "name_zh": "鸣门漩涡",
+      "name_ja": "鳴門の渦潮",
+      "name_en": "Naruto Whirlpools",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "A",
+      "grade_reason": "世界三大潮流之一，鸣门海峡涨退潮时产生直径20m级别的巨大漩涡，自然力量震撼壮观",
+      "profile_boosts": {
+        "nature_outdoor": "+2",
+        "photo": "+2",
+        "first_kansai": "+1",
+        "couple": "+1"
+      },
+      "tags": [
+        "世界三大潮流",
+        "漩涡观潮船",
+        "大鸣门桥展望台",
+        "渦の道",
+        "潮汐时刻限定"
+      ],
+      "best_time": "满潮/干潮前后1小时（漩涡最大），具体时刻查询当日潮汐表",
+      "visit_minutes": 120,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "春秋大潮（新月满月前后）漩涡最为壮观"
+      ],
+      "coord": [
+        34.2442,
+        134.6394
+      ],
+      "tips": "有两种观潮方式：①渦の道（大鸣门橋桥下展望廊，从上往下看，¥510）②观潮船（从海面直接驶入漩涡旁，¥2200，更震撼）。强烈推荐坐观潮船。必须按当日潮汐表选择时间，非潮汐时间几乎看不到漩涡。从鸣门公园乘巴士约15分钟",
+      "city_code": "tokushima",
+      "prefecture": "徳島県",
+      "address_ja": "徳島県鳴門市鳴門町土佐泊浦福池65（鳴門公園）",
+      "nearest_station": "JR鳴門駅よりバス「鳴門公園」バス停（約20分）",
+      "when": {
+        "open_days": "每日（渦の道9:00-18:00）",
+        "open_hours": "渦の道9:00-18:00；観潮船は潮汐に合わせて運航",
+        "last_entry": "17:30",
+        "closed_notes": "漩涡最大时刻查鳴門市公式潮汐表"
+      },
+      "cost": {
+        "admission_jpy": 510,
+        "typical_spend_jpy": 3000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.4,
+        "google_review_count": 18000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 5,
+          "accessibility": 6,
+          "crowd_comfort": 6,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "世界三大潮流自然奇观",
+          "观潮船直接进入漩涡旁震撼",
+          "大潮时直径20m级漩涡壮观"
+        ],
+        "negative_tags": [
+          "必须配合潮汐时间表",
+          "非大潮时漩涡较小"
+        ]
+      },
+      "queue_wait_minutes": 15,
+      "corridor_tags": [
+        "naruto"
+      ],
+      "risk_flags": [
+        "tide_dependent"
+      ],
+      "descriptions": {
+        "why_selected": "世界三大潮流之一，鸣门海峡涨退潮时直径20m级漩涡是全球规模最大的天然漩涡景观，强烈推荐乘观潮船近距离体验",
+        "what_to_expect": "查当日潮汐表选最佳时刻，乘观潮船驶入漩涡旁感受海流力量，或走渦の道桥下展望廊从上俯视",
+        "skip_if": "未查潮汐时刻表盲目前往（几乎看不到漩涡）"
+      }
+    },
+    {
+      "id": "tokushima_iya_kazura_bridge",
+      "name_zh": "祖谷蔓桥",
+      "name_ja": "祖谷のかずら橋",
+      "name_en": "Iya Kazura Bridge",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_outdoor",
+      "grade": "B",
+      "grade_reason": "用山葡萄藤编织的原始吊桥，深山秘境峡谷中的独特体验，日本三奇矯之一",
+      "profile_boosts": {
+        "nature_outdoor": "+2",
+        "photo": "+2",
+        "couple": "+1"
+      },
+      "tags": [
+        "日本三奇矯",
+        "藤蔓吊桥",
+        "深山秘境",
+        "峡谷绝景",
+        "需开车"
+      ],
+      "best_time": "上午（光线从峡谷一侧透入）",
+      "visit_minutes": 90,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "秋季红叶将峡谷两壁染成火色，与绿色吊桥形成强烈对比",
+        "夏季峡谷凉爽"
+      ],
+      "coord": [
+        33.8708,
+        133.9139
+      ],
+      "tips": "桥面有间隙，向下可见深谷，有恐高症者慎入。每3年用新藤蔓重新编织（最近一次2023年）。附近还有二重かずら橋（双桥）更幽静，需步行约25分钟。交通极为不便，无车几乎无法到达，建议租车或参加当地一日游团",
+      "city_code": "tokushima",
+      "prefecture": "徳島県",
+      "address_ja": "徳島県三好市西祖谷山村善徳162-2",
+      "nearest_station": "JR阿波池田駅よりバスまたは車（バスは1日数本のみ）",
+      "when": {
+        "open_days": "每日（夜間ライトアップあり）",
+        "open_hours": "7:00-18:00（季節変動）",
+        "last_entry": "17:30",
+        "closed_notes": "冬季（1-3月）架け替えのため1ヶ月程度閉鎖"
+      },
+      "cost": {
+        "admission_jpy": 550,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 8000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 7,
+          "accessibility": 2,
+          "crowd_comfort": 7,
+          "uniqueness": 10,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "藤蔓吊桥日本三奇矯之一",
+          "深山峡谷秘境氛围绝佳",
+          "秋季红叶峡谷极美"
+        ],
+        "negative_tags": [
+          "交通极不便须自驾",
+          "恐高者不建议过桥"
+        ]
+      },
+      "queue_wait_minutes": 10,
+      "corridor_tags": [
+        "iya_valley"
+      ],
+      "risk_flags": [
+        "remote_transport",
+        "acrophobia_risk"
+      ],
+      "descriptions": {
+        "why_selected": "日本三奇矯之一，用山葡萄藤编织的原始吊桥挂于祖谷峡谷深处，桥下激流峡谷秋季红叶包围，是四国最具野趣的景观",
+        "what_to_expect": "步入藤蔓吊桥，感受脚下间隙和峡谷气流，秋季欣赏两壁红叶，可顺访附近二重かずら橋",
+        "skip_if": "无自驾能力、有恐高症"
+      }
+    },
+    {
+      "id": "tokushima_oboke_koboke",
+      "name_zh": "大步危・小步危峡谷",
+      "name_ja": "大歩危・小歩危",
+      "name_en": "Oboke and Koboke Gorges",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "B",
+      "grade_reason": "吉野川侵蚀形成的大理石峡谷，碧绿河水与白色岩壁对比强烈，游览船体验是关西深山峡谷代表",
+      "profile_boosts": {
+        "nature_outdoor": "+2",
+        "photo": "+2",
+        "couple": "+1"
+      },
+      "tags": [
+        "大理石峡谷",
+        "游览船",
+        "碧绿河水",
+        "深山秘境",
+        "白色岩壁"
+      ],
+      "best_time": "上午光线斜射入峡谷时",
+      "visit_minutes": 120,
+      "best_season": "autumn",
+      "seasonal_highlights": [
+        "秋季两岸红叶与碧水白岩三色层次极美",
+        "春季新绿"
+      ],
+      "coord": [
+        33.8442,
+        133.8861
+      ],
+      "tips": "游览船（约30分钟，¥1300）从水面仰视峡谷视角最佳。大步危站附近有游览船乘船场，从JR土讃線大歩危站步行约5分钟。与祖谷蔓桥可组合半日游（需开车）。附近的「かずら橋夢舞台」有妖怪展示和温泉，可顺访",
+      "city_code": "tokushima",
+      "prefecture": "徳島県",
+      "address_ja": "徳島県三好市山城町上名1553-1（大歩危峡観光游覧船）",
+      "nearest_station": "JR土讃線「大歩危駅」徒歩5分",
+      "when": {
+        "open_days": "每日",
+        "open_hours": "9:00-17:00（游览船运行）",
+        "last_entry": "16:30",
+        "closed_notes": "台风等増水時は運休"
+      },
+      "cost": {
+        "admission_jpy": 1300,
+        "typical_spend_jpy": 2000,
+        "budget_tier": "budget"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 6000,
+        "dimension_scores": {
+          "scenery": 9,
+          "cultural_depth": 4,
+          "accessibility": 6,
+          "crowd_comfort": 7,
+          "uniqueness": 9,
+          "value_for_money": 8
+        },
+        "positive_tags": [
+          "碧绿河水与白色大理石岩壁极美",
+          "游览船仰视峡谷视角震撼",
+          "秋季三色层次绝景"
+        ],
+        "negative_tags": [
+          "台风增水时停运",
+          "峡谷深山交通需换乘JR土讃線"
+        ]
+      },
+      "queue_wait_minutes": 10,
+      "corridor_tags": [
+        "iya_valley"
+      ],
+      "risk_flags": [
+        "weather_dependent"
+      ],
+      "descriptions": {
+        "why_selected": "吉野川侵蚀形成的大理石峡谷，碧绿河水与白岩秋季红叶三色并存，游览船仰视峡谷的视角是四国最美河川景观",
+        "what_to_expect": "乘游览船穿行大歩危峡谷约30分钟，仰视大理石岩壁和秋季红叶，与祖谷蔓桥组合一日深山游",
+        "skip_if": "台风期间或非秋季（错过最佳景色）"
+      }
+    },
+    {
+      "id": "mie_meoto_iwa",
+      "name_zh": "夫妇岩",
+      "name_ja": "夫婦岩",
+      "name_en": "Meoto Iwa (Wedded Rocks)",
+      "main_type": "fixed_spot",
+      "sub_type": "nature_scenery",
+      "grade": "C",
+      "grade_reason": "二见浦注连绳连接的夫妇岩，日本最知名的海岸景观之一，旁边二见兴玉神社青蛙雕像众多",
+      "profile_boosts": {
+        "photo": "+1"
+      },
+      "tags": [
+        "夫妇岩",
+        "注连绳",
+        "二见浦",
+        "日出富士山",
+        "青蛙神社"
+      ],
+      "best_time": "清晨日出（5-7月可见日出+富士山）",
+      "visit_minutes": 20,
+      "best_season": "all",
+      "seasonal_highlights": [
+        "5-7月晴天可以从岩石间看到日出+富士山"
+      ],
+      "coord": [
+        34.5069,
+        136.7947
+      ],
+      "tips": "5-7月可以从岩石间看到日出+富士山（天气好时）。旁边的二见兴玉神社有很多青蛙雕像，供奉猿田彦大神。从鸟羽或伊势乘车约15-20分钟",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "address_ja": "三重県伊勢市二見町江575（二見興玉神社）",
+      "nearest_station": "JR二見浦駅 徒歩15分",
+      "when": {
+        "open_days": "全天开放（神社参拜自由）",
+        "open_hours": "全天",
+        "last_entry": null,
+        "closed_notes": null
+      },
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 300,
+        "budget_tier": "free"
+      },
+      "review_signals": {
+        "google_rating": 4.2,
+        "google_review_count": 12000,
+        "dimension_scores": {
+          "scenery": 7,
+          "cultural_depth": 6,
+          "accessibility": 6,
+          "crowd_comfort": 7,
+          "uniqueness": 7,
+          "value_for_money": 10
+        },
+        "positive_tags": [
+          "夫妇岩注连绳景观日本知名度最高",
+          "5-7月日出+富士山同框稀有",
+          "青蛙神社有趣"
+        ],
+        "negative_tags": [
+          "20分钟可游完，可观性有限",
+          "富士山同框需晴天且仅5-7月"
+        ]
+      },
+      "queue_wait_minutes": 0,
+      "corridor_tags": [
+        "ise_naiku"
+      ],
+      "risk_flags": [],
+      "descriptions": {
+        "why_selected": "日本最知名的注连绳夫妇岩，伊势参拜的传统必到海岸，5-7月清晨可见日出与富士山同框的极稀有景观",
+        "what_to_expect": "清晨到访欣赏大注连绳连接的夫妇岩，参拜旁边二见兴玉神社，5-7月晴天可碰到日出富士山同框",
+        "skip_if": "行程时间紧张（可观性相对有限）"
+      }
+    }
+  ],
+  "seasonal_events": [
+    {
+      "id": "tokushima_awa_odori",
+      "name_zh": "阿波舞祭",
+      "name_ja": "阿波踊り",
+      "name_en": "Awa Odori Dance Festival",
+      "event_type": "festival",
+      "grade": "S",
+      "date_range": "8月12-15日（固定）",
+      "recurring": true,
+      "location": "德岛市中心（演舞场各処）",
+      "description": "日本三大盆踊之一，400年历史，100万人参加或围观的全国最大盆舞祭典。\"踊る阿呆に见る阿呆\"（跳舞的傻瓜和看舞的傻瓜都是傻瓜，既然一样是傻瓜，不如一起跳）是名言。专业连（踊り子团体）的表演精华",
+      "tips": "有料演舞场（¥1500-2000，固定席位，可提前购票）和街頭无料演舞场两种。强烈推荐购有料演舞场票欣赏专业连表演。8月15日最后一夜（送り踊り）气氛最狂热。旅馆需提前半年预订",
+      "city_code": "tokushima",
+      "prefecture": "徳島県",
+      "corridor_tags": [
+        "naruto"
+      ],
+      "cost": {
+        "admission_jpy": 1500,
+        "typical_spend_jpy": 3000,
+        "budget_tier": "budget"
+      },
+      "descriptions": {
+        "why_selected": "日本三大盆踊最高峰，400年历史，8月12-15日德岛100万人同场，专业踊り子连的阿波踊表演是日本祭典艺术的极致",
+        "what_to_expect": "购有料演舞场票（推荐）观看专业连精彩表演，15日最后夜送り踊气氛最狂热，路边无料演舞场也可感受氛围",
+        "skip_if": "非8月12-15日造访德岛"
+      }
+    },
+    {
+      "id": "tottori_sand_museum",
+      "name_zh": "砂の美術館（沙雕博物馆）年度展",
+      "name_ja": "砂の美術館",
+      "name_en": "Sand Museum Annual Exhibition",
+      "event_type": "seasonal_display",
+      "grade": "A",
+      "date_range": "4月上旬—1月上旬（年度展示，每年更换主题）",
+      "recurring": true,
+      "location": "鸟取县鸟取市 鸟取砂丘侧",
+      "description": "世界最高水准的室内沙雕博物馆，每年以不同国家/地区为主题制作数十件大型沙雕作品。2025-2026年主题为「南美洲」。作品细节和规模令人叹为观止，是当代沙雕艺术最高水平展示",
+      "tips": "与鸟取砂丘步行约5分钟，强烈建议组合参观（约2小时）。1月上旬至4月上旬为更换展示期间闭馆，避开此期间前往。票价¥700",
+      "city_code": "tottori",
+      "prefecture": "鳥取県",
+      "corridor_tags": [
+        "tottori_dunes"
+      ],
+      "cost": {
+        "admission_jpy": 700,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "budget"
+      },
+      "descriptions": {
+        "why_selected": "世界最高水准室内沙雕博物馆，每年更换主题，与鸟取砂丘步行5分钟，沙雕艺术规模和细节令人叹为观止",
+        "what_to_expect": "参观当年主题国家数十件大型沙雕作品，与鸟取砂丘组合游览，约2小时行程",
+        "skip_if": "1月上旬-4月上旬闭馆期间造访"
+      }
+    },
+    {
+      "id": "mie_shikinensengu",
+      "name_zh": "式年迁宫（参观旧殿）",
+      "name_ja": "式年遷宮",
+      "name_en": "Shikinen Sengu (Sacred Shrine Reconstruction)",
+      "event_type": "festival",
+      "grade": "A",
+      "date_range": "每20年一次，下次2033年（10月）",
+      "recurring": true,
+      "location": "伊势神宫（内宮・外宮）",
+      "description": "每20年将神体搬迁至全新建造的社殿的神道仪式，已持续1300年不中断。迁宫后数年内旧殿依然保留，可见两殿并立的罕见景象。这是理解日本神道「常若（永远年轻）」哲学的最直观体验",
+      "tips": "下次迁宫为2033年，届时为历史性参拜时机。即使非迁宫年，参拜旧殿空地（古殿地）也有独特意义。相关展示在神宮农業館和神宮徴古館可深度了解",
+      "city_code": "ise",
+      "prefecture": "三重県",
+      "corridor_tags": [
+        "ise_naiku",
+        "ise_geku"
+      ],
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 1000,
+        "budget_tier": "free"
+      },
+      "descriptions": {
+        "why_selected": "每20年一次持续1300年的神道仪式，理解日本「常若」哲学的最直观时机，下次2033年是历史性参拜机会",
+        "what_to_expect": "迁宫年参拜新旧两殿并立的罕见景象，深度理解日本神道的「循环更新」世界观",
+        "skip_if": "非迁宫年（下次2033年）"
+      }
+    },
+    {
+      "id": "fukui_echizen_crab_season",
+      "name_zh": "越前蟹解禁（冬季蟹季）",
+      "name_ja": "越前がに解禁",
+      "name_en": "Echizen Crab Season Opening",
+      "event_type": "seasonal_food",
+      "grade": "A",
+      "date_range": "11月6日解禁—3月20日（雄蟹；雌蟹至1月中旬）",
+      "recurring": true,
+      "location": "越前（越前市、福井市、三国港等日本海沿岸）",
+      "description": "日本最高级雪蟹品牌「越前蟹」（雄蟹才可称此名）解禁日是福井县民的重大节日。标有黄色标签的越前蟹是品质保证，价格昂贵但品质无与伦比。在产地越前海岸直接品尝是最高级体验",
+      "tips": "越前海岸的旅馆（蟹套餐）需提前1-2个月预约。越前港当日竞标、越前蟹料理餐厅集中在越前市和三国町。东尋坊周边冬季蟹餐厅开到深夜。预算¥15000以上才能吃到满足级别的套餐",
+      "city_code": "fukui",
+      "prefecture": "福井県",
+      "corridor_tags": [
+        "eiheiji",
+        "katsuyama"
+      ],
+      "cost": {
+        "admission_jpy": 0,
+        "typical_spend_jpy": 20000,
+        "budget_tier": "high"
+      },
+      "descriptions": {
+        "why_selected": "日本最顶级雪蟹品牌越前蟹，11月6日解禁是福井最重大的美食节日，在产地直接品尝是全日本最高级的蟹料理体验",
+        "what_to_expect": "在越前港附近或东尋坊周边餐厅，品尝标有黄色标签认证的越前蟹全餐，预算¥15000起",
+        "skip_if": "11月6日-3月20日以外时间造访、预算不足"
+      }
+    }
+  ]
+}

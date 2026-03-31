@@ -658,6 +658,7 @@ async def _try_city_circle_pipeline(
             "party_type": profile.party_type,
             "pace": profile.pace or "moderate",
             "budget_level": profile.budget_level,
+            "travel_month": travel_month,
         }
 
         # ── Step 7: 次要活动填充 ──

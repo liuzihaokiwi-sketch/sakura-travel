@@ -22,7 +22,7 @@ from typing import Optional, Sequence
 from sqlalchemy import select, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db.models.catalog import EntityBase, EntityTag
+from app.db.models.catalog import EntityBase, EntityTag, Poi
 from app.db.models.city_circles import ActivityCluster, CircleEntityRole
 from app.db.models.soft_rules import EntityOperatingFact
 
@@ -170,6 +170,22 @@ async def run_eligibility_gate(
     for fact in facts_q.scalars().all():
         entity_facts.setdefault(fact.entity_id, []).append(fact)
 
+    # 5a. 批量加载 Poi.best_season（供 EG-005 实体级季节过滤）
+    entity_best_season: dict[uuid.UUID, str] = {}
+    if ctx.travel_month:
+        try:
+            poi_season_q = await session.execute(
+                select(Poi.entity_id, Poi.best_season).where(
+                    Poi.entity_id.in_(entity_ids),
+                    Poi.best_season.isnot(None),
+                )
+            )
+            for eid, bs in poi_season_q.all():
+                if bs:
+                    entity_best_season[eid] = bs.strip().lower()
+        except Exception as exc:
+            logger.warning("加载 Poi.best_season 失败（忽略）: %s", exc)
+
     # 5b. 从 OverrideResolver 批量获取被 block 的 entity_id（L4-02 接入）
     operator_blocked_ids: set[str] = set()
     if override_resolver is not None:
@@ -186,7 +202,8 @@ async def run_eligibility_gate(
     for eid in entity_ids:
         entity = entity_map.get(eid)
         verdict = _check_entity(entity, eid, ctx, entity_tags.get(eid, set()),
-                                entity_facts.get(eid, []))
+                                entity_facts.get(eid, []),
+                                best_season=entity_best_season.get(eid))
 
         # L4-02: 运营干预 block 覆盖（优先级最高）
         if not verdict.passed is False and str(eid) in operator_blocked_ids:
@@ -231,6 +248,7 @@ def _check_entity(
     ctx: EligibilityContext,
     tags: set[str],
     facts: list,
+    best_season: Optional[str] = None,
 ) -> GateVerdict:
     """对单个实体执行 EG-001~006 检查。"""
     fails: list[str] = []
@@ -266,13 +284,20 @@ def _check_entity(
     if ctx.has_elderly and "extreme_physical" in tags:
         fails.append("EG-004_ELDERLY_UNSAFE")
 
-    # EG-005: 季节检查（entity 级别的季节标签）
+    # EG-005: 季节检查
+    # 优先使用 Poi.best_season 字段（数据源头），其次 tags 表的 season 标签
     if ctx.travel_month:
         season = _MONTH_TO_SEASON.get(ctx.travel_month)
-        if "seasonal_only" in tags and season:
-            # 检查实体的 best_season 标签
-            season_tags = {t for t in tags if t.startswith("season:")}
-            if season_tags and f"season:{season}" not in season_tags:
+        if best_season and season:
+            # best_season 值如 "winter", "summer", "spring", "autumn", "all", "全年"
+            bs = best_season.lower().strip()
+            if bs not in ("all", "all_year", "全年", ""):
+                if bs != season:
+                    fails.append(f"EG-005_SEASON_MISMATCH:poi.best_season={bs},travel={season}")
+        elif "seasonal_only" in tags and season:
+            # 回退到旧的 tags 逻辑
+            season_tag_set = {t for t in tags if t.startswith("season:")}
+            if season_tag_set and f"season:{season}" not in season_tag_set:
                 fails.append("EG-005_SEASON_MISMATCH")
 
     # EG-006: 用户 avoid 标签

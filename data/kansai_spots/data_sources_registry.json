@@ -1,0 +1,319 @@
+{
+  "description": "关西城市圈数据源注册表 — 记录每个可用的数据源及其覆盖范围",
+  "last_updated": "2026-03-31",
+
+  "sources": [
+    {
+      "id": "japan_guide",
+      "name": "japan-guide.com",
+      "url": "https://www.japan-guide.com",
+      "type": "editorial",
+      "language": "en",
+      "coverage": "全关西",
+      "strength": "专业编辑评分(1-5星), 景点/交通/住宿全覆盖, 季节报告",
+      "kansai_pages": [
+        "https://www.japan-guide.com/e/e2158.html (京都)",
+        "https://www.japan-guide.com/e/e2157.html (大阪)",
+        "https://www.japan-guide.com/e/e2165.html (奈良)",
+        "https://www.japan-guide.com/e/e2159.html (神户)",
+        "https://www.japan-guide.com/e/e3501.html (姫路)",
+        "https://www.japan-guide.com/e/e3509.html (有马温泉)",
+        "https://www.japan-guide.com/e/e3525.html (城崎温泉)",
+        "https://www.japan-guide.com/e/e4900.html (高野山)",
+        "https://www.japan-guide.com/e/e4950.html (熊野)",
+        "https://www.japan-guide.com/e/e4700.html (伊势)",
+        "https://www.japan-guide.com/e/e3591.html (滋贺)",
+        "https://www.japan-guide.com/e/e5750.html (鸟取)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "jnto_cn",
+      "name": "日本国家旅游局 (JNTO) 中文站",
+      "url": "https://www.japan-travel.cn",
+      "type": "official",
+      "language": "zh-CN",
+      "coverage": "全关西",
+      "strength": "官方权威, 中文, 按地区分类",
+      "kansai_pages": [
+        "https://www.japan-travel.cn/destinations/kansai/",
+        "https://www.japan-travel.cn/itineraries/the-kansai-trio-kyoto-nara-and-osaka/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "letsgojp_tw",
+      "name": "乐吃购！日本 (台湾繁体版)",
+      "url": "https://osaka.letsgojp.com",
+      "type": "editorial",
+      "language": "zh-TW",
+      "coverage": "大阪/京都/神户/奈良为主",
+      "strength": "台湾视角, 更新频率高, 有小众推荐, 行程规划详细",
+      "kansai_pages": [
+        "https://osaka.letsgojp.com/archives/302908/ (关西自由行总整理)",
+        "https://osaka.letsgojp.com/archives/549254/ (2026大阪景点30选)",
+        "https://osaka.letsgojp.com/archives/548388/ (京都景点完全攻略)",
+        "https://osaka.letsgojp.com/archives/734038/ (京都深度旅游指南)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "letsgojp_cn",
+      "name": "乐吃购！日本 (简体中文版)",
+      "url": "https://osaka.letsgojp.cn",
+      "type": "editorial",
+      "language": "zh-CN",
+      "coverage": "同台湾版",
+      "strength": "简体中文, 内容与台湾版基本同步",
+      "kansai_pages": [
+        "https://osaka.letsgojp.cn/archives/302908/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "kyoto_travel_official",
+      "name": "京都市观光协会官网",
+      "url": "https://kyoto.travel/cn/",
+      "type": "official",
+      "language": "zh-CN",
+      "coverage": "京都市+周边",
+      "strength": "京都官方, 景点/活动/美食/住宿全覆盖",
+      "kansai_pages": [
+        "https://kyoto.travel/cn/",
+        "https://kyoto.travel/cn/see-and-do"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "kyototourism_org",
+      "name": "京都观光Navi (京都府观光)",
+      "url": "https://www.kyototourism.org/zh-hans/",
+      "type": "official",
+      "language": "zh-CN",
+      "coverage": "京都全域(含宇治/天桥立等)",
+      "strength": "季节专题(红叶/樱花)质量高, 有详细赏枫地图",
+      "kansai_pages": [
+        "https://www.kyototourism.org/zh-hans/autumnleaves/",
+        "https://www.kyototourism.org/zh-hans/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "allabout_japan",
+      "name": "All About Japan (中文版)",
+      "url": "https://allabout-japan.com/zh-cn/",
+      "type": "editorial",
+      "language": "zh-CN",
+      "coverage": "全日本(关西部分)",
+      "strength": "文章质量高, 有深度专题, 按主题分类",
+      "kansai_pages": [
+        "https://allabout-japan.com/zh-cn/article/472/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "matcha_tw",
+      "name": "MATCHA (台湾版)",
+      "url": "https://matcha-jp.com/tw/",
+      "type": "editorial",
+      "language": "zh-TW",
+      "coverage": "全日本(关西重点覆盖)",
+      "strength": "实地采访, 图文详细, 有很多小众景点",
+      "kansai_pages": [
+        "https://matcha-jp.com/tw/18058 (大阪必去景点)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "bobbyfun_tw",
+      "name": "波比看世界 (台湾博主)",
+      "url": "https://bobbyfun.tw",
+      "type": "blogger",
+      "language": "zh-TW",
+      "coverage": "京阪神奈",
+      "strength": "实际体验, 价格信息详细, 行程规划实用",
+      "kansai_pages": [
+        "https://bobbyfun.tw/2023-12-28-2593/ (京阪神全攻略)",
+        "https://bobbyfun.tw/2024-02-10-2906/ (大阪行程规划)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "klook_tw",
+      "name": "Klook 客路 (台湾)",
+      "url": "https://www.klook.com/zh-TW/blog/",
+      "type": "platform",
+      "language": "zh-TW",
+      "coverage": "京阪神奈",
+      "strength": "行程规划+可订购体验, 价格透明",
+      "kansai_pages": [
+        "https://www.klook.com/zh-TW/blog/osaka-travel-tips/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "goflyting",
+      "name": "Go飞行 (台湾博主)",
+      "url": "https://goflyting.com",
+      "type": "blogger",
+      "language": "zh-TW",
+      "coverage": "全关西(含小众)",
+      "strength": "10天9夜深度游, 有私房景点",
+      "kansai_pages": [
+        "https://goflyting.com/kansai-places/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "crawling"
+    },
+    {
+      "id": "mafengwo",
+      "name": "马蜂窝",
+      "url": "https://www.mafengwo.cn",
+      "type": "ugc_platform",
+      "language": "zh-CN",
+      "coverage": "全关西",
+      "strength": "大量UGC游记, 用户评分, 景点排名",
+      "kansai_pages": [
+        "https://z.mafengwo.cn/lvyou/154825.html (关西攻略)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "ctrip",
+      "name": "携程攻略",
+      "url": "https://you.ctrip.com",
+      "type": "ugc_platform",
+      "language": "zh-CN",
+      "coverage": "全关西",
+      "strength": "游记+行程单, 可参考路线规划",
+      "kansai_pages": [
+        "https://gs.ctrip.com/html5/you/itinerary/detail/1045/528199.html"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "ana_kinki",
+      "name": "ANA全日空 近畿旅游指南",
+      "url": "https://www.ana.co.jp/zh/cn/japan-travel-planner/kinki/",
+      "type": "official",
+      "language": "zh-CN",
+      "coverage": "近畿全域",
+      "strength": "航空公司官方推荐, 有旅游规划器",
+      "kansai_pages": [
+        "https://www.ana.co.jp/zh/cn/japan-travel-planner/kinki/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "wamazing",
+      "name": "WAmazing (台湾版)",
+      "url": "https://tw.wamazing.com/media/",
+      "type": "platform",
+      "language": "zh-TW",
+      "coverage": "全日本(关西部分)",
+      "strength": "新开幕景点信息快, 有温泉/滑雪专题",
+      "kansai_pages": [
+        "https://tw.wamazing.com/media/article/a-2655/ (关西新景点)"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "funliday",
+      "name": "Funliday (台湾)",
+      "url": "https://www.funliday.com",
+      "type": "platform",
+      "language": "zh-TW",
+      "coverage": "京阪神奈",
+      "strength": "行程规划工具, 有实际路线可参考",
+      "kansai_pages": [
+        "https://www.funliday.com/posts/osaka-kyoto-nara-5d4n/"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "rishiluguan",
+      "name": "日式旅馆推荐",
+      "url": "https://rishiluguan.com",
+      "type": "editorial",
+      "language": "zh-TW",
+      "coverage": "关西温泉旅馆",
+      "strength": "温泉旅馆专业评测, 私汤推荐",
+      "kansai_pages": [
+        "https://rishiluguan.com/guide/osaka-kyoto-kansai-featured-articles-onsen-travelogues.html"
+      ],
+      "crawl_method": "WebFetch",
+      "status": "pending"
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "小红书",
+      "url": "https://www.xiaohongshu.com",
+      "type": "ugc_platform",
+      "language": "zh-CN",
+      "coverage": "全关西",
+      "strength": "最新UGC, 拍照打卡点, 小众发现, 实时信息",
+      "crawl_method": "OpenCLI (需Chrome登录)",
+      "status": "pending_setup"
+    },
+    {
+      "id": "bilibili",
+      "name": "B站",
+      "url": "https://www.bilibili.com",
+      "type": "ugc_platform",
+      "language": "zh-CN",
+      "coverage": "全关西",
+      "strength": "视频攻略字幕提取, 深度旅行vlog",
+      "crawl_method": "OpenCLI (需Chrome登录)",
+      "status": "pending_setup"
+    },
+    {
+      "id": "google_places",
+      "name": "Google Places API",
+      "url": "https://maps.googleapis.com",
+      "type": "api",
+      "language": "multi",
+      "coverage": "全球",
+      "strength": "坐标/评分/营业时间/照片 — 实体级数据补充",
+      "crawl_method": "现有google_places.py爬虫",
+      "note": "省着用, 500次/月免费额度",
+      "status": "available"
+    },
+    {
+      "id": "osm_overpass",
+      "name": "OpenStreetMap / Overpass API",
+      "url": "https://overpass-api.de",
+      "type": "api",
+      "language": "multi",
+      "coverage": "全球",
+      "strength": "免费, 地理数据/分类标签, 无限额度",
+      "crawl_method": "现有web_crawler.py",
+      "status": "available"
+    },
+    {
+      "id": "tabelog",
+      "name": "Tabelog (食べログ)",
+      "url": "https://tabelog.com",
+      "type": "platform",
+      "language": "ja",
+      "coverage": "日本全国餐厅",
+      "strength": "日本最权威的餐厅评分, 3.5+即为优质",
+      "crawl_method": "现有tabelog.py爬虫",
+      "status": "available"
+    }
+  ]
+}

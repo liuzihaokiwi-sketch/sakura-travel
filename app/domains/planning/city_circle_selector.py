@@ -95,10 +95,46 @@ async def select_city_circle(
     signals = _extract_signals(profile)
     result.trace.append(f"signals: {signals}")
 
+    # 批量检查每个圈的数据完整性（entity_roles + clusters 数量）
+    # 空壳圈（无绑定实体/簇）不应被选中，否则下游 pipeline 全部失败
+    from app.db.models.city_circles import CircleEntityRole, ActivityCluster
+    from sqlalchemy import func
+    _role_counts: dict[str, int] = {}
+    _cluster_counts: dict[str, int] = {}
+    try:
+        _rc_q = await session.execute(
+            select(CircleEntityRole.circle_id, func.count())
+            .group_by(CircleEntityRole.circle_id)
+        )
+        for cid, cnt in _rc_q.all():
+            _role_counts[cid] = cnt
+        _cc_q = await session.execute(
+            select(ActivityCluster.circle_id, func.count())
+            .where(ActivityCluster.is_active == True)
+            .group_by(ActivityCluster.circle_id)
+        )
+        for cid, cnt in _cc_q.all():
+            _cluster_counts[cid] = cnt
+    except Exception as exc:
+        logger.warning("circle data integrity check failed: %s", exc)
+
     for circle in circles:
         circle_cfg = resolved_config or ResolvedConfig()
         policy = resolve_policy_set(circle.circle_id, circle=circle, resolved_config=circle_cfg)
         candidate = _score_circle(circle, signals, policy)
+
+        # 数据完整性门控：无 entity_roles 或无 clusters 的圈直接拒绝
+        role_count = _role_counts.get(circle.circle_id, 0)
+        cluster_count = _cluster_counts.get(circle.circle_id, 0)
+        if role_count == 0 or cluster_count == 0:
+            candidate.reject_reason = (
+                f"empty_circle: roles={role_count}, clusters={cluster_count}"
+            )
+            candidate.total_score = 0.0
+            result.trace.append(
+                f"REJECT {circle.circle_id}: no data (roles={role_count}, clusters={cluster_count})"
+            )
+
         result.candidates.append(candidate)
         result.trace.append(
             "candidate: "
@@ -194,12 +230,15 @@ def _score_circle(circle: CityCircle, signals: _Signals, policy: ResolvedPolicyS
         "seasonality_mode": policy.climate_and_season_policy.seasonality_mode,
     }
 
+    # 天数偏离推荐范围的 penalty（在评分计算完成后应用）
+    _days_penalty = 0.0
+    _days_tradeoff = ""
     if signals.duration_days < circle.min_days:
-        candidate.reject_reason = f"days {signals.duration_days} < min {circle.min_days}"
-        return candidate
-    if signals.duration_days > circle.max_days:
-        candidate.reject_reason = f"days {signals.duration_days} > max {circle.max_days}"
-        return candidate
+        _days_penalty = min(0.5, (circle.min_days - signals.duration_days) * 0.15)
+        _days_tradeoff = f"行程偏短({signals.duration_days}天)，建议 {circle.min_days}+ 天更充裕"
+    elif signals.duration_days > circle.max_days:
+        _days_penalty = min(0.5, (signals.duration_days - circle.max_days) * 0.15)
+        _days_tradeoff = f"行程偏长({signals.duration_days}天)，{circle.max_days} 天可覆盖核心"
 
     bd: dict[str, float] = {}
     all_circle_cities = set(circle.base_city_codes or []) | set(circle.extension_city_codes or [])
@@ -315,4 +354,11 @@ def _score_circle(circle: CityCircle, signals: _Signals, policy: ResolvedPolicyS
     total -= policy.routing_style_policy.backtrack_penalty_bias * max(0, ext_count - 1)
     candidate.total_score = round(total, 4)
     candidate.breakdown = bd
+
+    # 天数偏离推荐范围：降分但不拒绝
+    # 3天去北海道有3天的玩法，周末也可以去 — 天数是推荐不是限制
+    if _days_penalty > 0:
+        candidate.total_score = round(candidate.total_score * (1.0 - _days_penalty), 4)
+        candidate.explain = CircleExplain(expected_tradeoff=_days_tradeoff)
+
     return candidate
