@@ -1,0 +1,358 @@
+{
+  "city": "kobe",
+  "count": 44,
+  "pois": [
+    {
+      "name_ja": "六甲山",
+      "city_code": "kobe",
+      "area": "",
+      "type": "mountain_scenic",
+      "source": "search_jaen, search_tw, seasonal_aw",
+      "brief_note": "3sources | season:autumn"
+    },
+    {
+      "name_ja": "有馬溫泉",
+      "city_code": "kobe",
+      "area": "",
+      "type": "onsen_resort",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "北野異人館街",
+      "city_code": "kobe",
+      "area": "",
+      "type": "historic_site",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "南京町（神戶中華街）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "chinatown",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "生田神社",
+      "city_code": "kobe",
+      "area": "",
+      "type": "神社",
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "ぬのびきハーブ園ロープウェイ",
+      "city_code": "kobe",
+      "area": "",
+      "type": "viewpoint",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "メリケンパーク",
+      "city_code": "kobe",
+      "area": "",
+      "type": "park",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "人と防災未来センター",
+      "city_code": "kobe",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "六甲山夜景",
+      "city_code": "kobe",
+      "area": "",
+      "type": "观景台",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "兵庫県立美術館",
+      "city_code": "kobe",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北野异人馆街",
+      "city_code": "kobe",
+      "area": "",
+      "type": "历史建筑群",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "南京町（神户中华街）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "中华街",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "孙中山纪念馆（移情阁）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "博物馆",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "布引香草园",
+      "city_code": "kobe",
+      "area": "",
+      "type": "主题花园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "摩耶山天上寺",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "摩耶山掬星台",
+      "city_code": "kobe",
+      "area": "",
+      "type": "observation_deck",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "旧居留地",
+      "city_code": "kobe",
+      "area": "",
+      "type": "历史街区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "明石海峡大桥（舞子海上步道）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "地标建筑",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "明石海峡大橋",
+      "city_code": "kobe",
+      "area": "",
+      "type": "landmark",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "明石海峽大橋",
+      "city_code": "kobe",
+      "area": "",
+      "type": "landmark_bridge",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "灘五郷",
+      "city_code": "kobe",
+      "area": "",
+      "type": "activity",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "灘五鄉酒所",
+      "city_code": "kobe",
+      "area": "",
+      "type": "sake_experience",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "瑞宝寺公園（有馬温泉）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "相楽園",
+      "city_code": "kobe",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戶動物王國",
+      "city_code": "kobe",
+      "area": "",
+      "type": "zoo_open",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戶港塔",
+      "city_code": "kobe",
+      "area": "",
+      "type": "landmark_tower",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戶臨海樂園（Harborland Umie）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "shopping_waterfront",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神户港塔",
+      "city_code": "kobe",
+      "area": "",
+      "type": "地标观景台",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸イルミナージュ（道の駅フルーツフラワーパーク大沢）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "神戸ハーバーランド",
+      "city_code": "kobe",
+      "area": "",
+      "type": "shopping",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸ビーフ",
+      "city_code": "kobe",
+      "area": "",
+      "type": "food_experience",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸ルミナリエ",
+      "city_code": "kobe",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "神戸市立博物館",
+      "city_code": "kobe",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸市立森林植物園",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "美利坚公园",
+      "city_code": "kobe",
+      "area": "",
+      "type": "公园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "风见鸡之馆",
+      "city_code": "kobe",
+      "area": "",
+      "type": "历史建筑",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "马赛克花园",
+      "city_code": "kobe",
+      "area": "",
+      "type": "购物娱乐区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "SAVOY 北野坂",
+      "city_code": "kobe",
+      "area": "北野坂・三宮",
+      "type": "bar",
+      "source": "choinomi.jp / icotto.jp",
+      "brief_note": "三宮駅から徒歩6分、神戸を代表する老舗バー。オリジナルカクテル「ソル・クバーノ」（ラム・グレープフルーツ・トニック）はマスター木村氏の傑作。神戸バー文化の象徴。"
+    },
+    {
+      "name_ja": "LAGUNA THE BAR",
+      "city_code": "kobe",
+      "area": "ハンター坂・三宮",
+      "type": "bar",
+      "source": "icotto.jp",
+      "brief_note": "三宮駅から徒歩8分のハンター坂のオーセンティックバー。吹き抜けの天井に一枚板カウンター。注文ごとに氷を削り、グラスはほぼバカラというこだわり。"
+    },
+    {
+      "name_ja": "BAR A-SOLUTIONS",
+      "city_code": "kobe",
+      "area": "生田神社西・三宮",
+      "type": "bar",
+      "source": "choinomi.jp",
+      "brief_note": "関西一流ホテル出身のオーナーバーテンダーが2013年オープン。200種以上のウイスキーと店内熟成のオリジナルエイジングウイスキーが自慢。三宮駅から徒歩3分。"
+    },
+    {
+      "name_ja": "SONE",
+      "city_code": "kobe",
+      "area": "三宮",
+      "type": "bar",
+      "source": "note.com/specter3196",
+      "brief_note": "1969年創業、55年以上続く神戸の伝説的ミュージックバー。本格的なコース料理とライブ演奏を組み合わせた大人の夜。神戸はジャズ発祥の地としての矜持を体現する店。"
+    },
+    {
+      "name_ja": "摩耶山 掬星台",
+      "city_code": "kobe",
+      "area": "摩耶山・灘区",
+      "type": "night_view",
+      "source": "kobe-rokko.jp (神戸六甲山公式) / nightview.info",
+      "brief_note": "函館・長崎と並ぶ「日本三大夜景」の一つ。神戸から関空まで一望できる大スケールの夜景。ロープウェイとケーブルカーでアクセス可能。夜景ランキング六甲・摩耶エリア常時1位。"
+    },
+    {
+      "name_ja": "六甲ガーデンテラス（自然体感展望台 六甲枝垂れ）",
+      "city_code": "kobe",
+      "area": "六甲山・灘区",
+      "type": "night_view",
+      "source": "kobe-rokko.jp (神戸六甲山公式)",
+      "brief_note": "英国調ガーデンがライトアップされた六甲山の展望スポット。展望塔から明石海峡大橋まで見渡せる。ショッピング・レストランと組み合わせて夜の六甲を楽しめる。"
+    },
+    {
+      "name_ja": "ビーナスブリッジ",
+      "city_code": "kobe",
+      "area": "諏訪山・中央区",
+      "type": "night_view",
+      "source": "kobe-rokko.jp (神戸六甲山公式) / jalan.net",
+      "brief_note": "三宮から車で10分の諏訪山公園上にある恋人の聖地。神戸港と市街地の夜景を見下ろす展望スポット。六甲山より手軽にアクセスでき、ドライブデートに最適。"
+    }
+  ]
+}

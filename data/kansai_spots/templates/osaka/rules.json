@@ -1,0 +1,202 @@
+{
+  "_doc": "大阪模板规则集。AI消费时必须遵守",
+
+  "dining_policy": {
+    "_doc": "日本餐饮策略：不是每顿都吃同档，而是普通餐压低、高光餐拉高。预算档定中心分布，日类型和人群做修饰。",
+
+    "base_by_budget": {
+      "_doc": "预算档决定整段行程的重心，不决定每一顿的档位。日本¥1000左右的午餐性价比极高，没必要每顿都硬顶。",
+      "economy": {"default_tier": "economy", "target_mix": "5-6顿经济 + 2顿中档 + 0-1顿中高档（约8顿正餐）"},
+      "mid": {"default_tier": "mid", "target_mix": "2顿经济/低中档 + 4顿中档 + 1-2顿中高档 + 0-1顿高档"},
+      "premium": {"default_tier": "high", "target_mix": "1顿经济/低中档 + 2-3顿中档 + 3-4顿高档 + 0-1顿顶级"}
+    },
+
+    "day_type_adjustments": {
+      "_doc": "按日类型自动升降档，-1=降一档，+1=升一档，+2=升两档",
+      "arrival_day_lunch": {"adjust": -1, "reason": "刚到不折腾，日本便宜午餐性价比本来就高"},
+      "usj_day_dinner": {"adjust": -1, "reason": "玩了一天累了，吃什么不重要，USJ园内餐¥2600-3500已是上限"},
+      "heavy_walking_day_dinner": {"adjust": -1, "reason": "暴走日晚餐不做高光餐"},
+      "audience_day_lunch": {"adjust": 1, "reason": "人群日开始升温"},
+      "audience_day_dinner": {"adjust": "1-2", "reason": "全段最高餐位，人群日晚餐是餐饮高潮"}
+    },
+
+    "audience_modifiers": {
+      "_doc": "人群修饰器叠加在day_type_adjustments之上",
+      "couple": {
+        "audience_day_dinner_bonus": 1,
+        "allow_top_tier": true,
+        "focus": "氛围+好看：有景观/包间/吧台，灯光好，适合约会"
+      },
+      "friends": {
+        "audience_day_dinner_bonus": 1,
+        "allow_top_tier": true,
+        "focus": "颜值+拍照：菜品摆盘好看、装修出片、甜品精致"
+      },
+      "family": {
+        "audience_day_dinner_cap": "mid_high",
+        "allow_top_tier": false,
+        "overall_shift": -0.5,
+        "focus": "互动+友好：有儿童餐/座椅、不嫌吵、食物小孩爱吃",
+        "note": "亲子整体低半档到一档，小孩不需要omakase，高端餐边际价值低"
+      },
+      "default": {
+        "audience_day_lunch_bonus": 1,
+        "audience_day_dinner_bonus": 1,
+        "allow_top_tier": false
+      }
+    },
+
+    "trip_caps": {
+      "_doc": "全程上下限约束，防止规则失控",
+      "economy": {"max_mid_high_meals": 1, "max_high_meals": 0},
+      "mid": {"max_high_meals": 1, "min_economy_meals": 1},
+      "premium": {"min_highlight_meals": 1, "max_top_meals": 1, "min_mid_or_lower": 2},
+      "showcase_caps": {
+        "per_city": 1,
+        "per_trip": 2,
+        "note": "每城最多1顿showcase meal，全程最多2顿。防止城城都顶到最满"
+      }
+    },
+
+    "meal_roles": {
+      "_doc": "每顿饭在整个旅行里的角色，不只是价格",
+      "arrival_recovery": "到达恢复餐，轻松简单，不折腾",
+      "core_local_experience": "城市核心名物体验（大阪=串炸/大阪烧，京都=汤豆腐等）",
+      "theme_park_recovery": "主题公园后恢复餐，随便吃好",
+      "audience_day_showcase": "人群日高光餐，全程最高点，要配合当天体验主题",
+      "everyday_good": "日常好餐，稳定输出，不惊艳但不出错",
+      "local_life_experience": "本地生活体验餐，可以是路边摊/站着吃/市场，降档但有体验价值"
+    },
+
+    "upgrade_must_be_local": {
+      "_doc": "升档花的钱要花在这个城市才能吃到的东西上",
+      "osaka": ["河豚", "高端串炸", "寿司omakase", "焼鳥割烹", "肉割烹"],
+      "kobe": ["神户牛", "和牛铁板烧"],
+      "kyoto": ["怀石料理", "汤豆腐", "京料理"],
+      "nara": ["柿叶寿司", "大和料理"]
+    },
+
+    "variety_required": "不能天天传统日料，要穿插西餐（洋食/法餐/意大利料理）/铁板烧等",
+    "no_chinese": "不推荐中华料理（用户从中国来。551蓬莱肉包是大阪名物例外）",
+    "downgrade_is_feature": "降档不是降级——高档用户吃一顿路边关东煮是本地生活体验"
+  },
+
+  "cross_city_dedup": {
+    "_doc": "跨城市拼装后菜系去重。每个可能冲突的菜系slot带fallback，系统全程扫描后触发替换",
+    "city_exclusive": {
+      "_doc": "城市独占菜系，不参与去重",
+      "osaka": ["章鱼烧", "串炸", "大阪烧", "河豚", "551肉包"],
+      "kyoto": ["怀石", "汤豆腐", "京料理", "抹茶甜品"],
+      "kobe": ["神户牛"],
+      "nara": ["柿叶寿司"]
+    },
+    "dedup_scope": "只对A（主推）轨道去重，B是备选不算已消费",
+    "dedup_logic": [
+      "1. 拼装全程所有城市A轨道",
+      "2. 扫描同菜系重复",
+      "3. 重复→优先城市保留，其他触发fallback",
+      "4. 检查B是否与同天A完全重合（同菜系+同体验角色），重合则换B"
+    ],
+    "priority_cuisine": {
+      "和牛_烤肉": {"priority_city": "kobe", "other_fallback": {"kyoto": "京鸭料理/精进料理", "osaka": "肉割烹/焼鳥割烹"}},
+      "寿司omakase": {"priority_city": "osaka", "other_fallback": {"kyoto": "京料理割烹"}}
+    },
+    "general_cuisine_caps": {
+      "_doc": "通用菜系不硬排他，设上限+第二次必须不同meal_role",
+      "拉面": {"max": 2, "second_must_be": "different_meal_role"},
+      "天妇罗": {"max": 2, "second_must_be": "different_meal_role"},
+      "居酒屋": {"max": 2, "second_must_be": "different_meal_role"},
+      "乌冬": {"max": 2, "second_must_be": "different_meal_role"},
+      "洋食": {"max": 2, "second_must_be": "different_meal_role"},
+      "烧鸟": {"max": 2, "second_must_be": "different_meal_role"}
+    },
+    "snacks_exempt": true
+  },
+
+  "experience_design": {
+    "_doc": "体验设计guideline，不是硬规则。防止景点堆砌，让旅行有记忆点",
+    "trip_mood_phases": "一段行程2-3个情绪阶段（按城市自然切换），不是每天换主题",
+    "human_presence": "每2-3天至少一个人味moment（市场/居酒屋街/表演/仪式），群体能量型全程最多1-2次",
+    "peak_scarcity": {"6-8d": "1大1小峰值", "9-13d": "2大1-2小峰值"},
+    "peak_needs_buildup": "峰值是序列不是单点，前面要有铺垫，后面要有余韵",
+    "ten_percent_matters": "70%核心景点保底，10%惊喜moment才是用户记住的部分"
+  },
+
+  "cuisine_pairing": {
+    "no_repeat_same_day": true,
+    "no_two_flour_foods_same_day": ["拉面", "乌冬", "大阪烧", "荞麦"],
+    "snacks_exempt": true,
+    "variety_required": "不能天天传统日料，要穿插西餐（洋食/法餐/意大利料理）/铁板烧等",
+    "no_chinese": "不推荐中华料理（用户从中国来，不需要在日本吃中餐。551蓬莱肉包是大阪名物例外）",
+    "cross_day": {
+      "prefer_different_cuisine": true,
+      "force_different": false,
+      "note": "A/B已覆盖不同菜系，用户自己判断。优质特色店即使与前一天撞菜系也可推荐"
+    }
+  },
+
+  "energy_linking": {
+    "late_night_previous": {
+      "threshold": "22:00",
+      "action": "next_day_first_slot_optional",
+      "note": "前一晚超过22点，第二天上午第一个slot可砍或延后"
+    },
+    "full_day_previous": {
+      "triggers": ["usj", "seasonal_major"],
+      "action": "next_day_morning_relaxed",
+      "note": "USJ/大型活动后第二天上午安排轻松"
+    }
+  },
+
+  "shop_linking": {
+    "no_repeat_area_across_days": true,
+    "no_repeat_type_across_days": true,
+    "note": "不推荐跟前一天同区域/同类型的店铺"
+  },
+
+  "weather_planb": {
+    "outdoor_slots": {
+      "d2_osaka_castle": {"indoor_alt": "大阪城天守阁内部延长，缩短公园散步"},
+      "d2_shinsekai_walk": {"indoor_alt": "通天阁内部+室内串炸店"},
+      "箕面红叶": {"indoor_alt": "改为大阪市内博物馆或温泉"},
+      "usj": {"note": "提前确认天气，雨天建议调换到其他天；园内室内项目约40%"}
+    },
+    "rain_bonus": ["温泉（御宿野乃/空庭温泉）", "博物馆（大阪国立美术馆）", "室内购物（大丸/Grand Front/难波Parks）", "咖啡厅"],
+    "seasonal_cancel": {
+      "note": "季节活动（花火/祭典）因天气取消时，回退到常规模板对应天"
+    }
+  },
+
+  "override_priority": {
+    "order": ["interest_tags", "audience_tags", "default"],
+    "note": "兴趣标签 > 人群标签 > 默认。勾了兴趣就用兴趣版本，不再按人群替换"
+  },
+
+  "grade_cut_order": ["B", "A", "S-", "S", "S+"],
+  "note_grade_cut": "时间不够时从B开始砍，S+永远不砍",
+
+  "daily_modules": {
+    "required": ["poi", "meal"],
+    "recommended": ["cafe_rest", "photo_spots"],
+    "optional": ["shop_info"],
+    "note": "每天必须有景点和餐厅，咖啡厅/拍照点/店铺是附加信息"
+  },
+
+  "free_time_to_shop_count": {
+    "high": {"min_hours": 3, "shop_recommend": 5},
+    "medium": {"min_hours": 1.5, "shop_recommend": 3},
+    "low": {"min_hours": 0.5, "shop_recommend": 2},
+    "none": {"min_hours": 0, "shop_recommend": 0}
+  },
+
+  "booking_difficulty_filter": {
+    "exclude": ["尽誠（一见谢绝）", "mikami limited50（会员制）", "京洛焼肉ぽめ（~1年）", "本湖月（2个月+电话抢）", "もめん（2个月+仅9席）"],
+    "warn_at_premium": {
+      "note": "预约难度★★★★的店仅在premium/luxury档推荐，标注'需提前X月预约'"
+    }
+  },
+
+  "area_constraint": {
+    "note": "餐厅/店铺必须在当天活动区域步行范围内，不让用户为吃一顿饭跨城区坐30分钟地铁"
+  }
+}

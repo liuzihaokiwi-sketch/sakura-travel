@@ -1,0 +1,14 @@
+{
+  "city": "shiga",
+  "count": 1,
+  "pois": [
+    {
+      "name_ja": "近江八幡遊船體驗",
+      "city_code": "shiga",
+      "area": "",
+      "type": "experience_boat",
+      "source": "search_tw",
+      "brief_note": ""
+    }
+  ]
+}

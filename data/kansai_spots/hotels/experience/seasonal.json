@@ -1,0 +1,39 @@
+{
+  "category": "seasonal",
+  "type": "experience",
+  "count": 4,
+  "hotels": [
+    {
+      "name_ja": "渡月亭",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "明治三十年; 岚山红叶; 京会席; JPY25900~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "もみぢ家別館 川の庵",
+      "city_code": "kyoto",
+      "area": "takao",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "高尾山; 专用吊桥; 红叶; 川床; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "ザ・プリンス 京都宝ヶ池",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "村野藤吾设计; 比叡山红叶; 全室36㎡+; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ザ グランド ウェスト 嵐山",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "ikyu",
+      "brief_note": "全10室53㎡+; 岚山红叶客室; 淡¥30k-60k/旺¥50k-120k"
+    }
+  ]
+}

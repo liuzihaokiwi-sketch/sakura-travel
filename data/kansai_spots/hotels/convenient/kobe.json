@@ -1,0 +1,335 @@
+{
+  "city": "kobe",
+  "type": "convenient",
+  "count": 41,
+  "hotels": [
+    {
+      "name_ja": "ホテル ラ・スイート神戸ハーバーランド",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "mybest #1 night view; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "ORIENTAL HOTEL",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "est.1870 Japan oldest; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "ホテルオークラ神戸",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "35F landmark; harbor view; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸メリケンパークオリエンタルホテル",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "all rooms with balcony; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸ポートピアホテル",
+      "city_code": "kobe",
+      "area": "bay_area",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "737 rooms; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸ベイシェラトン",
+      "city_code": "kobe",
+      "area": "bay_area",
+      "hotel_type": "luxury_hotel",
+      "source": "mybest",
+      "brief_note": "night view; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "remm plus Kobe Sannomiya",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Station direct; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "Daiwa Roynet Hotel Kobe Sannomiya",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ANA Crowne Plaza Kobe",
+      "city_code": "kobe",
+      "area": "kitano_shinkobe",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Shinkansen access; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "Dormy Inn Kobe Motomachi",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Onsen; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "カンデオホテルズ神戸",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "ikyu",
+      "brief_note": "business hotel ranking; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "レム神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "ikyu",
+      "brief_note": "Sleep design concept; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ザ ロイヤルパーク キャンバス 神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "business hotel ranking; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル神戸三宮プレミア",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "三宫站5min; 设备新; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "レムプラス神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "三宫站直达; 按摩椅; 睡眠特化; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ザロイヤルパークキャンバス神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "设计感; 年轻向; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "東方ホテル (Oriental Hotel Kobe)",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "旧居留地; 港景; 欧式; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸ハーバーランドラ・スイート",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog",
+      "brief_note": "全套房; 港湾夜景; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸大倉ホテル",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "高层港景; 日式早餐; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸メリケンパークオリエンタル",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "三面环海; 私人阳台; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸プラザホテルウエスト",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "元町; TWD1200起; 最低价; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "相鉄フレッサイン神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "dcard",
+      "brief_note": "连锁商务; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ヴィラフォンテーヌ神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "连锁商务; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "東横INN神戸三宮駅前",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.4新开; JR三宫150m; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "コンフォートホテル神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "免费早餐; 连锁; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ルミナスホテル",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "三宫; 低价; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "カンデオホテルズ神戸トアロード",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "天空SPA; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "ホテルクラウンパレス神戸",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "港区; 中型; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸三宮東急REIホテル",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "三宫站; 东急连锁; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ホテルモントレ神戸",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Monterey; 英国风; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "the b 神戸",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "三宫站1min; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "ホテルピエナ神戸",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "早餐日本第一; 甜品闻名; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "神戸北野ホテル",
+      "city_code": "kobe",
+      "area": "kitano_shinkobe",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "北野异人馆; 世界一の朝食; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "神戸須磨シーワールドホテル",
+      "city_code": "kobe",
+      "area": "bay_area",
+      "hotel_type": "resort_hotel",
+      "source": "2024_new",
+      "brief_note": "2024; 须磨; 水族馆旁; 淡¥20k-50k/旺¥40k-100k"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル神戸三宮プレミア (kuolife)",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "city_hotel",
+      "source": "kuolife",
+      "brief_note": "2022新开; 雪肌精备品; 淡¥18k-35k/旺¥35k-60k"
+    },
+    {
+      "name_ja": "元町東急REI",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "元町站; 东急连锁; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "Monte Hermana Amalie",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "三宫; 女性向; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "KOKO HOTEL 三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "三宫; KOKO连锁; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "神戸プラザホテル",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "元町站1min; 近年翻新; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "APA Hotel 神戸三宮駅前",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "2020新开; TWD1600; 淡¥5k-12k/旺¥12k-20k"
+    },
+    {
+      "name_ja": "グリーンリッチホテル神戸三宮",
+      "city_code": "kobe",
+      "area": "sannomiya",
+      "hotel_type": "business_hotel",
+      "source": "kuolife",
+      "brief_note": "2020新开; 人工温泉; TWD1800; 淡¥5k-12k/旺¥12k-20k"
+    }
+  ]
+}

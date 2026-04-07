@@ -1,0 +1,190 @@
+{
+  "file": "osaka_nakazaki_horie",
+  "count": 23,
+  "shops": [
+    {
+      "name_ja": "サクラビル",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "Nakazakicho landmark; 3F all budget vintage"
+    },
+    {
+      "name_ja": "古着屋olfe",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "instagram",
+      "brief_note": "Nakazaki; Europe center; 400items/month rotation"
+    },
+    {
+      "name_ja": "A vaut.",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "instagram",
+      "brief_note": "unlike-vintage selection; 13-19; Thu closed"
+    },
+    {
+      "name_ja": "BOW & ARROW",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "kurarin",
+      "brief_note": "since 1997; West Coast Vintage; Nakazaki icon"
+    },
+    {
+      "name_ja": "レトロ古着ランデヴー",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "kurarin",
+      "brief_note": "Showa retro; pattern shirts; 3000-5000yen"
+    },
+    {
+      "name_ja": "BEST VINTAGE Grand Front",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "antique",
+      "source": "multiple",
+      "brief_note": "antique watches specialist; 2000pieces; BEST ISHIDA"
+    },
+    {
+      "name_ja": "KAYA cafe",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "cottrip",
+      "brief_note": "90yr kominka cafe; tofu tiramisu; antique furniture"
+    },
+    {
+      "name_ja": "太陽ノ塔",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "multiple",
+      "brief_note": "Nakazakicho; cafe+patisserie+kids clothes+zakka"
+    },
+    {
+      "name_ja": "Attic Days",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "prettyonline",
+      "brief_note": "adult attic room concept; zakka+accessories+clothes"
+    },
+    {
+      "name_ja": "green pepe",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "cottrip",
+      "brief_note": "Showa retro 70-80s; vintage clothes+tableware; domestic"
+    },
+    {
+      "name_ja": "天五中崎通商店街",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "shopping_street",
+      "source": "gltjp",
+      "brief_note": "Oideyasu-dori; 400m; 110 shops; retro+trend"
+    },
+    {
+      "name_ja": "Pigsty 梅田店",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Nakazaki; spacious; regular~vintage; ladies corner"
+    },
+    {
+      "name_ja": "Pigsty a⇌zSTORE",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Nakazaki; whole bldg; 2F ladies Vivie; affordable"
+    },
+    {
+      "name_ja": "Salvage",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Toyosaki warehouse; mostly under 10000yen; accessories"
+    },
+    {
+      "name_ja": "PARAMEXICO",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Nakazaki; American vintage; faded aesthetic; denim"
+    },
+    {
+      "name_ja": "大阪古着屋 garden 中崎町",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "ladies main; vintage denim+military; green+bright"
+    },
+    {
+      "name_ja": "BARR vintage select store",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Nakazaki; euro vintage; Hermes/Burberry; quality"
+    },
+    {
+      "name_ja": "ciatre",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Nakazaki; coffee shop+vintage; lifestyle"
+    },
+    {
+      "name_ja": "にじゆら 大阪中崎町本店",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "craft",
+      "source": "cottrip",
+      "brief_note": "注染手ぬぐい専門; 堺市生まれ; 職人手作業; 限定柄"
+    },
+    {
+      "name_ja": "ことりの実",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "cottrip",
+      "brief_note": "Nakazaki; 作家アクセサリー; カラフル; 小さな店"
+    },
+    {
+      "name_ja": "ギニョール",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "zakka",
+      "source": "cottrip",
+      "brief_note": "Nakazaki; 天体+蝶+キノコ; フランスbrocante; 博物学雑貨"
+    },
+    {
+      "name_ja": "toi books",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "bookstore",
+      "source": "web_search",
+      "brief_note": "中崎町; 小さな独立書店; カルチャー発信"
+    },
+    {
+      "name_ja": "天満宮表参道",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "shop_type": "shopping_street",
+      "source": "web_search",
+      "brief_note": "大阪天満宮; 月イチ蚤の市あり"
+    }
+  ]
+}

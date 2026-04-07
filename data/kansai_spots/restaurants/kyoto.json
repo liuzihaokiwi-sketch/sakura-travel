@@ -1,0 +1,3831 @@
+{
+  "city": "kyoto",
+  "count": 425,
+  "restaurants": [
+    {
+      "name_ja": "山元麺蔵",
+      "city_code": "kyoto",
+      "area": "東山駅 729m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.9",
+      "brief_note": "★3.9 | 3sources"
+    },
+    {
+      "name_ja": "鍵善良房 四条本店",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 262m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78 | 3sources"
+    },
+    {
+      "name_ja": "麺屋 猪一",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71 | 3sources"
+    },
+    {
+      "name_ja": "蕎麦 ろうじな",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 482m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.65; michelin:bib_gourmand",
+      "brief_note": "★3.65 | bib_gourmand | 3sources"
+    },
+    {
+      "name_ja": "京極 かねよ",
+      "city_code": "kyoto",
+      "area": "四条河原町（大正时期木造建筑）",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand | 3sources"
+    },
+    {
+      "name_ja": "南禅寺 順正",
+      "city_code": "kyoto",
+      "area": "南禪寺",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "本家 第一旭",
+      "city_code": "kyoto",
+      "area": "京都車站",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "緒方",
+      "city_code": "kyoto",
+      "area": "四条（京都市営）駅 330m",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "tabelog:4.57; michelin:2star",
+      "brief_note": "★4.57 | 2star | 2sources"
+    },
+    {
+      "name_ja": "木山",
+      "city_code": "kyoto",
+      "area": "丸太町（京都市営）駅 323m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.44; michelin:1star",
+      "brief_note": "★4.44 | 1star | 2sources"
+    },
+    {
+      "name_ja": "東山 吉寿",
+      "city_code": "kyoto",
+      "area": "七条駅 633m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.36; michelin:1star",
+      "brief_note": "★4.36 | 1star | 2sources"
+    },
+    {
+      "name_ja": "祇園 さゝ木",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 577m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.34; michelin:3star",
+      "brief_note": "★4.34 | 3star | 2sources"
+    },
+    {
+      "name_ja": "草喰 なかひがし",
+      "city_code": "kyoto",
+      "area": "京都市左京区",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.29; michelin:2star",
+      "brief_note": "★4.29 | 2star | 2sources"
+    },
+    {
+      "name_ja": "未在",
+      "city_code": "kyoto",
+      "area": "東山駅 773m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.26; michelin:3star",
+      "brief_note": "★4.26 | 3star | 2sources"
+    },
+    {
+      "name_ja": "コリス",
+      "city_code": "kyoto",
+      "area": "清水五条駅 543m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.82; michelin:bib_gourmand",
+      "brief_note": "★3.82 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "大極殿本舗 六角店",
+      "city_code": "kyoto",
+      "area": "烏丸駅 472m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77 | 2sources"
+    },
+    {
+      "name_ja": "麦の夜明け",
+      "city_code": "kyoto",
+      "area": "京都市下京区",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.74; michelin:bib_gourmand",
+      "brief_note": "★3.74 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "らぁ麺 とうひち",
+      "city_code": "kyoto",
+      "area": "修学院駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.73; michelin:bib_gourmand",
+      "brief_note": "★3.73 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "十五",
+      "city_code": "kyoto",
+      "area": "京都市左京区",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.71; michelin:bib_gourmand",
+      "brief_note": "★3.71 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "手打ち蕎麦 かね井",
+      "city_code": "kyoto",
+      "area": "京都市北区",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.7; michelin:bib_gourmand",
+      "brief_note": "★3.7 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "いづう",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 277m",
+      "cuisine": "寿司",
+      "price_tier": "mid",
+      "source": "tabelog:3.68; michelin:bib_gourmand",
+      "brief_note": "★3.68 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "和食晴ル",
+      "city_code": "kyoto",
+      "area": "烏丸駅 250m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.68; michelin:bib_gourmand",
+      "brief_note": "★3.68 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "三本木商店",
+      "city_code": "kyoto",
+      "area": "神宮丸太町駅 199m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.67; michelin:bib_gourmand",
+      "brief_note": "★3.67 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "まつもと",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 84m",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.66; michelin:1star",
+      "brief_note": "★3.66 | 1star | 2sources"
+    },
+    {
+      "name_ja": "茶寮哲心",
+      "city_code": "kyoto",
+      "area": "丸太町（京都市営）駅 229m",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.66; michelin:bib_gourmand",
+      "brief_note": "★3.66 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "天若",
+      "city_code": "kyoto",
+      "area": "京都市上京区",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65; michelin:1star",
+      "brief_note": "★3.65 | 1star | 2sources"
+    },
+    {
+      "name_ja": "鮨 楽味",
+      "city_code": "kyoto",
+      "area": "三条京阪駅 338m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.64; michelin:1star",
+      "brief_note": "★3.64 | 1star | 2sources"
+    },
+    {
+      "name_ja": "むろまち 加地",
+      "city_code": "kyoto",
+      "area": "五条（京都市営）駅 419m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.64; michelin:bib_gourmand",
+      "brief_note": "★3.64 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "鮨割烹 なか一",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 432m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.61; michelin:1star",
+      "brief_note": "★3.61 | 1star | 2sources"
+    },
+    {
+      "name_ja": "すし善",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 344m",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.6; michelin:bib_gourmand",
+      "brief_note": "★3.6 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "グリル 小宝",
+      "city_code": "kyoto",
+      "area": "東山駅 864m",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58 | 2sources"
+    },
+    {
+      "name_ja": "祇をん 萬屋",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 206m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.57; michelin:bib_gourmand",
+      "brief_note": "★3.57 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "菊乃井 本店",
+      "city_code": "kyoto",
+      "area": "東山区 / Higashiyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star | 2sources"
+    },
+    {
+      "name_ja": "祇園 にしかわ",
+      "city_code": "kyoto",
+      "area": "東山区 祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star | 2sources"
+    },
+    {
+      "name_ja": "祇園 大渡",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star | 2sources"
+    },
+    {
+      "name_ja": "京星",
+      "city_code": "kyoto",
+      "area": "祇園四条 / Gion Shijo",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star | 2sources"
+    },
+    {
+      "name_ja": "湯豆腐 嵯峨野",
+      "city_code": "kyoto",
+      "area": "嵐山",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "先斗町 魯賓",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "京料理六盛",
+      "city_code": "kyoto",
+      "area": "岡崎/平安神宮",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "AWOMB 烏丸本店",
+      "city_code": "kyoto",
+      "area": "烏丸",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "麵屋極雞",
+      "city_code": "kyoto",
+      "area": "一乘寺",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "炸牛排京都勝牛 先斗町本店",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "貴船 右源太",
+      "city_code": "kyoto",
+      "area": "貴船",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "西陣 鳥岩楼",
+      "city_code": "kyoto",
+      "area": "西陣/金閣寺附近",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "三嶋亭",
+      "city_code": "kyoto",
+      "area": "四條",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "丸久小山園 茶房元庵",
+      "city_code": "kyoto",
+      "area": "烏丸",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "道人",
+      "city_code": "kyoto",
+      "area": "三条京阪駅 307m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.65",
+      "brief_note": "★4.65"
+    },
+    {
+      "name_ja": "飯田",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 386m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.59",
+      "brief_note": "★4.59"
+    },
+    {
+      "name_ja": "啐啄 つか本",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 283m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.55",
+      "brief_note": "★4.55"
+    },
+    {
+      "name_ja": "徳ㇵ本也",
+      "city_code": "kyoto",
+      "area": "鞍馬口駅 355m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.53",
+      "brief_note": "★4.53"
+    },
+    {
+      "name_ja": "富小路 やま岸",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 478m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.51",
+      "brief_note": "★4.51"
+    },
+    {
+      "name_ja": "竹屋町 三多",
+      "city_code": "kyoto",
+      "area": "神宮丸太町駅 511m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.49",
+      "brief_note": "★4.49"
+    },
+    {
+      "name_ja": "にくの匠 三芳",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 364m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.47",
+      "brief_note": "★4.47"
+    },
+    {
+      "name_ja": "きう",
+      "city_code": "kyoto",
+      "area": "烏丸駅 252m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.4",
+      "brief_note": "★4.4"
+    },
+    {
+      "name_ja": "京天神 野口",
+      "city_code": "kyoto",
+      "area": "北野白梅町駅 595m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.38",
+      "brief_note": "★4.38"
+    },
+    {
+      "name_ja": "料理 川口",
+      "city_code": "kyoto",
+      "area": "祇園四条",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.37",
+      "brief_note": "★4.37"
+    },
+    {
+      "name_ja": "旬席 鈴江",
+      "city_code": "kyoto",
+      "area": "東山駅 302m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.36",
+      "brief_note": "★4.36"
+    },
+    {
+      "name_ja": "NOMI RESTAURANT",
+      "city_code": "kyoto",
+      "area": "福知山市",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.33",
+      "brief_note": "★4.33"
+    },
+    {
+      "name_ja": "日本料理 研野",
+      "city_code": "kyoto",
+      "area": "神宮丸太町駅 597m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.32",
+      "brief_note": "★4.32"
+    },
+    {
+      "name_ja": "食堂 おがわ",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 170m",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.3",
+      "brief_note": "★4.3"
+    },
+    {
+      "name_ja": "深夜焼肉 だいちゃん",
+      "city_code": "kyoto",
+      "area": "京都市中京区",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:4.29",
+      "brief_note": "★4.29"
+    },
+    {
+      "name_ja": "くいしんぼー山中",
+      "city_code": "kyoto",
+      "area": "桂駅 887m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:4.27",
+      "brief_note": "★4.27"
+    },
+    {
+      "name_ja": "洋食 おがた",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 441m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:4.03",
+      "brief_note": "★4.03"
+    },
+    {
+      "name_ja": "ぎをん鮨尚充",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 297m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.97",
+      "brief_note": "★3.97"
+    },
+    {
+      "name_ja": "天ぷら 京星",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.87",
+      "brief_note": "★3.87"
+    },
+    {
+      "name_ja": "茶寮 宝泉",
+      "city_code": "kyoto",
+      "area": "松ケ崎駅 955m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.87",
+      "brief_note": "★3.87"
+    },
+    {
+      "name_ja": "ひつじ",
+      "city_code": "kyoto",
+      "area": "丸太町（京都市営）駅 522m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.84",
+      "brief_note": "★3.84"
+    },
+    {
+      "name_ja": "パティスリー タンドレス",
+      "city_code": "kyoto",
+      "area": "一乗寺駅 524m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.84",
+      "brief_note": "★3.84"
+    },
+    {
+      "name_ja": "鮨まつもと",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 229m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.83",
+      "brief_note": "★3.83"
+    },
+    {
+      "name_ja": "パティスリー エス サロン",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 517m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.82",
+      "brief_note": "★3.82"
+    },
+    {
+      "name_ja": "天ぷら 松",
+      "city_code": "kyoto",
+      "area": "松尾大社駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "ザ リビング パビリオン by アマン",
+      "city_code": "kyoto",
+      "area": "京都市北区",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "premium",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "グリルフレンチ",
+      "city_code": "kyoto",
+      "area": "二条城前駅 359m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "祇園 末友",
+      "city_code": "kyoto",
+      "area": "清水五条駅 523m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "グラン・ヴァニーユ",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 287m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "肉料理 荒川",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "焼肉やまちゃん",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "宝泉 JR新幹線京都駅店",
+      "city_code": "kyoto",
+      "area": "京都駅 49m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "洋食堂 すずき",
+      "city_code": "kyoto",
+      "area": "二条城前駅 99m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "鮨 こんどう",
+      "city_code": "kyoto",
+      "area": "鞍馬口駅 488m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "ちさき",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 417m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "ぎおん徳屋",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 296m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "御菓子司 中村軒",
+      "city_code": "kyoto",
+      "area": "桂駅 878m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "粟餅所・澤屋",
+      "city_code": "kyoto",
+      "area": "北野白梅町駅 375m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "本家 第一旭 本店",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "麺屋 極鶏 一乗寺本店",
+      "city_code": "kyoto",
+      "area": "一乗寺駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "空蝉亭",
+      "city_code": "kyoto",
+      "area": "二条城前駅 924m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "呑小路 やま岸",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 310m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "ファイブラン",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 258m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "吟醸らーめん 久保田",
+      "city_code": "kyoto",
+      "area": "五条（京都市営）駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "隆兵そば",
+      "city_code": "kyoto",
+      "area": "桂駅 876m",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "祇園ろはん",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 117m",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "オテルドゥオガワ",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 177m",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "祇園 鮨 忠保",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 241m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "セアブラノ神 壬生本店",
+      "city_code": "kyoto",
+      "area": "四条大宮駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "俺のラーメン あっぱれ屋",
+      "city_code": "kyoto",
+      "area": "城陽市",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "あぶり餅 本家 根元 かざりや",
+      "city_code": "kyoto",
+      "area": "京都市北区",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "喫茶葦島",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 261m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "茶房いせはん",
+      "city_code": "kyoto",
+      "area": "出町柳駅 287m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "洋食の店　みしな",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 990m",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "麺や高倉二条",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "麺屋 さん田",
+      "city_code": "kyoto",
+      "area": "西院（阪急）駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "本格手打うどん 大河",
+      "city_code": "kyoto",
+      "area": "藤森駅",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "おがわ",
+      "city_code": "kyoto",
+      "area": "北大路駅 999m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "フランソア喫茶室",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 156m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "一和 一文字屋 和輔",
+      "city_code": "kyoto",
+      "area": "京都市北区",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "LA VOITURE",
+      "city_code": "kyoto",
+      "area": "神宮丸太町駅 745m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "アルチザナル",
+      "city_code": "kyoto",
+      "area": "出町柳駅 457m",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "さえき",
+      "city_code": "kyoto",
+      "area": "丸太町（京都市営）駅 417m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "京都 鮨ノ蔵",
+      "city_code": "kyoto",
+      "area": "東山駅 483m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "無鉄砲 総本店",
+      "city_code": "kyoto",
+      "area": "木津川市",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "拳ラーメン",
+      "city_code": "kyoto",
+      "area": "梅小路京都西駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "晴耕雨読",
+      "city_code": "kyoto",
+      "area": "宇治（ＪＲ）駅",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "焼肉矢澤 京都",
+      "city_code": "kyoto",
+      "area": "四条（京都市営）駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "赤垣屋",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 406m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "スマート珈琲店",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 225m",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "中華そば 高安",
+      "city_code": "kyoto",
+      "area": "一乗寺駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "ミスター・ギョーザ",
+      "city_code": "kyoto",
+      "area": "西大路駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "山崎麺二郎",
+      "city_code": "kyoto",
+      "area": "円町駅",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "ラーメン二郎 京都店",
+      "city_code": "kyoto",
+      "area": "一乗寺駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "藤むら",
+      "city_code": "kyoto",
+      "area": "大宮駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "喫茶 マドラグ",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 401m",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "貝だし麺 きた田",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "あいつのラーメン かたぐるま 本店",
+      "city_code": "kyoto",
+      "area": "丹波口駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "麺屋 Somie's",
+      "city_code": "kyoto",
+      "area": "福知山駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "りきちゃん 祇園店",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "酒処 てらやま",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 284m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "鳥名子",
+      "city_code": "kyoto",
+      "area": "福知山駅 606m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "プチレストラン ないとう",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 384m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "山本まんぼ",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "末廣",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 406m",
+      "cuisine": "寿司",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "水暉 ザ・リッツ・カールトン京都",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 378m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "江畑",
+      "city_code": "kyoto",
+      "area": "京都市上京区",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "天ぷら 川辰",
+      "city_code": "kyoto",
+      "area": "桂川駅",
+      "cuisine": "天妇罗",
+      "price_tier": "premium",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "京うどん 生蕎麦 岡北",
+      "city_code": "kyoto",
+      "area": "東山駅 733m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "そば茶寮 澤正",
+      "city_code": "kyoto",
+      "area": "東福寺駅 717m",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "たかつじ 佳粋",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 462m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "ひいらぎ亭",
+      "city_code": "kyoto",
+      "area": "東山駅 338m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "洋食堂 のろ",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 470m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "ドミニク・ブシェ・キョート・ル・レストラン",
+      "city_code": "kyoto",
+      "area": "蹴上駅 261m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "ぼるた",
+      "city_code": "kyoto",
+      "area": "トロッコ嵯峨駅 169m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "祇園ねぎ焼 かな 東店",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "日出鮨",
+      "city_code": "kyoto",
+      "area": "松ケ崎駅 378m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "鮨 おび乃",
+      "city_code": "kyoto",
+      "area": "京都河原町駅 374m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "天婦羅処 京林泉",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "祇園 やま岸",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "京都宇治金時や",
+      "city_code": "kyoto",
+      "area": "清水五条駅 821m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "しゅばく",
+      "city_code": "kyoto",
+      "area": "宇治（京阪）駅 213m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "とんかつ山本",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 378m",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "NISHITOMIYA",
+      "city_code": "kyoto",
+      "area": "東山駅 231m",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "壺味",
+      "city_code": "kyoto",
+      "area": "大宮駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "東寿し",
+      "city_code": "kyoto",
+      "area": "七条駅 315m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "アジェ 松原本店",
+      "city_code": "kyoto",
+      "area": "清水五条駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "蕎麦屋 にこら",
+      "city_code": "kyoto",
+      "area": "京都市上京区",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "キッチンパパ",
+      "city_code": "kyoto",
+      "area": "京都市上京区",
+      "cuisine": "居酒屋",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "神馬",
+      "city_code": "kyoto",
+      "area": "京都市上京区",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "KANEGURA",
+      "city_code": "kyoto",
+      "area": "四条（京都市営）駅 502m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "よこちょう",
+      "city_code": "kyoto",
+      "area": "三条京阪駅 476m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "居酒屋 ニエフ",
+      "city_code": "kyoto",
+      "area": "四条大宮駅 343m",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "グリル＆コーヒー はせがわ",
+      "city_code": "kyoto",
+      "area": "北大路駅 303m",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "多来多来",
+      "city_code": "kyoto",
+      "area": "久世郡久御山町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "京都 和牛料理 一石三鳥",
+      "city_code": "kyoto",
+      "area": "梅小路京都西駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "沐",
+      "city_code": "kyoto",
+      "area": "清水五条駅 228m",
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "鮨 森学",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅 245m",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "へんこつ",
+      "city_code": "kyoto",
+      "area": "京都駅 270m",
+      "cuisine": "居酒屋",
+      "price_tier": "mid",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "先斗町焼肉 きらく",
+      "city_code": "kyoto",
+      "area": "三条駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "京の虎牛 近江牛焼肉と神戸ビーフ",
+      "city_code": "kyoto",
+      "area": "西院（阪急）駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "京・富小路 天ぷら吉川",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "リストランテ野呂",
+      "city_code": "kyoto",
+      "area": "二条駅 373m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "千登利亭",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 177m",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "京都祇園 天ぷら八坂圓堂",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "マルミヤ亭",
+      "city_code": "kyoto",
+      "area": "東福寺駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "手打ち蕎麦・鮨 いまふく",
+      "city_code": "kyoto",
+      "area": "藤森駅 402m",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "Severance",
+      "city_code": "kyoto",
+      "area": "三条京阪駅 9m",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "鴨川たかし",
+      "city_code": "kyoto",
+      "area": "神宮丸太町駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "京やきにく 弘 祗園山名庵",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "はつだ",
+      "city_code": "kyoto",
+      "area": "修学院駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "京洛焼肉やぶ",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "肉屋甲",
+      "city_code": "kyoto",
+      "area": "烏丸駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "蕎麦酒房 櫟",
+      "city_code": "kyoto",
+      "area": "北野白梅町駅",
+      "cuisine": "天妇罗",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "京都さしみ丸",
+      "city_code": "kyoto",
+      "area": "清水五条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "つくもうどん 塩小路本店",
+      "city_code": "kyoto",
+      "area": "京都駅 136m",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "京都祇園 おかる",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 218m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "手打ちそば 藤村",
+      "city_code": "kyoto",
+      "area": "椥辻駅 775m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "肉家かぐら",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "肉人",
+      "city_code": "kyoto",
+      "area": "五条（京都市営）駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "お好み焼吉野",
+      "city_code": "kyoto",
+      "area": "七条駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "錦 活鮨",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "あらた",
+      "city_code": "kyoto",
+      "area": "東寺駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "五",
+      "city_code": "kyoto",
+      "area": "京都市北区",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "おめん 銀閣寺本店",
+      "city_code": "kyoto",
+      "area": "京都市左京区",
+      "cuisine": "乌冬",
+      "price_tier": "premium",
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "辨慶うどん 西京極本店",
+      "city_code": "kyoto",
+      "area": "西京極駅 324m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "手打ちうどん やまびこ 本店",
+      "city_code": "kyoto",
+      "area": "寺田駅 276m",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "ぎをん 藤",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.55",
+      "brief_note": "★3.55"
+    },
+    {
+      "name_ja": "御幸町ささき",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅",
+      "cuisine": "天妇罗",
+      "price_tier": "premium",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "手打うどん けんどん屋",
+      "city_code": "kyoto",
+      "area": "伏見稲荷駅 98m",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "伊藤久右衛門 宇治本店",
+      "city_code": "kyoto",
+      "area": "宇治（京阪）駅 305m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "そば切り こごろ",
+      "city_code": "kyoto",
+      "area": "京都市西京区",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "点邑",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.53",
+      "brief_note": "★3.53"
+    },
+    {
+      "name_ja": "手打うどん春日井",
+      "city_code": "kyoto",
+      "area": "丹波口駅",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.53",
+      "brief_note": "★3.53"
+    },
+    {
+      "name_ja": "花雷",
+      "city_code": "kyoto",
+      "area": "長岡京駅 427m",
+      "cuisine": "乌冬",
+      "price_tier": "premium",
+      "source": "tabelog:3.53",
+      "brief_note": "★3.53"
+    },
+    {
+      "name_ja": "石臼挽き手打蕎麦 むら木",
+      "city_code": "kyoto",
+      "area": "西院（阪急）駅 421m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.53",
+      "brief_note": "★3.53"
+    },
+    {
+      "name_ja": "もうやん",
+      "city_code": "kyoto",
+      "area": "烏丸御池駅 167m",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.53",
+      "brief_note": "★3.53"
+    },
+    {
+      "name_ja": "酒場きのはち 四条烏丸",
+      "city_code": "kyoto",
+      "area": "四条（京都市営）駅",
+      "cuisine": "天妇罗",
+      "price_tier": "premium",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "讃式",
+      "city_code": "kyoto",
+      "area": "清水五条駅",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "おめんNIPPON 四条先斗町店",
+      "city_code": "kyoto",
+      "area": "祇園四条駅 109m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "京一本店",
+      "city_code": "kyoto",
+      "area": "四条大宮駅 89m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "冨美家",
+      "city_code": "kyoto",
+      "area": "烏丸駅 359m",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "奇天屋",
+      "city_code": "kyoto",
+      "area": "烏丸駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.51",
+      "brief_note": "★3.51"
+    },
+    {
+      "name_ja": "満寿形屋",
+      "city_code": "kyoto",
+      "area": "出町柳駅 347m",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "tabelog:3.5",
+      "brief_note": "★3.5"
+    },
+    {
+      "name_ja": "辨慶 東山店",
+      "city_code": "kyoto",
+      "area": "清水五条駅 140m",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.5",
+      "brief_note": "★3.5"
+    },
+    {
+      "name_ja": "大力邸",
+      "city_code": "kyoto",
+      "area": "蹴上駅 440m",
+      "cuisine": "乌冬",
+      "price_tier": "luxury",
+      "source": "tabelog:3.5",
+      "brief_note": "★3.5"
+    },
+    {
+      "name_ja": "壹銭洋食 本店",
+      "city_code": "kyoto",
+      "area": "祇園四条駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.49",
+      "brief_note": "★3.49"
+    },
+    {
+      "name_ja": "夢屋",
+      "city_code": "kyoto",
+      "area": "京都市役所前駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.47",
+      "brief_note": "★3.47"
+    },
+    {
+      "name_ja": "ジャンボ",
+      "city_code": "kyoto",
+      "area": "等持院・立命館大学衣笠キャンパス前駅",
+      "cuisine": "地方小吃",
+      "price_tier": "budget",
+      "source": "tabelog:3.45",
+      "brief_note": "★3.45"
+    },
+    {
+      "name_ja": "まんまるの月 錦店",
+      "city_code": "kyoto",
+      "area": "烏丸駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.44",
+      "brief_note": "★3.44"
+    },
+    {
+      "name_ja": "広島鉄板 叶夢",
+      "city_code": "kyoto",
+      "area": "五条（京都市営）駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.4",
+      "brief_note": "★3.4"
+    },
+    {
+      "name_ja": "どんぐり 京都駅前店",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.39",
+      "brief_note": "★3.39"
+    },
+    {
+      "name_ja": "嵐山のむら",
+      "city_code": "kyoto",
+      "area": "嵐山（京福）駅",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "tabelog:3.39",
+      "brief_note": "★3.39"
+    },
+    {
+      "name_ja": "モッさんのべた焼 大宮店",
+      "city_code": "kyoto",
+      "area": "大宮駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.39",
+      "brief_note": "★3.39"
+    },
+    {
+      "name_ja": "鉄板居酒屋 京とんちん亭 みやこみち店",
+      "city_code": "kyoto",
+      "area": "京都駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.37",
+      "brief_note": "★3.37"
+    },
+    {
+      "name_ja": "どんぐり 四条烏丸店",
+      "city_code": "kyoto",
+      "area": "四条（京都市営）駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.37",
+      "brief_note": "★3.37"
+    },
+    {
+      "name_ja": "オール鉄板 あつつ…",
+      "city_code": "kyoto",
+      "area": "清水五条駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.35",
+      "brief_note": "★3.35"
+    },
+    {
+      "name_ja": "Mr.Young Men",
+      "city_code": "kyoto",
+      "area": "京都河原町駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.34",
+      "brief_note": "★3.34"
+    },
+    {
+      "name_ja": "三好",
+      "city_code": "kyoto",
+      "area": "京都市西京区",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.34",
+      "brief_note": "★3.34"
+    },
+    {
+      "name_ja": "お好み焼き＆鉄板焼き 中々",
+      "city_code": "kyoto",
+      "area": "二条駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.33",
+      "brief_note": "★3.33"
+    },
+    {
+      "name_ja": "どんぐり 新堀川店",
+      "city_code": "kyoto",
+      "area": "伏見駅",
+      "cuisine": "地方小吃",
+      "price_tier": "mid",
+      "source": "tabelog:3.33",
+      "brief_note": "★3.33"
+    },
+    {
+      "name_ja": "瓢亭",
+      "city_code": "kyoto",
+      "area": "左京区南禅寺 / Nanzenji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star"
+    },
+    {
+      "name_ja": "一子相伝 なかむら",
+      "city_code": "kyoto",
+      "area": "中京区 / Nakagyo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star"
+    },
+    {
+      "name_ja": "有職料理 萬亀楼",
+      "city_code": "kyoto",
+      "area": "上京区 今出川 / Imadegawa",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "山荘 京大和",
+      "city_code": "kyoto",
+      "area": "東山区 高台寺 / Kodaiji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "おたぎ",
+      "city_code": "kyoto",
+      "area": "北区 高雄 / Takao",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "京懐石 吉泉",
+      "city_code": "kyoto",
+      "area": "左京区 / Sakyo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "美山荘",
+      "city_code": "kyoto",
+      "area": "左京区 美山 / Miyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "炭火割烹 いふき",
+      "city_code": "kyoto",
+      "area": "東山区 / Higashiyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "高台寺 和久傳",
+      "city_code": "kyoto",
+      "area": "東山区 高台寺 / Kodaiji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "建仁寺 祇園 丸山",
+      "city_code": "kyoto",
+      "area": "東山区 祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "菊乃井 露庵",
+      "city_code": "kyoto",
+      "area": "下京区 木屋町四条 / Kiyamachi Shijo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "高台寺 十牛庵",
+      "city_code": "kyoto",
+      "area": "東山区 高台寺 / Kodaiji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "高台寺 十牛庵",
+      "city_code": "kyoto",
+      "area": "东山（高台寺旁）",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園 丸山",
+      "city_code": "kyoto",
+      "area": "東山区 祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "祇園 又吉",
+      "city_code": "kyoto",
+      "area": "東山区 祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "凌霄",
+      "city_code": "kyoto",
+      "area": "東山区 / Higashiyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "祇園まんま",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "かじ正",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "のぐち継",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "杦 SEN",
+      "city_code": "kyoto",
+      "area": "五条 / Gojo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "研覃 ほりべ",
+      "city_code": "kyoto",
+      "area": "四条河原町 / Shijo Kawaramachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "おが和",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "要庵 西富家",
+      "city_code": "kyoto",
+      "area": "四条河原町 / Shijo Kawaramachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "綾小路 唐津",
+      "city_code": "kyoto",
+      "area": "四条河原町 / Shijo Kawaramachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "木乃婦",
+      "city_code": "kyoto",
+      "area": "四条河原町 / Shijo Kawaramachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ぎをん福志",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "じき宮ざわ",
+      "city_code": "kyoto",
+      "area": "四条高倉 / Shijo Takakura",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "HANA吉兆",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "佳肴 岡もと",
+      "city_code": "kyoto",
+      "area": "清水五条 / Kiyomizu Gojo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "八寸",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "味舌",
+      "city_code": "kyoto",
+      "area": "四条京橋 / Shijo Kyobashi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "和ごころ泉",
+      "city_code": "kyoto",
+      "area": "烏丸高辻 / Karasuma Takatsoji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ごだん宮ざわ",
+      "city_code": "kyoto",
+      "area": "五条 / Gojo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "祇園おかだ",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "祇園きだ",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "水の",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "料理屋まえかわ",
+      "city_code": "kyoto",
+      "area": "寺町二条 / Teramachi Nijo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "弧玖",
+      "city_code": "kyoto",
+      "area": "出町桝形 / Demachi Masugata",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "御幸町田がわ",
+      "city_code": "kyoto",
+      "area": "御幸町 / Miyukimachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "辻布紗",
+      "city_code": "kyoto",
+      "area": "烏丸丸太町 / Karasuma Marutamachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "中満",
+      "city_code": "kyoto",
+      "area": "烏丸丸太町 / Karasuma Marutamachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "実怜",
+      "city_code": "kyoto",
+      "area": "丸太町 / Marutamachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "室町 唯",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "徳ハ本也",
+      "city_code": "kyoto",
+      "area": "鞍馬口 / Kuraguchimachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "二条城ふる田",
+      "city_code": "kyoto",
+      "area": "二条城 / Nijo Castle",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "二條みなみ",
+      "city_code": "kyoto",
+      "area": "市役所前 / Shiyakushomae",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "御料理 光安",
+      "city_code": "kyoto",
+      "area": "千本丸太町 / Sengoku Marutamachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "岩さき",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "京料理 藤本",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "釜座 長島",
+      "city_code": "kyoto",
+      "area": "堀川御池 / Horikawa Oike",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "室町和久傳",
+      "city_code": "kyoto",
+      "area": "室町 / Muromachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "研野",
+      "city_code": "kyoto",
+      "area": "岡崎 / Okazaki",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "獨歩",
+      "city_code": "kyoto",
+      "area": "北大路 / Kitaoji",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "中善",
+      "city_code": "kyoto",
+      "area": "元田中 / Moto Tanaka",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "陶然亭",
+      "city_code": "kyoto",
+      "area": "北野白梅町 / Kitano Hakubaicho",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "魚津屋",
+      "city_code": "kyoto",
+      "area": "西院 / Saiin",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "おきな",
+      "city_code": "kyoto",
+      "area": "嵐山 / Arashiyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "圓融菴 小林",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "菊乃井 鮨 蒼",
+      "city_code": "kyoto",
+      "area": "祇園 / Gion",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ラ ビオグラフィ",
+      "city_code": "kyoto",
+      "area": "千本下立売 / Sengoku Shimotatsuri",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "モコ",
+      "city_code": "kyoto",
+      "area": "烏丸丸太町 / Karasuma Marutamachi",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "アンペイジ",
+      "city_code": "kyoto",
+      "area": "伏見区 / Fushimi",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ラ・ブッシュ",
+      "city_code": "kyoto",
+      "area": "大原 / Ohara",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ジャンジョルジュアットザシンモンゼン",
+      "city_code": "kyoto",
+      "area": "三条京橋 / Sanjo Kyobashi",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ムニ アラン ディカス",
+      "city_code": "kyoto",
+      "area": "嵐山 / Arashiyama",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "レーヌ デ プレ",
+      "city_code": "kyoto",
+      "area": "河原町丸太町 / Kawaramachi Marutamachi",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ドロワ",
+      "city_code": "kyoto",
+      "area": "御所東 / Gosho Higashi",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ひらまつ高台寺店",
+      "city_code": "kyoto",
+      "area": "高台寺 / Kodaiji",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "チェンチ",
+      "city_code": "kyoto",
+      "area": "平安神宮 / Heian Jingu",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "しろ",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ドーディチ",
+      "city_code": "kyoto",
+      "area": "市役所前 / Kyoto Shiyakushomae",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ビーニ",
+      "city_code": "kyoto",
+      "area": "西陣 / Nishijin",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ヴェーナ",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "TAKAYAMA",
+      "city_code": "kyoto",
+      "area": "四条河原町 / Shijo Kawaramachi",
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "鳥さき",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "烧鸟",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "KOKE",
+      "city_code": "kyoto",
+      "area": "烏丸御池 / Karasuma Oike",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "新門前米村",
+      "city_code": "kyoto",
+      "area": "三条京橋 / Sanjo Kyobashi",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "lapintaika",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "BOCCA del VINO",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "アスペルジュ ブランシュ",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ビストロ スリージェ",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ドゥ フィーユ",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ビストロ ヤナギハラ",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "一華",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "一献 うえ原",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "菊乃井 無碍山房",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "紫竹 葵湖",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "朝食 喜心",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "朝食喜心",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "其他",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "丹",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "りょうりや 御旅屋",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "かね正",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "いづ源",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "花梓侘",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "米処いなもと",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "えいたろう屋",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "酒と魚 DNA",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "串たなか",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "おいと",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "关东煮",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "麸屋町103",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "关东煮",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "炭焼創彩鳥家 人見",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "烧鸟",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "熟成豚 かわむら",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "炸猪排",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "五",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "権兵衛",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "そのば",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "竹邑庵 太郎敦盛",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "秋華",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "広東旬菜 一僖",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ヴィーガンラーメン ウズ",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "昆布と麺 喜一",
+      "city_code": "kyoto",
+      "area": "西陣 / Nishijin",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "中華そば 六",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "麺屋 練之助",
+      "city_code": "kyoto",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "天龍寺 篩月",
+      "city_code": "kyoto",
+      "area": "嵐山 / Arashiyama",
+      "cuisine": "精进料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "祢ざめ家（NEZAME-YA）",
+      "city_code": "kyoto",
+      "area": "伏见稻荷大社",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "モリタ屋 木屋町店",
+      "city_code": "kyoto",
+      "area": "木屋町（鸭川旁）",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都一の傳 本店",
+      "city_code": "kyoto",
+      "area": "中京区（仅午餐）",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "米料亭 八代目儀兵衛",
+      "city_code": "kyoto",
+      "area": "祇园（八坂神社对面）",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "IL GHIOTTONE 京都本店",
+      "city_code": "kyoto",
+      "area": "东山（八坂塔附近）",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "麵屋豚一（豚一）",
+      "city_code": "kyoto",
+      "area": "河原町",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "南禅寺順正",
+      "city_code": "kyoto",
+      "area": "南禅寺门前",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇をんう",
+      "city_code": "kyoto",
+      "area": "祇园花见小路",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ひさご（葫芦）",
+      "city_code": "kyoto",
+      "area": "清水寺附近",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京・黒桜",
+      "city_code": "kyoto",
+      "area": "河原町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "MOURIYA 祇園（モーリヤ祇園）",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都勝牛 祇園八坂店",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "茶寮都路里 祇園本店",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "三嶋亭 本店",
+      "city_code": "kyoto",
+      "area": "四条河原町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "INODA COFFEE 本店",
+      "city_code": "kyoto",
+      "area": "中京区（1940年开业）",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Smart Coffee（スマートコーヒー）",
+      "city_code": "kyoto",
+      "area": "河原町",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Okaffe kyoto（オカフェきょうと）",
+      "city_code": "kyoto",
+      "area": "河原町",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園 新橋 中谷",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "田ごと 本店",
+      "city_code": "kyoto",
+      "area": "四条河原町",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都晩餐 善哉",
+      "city_code": "kyoto",
+      "area": "中京区（丸太町站）",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京星（京ぼし）",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Shinpukusaikan（新福菜館）天神川店",
+      "city_code": "kyoto",
+      "area": "梅津",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園 白川拉麺",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "川村料理平",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "市川屋珈琲",
+      "city_code": "kyoto",
+      "area": "清水五条",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園 北川半兵衞",
+      "city_code": "kyoto",
+      "area": "祇园",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "岡北",
+      "city_code": "kyoto",
+      "area": "平安神宫附近",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "岡北",
+      "city_code": "kyoto",
+      "area": "岡崎",
+      "cuisine": "其他",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中村藤吉 京都駅店",
+      "city_code": "kyoto",
+      "area": "京都站伊势丹3F",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Koe Donuts Kyoto",
+      "city_code": "kyoto",
+      "area": "四条新京极商店街",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "清水順正 OKABE家",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "清水五条坂 YUBA泉",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園西川",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鰻魚餐廳 Warajiya（わらじや）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京極Kaneyo（京極かねよ）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "總本家 鯡魚蕎麥麵松葉",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "麵屋 猪一",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "肉専科Hafuu本店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伊藤久右衛門 宇治本店 茶房",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "本家尾張屋",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "清和荘",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "炭烧鳗富 大丸京都别邸",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "富小路 天妇罗松井",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Tagoto 本店（田ごと）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都祇園 川村料理平",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Yuba Higashiyama Yuuzu（湯葉料理 東山YUUZU）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中村藤吉 宇治本店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "茶寮都路里 祇園本店（祇園辻利）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園辻利 本店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "giwon 小森",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "eXcafe 嵐山",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "木村のすき焼き",
+      "city_code": "kyoto",
+      "area": "京都市內",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中村藤吉",
+      "city_code": "kyoto",
+      "area": "宇治/京都車站",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "辻利兵衛本店",
+      "city_code": "kyoto",
+      "area": "宇治",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "茶寮都路里",
+      "city_code": "kyoto",
+      "area": "祇園",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伊藤久右衛門",
+      "city_code": "kyoto",
+      "area": "宇治",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "MACCHA HOUSE",
+      "city_code": "kyoto",
+      "area": "河原町",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ゆば泉",
+      "city_code": "kyoto",
+      "area": "清水寺/五條坂",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "東山YUUZU",
+      "city_code": "kyoto",
+      "area": "祇園",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "寿司武蔵",
+      "city_code": "kyoto",
+      "area": "三條",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "うなぎ わらじや",
+      "city_code": "kyoto",
+      "area": "京都市內",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "総本家 にしんそば松葉",
+      "city_code": "kyoto",
+      "area": "祇園",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵐山よしむら",
+      "city_code": "kyoto",
+      "area": "嵐山",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "五行",
+      "city_code": "kyoto",
+      "area": "祇園",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鍵善良房",
+      "city_code": "kyoto",
+      "area": "祇園四條",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都焼肉enen",
+      "city_code": "kyoto",
+      "area": "祇園/河原町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "肉専科 はふう 本店",
+      "city_code": "kyoto",
+      "area": "京都市內",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都 祇園 あのん",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉祥菓寮 祇園本店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ぎをん小森",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ZEN CAFE（鍵善良房）",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "出町ふたば",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鶴屋吉信",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ニキニキ",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "一乗寺中谷",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和醸良麺 すがり",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "菊乃井",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉兆 嵐山本店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奥丹 南禅寺",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "豆腐料理",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鰻 ひろかわ",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "とうふ処 東山 東観荘",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "寿司 でんしち",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "タイガー餃子会館 河原町店",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京の発酵イタリアン CAMOS",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "ウィークエンダーズコーヒー",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "% Arabica 東山",
+      "city_code": "kyoto",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    }
+  ]
+}

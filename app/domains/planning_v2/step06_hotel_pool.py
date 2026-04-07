@@ -1,15 +1,18 @@
 """
 step06_hotel_pool.py — 酒店候选池构建与缩减
 
-从 entity_base 读取酒店数据，计算地理中心，并按距离+预算过滤。
+从 entity_base 读取酒店数据，按通勤时间+预算过滤。
 
-逻辑：
-  1. 计算 candidate_poi_pool 的地理中心（加权平均，权重=visit_minutes）
-  2. 从 entity_base WHERE entity_type='hotel' AND city_code IN circle_cities
-  3. 按 distance_from_center 排序，保留前 N 个（N=50）
-  4. 按 budget_level 过滤（用户预算↑ 可选更好的酒店）
-  5. 排除 do_not_go_places 中的酒店
-  6. 排除 risk_flags
+逻辑（两阶段筛选）：
+  1. 粗筛：Haversine 距离预筛 top 100（快速排除远距离酒店）
+  2. 精排：调用 route_matrix 获取真实通勤时间，按通勤成本排序
+  3. 目标函数：最小化 Σ(每日主走廊 → 酒店的通勤时间)
+  4. 按 budget_level 过滤
+  5. 排除 do_not_go_places / risk_flags
+  6. 保留 top N（默认50）
+
+注意：Haversine 仅做预筛，最终排序依据是门到门通勤时间。
+京都/大阪等城市中"地图近但通勤远"的情况很常见（河流/铁路/山地隔断）。
 """
 
 import logging
@@ -26,6 +29,9 @@ from app.domains.planning_v2.models import (
     UserConstraints,
     RegionSummary,
 )
+
+# Haversine 粗筛上限（取 top N 进入精排）
+_HAVERSINE_PREFILTER_LIMIT = 100
 
 logger = logging.getLogger(__name__)
 
@@ -109,9 +115,16 @@ async def build_hotel_pool(
     circle_cities: list[str],
     candidate_poi_pool: list[CandidatePool],
     max_candidates: int = 50,
+    daily_main_corridors: Optional[list[dict]] = None,
 ) -> list[CandidatePool]:
     """
-    从 entity_base 读取候选酒店，按距离和预算过滤。
+    从 entity_base 读取候选酒店，按通勤时间和预算过滤。
+
+    两阶段筛选：
+      1. Haversine 粗筛 top 100（排除地理上明显不合理的）
+      2. 如果提供 daily_main_corridors，调用 route_matrix 精排
+         按 Σ(每日通勤时间) 排序，取 top N
+      3. 如果未提供 daily_main_corridors，退化为 Haversine 排序
 
     Args:
         session: 数据库会话
@@ -120,6 +133,9 @@ async def build_hotel_pool(
         circle_cities: 圈内城市列表
         candidate_poi_pool: POI 候选池（用于计算地理中心）
         max_candidates: 最多保留的候选酒店数
+        daily_main_corridors: 每日主走廊的代表性POI坐标列表，
+            格式 [{"day": 1, "lat": 35.0, "lng": 135.6, "entity_id": "..."}]
+            用于计算真实通勤时间。不传则退化为 Haversine。
 
     Returns:
         list[CandidatePool]: 通过过滤的酒店候选池
@@ -222,12 +238,30 @@ async def build_hotel_pool(
 
         candidates_with_distance.append((entity, distance_km, hotel, tags))
 
-    # 6. 按距离排序，保留前 N 个
+    # 6. 两阶段排序
+    # Phase 1: Haversine 粗筛 top N（快速排除远距离）
     candidates_with_distance.sort(key=lambda x: x[1])
-    top_candidates = candidates_with_distance[:max_candidates]
+    haversine_top = candidates_with_distance[:_HAVERSINE_PREFILTER_LIMIT]
+    trace_log.append(
+        f"Phase 1 (Haversine prefilter): {len(candidates_with_distance)} -> "
+        f"{len(haversine_top)} candidates"
+    )
+
+    # Phase 2: 通勤时间精排（如果有走廊数据和 route_matrix）
+    if daily_main_corridors and haversine_top:
+        try:
+            haversine_top = await _rank_by_commute_time(
+                session, haversine_top, daily_main_corridors, trace_log,
+            )
+        except Exception as e:
+            logger.warning(
+                "[酒店池] route_matrix 精排失败，退化为 Haversine: %s", e,
+            )
+
+    top_candidates = haversine_top[:max_candidates]
 
     count_after_filter = len(top_candidates)
-    trace_log.append(f"Step 2-3 (filters + distance sort): {count_after_filter} 家酒店")
+    trace_log.append(f"Final selection: {count_after_filter} 家酒店")
 
     # 7. 转换为 CandidatePool
     candidate_pools = []
@@ -239,9 +273,9 @@ async def build_hotel_pool(
         visit_minutes = 0
 
         # 成本（参考价格）
-        cost_jpy = 0
+        cost_local = 0
         if hotel and hotel.typical_price_min_jpy:
-            cost_jpy = int(hotel.typical_price_min_jpy)
+            cost_local = int(hotel.typical_price_min_jpy)
 
         # 构建开放时间字典（酒店不适用，但保持字段兼容）
         open_hours = {
@@ -273,7 +307,8 @@ async def build_hotel_pool(
             longitude=float(entity.lng) if entity.lng else 0.0,
             tags=list(tags),
             visit_minutes=visit_minutes,
-            cost_jpy=cost_jpy,
+            cost_local=cost_local,
+            city_code=entity.city_code or "",
             open_hours=open_hours,
             review_signals=review_signals,
         )
@@ -287,3 +322,84 @@ async def build_hotel_pool(
         logger.debug(f"  {line}")
 
     return candidate_pools
+
+
+async def _rank_by_commute_time(
+    session: AsyncSession,
+    candidates: list[tuple],  # (entity, distance_km, hotel, tags)
+    daily_main_corridors: list[dict],
+    trace_log: list[str],
+) -> list[tuple]:
+    """
+    用 route_matrix 精排酒店候选，按实际通勤时间排序。
+
+    目标函数：Σ(每日权重 × 门到门通勤分钟数)
+    权重：所有天等权（未来可按行李日/check-in日加权）
+
+    为避免 Google Routes API 元素上限（transit 模式 100 elements），
+    采用串行查询：每个酒店候选 × 每日代表POI。
+
+    Args:
+        session: 数据库会话
+        candidates: Haversine 粗筛后的候选列表
+        daily_main_corridors: 每日主走廊代表性 POI 坐标
+        trace_log: 日志追踪
+
+    Returns:
+        按通勤时间重排后的候选列表
+    """
+    from app.domains.planning.route_matrix import get_travel_time
+
+    # 提取每日代表POI的 entity_id（需要是 DB 中的 UUID）
+    corridor_eids = []
+    for mc in daily_main_corridors:
+        eid = mc.get("entity_id")
+        if eid:
+            try:
+                corridor_eids.append(uuid.UUID(str(eid)))
+            except (ValueError, AttributeError):
+                pass
+
+    if not corridor_eids:
+        trace_log.append("Phase 2: 无有效走廊 entity_id，跳过通勤精排")
+        return candidates
+
+    scored: list[tuple[float, tuple]] = []
+
+    for cand_tuple in candidates:
+        entity, distance_km, hotel, tags = cand_tuple
+        hotel_eid = entity.entity_id
+        total_commute_mins = 0.0
+        valid_queries = 0
+
+        for corridor_eid in corridor_eids:
+            try:
+                result = await get_travel_time(
+                    session=session,
+                    origin_id=hotel_eid,
+                    dest_id=corridor_eid,
+                    mode="transit",
+                )
+                if result and result.get("duration_minutes"):
+                    total_commute_mins += result["duration_minutes"]
+                    valid_queries += 1
+                else:
+                    # route_matrix 无数据，用 Haversine 估算（15km/h 步行+公交）
+                    total_commute_mins += distance_km * 4  # 粗略估算
+                    valid_queries += 1
+            except Exception:
+                # 查询失败，降级到距离估算
+                total_commute_mins += distance_km * 4
+                valid_queries += 1
+
+        avg_commute = total_commute_mins / max(valid_queries, 1)
+        scored.append((avg_commute, cand_tuple))
+
+    scored.sort(key=lambda x: x[0])
+
+    trace_log.append(
+        f"Phase 2 (commute rank): top3 avg_commute = "
+        f"{', '.join(f'{s[0]:.0f}min' for s in scored[:3])}"
+    )
+
+    return [cand_tuple for _, cand_tuple in scored]

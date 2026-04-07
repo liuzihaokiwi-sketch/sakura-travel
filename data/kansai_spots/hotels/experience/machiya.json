@@ -1,0 +1,79 @@
+{
+  "category": "machiya",
+  "type": "experience",
+  "count": 9,
+  "hotels": [
+    {
+      "name_ja": "NIPPONIA HOTEL Nara Naramachi",
+      "city_code": "nara",
+      "area": "naramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Machiya renovation; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "カンデオホテルズ京都烏丸六角",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "百年町屋入口; 天空桑拿; TWD4800-7500; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "町家レジデンスイン京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "machiya",
+      "source": "machiya",
+      "brief_note": "64栋; 完全私人; 文化体验; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    },
+    {
+      "name_ja": "季楽 京都 (Nazuna)",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "machiya",
+      "source": "machiya",
+      "brief_note": "米其林4年连续; 抹茶点前; 露天风吕; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    },
+    {
+      "name_ja": "葵 KYOTO STAY",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "machiya",
+      "source": "machiya",
+      "brief_note": "7栋; 骨董品; 鸭川川床テラス; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    },
+    {
+      "name_ja": "藏や (Kuraya)",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "machiya",
+      "source": "machiya",
+      "brief_note": "筑100年; 一栋贷一日一组; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    },
+    {
+      "name_ja": "祇園新橋 梅庵",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "machiya",
+      "source": "machiya",
+      "brief_note": "1日2组; 坪庭+半露天风吕; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    },
+    {
+      "name_ja": "Hotel Kanra Kyoto",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "boutique_hotel",
+      "source": "letsgojp",
+      "brief_note": "设计酒店; 京町家风; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Nazuna京都東本願寺",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "machiya",
+      "source": "2024_new",
+      "brief_note": "2024.11; 筑100年町家再生; 全7室; 淡¥12k-35k/旺¥30k-64k+(1棟)"
+    }
+  ]
+}

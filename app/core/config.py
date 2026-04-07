@@ -57,6 +57,7 @@ class Settings(BaseSettings):
 
     serpapi_key: str = ""
     anthropic_api_key: str = ""
+    anthropic_base_url: str = ""  # 中转站地址，空字符串=使用官方 api.anthropic.com
     deepl_api_key: str = ""
     admin_password: str = "admin123"
 

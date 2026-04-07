@@ -1,0 +1,30 @@
+{
+  "file": "kyoto_other",
+  "count": 3,
+  "shops": [
+    {
+      "name_ja": "北白川ちせ",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "zakka",
+      "source": "kepco",
+      "brief_note": "ceramics+accessories+jam; cozy lifestyle"
+    },
+    {
+      "name_ja": "京都伝統産業ミュージアム",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "craft",
+      "source": "asoview",
+      "brief_note": "exhibition+experience+shop; artisan demos weekends"
+    },
+    {
+      "name_ja": "恵文社 一乗寺店",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "bookstore",
+      "source": "multiple",
+      "brief_note": "50th year; pioneer indie bookstore; new+old+indie"
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "city": "hyogo",
+  "count": 39,
+  "restaurants": [
+    {
+      "name_ja": "串かつ あーぼん",
+      "city_code": "hyogo",
+      "area": "宝塚",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:4.39",
+      "brief_note": "★4.39"
+    },
+    {
+      "name_ja": "焼鳥 谷口",
+      "city_code": "hyogo",
+      "area": "尼崎",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.37",
+      "brief_note": "★4.37"
+    },
+    {
+      "name_ja": "永来権",
+      "city_code": "hyogo",
+      "area": "芦屋",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.28",
+      "brief_note": "★4.28"
+    },
+    {
+      "name_ja": "丸安",
+      "city_code": "hyogo",
+      "area": "西宮",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.2",
+      "brief_note": "★4.2"
+    },
+    {
+      "name_ja": "淡流",
+      "city_code": "hyogo",
+      "area": "姫路",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.19",
+      "brief_note": "★4.19"
+    },
+    {
+      "name_ja": "壱",
+      "city_code": "hyogo",
+      "area": "芦屋",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.12",
+      "brief_note": "★4.12"
+    },
+    {
+      "name_ja": "天ぷら 桜人",
+      "city_code": "hyogo",
+      "area": "芦屋",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:4.08",
+      "brief_note": "★4.08"
+    },
+    {
+      "name_ja": "ろあん松田 篠山店",
+      "city_code": "hyogo",
+      "area": "丹波篠山",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.98",
+      "brief_note": "★3.98"
+    },
+    {
+      "name_ja": "肉料理 二月九日",
+      "city_code": "hyogo",
+      "area": "加東市",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.92",
+      "brief_note": "★3.92"
+    },
+    {
+      "name_ja": "淡路島 亙",
+      "city_code": "hyogo",
+      "area": "淡路市",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.89",
+      "brief_note": "★3.89"
+    },
+    {
+      "name_ja": "鮨 まつ本",
+      "city_code": "hyogo",
+      "area": "苦楽園口",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.86",
+      "brief_note": "★3.86"
+    },
+    {
+      "name_ja": "本格手打 いわしや 西宮店",
+      "city_code": "hyogo",
+      "area": "西宮",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "tabelog:3.8",
+      "brief_note": "★3.8"
+    },
+    {
+      "name_ja": "菊水鮓 西店",
+      "city_code": "hyogo",
+      "area": "西明石",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "肉料理　樹",
+      "city_code": "hyogo",
+      "area": "西播磨",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "鮨 稲荷 たけ屋",
+      "city_code": "hyogo",
+      "area": "鳴尾・武庫川女子大前",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "本格さぬきうどん 穂乃香",
+      "city_code": "hyogo",
+      "area": "尼崎",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "甲陽園 すし佳",
+      "city_code": "hyogo",
+      "area": "甲陽園",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "らーめん専門 和海",
+      "city_code": "hyogo",
+      "area": "武庫川・尼崎",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "喜一",
+      "city_code": "hyogo",
+      "area": "芦屋",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "ぶたのほし",
+      "city_code": "hyogo",
+      "area": "尼崎（JR）",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "韓国料理 釜山",
+      "city_code": "hyogo",
+      "area": "立花（尼崎）",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "らーめん専門 和心 武庫之荘店",
+      "city_code": "hyogo",
+      "area": "武庫之荘",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "讃歌うどん はんげしょう",
+      "city_code": "hyogo",
+      "area": "西宮",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "うどん工房悠々",
+      "city_code": "hyogo",
+      "area": "塚口",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "がふうあん",
+      "city_code": "hyogo",
+      "area": "伊丹（阪急）",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "がいな製麺所",
+      "city_code": "hyogo",
+      "area": "加西",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "希凛 淡路店",
+      "city_code": "hyogo",
+      "area": "淡路市",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "中華そば麦右衛門",
+      "city_code": "hyogo",
+      "area": "龍野",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "ameen's oven",
+      "city_code": "hyogo",
+      "area": "夙川（西宮）",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "アングル",
+      "city_code": "hyogo",
+      "area": "塚口（宝塚エリア）",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "食堂 きふね",
+      "city_code": "hyogo",
+      "area": "芦屋（阪神）",
+      "cuisine": "其他",
+      "price_tier": "premium",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "土山人 芦屋店",
+      "city_code": "hyogo",
+      "area": "芦屋",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "そばんち",
+      "city_code": "hyogo",
+      "area": "丹波市",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "とんかつ ぶたしょう",
+      "city_code": "hyogo",
+      "area": "夙川（西宮）",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "魚楽唐唐",
+      "city_code": "hyogo",
+      "area": "武庫ノ素（尼崎）",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "讃岐うどん はるしん",
+      "city_code": "hyogo",
+      "area": "尼崎（JR）",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "千舟屋",
+      "city_code": "hyogo",
+      "area": "伊丹",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "そばやし",
+      "city_code": "hyogo",
+      "area": "西宮北口",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "鯛めしと炭焼き たつあん",
+      "city_code": "hyogo",
+      "area": "西宮北口",
+      "cuisine": "天妇罗",
+      "price_tier": "premium",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    }
+  ]
+}

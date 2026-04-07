@@ -1,0 +1,622 @@
+{
+  "city": "osaka",
+  "count": 77,
+  "pois": [
+    {
+      "name_ja": "大阪城",
+      "city_code": "osaka",
+      "area": "",
+      "type": "历史古迹",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw, seasonal_ss",
+      "brief_note": "5sources"
+    },
+    {
+      "name_ja": "ユニバーサル・スタジオ・ジャパン",
+      "city_code": "osaka",
+      "area": "",
+      "type": "amusement_park",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "万博記念公園",
+      "city_code": "osaka",
+      "area": "",
+      "type": "park",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "四天王寺",
+      "city_code": "osaka",
+      "area": "",
+      "type": "寺庙",
+      "source": "search_cn, search_jaen",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "大阪海遊館",
+      "city_code": "osaka",
+      "area": "",
+      "type": "aquarium",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "新世界本通商店街",
+      "city_code": "osaka",
+      "area": "",
+      "type": "购物街区",
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "通天閣",
+      "city_code": "osaka",
+      "area": "",
+      "type": "viewpoint",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "道頓堀",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shopping_dining_district",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "GRAND GREEN 大阪",
+      "city_code": "osaka",
+      "area": "",
+      "type": "综合商业区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "OSAKA光のルネサンス（中之島）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "あべのハルカス",
+      "city_code": "osaka",
+      "area": "",
+      "type": "viewpoint",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "なにわ淀川花火大会",
+      "city_code": "osaka",
+      "area": "",
+      "type": "fireworks",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "なんば光旅（ひかりたび）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "クリスマスマーケット in 天王寺てんしば",
+      "city_code": "osaka",
+      "area": "",
+      "type": "christmas_market",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "グランフロント大阪 うめきたイルミネーション",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "万博纪念公园",
+      "city_code": "osaka",
+      "area": "",
+      "type": "公园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中之島公園 桜",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "住吉大社",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shrine",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "住吉祭（住吉大社）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "勝尾寺",
+      "city_code": "osaka",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "千日前道具屋筋商店街",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shopping_street",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "国立国際美術館",
+      "city_code": "osaka",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪兒童廣場（Kids Plaza Osaka）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "children_museum",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪国立美术馆",
+      "city_code": "osaka",
+      "area": "",
+      "type": "美术馆",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪城イルミナージュ",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "大阪城公园",
+      "city_code": "osaka",
+      "area": "",
+      "type": "公园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪市立自然史博物館",
+      "city_code": "osaka",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪樂高樂園探索中心",
+      "city_code": "osaka",
+      "area": "",
+      "type": "indoor_attraction",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪海游馆",
+      "city_code": "osaka",
+      "area": "",
+      "type": "水族馆",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪造幣局",
+      "city_code": "osaka",
+      "area": "",
+      "type": "park_cherry_blossom",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天保山大摩天輪",
+      "city_code": "osaka",
+      "area": "",
+      "type": "ferris_wheel",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天保山大観覧車",
+      "city_code": "osaka",
+      "area": "",
+      "type": "amusement",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天王寺动物园",
+      "city_code": "osaka",
+      "area": "",
+      "type": "动物园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天王寺動物園",
+      "city_code": "osaka",
+      "area": "",
+      "type": "zoo",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天神橋筋商店街",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shopping_street",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天神祭 奉納花火・船渡御",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "御堂筋イルミネーション",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "心斋桥",
+      "city_code": "osaka",
+      "area": "",
+      "type": "购物街区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "心齋橋商店街",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shopping_street",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "愛染祭（四天王寺）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "新世界",
+      "city_code": "osaka",
+      "area": "",
+      "type": "neighborhood",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "日本环球影城（USJ）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "主题乐园",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "木津市場",
+      "city_code": "osaka",
+      "area": "",
+      "type": "market",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "枚方公園",
+      "city_code": "osaka",
+      "area": "",
+      "type": "amusement_park",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "梅田スカイビル",
+      "city_code": "osaka",
+      "area": "",
+      "type": "viewpoint",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "梅田空中庭園展望台",
+      "city_code": "osaka",
+      "area": "",
+      "type": "observation_deck",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "梅田蓝天大厦",
+      "city_code": "osaka",
+      "area": "",
+      "type": "地标观景台",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "毛馬桜之宮公園 桜",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "百舌鳥古墳群",
+      "city_code": "osaka",
+      "area": "",
+      "type": "historic_site",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "空庭溫泉",
+      "city_code": "osaka",
+      "area": "",
+      "type": "onsen_theme_park",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "箕面公園",
+      "city_code": "osaka",
+      "area": "",
+      "type": "park",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "箕面公園・箕面大滝",
+      "city_code": "osaka",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "箕面大滝（夏の避暑）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "nature",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "美国村（America Mura）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "街区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "聖瑪麗亞號觀光船",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cruise",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "造幣局 桜の通り抜け",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "道頓堀 夏の灯篭祭り",
+      "city_code": "osaka",
+      "area": "",
+      "type": "event",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "阿倍野HARUKAS 300展望台",
+      "city_code": "osaka",
+      "area": "",
+      "type": "observation_deck",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "阿倍野Harukas300观览台",
+      "city_code": "osaka",
+      "area": "",
+      "type": "地标观景台",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "難波八阪神社",
+      "city_code": "osaka",
+      "area": "",
+      "type": "shrine",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "黑門市場",
+      "city_code": "osaka",
+      "area": "",
+      "type": "market",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "黒門市場",
+      "city_code": "osaka",
+      "area": "",
+      "type": "market",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Craftroom",
+      "city_code": "osaka",
+      "area": "梅田・北区",
+      "type": "bar",
+      "source": "timeout.com / wenthetravelbegins.com",
+      "brief_note": "2024年にAsia's 50 Best Bars入り（大阪初）。6席のみの超小型バー。ウイスキー&カクテルの名手Ryu Fujiiが率いるカウンターで、季節素材のオリジナルカクテルを提供。"
+    },
+    {
+      "name_ja": "Bible Club Osaka",
+      "city_code": "osaka",
+      "area": "心斎橋",
+      "type": "bar",
+      "source": "timeout.com / ilseonthego.com",
+      "brief_note": "米国Portland発のスピークイージーの大阪版。禁酒法時代の木製内装と古新聞・バカラグラスが空気を醸す。ネグローニ・フリップなど日本の蒸留酒を使ったリクリエーションが秀逸。"
+    },
+    {
+      "name_ja": "Bar Nayuta",
+      "city_code": "osaka",
+      "area": "アメリカ村・心斎橋",
+      "type": "bar",
+      "source": "timeout.com / magical-trip.com",
+      "brief_note": "「夜の調剤薬局」をテーマにした5階の隠れ家。メニューなしで好みを伝えると世界各地のハーブを使ったオリジナルカクテルを即興製作。ライブDJも入る個性的な空間。"
+    },
+    {
+      "name_ja": "BAR JUNIPER",
+      "city_code": "osaka",
+      "area": "北新地",
+      "type": "bar",
+      "source": "haraheri.net",
+      "brief_note": "自動販売機を抜けて入るジン専門バー。銅管の装飾とモダン照明。メニューなしで好みを伝えるとクラフトジャパニーズジンを使ったカスタムカクテルを作成。約200種のジンを揃える。"
+    },
+    {
+      "name_ja": "Osaka Cocktail Library Akashic Records",
+      "city_code": "osaka",
+      "area": "難波・心斎橋",
+      "type": "bar",
+      "source": "ilseonthego.com / haraheri.net",
+      "brief_note": "「カクテルラボ」を意識したモダンな内装。グループ向けスペースが広く豊富なメニュー。バーテンダーのフレア技やファイアーパフォーマンスが見どころ。"
+    },
+    {
+      "name_ja": "パフェテリア パル 心斎橋",
+      "city_code": "osaka",
+      "area": "心斎橋",
+      "type": "night_parfait",
+      "source": "tabelog.com / risotteria-gaku.net",
+      "brief_note": "大阪の「夜パフェブーム」を牽引した元祖専門店。ジェラートからソルベまですべて手作り。季節のフルーツ使用、心斎橋駅すぐ。予算2,000〜3,000円。"
+    },
+    {
+      "name_ja": "フロランタン",
+      "city_code": "osaka",
+      "area": "北新地・梅田",
+      "type": "night_parfait",
+      "source": "pretty-online.jp",
+      "brief_note": "関西初の〆パフェ専門店として登場。チョコレートとパフェ、お酒が同時に楽しめるコンセプト。予約可能で贅沢な夜のデートに最適。北新地ビルディング4F、西梅田駅徒歩4分。"
+    },
+    {
+      "name_ja": "SWEETSBAR 鍵〜KEY〜",
+      "city_code": "osaka",
+      "area": "長堀橋",
+      "type": "night_parfait",
+      "source": "pretty-online.jp",
+      "brief_note": "パティシエとバーテンダーが在籍する本格スイーツバー。旬フルーツを使ったパフェとカクテルのペアリングが楽しめる。平日17時〜翌2時、土日祝15時〜翌2時。長堀橋駅徒歩3分。"
+    },
+    {
+      "name_ja": "法善寺横丁",
+      "city_code": "osaka",
+      "area": "難波・ミナミ",
+      "type": "yokocho",
+      "source": "osaka-info.jp (大阪観光局公式) / otent-nankai.jp",
+      "brief_note": "石畳の路地80m×2本に老舗割烹・バー・串カツが並ぶ大人向け横丁。苔に覆われた水掛不動尊が見どころ。織田作之助の小説「夫婦善哉」の舞台で大阪情緒の真髄。"
+    },
+    {
+      "name_ja": "ジャンジャン横丁",
+      "city_code": "osaka",
+      "area": "新世界・浪速区",
+      "type": "yokocho",
+      "source": "osaka-info.jp (大阪観光局公式) / skyticket.jp",
+      "brief_note": "通天閣を背に180mの昭和アーケード。串カツ・焼肉・立ち飲みがひしめく大阪最もディープな横丁。囲碁・将棋クラブも現役で庶民文化がそのまま残る。"
+    },
+    {
+      "name_ja": "裏なんば 虎目横丁",
+      "city_code": "osaka",
+      "area": "裏なんば・難波",
+      "type": "yokocho",
+      "source": "ameblo.jp / haveagood.holiday",
+      "brief_note": "鳥居をくぐって入る屋台村スタイル。海鮮・串カツ・韓国料理・イタリアンなど9店が集結。横丁内の店なら出前も可能、おみくじで大吉が出ると割引サービスあり。"
+    },
+    {
+      "name_ja": "大阪焼きとんセンター",
+      "city_code": "osaka",
+      "area": "裏なんば・難波",
+      "type": "yokocho",
+      "source": "favy.jp / kinarino.jp",
+      "brief_note": "裏なんばブームの火付け役。鹿児島産茶美豚のホルモンを備長炭で焼く「焼とん」専門の立ち飲み。豊富な日本酒と合わせて大阪らしい庶民的な深夜を楽しめる。"
+    },
+    {
+      "name_ja": "スペイン横丁（Merca Paseo）",
+      "city_code": "osaka",
+      "area": "福島区",
+      "type": "yokocho",
+      "source": "skyticket.jp",
+      "brief_note": "スペインの「バル」文化と大阪の居酒屋文化が融合した福島の横丁。57店舗がパエリア・タパス・生ハムとスペインワインを提供。他の横丁と全く違う異国情緒。"
+    },
+    {
+      "name_ja": "梅田スカイビル 空中庭園展望台",
+      "city_code": "osaka",
+      "area": "梅田・北区",
+      "type": "night_view",
+      "source": "yakei-photo.jp / jalan.net",
+      "brief_note": "地上173mの屋外展望台。夜風を感じながら大阪湾まで広がる360度のパノラマ夜景が楽しめる唯一の屋外展望台。デートスポットとして長年大阪No.1の評価を誇る。"
+    },
+    {
+      "name_ja": "あべのハルカス 300（展望台）",
+      "city_code": "osaka",
+      "area": "阿倍野・天王寺",
+      "type": "night_view",
+      "source": "yakei-photo.jp / jalan.net",
+      "brief_note": "日本最高峰の展望台（地上300m）。58〜60階からの360度パノラマで天気が良ければ明石海峡大橋まで見渡せる。58階の天空庭園では屋外体験も可能。"
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "category": "design_luxury",
+  "type": "experience",
+  "count": 24,
+  "hotels": [
+    {
+      "name_ja": "Hotel The Mitsui Kyoto",
+      "city_code": "kyoto",
+      "area": "nijo_central",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "3 Keys (2025); Forbes 4-star spa; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Aman Kyoto",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "2 Keys (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "The Shinmonzen",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "michelin",
+      "brief_note": "2 Keys (2025); Tadao Ando design; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Ace Hotel Kyoto",
+      "city_code": "kyoto",
+      "area": "nijo_central",
+      "hotel_type": "boutique_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); Kengo Kuma design; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Banyan Tree Higashiyama Kyoto",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025 new); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Dusit Thani Kyoto",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Four Seasons Hotel Kyoto",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Hotel Seiryu Kyoto Kiyomizu",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); former elementary school; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Hotel The Celestine Kyoto Gion",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "city_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025 2nd consecutive); 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "MUNI KYOTO by Onko Chishin",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Park Hyatt Kyoto",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "ROKU KYOTO LXR Hotels & Resorts",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Six Senses Kyoto",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "Garrya Nijo Castle Kyoto",
+      "city_code": "kyoto",
+      "area": "nijo_central",
+      "hotel_type": "boutique_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Conrad Osaka",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); all rooms 50sqm+"
+    },
+    {
+      "name_ja": "InterContinental Osaka",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025)"
+    },
+    {
+      "name_ja": "The Ritz-Carlton Osaka",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); Forbes 5-star"
+    },
+    {
+      "name_ja": "W Osaka",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); Japan first W"
+    },
+    {
+      "name_ja": "Patina Osaka",
+      "city_code": "osaka",
+      "area": "osaka_castle_area",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025 new); Osaka Castle"
+    },
+    {
+      "name_ja": "Four Seasons Hotel Osaka",
+      "city_code": "osaka",
+      "area": "osaka_castle_area",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025 new)"
+    },
+    {
+      "name_ja": "JW Marriott Hotel Nara",
+      "city_code": "nara",
+      "area": "kintetsu_nara_station",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); only 5-star Nara; 淡¥25k-60k/旺¥60k-150k"
+    },
+    {
+      "name_ja": "アルモニーアンブラッセ大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "boutique_hotel",
+      "source": "ikyu",
+      "brief_note": "安藤忠雄设计; 全室阳台; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "丸福楼",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "multiple",
+      "brief_note": "任天堂旧总部; 安藤忠雄设计; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ホテルロイヤルクラシック大阪",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波站直结; 隈研吾设计"
+    }
+  ]
+}

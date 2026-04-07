@@ -1,0 +1,102 @@
+{
+  "file": "kobe",
+  "count": 12,
+  "shops": [
+    {
+      "name_ja": "Lloyds Antiques 神戸",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "antique",
+      "source": "rafuju",
+      "brief_note": "Shosen Mitsui Bldg(Taisho era); UK/FR/Nordic furniture"
+    },
+    {
+      "name_ja": "神戸アンティークウェアハウス",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "shop_type": "antique",
+      "source": "rafuju",
+      "brief_note": "container direct import; affordable antique furniture"
+    },
+    {
+      "name_ja": "pilliken antique",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "antique",
+      "source": "kepco",
+      "brief_note": "Otsunakacho west end; antique clocks specialist"
+    },
+    {
+      "name_ja": "mano",
+      "city_code": "kobe",
+      "area": "kitano_shinkobe",
+      "shop_type": "zakka",
+      "source": "kepco",
+      "brief_note": "Kitano; Mexican handcraft; colorful folk art"
+    },
+    {
+      "name_ja": "トト路地",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "zakka",
+      "source": "kepco",
+      "brief_note": "Sakaemachi Bldg 3F; 80+ creators rental box"
+    },
+    {
+      "name_ja": "ツバクロ",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "zakka",
+      "source": "kepco",
+      "brief_note": "15yr; ceramics+stationery+clothing+original"
+    },
+    {
+      "name_ja": "Rollo Antiques",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "antique",
+      "source": "instagram",
+      "brief_note": "Motomachi; vintage buttons+beads+ribbons+parts"
+    },
+    {
+      "name_ja": "乙仲通り",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "shopping_street",
+      "source": "web_search",
+      "brief_note": "アンティーク街; 元町裏通り; エリア体験"
+    },
+    {
+      "name_ja": "栄町ビルディング",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "zakka",
+      "source": "web_search",
+      "brief_note": "昭和レトロビル; 小店集合; 神户独特"
+    },
+    {
+      "name_ja": "Favori",
+      "city_code": "kobe",
+      "area": "kitano_shinkobe",
+      "shop_type": "zakka",
+      "source": "web_search",
+      "brief_note": "フランス雑貨; 北野; 小さなセレクトショップ"
+    },
+    {
+      "name_ja": "A-1 BAKERY & VINTAGE",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "furugi",
+      "source": "web_search",
+      "brief_note": "パン+ヴィンテージ; 元町; 珍しい組合せ"
+    },
+    {
+      "name_ja": "TOOTH TOOTH maison 15th",
+      "city_code": "kobe",
+      "area": "motomachi_nankinmachi",
+      "shop_type": "zakka",
+      "source": "web_search",
+      "brief_note": "旧居留地; 洋菓子+カフェ+雑貨; 歴史建築"
+    }
+  ]
+}

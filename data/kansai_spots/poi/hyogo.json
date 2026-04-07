@@ -1,0 +1,30 @@
+{
+  "city": "hyogo",
+  "count": 3,
+  "pois": [
+    {
+      "name_ja": "城崎溫泉",
+      "city_code": "hyogo",
+      "area": "",
+      "type": "onsen_resort",
+      "source": "search_cn, search_tw, seasonal_aw",
+      "brief_note": "3sources | season:winter"
+    },
+    {
+      "name_ja": "小浜溫泉",
+      "city_code": "hyogo",
+      "area": "",
+      "type": "onsen_resort",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "洲本溫泉",
+      "city_code": "hyogo",
+      "area": "",
+      "type": "onsen_resort",
+      "source": "search_tw",
+      "brief_note": ""
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "category": "ryokan_cuisine",
+  "type": "experience",
+  "count": 17,
+  "hotels": [
+    {
+      "name_ja": "春日ホテル",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "花やしき浮舟園",
+      "city_code": "uji",
+      "area": "uji_central",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Uji River side; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "松井本館",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "ryokan",
+      "source": "tw_blog",
+      "brief_note": "怀石料理; 大浴场; TWD12000-20000; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "天ぷら吉川",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "全8室; 远州流庭园; 天妇罗会席; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "柚子屋旅館",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "祗园; 柚子锅怀石; JPY30300~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "もみぢ家本館 高雄山荘",
+      "city_code": "kyoto",
+      "area": "takao",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "川床料理4-9月; 舞子京舞; JPY27500~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "純和風料理旅館 き乃ゑ",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "祗园东山; 月替京怀石部屋食; 坐禅体验; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "嵐山温泉 花伝抄",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "阪急岚山站1min; 5个贷切风吕; TWD12000起; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "古都の宿 むさし野",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "blog",
+      "brief_note": "奈良县最古旅馆; 奈良公园内; 鹿入园; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "江戸三",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "blog",
+      "brief_note": "草庵风离; 窗外即鹿; 若草锅; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "和鹿彩 別邸",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "blog",
+      "brief_note": "东大寺膝元; 大和怀石料理; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "遊景の宿 平城",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "blog",
+      "brief_note": "若草山中腹; 夜景; 露天风吕付客室; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "四季亭",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "multiple",
+      "brief_note": "奈良公園; 创业100余年; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "大原温泉 お宿 芹生",
+      "city_code": "kyoto",
+      "area": "ohara",
+      "hotel_type": "ryokan",
+      "source": "icotto",
+      "brief_note": "大原三千院; 天然温泉; 冬牡丹锅; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "茶六別館",
+      "city_code": "amanohashidate",
+      "area": "amanohashidate",
+      "hotel_type": "ryokan",
+      "source": "icotto",
+      "brief_note": "天桥立; 数寄屋造り; 宮津温泉; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "文珠荘 松露亭",
+      "city_code": "amanohashidate",
+      "area": "amanohashidate",
+      "hotel_type": "luxury_ryokan",
+      "source": "icotto",
+      "brief_note": "天桥立; 四季丹後料理; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "飛鳥荘",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "ryokan",
+      "source": "web_search",
+      "brief_note": "奈良公園5min; 露天風呂望興福寺; 料亭旅館; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    }
+  ]
+}

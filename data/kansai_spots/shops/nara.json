@@ -1,0 +1,70 @@
+{
+  "file": "nara",
+  "count": 8,
+  "shops": [
+    {
+      "name_ja": "中川政七商店 奈良本店",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "craft",
+      "source": "web_search",
+      "brief_note": "手工芸/杂货老铺; 1716年创业; 奈良町"
+    },
+    {
+      "name_ja": "遊 中川 本店",
+      "city_code": "nara",
+      "area": "todaiji",
+      "shop_type": "craft",
+      "source": "web_search",
+      "brief_note": "手工芸; 東大寺参道; 中川政七系列"
+    },
+    {
+      "name_ja": "鹿の舟",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "zakka",
+      "source": "web_search",
+      "brief_note": "复合设施; カフェ+杂货+観光案内; 奈良町"
+    },
+    {
+      "name_ja": "ACART LIFESTYLE",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "zakka",
+      "source": "web_search",
+      "brief_note": "现代奈良杂货; 小鹿モチーフ"
+    },
+    {
+      "name_ja": "吉田蚊帳",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "craft",
+      "source": "web_search",
+      "brief_note": "奈良特产蚊帐; 手工艺; 老铺"
+    },
+    {
+      "name_ja": "砂糖傅 増尾商店",
+      "city_code": "nara",
+      "area": "nara_station",
+      "shop_type": "local_specialty",
+      "source": "web_search",
+      "brief_note": "金平糖専門; 奈良駅前; 伴手礼"
+    },
+    {
+      "name_ja": "春鹿 今西清兵衛商店",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "local_specialty",
+      "source": "web_search",
+      "brief_note": "清酒酒蔵; 试饮; 奈良町"
+    },
+    {
+      "name_ja": "ならまち格子の家",
+      "city_code": "nara",
+      "area": "naramachi",
+      "shop_type": "cultural_facility",
+      "source": "web_search",
+      "brief_note": "町家展示; 無料; 奈良町散步"
+    }
+  ]
+}

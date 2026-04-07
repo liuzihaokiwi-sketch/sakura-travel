@@ -1,0 +1,4020 @@
+{
+  "city": "osaka",
+  "count": 446,
+  "restaurants": [
+    {
+      "name_ja": "燃えよ麺助",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77 | 4sources"
+    },
+    {
+      "name_ja": "麦と麺助",
+      "city_code": "osaka",
+      "area": "中津（大阪メトロ）駅",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "tabelog:3.88; michelin:bib_gourmand",
+      "brief_note": "★3.88 | bib_gourmand | 3sources"
+    },
+    {
+      "name_ja": "ラーメン人生JET",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77 | 3sources"
+    },
+    {
+      "name_ja": "会津屋",
+      "city_code": "osaka",
+      "area": "道顿堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "551蓬莱",
+      "city_code": "osaka",
+      "area": "道顿堀/难波（关西50+分店）",
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "indie, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "龍旗信 RIZE",
+      "city_code": "osaka",
+      "area": "难波",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "鮨 三心",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.6; michelin:1star",
+      "brief_note": "★4.6 | 1star | 2sources"
+    },
+    {
+      "name_ja": "鳥匠 いし井",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.47; michelin:1star",
+      "brief_note": "★4.47 | 1star | 2sources"
+    },
+    {
+      "name_ja": "ぬま田",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.41; michelin:2star",
+      "brief_note": "★4.41 | 2star | 2sources"
+    },
+    {
+      "name_ja": "澤田",
+      "city_code": "osaka",
+      "area": "新福島駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.39; michelin:1star",
+      "brief_note": "★4.39 | 1star | 2sources"
+    },
+    {
+      "name_ja": "米増",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.37; michelin:1star",
+      "brief_note": "★4.37 | 1star | 2sources"
+    },
+    {
+      "name_ja": "緒乃",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.19; michelin:1star",
+      "brief_note": "★4.19 | 1star | 2sources"
+    },
+    {
+      "name_ja": "東茶屋 なかむら",
+      "city_code": "osaka",
+      "area": "天神橋筋六丁目駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.18; michelin:1star",
+      "brief_note": "★4.18 | 1star | 2sources"
+    },
+    {
+      "name_ja": "とんかつ ふじ井",
+      "city_code": "osaka",
+      "area": "千林駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "premium",
+      "source": "tabelog:4.14; michelin:bib_gourmand",
+      "brief_note": "★4.14 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "旬彩天 つちや",
+      "city_code": "osaka",
+      "area": "江坂駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:4.11; michelin:2star",
+      "brief_note": "★4.11 | 2star | 2sources"
+    },
+    {
+      "name_ja": "鮨処 多田",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.88",
+      "brief_note": "★3.88 | 2sources"
+    },
+    {
+      "name_ja": "鮨 村上二郎",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.88; michelin:1star",
+      "brief_note": "★3.88 | 1star | 2sources"
+    },
+    {
+      "name_ja": "鮨 ほしやま",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.8; michelin:1star",
+      "brief_note": "★3.8 | 1star | 2sources"
+    },
+    {
+      "name_ja": "人類みな麺類",
+      "city_code": "osaka",
+      "area": "南方駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77 | 2sources"
+    },
+    {
+      "name_ja": "らーめん弥七",
+      "city_code": "osaka",
+      "area": "中津（大阪メトロ）駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76 | 2sources"
+    },
+    {
+      "name_ja": "中華そば うえまち",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.76; michelin:bib_gourmand",
+      "brief_note": "★3.76 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "中華そば 無限",
+      "city_code": "osaka",
+      "area": "海老江駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.76; michelin:bib_gourmand",
+      "brief_note": "★3.76 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "らーめん颯人",
+      "city_code": "osaka",
+      "area": "南森町駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.76; michelin:bib_gourmand",
+      "brief_note": "★3.76 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "烈志笑魚油 麺香房 三く",
+      "city_code": "osaka",
+      "area": "新福島駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75 | 2sources"
+    },
+    {
+      "name_ja": "蕎麦 たかま",
+      "city_code": "osaka",
+      "area": "天神橋筋六丁目駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.75; michelin:bib_gourmand",
+      "brief_note": "★3.75 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "麺や 福はら",
+      "city_code": "osaka",
+      "area": "今里（近鉄）駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74 | 2sources"
+    },
+    {
+      "name_ja": "そば切り 荒凡夫",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.71; michelin:bib_gourmand",
+      "brief_note": "★3.71 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "ルポンドシエル",
+      "city_code": "osaka",
+      "area": "淀屋橋駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.71; michelin:1star",
+      "brief_note": "★3.71 | 1star | 2sources"
+    },
+    {
+      "name_ja": "なにわ翁",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.68; michelin:bib_gourmand",
+      "brief_note": "★3.68 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "四天王寺 はやうち",
+      "city_code": "osaka",
+      "area": "四天王寺前夕陽ケ丘駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.68; michelin:bib_gourmand",
+      "brief_note": "★3.68 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "そば切り 岳空",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.65; michelin:bib_gourmand",
+      "brief_note": "★3.65 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "洋食屋 ふじ家",
+      "city_code": "osaka",
+      "area": "谷町四丁目駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.65; michelin:bib_gourmand",
+      "brief_note": "★3.65 | bib_gourmand | 2sources"
+    },
+    {
+      "name_ja": "フジヤ 1935",
+      "city_code": "osaka",
+      "area": "中央区 / Chuo",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star | 2sources"
+    },
+    {
+      "name_ja": "夫婦善哉",
+      "city_code": "osaka",
+      "area": "法善寺横丁",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "玄品ふぐ",
+      "city_code": "osaka",
+      "area": "心斋桥",
+      "cuisine": "河豚/蟹",
+      "price_tier": null,
+      "source": "indie, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "八重勝",
+      "city_code": "osaka",
+      "area": "新世界",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "麺屋丈六",
+      "city_code": "osaka",
+      "area": "日本桥/难波",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "自由軒",
+      "city_code": "osaka",
+      "area": "难波",
+      "cuisine": "咖喱",
+      "price_tier": null,
+      "source": "indie, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "金龍拉麵",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "今井烏龍麵",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "大起水產迴轉壽司",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "黒門三平",
+      "city_code": "osaka",
+      "area": "黑門市場",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "元祿迴轉壽司",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "本湖月",
+      "city_code": "osaka",
+      "area": "なんば（大阪メトロ）駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.58",
+      "brief_note": "★4.58"
+    },
+    {
+      "name_ja": "鮓 きずな",
+      "city_code": "osaka",
+      "area": "京橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.34",
+      "brief_note": "★4.34"
+    },
+    {
+      "name_ja": "髙橋 謙太郎",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.31",
+      "brief_note": "★4.31"
+    },
+    {
+      "name_ja": "鮨 おおが",
+      "city_code": "osaka",
+      "area": "宿院駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.26",
+      "brief_note": "★4.26"
+    },
+    {
+      "name_ja": "吾一",
+      "city_code": "osaka",
+      "area": "肥後橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.25",
+      "brief_note": "★4.25"
+    },
+    {
+      "name_ja": "尽誠",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.22",
+      "brief_note": "★4.22"
+    },
+    {
+      "name_ja": "寿し おおはた",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.21",
+      "brief_note": "★4.21"
+    },
+    {
+      "name_ja": "大阪天満宮 鮨とよなが",
+      "city_code": "osaka",
+      "area": "大阪天満宮駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.21",
+      "brief_note": "★4.21"
+    },
+    {
+      "name_ja": "もめん",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.21",
+      "brief_note": "★4.21"
+    },
+    {
+      "name_ja": "生ホルモン処 おさむちゃん。",
+      "city_code": "osaka",
+      "area": "津久野駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:4.21",
+      "brief_note": "★4.21"
+    },
+    {
+      "name_ja": "和洋酒菜 ひで",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:4.19",
+      "brief_note": "★4.19"
+    },
+    {
+      "name_ja": "とんかつ マンジェ",
+      "city_code": "osaka",
+      "area": "八尾駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "mid",
+      "source": "tabelog:4.17",
+      "brief_note": "★4.17"
+    },
+    {
+      "name_ja": "つねちゃん",
+      "city_code": "osaka",
+      "area": "御陵前駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:4.17",
+      "brief_note": "★4.17"
+    },
+    {
+      "name_ja": "肉割烹 山口",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.15",
+      "brief_note": "★4.15"
+    },
+    {
+      "name_ja": "串かつ だいぼん",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.14",
+      "brief_note": "★4.14"
+    },
+    {
+      "name_ja": "mikami limited50",
+      "city_code": "osaka",
+      "area": "四ツ橋",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:4.11",
+      "brief_note": "★4.11"
+    },
+    {
+      "name_ja": "京洛焼肉 ぽめ",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:4.09",
+      "brief_note": "★4.09"
+    },
+    {
+      "name_ja": "ホッホ",
+      "city_code": "osaka",
+      "area": "天満駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:4.07",
+      "brief_note": "★4.07"
+    },
+    {
+      "name_ja": "瀧川",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:4.05",
+      "brief_note": "★4.05"
+    },
+    {
+      "name_ja": "炭匠 御厨",
+      "city_code": "osaka",
+      "area": "南森町駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:4.04",
+      "brief_note": "★4.04"
+    },
+    {
+      "name_ja": "松寿司 たにがわ",
+      "city_code": "osaka",
+      "area": "北畠駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:4.03",
+      "brief_note": "★4.03"
+    },
+    {
+      "name_ja": "ぬまた 双",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:4.01",
+      "brief_note": "★4.01"
+    },
+    {
+      "name_ja": "洋食 泉",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:4.0",
+      "brief_note": "★4.0"
+    },
+    {
+      "name_ja": "鮨 実紀",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.99",
+      "brief_note": "★3.99"
+    },
+    {
+      "name_ja": "天風楽・ブランド松葉蟹 松屋町 青天",
+      "city_code": "osaka",
+      "area": "堺筋本町駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.98",
+      "brief_note": "★3.98"
+    },
+    {
+      "name_ja": "鮨　Shizuku",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.94",
+      "brief_note": "★3.94"
+    },
+    {
+      "name_ja": "鮨ひじり",
+      "city_code": "osaka",
+      "area": "大阪駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.92",
+      "brief_note": "★3.92"
+    },
+    {
+      "name_ja": "手造りうどん 楽々",
+      "city_code": "osaka",
+      "area": "郡津駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.92",
+      "brief_note": "★3.92"
+    },
+    {
+      "name_ja": "ザ・ミュンヒ",
+      "city_code": "osaka",
+      "area": "高安駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.86",
+      "brief_note": "★3.86"
+    },
+    {
+      "name_ja": "鮨し禅",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.85",
+      "brief_note": "★3.85"
+    },
+    {
+      "name_ja": "Kuku",
+      "city_code": "osaka",
+      "area": "肥後橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.85",
+      "brief_note": "★3.85"
+    },
+    {
+      "name_ja": "ジェラテリア チルコドーロ",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.85",
+      "brief_note": "★3.85"
+    },
+    {
+      "name_ja": "焼肉政ちゃん",
+      "city_code": "osaka",
+      "area": "津守駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.84",
+      "brief_note": "★3.84"
+    },
+    {
+      "name_ja": "SUSHI OSAKA Organic",
+      "city_code": "osaka",
+      "area": "福島駅",
+      "cuisine": "寿司",
+      "price_tier": "premium",
+      "source": "tabelog:3.83",
+      "brief_note": "★3.83"
+    },
+    {
+      "name_ja": "鮨shizuku 西天満",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.82",
+      "brief_note": "★3.82"
+    },
+    {
+      "name_ja": "Matasaburo",
+      "city_code": "osaka",
+      "area": "長居駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.82",
+      "brief_note": "★3.82"
+    },
+    {
+      "name_ja": "焼肉かつらぎ",
+      "city_code": "osaka",
+      "area": "堺市駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.82",
+      "brief_note": "★3.82"
+    },
+    {
+      "name_ja": "手打ちうどん 上を向いて",
+      "city_code": "osaka",
+      "area": "香里園駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.82",
+      "brief_note": "★3.82"
+    },
+    {
+      "name_ja": "Udon Kyutaro",
+      "city_code": "osaka",
+      "area": "本町駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.8",
+      "brief_note": "★3.8"
+    },
+    {
+      "name_ja": "寿司福島",
+      "city_code": "osaka",
+      "area": "新福島駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "鮨処 池上",
+      "city_code": "osaka",
+      "area": "千里丘駅",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "奈良きみや 別邸 柘榴",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "ながほり",
+      "city_code": "osaka",
+      "area": "玉造（大阪メトロ）駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.79",
+      "brief_note": "★3.79"
+    },
+    {
+      "name_ja": "カドヤ食堂 総本店",
+      "city_code": "osaka",
+      "area": "西長堀駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "万正",
+      "city_code": "osaka",
+      "area": "鶴橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "うどん棒 大阪本店",
+      "city_code": "osaka",
+      "area": "東梅田駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "讃岐うどん 白庵",
+      "city_code": "osaka",
+      "area": "神崎川駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "パンデュース",
+      "city_code": "osaka",
+      "area": "本町駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.78",
+      "brief_note": "★3.78"
+    },
+    {
+      "name_ja": "きたん 韻",
+      "city_code": "osaka",
+      "area": "なんば駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "北新地やまがた屋",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "たけうちうどん店",
+      "city_code": "osaka",
+      "area": "中津駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "極楽うどん TKU",
+      "city_code": "osaka",
+      "area": "玉造駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "ブーランジェリー ブルディガラ 大阪店",
+      "city_code": "osaka",
+      "area": "西梅田駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "ル・シュクレクール 岸部",
+      "city_code": "osaka",
+      "area": "吹田市",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "中華蕎麦 葛",
+      "city_code": "osaka",
+      "area": "本町駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "同心亭",
+      "city_code": "osaka",
+      "area": "桜ノ宮駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "うどん屋 きすけ",
+      "city_code": "osaka",
+      "area": "中崎町駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "梅田 釜たけうどん",
+      "city_code": "osaka",
+      "area": "梅田駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "釜揚うどん一紀",
+      "city_code": "osaka",
+      "area": "今宮駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "ゴメンネJIRO",
+      "city_code": "osaka",
+      "area": "天満駅",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.76",
+      "brief_note": "★3.76"
+    },
+    {
+      "name_ja": "麺や而今 大東本店",
+      "city_code": "osaka",
+      "area": "鴻池新田駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "手打ち麺 やす田",
+      "city_code": "osaka",
+      "area": "新大阪駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "やすだ",
+      "city_code": "osaka",
+      "area": "城北公園通駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "焼肉三日月 天神橋店",
+      "city_code": "osaka",
+      "area": "扇町駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "焼肉 フトロ",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "배고파",
+      "city_code": "osaka",
+      "area": "四ツ橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "天麩羅　吉祥",
+      "city_code": "osaka",
+      "area": "中崎町駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "踊るうどん 梅田店",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "うどん 讃く",
+      "city_code": "osaka",
+      "area": "新福島駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "極楽うどん Ah-麺",
+      "city_code": "osaka",
+      "area": "寺田町駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "ぷーれ",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "梅田 ミックスジュース 本店",
+      "city_code": "osaka",
+      "area": "大阪梅田（阪神）駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "餅匠しづく 新町店",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "麺屋 丈六 なんば店",
+      "city_code": "osaka",
+      "area": "難波（南海）駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "中華そば 桐麺 総本店",
+      "city_code": "osaka",
+      "area": "十三駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "いかれたヌードル フィッシュトンズ",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "ラーメン人生JET600",
+      "city_code": "osaka",
+      "area": "玉造（ＪＲ）駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "洛二神",
+      "city_code": "osaka",
+      "area": "天神橋筋六丁目駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "群青",
+      "city_code": "osaka",
+      "area": "天神橋筋六丁目駅",
+      "cuisine": "拉面",
+      "price_tier": "budget",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "焼肉ぽむる",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "天ぷら 大坂屋 草哲",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "踊るうどん 滝井本店",
+      "city_code": "osaka",
+      "area": "滝井駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "うどん うばら",
+      "city_code": "osaka",
+      "area": "大阪上本町駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "空飛ぶうどん やまぶき家",
+      "city_code": "osaka",
+      "area": "豊中駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "まき埜",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "街蕎 仁ト伍",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "炭火焼鳥 いこか",
+      "city_code": "osaka",
+      "area": "堺筋本町駅",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "炭火焼鳥 きち蔵",
+      "city_code": "osaka",
+      "area": "阿波座駅",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "かん袋",
+      "city_code": "osaka",
+      "area": "寺地町駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "ショコラティエ パレ ド オール 大阪",
+      "city_code": "osaka",
+      "area": "西梅田駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "カカオサンパカ 大丸梅田店",
+      "city_code": "osaka",
+      "area": "大阪駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "さつま",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "京松蘭 本店",
+      "city_code": "osaka",
+      "area": "京橋駅",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "天麩羅 安藤",
+      "city_code": "osaka",
+      "area": "日本橋駅",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "讃岐うどん 今雪",
+      "city_code": "osaka",
+      "area": "扇町駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "讃岐立食いうどん きりん屋 本町本店",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "釜ひろ",
+      "city_code": "osaka",
+      "area": "鶴ケ丘駅",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "うどん ゆきの",
+      "city_code": "osaka",
+      "area": "西田辺駅",
+      "cuisine": "乌冬",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "炭火焼鳥とり央",
+      "city_code": "osaka",
+      "area": "新福島駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "酒肴飯ブリオ",
+      "city_code": "osaka",
+      "area": "福島（ＪＲ西日本）駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "野口次郎",
+      "city_code": "osaka",
+      "area": "渡辺橋駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "ブーランジュリー&カフェ グウ",
+      "city_code": "osaka",
+      "area": "谷町四丁目駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "リュミエール",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "千とせ 本店",
+      "city_code": "osaka",
+      "area": "難波（南海）駅",
+      "cuisine": "荞麦",
+      "price_tier": "budget",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "由堂",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "クレープリー・アルション",
+      "city_code": "osaka",
+      "area": "なんば（大阪メトロ）駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "ニューアストリア",
+      "city_code": "osaka",
+      "area": "千里中央駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "budget",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "エクチュア からほり「蔵」本店",
+      "city_code": "osaka",
+      "area": "松屋町駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "カカオティエゴカン 高麗橋本店",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "うどん居酒屋 麦笑",
+      "city_code": "osaka",
+      "area": "森ノ宮駅",
+      "cuisine": "居酒屋",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "クレープリー・スタンド シャンデレール 梅田店",
+      "city_code": "osaka",
+      "area": "大阪梅田（阪急）駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "ル・ピノー 北堀江本店",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "出入橋きんつば屋",
+      "city_code": "osaka",
+      "area": "福島（阪神）駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "パティスリー アクイユ",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "虹の仏",
+      "city_code": "osaka",
+      "area": "四天王寺前夕陽ケ丘駅",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "そば切り文目堂",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "コロンビア エイト 北浜本店",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "居酒屋",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "おでん まる米",
+      "city_code": "osaka",
+      "area": "天下茶屋駅",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "旧ヤム邸 空堀店",
+      "city_code": "osaka",
+      "area": "谷町六丁目駅",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "レストラン ヴァリエ",
+      "city_code": "osaka",
+      "area": "渡辺橋駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "五源大喜",
+      "city_code": "osaka",
+      "area": "昭和町駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "辛来飯",
+      "city_code": "osaka",
+      "area": "堺筋本町駅",
+      "cuisine": "居酒屋",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "カルダモン．",
+      "city_code": "osaka",
+      "area": "天神橋筋六丁目駅",
+      "cuisine": "西餐",
+      "price_tier": "budget",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "Revo 本店",
+      "city_code": "osaka",
+      "area": "天下茶屋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "爽月",
+      "city_code": "osaka",
+      "area": "粉浜駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "il PePe",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "北新地 黒猫",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "六覺燈",
+      "city_code": "osaka",
+      "area": "近鉄日本橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "北新地　串かつ凡",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "天政",
+      "city_code": "osaka",
+      "area": "なんば（大阪メトロ）駅",
+      "cuisine": "荞麦",
+      "price_tier": "budget",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "そば処 とき",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "手打そば 乃田",
+      "city_code": "osaka",
+      "area": "郡津駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "万両 肥後橋店",
+      "city_code": "osaka",
+      "area": "肥後橋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "グリルばらの木",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "うさみ亭マツバヤ",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "荞麦",
+      "price_tier": "budget",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "大阪 松下",
+      "city_code": "osaka",
+      "area": "中崎町駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "笑日志",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "そば切り 蔦屋",
+      "city_code": "osaka",
+      "area": "豊能郡能勢町",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "重亭",
+      "city_code": "osaka",
+      "area": "なんば（大阪メトロ）駅",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "御堂筋 ロッヂ",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "大衆食堂 瓦町ブラン",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "五條家",
+      "city_code": "osaka",
+      "area": "天満橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "蕎麦人 秋",
+      "city_code": "osaka",
+      "area": "北浜駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "あたり屋",
+      "city_code": "osaka",
+      "area": "東三国駅",
+      "cuisine": "荞麦",
+      "price_tier": "premium",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "独活庵",
+      "city_code": "osaka",
+      "area": "堺筋本町駅",
+      "cuisine": "荞麦",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "とんかつ ひろ喜 徳庵本店",
+      "city_code": "osaka",
+      "area": "徳庵駅",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "again",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "串揚げ キュイジーヌ･ド・オオサカ･リョウ 大阪本店",
+      "city_code": "osaka",
+      "area": "なにわ橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "ニューとん助",
+      "city_code": "osaka",
+      "area": "北加賀屋駅",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "洋食 手嶋",
+      "city_code": "osaka",
+      "area": "西大橋駅",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "ひげ勝",
+      "city_code": "osaka",
+      "area": "花園町駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "ドゥ アッシュ",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "串揚げ タケナカ",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "串もん　西屋",
+      "city_code": "osaka",
+      "area": "天満駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "串揚げ専門店 健串 梅田中崎町店",
+      "city_code": "osaka",
+      "area": "中崎町駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "知留久 お初天神店",
+      "city_code": "osaka",
+      "area": "東梅田駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "知留久 曽根崎本店",
+      "city_code": "osaka",
+      "area": "東梅田駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "串揚げ うえむら",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "串揚げキッチン だん 心斎橋店",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "北新地 串かつ凡 離れ",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "串揚げ専門店 健串",
+      "city_code": "osaka",
+      "area": "長堀橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.55",
+      "brief_note": "★3.55"
+    },
+    {
+      "name_ja": "クシアゲ ゼロイチゼロ",
+      "city_code": "osaka",
+      "area": "大江橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "創作串カツ 坊也哲",
+      "city_code": "osaka",
+      "area": "心斎橋駅",
+      "cuisine": "地方小吃",
+      "price_tier": "premium",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "串揚げ 名倉",
+      "city_code": "osaka",
+      "area": "北新地駅",
+      "cuisine": "地方小吃",
+      "price_tier": "luxury",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "柏屋 大阪千里山",
+      "city_code": "osaka",
+      "area": "千里山 / Senriyama",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star"
+    },
+    {
+      "name_ja": "太庵",
+      "city_code": "osaka",
+      "area": "長堀橋 / Nagahoribashi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star"
+    },
+    {
+      "name_ja": "ハジメ",
+      "city_code": "osaka",
+      "area": "肥後橋 / Higobashi",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:3star",
+      "brief_note": "3star"
+    },
+    {
+      "name_ja": "ラ・シーム",
+      "city_code": "osaka",
+      "area": "北区 / Kita",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "お料理 宮本",
+      "city_code": "osaka",
+      "area": "北区 / Kita",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "北新地 弧柳",
+      "city_code": "osaka",
+      "area": "北新地 / Kita-Shinchi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "幽玄",
+      "city_code": "osaka",
+      "area": "中央区 / Chuo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "鮨 原正",
+      "city_code": "osaka",
+      "area": "北区 / Kita",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "カハラ",
+      "city_code": "osaka",
+      "area": "北区 / Kita",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "老松 ひさ乃",
+      "city_code": "osaka",
+      "area": "北区 老松 / Oimatsu",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "天神橋 青木",
+      "city_code": "osaka",
+      "area": "北区 天神橋 / Tenjimbashi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:2star",
+      "brief_note": "2star"
+    },
+    {
+      "name_ja": "いわき",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "懐食 清水",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "彩葉",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "楽心",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "新地 やま本",
+      "city_code": "osaka",
+      "area": "北新地 / Kita-Shinchi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "味吉兆 堀江店",
+      "city_code": "osaka",
+      "area": "堀江 / Horie",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "翠 大屋",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "桝田",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "味吉兆 ぶんぶ庵",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "にしの",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "老松 喜多川",
+      "city_code": "osaka",
+      "area": "老松 / Oimatsu",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "是しん",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "なにわ料理 有",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "西天満 中村",
+      "city_code": "osaka",
+      "area": "西天満 / Nishitemma",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "御料理 堀川",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "照屋",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "寺田",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "西心斎橋 ゆうの",
+      "city_code": "osaka",
+      "area": "西心斎橋 / Nishi Shinsaibashi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "一汁二菜 うえの 箕面店",
+      "city_code": "osaka",
+      "area": "箕面 / Minoo",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "お料理 山田",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "このは",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "伏見町 栫山",
+      "city_code": "osaka",
+      "area": "伏見町 / Fushimimachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "柏屋 大阪北新地",
+      "city_code": "osaka",
+      "area": "北新地 / Kita-Shinchi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "料理屋 稲家",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "西天満 市がや",
+      "city_code": "osaka",
+      "area": "西天満 / Nishitemma",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "片町 川口",
+      "city_code": "osaka",
+      "area": "片町 / Katamachi",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ピエール",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ラ・ベ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "アドック",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ディファランス",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "アニエルドール",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ラ・ベカス",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "イデアル ビストロ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ポワン",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "オリジン",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ネント",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "プレスキル",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "シナエ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ひらいし",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "焼鳥 市松",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "烧鸟",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "焼鳥 とり泉",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "烧鸟",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "よし光",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "河豚/蟹",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ミルパ",
+      "city_code": "osaka",
+      "area": "北堀江 / Kita Horie",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "アラルデ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "エニェ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ピ・グレコ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "イル・チェントリーノ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ユニコ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ア・カント",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "シーフ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "上方中華 新瓊",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "空心伽藍堂",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "カピ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "ルーツ ナカノシマ",
+      "city_code": "osaka",
+      "area": "中之島 / Nakanoshima",
+      "cuisine": "创意料理",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "寿し處 あま野",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "松寿司",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:1star",
+      "brief_note": "1star"
+    },
+    {
+      "name_ja": "らーめん 久遠",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "本町製麺所 中華そば工房",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "上方レインボー",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "寿司処 かい原",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "寿司常",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "あかとしろ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "さか本 鮨",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "粋魚 むらばやし",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "べにくらげ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "日本酒餐昧 うつつよ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "酒や肴 よしむら",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "食堂 燈",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "居酒屋 ときため",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "燗の美穂",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "にこみ 㐂むら",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "台処 かみ谷",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "イル ルォーゴ ディ・タケウチ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ヴィア デル エンメ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "オステリア・ラ・チチェルキア",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "マカウダ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "クペラーレ・タケウチ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "デリ・ア・カーサ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "プレスト",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "意大利料理",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "そば切り からに",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "そば處 とき",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "文目堂",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "青空blue",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "うどん処 重己",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "扇町うどん屋 あすろう",
+      "city_code": "osaka",
+      "area": "扇町 / Ogimachi",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "おうどん 蓬",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "とんかつ KATSU華",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "炸猪排",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "京町堀 なかむら",
+      "city_code": "osaka",
+      "area": "京町堀 / Kyomachibori",
+      "cuisine": "炸猪排",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ラ ボンヌ ターシュ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "オー ソレイユ クーシャン",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ビストロ デ シュナパン",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ガストロテカ ビメンディ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "ドノスティア",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "上六ワイン",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "天ぷら こざき",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "天星",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "タンポポ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "オリベ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "クシアゲ 010",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "串かつ 五條家",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "あやむ屋",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "烧鸟",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "時分時",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "アズー",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "お料理 雨ニモマケズ",
+      "city_code": "osaka",
+      "area": null,
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "michelin:bib_gourmand",
+      "brief_note": "bib_gourmand"
+    },
+    {
+      "name_ja": "福太郎",
+      "city_code": "osaka",
+      "area": "难波日本桥",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "福太郎",
+      "city_code": "osaka",
+      "area": "難波/日本橋",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "甲賀流",
+      "city_code": "osaka",
+      "area": "心斋桥美国村",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "甲賀流",
+      "city_code": "osaka",
+      "area": "心齋橋/美國村",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "りくろーおじさんの店",
+      "city_code": "osaka",
+      "area": "难波戎桥筋",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "りくろーおじさんの店",
+      "city_code": "osaka",
+      "area": "難波/心齋橋",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "味乃家",
+      "city_code": "osaka",
+      "area": "道顿堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪の味お好み焼つる家",
+      "city_code": "osaka",
+      "area": "梅田东通商店街",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北極星",
+      "city_code": "osaka",
+      "area": "难波",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北極星",
+      "city_code": "osaka",
+      "area": "心齋橋",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天ぷら ぬま田",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "銀座 篝 LUCUA大阪店",
+      "city_code": "osaka",
+      "area": "梅田 LUCUA B2F",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "お好み焼 きじ 本店",
+      "city_code": "osaka",
+      "area": "新梅田食道街",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "エペ（epais）",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "炸猪排",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Pane Porcini",
+      "city_code": "osaka",
+      "area": "福岛",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "八重勝",
+      "city_code": "osaka",
+      "area": "新世界",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天狗（てんぐ）串かつ",
+      "city_code": "osaka",
+      "area": "新世界",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "阿み彦",
+      "city_code": "osaka",
+      "area": "北浜",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北浜レトロ",
+      "city_code": "osaka",
+      "area": "北浜",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たこ家道頓堀くくる",
+      "city_code": "osaka",
+      "area": "道顿堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たこ家道頓堀くくる",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Binbiya",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Rakushin（楽心）",
+      "city_code": "osaka",
+      "area": "福岛",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Hajime（はじめ）",
+      "city_code": "osaka",
+      "area": "中央区",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "本家柴藤",
+      "city_code": "osaka",
+      "area": "高麗桥",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉寅（Yoshitora）",
+      "city_code": "osaka",
+      "area": "本町",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Green Earth",
+      "city_code": "osaka",
+      "area": "中央区",
+      "cuisine": "精进料理",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Negiyaki Yamamoto（ねぎ焼やまもと）",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Sekai Ichi Hima Na Ramen-ya",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北新地 鸟屋 堂岛店",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "川村牛排Premium北新地店",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Unagi-Jinta",
+      "city_code": "osaka",
+      "area": "天满",
+      "cuisine": "鳗鱼",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "肉割烹 ASATSUYU",
+      "city_code": "osaka",
+      "area": "西大桥",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鶏割烹 ならや",
+      "city_code": "osaka",
+      "area": "北新地",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "黒門市場",
+      "city_code": "osaka",
+      "area": "日本桥",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "道頓堀DOTONBORI 神座",
+      "city_code": "osaka",
+      "area": "道顿堀/心斋桥（8家分店）",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たかま",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "美津の",
+      "city_code": "osaka",
+      "area": "道顿堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "あじのや",
+      "city_code": "osaka",
+      "area": "千日前商店街",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "串かつだるま 通天閣本店",
+      "city_code": "osaka",
+      "area": "通天阁/新世界",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "とんかつ今井",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "炸猪排",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "はるこま",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "木多郎 うどん",
+      "city_code": "osaka",
+      "area": "难波",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "道頓堀今井",
+      "city_code": "osaka",
+      "area": "道顿堀商店街",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "あかり そば",
+      "city_code": "osaka",
+      "area": "道顿堀附近",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Wagyu Katsu Banzai（和牛カツ万歳）",
+      "city_code": "osaka",
+      "area": "中央区",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Kobe beef and wine RUSH",
+      "city_code": "osaka",
+      "area": "本町",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "串の坊 法善寺横丁店",
+      "city_code": "osaka",
+      "area": "难波法善寺横丁",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鮨長谷川 心斎橋",
+      "city_code": "osaka",
+      "area": "心斋桥",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "割烹 酒場 蒼 天満",
+      "city_code": "osaka",
+      "area": "天满",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "indie",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "達摩串炸（だるま）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "元祖章魚燒あっちち本舗",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "四天王拉麵",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "金久右衛門拉麵",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "一蘭拉麵 道頓堀店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "道頓堀肉劇場",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "千房大阪燒 道頓堀店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "美津濃大阪燒（美津の）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "蟹道樂 道頓堀本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "河豚/蟹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北極星 心齋橋本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "西餐",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "HARBS 心齋橋店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "りくろーおじさんの店（老爺爺起司蛋糕）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "甲賀流章魚燒",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "國產牛燒肉あぶりや",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "自由軒 難波本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "咖喱",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "會津屋章魚燒",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "まぐろや黒銀（黒門三平）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "石橋關東煮",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "关东煮",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "人類みな麺類 Premium（人类都是面类）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神座拉麵 梅田店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "きじ（木地大阪燒）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "551蓬萊 難波本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "中华",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "堂島ロール（堂島蛋糕卷）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "串炸八重勝 新世界本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "木津魚市食堂",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "福太郎大阪燒（ねぎ焼）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "夫婦善哉 法善寺横丁",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "玄品河豚 難波店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "河豚/蟹",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "燒肉力丸 道頓堀店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "松阪牛燒肉 M 梅田店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鶴一 鶴橋店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "河童ラーメン本舗 千日前本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "人類みな麺類（西中島南方）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "らーめん飒人",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "まこと屋 福島店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "玉五郎 黒門店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "Muteppo 大阪店（无鐵砲）",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鯛白湯らーめん ○de▽",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "一風堂 梅田店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "串かつ だるま",
+      "city_code": "osaka",
+      "area": "新世界/道頓堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "焼肉 TORAJI",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "まぐろや黒銀",
+      "city_code": "osaka",
+      "area": "黑門市場",
+      "cuisine": "丼物",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "堂島ロール",
+      "city_code": "osaka",
+      "area": "梅田",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "千房",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "美津濃",
+      "city_code": "osaka",
+      "area": "心齋橋",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "かに道楽",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "河豚/蟹",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神座",
+      "city_code": "osaka",
+      "area": "道頓堀/梅田",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "金久右衛門",
+      "city_code": "osaka",
+      "area": "道頓堀",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "カドヤ食堂",
+      "city_code": "osaka",
+      "area": "西長堀",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "塩元帥",
+      "city_code": "osaka",
+      "area": "西中島",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "塩元帥",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "三豊麺",
+      "city_code": "osaka",
+      "area": "心齋橋",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天ぷら天山",
+      "city_code": "osaka",
+      "area": "法善寺橫丁",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "磯丸水産",
+      "city_code": "osaka",
+      "area": "難波/心齋橋",
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "秋吉",
+      "city_code": "osaka",
+      "area": "心齋橋",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "新世界元祖串かつ",
+      "city_code": "osaka",
+      "area": "新世界/心齋橋",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たこ焼き うまいや",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たこ焼き道楽 わなか",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "たこ焼き たまや",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "美濃吉",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "お好み焼き みずの",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "お好み焼き ふくたろ",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "元祖串かつ だるま",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大木屋食堂 総本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "麺屋たけ井",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "無鉄砲",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "道頓堀 今井 本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "乌冬",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大喜寿司",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "いろは",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天ぷら 天とみ",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "天妇罗",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鶴牛",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "木曽路",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "居酒屋 東洋",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "居酒屋",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "あかちち本店",
+      "city_code": "osaka",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    }
+  ]
+}

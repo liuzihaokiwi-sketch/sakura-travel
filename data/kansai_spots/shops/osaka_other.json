@@ -1,0 +1,22 @@
+{
+  "file": "osaka_other",
+  "count": 2,
+  "shops": [
+    {
+      "name_ja": "黒門市場",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "shop_type": "shopping_street",
+      "source": "web_search",
+      "brief_note": "食材+食べ歩き; 大阪の台所; 商店街"
+    },
+    {
+      "name_ja": "空堀商店街",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "shop_type": "shopping_street",
+      "source": "web_search",
+      "brief_note": "長屋+カフェ+雑貨; レトロ; 谷町六丁目"
+    }
+  ]
+}

@@ -32,6 +32,8 @@ async def build_poi_pool(
     user_constraints: UserConstraints,
     region_summary: RegionSummary,
     travel_dates: list[str],  # [YYYY-MM-DD, ...]
+    circle: CircleProfile,
+    config: PoolConfig | None = None,
 ) -> list[CandidatePool]:
     """
     构建 POI 候选池。
@@ -41,6 +43,8 @@ async def build_poi_pool(
         user_constraints: 用户约束（trip_window, user_profile, constraints）
         region_summary: 地区摘要（circle_name, cities）
         travel_dates: 旅行日期列表，YYYY-MM-DD 格式
+        circle: 城市圈环境（taxonomy路径、货币、预算配置等）
+        config: 池过滤配置（不传用默认）
 
     Returns:
         CandidatePool 列表，每个包含：
@@ -51,7 +55,8 @@ async def build_poi_pool(
           - latitude, longitude: 地理坐标
           - tags: 语义标签列表
           - visit_minutes: 推荐游览时间（分钟）
-          - cost_jpy: 门票价格（日元）
+          - cost_local: 门票价格（本地货币，由 circle.currency 决定）
+          - currency: 货币代码（JPY/CNY）
           - open_hours: 营业时间字典
           - review_signals: 评分信号（rating, review_count 等）
     """
@@ -60,7 +65,10 @@ async def build_poi_pool(
 ### 使用示例
 
 ```python
-from app.domains.planning_v2 import build_poi_pool, UserConstraints, RegionSummary
+from app.domains.planning_v2 import build_poi_pool, CircleProfile, UserConstraints, RegionSummary
+
+# 加载城市圈
+circle = CircleProfile.from_registry("kansai")
 
 # 构建用户约束
 user_constraints = UserConstraints(
@@ -97,12 +105,13 @@ poi_pools = await build_poi_pool(
     user_constraints=user_constraints,
     region_summary=region_summary,
     travel_dates=["2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04", "2026-04-05"],
+    circle=circle,
 )
 
 # 输出例子
 print(f"POI 候选池: {len(poi_pools)} 个景点")
 for pool in poi_pools[:3]:
-    print(f"  {pool.name_zh} ({pool.grade}) - {pool.visit_minutes}分 - ¥{pool.cost_jpy}")
+    print(f"  {pool.name_zh} ({pool.grade}) - {pool.visit_minutes}分 - {pool.cost_local} {pool.currency}")
 ```
 
 ### 关键设计点
@@ -177,7 +186,7 @@ async def build_hotel_pool(
           - latitude, longitude: 地理坐标
           - tags: 语义标签列表
           - visit_minutes: 0（酒店无访问时长）
-          - cost_jpy: 每晚参考价
+          - cost_local: 每晚参考价（本地货币）
           - open_hours: {"check_in_time": "HH:MM", "check_out_time": "HH:MM"}
           - review_signals: 距离、星级、评分、设施等
     """
@@ -211,7 +220,7 @@ print(f"酒店候选池: {len(hotel_pools)} 家酒店")
 for pool in hotel_pools[:3]:
     distance = pool.review_signals.get("distance_from_poi_center_km", "?")
     star = pool.review_signals.get("star_rating", "?")
-    print(f"  {pool.name_zh} - {star}★ - 距离中心{distance}km - ¥{pool.cost_jpy}/晚")
+    print(f"  {pool.name_zh} - {star}★ - 距离中心{distance}km - {pool.cost_local} {pool.currency}/晚")
 ```
 
 ### 关键设计点
@@ -249,6 +258,7 @@ from sqlalchemy.orm import sessionmaker
 from app.domains.planning_v2 import (
     build_poi_pool,
     build_hotel_pool,
+    CircleProfile,
     UserConstraints,
     RegionSummary,
 )
@@ -261,6 +271,9 @@ async def test_kansai_family_trip():
     )
 
     async with async_session() as session:
+        # 加载城市圈
+        circle = CircleProfile.from_registry("kansai")
+
         # 用户约束
         user_constraints = UserConstraints(
             trip_window={
@@ -301,6 +314,7 @@ async def test_kansai_family_trip():
                 "2026-04-15", "2026-04-16", "2026-04-17",
                 "2026-04-18", "2026-04-19"
             ],
+            circle=circle,
         )
 
         print(f"✓ POI 候选池: {len(poi_pools)} 个景点")

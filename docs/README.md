@@ -1,28 +1,37 @@
-# Travel AI — 文档索引
+# Travel AI -- 文档索引
 
 ## 核心文档（必读）
 
 | 文件 | 内容 |
 |------|------|
-| [SYSTEM_DESIGN_V2.md](SYSTEM_DESIGN_V2.md) | **系统设计总纲** — 产品本质、数据系统、行程编排、AI分配、渲染展示、验证策略 |
-| [IMPLEMENTATION_TASKS.md](IMPLEMENTATION_TASKS.md) | **当前实施任务** — V1.0/V1.5/V2.0 三版迭代，检查点分阶段执行 |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | 代码架构 — 主链 6 步、6 大子系统、评分机制 |
-| [DECISIONS.md](DECISIONS.md) | 决策记录 — 14 条关键决策的背景与理由 |
-| [STATUS.md](STATUS.md) | 当前状态 — 系统成熟度、已完成工作、差距分析 |
+| [SYSTEM_DESIGN_V2.md](SYSTEM_DESIGN_V2.md) | **系统设计总纲** -- 产品本质、数据系统、行程编排、AI分配、渲染展示、验证策略 |
+| [pipeline/README.md](pipeline/README.md) | **16步行程规划管线** -- 步骤总览、模型分配、数据契约、并行开发指引 |
+| [DECISIONS.md](DECISIONS.md) | 决策记录 -- 14 条关键决策的背景与理由 |
 
-## 运维与审计
+## 管线与运维
 
 | 文件 | 内容 |
 |------|------|
-| [AUDIT_REPORT.md](AUDIT_REPORT.md) | 项目审计报告 — 30+ 项问题、修复任务编号、模型分配 |
-| [OPS_GUIDE.md](OPS_GUIDE.md) | 运营手册 — 后台操作 SOP、日常巡检 |
+| [pipeline/README.md](pipeline/README.md) | 16步管线总述 + 模型分配 + 代码入口 |
+| [OPS_GUIDE.md](OPS_GUIDE.md) | 运营手册 -- 后台操作 SOP、日常巡检 |
+
+## 数据工程
+
+| 文件 | 内容 |
+|------|------|
+| [data-engineering/MASTER_GUIDE.md](data-engineering/MASTER_GUIDE.md) | **唯一执行文档** -- 三层池、数据源分级、采集流程、校验规则、搜索词 |
+| [data-engineering/DATA_SCHEMA.md](data-engineering/DATA_SCHEMA.md) | 字段定义规范 -- 景点/餐厅/酒店/走廊的完整 Schema |
+| [data-engineering/GUIDE_*.md](data-engineering/) | 品类子文档 -- 餐厅/酒店/景点/店铺各自的精选逻辑 |
+| [data-engineering/TOOLS_SETUP.md](data-engineering/TOOLS_SETUP.md) | 工具配置 -- OpenCLI/WebFetch/API 设置 |
+| [data-engineering/CITY_CIRCLE_TEMPLATE.md](data-engineering/CITY_CIRCLE_TEMPLATE.md) | 新城市圈开城模板 |
 
 ## 城市圈数据
 
 | 文件 | 内容 |
 |------|------|
-| [city_circles/hokkaido.md](city_circles/hokkaido.md) | 北海道圈结构（当前主力） |
+| [city_circles/hokkaido.md](city_circles/hokkaido.md) | 北海道圈结构 |
 | [city_circles/kansai.md](city_circles/kansai.md) | 关西圈结构 |
+| [city_circles/kanto.md](city_circles/kanto.md) | 关东圈结构 |
 | [city_circles/guangfu.md](city_circles/guangfu.md) | 广府圈结构 |
 | [city_circles/xinjiang.md](city_circles/xinjiang.md) | 北疆圈结构 |
 
@@ -42,5 +51,4 @@
 
 ## 归档
 
-`_archive/` — 已被 SYSTEM_DESIGN_V2 整合的旧文档、已完成的任务清单、暂停的前端设计。
-保留供参考但不作为当前开发依据。
+过期文档已删除，可从 git 历史查看。

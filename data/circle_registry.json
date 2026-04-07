@@ -1,0 +1,106 @@
+{
+  "_doc": "城市圈注册表 — 管线通过此文件识别圈、加载配置。加新圈只改此 JSON。",
+  "_note_budget": "预算数值均为本地货币计。日本圈数据沿用 planning_defaults.json；广府圈数据来自携程/Booking/大众点评/本地宝 2025年实际价格。",
+
+  "kansai": {
+    "circle_id": "kansai_classic_circle_v1",
+    "name": "关西经典城市圈",
+    "region_desc": "日本关西地区",
+    "country": "japan",
+    "currency": "JPY",
+    "cny_rate": 0.047,
+    "timezone": "Asia/Tokyo",
+    "default_location": [34.6937, 135.5023],
+    "data_dir": "kansai_spots",
+    "cities": ["kyoto", "osaka", "kobe", "nara", "himeji", "uji", "otsu",
+               "arima", "kinosaki", "shirahama", "koyasan", "ise", "ise_shima",
+               "akashi", "wakayama"],
+    "budget_config": {
+      "hotel_per_night": {"budget": 5000, "mid": 10000, "premium": 20000, "luxury": 40000},
+      "transport_per_day": {"budget": 800, "mid": 1200, "premium": 2000, "luxury": 3000},
+      "food_floor_per_day": {"budget": 2000, "mid": 3500, "premium": 6000, "luxury": 10000},
+      "default_admission": {
+        "temple": 500, "shrine": 0, "museum": 1000, "theme_park": 7000,
+        "park": 0, "castle": 600, "garden": 500
+      },
+      "restaurant_price_cap": {"budget": 2000, "mid": 5000, "premium": 15000, "luxury": 999999},
+      "admission_cap": {"budget": 1000, "mid": 3000, "premium": 8000, "luxury": 999999},
+      "misc_buffer_rate": 0.10
+    }
+  },
+
+  "kanto": {
+    "circle_id": "tokyo_extended_circle_v1",
+    "name": "东京扩展城市圈",
+    "region_desc": "日本东京地区",
+    "country": "japan",
+    "currency": "JPY",
+    "cny_rate": 0.047,
+    "timezone": "Asia/Tokyo",
+    "default_location": [35.6762, 139.6503],
+    "data_dir": "kanto_spots",
+    "cities": ["tokyo", "yokohama", "kamakura", "hakone", "nikko", "kawagoe"],
+    "budget_config": {
+      "hotel_per_night": {"budget": 5000, "mid": 10000, "premium": 20000, "luxury": 40000},
+      "transport_per_day": {"budget": 800, "mid": 1200, "premium": 2000, "luxury": 3000},
+      "food_floor_per_day": {"budget": 2000, "mid": 3500, "premium": 6000, "luxury": 10000},
+      "default_admission": {
+        "temple": 500, "shrine": 0, "museum": 1000, "theme_park": 7000,
+        "park": 0, "castle": 600, "garden": 500
+      },
+      "restaurant_price_cap": {"budget": 2000, "mid": 5000, "premium": 15000, "luxury": 999999},
+      "admission_cap": {"budget": 1000, "mid": 3000, "premium": 8000, "luxury": 999999},
+      "misc_buffer_rate": 0.10
+    }
+  },
+
+  "hokkaido": {
+    "circle_id": "hokkaido_core_circle_v1",
+    "name": "北海道核心城市圈",
+    "region_desc": "日本北海道",
+    "country": "japan",
+    "currency": "JPY",
+    "cny_rate": 0.047,
+    "timezone": "Asia/Tokyo",
+    "default_location": [43.0618, 141.3545],
+    "data_dir": "hokkaido_spots",
+    "cities": ["sapporo", "otaru", "hakodate", "furano", "biei", "asahikawa", "noboribetsu", "toyako"],
+    "budget_config": {
+      "hotel_per_night": {"budget": 5000, "mid": 10000, "premium": 20000, "luxury": 40000},
+      "transport_per_day": {"budget": 800, "mid": 1200, "premium": 2000, "luxury": 3000},
+      "food_floor_per_day": {"budget": 2000, "mid": 3500, "premium": 6000, "luxury": 10000},
+      "default_admission": {
+        "temple": 500, "shrine": 0, "museum": 1000, "theme_park": 7000,
+        "park": 0, "castle": 600, "garden": 500
+      },
+      "restaurant_price_cap": {"budget": 2000, "mid": 5000, "premium": 15000, "luxury": 999999},
+      "admission_cap": {"budget": 1000, "mid": 3000, "premium": 8000, "luxury": 999999},
+      "misc_buffer_rate": 0.10
+    }
+  },
+
+  "guangfu": {
+    "circle_id": "guangfu_gz_fs_sd_zh_circle_v1",
+    "name": "广佛顺珠广府圈",
+    "region_desc": "广佛顺珠广府地区",
+    "country": "china",
+    "currency": "CNY",
+    "cny_rate": 1.0,
+    "timezone": "Asia/Shanghai",
+    "default_location": [23.1291, 113.2644],
+    "data_dir": "guangfu_spots",
+    "cities": ["guangzhou", "foshan", "shunde", "zhuhai"],
+    "budget_config": {
+      "hotel_per_night": {"budget": 150, "mid": 350, "premium": 800, "luxury": 2000},
+      "transport_per_day": {"budget": 20, "mid": 35, "premium": 80, "luxury": 150},
+      "food_floor_per_day": {"budget": 100, "mid": 200, "premium": 400, "luxury": 800},
+      "default_admission": {
+        "temple": 15, "shrine": 0, "museum": 50, "theme_park": 350,
+        "park": 0, "castle": 0, "garden": 15, "tower": 150
+      },
+      "restaurant_price_cap": {"budget": 80, "mid": 200, "premium": 500, "luxury": 999999},
+      "admission_cap": {"budget": 50, "mid": 150, "premium": 400, "luxury": 999999},
+      "misc_buffer_rate": 0.10
+    }
+  }
+}

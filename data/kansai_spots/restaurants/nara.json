@@ -1,0 +1,915 @@
+{
+  "city": "nara",
+  "count": 101,
+  "restaurants": [
+    {
+      "name_ja": "奈良 而今",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.24",
+      "brief_note": "★4.24"
+    },
+    {
+      "name_ja": "#肉といえば松田 奈良本店",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.08",
+      "brief_note": "★4.08"
+    },
+    {
+      "name_ja": "白",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:4.08",
+      "brief_note": "★4.08"
+    },
+    {
+      "name_ja": "玄",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:3.97",
+      "brief_note": "★3.97"
+    },
+    {
+      "name_ja": "きみや",
+      "city_code": "nara",
+      "area": "Ikoma City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.93",
+      "brief_note": "★3.93"
+    },
+    {
+      "name_ja": "つる由",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:3.85",
+      "brief_note": "★3.85"
+    },
+    {
+      "name_ja": "焼肉 三日月",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.81",
+      "brief_note": "★3.81"
+    },
+    {
+      "name_ja": "味の風 にしむら",
+      "city_code": "nara",
+      "area": "Sakurai City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:3.8",
+      "brief_note": "★3.8"
+    },
+    {
+      "name_ja": "おか田",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:3.77",
+      "brief_note": "★3.77"
+    },
+    {
+      "name_ja": "きつね",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "luxury",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "一如庵",
+      "city_code": "nara",
+      "area": "Uda City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "premium",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "萬御菓子誂處 樫舎",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.75",
+      "brief_note": "★3.75"
+    },
+    {
+      "name_ja": "ラーメン家 みつ葉",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "ガトー・ド・ボワ A LA MAISON",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "山岡ピザ",
+      "city_code": "nara",
+      "area": "Ikoma City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "premium",
+      "source": "tabelog:3.74",
+      "brief_note": "★3.74"
+    },
+    {
+      "name_ja": "出雲そば だんだん",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "怀石/割烹",
+      "price_tier": "premium",
+      "source": "tabelog:3.73",
+      "brief_note": "★3.73"
+    },
+    {
+      "name_ja": "手打ちそば はやし",
+      "city_code": "nara",
+      "area": "Kita-Katsuragi-gun Koryo-cho",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.72",
+      "brief_note": "★3.72"
+    },
+    {
+      "name_ja": "鮨 かわしま",
+      "city_code": "nara",
+      "area": "Kashihara",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.71",
+      "brief_note": "★3.71"
+    },
+    {
+      "name_ja": "つけ麺無心",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "麺処 と市",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "釜揚げうどん 鈴庵",
+      "city_code": "nara",
+      "area": "Katsuragi-gun Koryo-cho",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.7",
+      "brief_note": "★3.7"
+    },
+    {
+      "name_ja": "らぁめん トリカヂ イッパイ",
+      "city_code": "nara",
+      "area": "Ikoma City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "麺屋 K",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "がむしゃら 奈良",
+      "city_code": "nara",
+      "area": "Yamato Koriyama City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.69",
+      "brief_note": "★3.69"
+    },
+    {
+      "name_ja": "麺場 力皇",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "麺食堂 88",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "らぁ麺 せんいち",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "拉面",
+      "price_tier": null,
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "ほうせき箱",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "さくらバーガー",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.68",
+      "brief_note": "★3.68"
+    },
+    {
+      "name_ja": "中華そば おしたに",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "拉面",
+      "price_tier": "mid",
+      "source": "tabelog:3.67",
+      "brief_note": "★3.67"
+    },
+    {
+      "name_ja": "ガトー・ド・ボワ ラボラトワール",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "ぽくぽく",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.66",
+      "brief_note": "★3.66"
+    },
+    {
+      "name_ja": "だんご庄 本店",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.65",
+      "brief_note": "★3.65"
+    },
+    {
+      "name_ja": "ならまち 鮨 はなこ",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "奈良",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "おちゃのこ",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": "mid",
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "清澄の里 粟",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "tabelog:3.64",
+      "brief_note": "★3.64"
+    },
+    {
+      "name_ja": "焼肉八七",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "フィレ肉専門店 にくぞう",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "美食酒房 如意",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "吉川亭",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.63",
+      "brief_note": "★3.63"
+    },
+    {
+      "name_ja": "すぎ乃 新大宮店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "しゃぶしゃぶ すき焼き 食べ放題 和牛と豚 近鉄奈良駅前店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "luxury",
+      "source": "tabelog:3.62",
+      "brief_note": "★3.62"
+    },
+    {
+      "name_ja": "田田",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "そば処 喜多原",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "魚源",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "いぶし吟 ふじや",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "洋食勝井",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "西餐",
+      "price_tier": "premium",
+      "source": "tabelog:3.61",
+      "brief_note": "★3.61"
+    },
+    {
+      "name_ja": "三輪山本 お食事処",
+      "city_code": "nara",
+      "area": "Sakurai",
+      "cuisine": "寿司",
+      "price_tier": "mid",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "Azekura",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "かんてき家",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "luxury",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "すき焼きと牛まぶし ももしき",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.6",
+      "brief_note": "★3.6"
+    },
+    {
+      "name_ja": "柿の葉すし ひょうたろう",
+      "city_code": "nara",
+      "area": "Yoshino",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "四季の鮨 蔵人",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "大和酒彩 しゅん坊",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "酒と肴 なかむら",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "熊や",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.59",
+      "brief_note": "★3.59"
+    },
+    {
+      "name_ja": "長秀屋",
+      "city_code": "nara",
+      "area": "Tawaramoto Town",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "洋食屋ケムリ",
+      "city_code": "nara",
+      "area": "Gose City",
+      "cuisine": "西餐",
+      "price_tier": "luxury",
+      "source": "tabelog:3.58",
+      "brief_note": "★3.58"
+    },
+    {
+      "name_ja": "鮓 恷兵",
+      "city_code": "nara",
+      "area": "Kashihara",
+      "cuisine": "寿司",
+      "price_tier": "luxury",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "蕎麦がき屋",
+      "city_code": "nara",
+      "area": "Sakurai",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "そば切り 百夜月",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "じゅん平",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "居酒屋",
+      "price_tier": "premium",
+      "source": "tabelog:3.57",
+      "brief_note": "★3.57"
+    },
+    {
+      "name_ja": "総本舗 白酒屋",
+      "city_code": "nara",
+      "area": "Sakurai",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "はるりん",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "重乃井 奈良店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.56",
+      "brief_note": "★3.56"
+    },
+    {
+      "name_ja": "柿の葉おすし山の辺 桜井本店",
+      "city_code": "nara",
+      "area": "Sakurai",
+      "cuisine": "寿司",
+      "price_tier": null,
+      "source": "tabelog:3.55",
+      "brief_note": "★3.55"
+    },
+    {
+      "name_ja": "肉匠迎賓館 天理店",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.55",
+      "brief_note": "★3.55"
+    },
+    {
+      "name_ja": "麺喰",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.55",
+      "brief_note": "★3.55"
+    },
+    {
+      "name_ja": "仕出料理 久家",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "寿司",
+      "price_tier": "premium",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "肉匠 迎賓館 奈良店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "情熱うどん 荒木伝次郎",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "つよしのコロッケ本舗",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.54",
+      "brief_note": "★3.54"
+    },
+    {
+      "name_ja": "璃衞 恋の窪店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "烤肉/牛肉",
+      "price_tier": "premium",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "あらき",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "天妇罗",
+      "price_tier": "luxury",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "与喜饂飩",
+      "city_code": "nara",
+      "area": "Sakurai City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.52",
+      "brief_note": "★3.52"
+    },
+    {
+      "name_ja": "ねり天・瓦そば 味のかけ橋",
+      "city_code": "nara",
+      "area": "Katsuragi City",
+      "cuisine": "荞麦",
+      "price_tier": "mid",
+      "source": "tabelog:3.5",
+      "brief_note": "★3.5"
+    },
+    {
+      "name_ja": "国境食堂",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.49",
+      "brief_note": "★3.49"
+    },
+    {
+      "name_ja": "かおく",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.49",
+      "brief_note": "★3.49"
+    },
+    {
+      "name_ja": "ハックベリー",
+      "city_code": "nara",
+      "area": "Kashihara City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.49",
+      "brief_note": "★3.49"
+    },
+    {
+      "name_ja": "花一番 郡山店",
+      "city_code": "nara",
+      "area": "Yamato-Koriyama City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.49",
+      "brief_note": "★3.49"
+    },
+    {
+      "name_ja": "蕎麦切り よしむら",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "荞麦",
+      "price_tier": null,
+      "source": "tabelog:3.48",
+      "brief_note": "★3.48"
+    },
+    {
+      "name_ja": "フジエダハウス",
+      "city_code": "nara",
+      "area": "Yamato-Koriyama City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.48",
+      "brief_note": "★3.48"
+    },
+    {
+      "name_ja": "麺闘庵",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.47",
+      "brief_note": "★3.47"
+    },
+    {
+      "name_ja": "満天うどん カジバノバカヂカラ",
+      "city_code": "nara",
+      "area": "Yamato-Koriyama City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.47",
+      "brief_note": "★3.47"
+    },
+    {
+      "name_ja": "とんまさ",
+      "city_code": "nara",
+      "area": "Yamato-Koriyama City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.47",
+      "brief_note": "★3.47"
+    },
+    {
+      "name_ja": "ゆき亭",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "西餐",
+      "price_tier": "mid",
+      "source": "tabelog:3.47",
+      "brief_note": "★3.47"
+    },
+    {
+      "name_ja": "大和本陣",
+      "city_code": "nara",
+      "area": "Gojo City",
+      "cuisine": "乌冬",
+      "price_tier": "mid",
+      "source": "tabelog:3.46",
+      "brief_note": "★3.46"
+    },
+    {
+      "name_ja": "笠そば処",
+      "city_code": "nara",
+      "area": "Sakurai",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.45",
+      "brief_note": "★3.45"
+    },
+    {
+      "name_ja": "喜楽庵",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.4",
+      "brief_note": "★3.4"
+    },
+    {
+      "name_ja": "手打ち蕎麦 たぬき",
+      "city_code": "nara",
+      "area": "Ikaruga Town",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.38",
+      "brief_note": "★3.38"
+    },
+    {
+      "name_ja": "さぬきうどんのたぬき",
+      "city_code": "nara",
+      "area": "Katsuragi City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.37",
+      "brief_note": "★3.37"
+    },
+    {
+      "name_ja": "うどんごはんむぎの蔵",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.34",
+      "brief_note": "★3.34"
+    },
+    {
+      "name_ja": "吟松 高畑本店",
+      "city_code": "nara",
+      "area": "Nara City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.33",
+      "brief_note": "★3.33"
+    },
+    {
+      "name_ja": "大和まほろば",
+      "city_code": "nara",
+      "area": "Tenri City",
+      "cuisine": "天妇罗",
+      "price_tier": "mid",
+      "source": "tabelog:3.32",
+      "brief_note": "★3.32"
+    },
+    {
+      "name_ja": "粟 ならまち店",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "旬彩 ひより",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "怀石/割烹",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "農村レストラン 夢市茶屋",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "其他",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中谷堂",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "かめや",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "地方小吃",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天極堂 奈良本店",
+      "city_code": "nara",
+      "area": "",
+      "cuisine": "咖啡/甜品",
+      "price_tier": null,
+      "source": "search_jaen",
+      "brief_note": ""
+    }
+  ]
+}

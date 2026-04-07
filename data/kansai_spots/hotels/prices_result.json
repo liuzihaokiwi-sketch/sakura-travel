@@ -1,0 +1,79 @@
+[
+  {
+    "name_ja": "ホテル ラ・スイート神戸ハーバーランド",
+    "city_code": "kobe",
+    "hotel_type": "luxury_hotel",
+    "price_min": 2000,
+    "price_max": 196400,
+    "price_range": "¥2,000-¥196,400",
+    "all_prices": [
+      2000,
+      12870,
+      18080,
+      36160,
+      45712,
+      46241,
+      98200,
+      196400
+    ]
+  },
+  {
+    "name_ja": "ORIENTAL HOTEL",
+    "city_code": "kobe",
+    "hotel_type": "city_hotel",
+    "price_min": 3000,
+    "price_max": 60400,
+    "price_range": "¥3,000-¥60,400",
+    "all_prices": [
+      3000,
+      14350,
+      15400,
+      30200,
+      38500,
+      60400
+    ]
+  },
+  {
+    "name_ja": "ホテルオークラ神戸",
+    "city_code": "kobe",
+    "hotel_type": "city_hotel",
+    "price_min": 1000,
+    "price_max": 23500,
+    "price_range": "¥1,000-¥23,500",
+    "all_prices": [
+      1000,
+      6800,
+      8500,
+      11070,
+      16300,
+      23500
+    ]
+  },
+  {
+    "name_ja": "神戸メリケンパークオリエンタルホテル",
+    "city_code": "kobe",
+    "hotel_type": "city_hotel",
+    "price_min": 5810,
+    "price_max": 315000,
+    "price_range": "¥5,810-¥315,000",
+    "all_prices": [
+      5810,
+      7290,
+      11620,
+      315000
+    ]
+  },
+  {
+    "name_ja": "神戸ポートピアホテル",
+    "city_code": "kobe",
+    "hotel_type": "city_hotel",
+    "price_min": 7800,
+    "price_max": 171600,
+    "price_range": "¥7,800-¥171,600",
+    "all_prices": [
+      7800,
+      12450,
+      171600
+    ]
+  }
+]

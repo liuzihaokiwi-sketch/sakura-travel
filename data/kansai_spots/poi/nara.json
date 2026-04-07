@@ -1,0 +1,206 @@
+{
+  "city": "nara",
+  "count": 25,
+  "pois": [
+    {
+      "name_ja": "唐招提寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "寺庙",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "奈良公園",
+      "city_code": "nara",
+      "area": "",
+      "type": "park",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "春日大社",
+      "city_code": "nara",
+      "area": "",
+      "type": "shrine",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "法隆寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "寺庙",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "若草山",
+      "city_code": "nara",
+      "area": "",
+      "type": "自然景观",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "東大寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "興福寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "薬師寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "东向商店街",
+      "city_code": "nara",
+      "area": "",
+      "type": "购物街区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "依水園",
+      "city_code": "nara",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "兴福寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "寺庙",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉城園",
+      "city_code": "nara",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉野",
+      "city_code": "nara",
+      "area": "",
+      "type": "scenic_area",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉野山 桜（一目千本）",
+      "city_code": "nara",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "奈良公園 浮見堂 桜",
+      "city_code": "nara",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "奈良国立博物館",
+      "city_code": "nara",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良国立博物馆",
+      "city_code": "nara",
+      "area": "",
+      "type": "博物馆",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良町",
+      "city_code": "nara",
+      "area": "",
+      "type": "historic_district",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良町（Naramachi）",
+      "city_code": "nara",
+      "area": "",
+      "type": "历史街区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良県立竜田公園",
+      "city_code": "nara",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "平城宮跡",
+      "city_code": "nara",
+      "area": "",
+      "type": "historic_site",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "新薬師寺",
+      "city_code": "nara",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "東向商店街",
+      "city_code": "nara",
+      "area": "",
+      "type": "shopping_street",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "猿泽池",
+      "city_code": "nara",
+      "area": "",
+      "type": "自然景观",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "飛鳥・桜井",
+      "city_code": "nara",
+      "area": "",
+      "type": "historic_site",
+      "source": "search_jaen",
+      "brief_note": ""
+    }
+  ]
+}

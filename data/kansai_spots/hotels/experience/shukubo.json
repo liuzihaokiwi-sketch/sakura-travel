@@ -1,0 +1,159 @@
+{
+  "category": "shukubo",
+  "type": "experience",
+  "count": 19,
+  "hotels": [
+    {
+      "name_ja": "恵光院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "reference",
+      "brief_note": "Most popular foreign guests; onsen; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "一乗院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "reference",
+      "brief_note": "Famous shojin ryori; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "蓮華定院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "金光院 ほたる庵",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "2025.3新开; 1日1组; JPY28000~; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "智積院会館",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "真言宗总本山; 金堂朝勤+护摩; 精进料理; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "仁和寺 御室会館",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "世界遗产; 国宝金堂朝勤; 大浴场; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "知恩院 和順会館",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "浄土宗总本山; 大浴场; 精进料理; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "妙心寺 東林院",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "沙罗双树庭园; 精进料理教室; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "鹿王院",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "女性专用; JPY5000; 名物がんもどき; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "薬師院",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "1日1组; 普茶料理; JPY15800~; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "福智院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "温泉宿坊; 创作精进料理; 庭园; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "西門院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "900年; 手作胡麻豆腐; 写经; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "西南院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "800年; 重森三玲庭园; 山内唯一温泉; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "清浄心院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "弘法大师开创; 高野豆腐; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "赤松院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "shukubo",
+      "brief_note": "1100年; 2000坪庭园; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "不動院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "old_pool",
+      "brief_note": "高野山宿坊; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "常喜院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "old_pool",
+      "brief_note": "高野山宿坊; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "持明院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "old_pool",
+      "brief_note": "高野山宿坊; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    },
+    {
+      "name_ja": "龍泉院",
+      "city_code": "koyasan",
+      "area": "koyasan_temple_town",
+      "hotel_type": "shukubo",
+      "source": "old_pool",
+      "brief_note": "高野山宿坊; 淡¥9k-15k/旺¥15k-30k(1泊2食)"
+    }
+  ]
+}

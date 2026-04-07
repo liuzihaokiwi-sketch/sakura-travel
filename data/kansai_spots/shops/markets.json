@@ -1,0 +1,54 @@
+{
+  "file": "markets",
+  "count": 6,
+  "shops": [
+    {
+      "name_ja": "東寺 弘法市",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "shop_type": "market",
+      "source": "multiple",
+      "brief_note": "21st monthly; 7-16h; 1000 stalls; Kyoto Sta 15min walk"
+    },
+    {
+      "name_ja": "北野天満宮 天神市",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "market",
+      "source": "multiple",
+      "brief_note": "25th monthly; antique+vintage+handmade at shrine"
+    },
+    {
+      "name_ja": "百万遍さんの手づくり市",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "market",
+      "source": "tedukuri_ichi",
+      "brief_note": "15th monthly(exc Aug); Chionji; handmade goods+food"
+    },
+    {
+      "name_ja": "上賀茂神社 手作り市",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "market",
+      "source": "multiple",
+      "brief_note": "4th Sunday monthly; UNESCO World Heritage site"
+    },
+    {
+      "name_ja": "平安蚤の市",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "shop_type": "market",
+      "source": "heiannominoichi",
+      "brief_note": "around 10th monthly; Okazaki Park; 100 antique stalls"
+    },
+    {
+      "name_ja": "清水寺1000マーケット",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "shop_type": "market",
+      "source": "multiple",
+      "brief_note": "28th monthly; 9-16h; Kiyomizu temple gate plaza"
+    }
+  ]
+}

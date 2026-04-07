@@ -1,0 +1,366 @@
+{
+  "category": "seasonal_autumn_winter",
+  "count": 36,
+  "pois": [
+    {
+      "name_ja": "東福寺（通天橋）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月上旬",
+      "source": "leafkyoto.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "永観堂（禅林寺）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～11月下旬",
+      "source": "japan-guide.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "清水寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月上旬（夜間特別拝観：2024年は11月18日-11月30日）",
+      "source": "japan-guide.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵐山・渡月橋",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月上旬",
+      "source": "kyototourism.org",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "貴船神社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月初旬～11月中旬（早め）、夜間灯籠ライトアップ：2024年は11月1日-11月24日",
+      "source": "gltjp.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "北野天満宮（御土居もみじ苑）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "10月下旬～12月上旬（2024年：10月25日-12月8日、ライトアップ11月11日-12月8日）",
+      "source": "kyototourism.org",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "瑠璃光院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "10月～12月（秋の特別公開）",
+      "source": "leafkyoto.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "哲学の道",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～11月下旬",
+      "source": "japan-guide.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "高台寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月上旬～12月上旬（2024年夜間特別拝観：10月21日-12月10日、17:00-22:00）",
+      "source": "leafkyoto.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神護寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月上旬～11月中旬（関西でも早め）",
+      "source": "media.mk-group.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵯峨野トロッコ列車",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月上旬",
+      "source": "koyo.walkerplus.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "勝尾寺",
+      "city_code": "osaka",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月初旬",
+      "source": "matcha-jp.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "箕面公園・箕面大滝",
+      "city_code": "osaka",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月初旬",
+      "source": "matcha-jp.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪城公園",
+      "city_code": "osaka",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月下旬～12月上旬",
+      "source": "koyo.walkerplus.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良公園",
+      "city_code": "nara",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～12月上旬",
+      "source": "narashikanko.or.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良県立竜田公園",
+      "city_code": "nara",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬（竜田川のモミジが有名）",
+      "source": "koyo.walkerplus.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "六甲山",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "10月下旬～11月中旬（山頂付近は早め）",
+      "source": "feel-kobe.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "瑞宝寺公園（有馬温泉）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～11月下旬",
+      "source": "tanosu.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "摩耶山天上寺",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬",
+      "source": "feel-kobe.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸市立森林植物園",
+      "city_code": "kobe",
+      "area": "",
+      "type": "autumn_leaves",
+      "season": "autumn",
+      "timing": "11月中旬～11月下旬（夜間ライトアップあり）",
+      "source": "tanosu.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "御堂筋イルミネーション",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "11月上旬～1月下旬（2025-26年版：2025年11月3日-2026年1月31日、毎日17:00-25:00）",
+      "source": "fashion-press.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "OSAKA光のルネサンス（中之島）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "12月中旬～12月下旬（例年2週間程度）",
+      "source": "fashion-press.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "グランフロント大阪 うめきたイルミネーション",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "11月上旬～2月下旬（2025-26年版：2025年11月6日-2026年2月28日）",
+      "source": "fashion-press.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "なんば光旅（ひかりたび）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "11月上旬～2月上旬（2025-26年版：2025年11月7日-2026年2月1日）",
+      "source": "yamato-illumination.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪城イルミナージュ",
+      "city_code": "osaka",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "12月～翌年1月（年によって異なる）",
+      "source": "rurubu.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸ルミナリエ",
+      "city_code": "kobe",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "1月下旬～2月上旬（第30回：2025年1月24日-2月2日、第31回：2026年1月30日-2月8日予定）",
+      "source": "kobe-luminarie.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神戸イルミナージュ（道の駅フルーツフラワーパーク大沢）",
+      "city_code": "kobe",
+      "area": "",
+      "type": "illumination",
+      "season": "winter",
+      "timing": "11月上旬～2月中旬（2024-25年版：2024年11月1日-2025年2月16日）",
+      "source": "yamato-illumination.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "有馬温泉",
+      "city_code": "kobe",
+      "area": "",
+      "type": "onsen_winter",
+      "season": "winter",
+      "timing": "通年（冬は12月～2月が特におすすめ）",
+      "source": "funliday.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "城崎温泉",
+      "city_code": "kinosaki",
+      "area": "",
+      "type": "onsen_winter",
+      "season": "winter",
+      "timing": "通年、冬は松葉ガニ（11月～3月）が旬",
+      "source": "funliday.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伏見稲荷大社（初詣）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "hatsumode",
+      "season": "winter",
+      "timing": "元旦～1月上旬（三が日が特に混雑）",
+      "source": "sp.jorudan.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "八坂神社（初詣・おけら詣り）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "hatsumode",
+      "season": "winter",
+      "timing": "大晦日23時頃～元旦（おけら詣り）、三が日",
+      "source": "blog.kanko.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "平安神宮（初詣）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "hatsumode",
+      "season": "winter",
+      "timing": "元旦～1月上旬",
+      "source": "blog.kanko.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "下鴨神社（初詣）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "hatsumode",
+      "season": "winter",
+      "timing": "元旦～1月上旬",
+      "source": "sp.jorudan.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京の冬の旅（非公開文化財特別公開）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "special_event",
+      "season": "winter",
+      "timing": "1月上旬～3月下旬（毎年開催）",
+      "source": "ja.kyoto.travel",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "金閣寺（冬・雪景色）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "winter_scenery",
+      "season": "winter",
+      "timing": "1月下旬～2月中旬（積雪日が最良、翌朝午前中が狙い目）",
+      "source": "tabix.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "クリスマスマーケット in 天王寺てんしば",
+      "city_code": "osaka",
+      "area": "",
+      "type": "christmas_market",
+      "season": "winter",
+      "timing": "11月下旬～12月25日（2025年版：11月28日-12月25日、11:00-21:00）",
+      "source": "timeout.jp",
+      "brief_note": ""
+    }
+  ]
+}

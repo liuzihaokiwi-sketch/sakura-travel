@@ -1,0 +1,495 @@
+{
+  "category": "onsen",
+  "type": "experience",
+  "count": 61,
+  "hotels": [
+    {
+      "name_ja": "Hoshinoya Kyoto",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "luxury_ryokan",
+      "source": "michelin",
+      "brief_note": "1 Key (2025 new); 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "Fufu Kyoto",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "luxury_ryokan",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "Hiiragiya",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_ryokan",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); Kyoto gosanke; est.1818; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "Kanamean Nishitomiya",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_ryokan",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "俵屋旅館 (Tawaraya)",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_ryokan",
+      "source": "multiple",
+      "brief_note": "Kyoto gosanke #1; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "炭屋旅館 (Sumiya)",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_ryokan",
+      "source": "multiple",
+      "brief_note": "Kyoto gosanke; tea ceremony; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "神戸みなと温泉 蓮",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "onsen_hotel",
+      "source": "ikyu",
+      "brief_note": "4yr #1 onsen hotel; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "有馬温泉 欽山",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "ikyu",
+      "brief_note": "#1 Arima; kaiseki; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "中の坊瑞苑",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "google_ikyu",
+      "brief_note": "Google 4.6/637; gold+silver; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "陶泉 御所坊",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "google_ikyu",
+      "brief_note": "Google 4.5/625; est.1191; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "竹取亭円山",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "google",
+      "brief_note": "Google 4.5/435; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "有馬グランドホテル",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "onsen_hotel",
+      "source": "google",
+      "brief_note": "Google 4.4/2913; largest; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "兵衛向陽閣",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "google_ikyu",
+      "brief_note": "Google 4.4/2154; 700yr; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "ホテル花小宿",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "boutique_hotel",
+      "source": "google",
+      "brief_note": "Google 4.4/252; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "天地の宿 奥の細道",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "google_mybest",
+      "brief_note": "chef performance; gold spring; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "四季の彩 旅篭",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "google_ikyu",
+      "brief_note": "private bath popular; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "有馬温泉 月光園 鴻朧館",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "google_ikyu",
+      "brief_note": "autumn foliage view; room dining; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "銀水荘 兆楽",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "google_ikyu",
+      "brief_note": "gold+silver; Kobe beef; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "有馬山叢 御所別墅",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "reference",
+      "brief_note": "400yr; private bath suites; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "根岸屋旅鳳閣",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "有馬御苑",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Kobe beef restaurant; 1min onsen street; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "西村屋ホテル招月庭",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "rakuten",
+      "brief_note": "Rakuten #1; 50000-tsubo garden; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "西村屋本館",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "rakuten",
+      "brief_note": "Edo Ansei era; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "三木屋",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Shiga Naoya; cultural property; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "城崎温泉 喜楽",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "multiple",
+      "brief_note": "Pottery experience; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "花小路 彩月",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "multiple",
+      "brief_note": "4 groups/day; creative cuisine; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "大西屋水翔苑",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "All-tatami; family-friendly; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "但馬屋",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Private onsen; couples; crab; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "城崎温泉 山本屋",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "森津屋",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "つたや旅館",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "multiple",
+      "brief_note": "Art & history ryokan; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "Fufu Nara",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "luxury_ryokan",
+      "source": "michelin",
+      "brief_note": "1 Key (2025); 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "Hotel Kawakyu",
+      "city_code": "shirahama",
+      "area": "shirahama_beachfront",
+      "hotel_type": "luxury_hotel",
+      "source": "reference",
+      "brief_note": "All-suite; ocean view"
+    },
+    {
+      "name_ja": "INFINITO Hotel & Spa Nanki Shirahama",
+      "city_code": "shirahama",
+      "area": "shirahama_beachfront",
+      "hotel_type": "resort_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥20k-50k/旺¥40k-100k"
+    },
+    {
+      "name_ja": "Shiraraso Grand Hotel",
+      "city_code": "shirahama",
+      "area": "shirahama_beachfront",
+      "hotel_type": "onsen_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "Shirahama Key Terrace Hotel Seamore",
+      "city_code": "shirahama",
+      "area": "shirahama_beachfront",
+      "hotel_type": "onsen_hotel",
+      "source": "reference",
+      "brief_note": "Renovated; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "南禅寺参道 菊水",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "luxury_ryokan",
+      "source": "ikyu",
+      "brief_note": "全5室; 米其林3星主厨; 红叶庭园; JPY52900~; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "四条河原町温泉 空庭テラス京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "onsen_hotel",
+      "source": "hk01_booking_ctrip",
+      "brief_note": "河原町站1min; 屋顶东山景观温泉; Booking情侣9.7; 携程4.7/981评; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "四条河原町温泉 空庭テラス京都 別邸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_ryokan",
+      "source": "hk01_rakuten",
+      "brief_note": "全室露天风吕付; 鸭川+东山パノラマ; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "神戸港温泉 蓮",
+      "city_code": "kobe",
+      "area": "harborland_meriken",
+      "hotel_type": "onsen_hotel",
+      "source": "tw_blog",
+      "brief_note": "天然温泉; 成人限定; 怀石; TWD12000-20000; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "高山荘 華野",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "tw_blog",
+      "brief_note": "金银汤; 静谧; TWD24000起; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "花結び",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "tw_blog",
+      "brief_note": "金汤露天; 按摩椅; TWD13000起; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "元湯 古泉閣",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "tw_blog",
+      "brief_note": "自家泉源金汤; 岩风吕; TWD6100起; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "月光園 游月山荘",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "tw_blog",
+      "brief_note": "溪边露天; 月光桥; TWD8300-10000; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "大阪LIBERホテル",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "onsen_hotel",
+      "source": "letsgojp",
+      "brief_note": "桜岛站; 天然碳酸泉; USJ1站"
+    },
+    {
+      "name_ja": "有馬ロイヤルホテル",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "onsen_hotel",
+      "source": "jtb",
+      "brief_note": "天然温泉露天风吕; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "陵楓閣",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "tw_blog",
+      "brief_note": "森林包围; 秋枫红; 金银汤; TWD6180起; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "銀花",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "luxury_ryokan",
+      "source": "relux",
+      "brief_note": "全16室リバービュー; 桧展望风吕; 活松叶蟹; 淡¥30k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "蟹宿むつの屋",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "multiple",
+      "brief_note": "城崎中心; 蟹专门; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "山しろや旅館",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "multiple",
+      "brief_note": "但馬牛+蟹; 家族経营; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "月への舟",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "2025_new",
+      "brief_note": "2025新客室; 自家源泉; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "京湯元 ハトヤ瑞鳳閣",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "onsen_hotel",
+      "source": "web_search",
+      "brief_note": "京都站5min; 自家源泉东山/西山の湯; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "湯楽",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "web_search",
+      "brief_note": "色浴衣レンタル; 外汤无料; 女子旅; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "深山",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "web_search",
+      "brief_note": "大正モダンリニューアル; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "有馬きらり",
+      "city_code": "arima",
+      "area": "arima_onsen_town",
+      "hotel_type": "onsen_hotel",
+      "source": "old_pool",
+      "brief_note": "有马温泉旅馆; 淡¥10k-25k/旺¥20k-50k"
+    },
+    {
+      "name_ja": "かに庵",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎; 蟹料理旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "丸山",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎; luxury级; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "新泉",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "月明かり",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "泉翠",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "艷郷",
+      "city_code": "kinosaki",
+      "area": "kinosaki_onsen_town",
+      "hotel_type": "ryokan",
+      "source": "old_pool",
+      "brief_note": "城崎旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    }
+  ]
+}

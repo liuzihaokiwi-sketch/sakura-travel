@@ -1,0 +1,60 @@
+{
+  "circle_id": "kansai",
+  "city": "osaka",
+  "version": "2026-04-03",
+  "variants": {
+    "namba": {
+      "description": "难波版，3天+深度玩大阪",
+      "hotel_area": "namba_dotonbori",
+      "max_days": 5.5,
+      "min_days": 2.5
+    },
+    "umeda": {
+      "description": "梅田版，1-2天切京都",
+      "hotel_area": "umeda_kita",
+      "max_days": 2.5,
+      "min_days": 1.5
+    }
+  },
+  "day_structure": {
+    "2.5": ["arrival", "osaka_highlight", "departure"],
+    "3.5": ["arrival", "osaka_highlight", "usj", "departure"],
+    "4.5": ["arrival", "osaka_highlight", "usj", "audience_day", "departure"],
+    "5.5": ["arrival", "osaka_highlight", "seasonal", "usj", "audience_day", "departure"]
+  },
+  "user_choices": {
+    "_doc": "用户只做3个显式选择，其余系统自动决定",
+    "usj": {
+      "type": "boolean",
+      "label": "要去USJ吗？",
+      "adds_days": 1
+    },
+    "audience": {
+      "type": "single_choice",
+      "label": "人群类型",
+      "options": ["couple", "friends", "family", "default"]
+    },
+    "budget": {
+      "type": "single_choice",
+      "label": "预算档位",
+      "options": ["budget", "mid", "premium"]
+    }
+  },
+  "system_auto_decisions": {
+    "_doc": "以下由系统自动决定，不问用户",
+    "hotel": "根据天数+预算+人群自动选",
+    "restaurant": "根据预算+人群+口味搭配自动选A推荐+B备选",
+    "evening_d2": "根据人群自动推荐（情侣/闺蜜→爵士酒吧，其他→心斋桥逛街）",
+    "shops": "根据兴趣标签+人群自动推荐",
+    "seasonal": "根据旅行日期自动匹配加入",
+    "half_day_poi": "岚山/奈良/有马/姬路等独立模块由关西总调度决定，不在大阪模板内"
+  },
+  "audience_tags": ["couple", "friends", "family", "elderly"],
+  "interest_tags": ["otaku", "shopping", "vintage"],
+  "budget_tiers": {
+    "budget": {"label": "经济", "hotel_range": "200-400淡/400-600旺", "meal_range": "~100元/人"},
+    "mid": {"label": "中档", "hotel_range": "400-800淡/600-1200旺", "meal_range": "100-300元/人"},
+    "premium": {"label": "中高档", "hotel_range": "800-1500淡/1200-2500旺", "meal_range": "300-800元/人"},
+    "luxury": {"label": "高档", "hotel_range": "1500+淡/2500+旺", "meal_range": "1000+元/人"}
+  }
+}

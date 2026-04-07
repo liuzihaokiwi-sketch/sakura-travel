@@ -62,12 +62,16 @@ packages = ["app"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
-testpaths = ["tests"]
+testpaths = ["tests", "app/domains/planning_v2/tests"]
 markers = [
-    "l2_contract_blocker: contract-first layer-2 blocker coverage",
-    "l3_handbook_delivery_blocker: handbook-delivery acceptance blocker coverage",
-    "phase2_acceptance: phase2 second-layer acceptance coverage",
-    "legacy_compatibility: legacy-chain compatibility baseline coverage",
+    "l2_contract_blocker: planning_v2 contract gate — must stay green before merging pipeline changes",
+    "smoke: 3 core regression cases (7d_classic, 9d_must_visit, 13d_complex)",
+    "full: all 12 regression cases",
+    "cp1: checkpoint 1 — Step 1-4 input resolution and pool reduction",
+    "cp2: checkpoint 2 — Step 5-7.5 activities and hotel selection",
+    "cp3: checkpoint 3 — Step 8-12 scheduling and timeline",
+    "cp4: checkpoint 4 — Step 13-16 meals, budget, plan_b",
+    "live_api: requires real Anthropic API key, runs serially with ≥3s delay",
 ]
 
 [tool.ruff]

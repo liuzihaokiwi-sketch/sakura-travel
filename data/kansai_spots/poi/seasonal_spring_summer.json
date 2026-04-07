@@ -1,0 +1,286 @@
+{
+  "category": "seasonal_spring_summer",
+  "count": 28,
+  "pois": [
+    {
+      "name_ja": "清水寺 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "letsgojp.cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "円山公園 祇園枝垂れ桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "letsgojp.cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "哲学の道",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "醍醐寺 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "平野神社 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月上旬〜4月下旬",
+      "source": "keihanhotels-resorts.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "仁和寺 御室桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "4月中旬（遅咲き）",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都御苑（近衞邸跡の糸桜）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月中旬〜4月上旬",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "蹴上インクライン 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "mrkyoto.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵐山 渡月橋 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "japan-guide.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伏見 十石舟 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "letsgojp.cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "二条城 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "mrkyoto.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大阪城公園 桜",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "造幣局 桜の通り抜け",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "4月中旬（1週間限定）",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "毛馬桜之宮公園 桜",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "letsgojp.cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "中之島公園 桜",
+      "city_code": "osaka",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "ontrip.jal.co.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "吉野山 桜（一目千本）",
+      "city_code": "nara",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "4月上旬〜4月中旬（下千本→奥千本の順）",
+      "source": "yoshinoyama-kankou.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "奈良公園 浮見堂 桜",
+      "city_code": "nara",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "nara-kankou.or.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園祭（前祭・山鉾巡行）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "festival",
+      "season": "summer",
+      "timing": "7月1日〜31日（山鉾巡行：前祭7月17日、後祭7月24日）",
+      "source": "gionmatsuri.or.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天神祭 奉納花火・船渡御",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "season": "summer",
+      "timing": "7月24日（宵宮）・7月25日（本宮・船渡御・花火）",
+      "source": "osakatemmangu.or.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "住吉祭（住吉大社）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "season": "summer",
+      "timing": "7月30日〜8月1日（神輿渡御：7月27日）",
+      "source": "osakatemmangu.or.jp",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "なにわ淀川花火大会",
+      "city_code": "osaka",
+      "area": "",
+      "type": "fireworks",
+      "season": "summer",
+      "timing": "例年8月第1土曜日（2025年は10月18日に変更）",
+      "source": "yodohanabi.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鴨川 納涼床（川床）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "kawadoko",
+      "season": "summer",
+      "timing": "5月1日〜9月30日",
+      "source": "leafkyoto.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "貴船 川床料理",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "kawadoko",
+      "season": "summer",
+      "timing": "5月1日〜9月30日（店により10月末まで）",
+      "source": "leafkyoto.net",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "箕面大滝（夏の避暑）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "nature",
+      "season": "summer",
+      "timing": "通年（夏が特に人気）",
+      "source": "activityjapan.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "道頓堀 夏の灯篭祭り",
+      "city_code": "osaka",
+      "area": "",
+      "type": "event",
+      "season": "summer",
+      "timing": "7月1日〜8月31日",
+      "source": "activityjapan.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "愛染祭（四天王寺）",
+      "city_code": "osaka",
+      "area": "",
+      "type": "festival",
+      "season": "summer",
+      "timing": "6月30日〜7月2日",
+      "source": "lpzine.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "びわ湖大花火大会",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "fireworks",
+      "season": "summer",
+      "timing": "例年8月上旬（2025年：8月上旬）",
+      "source": "kkday.com",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵯峨野トロッコ列車（春の桜）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "season": "spring",
+      "timing": "3月下旬〜4月上旬",
+      "source": "fashion-press.net",
+      "brief_note": ""
+    }
+  ]
+}

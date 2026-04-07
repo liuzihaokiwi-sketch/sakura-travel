@@ -1,0 +1,22 @@
+{
+  "city": "wakayama",
+  "count": 2,
+  "pois": [
+    {
+      "name_ja": "白濱溫泉",
+      "city_code": "wakayama",
+      "area": "",
+      "type": "onsen_resort",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "高野山宿坊體驗",
+      "city_code": "wakayama",
+      "area": "",
+      "type": "experience_temple_stay",
+      "source": "search_tw",
+      "brief_note": ""
+    }
+  ]
+}

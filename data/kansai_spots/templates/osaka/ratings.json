@@ -1,0 +1,150 @@
+{
+  "_doc": "大阪多维评级库。所有推荐的餐厅/酒店/景点/店铺的人群×兴趣评级，供AI选择时参考",
+
+  "rating_scale": {
+    "S+": "该人群/兴趣的必去/必吃/必住",
+    "S": "强烈推荐",
+    "S-": "推荐",
+    "A": "适合但不突出",
+    "B": "可以去但不是最佳选择",
+    "C": "不太适合该人群"
+  },
+
+  "poi_ratings": {
+    "大阪城": {"default": "S", "couple": "S", "friends": "S", "family": "S", "elderly": "S"},
+    "道顿堀": {"default": "S", "couple": "S", "friends": "S", "family": "S", "elderly": "S"},
+    "USJ": {"default": "S", "couple": "S", "friends": "S+", "family": "S+", "elderly": "B"},
+    "黒門市場": {"default": "S", "couple": "S-", "friends": "S", "family": "A", "elderly": "S"},
+    "新世界+通天閣": {"default": "S", "couple": "A", "friends": "S", "family": "A", "elderly": "A"},
+    "法善寺横丁": {"default": "A", "couple": "S", "friends": "A", "family": "B", "elderly": "A"},
+    "海游馆": {"default": "A", "couple": "S", "friends": "A", "family": "S+", "elderly": "A"},
+    "天保山摩天轮": {"default": "A", "couple": "S", "friends": "A", "family": "A", "elderly": "A"},
+    "梅田蓝天大厦": {"default": "A", "couple": "S+", "friends": "A", "family": "B", "elderly": "B"},
+    "美国村": {"default": "A", "couple": "A", "friends": "S+", "family": "C", "elderly": "C"},
+    "中之岛": {"default": "A", "couple": "A", "friends": "S", "family": "C", "elderly": "A"},
+    "乐高探索中心": {"default": "B", "couple": "C", "friends": "C", "family": "S+", "elderly": "C"},
+    "空庭温泉": {"default": "A", "couple": "A", "friends": "S", "family": "B", "elderly": "S"},
+    "四天王寺": {"default": "B", "couple": "B", "friends": "B", "family": "B", "elderly": "S"},
+    "天神桥筋商店街": {"default": "A", "couple": "B", "friends": "A", "family": "B", "elderly": "A"},
+    "阿倍野HARUKAS": {"default": "A", "couple": "S", "friends": "A", "family": "A", "elderly": "A"},
+    "难波八阪神社": {"default": "B", "couple": "A", "friends": "A", "family": "B", "elderly": "A"},
+    "道具屋筋": {"default": "A", "couple": "A", "friends": "A", "family": "S", "elderly": "A"}
+  },
+
+  "restaurant_ratings": {
+    "_doc": "按菜系整体评级+具体店铺特殊评级",
+
+    "cuisine_audience": {
+      "大阪烧": {"default": "S", "couple": "A", "friends": "S", "family": "S", "elderly": "A"},
+      "串炸": {"default": "S", "couple": "A", "friends": "S", "family": "A", "elderly": "A"},
+      "章鱼烧": {"default": "S", "couple": "S", "friends": "S", "family": "S", "elderly": "A"},
+      "回转寿司": {"default": "A", "couple": "A", "friends": "A", "family": "S", "elderly": "A"},
+      "拉面": {"default": "A", "couple": "B", "friends": "A", "family": "A", "elderly": "B"},
+      "寿司omakase": {"default": "A", "couple": "S+", "friends": "A", "family": "C", "elderly": "A"},
+      "河豚": {"default": "A", "couple": "S", "friends": "A", "family": "B", "elderly": "A"},
+      "关东煮": {"default": "A", "couple": "A", "friends": "A", "family": "B", "elderly": "S"},
+      "居酒屋": {"default": "A", "couple": "A", "friends": "S", "family": "C", "elderly": "B"},
+      "乌冬": {"default": "A", "couple": "B", "friends": "A", "family": "S", "elderly": "S"},
+      "鳗鱼": {"default": "A", "couple": "A", "friends": "B", "family": "B", "elderly": "S"},
+      "炸猪排": {"default": "A", "couple": "B", "friends": "A", "family": "A", "elderly": "B"},
+      "天妇罗": {"default": "A", "couple": "A", "friends": "A", "family": "B", "elderly": "A"},
+      "高端串炸": {"default": "S", "couple": "S", "friends": "A", "family": "B", "elderly": "A"},
+      "肉割烹": {"default": "A", "couple": "S", "friends": "A", "family": "C", "elderly": "A"},
+      "焼鳥割烹": {"default": "A", "couple": "S", "friends": "A", "family": "C", "elderly": "A"},
+      "洋食": {"default": "A", "couple": "A", "friends": "A", "family": "S", "elderly": "A"},
+      "蛋包饭": {"default": "A", "couple": "A", "friends": "A", "family": "S+", "elderly": "A"},
+      "咖喱": {"default": "A", "couple": "B", "friends": "A", "family": "A", "elderly": "B"},
+      "荞麦": {"default": "A", "couple": "B", "friends": "B", "family": "B", "elderly": "S"}
+    },
+
+    "specific_overrides": {
+      "鮨し禅": {"couple": "S+", "reason": "omakase吧台私密感，约会最佳"},
+      "鳥匠いし井": {"couple": "S+", "friends": "S", "reason": "米其林一星焼鳥，把日常食物做到极致的反差感"},
+      "肉割烹 山口": {"couple": "S+", "reason": "和牛割烹，高端约会"},
+      "六覺燈": {"couple": "S", "friends": "S", "reason": "米其林一星串炸，大阪独有的fine dining体验"},
+      "和洋酒菜ひで": {"friends": "S+", "couple": "S", "reason": "tabelog大阪居酒屋第1，本地人推崇"},
+      "本家柴藤": {"elderly": "S+", "reason": "大阪最老鳗鱼店，关西传统味"},
+      "石橋關東煮": {"elderly": "S", "reason": "路边围坐吃，昭和氛围，老人回忆感"},
+      "玄品ふぐ": {"couple": "S", "reason": "两人一起第一次吃河豚，有仪式感"},
+      "美津の": {"friends": "S+", "family": "S", "reason": "铁板互动，一起翻大阪烧"},
+      "北極星": {"family": "S+", "reason": "蛋包饭发源店，小孩最爱"},
+      "自由軒": {"default": "S-", "reason": "独一无二的生蛋咖喱，大阪才有"},
+      "千とせ本店": {"default": "S", "reason": "肉吸只有大阪有，去别的城市吃不到"}
+    }
+  },
+
+  "hotel_ratings": {
+    "_doc": "酒店人群评级",
+
+    "namba_dotonbori": {
+      "希拉里斯心斋桥": {"couple": "S", "friends": "A", "family": "B", "elderly": "B", "reason": "情侣评分9.3，大浴场"},
+      "VIA INN心斋桥": {"couple": "B", "friends": "B", "family": "S", "elderly": "A", "reason": "含早餐，12岁以下免费"},
+      "威塞尔心斋桥": {"couple": "A", "friends": "A", "family": "A", "elderly": "A", "reason": "全人群均衡"},
+      "多美Inn Premium难波": {"couple": "A", "friends": "A", "family": "A", "elderly": "S", "onsen": "S+", "reason": "天然温泉+宵夜拉面"},
+      "御宿野乃难波": {"couple": "S", "friends": "A", "family": "A", "elderly": "S+", "onsen": "S+", "reason": "温泉+全馆榻榻米+和风"},
+      "光芒酒店难波": {"couple": "S+", "friends": "A", "family": "A", "elderly": "A", "reason": "顶楼Sky Spa夜景"},
+      "蒙特利Grasmere大阪": {"couple": "A", "friends": "A", "family": "A", "elderly": "S", "reason": "JR直结不用走路，高层景观"},
+      "威塞尔难波": {"couple": "B", "friends": "B", "family": "S+", "elderly": "A", "reason": "亲子首选，18岁免费加床"},
+      "瑞士南海大阪": {"couple": "S", "friends": "A", "family": "A", "elderly": "S", "reason": "直结车站，五星服务"},
+      "日航大阪": {"couple": "A", "friends": "S", "family": "A", "elderly": "A", "shopping": "S+", "reason": "心斋桥直结+对面大丸"},
+      "盛泰澜大阪": {"couple": "S+", "friends": "A", "family": "A", "elderly": "A", "reason": "8家餐厅+楼顶酒吧"},
+      "凯悦尚萃难波": {"couple": "S+", "friends": "S", "family": "B", "elderly": "B", "reason": "设计感强，潮流"},
+      "W大阪": {"couple": "S+", "friends": "S+", "family": "C", "elderly": "C", "reason": "日本首家W，打卡"}
+    },
+
+    "umeda_kita": {
+      "福朋Flex梅田": {"couple": "B", "friends": "B", "family": "A", "elderly": "A", "reason": "经济实用"},
+      "Livemax Premium梅田": {"couple": "A", "friends": "B", "family": "B", "elderly": "S", "onsen": "S", "reason": "经济型罕见有温泉"},
+      "三井花园Premier": {"couple": "S", "friends": "A", "family": "A", "elderly": "S", "onsen": "S+", "reason": "河景+免费露天温泉，中档天花板"},
+      "格兰维亚大阪": {"couple": "A", "friends": "A", "family": "S", "elderly": "S", "reason": "JR直结不用走路"},
+      "光芒酒店塔楼": {"couple": "S+", "friends": "A", "family": "A", "elderly": "A", "onsen": "S+", "reason": "135m展望露天温泉"},
+      "阪急Respire": {"couple": "A", "friends": "A", "family": "A", "elderly": "A", "reason": "大型稳定"},
+      "希尔顿花树梅田": {"couple": "S+", "friends": "S", "family": "A", "elderly": "A", "reason": "新开设计感"},
+      "帝国酒店大阪": {"couple": "A", "friends": "B", "family": "A", "elderly": "S+", "reason": "传统奢华，服务细致"},
+      "希尔顿大阪": {"couple": "A", "friends": "A", "family": "A", "elderly": "A", "reason": "老牌稳定"},
+      "洲际大阪": {"couple": "S+", "friends": "A", "family": "A", "elderly": "A", "onsen": "S", "reason": "温泉Spa+米其林餐厅"},
+      "康莱德大阪": {"couple": "S+", "friends": "S", "family": "A", "elderly": "A", "reason": "中之岛双河景观，早餐大阪最佳"},
+      "华尔道夫大阪": {"couple": "S+", "friends": "S", "family": "A", "elderly": "S", "reason": "顶奢"}
+    }
+  },
+
+  "shop_ratings": {
+    "_doc": "店铺人群×兴趣评级",
+
+    "唐吉诃德道顿堀": {"default": "S+", "couple": "S+", "friends": "S+", "family": "S+", "shopping": "S+"},
+    "道具屋筋": {"default": "S", "couple": "S", "friends": "S", "family": "S", "otaku": "B"},
+    "大黒屋": {"default": "S-", "couple": "S-", "friends": "S-", "family": "C", "shopping": "S+"},
+    "古着屋JAM 2号店": {"default": "A", "couple": "B", "friends": "S", "family": "C", "vintage": "S+"},
+    "STANDARD BOOKSTORE": {"default": "A", "couple": "A", "friends": "A", "family": "B"},
+    "Asagi": {"couple": "S-", "friends": "A", "vintage": "S"},
+    "ichi": {"couple": "S", "friends": "B"},
+    "ASOKO南堀江": {"friends": "S", "family": "A"},
+    "サントニブンノイチ": {"friends": "S+", "couple": "A", "vintage": "S"},
+    "难波Parks": {"family": "S", "shopping": "S"},
+    "食品模型体验": {"family": "S+", "couple": "A"},
+    "まんだらけ日本橋": {"otaku": "S+"},
+    "Super Potato": {"otaku": "S"},
+    "大丸百货心斋桥": {"shopping": "S+", "elderly": "S"},
+    "心斋桥筋商店街": {"shopping": "S", "default": "A"},
+
+    "滝見小路": {"default": "S+", "couple": "S", "friends": "S", "elderly": "S"},
+    "中崎町商店街": {"default": "S", "friends": "S+", "couple": "S", "vintage": "S"},
+    "阪神梅田本店地下": {"default": "S-", "friends": "S", "elderly": "S"},
+    "Grand Front大阪": {"default": "A", "shopping": "S", "family": "A"},
+    "KAYA cafe": {"default": "A", "couple": "A", "friends": "S"}
+  },
+
+  "experience_ratings": {
+    "_doc": "体验活动的人群评级",
+
+    "爵士酒吧": {"couple": "S+", "friends": "S", "family": "C", "elderly": "A"},
+    "裏难波居酒屋": {"couple": "A", "friends": "S", "family": "C", "elderly": "B"},
+    "吉本新喜剧": {"default": "A", "couple": "A", "friends": "S", "family": "A", "elderly": "A"},
+    "国立文乐剧场": {"default": "A", "couple": "A", "friends": "B", "family": "C", "elderly": "S"},
+    "京瓷巨蛋棒球": {"default": "A", "couple": "A", "friends": "S", "family": "A", "elderly": "B"},
+    "大相扑春场所": {"default": "S", "couple": "S", "friends": "S", "family": "A", "elderly": "S+"},
+    "天神祭": {"default": "S+", "couple": "S+", "friends": "S+", "family": "A", "elderly": "B"},
+    "岸和田花车祭": {"default": "S", "couple": "S", "friends": "S+", "family": "B", "elderly": "B"},
+    "淀川花火": {"default": "S", "couple": "S+", "friends": "S", "family": "A", "elderly": "A"}
+  }
+}

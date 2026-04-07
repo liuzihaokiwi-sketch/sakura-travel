@@ -1,0 +1,103 @@
+{
+  "city": "nara",
+  "type": "convenient",
+  "count": 12,
+  "hotels": [
+    {
+      "name_ja": "紫翠 ラグジュアリーコレクションホテル 奈良",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "luxury_hotel",
+      "source": "multiple",
+      "brief_note": "Former governor mansion; 43 rooms; 淡¥25k-60k/旺¥60k-150k"
+    },
+    {
+      "name_ja": "奈良ホテル",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "est.1909; antique furniture; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "登大路ホテル奈良",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "boutique_hotel",
+      "source": "multiple",
+      "brief_note": "Nara Park facing; fine dining; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "セトレならまち",
+      "city_code": "nara",
+      "area": "naramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Sarusawa Pond; sake tasting; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Hotel Tenpyo Naramachi",
+      "city_code": "nara",
+      "area": "naramachi",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "MIROKU Nara by THE SHARE HOTELS",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ノボテル奈良",
+      "city_code": "nara",
+      "area": "kintetsu_nara_station",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "264 rooms; rooftop bar; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "ホテル日航奈良",
+      "city_code": "nara",
+      "area": "kintetsu_nara_station",
+      "hotel_type": "city_hotel",
+      "source": "mybest",
+      "brief_note": "JR Nara direct; onsen; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "天然温泉 奈良若草の湯 ダイワロイネット",
+      "city_code": "nara",
+      "area": "kintetsu_nara_station",
+      "hotel_type": "business_hotel",
+      "source": "mybest",
+      "brief_note": "mybest #1; natural onsen; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "おんやど野乃 奈良",
+      "city_code": "nara",
+      "area": "kintetsu_nara_station",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Dormy Inn brand onsen; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "ホテルニューわかさ",
+      "city_code": "nara",
+      "area": "nara_park_area",
+      "hotel_type": "city_hotel",
+      "source": "blog",
+      "brief_note": "近铁奈良12min; 东大寺5min; 淡¥5k-15k/旺¥15k-30k"
+    },
+    {
+      "name_ja": "無印良品×坂本屋",
+      "city_code": "nara",
+      "area": "yoshino",
+      "hotel_type": "boutique_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.2; 吉野杉客室; MUJI; 淡¥30k-60k/旺¥50k-120k"
+    }
+  ]
+}

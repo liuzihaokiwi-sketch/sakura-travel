@@ -1,0 +1,791 @@
+{
+  "city": "kyoto",
+  "type": "convenient",
+  "count": 98,
+  "hotels": [
+    {
+      "name_ja": "The Ritz-Carlton Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_hotel",
+      "source": "michelin_forbes",
+      "brief_note": "Forbes 5-star 8yr; Michelin listed; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "翠嵐 ラグジュアリーコレクションホテル 京都 (Suiran)",
+      "city_code": "kyoto",
+      "area": "arashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "conde_nast",
+      "brief_note": "Conde Nast #1 Japan 6yr; 39 rooms; onsen; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "THE THOUSAND KYOTO",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "ikyu ranking top; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "ホテルグランヴィア京都 (Hotel Granvia Kyoto)",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "JR station direct; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "Hotel Okura Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "Good Nature Hotel",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Cross Hotel Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "Genji Kyoto",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Reference list; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "Dormy Inn Premium Kyoto Ekimae",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "onsen+free ramen; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "Hotel 侑楽 京八坂",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "yadolog",
+      "brief_note": "yadolog score 4.85; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ハイアットリージェンシー京都",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "multiple",
+      "brief_note": "Multiple rankings; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "京都ブライトンホテル",
+      "city_code": "kyoto",
+      "area": "nijo_central",
+      "hotel_type": "city_hotel",
+      "source": "multiple",
+      "brief_note": "Multiple rankings; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "三井ガーデンホテル京都四条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Chain mid-range; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "三井ガーデンホテル京都三条プレミア",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "rakuten",
+      "brief_note": "2024 new; Karasuma Oike; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ロイヤルツインホテル京都八条口",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "onsen/sauna; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "都ホテル 京都八条",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "station area; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル京都テラス八条東口",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "京都站南口5min; 露天大浴场; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "ホテルヴィスキオ京都",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "京都站共构; 大浴场; TWD3800-6500; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル京都駅前",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "地下道直达; TWD2800-4500; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "DoubleTree by Hilton Kyoto Station",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "2024新开; TWD4500-7500; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "MIMARU京都 STATION",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "apart_hotel",
+      "source": "tw_blog",
+      "brief_note": "有厨房客厅; 家庭推荐; TWD6700起; 淡¥8k-20k/旺¥15k-40k"
+    },
+    {
+      "name_ja": "リッチモンドホテルプレミア京都四条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "楼下Life超市; Booking9.0; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホテルインターゲート京都四条新町",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "免费红白酒+茶泡饭宵夜; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "Hotel Village Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "2025翻新; 人工温泉; TWD2800-8800; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "RIHGA ロイヤルホテル京都四条烏丸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "四条站3min; TWD2500-4200; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホテルリソル京都四条室町",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "四条站3min; TWD3000-4800; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "京都グッドビューホテル",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "河原町站3min; TWD4399起; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "東急ステイ京都新京極通",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "河原町站1min; 洗脱烘; TWD3800-6000; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "木屋町ホテル京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "高濑川旁; TWD3200-5200; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "ONE FIVE HOTEL京都四条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "大宫站3min; TWD1800-3200; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "ヴェストプレミア京都和邸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "日式风情; TWD2600-4500; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ハイアットプレイス京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "丸太町站直连; 7.5坪; TWD4200-6500; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "MIMARU美満如家京都新町三条",
+      "city_code": "kyoto",
+      "area": "nijo_central",
+      "hotel_type": "apart_hotel",
+      "source": "tw_blog",
+      "brief_note": "厨房客厅; 家庭推荐; TWD8000-13000; 淡¥8k-20k/旺¥15k-40k"
+    },
+    {
+      "name_ja": "ソラリア西鉄ホテル京都プレミア",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "鸭川河景; 大浴场; TWD5200-8000; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホテルリソルトリニティ京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "榻榻米房; 抹茶体验; TWD2800-4500; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "NOHGA HOTEL 京都清水",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog",
+      "brief_note": "艺术气息; 顶楼酒吧; TWD3500-6000; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "京王プレリアホテル京都烏丸五条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "五条站4min; 温泉; TWD1700; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ASAI Kyoto Shijo",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "2023新开; TWD2100; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "Travelodge Kyoto Shijo Omiya",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "有浴缸; TWD1800; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "PIECE HOSTEL 三条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "hostel",
+      "source": "tw_blog",
+      "brief_note": "Agoda青旅大赏; 免费早餐; TWD650; 淡¥4k-8k/旺¥8k-18k"
+    },
+    {
+      "name_ja": "ザ・ミレニアルズ京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "capsule_hotel",
+      "source": "tw_blog",
+      "brief_note": "电动胶囊床; TWD480; 淡¥4k-8k/旺¥8k-18k"
+    },
+    {
+      "name_ja": "Hotel She Kyoto",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog",
+      "brief_note": "黑胶唱片机; TWD1300; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ヒルトン京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog",
+      "brief_note": "2024.9新开; 河原町核心; 泳池+SPA; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "9 Hours Capsule Hotel Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "capsule_hotel",
+      "source": "tw_blog",
+      "brief_note": "设计前卫; JPY4000/晚; 淡¥4k-8k/旺¥8k-18k"
+    },
+    {
+      "name_ja": "Guesthouse Tyoko Compass",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "guesthouse",
+      "source": "tw_blog",
+      "brief_note": "Booking 9.6; JPY3000; 淡¥3k-8k/旺¥6k-15k"
+    },
+    {
+      "name_ja": "ウェスティン都ホテル京都",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "蹴上站2min; 南禅寺徒步; 天然温泉SPA华顶; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "南禅寺 八千代",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "南禅寺参道; 半露天风吕; 汤豆腐; JPY26400~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "京小宿 室町 ゆとね",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "米其林收录; 7室; 五条站5min; JPY26000~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "料理旅館 花楽",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "ryokan",
+      "source": "ikyu",
+      "brief_note": "京野菜认定; JPY16300~; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "ALA HOTEL KYOTO",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "letsgojp",
+      "brief_note": "京都站南口5min; 露天大众汤; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "TUNE STAY KYOTO",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "boutique_hotel",
+      "source": "letsgojp",
+      "brief_note": "2500册书架; 共用厨房; JPY7920; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "相鉄フレッサイン京都四条烏丸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "letsgojp",
+      "brief_note": "连锁商务; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "insomnia KYOTO OIKE",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "hk01",
+      "brief_note": "乌丸御池站1min; 2023新开; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "京都モントレホテル",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "letsgojp",
+      "brief_note": "天然温泉大浴场; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "STITCH HOTEL Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.6新开; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "コートヤード・バイ・マリオット京都四条烏丸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.8新开; Marriott; 四条站1min; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "HANARE by Tokyu Stay",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "apart_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.9新开; 淡¥8k-20k/旺¥15k-40k"
+    },
+    {
+      "name_ja": "ホテルエスパシオン先斗町",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.10新开; 先斗町; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ガーナーホテル京都四条烏丸",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.11新开; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホリデイ・イン京都五条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.1新开; IHG; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "SOWAKA",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "boutique_hotel",
+      "source": "multiple",
+      "brief_note": "祗园精品旅馆; 数寄屋造り; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "京都梅小路花伝抄",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "ryokan",
+      "source": "letsgojp",
+      "brief_note": "温泉; 5个贷切风吕; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "ホテルハーヴェスト京都鷹峯",
+      "city_code": "kyoto",
+      "area": "takagamine",
+      "hotel_type": "resort_hotel",
+      "source": "icotto",
+      "brief_note": "しょうざんリゾート; 天然温泉; 淡¥20k-50k/旺¥40k-100k"
+    },
+    {
+      "name_ja": "京阪京都站南飯店",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "京都站250m; 免费迎宾饮料; TWD2000起; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "DoubleTree by Hilton Kyoto Higashiyama",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "2023新开; 清水五条站140m; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "京都花宿 (Kyoto Hana Hostel)",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "hostel",
+      "source": "tw_blog_multi",
+      "brief_note": "京都站460m; TWD990起; 淡¥4k-8k/旺¥8k-18k"
+    },
+    {
+      "name_ja": "櫻花台畫廊飯店 (Sakura Terrace The Gallery)",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "京都站南; 温泉大浴场; 免费红酒; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "M's Plus 四条大宮酒店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "四条大宫站; 便宜; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "M's INN 東山賓館",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "guesthouse",
+      "source": "tw_blog_multi",
+      "brief_note": "东山区; 性价比高; 淡¥3k-8k/旺¥6k-15k"
+    },
+    {
+      "name_ja": "京都四条大宮旅客之家飯店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "四条大宫; 平价; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "京都四条皇家花園酒店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "四条站; 中高端; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "sequence飯店-京都五条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "2020新开; 设计感; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "京都清水五条相鉄FRESA INN",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "清水五条站; 连锁; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "プリンススマートイン京都四条大宮",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Prince系; 大浴场; 智能; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "OMO5京都三条 by 星野リゾート",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "星野; 三条商店街; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "OMO3京都東寺 by 星野リゾート",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "星野; 东寺旁; 平价; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ホテルグレイスリー京都三条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "三条站; 藤田观光; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホテルフォルツァ京都四条河原町",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "河原町站直结; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "京都グランベルホテル",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "设计酒店; 屋顶酒吧; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "ザ ロイヤルパーク ホテル 京都四条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "四条站; 中高端; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ホテル京阪京都グランデ",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "八条口; 京阪集团; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ザ・ゲートホテル京都高瀬川",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "高濑川畔; 屋顶; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "からすま京都ホテル",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "四条烏丸站直结; 老牌; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "エルイン京都",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "京都站; 超低价; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "Cuvee J2 Hotel Kyoto",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "2024新开; 法式奢华; 全套房; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "京都タワーホテル",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "京都塔内; 京都站正对面; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "フォーポイントフレックス by シェラトン京都御池",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.11; 乌丸御池站4min; 317室; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "ROJIYU KYOTO",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.10リニューアル; 淡¥30k-60k/旺¥50k-120k"
+    },
+    {
+      "name_ja": "御室花伝抄",
+      "city_code": "kyoto",
+      "area": "northern_higashiyama",
+      "hotel_type": "ryokan",
+      "source": "2025_new",
+      "brief_note": "2025.8; 仁和寺门前; 67室; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "カペラ京都",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "2025_new",
+      "brief_note": "Capella日本初; 祗园; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "帝国ホテル京都",
+      "city_code": "kyoto",
+      "area": "gion_higashiyama",
+      "hotel_type": "luxury_hotel",
+      "source": "2026_new",
+      "brief_note": "2026.3; 东山祗园; 全55室; 淡¥80k-200k/旺¥180k-500k+"
+    },
+    {
+      "name_ja": "ザ ロイヤルパークホテル 京都梅小路",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "city_hotel",
+      "source": "web_search",
+      "brief_note": "梅小路京都西站1min; 洗い場付浴室; 大浴场; 亲子; 淡¥18k-40k/旺¥35k-80k"
+    },
+    {
+      "name_ja": "ヴィラージュ京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "apart_hotel",
+      "source": "web_search",
+      "brief_note": "ウェルカムベビー认定; 全室和室; 最大43㎡6人; 淡¥8k-20k/旺¥15k-40k"
+    },
+    {
+      "name_ja": "APA Hotel京都駅前",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "web_search",
+      "brief_note": "60品目朝食; 4岁以下免费; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "御宿野乃京都七条",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "hotel_type": "business_hotel",
+      "source": "web_search",
+      "brief_note": "全馆畳敷; 天然温泉; 海鲜汤葉丼; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "プリンススマートイン京都三条",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "xiaohongshu",
+      "brief_note": "三条站5min; 免费早餐; CNY335; 小红书642收藏; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "旅之棲京都ホテル",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "business_hotel",
+      "source": "xiaohongshu",
+      "brief_note": "清水五条站6min; CNY230/晚; 小红书实住; 淡¥8k-18k/旺¥18k-40k"
+    },
+    {
+      "name_ja": "京都悠洛悦苑",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "hotel_type": "boutique_hotel",
+      "source": "old_pool",
+      "brief_note": "boutique; 四条河原町; 淡¥30k-60k/旺¥50k-120k"
+    }
+  ]
+}

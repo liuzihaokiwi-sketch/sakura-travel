@@ -1,0 +1,222 @@
+{
+  "file": "osaka_amemura",
+  "count": 27,
+  "shops": [
+    {
+      "name_ja": "古着屋JAM アメリカ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "8000items; 80-90s American direct"
+    },
+    {
+      "name_ja": "古着屋JAM アメリカ村2号店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "jam",
+      "brief_note": "130tsubo; 11000items"
+    },
+    {
+      "name_ja": "マグネッツ アメ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "vintage+military; all ages"
+    },
+    {
+      "name_ja": "ピグスティ アメ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "3000items; mens+ladies+antique goods"
+    },
+    {
+      "name_ja": "RUSHOUT アメリカ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "rushout",
+      "brief_note": "all from US direct; 70-90s; no middleman cheap"
+    },
+    {
+      "name_ja": "CHAPPIE",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "Amemura center; beginner; street casual"
+    },
+    {
+      "name_ja": "サントニブンノイチ 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "American kids room concept; all genres"
+    },
+    {
+      "name_ja": "フロリダ アメリカ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "casual American; Shinsaibashi 8min"
+    },
+    {
+      "name_ja": "グリズリー アメ村店",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "Namba 6min; reasonable; spacious"
+    },
+    {
+      "name_ja": "LARA VINTAGE",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "Horie; 1800-1940s Europe vintage; most in Osaka"
+    },
+    {
+      "name_ja": "大黒屋 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "vintage_shop",
+      "source": "multiple",
+      "brief_note": "largest luxury 2nd hand Japan; est.1947; tax-free"
+    },
+    {
+      "name_ja": "Hedy Vintage 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "vintage_shop",
+      "source": "wamazing",
+      "brief_note": "LV/Fendi/Dior/Loewe; affordable; since 2013"
+    },
+    {
+      "name_ja": "Ragtag 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "vintage_shop",
+      "source": "multiple",
+      "brief_note": "designer brand 2nd hand; chain"
+    },
+    {
+      "name_ja": "Komehyo 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "vintage_shop",
+      "source": "multiple",
+      "brief_note": "brand 2nd hand chain; Shinsaibashi"
+    },
+    {
+      "name_ja": "2nd STREET 大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "wamazing",
+      "brief_note": "all-category 2nd hand chain; by color display"
+    },
+    {
+      "name_ja": "NUTTY",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "letsgojp",
+      "brief_note": "Horie; adult classic vintage fashion"
+    },
+    {
+      "name_ja": "ASOKO 南堀江",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "zakka",
+      "source": "letsgojp",
+      "brief_note": "all 300yen; design lifestyle goods; fun"
+    },
+    {
+      "name_ja": "ichi",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "craft",
+      "source": "letsgojp",
+      "brief_note": "Horie; leather+silver; custom order; artisan made"
+    },
+    {
+      "name_ja": "TIMELESS COMFORT",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "zakka",
+      "source": "letsgojp",
+      "brief_note": "Horie; furniture+appliances+cafe; quality life"
+    },
+    {
+      "name_ja": "VINYL CHAMBER",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "record_shop",
+      "source": "vinylchamber",
+      "brief_note": "Shinsaibashi; used+import vinyl records"
+    },
+    {
+      "name_ja": "Orange Street",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "shopping_street",
+      "source": "letsgojp",
+      "brief_note": "Horie main st; fashion+vintage+cafe+zakka"
+    },
+    {
+      "name_ja": "terrace VINTAGE & USED CLOTHING",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Shinmachi; spacious+lounge; kids+zakka too"
+    },
+    {
+      "name_ja": "souls",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Minami-Horie; quirky design; affordable; Thu closed"
+    },
+    {
+      "name_ja": "Asagi",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Shinsaibashi; 3F; US+euro vintage+designers; date spot"
+    },
+    {
+      "name_ja": "KINJI",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Amemura; student friendly; large chain"
+    },
+    {
+      "name_ja": "mecca",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Amemura; American vintage specialist"
+    },
+    {
+      "name_ja": "STANDARD BOOKSTORE",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "shop_type": "bookstore",
+      "source": "web_search",
+      "brief_note": "本+雑貨+カフェ; 心斎橋; 大阪代表的独立書店"
+    }
+  ]
+}

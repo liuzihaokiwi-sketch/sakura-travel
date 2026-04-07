@@ -1,0 +1,247 @@
+[
+  {
+    "name": "清水寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "S",
+    "seasonal": {
+      "spring": "S",
+      "autumn": "S"
+    },
+    "note": "世界遗产，樱花+红叶季更强"
+  },
+  {
+    "name": "金閣寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "S",
+    "seasonal": {
+      "winter": "S"
+    },
+    "note": "世界遗产，雪金閣"
+  },
+  {
+    "name": "伏見稲荷大社",
+    "city": "kyoto",
+    "type": "shrine",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "千本鸟居，全年热门"
+  },
+  {
+    "name": "嵐山",
+    "city": "kyoto",
+    "type": "scenic_area",
+    "base_grade": "S",
+    "seasonal": {
+      "spring": "S",
+      "autumn": "S"
+    },
+    "note": "竹林+渡月橋，春秋顶级"
+  },
+  {
+    "name": "銀閣寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "世界遗产，哲学之道起点"
+  },
+  {
+    "name": "二条城",
+    "city": "kyoto",
+    "type": "castle",
+    "base_grade": "S",
+    "seasonal": {
+      "spring": "A"
+    },
+    "note": "世界遗产，夜樱"
+  },
+  {
+    "name": "南禅寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "S",
+    "seasonal": {
+      "autumn": "S"
+    },
+    "note": "水路閣+红叶"
+  },
+  {
+    "name": "東福寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "A",
+    "seasonal": {
+      "autumn": "S"
+    },
+    "note": "平时A级，红叶季关西No.1"
+  },
+  {
+    "name": "大阪城",
+    "city": "osaka",
+    "type": "castle",
+    "base_grade": "S",
+    "seasonal": {
+      "spring": "S"
+    },
+    "note": "大阪地标，春天赏樱"
+  },
+  {
+    "name": "ユニバーサル・スタジオ・ジャパン",
+    "city": "osaka",
+    "type": "theme_park",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "USJ"
+  },
+  {
+    "name": "道頓堀",
+    "city": "osaka",
+    "type": "district",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "大阪夜生活地标"
+  },
+  {
+    "name": "海遊館",
+    "city": "osaka",
+    "type": "aquarium",
+    "base_grade": "A",
+    "seasonal": {},
+    "note": "世界级水族馆，亲子S"
+  },
+  {
+    "name": "東大寺",
+    "city": "nara",
+    "type": "temple",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "世界遗产，大佛"
+  },
+  {
+    "name": "春日大社",
+    "city": "nara",
+    "type": "shrine",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "世界遗产，万灯笼"
+  },
+  {
+    "name": "奈良公園",
+    "city": "nara",
+    "type": "park",
+    "base_grade": "S",
+    "seasonal": {},
+    "note": "鹿+东大寺+春日大社一体"
+  },
+  {
+    "name": "有馬温泉",
+    "city": "kobe",
+    "type": "onsen",
+    "base_grade": "S",
+    "seasonal": {
+      "autumn": "A",
+      "winter": "S"
+    },
+    "note": "日本三大古泉，冬季最佳"
+  },
+  {
+    "name": "姫路城",
+    "city": "himeji",
+    "type": "castle",
+    "base_grade": "S",
+    "seasonal": {
+      "spring": "S"
+    },
+    "note": "世界遗产，白鹭城+樱花"
+  },
+  {
+    "name": "北野異人館街",
+    "city": "kobe",
+    "type": "historic_district",
+    "base_grade": "A",
+    "seasonal": {},
+    "note": "神戸地标"
+  },
+  {
+    "name": "祇園祭",
+    "city": "kyoto",
+    "type": "festival",
+    "base_grade": null,
+    "seasonal": {
+      "summer": "S"
+    },
+    "note": "日本三大祭，7月限定"
+  },
+  {
+    "name": "天神祭",
+    "city": "osaka",
+    "type": "festival",
+    "base_grade": null,
+    "seasonal": {
+      "summer": "S"
+    },
+    "note": "日本三大祭，7月24-25日"
+  },
+  {
+    "name": "吉野山",
+    "city": "nara",
+    "type": "cherry_blossom",
+    "base_grade": "B",
+    "seasonal": {
+      "spring": "S"
+    },
+    "note": "日本第一赏樱名所，平时B"
+  },
+  {
+    "name": "永観堂",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "A",
+    "seasonal": {
+      "autumn": "S"
+    },
+    "note": "红叶の永観堂，秋季顶级"
+  },
+  {
+    "name": "醍醐寺",
+    "city": "kyoto",
+    "type": "temple",
+    "base_grade": "A",
+    "seasonal": {
+      "spring": "S"
+    },
+    "note": "世界遗产，太閤花見"
+  },
+  {
+    "name": "神戸ルミナリエ",
+    "city": "kobe",
+    "type": "illumination",
+    "base_grade": null,
+    "seasonal": {
+      "winter": "A"
+    },
+    "note": "12月限定灯光节"
+  },
+  {
+    "name": "鴨川納涼床",
+    "city": "kyoto",
+    "type": "experience",
+    "base_grade": null,
+    "seasonal": {
+      "summer": "A"
+    },
+    "note": "5-9月限定，川床料理"
+  },
+  {
+    "name": "なにわ淀川花火大会",
+    "city": "osaka",
+    "type": "fireworks",
+    "base_grade": null,
+    "seasonal": {
+      "summer": "A"
+    },
+    "note": "8月，关西最大花火"
+  }
+]

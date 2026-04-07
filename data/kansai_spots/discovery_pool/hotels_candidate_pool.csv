@@ -1,0 +1,396 @@
+name_ja,city_code,area,hotel_type_guess,source,ranking_info
+ホテル ラ・スイート神戸ハーバーランド,kobe,harborland_meriken,luxury_hotel,ikyu,mybest #1 night view
+ORIENTAL HOTEL,kobe,motomachi_nankinmachi,city_hotel,ikyu,est.1870 Japan oldest
+ホテルオークラ神戸,kobe,harborland_meriken,city_hotel,mybest,35F landmark; harbor view
+神戸メリケンパークオリエンタルホテル,kobe,harborland_meriken,city_hotel,mybest,all rooms with balcony
+神戸ポートピアホテル,kobe,bay_area,city_hotel,mybest,737 rooms
+神戸ベイシェラトン,kobe,bay_area,luxury_hotel,mybest,night view
+remm plus Kobe Sannomiya,kobe,sannomiya,business_hotel,reference,Station direct
+Daiwa Roynet Hotel Kobe Sannomiya,kobe,sannomiya,business_hotel,reference,Reference list
+ANA Crowne Plaza Kobe,kobe,kitano_shinkobe,city_hotel,reference,Shinkansen access
+Dormy Inn Kobe Motomachi,kobe,motomachi_nankinmachi,business_hotel,reference,Onsen
+カンデオホテルズ神戸,kobe,sannomiya,business_hotel,ikyu,business hotel ranking
+レム神戸三宮,kobe,sannomiya,business_hotel,ikyu,Sleep design concept
+ザ ロイヤルパーク キャンバス 神戸三宮,kobe,sannomiya,city_hotel,ikyu,business hotel ranking
+ダイワロイネットホテル神戸三宮プレミア,kobe,sannomiya,city_hotel,tw_blog,三宫站5min; 设备新
+レムプラス神戸三宮,kobe,sannomiya,business_hotel,tw_blog,三宫站直达; 按摩椅; 睡眠特化
+ザロイヤルパークキャンバス神戸三宮,kobe,sannomiya,city_hotel,tw_blog,设计感; 年轻向
+東方ホテル (Oriental Hotel Kobe),kobe,motomachi_nankinmachi,city_hotel,tw_blog,旧居留地; 港景; 欧式
+神戸ハーバーランドラ・スイート,kobe,harborland_meriken,luxury_hotel,tw_blog,全套房; 港湾夜景
+神戸大倉ホテル,kobe,harborland_meriken,city_hotel,tw_blog,高层港景; 日式早餐
+神戸メリケンパークオリエンタル,kobe,harborland_meriken,city_hotel,tw_blog,三面环海; 私人阳台
+神戸プラザホテルウエスト,kobe,motomachi_nankinmachi,business_hotel,tw_blog,元町; TWD1200起; 最低价
+相鉄フレッサイン神戸三宮,kobe,sannomiya,business_hotel,dcard,连锁商务
+ヴィラフォンテーヌ神戸三宮,kobe,sannomiya,business_hotel,tw_blog,连锁商务
+東横INN神戸三宮駅前,kobe,sannomiya,business_hotel,2025_new,2025.4新开; JR三宫150m
+コンフォートホテル神戸三宮,kobe,sannomiya,business_hotel,tw_blog_multi,免费早餐; 连锁
+ルミナスホテル,kobe,sannomiya,business_hotel,tw_blog_multi,三宫; 低价
+カンデオホテルズ神戸トアロード,kobe,sannomiya,city_hotel,tw_blog_multi,天空SPA
+ホテルクラウンパレス神戸,kobe,harborland_meriken,city_hotel,tw_blog_multi,港区; 中型
+神戸三宮東急REIホテル,kobe,sannomiya,business_hotel,tw_blog_multi,三宫站; 东急连锁
+ホテルモントレ神戸,kobe,sannomiya,city_hotel,tw_blog_multi,Monterey; 英国风
+the b 神戸,kobe,sannomiya,business_hotel,tw_blog_multi,三宫站1min
+ホテルピエナ神戸,kobe,sannomiya,city_hotel,tw_blog_multi,早餐日本第一; 甜品闻名
+神戸北野ホテル,kobe,kitano_shinkobe,boutique_hotel,tw_blog_multi,北野异人馆; 世界一の朝食
+神戸須磨シーワールドホテル,kobe,bay_area,resort_hotel,2024_new,2024; 须磨; 水族馆旁
+ダイワロイネットホテル神戸三宮プレミア (kuolife),kobe,sannomiya,city_hotel,kuolife,2022新开; 雪肌精备品
+元町東急REI,kobe,motomachi_nankinmachi,business_hotel,kuolife,元町站; 东急连锁
+Monte Hermana Amalie,kobe,sannomiya,business_hotel,kuolife,三宫; 女性向
+KOKO HOTEL 三宮,kobe,sannomiya,business_hotel,kuolife,三宫; KOKO连锁
+神戸プラザホテル,kobe,motomachi_nankinmachi,business_hotel,kuolife,元町站1min; 近年翻新
+APA Hotel 神戸三宮駅前,kobe,sannomiya,business_hotel,kuolife,2020新开; TWD1600
+グリーンリッチホテル神戸三宮,kobe,sannomiya,business_hotel,kuolife,2020新开; 人工温泉; TWD1800
+The Ritz-Carlton Kyoto,kyoto,shijo_kawaramachi,luxury_hotel,michelin_forbes,Forbes 5-star 8yr; Michelin listed
+翠嵐 ラグジュアリーコレクションホテル 京都 (Suiran),kyoto,arashiyama,luxury_hotel,conde_nast,Conde Nast #1 Japan 6yr; 39 rooms; onsen
+THE THOUSAND KYOTO,kyoto,kyoto_station,luxury_hotel,ikyu,ikyu ranking top
+ホテルグランヴィア京都 (Hotel Granvia Kyoto),kyoto,kyoto_station,city_hotel,ikyu,JR station direct
+Hotel Okura Kyoto,kyoto,shijo_kawaramachi,city_hotel,reference,Reference list
+Good Nature Hotel,kyoto,shijo_kawaramachi,boutique_hotel,reference,Reference list
+Cross Hotel Kyoto,kyoto,shijo_kawaramachi,city_hotel,reference,Reference list
+Genji Kyoto,kyoto,gion_higashiyama,boutique_hotel,reference,Reference list
+Dormy Inn Premium Kyoto Ekimae,kyoto,kyoto_station,business_hotel,reference,onsen+free ramen
+Hotel 侑楽 京八坂,kyoto,gion_higashiyama,boutique_hotel,yadolog,yadolog score 4.85
+ハイアットリージェンシー京都,kyoto,gion_higashiyama,luxury_hotel,multiple,Multiple rankings
+京都ブライトンホテル,kyoto,nijo_central,city_hotel,multiple,Multiple rankings
+三井ガーデンホテル京都四条,kyoto,shijo_kawaramachi,city_hotel,reference,Chain mid-range
+三井ガーデンホテル京都三条プレミア,kyoto,shijo_kawaramachi,city_hotel,rakuten,2024 new; Karasuma Oike
+ロイヤルツインホテル京都八条口,kyoto,kyoto_station,city_hotel,ikyu,onsen/sauna
+都ホテル 京都八条,kyoto,kyoto_station,city_hotel,ikyu,station area
+ダイワロイネットホテル京都テラス八条東口,kyoto,kyoto_station,business_hotel,tw_blog,京都站南口5min; 露天大浴场
+ホテルヴィスキオ京都,kyoto,kyoto_station,business_hotel,tw_blog,京都站共构; 大浴场; TWD3800-6500
+ダイワロイネットホテル京都駅前,kyoto,kyoto_station,business_hotel,tw_blog,地下道直达; TWD2800-4500
+DoubleTree by Hilton Kyoto Station,kyoto,kyoto_station,city_hotel,tw_blog,2024新开; TWD4500-7500
+MIMARU京都 STATION,kyoto,kyoto_station,apart_hotel,tw_blog,有厨房客厅; 家庭推荐; TWD6700起
+リッチモンドホテルプレミア京都四条,kyoto,shijo_kawaramachi,city_hotel,tw_blog,楼下Life超市; Booking9.0
+ホテルインターゲート京都四条新町,kyoto,shijo_kawaramachi,city_hotel,tw_blog,免费红白酒+茶泡饭宵夜
+Hotel Village Kyoto,kyoto,shijo_kawaramachi,business_hotel,tw_blog,2025翻新; 人工温泉; TWD2800-8800
+RIHGA ロイヤルホテル京都四条烏丸,kyoto,shijo_kawaramachi,city_hotel,tw_blog,四条站3min; TWD2500-4200
+ホテルリソル京都四条室町,kyoto,shijo_kawaramachi,business_hotel,tw_blog,四条站3min; TWD3000-4800
+京都グッドビューホテル,kyoto,shijo_kawaramachi,business_hotel,tw_blog,河原町站3min; TWD4399起
+東急ステイ京都新京極通,kyoto,shijo_kawaramachi,business_hotel,tw_blog,河原町站1min; 洗脱烘; TWD3800-6000
+木屋町ホテル京都,kyoto,shijo_kawaramachi,business_hotel,tw_blog,高濑川旁; TWD3200-5200
+ONE FIVE HOTEL京都四条,kyoto,shijo_kawaramachi,business_hotel,tw_blog,大宫站3min; TWD1800-3200
+ヴェストプレミア京都和邸,kyoto,shijo_kawaramachi,city_hotel,tw_blog,日式风情; TWD2600-4500
+ハイアットプレイス京都,kyoto,shijo_kawaramachi,city_hotel,tw_blog,丸太町站直连; 7.5坪; TWD4200-6500
+MIMARU美満如家京都新町三条,kyoto,nijo_central,apart_hotel,tw_blog,厨房客厅; 家庭推荐; TWD8000-13000
+ソラリア西鉄ホテル京都プレミア,kyoto,shijo_kawaramachi,city_hotel,tw_blog,鸭川河景; 大浴场; TWD5200-8000
+ホテルリソルトリニティ京都,kyoto,shijo_kawaramachi,business_hotel,tw_blog,榻榻米房; 抹茶体验; TWD2800-4500
+NOHGA HOTEL 京都清水,kyoto,gion_higashiyama,boutique_hotel,tw_blog,艺术气息; 顶楼酒吧; TWD3500-6000
+京王プレリアホテル京都烏丸五条,kyoto,shijo_kawaramachi,city_hotel,tw_blog,五条站4min; 温泉; TWD1700
+ASAI Kyoto Shijo,kyoto,shijo_kawaramachi,business_hotel,tw_blog,2023新开; TWD2100
+Travelodge Kyoto Shijo Omiya,kyoto,shijo_kawaramachi,business_hotel,tw_blog,有浴缸; TWD1800
+PIECE HOSTEL 三条,kyoto,shijo_kawaramachi,hostel,tw_blog,Agoda青旅大赏; 免费早餐; TWD650
+ザ・ミレニアルズ京都,kyoto,shijo_kawaramachi,capsule_hotel,tw_blog,电动胶囊床; TWD480
+Hotel She Kyoto,kyoto,kyoto_station,boutique_hotel,tw_blog,黑胶唱片机; TWD1300
+ヒルトン京都,kyoto,shijo_kawaramachi,luxury_hotel,tw_blog,2024.9新开; 河原町核心; 泳池+SPA
+9 Hours Capsule Hotel Kyoto,kyoto,shijo_kawaramachi,capsule_hotel,tw_blog,设计前卫; JPY4000/晚
+Guesthouse Tyoko Compass,kyoto,shijo_kawaramachi,guesthouse,tw_blog,Booking 9.6; JPY3000
+ウェスティン都ホテル京都,kyoto,gion_higashiyama,luxury_hotel,ikyu,蹴上站2min; 南禅寺徒步; 天然温泉SPA华顶
+南禅寺 八千代,kyoto,northern_higashiyama,ryokan,ikyu,南禅寺参道; 半露天风吕; 汤豆腐; JPY26400~
+京小宿 室町 ゆとね,kyoto,shijo_kawaramachi,ryokan,ikyu,米其林收录; 7室; 五条站5min; JPY26000~
+料理旅館 花楽,kyoto,gion_higashiyama,ryokan,ikyu,京野菜认定; JPY16300~
+ALA HOTEL KYOTO,kyoto,kyoto_station,business_hotel,letsgojp,京都站南口5min; 露天大众汤
+TUNE STAY KYOTO,kyoto,kyoto_station,boutique_hotel,letsgojp,2500册书架; 共用厨房; JPY7920
+相鉄フレッサイン京都四条烏丸,kyoto,shijo_kawaramachi,business_hotel,letsgojp,连锁商务
+insomnia KYOTO OIKE,kyoto,shijo_kawaramachi,boutique_hotel,hk01,乌丸御池站1min; 2023新开
+京都モントレホテル,kyoto,shijo_kawaramachi,city_hotel,letsgojp,天然温泉大浴场
+STITCH HOTEL Kyoto,kyoto,shijo_kawaramachi,boutique_hotel,2025_new,2025.6新开
+コートヤード・バイ・マリオット京都四条烏丸,kyoto,shijo_kawaramachi,city_hotel,2025_new,2025.8新开; Marriott; 四条站1min
+HANARE by Tokyu Stay,kyoto,shijo_kawaramachi,apart_hotel,2025_new,2025.9新开
+ホテルエスパシオン先斗町,kyoto,shijo_kawaramachi,boutique_hotel,2025_new,2025.10新开; 先斗町
+ガーナーホテル京都四条烏丸,kyoto,shijo_kawaramachi,city_hotel,2025_new,2025.11新开
+ホリデイ・イン京都五条,kyoto,shijo_kawaramachi,city_hotel,2025_new,2025.1新开; IHG
+SOWAKA,kyoto,gion_higashiyama,boutique_hotel,multiple,祗园精品旅馆; 数寄屋造り
+京都梅小路花伝抄,kyoto,kyoto_station,ryokan,letsgojp,温泉; 5个贷切风吕
+ホテルハーヴェスト京都鷹峯,kyoto,takagamine,resort_hotel,icotto,しょうざんリゾート; 天然温泉
+京阪京都站南飯店,kyoto,kyoto_station,business_hotel,tw_blog_multi,京都站250m; 免费迎宾饮料; TWD2000起
+DoubleTree by Hilton Kyoto Higashiyama,kyoto,gion_higashiyama,city_hotel,tw_blog_multi,2023新开; 清水五条站140m
+京都花宿 (Kyoto Hana Hostel),kyoto,kyoto_station,hostel,tw_blog_multi,京都站460m; TWD990起
+櫻花台畫廊飯店 (Sakura Terrace The Gallery),kyoto,kyoto_station,boutique_hotel,tw_blog_multi,京都站南; 温泉大浴场; 免费红酒
+M's Plus 四条大宮酒店,kyoto,shijo_kawaramachi,business_hotel,tw_blog_multi,四条大宫站; 便宜
+M's INN 東山賓館,kyoto,gion_higashiyama,guesthouse,tw_blog_multi,东山区; 性价比高
+京都四条大宮旅客之家飯店,kyoto,shijo_kawaramachi,business_hotel,tw_blog_multi,四条大宫; 平价
+京都四条皇家花園酒店,kyoto,shijo_kawaramachi,city_hotel,tw_blog_multi,四条站; 中高端
+sequence飯店-京都五条,kyoto,shijo_kawaramachi,boutique_hotel,tw_blog_multi,2020新开; 设计感
+京都清水五条相鉄FRESA INN,kyoto,shijo_kawaramachi,business_hotel,tw_blog_multi,清水五条站; 连锁
+プリンススマートイン京都四条大宮,kyoto,shijo_kawaramachi,business_hotel,tw_blog_multi,Prince系; 大浴场; 智能
+OMO5京都三条 by 星野リゾート,kyoto,shijo_kawaramachi,boutique_hotel,tw_blog_multi,星野; 三条商店街
+OMO3京都東寺 by 星野リゾート,kyoto,kyoto_station,boutique_hotel,tw_blog_multi,星野; 东寺旁; 平价
+ホテルグレイスリー京都三条,kyoto,shijo_kawaramachi,city_hotel,tw_blog_multi,三条站; 藤田观光
+ホテルフォルツァ京都四条河原町,kyoto,shijo_kawaramachi,business_hotel,tw_blog_multi,河原町站直结
+京都グランベルホテル,kyoto,shijo_kawaramachi,boutique_hotel,tw_blog_multi,设计酒店; 屋顶酒吧
+ザ ロイヤルパーク ホテル 京都四条,kyoto,shijo_kawaramachi,city_hotel,tw_blog_multi,四条站; 中高端
+ホテル京阪京都グランデ,kyoto,kyoto_station,city_hotel,tw_blog_multi,八条口; 京阪集团
+ザ・ゲートホテル京都高瀬川,kyoto,shijo_kawaramachi,boutique_hotel,tw_blog_multi,高濑川畔; 屋顶
+からすま京都ホテル,kyoto,shijo_kawaramachi,city_hotel,tw_blog_multi,四条烏丸站直结; 老牌
+エルイン京都,kyoto,kyoto_station,business_hotel,tw_blog_multi,京都站; 超低价
+Cuvee J2 Hotel Kyoto,kyoto,shijo_kawaramachi,luxury_hotel,tw_blog_multi,2024新开; 法式奢华; 全套房
+京都タワーホテル,kyoto,kyoto_station,city_hotel,tw_blog_multi,京都塔内; 京都站正对面
+フォーポイントフレックス by シェラトン京都御池,kyoto,shijo_kawaramachi,business_hotel,2024_new,2024.11; 乌丸御池站4min; 317室
+ROJIYU KYOTO,kyoto,shijo_kawaramachi,boutique_hotel,2024_new,2024.10リニューアル
+御室花伝抄,kyoto,northern_higashiyama,ryokan,2025_new,2025.8; 仁和寺门前; 67室
+カペラ京都,kyoto,gion_higashiyama,luxury_hotel,2025_new,Capella日本初; 祗园
+帝国ホテル京都,kyoto,gion_higashiyama,luxury_hotel,2026_new,2026.3; 东山祗园; 全55室
+ザ ロイヤルパークホテル 京都梅小路,kyoto,kyoto_station,city_hotel,web_search,梅小路京都西站1min; 洗い場付浴室; 大浴场; 亲子
+ヴィラージュ京都,kyoto,shijo_kawaramachi,apart_hotel,web_search,ウェルカムベビー认定; 全室和室; 最大43㎡6人
+APA Hotel京都駅前,kyoto,kyoto_station,business_hotel,web_search,60品目朝食; 4岁以下免费
+御宿野乃京都七条,kyoto,kyoto_station,business_hotel,web_search,全馆畳敷; 天然温泉; 海鲜汤葉丼
+プリンススマートイン京都三条,kyoto,shijo_kawaramachi,business_hotel,xiaohongshu,三条站5min; 免费早餐; CNY335; 小红书642收藏
+旅之棲京都ホテル,kyoto,shijo_kawaramachi,business_hotel,xiaohongshu,清水五条站6min; CNY230/晚; 小红书实住
+京都悠洛悦苑,kyoto,shijo_kawaramachi,boutique_hotel,old_pool,boutique; 四条河原町
+紫翠 ラグジュアリーコレクションホテル 奈良,nara,nara_park_area,luxury_hotel,multiple,Former governor mansion; 43 rooms
+奈良ホテル,nara,nara_park_area,city_hotel,mybest,est.1909; antique furniture
+登大路ホテル奈良,nara,nara_park_area,boutique_hotel,multiple,Nara Park facing; fine dining
+セトレならまち,nara,naramachi,boutique_hotel,reference,Sarusawa Pond; sake tasting
+Hotel Tenpyo Naramachi,nara,naramachi,city_hotel,reference,Reference list
+MIROKU Nara by THE SHARE HOTELS,nara,nara_park_area,boutique_hotel,reference,Reference list
+ノボテル奈良,nara,kintetsu_nara_station,city_hotel,mybest,264 rooms; rooftop bar
+ホテル日航奈良,nara,kintetsu_nara_station,city_hotel,mybest,JR Nara direct; onsen
+天然温泉 奈良若草の湯 ダイワロイネット,nara,kintetsu_nara_station,business_hotel,mybest,mybest #1; natural onsen
+おんやど野乃 奈良,nara,kintetsu_nara_station,business_hotel,reference,Dormy Inn brand onsen
+ホテルニューわかさ,nara,nara_park_area,city_hotel,blog,近铁奈良12min; 东大寺5min
+無印良品×坂本屋,nara,yoshino,boutique_hotel,2025_new,2025.2; 吉野杉客室; MUJI
+St. Regis Osaka,osaka,honmachi,luxury_hotel,ikyu,Michelin 5 red pavilion; butler
+大阪マリオット都ホテル,osaka,tennoji_shinsekai,luxury_hotel,rakuten,Abeno Harukas 38-55F
+帝国ホテル大阪,osaka,umeda_kita,luxury_hotel,multiple,Traditional luxury
+ヒルトン大阪,osaka,umeda_kita,luxury_hotel,multiple,Osaka station area
+Swissotel Nankai Osaka,osaka,namba_dotonbori,city_hotel,reference,Nankai Namba station
+Hotel Nikko Osaka,osaka,shinsaibashi,city_hotel,ikyu,Shinsaibashi station direct
+Hotel New Otani Osaka,osaka,osaka_castle_area,city_hotel,reference,Reference list
+カペラホテル大阪,osaka,umeda_kita,luxury_hotel,ikyu,2025/5 new; Capella first Japan
+リーガロイヤルホテル大阪,osaka,umeda_kita,city_hotel,ikyu,90+ year; IHG Vignette 2025
+センタラグランドホテル大阪,osaka,namba_dotonbori,luxury_hotel,ikyu,2023; Thai brand first Japan
+ホテル阪急インターナショナル,osaka,umeda_kita,luxury_hotel,multiple,Umeda night view
+Cross Hotel Osaka,osaka,namba_dotonbori,city_hotel,reference,Reference list
+グランドプリンスホテル大阪ベイ,osaka,bay_area,resort_hotel,rakuten,Rakuten top3
+Zentis Osaka,osaka,umeda_kita,boutique_hotel,reference,Reference list
+Candeo Hotels Osaka Shinsaibashi,osaka,shinsaibashi,city_hotel,reference,Sky spa
+Hotel Monterey Himeji,himeji,himeji_station_area,city_hotel,reference,Reference list
+Daiwa Roynet Hotel Himeji,himeji,himeji_station_area,business_hotel,reference,Reference list
+Hotel Nikko Himeji,himeji,himeji_station_area,city_hotel,reference,Reference list
+Dormy Inn Himeji,himeji,himeji_station_area,business_hotel,reference,Reference list
+FIRST CABIN 大阪なんば,osaka,namba_dotonbori,capsule_hotel,tw_blog,难波站正上方; TWD800起; 大浴场
+相鉄フレッサイン大阪なんば駅前,osaka,namba_dotonbori,business_hotel,tw_blog,7号出口直达; CNY490
+大阪なんば奏ホテル,osaka,namba_dotonbori,city_hotel,tw_blog,28号出口3min; CNY480; 有浴缸
+大阪なんばHiyoriホテル,osaka,namba_dotonbori,city_hotel,tw_blog,200m难波站; CNY630
+唐草ホテル大阪なんば,osaka,namba_dotonbori,business_hotel,tw_blog,免费早餐+饮料点心; CNY770
+VIA INN 心斎橋,osaka,shinsaibashi,business_hotel,tw_blog,2min; CNY330; 含早餐; 12岁以下免费
+ベッセルホテル心斎橋,osaka,shinsaibashi,business_hotel,tw_blog,3min; CNY320; 早餐生鱼片; 免费面膜
+相鉄フレッサイン大阪心斎橋,osaka,shinsaibashi,business_hotel,tw_blog,2min; CNY400
+The Bridge Hotel 心斎橋,osaka,shinsaibashi,city_hotel,tw_blog,3min; CNY320; 免费宵夜拉面+啤酒
+Hotel Hillarys 心斎橋,osaka,shinsaibashi,business_hotel,tw_blog,3min; CNY380; 顶楼大浴场免费
+UNIZO ホテル大阪梅田,osaka,umeda_kita,business_hotel,tw_blog,5min; CNY370; 女性楼层
+ホテルヴィスキオ大阪グランヴィア,osaka,umeda_kita,city_hotel,tw_blog,梅田5min; CNY480; 隔音好
+ホテルトラスティ大阪阿倍野,osaka,tennoji_shinsekai,city_hotel,tw_blog,2min; CNY310; 早餐现煎牛肉
+大阪天王寺バリタワーホテル,osaka,tennoji_shinsekai,city_hotel,tw_blog,3min; CNY400; 游戏室
+ホテル ユニバーサルポート,osaka,bay_area,resort_hotel,tw_blog,USJ步行1min; 房间大
+ザ パーク フロント ホテル USJ,osaka,bay_area,resort_hotel,tw_blog,USJ步行4min; 小黄人主题房
+カンデオホテルズ大阪なんば,osaka,namba_dotonbori,city_hotel,tw_blog,顶楼SKY SPA; 夜景
+三井ガーデンホテル大阪プレミア,osaka,umeda_kita,city_hotel,tw_blog,中之岛河景; 16F免费露天温泉
+御宿野乃大阪淀屋橋,osaka,honmachi,business_hotel,tw_blog,Dormy Inn系; 天然温泉; 全馆畳敷
+ホテルモントレ グラスミア大阪,osaka,namba_dotonbori,city_hotel,tw_blog,JR难波直结
+&Here OSAKA NAMBA,osaka,namba_dotonbori,boutique_hotel,tw_blog,2025.4新开; 难波站3-5min
+OMO7大阪 by 星野リゾート,osaka,tennoji_shinsekai,city_hotel,tw_blog,星野品牌; 436室; 夜景
+ウェスティンホテル大阪,osaka,umeda_kita,luxury_hotel,ikyu,梅田; 全室41㎡+; Heavenly Bed
+御宿野乃なんば,osaka,namba_dotonbori,business_hotel,letsgojp,Dormy Inn系; 天然温泉; 全馆畳敷
+ホテル阪急レスパイア大阪,osaka,umeda_kita,city_hotel,tw_blog,梅田; Yodobashi上层; 482室
+Fawn Hotel,osaka,tennoji_shinsekai,boutique_hotel,tw_blog,台湾人经营; 零语言障碍
+VIA INN 阿倍野天王寺,osaka,tennoji_shinsekai,business_hotel,tw_blog,天王寺站5min
+MIMARU大阪心斎橋NORTH,osaka,shinsaibashi,apart_hotel,letsgojp,忍者房; 亲子特化
+Vessel Inn Namba,osaka,namba_dotonbori,business_hotel,letsgojp,难波站25号出口2min
+ホテルグランヴィア大阪,osaka,umeda_kita,city_hotel,letsgojp,JR大阪站直结
+ウォルドーフ・アストリア大阪,osaka,umeda_kita,luxury_hotel,tw_blog_multi,2025新开; Hilton最高端
+キャノピーbyヒルトン大阪梅田,osaka,umeda_kita,city_hotel,tw_blog_multi,2024新开; Hilton lifestyle
+ホテルグレイスリーなんば,osaka,namba_dotonbori,city_hotel,tw_blog_multi,难波; 哥斯拉楼顶
+コンフォートホテル大阪心斎橋,osaka,shinsaibashi,business_hotel,tw_blog_multi,免费早餐; 连锁
+APA Hotel Namba Shinsaibashi,osaka,namba_dotonbori,business_hotel,tw_blog_multi,APA; 超低价
+ibis Styles Osaka Namba,osaka,namba_dotonbori,business_hotel,tw_blog_multi,Accor系; 设计感
+プリンススマートイン大阪難波,osaka,namba_dotonbori,business_hotel,tw_blog_multi,Prince系; 大浴场
+ベッセルカンパーナ大阪心斎橋,osaka,shinsaibashi,city_hotel,tw_blog_multi,Vessel上位; 大浴场
+フォーツ近鉄大阪難波,osaka,namba_dotonbori,business_hotel,tw_blog_multi,近铁系; 新品牌
+ホテル日航大阪 別邸,osaka,shinsaibashi,luxury_hotel,tw_blog_multi,日航上位; 心斋桥
+ダイワロイネットホテル大阪難波,osaka,namba_dotonbori,business_hotel,tw_blog_multi,难波; 连锁
+ダイワロイネットホテル大阪心斎橋,osaka,shinsaibashi,business_hotel,tw_blog_multi,心斋桥; 连锁
+相鉄グランドフレッサ大阪なんば,osaka,namba_dotonbori,business_hotel,tw_blog_multi,相铁上位; 大浴场
+ドーミーイン心斎橋,osaka,shinsaibashi,business_hotel,tw_blog_multi,天然温泉; 免费宵夜拉面
+ドーミーインPREMIUM大阪北浜,osaka,honmachi,business_hotel,tw_blog_multi,北浜; 天然温泉
+ホテルWBF難波元町,osaka,namba_dotonbori,business_hotel,tw_blog_multi,难波; 超低价
+ホテルWBFなんばBUNRAKU,osaka,namba_dotonbori,business_hotel,tw_blog_multi,难波; 文乐剧场旁
+ナンバオリエンタルホテル,osaka,namba_dotonbori,city_hotel,tw_blog_multi,难波站直结; 老牌
+大阪なんばワシントンホテルプラザ,osaka,namba_dotonbori,business_hotel,tw_blog_multi,难波; 连锁; 性价比
+ホテルモントレ大阪,osaka,umeda_kita,city_hotel,tw_blog_multi,梅田; 欧式
+ハートンホテル心斎橋,osaka,shinsaibashi,business_hotel,tw_blog_multi,心斋桥站近
+ホテル京セラ,osaka,tennoji_shinsekai,city_hotel,tw_blog_multi,天王寺; 大型
+変なホテル大阪なんば,osaka,namba_dotonbori,business_hotel,tw_blog_multi,机器人酒店; 难波
+変なホテル大阪心斎橋,osaka,shinsaibashi,business_hotel,tw_blog_multi,机器人酒店; 恐龙前台
+大阪シティホテル京橋,osaka,osaka_castle_area,business_hotel,tw_blog_multi,京桥站; 低价
+ホテルビスタプレミオ大阪本町,osaka,honmachi,city_hotel,tw_blog_multi,本町站; 中高端
+大阪新阪急ホテル,osaka,umeda_kita,city_hotel,tw_blog_multi,梅田; 老牌; 阪急
+からくさホテルプレミア大阪なんば,osaka,namba_dotonbori,city_hotel,tw_blog_multi,唐草上位; 难波
+ホテルリソルトリニティ大阪,osaka,namba_dotonbori,business_hotel,tw_blog_multi,Resol连锁; 设计感
+ホテルシーガルてんぽーざん,osaka,bay_area,business_hotel,tw_blog_multi,天保山; 海游馆旁
+ユニバーサルスタジオ シンギュラリホテル,osaka,bay_area,city_hotel,tw_blog_multi,USJ旁; 天然温泉
+ホテルモントレ ル・フレール大阪,osaka,shinsaibashi,city_hotel,tw_blog_multi,Monterey姐妹
+三井ガーデンホテル大阪淀屋橋,osaka,honmachi,city_hotel,tw_blog_multi,淀屋桥; 三井花园系
+ダブルツリーbyヒルトン大阪城,osaka,osaka_castle_area,city_hotel,2024_new,2024.5; 天满桥站5min; 373室
+キャプション by Hyatt なんば大阪,osaka,namba_dotonbori,city_hotel,2024_new,2024.6; Hyatt新品牌日本首家
+カンデオホテルズ大阪ザ・タワー,osaka,umeda_kita,city_hotel,2024_new,2024.7; 135m展望露天风吕
+フォーポイントフレックス by シェラトン大阪梅田,osaka,umeda_kita,business_hotel,2024_new,2024.11; Marriott系
+フォーポイントフレックス by シェラトン大阪心斎橋,osaka,shinsaibashi,business_hotel,2024_new,2024; Marriott系
+フォーポイントフレックス by シェラトン大阪北浜,osaka,honmachi,business_hotel,2024_new,2024; Marriott系
+フォーポイントフレックス by シェラトン大阪本町,osaka,honmachi,business_hotel,2024_new,2024; Marriott系
+アパホテル&リゾート大阪なんば駅前タワー,osaka,namba_dotonbori,business_hotel,2024_new,2024.12; APA大型タワー
+TONES OSAKA,osaka,umeda_kita,boutique_hotel,2025_new,2025.2; Aldo Rossi设计外观
+ホテル阪急グランレスパイア大阪,osaka,umeda_kita,city_hotel,2025_new,2025.3; 482室; うめきた温泉
+Garner Hotel大阪本町駅,osaka,honmachi,business_hotel,2025_new,2025新开
+ファーイーストビレッジホテル大阪本町,osaka,honmachi,business_hotel,2025_new,2025新开; Far East系
+KOKO HOTEL大阪なんば千日前,osaka,namba_dotonbori,business_hotel,2025_new,2025新开
+Series by Marriott大阪,osaka,umeda_kita,city_hotel,2025_new,2025; 日本首家; 小红书热门
+スターゲイトホテル関西エアポート,rinku,rinku_izumisano,city_hotel,multiple,关西机场对岸; 临空城最高楼
+REF関西空港 by VESSEL HOTELS,rinku,rinku_izumisano,city_hotel,user,新开; Vessel系; 泉佐野; 中国游客热门
+大阪ステーションホテル オートグラフ コレクション,osaka,umeda_kita,luxury_hotel,web_search,JR大阪站直结; 2024新开; Marriott系
+アロフト大阪堂島,osaka,umeda_kita,boutique_hotel,web_search,音楽lifestyle; Marriott系
+THE BOLY OSAKA,osaka,honmachi,boutique_hotel,web_search,北浜; 土佐堀川沿い; リバービュー
+ザ・ライブリー大阪本町,osaka,honmachi,boutique_hotel,web_search,174室; 间接照明; 非日常
+星野リゾート リゾナーレ大阪,osaka,bay_area,resort_hotel,web_search,470㎡キッズアトリエ; 天保山; 亲子
+アンダの森 大阪天王寺タワー,osaka,tennoji_shinsekai,resort_hotel,web_search,2025.4; オールインクルーシブ; 巨大キッズスペース
+MIMARU大阪 難波NORTH,osaka,namba_dotonbori,apart_hotel,web_search,アニメコラボ; 2段ベッド; 亲子
+ドーミーインPREMIUM なんば,osaka,namba_dotonbori,business_hotel,web_search,难波Dormy Inn; 天然温泉; 免费宵夜
+Hotel Sanrriott Shinsaibashi,osaka,shinsaibashi,business_hotel,xiaohongshu,心斋桥10min; CNY380; 小红书实住
+リブマックスホテル梅田中央,osaka,umeda_kita,business_hotel,xiaohongshu,梅田站15min; CNY271; 小红书实住
+大阪新阪神ホテル別館,osaka,umeda_kita,business_hotel,xiaohongshu_ctrip,梅田; 阪神系; 中国游客热门
+voco大阪セントラル,osaka,honmachi,city_hotel,old_pool,IHG新品牌; 肥後橋
+Hotel The Mitsui Kyoto,kyoto,nijo_central,luxury_hotel,michelin,3 Keys (2025); Forbes 4-star spa
+Aman Kyoto,kyoto,northern_higashiyama,luxury_hotel,michelin,2 Keys (2025)
+The Shinmonzen,kyoto,gion_higashiyama,boutique_hotel,michelin,2 Keys (2025); Tadao Ando design
+Ace Hotel Kyoto,kyoto,nijo_central,boutique_hotel,michelin,1 Key (2025); Kengo Kuma design
+Banyan Tree Higashiyama Kyoto,kyoto,gion_higashiyama,luxury_hotel,michelin,1 Key (2025 new)
+Dusit Thani Kyoto,kyoto,kyoto_station,luxury_hotel,michelin,1 Key (2025)
+Four Seasons Hotel Kyoto,kyoto,gion_higashiyama,luxury_hotel,michelin,1 Key (2025)
+Hotel Seiryu Kyoto Kiyomizu,kyoto,gion_higashiyama,boutique_hotel,michelin,1 Key (2025); former elementary school
+Hotel The Celestine Kyoto Gion,kyoto,gion_higashiyama,city_hotel,michelin,1 Key (2025 2nd consecutive)
+MUNI KYOTO by Onko Chishin,kyoto,arashiyama,boutique_hotel,michelin,1 Key (2025)
+Park Hyatt Kyoto,kyoto,gion_higashiyama,luxury_hotel,michelin,1 Key (2025)
+ROKU KYOTO LXR Hotels & Resorts,kyoto,northern_higashiyama,luxury_hotel,michelin,1 Key (2025)
+Six Senses Kyoto,kyoto,northern_higashiyama,luxury_hotel,michelin,1 Key (2025)
+Garrya Nijo Castle Kyoto,kyoto,nijo_central,boutique_hotel,michelin,1 Key (2025)
+Conrad Osaka,osaka,umeda_kita,luxury_hotel,michelin,1 Key (2025); all rooms 50sqm+
+InterContinental Osaka,osaka,umeda_kita,luxury_hotel,michelin,1 Key (2025)
+The Ritz-Carlton Osaka,osaka,umeda_kita,luxury_hotel,michelin,1 Key (2025); Forbes 5-star
+W Osaka,osaka,shinsaibashi,luxury_hotel,michelin,1 Key (2025); Japan first W
+Patina Osaka,osaka,osaka_castle_area,luxury_hotel,michelin,1 Key (2025 new); Osaka Castle
+Four Seasons Hotel Osaka,osaka,osaka_castle_area,luxury_hotel,michelin,1 Key (2025 new)
+JW Marriott Hotel Nara,nara,kintetsu_nara_station,luxury_hotel,michelin,1 Key (2025); only 5-star Nara
+アルモニーアンブラッセ大阪,osaka,umeda_kita,boutique_hotel,ikyu,安藤忠雄设计; 全室阳台
+丸福楼,kyoto,shijo_kawaramachi,boutique_hotel,multiple,任天堂旧总部; 安藤忠雄设计
+ホテルロイヤルクラシック大阪,osaka,namba_dotonbori,luxury_hotel,tw_blog_multi,难波站直结; 隈研吾设计
+NIPPONIA HOTEL Nara Naramachi,nara,naramachi,boutique_hotel,reference,Machiya renovation
+カンデオホテルズ京都烏丸六角,kyoto,shijo_kawaramachi,city_hotel,tw_blog,百年町屋入口; 天空桑拿; TWD4800-7500
+町家レジデンスイン京都,kyoto,shijo_kawaramachi,machiya,machiya,64栋; 完全私人; 文化体验
+季楽 京都 (Nazuna),kyoto,shijo_kawaramachi,machiya,machiya,米其林4年连续; 抹茶点前; 露天风吕
+葵 KYOTO STAY,kyoto,shijo_kawaramachi,machiya,machiya,7栋; 骨董品; 鸭川川床テラス
+藏や (Kuraya),kyoto,shijo_kawaramachi,machiya,machiya,筑100年; 一栋贷一日一组
+祇園新橋 梅庵,kyoto,gion_higashiyama,machiya,machiya,1日2组; 坪庭+半露天风吕
+Hotel Kanra Kyoto,kyoto,kyoto_station,boutique_hotel,letsgojp,设计酒店; 京町家风
+Nazuna京都東本願寺,kyoto,kyoto_station,machiya,2024_new,2024.11; 筑100年町家再生; 全7室
+Hoshinoya Kyoto,kyoto,arashiyama,luxury_ryokan,michelin,1 Key (2025 new)
+Fufu Kyoto,kyoto,northern_higashiyama,luxury_ryokan,michelin,1 Key (2025)
+Hiiragiya,kyoto,shijo_kawaramachi,luxury_ryokan,michelin,1 Key (2025); Kyoto gosanke; est.1818
+Kanamean Nishitomiya,kyoto,shijo_kawaramachi,luxury_ryokan,michelin,1 Key (2025)
+俵屋旅館 (Tawaraya),kyoto,shijo_kawaramachi,luxury_ryokan,multiple,Kyoto gosanke #1
+炭屋旅館 (Sumiya),kyoto,shijo_kawaramachi,luxury_ryokan,multiple,Kyoto gosanke; tea ceremony
+神戸みなと温泉 蓮,kobe,harborland_meriken,onsen_hotel,ikyu,4yr #1 onsen hotel
+有馬温泉 欽山,arima,arima_onsen_town,luxury_ryokan,ikyu,#1 Arima; kaiseki
+中の坊瑞苑,arima,arima_onsen_town,luxury_ryokan,google_ikyu,Google 4.6/637; gold+silver
+陶泉 御所坊,arima,arima_onsen_town,luxury_ryokan,google_ikyu,Google 4.5/625; est.1191
+竹取亭円山,arima,arima_onsen_town,ryokan,google,Google 4.5/435
+有馬グランドホテル,arima,arima_onsen_town,onsen_hotel,google,Google 4.4/2913; largest
+兵衛向陽閣,arima,arima_onsen_town,ryokan,google_ikyu,Google 4.4/2154; 700yr
+ホテル花小宿,arima,arima_onsen_town,boutique_hotel,google,Google 4.4/252
+天地の宿 奥の細道,arima,arima_onsen_town,luxury_ryokan,google_mybest,chef performance; gold spring
+四季の彩 旅篭,arima,arima_onsen_town,ryokan,google_ikyu,private bath popular
+有馬温泉 月光園 鴻朧館,arima,arima_onsen_town,ryokan,google_ikyu,autumn foliage view; room dining
+銀水荘 兆楽,arima,arima_onsen_town,ryokan,google_ikyu,gold+silver; Kobe beef
+有馬山叢 御所別墅,arima,arima_onsen_town,luxury_ryokan,reference,400yr; private bath suites
+根岸屋旅鳳閣,arima,arima_onsen_town,ryokan,reference,Reference list
+有馬御苑,arima,arima_onsen_town,ryokan,reference,Kobe beef restaurant; 1min onsen street
+西村屋ホテル招月庭,kinosaki,kinosaki_onsen_town,luxury_ryokan,rakuten,Rakuten #1; 50000-tsubo garden
+西村屋本館,kinosaki,kinosaki_onsen_town,luxury_ryokan,rakuten,Edo Ansei era
+三木屋,kinosaki,kinosaki_onsen_town,ryokan,reference,Shiga Naoya; cultural property
+城崎温泉 喜楽,kinosaki,kinosaki_onsen_town,ryokan,multiple,Pottery experience
+花小路 彩月,kinosaki,kinosaki_onsen_town,luxury_ryokan,multiple,4 groups/day; creative cuisine
+大西屋水翔苑,kinosaki,kinosaki_onsen_town,ryokan,reference,All-tatami; family-friendly
+但馬屋,kinosaki,kinosaki_onsen_town,ryokan,reference,Private onsen; couples; crab
+城崎温泉 山本屋,kinosaki,kinosaki_onsen_town,ryokan,reference,Reference list
+森津屋,kinosaki,kinosaki_onsen_town,ryokan,reference,Reference list
+つたや旅館,kinosaki,kinosaki_onsen_town,ryokan,multiple,Art & history ryokan
+Fufu Nara,nara,nara_park_area,luxury_ryokan,michelin,1 Key (2025)
+Hotel Kawakyu,shirahama,shirahama_beachfront,luxury_hotel,reference,All-suite; ocean view
+INFINITO Hotel & Spa Nanki Shirahama,shirahama,shirahama_beachfront,resort_hotel,reference,Reference list
+Shiraraso Grand Hotel,shirahama,shirahama_beachfront,onsen_hotel,reference,Reference list
+Shirahama Key Terrace Hotel Seamore,shirahama,shirahama_beachfront,onsen_hotel,reference,Renovated
+南禅寺参道 菊水,kyoto,northern_higashiyama,luxury_ryokan,ikyu,全5室; 米其林3星主厨; 红叶庭园; JPY52900~
+四条河原町温泉 空庭テラス京都,kyoto,shijo_kawaramachi,onsen_hotel,hk01_booking_ctrip,河原町站1min; 屋顶东山景观温泉; Booking情侣9.7; 携程4.7/981评
+四条河原町温泉 空庭テラス京都 別邸,kyoto,shijo_kawaramachi,luxury_ryokan,hk01_rakuten,全室露天风吕付; 鸭川+东山パノラマ
+神戸港温泉 蓮,kobe,harborland_meriken,onsen_hotel,tw_blog,天然温泉; 成人限定; 怀石; TWD12000-20000
+高山荘 華野,arima,arima_onsen_town,luxury_ryokan,tw_blog,金银汤; 静谧; TWD24000起
+花結び,arima,arima_onsen_town,ryokan,tw_blog,金汤露天; 按摩椅; TWD13000起
+元湯 古泉閣,arima,arima_onsen_town,ryokan,tw_blog,自家泉源金汤; 岩风吕; TWD6100起
+月光園 游月山荘,arima,arima_onsen_town,ryokan,tw_blog,溪边露天; 月光桥; TWD8300-10000
+大阪LIBERホテル,osaka,bay_area,onsen_hotel,letsgojp,桜岛站; 天然碳酸泉; USJ1站
+有馬ロイヤルホテル,arima,arima_onsen_town,onsen_hotel,jtb,天然温泉露天风吕
+陵楓閣,arima,arima_onsen_town,ryokan,tw_blog,森林包围; 秋枫红; 金银汤; TWD6180起
+銀花,kinosaki,kinosaki_onsen_town,luxury_ryokan,relux,全16室リバービュー; 桧展望风吕; 活松叶蟹
+蟹宿むつの屋,kinosaki,kinosaki_onsen_town,ryokan,multiple,城崎中心; 蟹专门
+山しろや旅館,kinosaki,kinosaki_onsen_town,ryokan,multiple,但馬牛+蟹; 家族経营
+月への舟,arima,arima_onsen_town,ryokan,2025_new,2025新客室; 自家源泉
+京湯元 ハトヤ瑞鳳閣,kyoto,kyoto_station,onsen_hotel,web_search,京都站5min; 自家源泉东山/西山の湯
+湯楽,kinosaki,kinosaki_onsen_town,ryokan,web_search,色浴衣レンタル; 外汤无料; 女子旅
+深山,kinosaki,kinosaki_onsen_town,ryokan,web_search,大正モダンリニューアル
+有馬きらり,arima,arima_onsen_town,onsen_hotel,old_pool,有马温泉旅馆
+かに庵,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎; 蟹料理旅馆
+丸山,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎; luxury级
+新泉,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎旅馆
+月明かり,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎旅馆
+泉翠,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎旅馆
+艷郷,kinosaki,kinosaki_onsen_town,ryokan,old_pool,城崎旅馆
+春日ホテル,nara,nara_park_area,ryokan,reference,Reference list
+花やしき浮舟園,uji,uji_central,ryokan,reference,Uji River side
+松井本館,kyoto,shijo_kawaramachi,ryokan,tw_blog,怀石料理; 大浴场; TWD12000-20000
+天ぷら吉川,kyoto,shijo_kawaramachi,ryokan,ikyu,全8室; 远州流庭园; 天妇罗会席
+柚子屋旅館,kyoto,gion_higashiyama,ryokan,ikyu,祗园; 柚子锅怀石; JPY30300~
+もみぢ家本館 高雄山荘,kyoto,takao,ryokan,ikyu,川床料理4-9月; 舞子京舞; JPY27500~
+純和風料理旅館 き乃ゑ,kyoto,gion_higashiyama,ryokan,ikyu,祗园东山; 月替京怀石部屋食; 坐禅体验
+嵐山温泉 花伝抄,kyoto,arashiyama,ryokan,ikyu,阪急岚山站1min; 5个贷切风吕; TWD12000起
+古都の宿 むさし野,nara,nara_park_area,ryokan,blog,奈良县最古旅馆; 奈良公园内; 鹿入园
+江戸三,nara,nara_park_area,ryokan,blog,草庵风离; 窗外即鹿; 若草锅
+和鹿彩 別邸,nara,nara_park_area,ryokan,blog,东大寺膝元; 大和怀石料理
+遊景の宿 平城,nara,nara_park_area,ryokan,blog,若草山中腹; 夜景; 露天风吕付客室
+四季亭,nara,nara_park_area,ryokan,multiple,奈良公園; 创业100余年
+大原温泉 お宿 芹生,kyoto,ohara,ryokan,icotto,大原三千院; 天然温泉; 冬牡丹锅
+茶六別館,amanohashidate,amanohashidate,ryokan,icotto,天桥立; 数寄屋造り; 宮津温泉
+文珠荘 松露亭,amanohashidate,amanohashidate,luxury_ryokan,icotto,天桥立; 四季丹後料理
+飛鳥荘,nara,nara_park_area,ryokan,web_search,奈良公園5min; 露天風呂望興福寺; 料亭旅館
+渡月亭,kyoto,arashiyama,ryokan,ikyu,明治三十年; 岚山红叶; 京会席; JPY25900~
+もみぢ家別館 川の庵,kyoto,takao,ryokan,ikyu,高尾山; 专用吊桥; 红叶; 川床
+ザ・プリンス 京都宝ヶ池,kyoto,northern_higashiyama,city_hotel,ikyu,村野藤吾设计; 比叡山红叶; 全室36㎡+
+ザ グランド ウェスト 嵐山,kyoto,arashiyama,boutique_hotel,ikyu,全10室53㎡+; 岚山红叶客室
+恵光院,koyasan,koyasan_temple_town,shukubo,reference,Most popular foreign guests; onsen
+一乗院,koyasan,koyasan_temple_town,shukubo,reference,Famous shojin ryori
+蓮華定院,koyasan,koyasan_temple_town,shukubo,reference,Reference list
+金光院 ほたる庵,kyoto,northern_higashiyama,shukubo,shukubo,2025.3新开; 1日1组; JPY28000~
+智積院会館,kyoto,gion_higashiyama,shukubo,shukubo,真言宗总本山; 金堂朝勤+护摩; 精进料理
+仁和寺 御室会館,kyoto,northern_higashiyama,shukubo,shukubo,世界遗产; 国宝金堂朝勤; 大浴场
+知恩院 和順会館,kyoto,gion_higashiyama,shukubo,shukubo,浄土宗总本山; 大浴场; 精进料理
+妙心寺 東林院,kyoto,northern_higashiyama,shukubo,shukubo,沙罗双树庭园; 精进料理教室
+鹿王院,kyoto,arashiyama,shukubo,shukubo,女性专用; JPY5000; 名物がんもどき
+薬師院,kyoto,shijo_kawaramachi,shukubo,shukubo,1日1组; 普茶料理; JPY15800~
+福智院,koyasan,koyasan_temple_town,shukubo,shukubo,温泉宿坊; 创作精进料理; 庭园
+西門院,koyasan,koyasan_temple_town,shukubo,shukubo,900年; 手作胡麻豆腐; 写经
+西南院,koyasan,koyasan_temple_town,shukubo,shukubo,800年; 重森三玲庭园; 山内唯一温泉
+清浄心院,koyasan,koyasan_temple_town,shukubo,shukubo,弘法大师开创; 高野豆腐
+赤松院,koyasan,koyasan_temple_town,shukubo,shukubo,1100年; 2000坪庭园
+不動院,koyasan,koyasan_temple_town,shukubo,old_pool,高野山宿坊
+常喜院,koyasan,koyasan_temple_town,shukubo,old_pool,高野山宿坊
+持明院,koyasan,koyasan_temple_town,shukubo,old_pool,高野山宿坊
+龍泉院,koyasan,koyasan_temple_town,shukubo,old_pool,高野山宿坊

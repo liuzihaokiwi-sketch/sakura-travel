@@ -1,0 +1,887 @@
+{
+  "city": "osaka",
+  "type": "convenient",
+  "count": 110,
+  "hotels": [
+    {
+      "name_ja": "St. Regis Osaka",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "Michelin 5 red pavilion; butler"
+    },
+    {
+      "name_ja": "大阪マリオット都ホテル",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "luxury_hotel",
+      "source": "rakuten",
+      "brief_note": "Abeno Harukas 38-55F"
+    },
+    {
+      "name_ja": "帝国ホテル大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "multiple",
+      "brief_note": "Traditional luxury"
+    },
+    {
+      "name_ja": "ヒルトン大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "multiple",
+      "brief_note": "Osaka station area"
+    },
+    {
+      "name_ja": "Swissotel Nankai Osaka",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Nankai Namba station"
+    },
+    {
+      "name_ja": "Hotel Nikko Osaka",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "Shinsaibashi station direct"
+    },
+    {
+      "name_ja": "Hotel New Otani Osaka",
+      "city_code": "osaka",
+      "area": "osaka_castle_area",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "カペラホテル大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "2025/5 new; Capella first Japan"
+    },
+    {
+      "name_ja": "リーガロイヤルホテル大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "ikyu",
+      "brief_note": "90+ year; IHG Vignette 2025"
+    },
+    {
+      "name_ja": "センタラグランドホテル大阪",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "2023; Thai brand first Japan"
+    },
+    {
+      "name_ja": "ホテル阪急インターナショナル",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "multiple",
+      "brief_note": "Umeda night view"
+    },
+    {
+      "name_ja": "Cross Hotel Osaka",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "グランドプリンスホテル大阪ベイ",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "resort_hotel",
+      "source": "rakuten",
+      "brief_note": "Rakuten top3"
+    },
+    {
+      "name_ja": "Zentis Osaka",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "boutique_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "Candeo Hotels Osaka Shinsaibashi",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Sky spa"
+    },
+    {
+      "name_ja": "Hotel Monterey Himeji",
+      "city_code": "himeji",
+      "area": "himeji_station_area",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "Daiwa Roynet Hotel Himeji",
+      "city_code": "himeji",
+      "area": "himeji_station_area",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "Hotel Nikko Himeji",
+      "city_code": "himeji",
+      "area": "himeji_station_area",
+      "hotel_type": "city_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "Dormy Inn Himeji",
+      "city_code": "himeji",
+      "area": "himeji_station_area",
+      "hotel_type": "business_hotel",
+      "source": "reference",
+      "brief_note": "Reference list"
+    },
+    {
+      "name_ja": "FIRST CABIN 大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "capsule_hotel",
+      "source": "tw_blog",
+      "brief_note": "难波站正上方; TWD800起; 大浴场"
+    },
+    {
+      "name_ja": "相鉄フレッサイン大阪なんば駅前",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "7号出口直达; CNY490"
+    },
+    {
+      "name_ja": "大阪なんば奏ホテル",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "28号出口3min; CNY480; 有浴缸"
+    },
+    {
+      "name_ja": "大阪なんばHiyoriホテル",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "200m难波站; CNY630"
+    },
+    {
+      "name_ja": "唐草ホテル大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "免费早餐+饮料点心; CNY770"
+    },
+    {
+      "name_ja": "VIA INN 心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "2min; CNY330; 含早餐; 12岁以下免费"
+    },
+    {
+      "name_ja": "ベッセルホテル心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "3min; CNY320; 早餐生鱼片; 免费面膜"
+    },
+    {
+      "name_ja": "相鉄フレッサイン大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "2min; CNY400"
+    },
+    {
+      "name_ja": "The Bridge Hotel 心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "3min; CNY320; 免费宵夜拉面+啤酒"
+    },
+    {
+      "name_ja": "Hotel Hillarys 心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "3min; CNY380; 顶楼大浴场免费"
+    },
+    {
+      "name_ja": "UNIZO ホテル大阪梅田",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "5min; CNY370; 女性楼层"
+    },
+    {
+      "name_ja": "ホテルヴィスキオ大阪グランヴィア",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "梅田5min; CNY480; 隔音好"
+    },
+    {
+      "name_ja": "ホテルトラスティ大阪阿倍野",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "2min; CNY310; 早餐现煎牛肉"
+    },
+    {
+      "name_ja": "大阪天王寺バリタワーホテル",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "3min; CNY400; 游戏室"
+    },
+    {
+      "name_ja": "ホテル ユニバーサルポート",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "resort_hotel",
+      "source": "tw_blog",
+      "brief_note": "USJ步行1min; 房间大"
+    },
+    {
+      "name_ja": "ザ パーク フロント ホテル USJ",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "resort_hotel",
+      "source": "tw_blog",
+      "brief_note": "USJ步行4min; 小黄人主题房"
+    },
+    {
+      "name_ja": "カンデオホテルズ大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "顶楼SKY SPA; 夜景"
+    },
+    {
+      "name_ja": "三井ガーデンホテル大阪プレミア",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "中之岛河景; 16F免费露天温泉"
+    },
+    {
+      "name_ja": "御宿野乃大阪淀屋橋",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "Dormy Inn系; 天然温泉; 全馆畳敷"
+    },
+    {
+      "name_ja": "ホテルモントレ グラスミア大阪",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "JR难波直结"
+    },
+    {
+      "name_ja": "&Here OSAKA NAMBA",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog",
+      "brief_note": "2025.4新开; 难波站3-5min"
+    },
+    {
+      "name_ja": "OMO7大阪 by 星野リゾート",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "星野品牌; 436室; 夜景"
+    },
+    {
+      "name_ja": "ウェスティンホテル大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "ikyu",
+      "brief_note": "梅田; 全室41㎡+; Heavenly Bed"
+    },
+    {
+      "name_ja": "御宿野乃なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "letsgojp",
+      "brief_note": "Dormy Inn系; 天然温泉; 全馆畳敷"
+    },
+    {
+      "name_ja": "ホテル阪急レスパイア大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog",
+      "brief_note": "梅田; Yodobashi上层; 482室"
+    },
+    {
+      "name_ja": "Fawn Hotel",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "boutique_hotel",
+      "source": "tw_blog",
+      "brief_note": "台湾人经营; 零语言障碍"
+    },
+    {
+      "name_ja": "VIA INN 阿倍野天王寺",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog",
+      "brief_note": "天王寺站5min"
+    },
+    {
+      "name_ja": "MIMARU大阪心斎橋NORTH",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "apart_hotel",
+      "source": "letsgojp",
+      "brief_note": "忍者房; 亲子特化"
+    },
+    {
+      "name_ja": "Vessel Inn Namba",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "letsgojp",
+      "brief_note": "难波站25号出口2min"
+    },
+    {
+      "name_ja": "ホテルグランヴィア大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "letsgojp",
+      "brief_note": "JR大阪站直结"
+    },
+    {
+      "name_ja": "ウォルドーフ・アストリア大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "2025新开; Hilton最高端"
+    },
+    {
+      "name_ja": "キャノピーbyヒルトン大阪梅田",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "2024新开; Hilton lifestyle"
+    },
+    {
+      "name_ja": "ホテルグレイスリーなんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波; 哥斯拉楼顶"
+    },
+    {
+      "name_ja": "コンフォートホテル大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "免费早餐; 连锁"
+    },
+    {
+      "name_ja": "APA Hotel Namba Shinsaibashi",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "APA; 超低价"
+    },
+    {
+      "name_ja": "ibis Styles Osaka Namba",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Accor系; 设计感"
+    },
+    {
+      "name_ja": "プリンススマートイン大阪難波",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Prince系; 大浴场"
+    },
+    {
+      "name_ja": "ベッセルカンパーナ大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Vessel上位; 大浴场"
+    },
+    {
+      "name_ja": "フォーツ近鉄大阪難波",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "近铁系; 新品牌"
+    },
+    {
+      "name_ja": "ホテル日航大阪 別邸",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "luxury_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "日航上位; 心斋桥"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル大阪難波",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波; 连锁"
+    },
+    {
+      "name_ja": "ダイワロイネットホテル大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "心斋桥; 连锁"
+    },
+    {
+      "name_ja": "相鉄グランドフレッサ大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "相铁上位; 大浴场"
+    },
+    {
+      "name_ja": "ドーミーイン心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "天然温泉; 免费宵夜拉面"
+    },
+    {
+      "name_ja": "ドーミーインPREMIUM大阪北浜",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "北浜; 天然温泉"
+    },
+    {
+      "name_ja": "ホテルWBF難波元町",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波; 超低价"
+    },
+    {
+      "name_ja": "ホテルWBFなんばBUNRAKU",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波; 文乐剧场旁"
+    },
+    {
+      "name_ja": "ナンバオリエンタルホテル",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波站直结; 老牌"
+    },
+    {
+      "name_ja": "大阪なんばワシントンホテルプラザ",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "难波; 连锁; 性价比"
+    },
+    {
+      "name_ja": "ホテルモントレ大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "梅田; 欧式"
+    },
+    {
+      "name_ja": "ハートンホテル心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "心斋桥站近"
+    },
+    {
+      "name_ja": "ホテル京セラ",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "天王寺; 大型"
+    },
+    {
+      "name_ja": "変なホテル大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "机器人酒店; 难波"
+    },
+    {
+      "name_ja": "変なホテル大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "机器人酒店; 恐龙前台"
+    },
+    {
+      "name_ja": "大阪シティホテル京橋",
+      "city_code": "osaka",
+      "area": "osaka_castle_area",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "京桥站; 低价"
+    },
+    {
+      "name_ja": "ホテルビスタプレミオ大阪本町",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "本町站; 中高端"
+    },
+    {
+      "name_ja": "大阪新阪急ホテル",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "梅田; 老牌; 阪急"
+    },
+    {
+      "name_ja": "からくさホテルプレミア大阪なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "唐草上位; 难波"
+    },
+    {
+      "name_ja": "ホテルリソルトリニティ大阪",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Resol连锁; 设计感"
+    },
+    {
+      "name_ja": "ホテルシーガルてんぽーざん",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "business_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "天保山; 海游馆旁"
+    },
+    {
+      "name_ja": "ユニバーサルスタジオ シンギュラリホテル",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "USJ旁; 天然温泉"
+    },
+    {
+      "name_ja": "ホテルモントレ ル・フレール大阪",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "Monterey姐妹"
+    },
+    {
+      "name_ja": "三井ガーデンホテル大阪淀屋橋",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "city_hotel",
+      "source": "tw_blog_multi",
+      "brief_note": "淀屋桥; 三井花园系"
+    },
+    {
+      "name_ja": "ダブルツリーbyヒルトン大阪城",
+      "city_code": "osaka",
+      "area": "osaka_castle_area",
+      "hotel_type": "city_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.5; 天满桥站5min; 373室"
+    },
+    {
+      "name_ja": "キャプション by Hyatt なんば大阪",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "city_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.6; Hyatt新品牌日本首家"
+    },
+    {
+      "name_ja": "カンデオホテルズ大阪ザ・タワー",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.7; 135m展望露天风吕"
+    },
+    {
+      "name_ja": "フォーポイントフレックス by シェラトン大阪梅田",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.11; Marriott系"
+    },
+    {
+      "name_ja": "フォーポイントフレックス by シェラトン大阪心斎橋",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024; Marriott系"
+    },
+    {
+      "name_ja": "フォーポイントフレックス by シェラトン大阪北浜",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024; Marriott系"
+    },
+    {
+      "name_ja": "フォーポイントフレックス by シェラトン大阪本町",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024; Marriott系"
+    },
+    {
+      "name_ja": "アパホテル&リゾート大阪なんば駅前タワー",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "2024_new",
+      "brief_note": "2024.12; APA大型タワー"
+    },
+    {
+      "name_ja": "TONES OSAKA",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "boutique_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.2; Aldo Rossi设计外观"
+    },
+    {
+      "name_ja": "ホテル阪急グランレスパイア大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "2025_new",
+      "brief_note": "2025.3; 482室; うめきた温泉"
+    },
+    {
+      "name_ja": "Garner Hotel大阪本町駅",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "2025_new",
+      "brief_note": "2025新开"
+    },
+    {
+      "name_ja": "ファーイーストビレッジホテル大阪本町",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "business_hotel",
+      "source": "2025_new",
+      "brief_note": "2025新开; Far East系"
+    },
+    {
+      "name_ja": "KOKO HOTEL大阪なんば千日前",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "2025_new",
+      "brief_note": "2025新开"
+    },
+    {
+      "name_ja": "Series by Marriott大阪",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "city_hotel",
+      "source": "2025_new",
+      "brief_note": "2025; 日本首家; 小红书热门"
+    },
+    {
+      "name_ja": "スターゲイトホテル関西エアポート",
+      "city_code": "rinku",
+      "area": "rinku_izumisano",
+      "hotel_type": "city_hotel",
+      "source": "multiple",
+      "brief_note": "关西机场对岸; 临空城最高楼"
+    },
+    {
+      "name_ja": "REF関西空港 by VESSEL HOTELS",
+      "city_code": "rinku",
+      "area": "rinku_izumisano",
+      "hotel_type": "city_hotel",
+      "source": "user",
+      "brief_note": "新开; Vessel系; 泉佐野; 中国游客热门"
+    },
+    {
+      "name_ja": "大阪ステーションホテル オートグラフ コレクション",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "luxury_hotel",
+      "source": "web_search",
+      "brief_note": "JR大阪站直结; 2024新开; Marriott系"
+    },
+    {
+      "name_ja": "アロフト大阪堂島",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "boutique_hotel",
+      "source": "web_search",
+      "brief_note": "音楽lifestyle; Marriott系"
+    },
+    {
+      "name_ja": "THE BOLY OSAKA",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "boutique_hotel",
+      "source": "web_search",
+      "brief_note": "北浜; 土佐堀川沿い; リバービュー"
+    },
+    {
+      "name_ja": "ザ・ライブリー大阪本町",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "boutique_hotel",
+      "source": "web_search",
+      "brief_note": "174室; 间接照明; 非日常"
+    },
+    {
+      "name_ja": "星野リゾート リゾナーレ大阪",
+      "city_code": "osaka",
+      "area": "bay_area",
+      "hotel_type": "resort_hotel",
+      "source": "web_search",
+      "brief_note": "470㎡キッズアトリエ; 天保山; 亲子"
+    },
+    {
+      "name_ja": "アンダの森 大阪天王寺タワー",
+      "city_code": "osaka",
+      "area": "tennoji_shinsekai",
+      "hotel_type": "resort_hotel",
+      "source": "web_search",
+      "brief_note": "2025.4; オールインクルーシブ; 巨大キッズスペース"
+    },
+    {
+      "name_ja": "MIMARU大阪 難波NORTH",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "apart_hotel",
+      "source": "web_search",
+      "brief_note": "アニメコラボ; 2段ベッド; 亲子"
+    },
+    {
+      "name_ja": "ドーミーインPREMIUM なんば",
+      "city_code": "osaka",
+      "area": "namba_dotonbori",
+      "hotel_type": "business_hotel",
+      "source": "web_search",
+      "brief_note": "难波Dormy Inn; 天然温泉; 免费宵夜"
+    },
+    {
+      "name_ja": "Hotel Sanrriott Shinsaibashi",
+      "city_code": "osaka",
+      "area": "shinsaibashi",
+      "hotel_type": "business_hotel",
+      "source": "xiaohongshu",
+      "brief_note": "心斋桥10min; CNY380; 小红书实住"
+    },
+    {
+      "name_ja": "リブマックスホテル梅田中央",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "business_hotel",
+      "source": "xiaohongshu",
+      "brief_note": "梅田站15min; CNY271; 小红书实住"
+    },
+    {
+      "name_ja": "大阪新阪神ホテル別館",
+      "city_code": "osaka",
+      "area": "umeda_kita",
+      "hotel_type": "business_hotel",
+      "source": "xiaohongshu_ctrip",
+      "brief_note": "梅田; 阪神系; 中国游客热门"
+    },
+    {
+      "name_ja": "voco大阪セントラル",
+      "city_code": "osaka",
+      "area": "honmachi",
+      "hotel_type": "city_hotel",
+      "source": "old_pool",
+      "brief_note": "IHG新品牌; 肥後橋"
+    }
+  ]
+}

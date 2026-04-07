@@ -1,0 +1,486 @@
+{
+  "file": "kyoto_kawaramachi",
+  "count": 60,
+  "shops": [
+    {
+      "name_ja": "HOMIES",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "dress_code",
+      "brief_note": "15yr; world vintage; Kyoto icon"
+    },
+    {
+      "name_ja": "ANAgRAM",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "dress_code",
+      "brief_note": "Europe vintage; elegant; design-forward"
+    },
+    {
+      "name_ja": "古着屋JAM 京都三条店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "8000items; beginner OK; chain"
+    },
+    {
+      "name_ja": "BIG TIME",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "Sanjo; 4floors; vintage theme park"
+    },
+    {
+      "name_ja": "pastime",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "dress_code",
+      "brief_note": "Gokomachi; work wear; American vintage"
+    },
+    {
+      "name_ja": "BMC",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "dress_code",
+      "brief_note": "vintage+designers+original brand"
+    },
+    {
+      "name_ja": "LOWECO by JAM 京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "multiple",
+      "brief_note": "500-3000yen; budget treasure hunt"
+    },
+    {
+      "name_ja": "Three Star",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "elle_hk",
+      "brief_note": "Shinkyogoku; largest Kyoto; gallery inside"
+    },
+    {
+      "name_ja": "Kanful",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "elle_hk",
+      "brief_note": "affordable; under 10000yen daily wear"
+    },
+    {
+      "name_ja": "Un petit coup doeil",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "elle_hk",
+      "brief_note": "French exterior; mature women; unique selection"
+    },
+    {
+      "name_ja": "Kindal 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "vintage_shop",
+      "source": "elle_hk",
+      "brief_note": "3F; LV/Hermes/Chanel; tax-free; Chinese staff"
+    },
+    {
+      "name_ja": "原宿Chicago 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "elle_hk",
+      "brief_note": "Teramachi; 1000+ kimono upstairs; chain"
+    },
+    {
+      "name_ja": "DECOUVERTE KYOTO",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "elle_hk",
+      "brief_note": "Teramachi Shijo-sagaru"
+    },
+    {
+      "name_ja": "HUMAN MADE 1928 京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "extrabux",
+      "brief_note": "1928 registered cultural property; NIGO brand"
+    },
+    {
+      "name_ja": "SOU SOU おくりもの",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "craft",
+      "source": "multiple",
+      "brief_note": "wa-modern textile; gift shop; Kawaramachi"
+    },
+    {
+      "name_ja": "ANGERS アンジェ 河原町本店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "zakka",
+      "source": "multiple",
+      "brief_note": "3F; stationery+fashion+kitchen; design goods"
+    },
+    {
+      "name_ja": "mumokuteki goods & wears",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "zakka",
+      "source": "multiple",
+      "brief_note": "natural material; organic; craft collab"
+    },
+    {
+      "name_ja": "TOBICHI京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "zakka",
+      "source": "multiple",
+      "brief_note": "Hobonichi; Kotobuki Bldg registered cultural property"
+    },
+    {
+      "name_ja": "D&Department 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "zakka",
+      "source": "douban",
+      "brief_note": "in Bukkoji temple; lifestyle brand; food+bikes"
+    },
+    {
+      "name_ja": "むす美",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "craft",
+      "source": "multiple",
+      "brief_note": "furoshiki specialist; traditional+modern patterns"
+    },
+    {
+      "name_ja": "倉日用商店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "zakka",
+      "source": "multiple",
+      "brief_note": "Marutamachi; folk craft+daily necessities"
+    },
+    {
+      "name_ja": "横山竹材店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "craft",
+      "source": "asoview",
+      "brief_note": "est.Taisho 8; bamboo craft; workshop available"
+    },
+    {
+      "name_ja": "あかりデザイン工房",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "shop_type": "craft",
+      "source": "asoview",
+      "brief_note": "handmade washi paper lighting; JR Enmachi 9min"
+    },
+    {
+      "name_ja": "京あめ Crochet",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "Imanishi Seika; 30 flavors; kimono box; factory tour"
+    },
+    {
+      "name_ja": "亀屋良長",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "est.1803; slice yokan; SNS viral"
+    },
+    {
+      "name_ja": "IRODORI",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "pastel stick wagashi; modern; 10th yr"
+    },
+    {
+      "name_ja": "果朋 KAHOU",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "seasonal fruit wagashi; bottle dango; cute"
+    },
+    {
+      "name_ja": "KYOTO SOUZEN",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "kushi warabi mochi; room temp; wrapped; Kyoto Sta"
+    },
+    {
+      "name_ja": "聖護院八ッ橋総本店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "est.1689; 300yr classic; yatsuhashi"
+    },
+    {
+      "name_ja": "笹屋伊織",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "local_specialty",
+      "source": "multiple",
+      "brief_note": "dorayaki only 20-22nd monthly; no egg; secret recipe"
+    },
+    {
+      "name_ja": "誠光社",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "bookstore",
+      "source": "cinra",
+      "brief_note": "ex-Keibunsha manager; direct sourcing; unique curation"
+    },
+    {
+      "name_ja": "余波舎",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "bookstore",
+      "source": "potel",
+      "brief_note": "2024.1 open; new+used books; HK publications unique"
+    },
+    {
+      "name_ja": "hoka books",
+      "city_code": "kyoto",
+      "area": "kyoto_station",
+      "shop_type": "bookstore",
+      "source": "potel",
+      "brief_note": "Horikawa-gojo alley; blue bookshelf; gallery 2F"
+    },
+    {
+      "name_ja": "CAVA BOOKS",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "bookstore",
+      "source": "multiple",
+      "brief_note": "inside Demachiza cinema; Demachiyanagi 5min"
+    },
+    {
+      "name_ja": "三密堂書店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "bookstore",
+      "source": "kyotopi",
+      "brief_note": "old bookstore; rare night hours; Shijo area"
+    },
+    {
+      "name_ja": "堀川新文化ビルヂング",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "bookstore",
+      "source": "multiple",
+      "brief_note": "Ogaki Shoten complex; cafe+gallery+print workshop"
+    },
+    {
+      "name_ja": "FACE RECORDS 京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "record_shop",
+      "source": "musicfirst",
+      "brief_note": "Takashimaya 4F; JBL speakers; beginner corner"
+    },
+    {
+      "name_ja": "ART ROCK NO.1",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "record_shop",
+      "source": "artrock",
+      "brief_note": "Kawaramachi Nijo 7F; since 1997; all genre veteran"
+    },
+    {
+      "name_ja": "バナナレコード 京都",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "record_shop",
+      "source": "banana",
+      "brief_note": "Kawaramachi 5min; 6000 LP+CD stock"
+    },
+    {
+      "name_ja": "TORADRA RECORD",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "record_shop",
+      "source": "recoya",
+      "brief_note": "Shinkyogoku; Rock/Jazz/Pops; rare imports"
+    },
+    {
+      "name_ja": "VINYL7 RECORDS",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "record_shop",
+      "source": "recoya",
+      "brief_note": "Nakagyo-ku; curated selection"
+    },
+    {
+      "name_ja": "錦市場",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "shopping_street",
+      "source": "multiple",
+      "brief_note": "400m; Kyoto kitchen; fresh food+processed+goods"
+    },
+    {
+      "name_ja": "新京極商店街",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "shopping_street",
+      "source": "multiple",
+      "brief_note": "indie designers+vintage shops+Kyoto souvenirs"
+    },
+    {
+      "name_ja": "寺町通",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "shopping_street",
+      "source": "multiple",
+      "brief_note": "traditional shops+antiques; calm; old Kyoto"
+    },
+    {
+      "name_ja": "古着屋JAM 京都四条店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Shijo; American vintage; affordable; chain"
+    },
+    {
+      "name_ja": "Elulu by JAM 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "ladies only; retro pop; JAM sister brand"
+    },
+    {
+      "name_ja": "flamingo 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Shinkyogoku; pop design; shoes+accessories; affordable"
+    },
+    {
+      "name_ja": "RUSHOUT 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "US direct; sports+band T; budget"
+    },
+    {
+      "name_ja": "GRIZZLY 京都店",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Shinkyogoku; 1000yen~; Carhartt/Ralph Lauren"
+    },
+    {
+      "name_ja": "gRASS",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Gokomachi-Sanjo; American+military; street pop"
+    },
+    {
+      "name_ja": "goat",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Gokomachi; classic+mode; Margiela/Marni; quality"
+    },
+    {
+      "name_ja": "boro used clothing",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Teramachi; euro+quality used; good condition"
+    },
+    {
+      "name_ja": "Gian",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Amecaji+vintage; Ralph Lauren+leather shoes"
+    },
+    {
+      "name_ja": "SWAMPMAN",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "mode+design vintage; fashion forward"
+    },
+    {
+      "name_ja": "dorama",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Teramachi-Nijo; mode x street; new brand mix"
+    },
+    {
+      "name_ja": "gugu",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Gokomachi; euro vintage; beginner+veteran"
+    },
+    {
+      "name_ja": "Reveille",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "retro+vintage; good price; broad selection"
+    },
+    {
+      "name_ja": "Haole",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "American vintage+euro; leather shoes; must-go"
+    },
+    {
+      "name_ja": "ACHUU",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "euro vintage; military rich; affordable options"
+    },
+    {
+      "name_ja": "ROGER'S",
+      "city_code": "kyoto",
+      "area": "shijo_kawaramachi",
+      "shop_type": "furugi",
+      "source": "thisisgallery",
+      "brief_note": "Teramachi; American vintage; amecaji; denim"
+    }
+  ]
+}

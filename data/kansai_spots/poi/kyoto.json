@@ -1,0 +1,926 @@
+{
+  "city": "kyoto",
+  "count": 115,
+  "pois": [
+    {
+      "name_ja": "清水寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw, seasonal_ss",
+      "brief_note": "5sources"
+    },
+    {
+      "name_ja": "高台寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw",
+      "brief_note": "4sources | season:autumn"
+    },
+    {
+      "name_ja": "二条城",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "castle",
+      "source": "search_cn, search_jaen, search_tw, seasonal_ss",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "八坂神社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "神社",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "南禪寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "哲学の道",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "walking_trail",
+      "source": "search_jaen, search_tw, seasonal_aw, seasonal_ss",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "先斗町",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "历史街区",
+      "source": "search_cn, search_jaen",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "北野天満宮",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_jaen, search_tw, seasonal_aw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "天龍寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "宇治",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "town",
+      "source": "search_jaen, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "嵐山",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "scenic_area",
+      "source": "search_cn, search_jaen, search_tw, seasonal_ss",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "嵯峨野トロッコ列車",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "search_jaen, search_tw, seasonal_aw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "平安神宮",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_jaen, search_tw, seasonal_aw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "建仁寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "寺庙",
+      "source": "search_cn, search_jaen",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "東福寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "琉璃光院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_tw, seasonal_aw",
+      "brief_note": "2sources | season:autumn"
+    },
+    {
+      "name_ja": "貴船神社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_tw, seasonal_aw",
+      "brief_note": "2sources | season:autumn"
+    },
+    {
+      "name_ja": "醍醐寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen, search_tw, seasonal_ss",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "金閣寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "銀閣寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "錦市場",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "market",
+      "source": "search_cn, search_jaen, search_tw",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "びわ湖大花火大会",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "fireworks",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "三千院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "三年坂二年坂",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "历史街道",
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "下鴨神社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_tw, seasonal_aw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "二条陣屋",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "historic_site",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京の冬の旅（非公開文化財特別公開）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "special_event",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "京烧（清水烧）陶艺体验",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "陶艺体验",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都国立博物館",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都塔",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "landmark_tower",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都御所",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "palace",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都御苑（近衞邸跡の糸桜）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "京都水族館",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "aquarium",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "京都鉄道博物館",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "museum",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "仁和寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "仁和寺 御室桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "仙洞御所",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伊根舟屋",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "historic_village",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伏見",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "historic_district",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "伏見 十石舟 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "伏見稲荷大社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_cn, search_jaen, search_tw, seasonal_aw",
+      "brief_note": "4sources"
+    },
+    {
+      "name_ja": "保津川下り",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "activity",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "修学院離宮",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "八坂神社（初詣・おけら詣り）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "hatsumode",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "円山公園",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "park",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "円山公園 祇園枝垂れ桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "和服体验（祇园・岚山周边）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "和服体验",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和服體驗（OKIMONO屋）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_kimono",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和服體驗（京都愛和服）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_kimono",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和服體驗（夢館）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_kimono",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和服體驗（岡本和服租借）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_kimono",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "和服體驗（梨花和服）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_kimono",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "善峰寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "圓光寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大原",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "rural_area",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大徳寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "大覚寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "天橋立",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "scenic_area",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "妙心寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "山崎蒸溜所",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "distillery",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "岚山",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "自然景区",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "嵐山・渡月橋",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "嵐山竹林小徑",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "nature_walk",
+      "source": "search_cn, search_tw",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "嵯峨野トロッコ列車（春の桜）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "嵯峨野观光小火车",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "特色体验",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "平野神社 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "seasonal_ss",
+      "brief_note": "season:spring"
+    },
+    {
+      "name_ja": "曼殊院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "本願寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "東寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "東山",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "neighborhood",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "桂離宮",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "garden",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "比叡山",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple_complex",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "永観堂",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "永観堂（禅林寺）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "永觀堂（禪林寺）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "真如堂",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "知恩院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇园",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "历史街区",
+      "source": "search_cn, search_jaen",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "祇園白川",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "scenic_canal",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "祇園祭（前祭・山鉾巡行）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "festival",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "祇園花見小路",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "historic_street",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "神護寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "autumn_leaves",
+      "source": "seasonal_aw",
+      "brief_note": "season:autumn"
+    },
+    {
+      "name_ja": "美山合掌村",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "historic_village",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "舞妓体験",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "activity",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "舞妓體驗（ぎをん彩）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_maiko",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "舞妓體驗（四季本店）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "experience_maiko",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "苔寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "茶摘み体験",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "activity",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "茶道体验 MAIKOYA",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "茶道体验",
+      "source": "search_cn",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "貴船",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_cn, search_jaen, seasonal_ss",
+      "brief_note": "3sources"
+    },
+    {
+      "name_ja": "賀茂神社",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "shrine",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "蹴上インクライン 桜",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "cherry_blossom",
+      "source": "search_tw, seasonal_ss",
+      "brief_note": "2sources"
+    },
+    {
+      "name_ja": "金閣寺（冬・雪景色）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "winter_scenery",
+      "source": "seasonal_aw",
+      "brief_note": "season:winter"
+    },
+    {
+      "name_ja": "青蓮院",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鞍馬",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "高雄",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "scenic_valley",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鴨川",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "river_scenic",
+      "source": "search_tw",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "鴨川 納涼床（川床）",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "kawadoko",
+      "source": "seasonal_ss",
+      "brief_note": "season:summer"
+    },
+    {
+      "name_ja": "龍安寺",
+      "city_code": "kyoto",
+      "area": "",
+      "type": "temple",
+      "source": "search_jaen",
+      "brief_note": ""
+    },
+    {
+      "name_ja": "バー ブラウン シュガー",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "type": "bar",
+      "source": "baja-bluet.com",
+      "brief_note": "先斗町の靴脱ぎスタイルのバー。ブラックミュージックが流れ、1人3,000円でモヒート・マティーニが楽しめる。観光客にも地元民にも愛される庶民派。"
+    },
+    {
+      "name_ja": "バー ラッケンブース",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "type": "bar",
+      "source": "baja-bluet.com",
+      "brief_note": "先斗町の路地にあるウッディ内装の隠れ家バー。ラガヴーリン・タリスカーなどスコッチ豊富でバーテンダーの知識が深い。"
+    },
+    {
+      "name_ja": "BAR ATLANTIS",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "type": "bar",
+      "source": "kyoto.travel / globaldebauchery.com",
+      "brief_note": "鴨川に面したテラス（床）付きバー。夏季は川床で星空の下1杯。18-20時はハッピーアワーでカクテル半額。先斗町の夜景と川風が格別。"
+    },
+    {
+      "name_ja": "GIN BAR C&D 先斗町",
+      "city_code": "kyoto",
+      "area": "先斗町",
+      "type": "bar",
+      "source": "baja-bluet.com",
+      "brief_note": "国内外150種類以上のジンを揃える先斗町のジン専門バー。スパイシーなジントニックが名物で、好みに合わせたカスタム提案が受けられる。"
+    },
+    {
+      "name_ja": "KYOTO STAR BAR",
+      "city_code": "kyoto",
+      "area": "木屋町",
+      "type": "bar",
+      "source": "hitosara.com",
+      "brief_note": "着物を着たマスターが迎えるオーセンティックバー。昼は自家製かき氷、夜は手作り氷を使った特製カクテル。生け花・伝統インテリア・モーツァルトが流れる京都らしい空間。"
+    },
+    {
+      "name_ja": "Bar K6",
+      "city_code": "kyoto",
+      "area": "木屋町",
+      "type": "bar",
+      "source": "tabelog.com / journeycompass.com",
+      "brief_note": "京都を代表する名バーの一つ。抹茶を使ったオリジナルカクテル「茶ティーニ」が名物。食べログ評価3.72、ウイスキー愛好家からも評価が高い。18時〜翌2時。"
+    },
+    {
+      "name_ja": "Bee's Knees",
+      "city_code": "kyoto",
+      "area": "木屋町・中京区",
+      "type": "bar",
+      "source": "baja-bluet.com / globaldebauchery.com / kyoto.travel",
+      "brief_note": "「ブックストア」の看板を掲げた隠れ家スピークイージー。2021年アジアランキング18位。チェリーウッドのスモーキーモヒートなど季節のクラフトカクテルが絶品。"
+    },
+    {
+      "name_ja": "木屋町サンボア",
+      "city_code": "kyoto",
+      "area": "木屋町",
+      "type": "bar",
+      "source": "baja-bluet.com",
+      "brief_note": "河原町駅徒歩3〜5分の細い路地にある隠れ家。食べログ4.14と高評価。濃厚なハイボールとジントニックが名物。デートにも一人飲みにも向く静かな空間。"
+    },
+    {
+      "name_ja": "L'Escamoteur",
+      "city_code": "kyoto",
+      "area": "下京区",
+      "type": "bar",
+      "source": "globaldebauchery.com / journeycompass.com",
+      "brief_note": "マジシャンが在籍するコクテルバー。World's 50 Best Bars にもランクイン。古い薬局をイメージした内装で「Kyoto Gardens」「Smoky Old Fashioned」が人気。"
+    },
+    {
+      "name_ja": "Bar Stardust Club",
+      "city_code": "kyoto",
+      "area": "先斗町・中京区",
+      "type": "bar",
+      "source": "globaldebauchery.com",
+      "brief_note": "ジャズ・ブルース・スウィングのライブが毎晩行われる音楽バー。外国人観光客も多く一人でも入りやすい。先斗町の夜の代表的なライブスポット。"
+    },
+    {
+      "name_ja": "ヨラムバー（Yoramu Bar）",
+      "city_code": "kyoto",
+      "area": "錦市場周辺",
+      "type": "bar",
+      "source": "kyoto.travel / tokyocandies.com",
+      "brief_note": "イスラエル出身の唎酒師ヨラム・オーファーが営む日本酒専門バー。希少な日本酒を丁寧に説明しながら提供。酒の深みを知りたい観光客に唯一無二の体験。"
+    },
+    {
+      "name_ja": "夜パフェ専門店 NORD°（ノード）四条本店",
+      "city_code": "kyoto",
+      "area": "四条河原町",
+      "type": "night_parfait",
+      "source": "tabelog.com / taptrip.jp / pretty-online.jp",
+      "brief_note": "京都で最も有名な夜パフェ専門店。平日・土日ともに23時まで営業（LO 22:30）。旬のフルーツを使った季節限定メニューが並ぶ。飲み会帰りの〆パフェとして定着。河原町駅徒歩3分。"
+    },
+    {
+      "name_ja": "QeFare（ケハレ）",
+      "city_code": "kyoto",
+      "area": "河原町・中京区",
+      "type": "night_parfait",
+      "source": "kyoto.travel (京都観光Navi公式)",
+      "brief_note": "京町家をリノベした「食べる舞台」をテーマのパフェ専門店。2023年オープン。23時まで営業、ワンランク上のデートや贅沢な〆に。京都市公式観光Naviにも掲載される実力店。"
+    },
+    {
+      "name_ja": "清水寺 夜間特別拝観・ライトアップ",
+      "city_code": "kyoto",
+      "area": "東山・清水",
+      "type": "night_view",
+      "source": "kiyomizudera.or.jp (清水寺公式) / kyoto.travel (京都観光Navi公式)",
+      "brief_note": "春・夏・秋の年3回開催（春は3〜5月、秋は11〜12月）。観音様の慈悲を表す青いサーチライト「観音慈悲光」と紅葉・桜のライトアップが幻想的。舞台から京都市街の夜景も楽しめる。"
+    },
+    {
+      "name_ja": "高台寺 夜間特別拝観・プロジェクションマッピング",
+      "city_code": "kyoto",
+      "area": "東山・高台寺",
+      "type": "night_view",
+      "source": "souda-kyoto.jp / kyoto.travel (京都観光Navi公式)",
+      "brief_note": "豊臣秀吉ゆかりの高台寺。「臥龍池」に映る紅葉のライトアップと毎年テーマが変わるプロジェクションマッピングが必見。清水寺と合わせて夜の東山散策の定番コース。"
+    },
+    {
+      "name_ja": "嵐山 宝厳院 夜間特別拝観（秋）",
+      "city_code": "kyoto",
+      "area": "嵐山",
+      "type": "night_view",
+      "source": "souda-kyoto.jp",
+      "brief_note": "通常非公開の回遊式庭園「獅子吼の庭」が秋のみ特別公開＆ライトアップ。嵐山の紅葉ライトアップの中でも最も幻想的と評される穴場。竹林の散策と合わせて楽しめる。"
+    }
+  ]
+}
