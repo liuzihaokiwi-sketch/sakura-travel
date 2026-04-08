@@ -172,6 +172,13 @@
     "note": "兴趣标签 > 人群标签 > 默认。勾了兴趣就用兴趣版本，不再按人群替换"
   },
 
+  "trip_density": {
+    "_doc": "旅行密度影响系统砍减行为",
+    "packed": {"cut_level": "none", "note": "特种兵，满版模板不砍"},
+    "balanced": {"cut_level": "P4-P5", "note": "平衡版，砍低优先级留自由时间"},
+    "relaxed": {"cut_level": "P3-P5", "note": "悠闲度假，只保留P1-P2核心+一个亮点"}
+  },
+
   "grade_cut_order": ["B", "A", "S-", "S", "S+"],
   "note_grade_cut": "时间不够时从B开始砍，S+永远不砍",
 

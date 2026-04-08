@@ -1,7 +1,7 @@
 {
   "category": "onsen",
   "type": "experience",
-  "count": 61,
+  "count": 68,
   "hotels": [
     {
       "name_ja": "Hoshinoya Kyoto",
@@ -490,6 +490,62 @@
       "hotel_type": "ryokan",
       "source": "old_pool",
       "brief_note": "城崎旅馆; 淡¥10k-25k/旺¥25k-50k+(1泊2食)"
+    },
+    {
+      "name_ja": "天橋立 和のリゾート 文珠荘",
+      "city_code": "amanohashidate",
+      "area": "amanohashidate",
+      "hotel_type": "onsen_hotel",
+      "source": "ikyu",
+      "brief_note": "吉村顺三设计; 紧邻廻旋橋运河景; 地下1500m源泉100%掛け流し; ナトリウム炭酸水素塩泉; 2023年桑拿翻新; 淡¥20k-35k/旺¥40k-80k+(1泊2食)"
+    },
+    {
+      "name_ja": "碧き島の宿 熊野別邸 中の島",
+      "city_code": "nachikatsuura",
+      "area": "nachikatsuura_onsen",
+      "hotel_type": "luxury_ryokan",
+      "source": "official_jalan",
+      "brief_note": "船5分渡る孤岛一旅馆; 6源泉掛け流し毎分486L; 全室露天; 太平洋一望; 周一二不营业; 淡¥40k-80k/旺¥60k-150k+(1泊2食)"
+    },
+    {
+      "name_ja": "十津川温泉 ホテル昴",
+      "city_code": "totsukawa",
+      "area": "totsukawa_onsen",
+      "hotel_type": "onsen_hotel",
+      "source": "official",
+      "brief_note": "日本首个源泉掛け流し宣言村; 9种浴场含温泉泳池; 玉置神社+熊野本宮大社双世遗据点; ナトリウム炭酸水素塩泉70℃飲泉可; 淡¥15k-25k/旺¥20k-40k+(1泊2食)"
+    },
+    {
+      "name_ja": "龍神温泉 上御殿",
+      "city_code": "ryujin",
+      "area": "ryujin_onsen",
+      "hotel_type": "luxury_ryokan",
+      "source": "official_rakuten",
+      "brief_note": "1657年建国家登录有形文化財; 纪州德川藩主别邸旧址; 日本三大美人の湯ナトリウム炭酸水素塩泉; 日高川渓谷露天; 淡¥15k-25k/旺¥25k-45k+(1泊2食)"
+    },
+    {
+      "name_ja": "すみや亀峰菴",
+      "city_code": "kameoka",
+      "area": "yunohana_onsen",
+      "hotel_type": "luxury_ryokan",
+      "source": "official",
+      "brief_note": "岚山保津川游船下游30min; 露天風呂付客室; 懐石+奥地利葡萄酒オーベルジュ系; アルカリ性低温泉30.5℃; 淡¥30k-50k/旺¥50k-100k+(1泊2食)"
+    },
+    {
+      "name_ja": "びわ湖花街道",
+      "city_code": "otsu",
+      "area": "ogoto_onsen",
+      "hotel_type": "onsen_hotel",
+      "source": "official",
+      "brief_note": "全室琵琶湖景; 京都駅20min; 近江牛会席; アルカリ性美肌湯; 京都观光+温泉中途站; 淡¥15k-30k/旺¥30k-60k+(1泊2食)"
+    },
+    {
+      "name_ja": "み奈美亭",
+      "city_code": "osaka",
+      "area": "inunakiyama_onsen",
+      "hotel_type": "ryokan",
+      "source": "official",
+      "brief_note": "大阪市区90min内最近秘境; 犬鳴川渓谷; 単純硫黄冷鉱泉; 黒毛和牛陶板焼き; 関空25min; 淡¥8k-15k/旺¥15k-25k+(1泊2食)"
     }
   ]
 }

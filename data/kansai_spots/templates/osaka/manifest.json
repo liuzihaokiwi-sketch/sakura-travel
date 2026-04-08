@@ -23,21 +23,42 @@
     "5.5": ["arrival", "osaka_highlight", "seasonal", "usj", "audience_day", "departure"]
   },
   "user_choices": {
-    "_doc": "用户只做3个显式选择，其余系统自动决定",
+    "_doc": "4个核心问题+2个可选修饰器",
+    "trip_vibe": {
+      "type": "single_choice",
+      "label": "这趟更像哪种出游？",
+      "options": ["romantic", "photogenic", "family", "classic"],
+      "labels_zh": {"romantic": "约会感", "photogenic": "出片感", "family": "亲子", "classic": "经典版"}
+    },
+    "trip_density": {
+      "type": "single_choice",
+      "label": "想排得多满？",
+      "options": ["packed", "balanced", "relaxed"],
+      "labels_zh": {"packed": "特种兵", "balanced": "平衡版", "relaxed": "悠闲度假"}
+    },
+    "budget": {
+      "type": "single_choice",
+      "label": "预算大概在哪个档？",
+      "options": ["budget", "mid", "premium"]
+    },
     "usj": {
       "type": "boolean",
       "label": "要去USJ吗？",
       "adds_days": 1
     },
-    "audience": {
+    "hotel_preference": {
       "type": "single_choice",
-      "label": "人群类型",
-      "options": ["couple", "friends", "family", "default"]
+      "label": "酒店更偏向？",
+      "optional": true,
+      "default": "balanced",
+      "options": ["quality_first", "resort_vibe", "value_for_money", "balanced"],
+      "labels_zh": {"quality_first": "住得更好", "resort_vibe": "更有度假感", "value_for_money": "更看重性价比", "balanced": "帮我平衡"}
     },
-    "budget": {
-      "type": "single_choice",
-      "label": "预算档位",
-      "options": ["budget", "mid", "premium"]
+    "special_notes": {
+      "type": "text",
+      "label": "有需要特别注意的吗？",
+      "optional": true,
+      "placeholder": "如：有老人同行/轮椅/食物过敏等，可跳过"
     }
   },
   "system_auto_decisions": {
