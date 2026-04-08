@@ -125,6 +125,86 @@ ops/content/design_refs/
 
 ---
 
+## 新任务：生成关西水彩插画素材（2026-04-08）
+
+参考 `assets/hokkaido/` 里的北海道插画风格（水彩手绘、透明/白色背景、单体素材），按同样风格生成关西版。
+
+### 目录结构
+
+```
+assets/kansai/
+├── food/          # 美食
+├── spots/         # 景点
+├── streets/       # 街景
+├── hotels/        # 酒店
+├── themes/        # 特色店铺/体验
+└── animals/       # 动物（如有）
+```
+
+### 需要的素材清单
+
+**food/（美食，优先）**
+- 章鱼烧 takoyaki
+- 大阪烧 okonomiyaki
+- 串炸 kushikatsu
+- 551肉包 551horai
+- 河豚 fugu
+- 拉面 ramen
+- 抹茶甜品 matcha_sweets
+- 怀石料理 kaiseki
+- 汤豆腐 yudofu
+- 神户牛 kobe_beef
+- 柿叶寿司 kakinoha_sushi
+- 关东煮 oden
+- 力士老爷爷芝士蛋糕 rikuro
+
+**spots/（景点，优先）**
+- 大阪城 osaka_castle
+- 通天阁 tsutenkaku
+- 伏见稻荷千本鸟居 fushimi_inari
+- 金阁寺 kinkakuji
+- 清水寺 kiyomizudera
+- 竹林小径 arashiyama_bamboo
+- 奈良大佛 todaiji
+- 姬路城 himeji_castle
+- 梅田蓝天大厦 umeda_sky
+- 天保山摩天轮 tempozan_ferris
+- 海游馆 kaiyukan
+- 有马温泉 arima_onsen
+
+**streets/（街景）**
+- 道顿堀夜景 dotonbori
+- 心斋桥筋 shinsaibashi
+- 新世界 shinsekai
+- 法善寺横丁 hozenji
+- 锦市场 nishiki_market
+- 祇园花见小路 gion
+- 南京町中华街 nankinmachi
+- 黑门市场 kuromon
+
+**hotels/（酒店外观/特色）**
+- 温泉旅馆场景 ryokan_onsen
+- 梅田高层夜景 umeda_night_view
+
+**themes/（特色体验）**
+- 和服体验 kimono
+- 茶道 tea_ceremony
+- USJ 哈利波特城堡 usj_hogwarts
+
+### 风格要求
+- **跟北海道完全一样的水彩手绘风**
+- 白色/透明背景，单体素材
+- 尺寸跟北海道的类似就行
+- 文件名用英文（见上方括号里的名字）
+
+### 优先级
+1. food（美食）— 手帐本和小红书内容都要用
+2. spots（景点）— 手帐本核心
+3. streets（街景）— 手帐本每日执行页用
+4. 其他后面再补
+
+---
+
 ## 小雅 → 老板（回复区）
 
 （小雅的 AI 有问题或讨论结果写在这里）
