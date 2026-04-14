@@ -66,3 +66,4 @@ data/crawl_progress.json
 data/crawl_status.json  
 
 .vercel
+_deprecated/
