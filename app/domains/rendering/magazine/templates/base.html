@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>{{ meta.title or "旅行手账" }}</title>
+<style>
+/* ── 印刷基础（WeasyPrint @page） ── */
+@page {
+    size: A4;
+    margin: 20mm 18mm 22mm 18mm;
+    @bottom-center {
+        content: counter(page);
+        font-family: "Noto Sans SC", sans-serif;
+        font-size: 8pt;
+        color: #999;
+    }
+}
+@page :first {
+    margin: 0;
+    @bottom-center { content: ""; }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: "Noto Sans CJK SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    font-size: 10pt;
+    line-height: 1.6;
+    color: #2C2C2C;
+    background: #FAFAF8;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── 强调色 ── */
+:root {
+    --accent: #C0392B;
+    --accent-light: #f5eae9;
+    --warm-white: #FAFAF8;
+    --ink: #2C2C2C;
+    --muted: #7a7a7a;
+    --border: #e0d5c0;
+    --diy-amber: #c8a97a;
+}
+
+/* ── 标题层级 ── */
+h1 { font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 22pt; font-weight: 700; color: var(--ink); margin: 0 0 6pt; line-height: 1.2; }
+h2 { font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 16pt; font-weight: 700; color: var(--ink); margin: 0 0 4pt; }
+h3 { font-family: "Noto Serif CJK SC", "Noto Serif SC", serif; font-size: 13pt; font-weight: 600; color: var(--ink); margin: 0 0 3pt; }
+h4 { font-size: 10pt; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 2pt; }
+p { margin: 0 0 6pt; }
+
+/* ── 页面分节 ── */
+.page {
+    page-break-before: always;
+    page-break-inside: avoid;
+    min-height: 257mm; /* A4 内容区约高度 */
+    position: relative;
+}
+.page:first-child { page-break-before: auto; }
+
+/* ── Hero 图片 ── */
+.hero-image {
+    width: 100%;
+    height: 70mm;
+    object-fit: cover;
+    display: block;
+}
+.hero-image.cover-hero {
+    height: 120mm;
+}
+.hero-placeholder {
+    width: 100%;
+    height: 70mm;
+    background: linear-gradient(135deg, #e8e0d5 0%, #d5c9b8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-placeholder .placeholder-label {
+    font-size: 9pt;
+    color: #a89880;
+    letter-spacing: 1px;
+}
+
+/* ── 强调横条（红色） ── */
+.accent-bar {
+    width: 36px;
+    height: 3px;
+    background: var(--accent);
+    margin: 4pt 0 8pt;
+}
+
+/* ── 分割线 ── */
+.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8pt 0;
+}
+
+/* ── 章节标签 ── */
+.chapter-tag {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent);
+    padding: 1pt 6pt;
+    margin-bottom: 5pt;
+}
+
+/* ── Stat Strip ── */
+.stat-strip {
+    display: table;
+    width: 100%;
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding: 5pt 0;
+    margin: 8pt 0;
+}
+.stat-item {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3pt 8pt;
+    border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-value {
+    display: block;
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--ink);
+    font-family: "Noto Serif SC", serif;
+    line-height: 1;
+}
+.stat-label {
+    display: block;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    margin-top: 2pt;
+}
+.stat-unit {
+    display: inline;
+    font-size: 9pt;
+    color: var(--muted);
+}
+
+/* ── Timeline ── */
+.timeline { margin: 6pt 0; }
+.timeline-item {
+    display: table;
+    width: 100%;
+    padding: 4pt 0;
+    border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-time {
+    display: table-cell;
+    width: 36pt;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    vertical-align: top;
+    padding-top: 1pt;
+    white-space: nowrap;
+}
+.timeline-dot-col {
+    display: table-cell;
+    width: 14pt;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 2pt;
+}
+.timeline-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 2px;
+}
+.timeline-dot.transit { background: var(--muted); }
+.timeline-dot.meal { background: #e67e22; }
+.timeline-dot.hotel { background: #2980b9; }
+.timeline-body {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 4pt;
+}
+.timeline-name {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--ink);
+}
+.timeline-meta {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 1pt;
+}
+
+/* ── Key Reasons ── */
+.key-reasons { margin: 6pt 0; }
+.key-reason-item {
+    display: table;
+    width: 100%;
+    padding: 4pt 0;
+    page-break-inside: avoid;
+}
+.key-reason-icon {
+    display: table-cell;
+    width: 16pt;
+    font-size: 11pt;
+    color: var(--accent);
+    vertical-align: top;
+}
+.key-reason-text {
+    display: table-cell;
+    font-size: 9.5pt;
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+/* ── Entity Card ── */
+.entity-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8pt 10pt;
+    margin: 5pt 0;
+    page-break-inside: avoid;
+    background: #fff;
+}
+.entity-card-name { font-size: 11pt; font-weight: 700; color: var(--ink); }
+.entity-card-meta { font-size: 8.5pt; color: var(--muted); margin-top: 2pt; }
+
+/* ── Fulfillment List ── */
+.fulfillment-item {
+    display: table;
+    width: 100%;
+    padding: 6pt 0;
+    border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+}
+.fulfillment-item:last-child { border-bottom: none; }
+.fulfillment-check {
+    display: table-cell;
+    width: 18pt;
+    font-size: 12pt;
+    color: var(--accent);
+    vertical-align: top;
+}
+.fulfillment-body { display: table-cell; vertical-align: top; }
+.fulfillment-pref { font-size: 9.5pt; font-weight: 600; color: var(--ink); }
+.fulfillment-evidence { font-size: 8.5pt; color: var(--muted); margin-top: 2pt; }
+
+/* ── TOC ── */
+.toc-entry {
+    display: table;
+    width: 100%;
+    padding: 3pt 0;
+    border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+}
+.toc-entry:last-child { border-bottom: none; }
+.toc-title { display: table-cell; font-size: 9.5pt; color: var(--ink); }
+.toc-dots {
+    display: table-cell;
+    width: 40%;
+    border-bottom: 1px dotted #ccc;
+    height: 1em;
+    vertical-align: bottom;
+}
+.toc-page { display: table-cell; width: 24pt; text-align: right; font-size: 9.5pt; color: var(--muted); }
+
+/* ── Risk Card ── */
+.risk-card {
+    background: #fdf3f3;
+    border-left: 3px solid var(--accent);
+    padding: 6pt 10pt;
+    margin: 5pt 0;
+    page-break-inside: avoid;
+}
+.risk-label { font-size: 8pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+.risk-desc { font-size: 9pt; color: var(--ink); margin-top: 2pt; }
+.risk-action { font-size: 8.5pt; color: var(--muted); margin-top: 3pt; }
+
+/* ── Text Block ── */
+.text-block { margin: 6pt 0; }
+.text-block-heading { font-size: 9pt; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4pt; }
+.text-block-content { font-size: 9.5pt; color: var(--ink); line-height: 1.6; }
+.text-block-list { padding-left: 14pt; margin: 3pt 0; }
+.text-block-list li { font-size: 9.5pt; color: var(--ink); margin-bottom: 3pt; }
+
+/* ── Plan B ── */
+.plan-b-item {
+    background: #f4f4f4;
+    border-radius: 3px;
+    padding: 5pt 8pt;
+    margin: 4pt 0;
+    page-break-inside: avoid;
+}
+.plan-b-trigger { font-size: 8pt; color: var(--muted); font-weight: 600; }
+.plan-b-alt { font-size: 9.5pt; color: var(--ink); margin-top: 2pt; }
+
+/* ── Booking Alert ── */
+.booking-item {
+    display: table;
+    width: 100%;
+    padding: 5pt 0;
+    border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+}
+.booking-item:last-child { border-bottom: none; }
+.booking-level-badge {
+    display: table-cell;
+    width: 40pt;
+    vertical-align: top;
+    padding-top: 2pt;
+}
+.badge {
+    display: inline-block;
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 1pt 4pt;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.badge-must { background: var(--accent); color: #fff; }
+.badge-should { background: #e67e22; color: #fff; }
+.badge-good { background: #27ae60; color: #fff; }
+.badge-walkin { background: var(--border); color: var(--muted); }
+.booking-body { display: table-cell; vertical-align: top; padding-left: 6pt; }
+.booking-name { font-size: 10pt; font-weight: 600; color: var(--ink); }
+.booking-meta { font-size: 8pt; color: var(--muted); margin-top: 2pt; }
+
+/* ── DIY Zones ── */
+.diy-sticker-zone {
+    width: 90px;
+    height: 90px;
+    border: 1.5px dashed var(--diy-amber);
+    border-radius: 6px;
+    background: #fff8eb;
+    text-align: center;
+    padding-top: 18px;
+}
+.diy-sticker-zone.top-right { float: right; margin: 0 0 8px 10px; }
+.diy-sticker-zone.bottom-left { float: left; margin: 8px 10px 0 0; clear: left; }
+.diy-sticker-zone.corner { float: left; margin: 0 10px 8px 0; }
+.diy-icon { display: block; font-size: 16px; color: var(--diy-amber); opacity: 0.4; margin-bottom: 2px; }
+.diy-label { font-size: 7pt; color: var(--diy-amber); letter-spacing: 0.3px; opacity: 0.7; line-height: 1.3; }
+.diy-freewrite-zone {
+    border: 1px dashed var(--diy-amber);
+    border-radius: 4px;
+    background-color: #fffcf5;
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 21px, #e0d5c0 21px, #e0d5c0 22px);
+    position: relative;
+    clear: both;
+}
+.diy-freewrite-zone .diy-label { display: block; padding: 4px 0 0 8px; }
+.diy-freewrite-zone.bottom-strip { width: 100%; height: 80px; margin-top: 10px; }
+.diy-freewrite-zone.side-margin { float: right; width: 56px; min-height: 140px; margin-left: 8px; }
+.diy-freewrite-zone.full-half { width: 100%; height: 170px; margin-top: 14px; }
+.diy-zones-wrapper { margin-top: 12px; page-break-inside: avoid; clear: both; }
+.has-diy::after { content: ""; display: block; clear: both; }
+
+/* ── 页眉 ── */
+.page-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4pt;
+    margin-bottom: 10pt;
+}
+.page-header-title { font-size: 11pt; font-weight: 600; color: var(--ink); }
+.page-header-subtitle { font-size: 8.5pt; color: var(--muted); margin-top: 1pt; }
+
+/* ── 封面专用 ── */
+.cover-page {
+    page-break-before: auto;
+    min-height: 297mm;
+    background: var(--warm-white);
+    padding: 0;
+}
+.cover-content {
+    padding: 14mm 18mm 10mm;
+}
+.cover-tagline {
+    font-size: 9pt;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 10pt;
+}
+
+/* ── 章节 opener 专用 ── */
+.chapter-opener-page .hero-image { height: 90mm; }
+.chapter-opener-content { padding: 10pt 0; }
+
+/* ── 内容区通用内边距 ── */
+.page-content { padding: 0; }
+</style>
+</head>
+<body>
+{% block body %}{{ body_content | safe }}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,951 @@
+{
+  "_doc": "大阪 Day Template Library v2. 非固定行程，而是日模板集合，由 trip_skeletons + AI 根据用户输入选择组装。大阪只有一条主路线，这些模板是主路线的各个片段 + 可选模块。hotel_area (namba/umeda) 作为参数影响交通建议，不再复制两套模板。",
+  "_version": "2.0",
+  "_areas": {
+    "namba_dotonbori": "难波・道顿堀・心斋桥",
+    "osaka_castle": "大阪城公园周边",
+    "tennoji_shinsekai": "天王寺・新世界・通天阁",
+    "tempozan": "天保山・海游馆・港区",
+    "umeda_kita": "梅田・北区・中之岛北",
+    "nakanoshima": "中之岛・北浜",
+    "amerikamura": "美国村・南船场",
+    "usj_area": "此花区・USJ"
+  },
+
+  "day_templates": [
+    {
+      "template_id": "arrival_day",
+      "label": "到达日",
+      "assembly": {
+        "role": "arrival",
+        "priority": "fixed",
+        "fatigue": "light",
+        "min_occurrence": 1,
+        "max_occurrence": 1,
+        "density_behavior": "sparse",
+        "prefers_after": [],
+        "avoid_after": [],
+        "position": "first"
+      },
+      "condition": null,
+      "description": "下午到达，入住休息，傍晚道顿堀散步开胃。不安排正式景点，让旅客自然融入大阪节奏。",
+      "hotel_area_note": "住梅田时午餐在梅田，傍晚坐御堂筋线10min到道顿堀，其余不变。",
+      "slots": [
+        {
+          "slot_id": "arrival_lunch",
+          "time_range": "12:00-14:30",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P2",
+          "duration_min": 60,
+          "meal_ref": "arrival_day_lunch",
+          "note": "到达后第一顿，hotel_area=umeda 时改为梅田午餐"
+        },
+        {
+          "slot_id": "arrival_rest",
+          "time_range": "15:00-17:00",
+          "type": "rest",
+          "duration_min": 90,
+          "note": "check-in + 休息 1-1.5h，长途飞行后必须"
+        },
+        {
+          "slot_id": "arrival_snack",
+          "time_range": "17:00-18:00",
+          "type": "snack",
+          "area": "namba_dotonbori",
+          "priority": "P1",
+          "duration_min": 45,
+          "meal_ref": "day1_snacks",
+          "note": "道顿堀边走边吃：章鱼烧 + 551蓬莱肉包"
+        },
+        {
+          "slot_id": "arrival_dinner",
+          "time_range": "18:00-20:00",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P1",
+          "duration_min": 90,
+          "meal_ref": "arrival_day_dinner",
+          "note": "与午餐菜系错开"
+        },
+        {
+          "slot_id": "arrival_shops",
+          "time_range": null,
+          "type": "shop_info",
+          "area": "namba_dotonbori",
+          "priority": "P5",
+          "note": "附近推荐店铺列表，不排入时间线，供自由时间参考"
+        },
+        {
+          "slot_id": "arrival_cafe",
+          "time_range": null,
+          "type": "cafe_info",
+          "area": "namba_dotonbori",
+          "priority": "P5",
+          "note": "休息点推荐，道顿堀/心斋桥周边咖啡厅"
+        },
+        {
+          "slot_id": "arrival_photo",
+          "time_range": null,
+          "type": "photo_spots",
+          "priority": "P5",
+          "note": "格力高看板、道顿堀运河夜景、心斋桥筋入口"
+        }
+      ]
+    },
+
+    {
+      "template_id": "core_day",
+      "label": "大阪精华日",
+      "assembly": {
+        "role": "core",
+        "priority": "fixed",
+        "fatigue": "medium",
+        "min_occurrence": 1,
+        "max_occurrence": 1,
+        "density_behavior": "dense",
+        "prefers_after": ["arrival_day"],
+        "avoid_after": ["module_usj"],
+        "position": null
+      },
+      "condition": null,
+      "description": "大阪唯一一天必走精华路线：黑门市场→大阪城→新世界+通天阁→法善寺横丁→晚间活动。涵盖市场、城堡、下町、静巷四种大阪面貌。",
+      "slots": [
+        {
+          "slot_id": "core_kuromon",
+          "time_range": "09:00-10:00",
+          "type": "poi",
+          "area": "namba_dotonbori",
+          "priority": "P2",
+          "duration_min": 60,
+          "entity_hint": "黒門市場",
+          "note": "大阪的厨房，海鲜串烧/水果/刺身当早餐。9点前到避开旅行团。"
+        },
+        {
+          "slot_id": "core_kuromon_to_castle",
+          "time_range": "10:00-10:30",
+          "type": "transport",
+          "note": "黑门市场 → 地铁千日前线 → 谷町四丁目站，约15min"
+        },
+        {
+          "slot_id": "core_osaka_castle",
+          "time_range": "10:30-12:30",
+          "type": "poi",
+          "area": "osaka_castle",
+          "priority": "P1",
+          "duration_min": 120,
+          "entity_hint": "大阪城",
+          "grade": "S",
+          "seasonal_upgrade": {
+            "cherry_blossom": {
+              "duration_min": 180,
+              "note": "赏樱版：西之丸庭园350円，300棵染井吉野。樱花季可能需要独占一天，参见 seasonal_events.json"
+            }
+          },
+          "note": "天守阁600円，8F展望台可眺望全城。登城+公园散步约2h。"
+        },
+        {
+          "slot_id": "core_castle_lunch",
+          "time_range": "12:30-13:30",
+          "type": "meal",
+          "area": "osaka_castle",
+          "priority": "P3",
+          "duration_min": 60,
+          "meal_ref": "core_day_lunch",
+          "note": "大阪城周边或去新世界路上解决"
+        },
+        {
+          "slot_id": "core_castle_to_shinsekai",
+          "time_range": "13:30-14:00",
+          "type": "transport",
+          "note": "谷町四丁目 → 地铁谷町线 → 动物园前站，约15min"
+        },
+        {
+          "slot_id": "core_shinsekai",
+          "time_range": "14:00-16:00",
+          "type": "poi",
+          "area": "tennoji_shinsekai",
+          "priority": "P4",
+          "duration_min": 90,
+          "entity_hint": "新世界+通天閣",
+          "includes_snack": {
+            "cuisine": "串炸",
+            "entity_hint": "串かつだるま通天閣本店",
+            "note": "元祖串炸发源地，酱只能蘸一次"
+          },
+          "nearby_options": [
+            {
+              "entity_hint": "四天王寺",
+              "duration_min": 45,
+              "priority": "P5",
+              "fit_audience": ["elderly", "culture"],
+              "note": "通天阁步行15min，日本最古老寺院之一"
+            },
+            {
+              "entity_hint": "ジャンジャン横丁",
+              "note": "新世界内昭和居酒屋街，顺路经过"
+            },
+            {
+              "entity_hint": "阿倍野HARUKAS展望台",
+              "priority": "P5",
+              "fit_audience": ["couple"],
+              "note": "日本最高楼300m展望台，夜景备选"
+            }
+          ]
+        },
+        {
+          "slot_id": "core_shinsekai_to_hozenji",
+          "time_range": "16:00-16:30",
+          "type": "transport",
+          "note": "新世界 → 地铁御堂筋线 → 难波站，约15min"
+        },
+        {
+          "slot_id": "core_hozenji",
+          "time_range": "16:30-17:00",
+          "type": "poi",
+          "area": "namba_dotonbori",
+          "priority": "P3",
+          "duration_min": 30,
+          "entity_hint": "法善寺横丁",
+          "note": "石板小巷，水掛不動明王。从新世界的热闹突然切到安静小巷，当天最重要的情绪转折。"
+        },
+        {
+          "slot_id": "core_dinner",
+          "time_range": "17:30-19:00",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P2",
+          "duration_min": 75,
+          "meal_ref": "core_day_dinner",
+          "note": "法善寺周边或难波区域"
+        },
+        {
+          "slot_id": "core_evening",
+          "time_range": "19:30-22:00",
+          "type": "evening_auto",
+          "area": "namba_dotonbori",
+          "priority": "P5",
+          "auto_rule": {
+            "couple": {
+              "A": {"type": "jazz_bar", "note": "爵士酒吧，难波周边步行可达，music charge 1000-3000円，安静有氛围"},
+              "B": {"type": "ura_namba_izakaya", "note": "裏难波居酒屋，道顿堀背后小巷，本地人区域，热闹接地气"}
+            },
+            "friends": {
+              "A": {"type": "jazz_bar", "note": "爵士酒吧"},
+              "B": {"type": "ura_namba_izakaya", "note": "裏难波居酒屋"}
+            },
+            "family": {"default": "shinsaibashi_walk", "note": "心斋桥逛街，适合带小孩"},
+            "default": {"default": "shinsaibashi_walk", "note": "心斋桥逛街"}
+          }
+        },
+        {
+          "slot_id": "core_shops",
+          "time_range": null,
+          "type": "shop_info",
+          "area": "tennoji_shinsekai",
+          "priority": "P5",
+          "note": "新世界附近推荐店铺，自由时间少只推2家"
+        }
+      ]
+    },
+
+    {
+      "template_id": "module_usj",
+      "label": "USJ环球影城",
+      "assembly": {
+        "role": "module_usj",
+        "priority": "conditional",
+        "fatigue": "very_heavy",
+        "min_occurrence": 0,
+        "max_occurrence": 1,
+        "density_behavior": "exclusive",
+        "prefers_after": ["arrival_day"],
+        "avoid_after": [],
+        "position": null
+      },
+      "condition": "user_choice.usj == true",
+      "description": "全天USJ，08:00入园到21:00闭园。体力消耗极大，建议次日安排恢复日或轻量日。",
+      "slots": [
+        {
+          "slot_id": "usj_allday",
+          "time_range": "08:00-21:00",
+          "type": "poi",
+          "area": "usj_area",
+          "priority": "P1",
+          "duration_min": 480,
+          "entity_hint": "ユニバーサル・スタジオ・ジャパン",
+          "grade": "S",
+          "tips": [
+            "提前买门票 + Express Pass快速通关券",
+            "早于开园30-60min到门口排队",
+            "哈利波特区优先（人最多的区域）",
+            "看闭园前灯光秀/游行",
+            "火曜/木曜最空，参考ユニバリアル人流日历",
+            "2026年25周年特别活动，全年比往年更挤"
+          ],
+          "note": "整天都在园内，午餐在园内解决"
+        },
+        {
+          "slot_id": "usj_dinner",
+          "time_range": "21:30-22:30",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P2",
+          "duration_min": 60,
+          "note": "回程经过难波，晚饭在难波吃。JRゆめ咲線→西九条→環状線→難波，约30min。"
+        }
+      ]
+    },
+
+    {
+      "template_id": "audience_day",
+      "label": "人群定制日",
+      "assembly": {
+        "role": "audience",
+        "priority": "conditional",
+        "fatigue": "medium",
+        "min_occurrence": 0,
+        "max_occurrence": 1,
+        "density_behavior": "normal",
+        "prefers_after": ["module_usj"],
+        "avoid_after": ["departure_half"],
+        "position": null
+      },
+      "condition": "total_days >= 4.5",
+      "description": "按人群画像定制的一天。天数不够时整天砍掉，人群偏好融入 core_day 的 slot 填充。",
+      "variants": {
+        "couple": {
+          "label": "情侣版：海游馆+摩天轮日落+梅田夜景",
+          "slots": [
+            {
+              "slot_id": "aud_morning_rest",
+              "time_range": "09:00-12:00",
+              "type": "rest",
+              "priority": "P4",
+              "note": "USJ后恢复，睡懒觉。红叶季(11月)可改为箕面红叶半日游。"
+            },
+            {
+              "slot_id": "aud_lunch",
+              "time_range": "12:00-13:00",
+              "type": "meal",
+              "area": "namba_dotonbori",
+              "priority": "P3",
+              "duration_min": 60,
+              "meal_ref": "audience_day_lunch_couple"
+            },
+            {
+              "slot_id": "aud_transport_to_tempozan",
+              "time_range": "13:00-13:30",
+              "type": "transport",
+              "note": "难波 → 地铁御堂筋线→中央线 → 大阪港站，约25min"
+            },
+            {
+              "slot_id": "aud_kaiyukan",
+              "time_range": "14:00-16:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P2",
+              "duration_min": 120,
+              "entity_hint": "大阪海遊館",
+              "note": "太平洋水槽的鲸鲨震撼。17:00后灯光变浪漫。"
+            },
+            {
+              "slot_id": "aud_ferris",
+              "time_range": "16:30-17:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P3",
+              "duration_min": 15,
+              "entity_hint": "天保山大観覧車",
+              "note": "日落时段上，日本夜景遗产认定。透明舱更刺激。"
+            },
+            {
+              "slot_id": "aud_tempozan_walk",
+              "time_range": "17:00-17:30",
+              "type": "walk",
+              "area": "tempozan",
+              "priority": "P4",
+              "duration_min": 30,
+              "note": "天保山海滨散步，看港口夕阳"
+            },
+            {
+              "slot_id": "aud_transport_to_umeda",
+              "time_range": "17:30-18:00",
+              "type": "transport",
+              "note": "地铁中央线→御堂筋线到梅田，约24min"
+            },
+            {
+              "slot_id": "aud_dinner",
+              "time_range": "19:00-20:30",
+              "type": "meal",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 90,
+              "meal_ref": "audience_day_dinner_couple",
+              "note": "梅田高层餐厅，夜景加分"
+            },
+            {
+              "slot_id": "aud_skybuilding",
+              "time_range": "20:30-22:00",
+              "type": "poi",
+              "area": "umeda_kita",
+              "priority": "P1",
+              "duration_min": 60,
+              "entity_hint": "梅田スカイビル空中庭園",
+              "note": "情侣锁1200円可刻名，情侣套票含香槟。花火日(7-8月)换成淀川花火大会。"
+            }
+          ]
+        },
+        "friends": {
+          "label": "闺蜜/朋友版：中之岛洋馆+美国村古着+梅田夜景",
+          "slots": [
+            {
+              "slot_id": "aud_nakanoshima",
+              "time_range": "09:30-11:30",
+              "type": "poi",
+              "area": "nakanoshima",
+              "priority": "P2",
+              "duration_min": 120,
+              "note": "中之岛图书馆(1904洋馆外观) + 北浜レトロ咖啡厅 + 中之岛美术馆(可选)"
+            },
+            {
+              "slot_id": "aud_lunch",
+              "time_range": "11:30-12:30",
+              "type": "meal",
+              "area": "nakanoshima",
+              "priority": "P3",
+              "duration_min": 60,
+              "meal_ref": "audience_day_lunch_friends",
+              "note": "中之岛周边午餐"
+            },
+            {
+              "slot_id": "aud_amemura",
+              "time_range": "13:00-16:00",
+              "type": "poi",
+              "area": "amerikamura",
+              "priority": "P1",
+              "duration_min": 180,
+              "note": "美国村vintage古着巡礼2-3h。サントニブンノイチ / Elulu by JAM / LOWECO 等"
+            },
+            {
+              "slot_id": "aud_sweets",
+              "time_range": "16:00-17:00",
+              "type": "cafe",
+              "area": "amerikamura",
+              "priority": "P3",
+              "duration_min": 60,
+              "note": "甜品咖啡厅打卡（COLONY by EQI 舒芙蕾松饼等）"
+            },
+            {
+              "slot_id": "aud_umeda_shopping",
+              "time_range": "17:00-18:30",
+              "type": "shopping",
+              "area": "umeda_kita",
+              "priority": "P4",
+              "duration_min": 90,
+              "note": "Grand Front 购物"
+            },
+            {
+              "slot_id": "aud_skybuilding",
+              "time_range": "18:30-20:00",
+              "type": "poi",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 60,
+              "entity_hint": "梅田スカイビル空中庭園",
+              "note": "12月换成光のルネサンス（美国村步行15min到中之岛会场）"
+            },
+            {
+              "slot_id": "aud_dinner",
+              "time_range": "20:00-21:30",
+              "type": "meal",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 75,
+              "meal_ref": "audience_day_dinner_friends"
+            }
+          ],
+          "alternative_full_day": {
+            "note": "备选：空庭温泉一整天（浴衣拍照 + 9种温泉 + 岩盘浴，3-5h）"
+          }
+        },
+        "family": {
+          "label": "亲子版：海游馆+乐高+摩天轮（全程500m内，全室内，雨天友好）",
+          "slots": [
+            {
+              "slot_id": "aud_kaiyukan",
+              "time_range": "10:00-13:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P1",
+              "duration_min": 210,
+              "entity_hint": "大阪海遊館",
+              "note": "带小孩3-4h，中途可再入场。触摸池区域小孩最喜欢。"
+            },
+            {
+              "slot_id": "aud_lunch",
+              "time_range": "13:00-14:00",
+              "type": "meal",
+              "area": "tempozan",
+              "priority": "P2",
+              "duration_min": 60,
+              "meal_ref": "audience_day_lunch_family",
+              "note": "天保山商场内午饭，有儿童餐椅"
+            },
+            {
+              "slot_id": "aud_legoland",
+              "time_range": "14:00-17:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P2",
+              "duration_min": 180,
+              "entity_hint": "レゴランドディスカバリーセンター大阪",
+              "note": "海游馆旁步行3min，3-10岁适合，必须提前网上预约时段"
+            },
+            {
+              "slot_id": "aud_ferris",
+              "time_range": "17:00-17:30",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P3",
+              "duration_min": 15,
+              "entity_hint": "天保山大観覧車",
+              "note": "孩子趴在玻璃上看港口灯光"
+            },
+            {
+              "slot_id": "aud_dinner",
+              "time_range": "18:00-19:00",
+              "type": "meal",
+              "area": "tempozan",
+              "priority": "P2",
+              "duration_min": 60,
+              "meal_ref": "audience_day_dinner_family",
+              "note": "天保山商场或回难波吃"
+            }
+          ],
+          "note": "全程天保山区域500m内，全室内，雨天友好。备选：天王寺动物園(500円) / Kids Plaza Osaka"
+        },
+        "default": {
+          "label": "默认版：海游馆+摩天轮+梅田散步",
+          "slots": [
+            {
+              "slot_id": "aud_morning_rest",
+              "time_range": "09:00-11:00",
+              "type": "rest",
+              "priority": "P4",
+              "note": "自然醒，不赶行程"
+            },
+            {
+              "slot_id": "aud_transport_to_tempozan",
+              "time_range": "11:00-11:30",
+              "type": "transport",
+              "note": "难波 → 大阪港站，约25min"
+            },
+            {
+              "slot_id": "aud_kaiyukan",
+              "time_range": "11:30-13:30",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P2",
+              "duration_min": 120,
+              "entity_hint": "大阪海遊館"
+            },
+            {
+              "slot_id": "aud_lunch",
+              "time_range": "13:30-14:30",
+              "type": "meal",
+              "area": "tempozan",
+              "priority": "P3",
+              "duration_min": 60,
+              "meal_ref": "audience_day_lunch_default"
+            },
+            {
+              "slot_id": "aud_ferris",
+              "time_range": "14:30-15:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P3",
+              "duration_min": 15,
+              "entity_hint": "天保山大観覧車"
+            },
+            {
+              "slot_id": "aud_transport_to_umeda",
+              "time_range": "15:30-16:00",
+              "type": "transport",
+              "note": "大阪港 → 梅田，约24min"
+            },
+            {
+              "slot_id": "aud_umeda_stroll",
+              "time_range": "16:00-18:00",
+              "type": "walk",
+              "area": "umeda_kita",
+              "priority": "P4",
+              "duration_min": 120,
+              "note": "梅田散步，Grand Front / HEP FIVE 等"
+            },
+            {
+              "slot_id": "aud_dinner",
+              "time_range": "18:00-19:30",
+              "type": "meal",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 75,
+              "meal_ref": "audience_day_dinner_default"
+            },
+            {
+              "slot_id": "aud_skybuilding",
+              "time_range": "20:00-21:00",
+              "type": "poi",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 60,
+              "entity_hint": "梅田スカイビル空中庭園",
+              "note": "夜景收尾"
+            }
+          ]
+        }
+      }
+    },
+
+    {
+      "template_id": "deep_dive_day",
+      "label": "深度探索日",
+      "assembly": {
+        "role": "deep_dive",
+        "priority": "fallback",
+        "fatigue": "medium",
+        "min_occurrence": 0,
+        "max_occurrence": 2,
+        "density_behavior": "normal",
+        "prefers_after": ["module_usj", "core_day"],
+        "avoid_after": ["departure_half"],
+        "position": null
+      },
+      "condition": "extra_days_available && no_specific_module",
+      "description": "用户有多余天数但没有特定模块需求时的深度探索。AI根据人群画像选择变体。",
+      "variants": {
+        "urban_culture": {
+          "label": "都市文化线：中之岛→天神桥筋→中崎町",
+          "fit_audience": ["couple", "friends", "solo"],
+          "slots": [
+            {
+              "slot_id": "dd_nakanoshima",
+              "time_range": "09:30-11:00",
+              "type": "poi",
+              "area": "nakanoshima",
+              "priority": "P2",
+              "duration_min": 90,
+              "note": "中之岛公园散步 + 中之岛美术馆 or 东洋陶磁美术馆"
+            },
+            {
+              "slot_id": "dd_lunch",
+              "time_range": "11:00-12:00",
+              "type": "meal",
+              "area": "nakanoshima",
+              "priority": "P3",
+              "duration_min": 60,
+              "meal_ref": "deep_dive_urban_lunch"
+            },
+            {
+              "slot_id": "dd_tenjinbashi",
+              "time_range": "12:30-14:30",
+              "type": "poi",
+              "area": "umeda_kita",
+              "priority": "P3",
+              "duration_min": 120,
+              "entity_hint": "天神橋筋商店街",
+              "note": "日本最长商店街2.6km，不用走全程。中间 大阪くらしの今昔館(住宅博物馆) 可选。"
+            },
+            {
+              "slot_id": "dd_nakazakicho",
+              "time_range": "15:00-17:30",
+              "type": "poi",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 150,
+              "note": "中崎町：昭和长屋改装的咖啡厅、古着店、独立书店集中区。大阪最有文艺气息的街区。"
+            },
+            {
+              "slot_id": "dd_dinner",
+              "time_range": "18:00-19:30",
+              "type": "meal",
+              "area": "umeda_kita",
+              "priority": "P2",
+              "duration_min": 75,
+              "meal_ref": "deep_dive_urban_dinner"
+            }
+          ]
+        },
+        "port_relaxation": {
+          "label": "港区+温泉放松线",
+          "fit_audience": ["couple", "family", "elderly"],
+          "slots": [
+            {
+              "slot_id": "dd_onsen",
+              "time_range": "10:00-14:00",
+              "type": "poi",
+              "area": "tennoji_shinsekai",
+              "priority": "P2",
+              "duration_min": 240,
+              "note": "Spa World（新世界旁）or ソラニワ温泉（ベイタワー）。浴衣拍照+多种温泉+岩盘浴，半天消磨。",
+              "options": [
+                {
+                  "entity_hint": "スパワールド",
+                  "area": "tennoji_shinsekai",
+                  "note": "世界各国温泉主题，新世界步行3min"
+                },
+                {
+                  "entity_hint": "空庭温泉 SOLANIWA ONSEN",
+                  "area": "usj_area",
+                  "note": "安土桃山时代主题，ベイタワー直通"
+                }
+              ]
+            },
+            {
+              "slot_id": "dd_lunch",
+              "time_range": "14:00-15:00",
+              "type": "meal",
+              "priority": "P3",
+              "duration_min": 60,
+              "meal_ref": "deep_dive_port_lunch",
+              "note": "温泉设施内或附近"
+            },
+            {
+              "slot_id": "dd_tempozan_extended",
+              "time_range": "15:30-18:00",
+              "type": "poi",
+              "area": "tempozan",
+              "priority": "P3",
+              "duration_min": 150,
+              "note": "天保山区域延长散步：海滨公园+夕阳+商场购物。若上午已在海游馆区域则跳过。"
+            },
+            {
+              "slot_id": "dd_dinner",
+              "time_range": "18:30-20:00",
+              "type": "meal",
+              "area": "namba_dotonbori",
+              "priority": "P2",
+              "duration_min": 75,
+              "meal_ref": "deep_dive_port_dinner"
+            }
+          ]
+        }
+      }
+    },
+
+    {
+      "template_id": "recovery_day",
+      "label": "恢复日",
+      "assembly": {
+        "role": "recovery",
+        "priority": "conditional",
+        "fatigue": "light",
+        "min_occurrence": 0,
+        "max_occurrence": 1,
+        "density_behavior": "sparse",
+        "prefers_after": ["module_usj", "module_seasonal_heavy"],
+        "avoid_after": ["arrival_day", "departure_half"],
+        "position": null
+      },
+      "condition": "previous_day.fatigue in ['very_heavy', 'heavy']",
+      "description": "重体力日（USJ或大型季节活动）后的恢复。睡到自然醒，下午酒店周边轻松活动。",
+      "slots": [
+        {
+          "slot_id": "rec_morning",
+          "time_range": "09:00-12:00",
+          "type": "rest",
+          "priority": "P1",
+          "note": "睡到自然醒，不设闹钟。酒店早餐或brunch。"
+        },
+        {
+          "slot_id": "rec_lunch",
+          "time_range": "12:00-13:00",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P3",
+          "duration_min": 60,
+          "meal_ref": "recovery_day_lunch",
+          "note": "酒店附近轻松午餐"
+        },
+        {
+          "slot_id": "rec_afternoon",
+          "time_range": "14:00-17:00",
+          "type": "optional_poi",
+          "area": "namba_dotonbori",
+          "priority": "P4",
+          "duration_min": 120,
+          "options": [
+            {"activity": "难波周边散步", "note": "心斋桥/道顿堀，走走停停"},
+            {"activity": "购物", "note": "心斋桥筋商店街，松本清/唐吉诃德"},
+            {"activity": "法善寺横丁晨参", "entity_hint": "法善寺横丁", "note": "白天的法善寺比夜晚更安静"},
+            {"activity": "咖啡厅", "note": "找一家好咖啡厅坐一下午"}
+          ],
+          "note": "不强制安排，从选项中随意选。重点是恢复体力。"
+        },
+        {
+          "slot_id": "rec_dinner",
+          "time_range": "18:00-19:30",
+          "type": "meal",
+          "area": "namba_dotonbori",
+          "priority": "P2",
+          "duration_min": 75,
+          "meal_ref": "recovery_day_dinner"
+        }
+      ]
+    },
+
+    {
+      "template_id": "departure_half",
+      "label": "大阪最后半天",
+      "assembly": {
+        "role": "departure",
+        "priority": "fixed",
+        "fatigue": "light",
+        "min_occurrence": 1,
+        "max_occurrence": 1,
+        "density_behavior": "sparse",
+        "prefers_after": [],
+        "avoid_after": [],
+        "position": "last_osaka"
+      },
+      "condition": null,
+      "description": "大阪最后半天，退房购物后切往下一城市。松弛收尾，不赶行程。",
+      "slots": [
+        {
+          "slot_id": "dep_morning",
+          "time_range": "08:00-10:00",
+          "type": "rest",
+          "priority": "P2",
+          "note": "睡到自然醒，退房，行李寄存酒店或车站 locker"
+        },
+        {
+          "slot_id": "dep_shopping",
+          "time_range": "10:00-11:00",
+          "type": "shopping",
+          "area": "namba_dotonbori",
+          "priority": "P1",
+          "duration_min": 60,
+          "note": "药妆/零食扫货（松本清/唐吉诃德）。直接免税柜台不排队，免税+优惠券叠加。hotel_area=umeda时改为梅田周边购物。"
+        },
+        {
+          "slot_id": "dep_optional",
+          "time_range": "10:00-11:00",
+          "type": "optional_poi",
+          "area": "namba_dotonbori",
+          "priority": "P4",
+          "duration_min": 30,
+          "options": [
+            {
+              "entity_hint": "法善寺横丁",
+              "note": "晨参，白天安静氛围"
+            },
+            {
+              "entity_hint": "難波八阪神社",
+              "note": "步行6min，巨大狮子殿（獅子殿），拍照打卡"
+            }
+          ],
+          "note": "非强制，有时间就去"
+        },
+        {
+          "slot_id": "dep_transport",
+          "time_range": "11:00-12:00",
+          "type": "transport",
+          "priority": "P1",
+          "transport_options": [
+            {"dest": "京都", "route": "近铁特急约50min / JR新快速约30min", "from_namba": "近铁难波站直达", "from_umeda": "JR大阪站→京都站30min"},
+            {"dest": "神户", "route": "阪神电铁约40min", "from_namba": "难波→梅田换乘", "from_umeda": "阪急梅田→神户三宫30min"},
+            {"dest": "奈良", "route": "近铁难波直达约40min", "from_namba": "近铁难波站直达", "from_umeda": "JR大阪→奈良约50min"}
+          ],
+          "note": "具体路线取决于下一城市和 hotel_area"
+        }
+      ]
+    }
+  ],
+
+  "seasonal_overlays": {
+    "_doc": "非独立日模板，而是叠加到现有 slot 上的季节性修改。详见 seasonal_events.json。",
+    "cherry_blossom": {
+      "period": "3月下旬-4月上旬",
+      "affects": [
+        {
+          "target_template": "core_day",
+          "target_slot": "core_osaka_castle",
+          "upgrade": {
+            "duration_min": 180,
+            "note": "赏樱版：西之丸庭園350円，约300棵染井吉野樱。可能需要独占一天。",
+            "add_spots": ["毛馬桜之宮公園", "造幣局桜の通り抜け(4月中旬限定)"]
+          }
+        }
+      ]
+    },
+    "summer_fireworks": {
+      "period": "7月-8月",
+      "affects": [
+        {
+          "target_template": "audience_day",
+          "target_slot": "aud_skybuilding",
+          "upgrade": {
+            "replace_with": "淀川花火大会",
+            "note": "8月第1土曜，淀川河川敷。梅田Sky Building也能看但人多。提前2h占位。"
+          }
+        },
+        {
+          "target_template": "core_day",
+          "target_slot": "core_evening",
+          "upgrade": {
+            "add_option": "天神祭奉納花火(7/25)",
+            "note": "日本三大祭之一，大川沿岸。core_day如果碰上7/25改晚间为天神祭。"
+          }
+        }
+      ]
+    },
+    "autumn_foliage": {
+      "period": "11月中旬-12月上旬",
+      "affects": [
+        {
+          "target_template": "audience_day",
+          "variant": "couple",
+          "target_slot": "aud_morning_rest",
+          "upgrade": {
+            "replace_with_poi": "箕面红叶",
+            "duration_min": 150,
+            "note": "箕面瀑布红叶，阪急箕面站步行30min到瀑布。上午去人少。"
+          }
+        }
+      ]
+    },
+    "winter_illumination": {
+      "period": "11月-12月",
+      "affects": [
+        {
+          "target_template": "audience_day",
+          "variant": "friends",
+          "target_slot": "aud_skybuilding",
+          "upgrade": {
+            "replace_with": "OSAKA光のルネサンス",
+            "note": "中之岛灯光秀，美国村步行15min到会场。12月限定。"
+          }
+        }
+      ]
+    }
+  },
+
+  "assembly_hints": {
+    "_doc": "给 trip_skeletons 和 AI 的组装提示，不是固定规则。",
+    "minimum_osaka_days": 2.5,
+    "typical_osaka_days": 3.5,
+    "maximum_osaka_days": 6,
+    "core_sequence": ["arrival_day", "core_day", "departure_half"],
+    "module_insertion_rules": [
+      "module_usj 插在 core_day 之后（用户明确要USJ时）",
+      "recovery_day 紧跟 module_usj（USJ体力消耗极大）",
+      "audience_day 在 recovery_day 之后（恢复后的第二主题日）",
+      "deep_dive_day 填充剩余空天（用户天数多但无特定需求）",
+      "departure_half 永远在大阪最后"
+    ],
+    "hotel_area_parameter": {
+      "namba": "默认。道顿堀/心斋桥步行圈内，夜生活方便，交通便利（御堂筋/千日前/近铁）",
+      "umeda": "商务或高端。梅田站直结，去京都/神户更方便，但离道顿堀需地铁10min"
+    }
+  }
+}

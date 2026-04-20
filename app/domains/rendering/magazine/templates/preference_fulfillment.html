@@ -1,0 +1,25 @@
+{% from 'macros.html' import accent_bar %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">偏好兑现</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'fulfillment_list' %}
+    <div>
+    {% for item in sec.content['items'] %}
+    <div class="fulfillment-item">
+      <div class="fulfillment-check">✓</div>
+      <div class="fulfillment-body">
+        <div class="fulfillment-pref">{{ item.preference_text | e }}</div>
+        {% if item.evidence or item.explanation %}
+        <div class="fulfillment-evidence">{{ item.evidence | e }}{% if item.evidence and item.explanation %} — {% endif %}{{ item.explanation | e }}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

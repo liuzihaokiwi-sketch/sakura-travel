@@ -1,0 +1,90 @@
+{
+  "template_id": "audience_friends_day",
+  "label": "闺蜜/朋友日：中之岛洋馆+美国村古着+梅田夜景",
+  "tags": [
+    "art",
+    "vintage",
+    "photo",
+    "nightview"
+  ],
+  "core_entities": [
+    "osa_umeda_sky"
+  ],
+  "fit_audience": [
+    "friends"
+  ],
+  "weather_sensitive": false,
+  "condition": "total_days >= 4.5",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 美与发现。闺蜜/朋友专属一天。中之岛洋馆建筑巡礼→美国村vintage古着→甜品→梅田Sky Building夜景。全程出片密度最高的一天。备选全天方案：空庭温泉（浴衣拍照+9种温泉+岩盘浴，3-5h，¥2,400-3,200）。",
+  "hotel_area_note": "住难波出发往中之岛坐御堂筋线到淀屋桥约10min。住梅田步行15min到中之岛。",
+  "slots": [
+    {
+      "slot_id": "aud_f_nakanoshima",
+      "time_range": "09:30-11:30",
+      "type": "poi",
+      "area": "nakanoshima",
+      "priority": "P2",
+      "duration_min": 120,
+      "note": "中之岛区域散步+建筑巡礼，公园和建筑外观免费。路线：中之岛公园→中之岛美術館NAKKA（中之岛美术馆，2022年开馆，黑色方块建筑，收藏6,000+件近现代作品，展览¥1,200-1,800需查nakka-art.jp，1F公共通道+咖啡免费）→北浜レトロ建筑群（北浜复古建筑群：中央公会堂1918红砖/旧北浜银行1912洋馆/生駒ビル（生驹大楼）1930 Art Deco）。北浜レトロ（北浜复古大楼）1F是英式蛋糕+红茶店，2F咖啡厅可看中之岛玫瑰园。全程出片密度极高。5-6月和10-11月玫瑰园盛开时更强。"
+    },
+    {
+      "slot_id": "aud_f_lunch",
+      "time_range": "11:30-12:30",
+      "type": "meal",
+      "area": "nakanoshima",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "中之岛/北浜周边午餐。土佐堀川沿岸有约15家露天テラス（露台）咖啡/餐厅（川床テラス，河边露台），天气好时推荐河边露天座。避开：中央公会堂内的餐厅虽然建筑很美但午餐性价比不高，更适合看外观。"
+    },
+    {
+      "slot_id": "aud_f_amemura",
+      "time_range": "13:00-16:00",
+      "type": "poi",
+      "area": "amerikamura",
+      "priority": "P1",
+      "duration_min": 180,
+      "note": "美国村vintage古着巡礼2-3h。核心店：サンタモニカ（Santa Monica，品类最全的vintage大店）、JAM/Elulu by JAM（设计师vintage）、LOWECO by JAM（平价线，¥990均一区）。三角公园（Amerika-mura Triangle Park）是集散中心，从这里辐射逛。古着之外还有独立设计师店和唱片店。逛累了就去甜品店。"
+    },
+    {
+      "slot_id": "aud_f_sweets",
+      "time_range": "16:00-17:00",
+      "type": "cafe",
+      "area": "amerikamura",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "甜品咖啡厅打卡回血。美国村和南船场区域甜品店密度高——舒芙蕾松饼、可丽饼、水果大福等。具体店由Opus从内容池选。"
+    },
+    {
+      "slot_id": "aud_f_umeda_shopping",
+      "time_range": "17:00-18:30",
+      "type": "shopping",
+      "area": "umeda_kita",
+      "priority": "P3",
+      "duration_min": 90,
+      "note": "Grand Front Osaka购物。美国村→地铁御堂筋线心斋桥→梅田约15min。Grand Front的SHOPS区有很多日本设计品牌，和美国村的vintage风格形成反差。体力不够这段可以砍掉直接去Sky Building。"
+    },
+    {
+      "slot_id": "aud_f_skybuilding",
+      "time_range": "18:30-20:00",
+      "type": "poi",
+      "area": "umeda_kita",
+      "priority": "P2",
+      "duration_min": 60,
+      "entity_hint": "梅田スカイビル空中庭園（梅田天空大楼空中庭园）",
+      "note": "现场¥1,500/网上预约¥1,200。日落前45-60min上去最好——白天→日落→夜景一次看完。先乘高速电梯到35F，再坐连接两栋大楼的透明空中扶梯到39F。屋顶开放式展望台，荧光石地板在黑暗中发光。JR大阪站中央北口步行7min。冬季（12月）可替换为OSAKA光のルネサンス（大阪光之文艺复兴灯光秀，中之岛，美国村步行15min到会场）。"
+    },
+    {
+      "slot_id": "aud_f_dinner",
+      "time_range": "20:00-21:30",
+      "type": "meal",
+      "area": "umeda_kita",
+      "priority": "P1",
+      "duration_min": 75,
+      "note": "闺蜜日晚餐。梅田/北新地方向。这顿是audience_day_showcase——朋友出行的高光餐，全程最值得花钱的一顿之一。方向：能坐在一起聊天的氛围优先于菜品精致度——包间或半隐私座位加分。避开：梅田站直结的商业设施内连锁餐厅（没有个性）。一天淘货+出片后需要的是'坐下来好好吃一顿+翻看战利品'的满足感。"
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "_doc": "西班牙机器可读硬约束。原则在 brief.md，这里只放程序可检查的规则。与关西 policy.json 并列，共享结构，差异化在节奏/文案红线/订票严格度/Paradores。",
+
+  "hard_constraints": {
+    "dining": {
+      "same_day_no_repeat_cuisine": true,
+      "consecutive_days_no_repeat_cuisine_in_A_track": true,
+      "showcase_meal_max_per_city": 1,
+      "showcase_meal_max_per_trip": 2,
+      "showcase_meal_max_per_trip_long": 3,
+      "showcase_long_trip_threshold_days": 13,
+      "family_never_top_tier": true,
+      "sangria_is_tourist_drink": true,
+      "summer_drink_alternative": "tinto_de_verano",
+      "beer_terminology": {
+        "correct": ["una caña", "una doble"],
+        "tourist_word": "cerveza"
+      },
+      "flamenco_themed_restaurant_is_tourist_trap": true,
+      "spanish_menu_has_three_sizes": ["ración", "media_ración", "tapa"],
+      "restaurant_must_be_in_day_area": true,
+      "merienda_required_daily": true,
+      "sobremesa_never_cut": true,
+      "menu_del_dia_workday_lunch_only": {
+        "valid_days": ["mon", "tue", "wed", "thu", "fri"],
+        "valid_meal": "lunch",
+        "invalid_times": ["weekend_lunch", "dinner_any_day"]
+      },
+      "five_to_six_pm_is_coffee_not_beer": true,
+      "tapeo_pintxos_minimum_per_trip": 1,
+      "pintxos_term_basque_only": true,
+      "paella_belongs_to_valencia": true,
+      "paella_max_per_trip": 1
+    },
+    "cross_city_dedup": {
+      "dedup_scope": "A_track_only",
+      "general_cuisines_max_across_trip": 2,
+      "general_cuisines": ["tapas_generic", "paella_generic", "seafood_grill"],
+      "second_occurrence_must_differ_meal_role": true,
+      "priority_city": {
+        "paella_valenciana": "valencia",
+        "pintxos": "san_sebastian",
+        "sherry_tasting": "sevilla",
+        "tapas_gratis_system": "granada",
+        "cocido_madrileno": "madrid",
+        "pa_amb_tomaquet": "barcelona",
+        "rabo_de_toro": "sevilla"
+      },
+      "city_exclusive_no_dedup": {
+        "sevilla": ["pescado_frito", "rabo_de_toro", "carrillada_pedro_ximenez", "solomillo_al_whiskey", "sherry"],
+        "granada": ["tapas_gratis", "piononos"],
+        "cordoba": ["salmorejo", "flamenquin"],
+        "san_sebastian": ["pintxos", "txakoli"],
+        "bilbao": ["pintxos", "bacalao_al_pil_pil"],
+        "madrid": ["cocido_madrileno", "callos", "churros_con_chocolate"],
+        "barcelona": ["pa_amb_tomaquet", "escalivada", "crema_catalana"],
+        "valencia": ["paella_valenciana", "horchata", "fartons"]
+      }
+    },
+    "assembly": {
+      "transfer_day_afternoon_no_heavy_poi": true,
+      "transfer_day_intensity": "light",
+      "heavy_day_next_morning_must_be_light": true,
+      "arrival_day_no_formal_poi": true,
+      "departure_half_keep_light": true,
+      "audience_day_never_cut_core_sequence": true,
+      "flamenco_show_never_cut_if_scheduled": true,
+      "siesta_slot_required_in_summer": {
+        "months": [6, 7, 8, 9],
+        "time_window": "14:00-18:00",
+        "action": "must_be_indoor_or_rest"
+      },
+      "sobremesa_lunch_duration_min_hours": 2,
+      "sobremesa_packed_density_preserved": true,
+      "paseo_slot_required_daily": true
+    },
+    "hotel": {
+      "system_picks_one_not_user_chooses": true,
+      "handbook_shows_one_plus_one_backup": true,
+      "parador_priority_for_historic_cities": true,
+      "parador_eligible_cities": ["granada", "toledo", "santiago", "ronda", "cordoba", "leon", "sevilla", "cuenca", "merida"],
+      "parador_narrative_style": "stay_in_monument_not_4_star_hotel"
+    },
+    "booking_windows": {
+      "_doc": "订票严格度 5 级。超过窗口 = 产品失败。手账本必须写清每个景点的订票窗口+官网链接。",
+      "L1_strictest": {
+        "months_ahead": 3,
+        "venues": ["alhambra_nasrid_palaces"],
+        "failure_action": "restructure_itinerary"
+      },
+      "L2_strict": {
+        "months_ahead": 2,
+        "venues": ["sagrada_familia_towers", "casa_vicens", "park_guell_monumental"],
+        "failure_action": "downgrade_to_facade_only"
+      },
+      "L3_medium": {
+        "weeks_ahead": 2,
+        "venues": ["alcazar_sevilla", "catedral_sevilla_giralda", "la_pedrera", "casa_batllo", "prado_special_exhibits", "picasso_museum_bcn"],
+        "failure_action": "swap_alternative_museum"
+      },
+      "L4_loose": {
+        "weeks_ahead": 1,
+        "venues": ["bernabeu_tour", "camp_nou_tour", "general_museums"],
+        "failure_action": "downgrade_priority"
+      },
+      "L5_flamenco": {
+        "days_ahead_peak_season": 7,
+        "days_ahead_min": 5,
+        "venues": ["casa_de_la_memoria", "la_casa_del_flamenco"],
+        "failure_action": "swap_to_non_reservation_peña_or_casa_anselma"
+      },
+      "named_ticket_venues_require_passport": ["alcazar_sevilla", "catedral_sevilla", "alhambra", "sagrada_familia"]
+    },
+    "dress_code": {
+      "religious_sites": {
+        "rule": "knee_covered_no_sleeveless_no_spaghetti",
+        "enforcement": "strict",
+        "venues": ["catedral_sevilla", "catedral_burgos", "monasterio_escorial", "most_active_churches"]
+      },
+      "paseo_time": {
+        "rule": "change_to_smart_casual_no_sportswear_no_big_camera",
+        "reason": "ver_y_ser_visto_outsider_mark"
+      }
+    },
+    "cultural_red_lines": {
+      "_doc": "文案硬红线。违反 = 冒犯本地人 = 产品失败。",
+      "not_spanish_regions": {
+        "cataluña": {"use": ["català", "加泰人", "本地人"], "forbid": ["西班牙人"]},
+        "basque": {"use": ["vasco", "巴斯克人", "本地人"], "forbid": ["西班牙人"]},
+        "galicia": {"use": ["gallego", "加利西亚人", "本地人"], "forbid": ["西班牙人"]}
+      },
+      "dinner_time_framing": {
+        "forbid": "把晚餐 10 点当猎奇卖点",
+        "require": "按他们生物钟，这就是傍晚 8 点（Franco 时区错位）"
+      },
+      "not_spain_as_single_country": {
+        "forbid": "西班牙的 Barcelona / 西班牙的 San Sebastián",
+        "use": "加泰罗尼亚首府 Barcelona / 巴斯克的 Donostia"
+      }
+    }
+  },
+
+  "regional_schedule": {
+    "_doc": "北南时间差。区域模板的默认 slot 时间按 region 分层。",
+    "north": {
+      "regions": ["basque", "galicia", "northern_catalonia"],
+      "breakfast": "08:00-10:00",
+      "lunch": "13:30",
+      "merienda": "17:30",
+      "dinner": "21:00",
+      "flamenco": "not_primary"
+    },
+    "central": {
+      "regions": ["madrid", "castilla"],
+      "breakfast": "08:00-10:00",
+      "lunch": "14:00",
+      "merienda": "17:30",
+      "dinner": "21:30"
+    },
+    "south": {
+      "regions": ["andalucia"],
+      "breakfast": "08:00-10:00",
+      "lunch": "14:30",
+      "merienda": "18:00",
+      "dinner": "22:00",
+      "flamenco_show": ["20:30", "22:30"]
+    },
+    "mediterranean": {
+      "regions": ["valencia", "costa_blanca", "balearics"],
+      "breakfast": "08:00-10:00",
+      "lunch": "14:00",
+      "merienda": "17:30",
+      "dinner": "21:30"
+    }
+  },
+
+  "calendar_hard_constraints": {
+    "sunday_is_hard_constraint_day": {
+      "closed": ["shops", "supermarkets", "banks", "post_offices"],
+      "open": ["museums", "churches", "restaurants"],
+      "exception_cities": ["madrid_center", "barcelona_center"],
+      "template_action": "cut_shopping_slot_fill_museums_paseo_family_lunch",
+      "free_museum_slots": {
+        "prado_madrid": "sun_17-19",
+        "reina_sofia": "sun_12_30-14_30_wed_fri_19-21",
+        "thyssen": "mon_12-16"
+      }
+    },
+    "august_madrid_empty": {
+      "months": [8],
+      "city": "madrid",
+      "action": "show_warning_recommend_reshuffle",
+      "fallback_narrative": "热浪中的博物馆 + 本地避暑习惯",
+      "many_restaurants_closed": true
+    },
+    "semana_santa": {
+      "date_2026": "2026-03-29_to_2026-04-05",
+      "cities": ["sevilla", "malaga", "granada", "valladolid", "zamora"],
+      "action": "rewrite_week_template",
+      "lodging_price_multiplier": [2, 3],
+      "booking_months_ahead": [4, 6]
+    },
+    "feria_de_abril": {
+      "date_2026": "2026-04-12_to_2026-04-18",
+      "city": "sevilla",
+      "action": "standalone_module",
+      "traje_de_flamenca_rental_required_for_participation": true
+    },
+    "san_fermin": {
+      "date_annual": "7-6_to_7-14",
+      "city": "pamplona",
+      "action": "standalone_module"
+    },
+    "las_fallas": {
+      "date_annual": "3-15_to_3-19",
+      "city": "valencia",
+      "action": "standalone_module"
+    },
+    "la_merce": {
+      "date_annual": "around_9-24",
+      "city": "barcelona",
+      "action": "seasonal_overlay"
+    },
+    "reyes_6_jan": {
+      "date_annual": "1-6",
+      "action": "parade_day_most_shops_closed"
+    },
+    "summer_heat": {
+      "months": [6, 7, 8, 9],
+      "regions": ["andalucia", "madrid", "extremadura"],
+      "peak_temp": "40C+",
+      "action": "mandatory_indoor_siesta_14_18",
+      "paseo_shift_to": "after_20h"
+    }
+  },
+
+  "budget_constraints": {
+    "economy": { "max_mid_high_meals": 1, "max_high_meals": 0 },
+    "mid": { "max_high_meals": 1, "min_economy_experience_meals": 1 },
+    "high": { "max_top_meals": 1, "min_mid_or_lower_meals": 2, "menu_del_dia_strongly_recommended_at_least_once": true }
+  },
+
+  "day_type_dining_adjustments": {
+    "arrival_day_lunch": -1,
+    "heavy_walking_day_dinner": -1,
+    "audience_day_lunch": 1,
+    "audience_day_dinner": { "min": 1, "max": 2 },
+    "flamenco_night_dinner": { "note": "提早 1h 吃轻餐，留 22:00 给 flamenco" }
+  },
+
+  "party_dining_modifiers": {
+    "couple": { "audience_day_dinner_bonus": 1, "allow_top_tier": true },
+    "friends": { "audience_day_dinner_bonus": 1, "allow_top_tier": true },
+    "family": { "overall_shift": -0.5, "audience_day_dinner_cap": "mid_high", "allow_top_tier": false },
+    "default": { "audience_day_bonus": 1, "allow_top_tier": false }
+  },
+
+  "density_cut_rules": {
+    "packed": { "cut_from": null, "note": "no cuts; soul slots (sobremesa/merienda/paseo) always kept" },
+    "balanced": { "cut_from": "P4", "preserve_soul_slots": true },
+    "relaxed": { "cut_from": "P3", "preserve_soul_slots": true }
+  },
+
+  "soul_slots_never_cut": {
+    "_doc": "西班牙灵魂 slot，任何密度都保留。砍了就不是西班牙。",
+    "slots": ["sobremesa", "merienda", "paseo"],
+    "note": "relaxed 密度下 merienda 可并入自由漫步不显式标注，但时段里必须存在"
+  },
+
+  "shop_count_by_free_time": {
+    "high": { "min_hours": 3, "count": 5 },
+    "medium": { "min_hours": 1.5, "count": 3 },
+    "low": { "min_hours": 0.5, "count": 2 },
+    "none": { "min_hours": 0, "count": 0 }
+  },
+
+  "degradation_priority": {
+    "order": [
+      { "priority": 1, "item": "core_city_anchor", "action": "never_cut" },
+      { "priority": 2, "item": "one_highlight_module", "action": "never_cut" },
+      { "priority": 3, "item": "soul_slots_sobremesa_merienda_paseo", "action": "never_cut" },
+      { "priority": 4, "item": "audience_memory_point", "action": "cut_last_resort" },
+      { "priority": 5, "item": "secondary_anchor", "action": "cut_if_needed" },
+      { "priority": 6, "item": "shops_cafe_shopping", "action": "cut_early" },
+      { "priority": 7, "item": "photo_spots_extras", "action": "cut_first" }
+    ]
+  },
+
+  "restaurant_fallback_order": {
+    "order": [
+      "widen_walking_radius",
+      "relax_budget_half_tier",
+      "relax_B_requirement",
+      "allow_A_only_no_B",
+      "change_slot_role_keep_mainline"
+    ]
+  },
+
+  "city_allocation": {
+    "_doc": "城市天数分配。西班牙比关西分裂更深（5 文化区），短行程只串 1-2 区。",
+    "city_min_days": {
+      "madrid": 2,
+      "barcelona": 2.5,
+      "sevilla": 2,
+      "granada": 1.5,
+      "cordoba": 0.5,
+      "toledo": 0.5,
+      "san_sebastian": 2,
+      "bilbao": 1,
+      "valencia": 1.5,
+      "ronda": 0.5,
+      "segovia": 0.5,
+      "girona": 0.5,
+      "malaga": 1,
+      "palma_mallorca": 2,
+      "santiago": 1.5
+    },
+    "transfer_cost_days_ave_same_region": 0.25,
+    "transfer_cost_days_ave_cross_region": 0.5,
+    "transfer_cost_days_flight": 0.5,
+    "ave_promo_booking_days_ahead": 60,
+    "ave_promo_discount_pct": 60,
+    "vibe_defaults": {
+      "classic_south": {"primary": ["madrid", "sevilla", "granada"], "secondary": ["cordoba", "toledo"]},
+      "design_modernism": {"primary": ["barcelona", "valencia"], "secondary": ["girona"]},
+      "foodie_north": {"primary": ["san_sebastian", "bilbao"], "secondary": ["rioja_daytrip"]},
+      "flamenco_andalucia_deep": {"primary": ["sevilla", "granada", "cordoba"], "secondary": ["ronda", "malaga"]},
+      "capital_combo": {"primary": ["madrid", "barcelona"], "secondary": ["toledo", "segovia"]}
+    },
+    "_doc_combo_rules": "短行程（<9 天）串 1 个文化区 + 最多 1 个邻区；长行程（9+ 天）可串 2-3 区。",
+    "short_trip_max_regions": {
+      "7_days": 1,
+      "8_days": 2,
+      "9_to_10_days": 2,
+      "11_plus_days": 3
+    },
+    "city_order_rules": {
+      "madrid_sevilla_combo": {
+        "order": ["madrid", "sevilla"],
+        "reason": "Madrid 快节奏先适应（倒时差），Sevilla 慢节奏深度沉浸，对比最强"
+      },
+      "barcelona_san_sebastian_combo": {
+        "order": ["barcelona", "san_sebastian"],
+        "reason": "设计先、味觉后；Barcelona 体量大先消化"
+      },
+      "andalucia_triangle": {
+        "order": ["sevilla", "cordoba", "granada"],
+        "reason": "按文化叙事顺序：flamenco 灵魂 → 天主教+清真叠加 → Alhambra 高潮收尾"
+      }
+    },
+    "arrival_slot_capacity": {
+      "morning": 1.0,
+      "afternoon": 0.5,
+      "evening": 0.25
+    },
+    "departure_slot_capacity": {
+      "morning": 0.25,
+      "afternoon": 0.5,
+      "evening": 0.75
+    }
+  },
+
+  "meal_role_extensions": {
+    "_doc": "西班牙扩展 meal_role，与关西通用 role 并列。程序只负责识别+分类，具体描述在 brief.md 第 4 节。",
+    "roles": {
+      "merienda": {"time_window": "17:00-18:30", "required_daily": true},
+      "menu_del_dia": {"valid_days": ["mon", "tue", "wed", "thu", "fri"], "valid_meal": "lunch", "price_range_eur": [8, 17]},
+      "sobremesa_extended": {"attached_to": "lunch_slot", "duration_min_minutes": 45, "never_cut": true},
+      "vermut_ritual": {"time_window": "12:00-15:00", "weekend_only_highlight": true, "signature_cities": ["sevilla_triana", "madrid_castizo", "barcelona_gracia"]},
+      "tapeo_crawl": {"time_window": "21:00-23:30", "venues_per_crawl": [3, 5], "regions_primary": ["andalucia", "madrid"]},
+      "pintxos_crawl": {"time_window": "20:00-23:00", "venues_per_crawl": [4, 6], "regions_primary": ["basque"], "term_lock": "pintxos_not_tapas"}
+    }
+  },
+
+  "slot_type_extensions": {
+    "paseo": {"duration_min_minutes": 60, "duration_max_minutes": 90, "dress_code_hint_required": true},
+    "sobremesa": {"attached_to_meal": true, "independent_cut": false},
+    "siesta_indoor": {"summer_required": true, "duration_min_minutes": 90},
+    "flamenco_show": {"regions_primary": ["andalucia", "madrid"], "booking_required": true},
+    "pintxos_crawl": {"regions_primary": ["basque"]}
+  }
+}

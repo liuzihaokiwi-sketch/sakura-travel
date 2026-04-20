@@ -1,0 +1,21 @@
+{% from 'macros.html' import accent_bar, risk_card %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">实时注意</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'risk_card' %}
+      {% set c = sec.content %}
+      {% if c.items is defined %}
+        {% for item in c.items %}
+          {{ risk_card(item.risk_type, item.description, item.action_required) }}
+        {% endfor %}
+      {% else %}
+        {{ risk_card(c.risk_type, c.description, c.action) }}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>

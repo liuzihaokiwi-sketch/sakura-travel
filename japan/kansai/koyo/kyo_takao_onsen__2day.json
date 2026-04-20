@@ -1,0 +1,162 @@
+{
+  "template_id": "takao_onsen_2day",
+  "label": "高雄红叶温泉二日（神护寺+川床旅馆一泊）",
+  "tags": [
+    "koyo",
+    "onsen",
+    "ryokan",
+    "hiking",
+    "nature"
+  ],
+  "core_entities": [
+    "kyo_jingoji"
+  ],
+  "fit_audience": [
+    "couple",
+    "default"
+  ],
+  "weather_sensitive": true,
+  "condition": "season == 'koyo' (11月上旬-11月下旬) && budget in ['premium', 'luxury']",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed",
+    "span_days": 2
+  },
+  "description": "day_mood: 山里的秋天。高雄一日版的悠闲两日版——以住在清泷川沿岸温泉旅馆（红叶家/锦水亭等）本身为目的。过吊桥入住对岸旅馆的非日常感+川床或房间内用餐的京料理+早晨山里的静谧。不是'去看红叶'而是'住在红叶中'的体验。与高雄一日版共享神护寺，自动互斥。",
+  "hotel_area_note": "高雄红叶家（もみぢ家（红叶家），过清泷川上的吊桥/川床料理6-9月/红叶季¥30,000-50,000/人/晚）、锦水亭（神护寺参道入口/汤豆腐名物）等。红叶季须提前2-3个月预约。",
+  "slots": [
+    {
+      "slot_id": "to_d1_transport",
+      "time_range": "D1 09:00-10:00",
+      "type": "transport",
+      "note": "京都站→高雄。比一日版晚1小时出发也没关系——有2天不用着急。JR巴士约50min。行李尽量精简（山路步行，大行李箱放京都站寄存柜¥700，或提前快递到旅馆）。",
+      "priority": "P2",
+      "time": "D1 09:00-10:00"
+    },
+    {
+      "slot_id": "to_d1_jingoji",
+      "time_range": "D1 10:00-12:30",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 150,
+      "entity_hint": "神護寺",
+      "note": "与一日版内容相同，但时间充裕——可以慢慢爬石阶。¥600。400级石阶+红叶+土器投+金堂+多宝塔。有2天，方丈庭园也可以慢慢看。早10:00到的话与一日版8:30到的人群错开，人比较少。2.5h。",
+      "time": "D1 10:00-12:30"
+    },
+    {
+      "slot_id": "to_d1_saimyoji",
+      "time_range": "D1 12:30-13:15",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P2",
+      "duration_min": 45,
+      "entity_hint": "西明寺",
+      "note": "¥500。从神护寺沿清泷川步行下山约15min。小巧境内红叶密集——与神护寺的壮大形成对比。45min。",
+      "time": "D1 12:30-13:15"
+    },
+    {
+      "slot_id": "to_d1_lunch",
+      "time_range": "D1 13:15-14:15",
+      "type": "meal",
+      "area": "takao",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "利用红叶家午餐（汤豆腐套餐/在川边座位边看红叶边用餐）或高雄茶屋吃山菜荞麦面。是入住前的午饭，与旅馆晚餐方向不同。",
+      "time": "D1 13:15-14:15"
+    },
+    {
+      "slot_id": "to_d1_checkin",
+      "time_range": "D1 14:30-15:30",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 60,
+      "note": "午饭后直接入住——不要再赶高山寺了，高山寺留到第二天早上。从这里开始是两日版的核心：住在红叶中，而不是看红叶。如果是红叶家，要过清泷川上的吊桥去对岸的旅馆——这「过吊桥」的行为本身就是入住体验。确认房间能看到的川景+红叶。趁天亮探索馆内，确认温泉位置。换上浴衣（ゆかた），泡一次到着温泉。在房间里度过能看到客室窗外红叶颜色随时间变化的整个下午——这段无所事事的时间是你花3万日元买的东西。",
+      "time": "D1 14:30-15:30"
+    },
+    {
+      "slot_id": "to_d1_evening_walk",
+      "time_range": "D1 16:00-17:00",
+      "type": "walk",
+      "area": "takao",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "傍晚的清泷川散步——日归客回去之后的高雄是另一个世界。只有川水潺潺和红叶的时光。11月日落约16:45——在川沿岸守候日落前后的光线变化。天黑后回旅馆。不散步也完全没问题——在房间里看窗外也是正确的下午。",
+      "time": "D1 16:00-17:00"
+    },
+    {
+      "slot_id": "to_d1_dinner",
+      "time_range": "D1 18:00-20:00",
+      "type": "meal",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "旅馆晚餐——京料理套餐。高雄旅馆以京都蔬菜+山珍+川鱼（香鱼秋末结束，但松茸/栗子/银杏等秋季食材是主角）。红叶家秋季的名物是牡丹锅（猪肉锅/冬季限定的味道）。在房间内用餐或餐厅用餐。用餐场所本身就是'在红叶中吃晚饭'的体验。",
+      "time": "D1 18:00-20:00"
+    },
+    {
+      "slot_id": "to_d1_onsen",
+      "time_range": "D1 21:00-22:00",
+      "type": "optional_poi",
+      "area": "takao",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "夜间泡温泉。高雄作为温泉地规模不大，但边听川水声边泡露天温泉别有一番滋味。11月山里的夜晚很冷（5-8°C）——温泉的温热渗透全身。能看到星星（海拔比市内高，光污染少）。",
+      "time": "D1 21:00-22:00"
+    },
+    {
+      "slot_id": "to_d2_morning",
+      "time_range": "D2 07:00-08:30",
+      "type": "walk",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "高雄的清晨——住宿者的特权。7:00的清泷川弥漫着晨雾，红叶+早晨的光线+川雾的组合是照片里的高雄所无法传达的。晨浴→早餐→退房前的散步。这段早晨的时光是「住在高雄的意义」的最大回报。从吊桥看到的早晨川面颜色与傍晚截然不同。",
+      "time": "D2 07:00-08:30"
+    },
+    {
+      "slot_id": "to_d2_kozanji",
+      "time_range": "D2 09:00-10:15",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 75,
+      "entity_hint": "高山寺",
+      "note": "世界遗产。退房后步行前往（从红叶家方向约15min）。石水院（¥1,000红叶季）的缘侧（廊道）借景红叶+鸟兽戏画（国宝级绘卷）复制品+日本最古老茶园。早上的高山寺游客极少——日归客还没到，住宿客已离开的空白时间带。1-1.5h。",
+      "time": "D2 09:00-10:15"
+    },
+    {
+      "slot_id": "to_d2_checkout",
+      "time_range": "D2 10:30-11:30",
+      "type": "transport",
+      "note": "高山寺→JR巴士/市巴士回京都市内约50min。上午就能回到市内，下午可以自由安排其他行程（冈崎/东山/市中心等）。",
+      "priority": "P2",
+      "time": "D2 10:30-11:30"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  }
+}

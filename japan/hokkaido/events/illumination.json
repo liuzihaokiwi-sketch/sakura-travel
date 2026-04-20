@@ -1,0 +1,102 @@
+{
+  "_doc": "北海道圈灯光活动数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "illumination",
+    "circle": "hokkaido",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "hokkaido_illumination_sapporo_white",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "11-20",
+        "end_md": "02-14"
+      },
+      "name_ja": "さっぽろホワイトイルミネーション",
+      "name_zh": "札幌白色灯饰",
+      "description": "1981年创始，日本最古のイルミネーション。大通公園（2〜4丁目）・南一条通・駅前通が白色LEDで輝く（11月末〜2月中旬，17:00〜23:00，無料）。さっぽろ雪まつり（2月上旬）の期間中も同時開催されるため，雪まつり＋白色イルミネーションのダブル体験が可能。JR札幌駅/地下鉄大通駅徒歩すぐ。坑点：11月末〜12月は積雪で地面が滑りやすい，防滑ソール必携。-10℃以下の日は屋外滞在に限界あり。适配：冬の札幌訪問者全員に推奨——宿から徒步圏内のため追加コストほぼゼロで楽しめる。",
+      "source_url": "https://white-illumination.jp"
+    },
+    {
+      "event_def_id": "hokkaido_illumination_otaru_candle",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "otaru",
+      "usual_window": {
+        "start_md": "12-01",
+        "end_md": "12-31"
+      },
+      "name_ja": "小樽運河 クリスマスキャンドルナイト",
+      "name_zh": "小樽运河圣诞烛光夜",
+      "description": "12月の小樽運河沿いにキャンドルが点灯される冬のロマンチックイベント。小樽雪あかりの路（2月）の冬版プレビューともいえる演出で，クリスマスシーズンの小樽をさらに特别にする。ガラス工芸のショーウィンドウのクリスマスデコレーション＋運河の灯が連鎖する動線は北海道クリスマスの最佳舞台。JR小樽駅から運河まで徒步10min。無料。坑点：12月の小樽は最低気温-8℃前後。夜間の外出は十分な防寒が前提。适配：クリスマス時期（12月）に北海道を訪問する情侣/カップル向け——札幌+小樽のセット行程で完結。",
+      "source_url": "https://otaru.gr.jp"
+    },
+    {
+      "event_def_id": "hokkaido_illumination_hakodate_hillside",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "hakodate",
+      "usual_window": {
+        "start_md": "12-01",
+        "end_md": "02-14"
+      },
+      "name_ja": "函館 西部地区 クリスマスファンタジー / 函館山夜景",
+      "name_zh": "函馆西部地区圣诞幻想·函馆山夜景",
+      "description": "函館の西部地区（元町・ベイエリア）で12月〜2月に行われるクリスマスイルミネーションと，年間を通じた函館山展望台からの夜景。「世界三大夜景」の一つとされる函館山からの夜景（山頂展望台，ロープウェイ¥1500往復）は，どの季節でも必訪。12月のクリスマスファンタジーでは赤レンガ倉庫前の大ツリー（高さ20m）＋花火打ち上げ（毎週土曜）が加わる。坑点：函館山ロープウェイは強風時運休（代替バスあり），冬は特に要確認。山頂は-15℃以下になる日もある。适配：函館訪問の全旅行者に夜景は必訪——12月訪問ならクリスマスファンタジーも追加する価値大。",
+      "source_url": "https://www.hakobay.com"
+    },
+    {
+      "event_def_id": "hokkaido_illumination_noboribetsu_onsen",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "noboribetsu",
+      "usual_window": {
+        "start_md": "01-01",
+        "end_md": "03-31"
+      },
+      "name_ja": "登別 地獄谷 冬の夜間ライトアップ",
+      "name_zh": "登别地狱谷冬季夜间点灯",
+      "description": "登別温泉の地獄谷（活火山噴気口）が冬期間（11月〜3月）に夜間ライトアップされる。噴煙が立ち上る地獄谷の岩場が照らされ，温泉湯気と照明が幻想的な「地獄の夜景」を作り出す。JR登別駅からバス15min。ライトアップは日没〜21:00，無料（遊歩道）。坑点：冬の登別は-15℃以下の夜もあり，地獄谷遊歩道は凍結に注意。温泉宿泊後の散步として30分程度で完結。适配：登別温泉宿泊者の夕食後の夜散步として——追加コストほぼゼロで幻想的体験。全人群向け。",
+      "source_url": "https://www.noboribetsu-spa.jp/feature/jigokuya"
+    },
+    {
+      "event_def_id": "hokkaido_illumination_sapporo_bisse",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "02-28"
+      },
+      "name_ja": "札幌駅前地下街 オーロラタウン イルミネーション",
+      "name_zh": "札幌站前地下街极光城灯饰",
+      "description": "JR札幌駅と大通公園をつなぐ地下街「オーロラタウン」の冬のイルミネーション，11月〜2月（終日，無料）。全長約520mの地下街天井にオーロラをイメージしたLED演出が展開——極寒の地上を避けながら買物+イルミを楽しめる。地下街「ポールタウン」も同時装飾，大通駅まで地下で移動可能。坑点：地下街のイルミネーションのため，屋外の開放感はない。あくまで「移動途中のプラスアルファ」として捉える。适配：冬の札幌市内移動の際に自然に体験できる——マイナス体験なしで楽しめる点で全旅行者向け。",
+      "source_url": "https://www.sapporo-aurora.co.jp"
+    },
+    {
+      "event_def_id": "hokkaido_illumination_asahikawa_winter",
+      "type": "illumination",
+      "circle": "hokkaido",
+      "city": "asahikawa",
+      "usual_window": {
+        "start_md": "02-05",
+        "end_md": "02-12"
+      },
+      "name_ja": "旭川冬まつり 雪像ライトアップ",
+      "name_zh": "旭川冬日祭雪像点灯",
+      "description": "毎年2月上旬（さっぽろ雪まつりと同期），旭川常磐公園＋旭橋河川敷で開催される雪像・氷彫刻大会。世界各国から参加する国際雪像大会と，夜間のライトアップ（雪像に色照明）が見どころ。入場无料。JR旭川駅から常磐公園まで徒步15min。重点提示：旭川動物園（旭山動物園）と同日行程が組みやすい——動物園は冬の「ペンギン散步」で最も人気がある季節。坑点：旭川は日本で最も低気温を記録する都市の一つ（-25℃まで下がる日もある），防寒は最高レベルで。适配：旭山動物園訪問者の夜追加体験として組み込む。2月の旭川泊まり行程に最適。",
+      "source_url": "https://www.asahikawa-fuyumatsuri.com"
+    }
+  ],
+  "occurrences": []
+}

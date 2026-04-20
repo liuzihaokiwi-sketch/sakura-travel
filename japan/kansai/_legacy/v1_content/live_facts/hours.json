@@ -1,0 +1,35 @@
+{
+  "_doc": "营业时间信息。高频变化，独立管理。closed_on用日文星期缩写：月火水木金土日",
+  "_last_verified": "2026-04-08",
+
+  "poi": {
+    "kuromon_market": {"open": "10:00", "close": "18:00", "note": "各家店铺不一，傍晚前到最保险"},
+    "osaka_castle": {"open": "09:00", "close": "17:00", "extended_to": "18:00 in cherry blossom season", "last_entry": "16:30"},
+    "tsutenkaku": {"open": "10:00", "close": "20:00", "last_entry": "19:30"},
+    "sky_building": {"open": "09:30", "close": "22:30", "last_entry": "22:00"},
+    "kaiyukan": {"open": "10:00", "close": "20:00", "last_entry": "19:00", "note": "周末/假日可能延长"},
+    "usj": {"open": "varies", "note": "看官网日历，通常08:30-21:00"},
+    "legoland_discovery": {"note": "必须提前网上预约时段"},
+    "solaniwa_onsen": {"open": "11:00", "close": "23:00", "last_entry": "22:00"}
+  },
+
+  "restaurants": {
+    "chitose_honten": {"open": "10:30", "close": "14:30", "closed_on": "火", "note": "汤卖完即止"},
+    "jiyuken": {"note": "全年基本不休，回转快"},
+    "hokkyokusei": {"close": "21:30", "closed_on": "12/31,1/1 only"},
+    "jutei": {"note": "开门前排队11:30", "closed_on": "水"},
+    "imai": {"close": "21:30", "closed_on": "水"},
+    "mizuno": {"note": "不接受预约，15:00前或开店前来", "closed_on": "木"},
+    "genpinfugu": {"open": "11:30", "close": "22:30", "note": "法善寺总本店全天候"},
+    "rokkakutei": {"note": "提前2-4周预约，Hot Pepper/一休/AutoReserve"},
+    "torisho_ishii": {"note": "完全预约制，提前1月+，omakase.in"},
+    "wayoshusai_hide": {"note": "熟人介绍制完全预约（紹介制完全予約制），一休.com极少名额"},
+    "nikukappo_yamaguchi": {"note": "OMAKASE平台预约，1-2个月前", "closed_on": "日祝"},
+    "menya_joroku": {"note": "每月第1个周日（日曜）仅午前+午间营业"},
+    "tonkatsu_katsuha": {"note": "午餐仅日月，晚餐仅水木金，卖完即止，仅收现金", "closed_on": "火土"},
+    "honke_shibato": {"close": "18:00", "last_order": "17:00", "closed_on": "日月", "note": "预约必须告知料理等级"},
+    "sushishizen": {"note": "完全预约制2部制(18:00/20:30)，数周前可订"},
+    "sinc_bistro": {"note": "JR直结步行2min，日法融合套餐¥4900起"},
+    "ishibashi_oden": {"open": "04:00", "close": "late_night", "note": "深夜到凌晨4点，现金+QR码"}
+  }
+}

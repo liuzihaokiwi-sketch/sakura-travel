@@ -1,0 +1,100 @@
+{
+  "_doc": "预约信息。渠道、难度、提前时间。独立管理方便更新",
+  "_last_verified": "2026-04-08",
+
+  "restaurants": {
+    "rokkakutei": {
+      "difficulty": 4,
+      "lead_time": "2-4周",
+      "channels": ["Hot Pepper", "一休", "AutoReserve"],
+      "note": "米其林一星，热门日期更难"
+    },
+    "torisho_ishii": {
+      "difficulty": 5,
+      "lead_time": "1月+",
+      "channels": ["omakase.in", "官网"],
+      "note": "极难预约，14席，名额非常紧张"
+    },
+    "wayoshusai_hide": {
+      "difficulty": 5,
+      "lead_time": "熟人介绍制（紹介制）",
+      "channels": ["一休.com极少公开名额"],
+      "note": "熟人介绍制完全预约（紹介制完全予約制），初次需通过熟人介绍",
+      "excluded_from_pool": true
+    },
+    "nikukappo_yamaguchi": {
+      "difficulty": 4,
+      "lead_time": "1-2月",
+      "channels": ["OMAKASE"],
+      "note": "Tabelog Award连续受赏后更难"
+    },
+    "sushishizen": {
+      "difficulty": 3,
+      "lead_time": "数周",
+      "channels": ["在线预约"],
+      "note": "2部制，心斋桥区域预约难度相对可控"
+    },
+    "genpinfugu": {
+      "difficulty": 2,
+      "lead_time": "1周",
+      "channels": ["官网", "Hot Pepper", "一休"],
+      "note": "连锁专门店，相对好约"
+    },
+    "honke_shibato": {
+      "difficulty": 3,
+      "lead_time": "1-2周",
+      "channels": ["电话"],
+      "note": "预约时需告知料理等级"
+    },
+    "mizuno": {
+      "difficulty": 0,
+      "lead_time": "不接受预约",
+      "channels": ["现场排队"],
+      "note": "15:00前到或开店前排"
+    },
+    "chitose_honten": {
+      "difficulty": 0,
+      "lead_time": "不接受预约",
+      "channels": ["现场排队"],
+      "note": "10:15前到排队"
+    },
+    "tonkatsu_katsuha": {
+      "difficulty": 0,
+      "lead_time": "不接受预约",
+      "channels": ["现场排队"],
+      "note": "营业日有限，出发前查Instagram"
+    }
+  },
+
+  "poi": {
+    "usj": {
+      "channels": ["官网 usj.co.jp"],
+      "note": "提前买门票+Express快速通关券，当日可能售罄"
+    },
+    "mint_bureau": {
+      "channels": ["sakura-osaka.mint.go.jp"],
+      "note": "必须网上预约，不接受现场排队"
+    },
+    "legoland_discovery": {
+      "channels": ["官网"],
+      "note": "必须提前网上预约时段"
+    },
+    "sumo_spring": {
+      "channels": ["sumo.pia.jp"],
+      "note": "1月底开售，平日好买周末秒光"
+    },
+    "tenjin_matsuri_paid": {
+      "channels": ["JTB"],
+      "note": "4月上旬开售，船上席秒空"
+    }
+  },
+
+  "difficulty_scale": {
+    "0": "无需预约/不接受预约",
+    "1": "当天或前一天预约即可",
+    "2": "提前1周",
+    "3": "提前2-4周",
+    "4": "提前1-2月",
+    "5": "极难/熟人介绍制（紹介制）/排除出推荐池"
+  }
+}

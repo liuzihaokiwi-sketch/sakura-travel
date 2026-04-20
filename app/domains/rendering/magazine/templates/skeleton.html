@@ -1,0 +1,12 @@
+{% from 'macros.html' import accent_bar %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">{{ vm.page_type | e }}</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+  {% if vm.heading.subtitle %}
+  <p style="color:#7a7a7a">{{ vm.heading.subtitle | e }}</p>
+  {% endif %}
+  <p style="color:#aaa;font-size:8pt">（模板待实现：{{ vm.page_type }}）</p>
+</div>

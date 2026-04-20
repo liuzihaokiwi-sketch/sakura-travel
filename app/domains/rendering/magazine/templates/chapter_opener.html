@@ -1,0 +1,25 @@
+{% from 'macros.html' import hero_image, accent_bar, text_block, diy_sticker, diy_freewrite %}
+{% set dz = vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | first | default(none) %}
+<div class="page chapter-opener-page{% if dz %} has-diy{% endif %}">
+  {% set hero = vm.hero %}
+  {% if hero %}{{ hero_image(hero.image_url, hero.image_alt) }}{% endif %}
+
+  <div class="chapter-opener-content">
+    {% if dz and dz.content.sticker_zone in ('top_right', 'corner') %}{{ diy_sticker(dz.content.sticker_zone) }}{% endif %}
+    <div class="chapter-tag">Chapter</div>
+    <h1 style="font-size:20pt">{{ vm.heading.title | e }}</h1>
+    {% if vm.heading.subtitle %}<p style="color:#7a7a7a;font-size:10pt">{{ vm.heading.subtitle | e }}</p>{% endif %}
+    {{ accent_bar() }}
+
+    {% for sec in vm.sections %}
+      {% if sec.section_type == 'text_block' %}
+        {{ text_block(sec.heading, sec.content.text, sec.content['items']) }}
+      {% endif %}
+    {% endfor %}
+
+    {% if dz %}
+      {% if dz.content.sticker_zone not in ('top_right', 'corner') and dz.content.sticker_zone %}{{ diy_sticker(dz.content.sticker_zone) }}{% endif %}
+      {% if dz.content.freewrite_zone %}{{ diy_freewrite(dz.content.freewrite_zone) }}{% endif %}
+    {% endif %}
+  </div>
+</div>

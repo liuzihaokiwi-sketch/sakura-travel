@@ -1,0 +1,102 @@
+{
+  "template_id": "audience_couple_day",
+  "label": "情侣日：海游馆+摩天轮日落+梅田夜景",
+  "tags": [
+    "aquarium",
+    "nightview",
+    "romantic"
+  ],
+  "core_entities": [
+    "osa_kaiyukan",
+    "osa_umeda_sky"
+  ],
+  "fit_audience": [
+    "couple"
+  ],
+  "weather_sensitive": false,
+  "condition": "total_days >= 4.5",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 甜蜜与发现。情侣专属一天。上午睡懒觉（前一天可能是USJ），下午海游馆+摩天轮看日落，傍晚转梅田Sky Building夜景收尾。整天的情绪线：恢复→浪漫水族馆→日落→城市夜景。全程氛围感优先于打卡数量。",
+  "hotel_area_note": "住难波出发最方便。住梅田晚上回酒店步行可达，省去末班车焦虑。",
+  "slots": [
+    {
+      "slot_id": "aud_c_morning_rest",
+      "time_range": "09:00-12:00",
+      "type": "rest",
+      "priority": "P3",
+      "note": "USJ后恢复，睡到自然醒。不设闹钟，酒店早餐或brunch。红叶季（11月中-12月初）可替换为箕面红叶半日游（阪急箕面站步行30min到瀑布，上午去人少）。"
+    },
+    {
+      "slot_id": "aud_c_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "出发前轻松午餐，酒店附近解决。不特意绕路。"
+    },
+    {
+      "slot_id": "aud_c_transport_to_tempozan",
+      "time_range": "13:00-13:30",
+      "type": "transport",
+      "note": "难波→地铁御堂筋线→本町换中央线→大阪港站（约25min）→出站步行5min到海游馆。"
+    },
+    {
+      "slot_id": "aud_c_kaiyukan",
+      "time_range": "14:00-16:00",
+      "type": "poi",
+      "area": "tempozan",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "大阪海遊館（大阪海游馆）",
+      "note": "门票动态定价¥2,700-3,500（提前官网买更便宜且免排队）。太平洋水槽的鲸鲨是核心震撼画面——两头鲸鲨在5,400吨水槽中游弋。路线从8F螺旋走到1F，情侣2h足够。17:00后进入'夜间海游馆'模式——灯光和音乐切换，氛围变浪漫，但时间上和日落摩天轮冲突，建议选摩天轮。门票可当天保山Marketplace折扣券。"
+    },
+    {
+      "slot_id": "aud_c_ferris",
+      "time_range": "16:30-17:00",
+      "type": "poi",
+      "area": "tempozan",
+      "priority": "P2",
+      "duration_min": 15,
+      "entity_hint": "天保山大観覧車（天保山大摩天轮）",
+      "note": "¥900，112.5m高，一圈约15min。日落前30-40min上最好——从白天到灯光转换一圈看完。透明舱（全透明地板+玻璃壁）和普通舱同价，刺激但看风景更分心。看得到大阪港、USJ、天气好可见明石海峡大桥。日本夜景遺産认定。晚上摩天轮本身会亮灯变成天气预报（红=晴/绿=阴/蓝=雨）。"
+    },
+    {
+      "slot_id": "aud_c_tempozan_walk",
+      "time_range": "17:00-17:30",
+      "type": "walk",
+      "area": "tempozan",
+      "priority": "P3",
+      "duration_min": 30,
+      "note": "天保山海滨公园散步，看港口夕阳。这是两个大景点之间的呼吸段——不安排任何任务，就是走走。"
+    },
+    {
+      "slot_id": "aud_c_transport_to_umeda",
+      "time_range": "17:30-18:00",
+      "type": "transport",
+      "note": "大阪港→地铁中央线→本町换御堂筋线→梅田站（约24min）。"
+    },
+    {
+      "slot_id": "aud_c_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "umeda_kita",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "情侣日晚餐是全程最高点之一。梅田高层餐厅（夜景加分）或北新地方向（大阪最高端餐饮区）。这顿的定位是audience_day_showcase——预算允许的话在这里触发最好的一餐。"
+    },
+    {
+      "slot_id": "aud_c_skybuilding",
+      "time_range": "20:30-22:00",
+      "type": "poi",
+      "area": "umeda_kita",
+      "priority": "P1",
+      "duration_min": 60,
+      "entity_hint": "梅田スカイビル空中庭園（梅田天空大楼空中庭园）",
+      "note": "现场¥1,500/网上预约¥1,200。先乘高速电梯到35F，再坐连接两栋大楼的透明空中扶梯到39F——这段扶梯悬空在两栋楼之间，是Sky Building体验的一部分，不只是交通工具。屋顶开放式展望台，地板有荧光石在黑暗中发光。情侣锁¥1,200可刻名。JR大阪站中央北口步行7min到。夏季花火日（7-8月）可替换为淀川花火大会观赏（8月第1个周六，淀川河川敷，提前2h占位）。\n\n大阪表演加餐选项（如果想替换/追加夜间体験）：(A) 国立文楽劇場（こくりつぶんらくげきじょう，国立文乐剧场）——日本橋駅徒步1分，UNESCO非物质文化遗产，人形净琉璃+三味线，イヤホンガイド（英語）対応，チケット¥5,200-6,700，每年分4月/7月/11月三期公演，不是每天都有——行程如果恰好在公演期可以把晚餐后的Sky Building换成去这里。(B) OVAS（大阪バラエティアクトショー）——道頓堀中座くいだおれビル5F GIRAFFE Japan，道頓堀表演秀，杂技+舞蹈+魔术，小红书上被称为'大阪碧昂斯'，¥1,000（含1杯饮料），19:00-22:00，比较新（2025年开业），适合在道頓堀吃完晚饭后顺路看。"
+    }
+  ]
+}

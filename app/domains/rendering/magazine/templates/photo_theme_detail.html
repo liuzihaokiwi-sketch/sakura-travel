@@ -1,0 +1,27 @@
+{% from 'macros.html' import hero_image, accent_bar, text_block, diy_sticker %}
+{% set dz = vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | first | default(none) %}
+<div class="page{% if dz %} has-diy{% endif %}">
+  {% if dz and dz.content.sticker_zone in ('top_right', 'corner') %}{{ diy_sticker(dz.content.sticker_zone) }}{% endif %}
+  {% set hero = vm.hero %}
+  {% if hero %}{{ hero_image(hero.image_url, hero.image_alt) }}{% endif %}
+
+  <div style="margin-top:10pt">
+    <div class="chapter-tag">出片攻略</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+
+    {% for sec in vm.sections %}
+      {% if sec.section_type == 'text_block' %}
+        {{ text_block(sec.heading, sec.content.text, sec.content['items']) }}
+      {% elif sec.section_type == 'photo_tips' %}
+        {% set tips = sec.content.get('tips', []) if sec.content is mapping else [] %}
+        {% if tips %}
+        <div class="text-block">
+          <div class="text-block-heading">拍摄技巧</div>
+          <ul class="text-block-list">{% for tip in tips %}<li>{{ tip | e }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

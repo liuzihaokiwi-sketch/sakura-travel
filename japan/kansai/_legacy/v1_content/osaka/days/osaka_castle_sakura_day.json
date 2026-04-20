@@ -1,0 +1,80 @@
+{
+  "template_id": "osaka_castle_sakura_day",
+  "label": "大阪城樱花日",
+  "tags": [
+    "sakura",
+    "castle",
+    "walking",
+    "photo"
+  ],
+  "core_entities": [
+    "osa_osaka_castle"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'sakura' (3月下旬-4月中旬)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 壮阔与春色。樱花季专属一天——大阪城西之丸庭园+毛马桜之宮公園河岸4km樱花道。这天替代常规core_day（core_entities重叠自动互斥）。樱花季的大阪城不是'大阪城+顺便看看樱花'，而是'整天被樱花包围的大阪城'——西之丸300棵染井吉野+河岸4,500棵形成的密度，在日本也属于top级别。",
+  "hotel_area_note": "住难波出发：谷町四丁目站地铁约15min。住梅田出发：JR环状线大阪城公园站或森之宫（森ノ宮）站约10min。",
+  "slots": [
+    {
+      "slot_id": "sak_sakuranomiya",
+      "time_range": "09:00-11:00",
+      "type": "walk",
+      "area": "osaka_castle",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "从JR桜ノ宮（樱宫）站出发，沿大川（旧淀川）南岸步行——4km河岸两侧约4,500棵染井吉野（索米吉野樱）形成樱花隧道。这是大阪最长的连续樱花步道，免费无门票，24h开放。花见季节河岸有临时屋台（小吃摊），边走边吃。从桜ノ宮（樱宫）往南走到造幣局（造币局，约2km/30min），造幣局'桜の通り抜け'（造币局樱花长廊）是4月中旬限定1周的特别公开——560m通道内140品種350棵八重桜（比普通染井吉野晚1-2周盛开），如果日期碰上一定要去。继续南行可走到大阪城北侧入口，自然衔接城堡。"
+    },
+    {
+      "slot_id": "sak_castle",
+      "time_range": "11:00-13:00",
+      "type": "poi",
+      "area": "osaka_castle",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "大阪城",
+      "note": "天守阁¥1,200（16岁以下免费）。樱花季的大阪城公園全域约3,000棵樱花——天守阁从樱花中冒出来的画面是'太閣さんのお城'的最佳季节版本。先在公园外围走（内堀外侧的樱花+护城河倒影是经典构图），再进天守阁。8F展望台看下去是粉色的公园+护城河——这是平时看不到的。"
+    },
+    {
+      "slot_id": "sak_lunch",
+      "time_range": "13:00-14:00",
+      "type": "meal",
+      "area": "osaka_castle",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "大阪城公园内有临时花见屋台（烤肉串/章鱼烧/啤酒等），樱花树下边吃边赏花。或者在MIRAIZA（天守阁旁商业设施）吃正餐。樱花季午餐不需要讲究——在樱花树下吃什么都对。"
+    },
+    {
+      "slot_id": "sak_nishinomaru",
+      "time_range": "14:00-16:00",
+      "type": "poi",
+      "area": "osaka_castle",
+      "priority": "P2",
+      "duration_min": 120,
+      "entity_hint": "西之丸庭園",
+      "note": "¥350（樱花季）。约300棵成熟染井吉野（索米吉野樱）+枝垂れ桜（垂枝樱），6.5公顷草坪。大阪官方的樱花标本木（全大阪樱花开花宣言的基准树）就在这里。铺野餐垫坐在草坪上看天守阁+樱花——这是大阪花见的'正解'画面。下午光线下樱花呈暖色调，比早上更柔和。"
+    },
+    {
+      "slot_id": "sak_illumination",
+      "time_range": "18:00-20:30",
+      "type": "poi",
+      "area": "osaka_castle",
+      "priority": "P2",
+      "duration_min": 120,
+      "note": "西之丸庭園夜间赏樱（18:00-21:00，入场截止20:30，夜间另收¥350）。灯光照亮樱花+天守阁也打灯——夜间的粉色和金色形成完全不同于白天的画面。规避拥挤：18:00开场时人最集中，建议19:00后入场——人少灯光更纯粹。从大手門入場比玉造口入場排队短。带外套——4月初夜间大阪约12°C。"
+    },
+    {
+      "slot_id": "sak_dinner",
+      "time_range": "20:30-22:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "看完夜樱后回市区吃晚饭。大阪城→地铁→难波约20min。这顿比平时晚——接受即可，大阪的餐厅普遍营业到22:00-23:00。"
+    }
+  ]
+}

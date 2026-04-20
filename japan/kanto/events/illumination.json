@@ -1,0 +1,186 @@
+{
+  "_doc": "关东圈灯光活动数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "illumination",
+    "circle": "kanto",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kanto_illumination_chidorigafuchi_night",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-10"
+      },
+      "name_ja": "千鳥ヶ淵緑道 夜桜ライトアップ",
+      "name_zh": "千鸟之渊绿道夜樱点灯",
+      "description": "千鳥ヶ淵緑道の染井吉野（約260本）が日没後22時まで提灯型照明でライトアップされる春の定番夜景。護城河の水面に映る桜＋灯りは東京で最も「絵になる」夜桜の一つ，全国メディア毎年トップ映像に採用。観覧無料，ぼんぼり点灯は日没〜22:00頃（天候・開花状況で調整）。半蔵門駅/九段下駅徒步5min。坑点：満開週末の20:00前後は密度が高く，一方通行管理が実施される。平日18:00〜19:00が最もバランスよい。适配：東京夜桜の代表体験——全行程に組み込むべき首位。情侣首推，老人は混雑時帯を避ける。",
+      "source_url": "https://kanko-chiyoda.jp/tabid/1081/Default.aspx"
+    },
+    {
+      "event_def_id": "kanto_illumination_meguro_river_night",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-22",
+        "end_md": "04-07"
+      },
+      "name_ja": "目黒川 夜桜ライトアップ",
+      "name_zh": "目黑川夜樱点灯",
+      "description": "中目黒〜池尻大橋の目黒川両岸（約800本）をぼんぼりで点灯する東京で最も賑やかな夜桜スポット。川沿いの飲食店・カフェが深夜まで営業し，花見ムード全開——「夜桜デート」の典型的な場所として SNS で常にトップ。東急東横線中目黒駅直结。点灯時間は日没〜24:00。坑点：週末の満開時は中目黒駅が入場制限になる——18:00以降は代官山・祐天寺駅から歩く迂回が現実的。适配：若い世代・情侣の夜桜体験首选，老人と小さい子連れは混雑時避ける。",
+      "source_url": "https://www.nakameguro-kanko.com"
+    },
+    {
+      "event_def_id": "kanto_illumination_rikugien_spring",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-07"
+      },
+      "name_ja": "六義園 枝垂れ桜ライトアップ",
+      "name_zh": "六义园枝垂樱点灯",
+      "description": "六義園の入口付近の大枝垂れ桜（樹高約15m・幅約20m）を対象とした春の夜間ライトアップ（日没〜21:00，¥300）。一本の枝垂れ桜が闇の中で浮かび上がる画面は「東京一本桜夜景」として唯一無二。満開期の夜間は開場前から行列（300人超の待機も）。坑点：この一本桜しかライトアップされないため，「規模の大きい夜桜を期待するとがっかり」に注意。适配：「東京で一番印象深い夜桜の一本」を体験したい層に──情侣/文化爱好者/カメラマン向け。",
+      "source_url": "https://www.tokyo-park.or.jp/park/rikugien"
+    },
+    {
+      "event_def_id": "kanto_illumination_omotesando_blue_cave",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-25"
+      },
+      "name_ja": "表参道イルミネーション（青の洞窟SHIBUYA）",
+      "name_zh": "表参道灯饰（青之洞窟涩谷）",
+      "description": "表参道けやき並木のイルミネーションと，代々木公園〜渋谷公園通りの青色LEDトンネル「青の洞窟SHIBUYA」が11月中旬〜12月末に同時期開催。表参道：金色の暖色イルミで約1km，渋谷青の洞窟：青白いLEDが木々を覆う約800m。两者はハチ公前から徒步圏内で串联可能，所要1-1.5時間。坑点：12月クリスマス前週末は渋谷全体が混雑——週平日の18:00〜20:00が最良。适配：東京都内冬のデートコースとして双璧——全行程中の夕方〜夜メインに組み込む。",
+      "source_url": "https://www.omotesando.or.jp"
+    },
+    {
+      "event_def_id": "kanto_illumination_midtown_star_lights",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-08",
+        "end_md": "12-25"
+      },
+      "name_ja": "東京ミッドタウン Starlight Garden",
+      "name_zh": "东京中城 Starlight Garden",
+      "description": "六本木の東京ミッドタウンで毎年11月〜12月末に开催される大規模イルミネーション。芝生広場に無数のLED「星」が広がる「Starlight Garden」と，ミッドタウンタワー上部の点灯は六本木エリア冬の顔。入場無料，17:00〜23:00点灯。六本木駅直结。坑点：11月初旬の開催直後は比較的空いているが，12月に入ると周辺も含め混雑。适配：六本木ミッドタウン観光（美術館+飲食）と夜間イルミネーションを一体化した上质大人コース。",
+      "source_url": "https://www.tokyo-midtown.com/jp/christmas"
+    },
+    {
+      "event_def_id": "kanto_illumination_marunouchi_nakadori",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "12-25"
+      },
+      "name_ja": "丸の内イルミネーション（仲通り）",
+      "name_zh": "丸之内仲通り灯饰",
+      "description": "東京駅丸の内側から有楽町まで約1.2kmの「仲通り」沿いのマロニエ+ナンキンハゼ並木を温白色LEDでライトアップ（11月〜12月末，17:00〜23:00，無料）。東京駅の赤レンガ駅舎+仲通り並木+高層ビル群の組合せは「東京の冬の顔」として知名度最高。坑点：仲通りは週末でも常に人が多いが，12月第2〜3週が最混雑のピーク。适配：東京駅エリア観光の夕方に自然に組み込める——銀座/日本橋行程の入口として最適。全人群通用。",
+      "source_url": "https://www.marunouchi.com/illumination"
+    },
+    {
+      "event_def_id": "kanto_illumination_shiodome_caretta",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-10",
+        "end_md": "02-14"
+      },
+      "name_ja": "汐留 カレッタ汐留 Canyon Illumination",
+      "name_zh": "汐留 Caretta Canyon Illumination",
+      "description": "汐留・カレッタ汐留の地下広場を会場に毎年11月〜翌年2月（バレンタインデーまで）に開催される音楽+映像プロジェクションの連動型イルミネーション。無料，毎時0分・20分・40分に約5分間の音楽ショー付き点灯演出（「ファンタジー」テーマ）。汐留シオサイト駅すぐ，浜松町駅徒步5min。坑点：イルミネーション会場は屋外だが地下という半屋内空間——雨天でも楽しめる。ショー時間は並ぶ必要あり。适配：汐留〜浜離宮エリア観光の夕方締めとして組み込み，デートコース向け。",
+      "source_url": "https://www.caretta.jp/illumination"
+    },
+    {
+      "event_def_id": "kanto_illumination_yokohama_minatomirai",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "12-31"
+      },
+      "name_ja": "横浜みなとみらい スターライトイルミネーション",
+      "name_zh": "横滨港未来 Starlight イルミネーション",
+      "description": "みなとみらい地区のランドマークタワー・コスモワールド・赤レンガ倉庫・大桟橋など港湾エリア一帯が冬のイルミネーションで彩られる。コスモワールドの大観覧車（直径112m）がLEDで全点灯し，港の夜景に映え込む画面は横浜の象徴。みなとみらい駅すぐ，歩行ルートで赤レンガまで2km。無料（施設内別途）。坑点：クリスマス前後の土日は赤レンガ周辺が混雑。観覧車は待ち時間30-60min。适配：横浜夜景コース（みなとみらい→赤レンガ倉庫→山下公園）の完成形——全人群向け。",
+      "source_url": "https://www.yokohama-minatomirai21.com"
+    },
+    {
+      "event_def_id": "kanto_illumination_yokohama_chinatown_newyear",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "02-01",
+        "end_md": "02-15"
+      },
+      "name_ja": "横浜中華街 春節ランタンフェア",
+      "name_zh": "横滨中华街春节红灯笼",
+      "description": "春節期間（1月下旬〜2月中旬），横浜中華街の路地全体に数千個の赤ランタンが吊るされ，夜間の特別点灯が行われる。神戸南京町の同時期イベントと並び，日本の中国新年体験として最大規模。春節当日（旧正月1/1）は打鐘儀式+獅子舞+花火演出もあり，中国語圏の旅行者にとって特別な意味を持つ。坑点：日程は農暦によって毎年変動，当年の正確な日程は公式サイトで確認。适配：中国人旅客向けの故郷感覚体験として最強——横浜春節+中華街グルメのパッケージ。",
+      "source_url": "https://www.chinatown.or.jp"
+    },
+    {
+      "event_def_id": "kanto_illumination_nikko_toshogu_autumn",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "10-08",
+        "end_md": "11-10"
+      },
+      "name_ja": "日光東照宮 秋のライトアップ",
+      "name_zh": "日光东照宫秋季点灯",
+      "description": "日光東照宮+日光山輪王寺が秋期（10月上旬〜11月上旬）の特定夜に一斉ライトアップ。陽明門を始めとする金箔彫刻が夜間照明に浮かび上がり，昼間とは全く異なる「黄金の宮殿」が出現。毎年実施日は限られるため，日光公式サイトで日程確認必須。¥1300+（入場料別途）。坑点：実施日数が少ない（年間数日〜10日程度），日程と旅程の合致が難しい。适配：日光1泊2日でたまたま実施日に当たった旅行者への追加夜間プランとして最高。",
+      "source_url": "https://www.toshogu.jp"
+    },
+    {
+      "event_def_id": "kanto_illumination_hakone_illumination",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "03-31"
+      },
+      "name_ja": "箱根ガラスの森美術館 クリスタルイルミネーション",
+      "name_zh": "箱根玻璃之森美术馆水晶灯饰",
+      "description": "仙石原の箱根ガラスの森美術館の庭園で11月〜3月の秋冬期に開催されるクリスタルイルミネーション（¥1800，17:00〜閉館）。ベネチアンガラス製のオーナメントが庭園ツリーと木々に飾られ，ガラスの輝きが幻想的な光景を作り出す。強羅公園・箱根美術館と同じ仙石原エリアに位置し，日帰り温泉旅行の夕方コースとして組み込みやすい。坑点：入場料が比較的高め（¥1800）。雨天は屋外の楽しさが半減するため天候確認推奨。适配：箱根温泉泊まりの旅行者向けに夕食前の1時間コースとして完璧。情侣/老人向け。",
+      "source_url": "https://www.hakone-garasunomori.jp"
+    },
+    {
+      "event_def_id": "kanto_illumination_kamakura_rousoku",
+      "type": "illumination",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "08-10",
+        "end_md": "08-10"
+      },
+      "name_ja": "鎌倉ろうそく祭り（円覚寺・建長寺）",
+      "name_zh": "镰仓蜡烛祭（圆觉寺·建长寺）",
+      "description": "毎年8月（盂蘭盆期間，10日前後）に北鎌倉の円覚寺と建長寺で行われる夜のろうそく参拝。境内の参道・石段にろうそくが灯され，禅寺の境内が幻想的な光景に包まれる。入場料通常通り（¥500），夜間開放は20:00〜21:00程度（年によって調整）。坑点：実施日が年によって変動，必ず公式確認。北鎌倉は末班電車が早め（22:30頃）。适配：8月鎌倉行程の夜間追加体験として——浴衣参拝で情侣向けに特に推奨。",
+      "source_url": "https://www.engakuji.or.jp"
+    }
+  ],
+  "occurrences": []
+}

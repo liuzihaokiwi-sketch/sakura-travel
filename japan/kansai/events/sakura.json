@@ -1,0 +1,1135 @@
+{
+  "_doc": "关西圈樱花花期数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "sakura",
+    "circle": "kansai",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名（含地点简称）",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+walkerplus 排名+交通+坑点+人群适配",
+    "source_url": "walkerplus 详情页 URL（null 表示不在 walkerplus top100 榜内）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kansai_sakura_kiyomizudera",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "清水寺",
+      "name_zh": "清水寺",
+      "description": "京都樱花季的头号招牌。清水舞台前方山坡遍布染井吉野，从舞台俯瞰整片樱花海 + 京都市街，是京都春季最强画面，几乎所有攻略的封面。虽未进 walkerplus 全国 top100（全国榜单偏关东用户池），但在京都市内人气绝对第一。京阪清水五条駅徒歩 25 分，或市巴士「清水道」下车徒歩 10 分。坑点：樱花期 8 点后人流爆炸，想出片必须 7:30 前入场；门票 500 日元。夜樱特别参拜（3 月底–4 月初）是限定亮点，需另购门票约 400 日元。适合第一次来京都、想看经典画面的所有类型用户。带老人/小孩注意清水坂长长的上坡。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_maruyama",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "円山公園 祇園枝垂桜",
+      "name_zh": "圆山公园 祇园枝垂樱",
+      "description": "京都市中心最有名的夜樱点，核心是公园中央一棵巨大的祇园枝垂樱（第二代，约 70 年树龄），夜间打灯后整棵树发光。walkerplus 2026 全国第 39 位（54 票）。京阪祇園四条駅徒歩 10 分，紧邻八坂神社，交通极便。免费入园。坑点：夜樱季人山人海（尤其周末和 3/28–4/5），园内屋台多、地面黏，更像夜市而非赏樱。周边料理店赏樱座位 1 个月前就订满。适合走累了晚上随便逛逛的用户、情侣约会、想体验日本夜樱屋台氛围的人。想安静拍照的推荐早晨 7 点去（清净）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26131/"
+    },
+    {
+      "event_def_id": "kansai_sakura_kodaiji",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-10"
+      },
+      "name_ja": "高台寺",
+      "name_zh": "高台寺",
+      "description": "京都东山南段的夜樱名所，方丈前庭「波心庭」的枝垂樱夜间倒映在白砂池上，是京都少数玩「光影 art」的寺院。未进 walkerplus 全国 top100（京都寺院在全国用户投票里普遍偏低）。市巴士「東山安井」徒歩 5 分。坑点：夜间特别拜观门票 600 日元，需时间预约；方丈人流集中在 18:30–19:30 的灯光秀高峰。相对清水寺/祇园清净很多。适合想看夜樱+光影 art 的情侣、文艺向用户，以及已经去过清水寺想找平替的二次游客。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_tenryuji",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "天龍寺",
+      "name_zh": "天龙寺",
+      "description": "岚山樱花主战场。庭园曹源池背后的樱花 + 嵐山群山是「借景」最典范的构图，世界遗产加持。未进 walkerplus 全国 top100。嵐電嵐山駅徒歩 3 分，或 JR 嵯峨嵐山徒歩 13 分，交通方便。坑点：8 点后岚山整个地区人满为患，庭园拍照要排队；庭园参观费 500 日元（含本堂加 300）。樱花期可以配合早到嵯峨野竹林（7 点开放时人很少）一起看。适合岚山半日行的所有游客、想看「借景」经典构图的摄影爱好者。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_togetsukyo",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "渡月橋",
+      "name_zh": "渡月桥",
+      "description": "岚山地标桥梁。桂川两岸樱花倒映在水面，与渡月橋+嵐山背景组合，是岚山代表性明信片画面。未进 walkerplus 全国 top100。嵐電嵐山駅徒歩 3 分，免费。坑点：9 点后桥上人山人海，不适合久留；周末几乎寸步难行。建议搭配天龍寺一起上午跑完，下午撤离岚山。适合所有岚山游客作为打卡点；想拍安静画面的必须 7 点前到。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_tetsugakunomichi",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "哲学の道",
+      "name_zh": "哲学之道",
+      "description": "京都最负盛名的樱花散步道，从银閣寺到南禅寺约 1.8 公里，沿琵琶湖疏水两侧种满染井吉野，粉色花瓣落满水面的画面是京都春季名场面。未进 walkerplus 全国 top100（不敌东京同类）。市巴士「銀閣寺道」下车起点，免费。坑点：樱花季人流密集但因为是线性长道路所以可以走得开；南段靠近南禅寺人会更少。沿途有抹茶咖啡店，走累了可以歇。适合所有喜欢散步慢旅的游客，情侣、文艺向、摄影爱好者都合适。配合银阁寺/南禅寺半天路线。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_heian_jingu",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-15"
+      },
+      "name_ja": "平安神宮",
+      "name_zh": "平安神宫",
+      "description": "神苑里的「八重紅枝垂桜」是京都晚樱代表，比染井吉野晚 1 周左右，4 月 10 日前后正盛开。walkerplus 2026 全国第 83 位（32 票）。地下鉄東西線東山駅徒歩 10 分。坑点：神苑入场费 600 日元；非樱花季神苑可看性一般。夜间红枝垂樱特别观赏（4 月第一个周末开始）配合谷崎润一郎曾描写的「紅の雲」画面很震撼，但门票贵。适合错过染井吉野高峰只能 4 月中旬到访的用户，以及喜欢枝垂樱独有形态的拍客。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26116/"
+    },
+    {
+      "event_def_id": "kansai_sakura_keage_incline",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "蹴上インクライン",
+      "name_zh": "蹴上倾斜铁路遗迹",
+      "description": "明治时期的废弃船舶运输铁轨，长约 580 米，两侧染井吉野形成樱花隧道，人可以站在铁轨上拍照，是近几年小红书热门机位。walkerplus 2026 全国第 54 位（43 票）。地下鉄東西線蹴上駅徒歩 2 分，免费。坑点：机位人巨多要排队拍，想拍空景只能 7 点前去；没有遮阴。配合南禅寺/哲学之道一起走最顺。适合情侣出片、年轻游客打卡、喜欢「遗迹+樱花」氛围的用户。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e382390/"
+    },
+    {
+      "event_def_id": "kansai_sakura_daigoji",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "醍醐寺",
+      "name_zh": "醍醐寺",
+      "description": "丰臣秀吉 1598 年举办「醍醐の花見」的世界遗产寺院，境内约 1000 棵樱花分布于三宝院 + 伽藍 + 霊宝館 + 上醍醐 4 大区域。walkerplus 2026 全国第 16 位（91 票）。三宝院前的枝垂樱是代表画面。地下鉄東西線醍醐駅徒歩 10 分。坑点：三区共通券 1500 日元偏贵，全园逛完要 2.5 小时以上；位置在市中心东南部偏僻，从京都駅需要折返。适合对历史、枝垂樱、寺院深度游感兴趣的用户，以及已看过清水寺/岚山想找同级别但清净的景点。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26119/"
+    },
+    {
+      "event_def_id": "kansai_sakura_ninnaji_omuro",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "04-05",
+        "end_md": "04-15"
+      },
+      "name_ja": "仁和寺 御室桜",
+      "name_zh": "仁和寺 御室樱",
+      "description": "京都最晚开的樱花（4 月中旬），品种是低矮的「御室有明」，树高只有 2–3 米，人站在旁边就像被樱花环抱，独特画面。walkerplus 2026 全国第 46 位（48 票）。世界遗产。嵐電御室仁和寺駅徒歩 3 分。坑点：御室桜林入场费 500 日元（花期限定），开花时间晚意味着来早了会扑空；5 月初已谢。适合 4 月 10 日后才能到京都的用户、喜欢矮树近距离赏樱的摄影爱好者，以及想和其他樱花景点错峰避开人潮的人。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26118/"
+    },
+    {
+      "event_def_id": "kansai_sakura_hirano",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-25"
+      },
+      "name_ja": "平野神社",
+      "name_zh": "平野神社",
+      "description": "京都最古老的樱花名所之一，境内约 60 个品种共 400 棵樱花，花期从 3 月中旬延续到 4 月下旬，是京都「花期最长」的赏樱点。walkerplus 2026 全国第 48 位（46 票）。市巴士「衣笠校前」徒歩 3 分，配合金閣寺一起 5 分钟可达。坑点：境内不大 30 分钟逛完；夜樱期间屋台较多氛围偏热闹。适合想一次看多种樱花品种的爱好者、已经去过其他京都樱花名所想找「冷门但正经」寺院的二次游客。配合金閣寺 + 龍安寺洛北半日路线。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26129/"
+    },
+    {
+      "event_def_id": "kansai_sakura_nijo",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-10"
+      },
+      "name_ja": "二条城",
+      "name_zh": "二条城",
+      "description": "世界遗产，德川家康建立的江户时代城郭。城内约 300 棵樱花包含染井吉野、枝垂樱、里樱（晚樱）多品种，花期可以持续到 4 月中旬。未进 walkerplus 全国 top100。地下鉄東西線二条城前駅直结。坑点：城内入场费 1300 日元偏贵；夜樱特别期间要另购票（约 2000 日元）需预约。夜间限定的灯光 art 投影在城墙上是近几年话题点。适合想一次看历史城郭 + 多品种樱花的用户；情侣夜樱约会；错过染井吉野高峰的 4 月中旬游客（晚樱还在开）。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_gyoen",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "京都御苑",
+      "name_zh": "京都御苑",
+      "description": "江户时代天皇居所周边的大公园，面积 65 公顷，内有约 1000 棵樱花，品种涵盖早咲、染井吉野、晚樱，花期从 3 月中旬到 4 月下旬。未进 walkerplus 全国 top100。核心画面是「近衛邸跡」的枝垂樱。地下鉄今出川駅/丸太町駅徒歩 5 分，全园免费。坑点：园内太大容易迷路；没有商店要自备水；花不集中在一处需要步行。适合想避开人潮、喜欢大片大片草地野餐的家庭用户、以及想看「早咲枝垂＋染井吉野＋晚樱」全套流程的深度游客。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_haratani",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-10"
+      },
+      "name_ja": "原谷苑",
+      "name_zh": "原谷苑",
+      "description": "私家苑囿，仅樱花季对外开放 1 个月左右，园内种了 400 多棵红枝垂樱包围着观景亭，全京都公认的樱花震撼度第一。walkerplus 2026 全国第 28 位（74 票）。位于京都市北区洛北山区，市巴士到「原谷」终点站徒歩 5 分，但巴士班次极少（1 小时 1–2 班），打车更稳。坑点：门票浮动 1500–2000 日元（按花况调整）；位置偏远交通不便；停车难。适合有时间深度游、愿意为极致赏樱画面付出交通成本的用户；二次/三次到京都的资深樱粉。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e461160/"
+    },
+    {
+      "event_def_id": "kansai_sakura_fushimi_jukkoku",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "伏見十石舟",
+      "name_zh": "伏见十石舟",
+      "description": "伏见酒造街运河上的游船，两侧酒藏白墙与樱花形成日式「水乡樱道」画面，是京都少见的水上赏樱点。未进 walkerplus 全国 top100。京阪中書島駅徒歩 5 分。坑点：游船费约 1500 日元，全程 50 分钟；樱花季要提前预约；班次有限（30 分钟 1 班）。适合配合伏见稻荷大社/月桂冠大仓纪念馆一起玩的游客；喜欢「坐船看樱花」独特体验的人；对日本酒文化感兴趣的游客。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_osaka_castle",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-15"
+      },
+      "name_ja": "大阪城公園",
+      "name_zh": "大阪城公园",
+      "description": "大阪市内最核心樱花名所，约 3000 棵樱花围绕大阪城天守阁，樱花 + 天守阁组合是大阪春季标志画面。walkerplus 2026 全国第 86 位（30 票）。JR 大阪城公園駅/森ノ宮駅徒歩 5 分；地下鉄谷町四丁目/天満橋駅徒歩 10 分。免费入园。坑点：园区巨大（天守阁周围走完至少 1.5 小时）；西の丸庭園赏樱要另付 200 日元（最佳拍摄点在这里）；夜樱期间本丸广场有收费屋台区。适合所有大阪短时间停留的游客（交通方便人流承载量大）、家庭出游、想一次拍到城 + 樱花的摄影客。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0727e26137/"
+    },
+    {
+      "event_def_id": "kansai_sakura_osaka_mint",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "04-10",
+        "end_md": "04-16"
+      },
+      "name_ja": "造幣局 桜の通り抜け",
+      "name_zh": "造币局樱花通行抜",
+      "description": "日本政府造币厂每年樱花季限定开放的单向通道（约 1 周），种植 140 多个品种共 300 棵樱花，以晚樱和珍稀品种为主。walkerplus 2026 全国第 82 位（32 票）。JR 桜ノ宮駅徒歩 15 分，或京阪天満橋駅徒歩 10 分。免费但需要网上预约（开放前 2 个月抽签）。坑点：抽签制度意味着很多游客拿不到票；单向行进不能折返；只有 1 周窗口且每年日期由造币局公告（通常 4 月 10 日前后）。适合愿意提前 2 个月规划行程、对樱花品种感兴趣的深度游客；错过染井吉野的 4 月中旬游客。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0727e26135/"
+    },
+    {
+      "event_def_id": "kansai_sakura_osaka_expo",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-10"
+      },
+      "name_ja": "万博記念公園",
+      "name_zh": "万博记念公园",
+      "description": "1970 年大阪万博旧址的大型公园（260 公顷），约 5500 棵樱花分 9 大区域，太阳の塔 + 樱花是大阪北摂春季代表画面。未进 walkerplus 全国 top100。大阪モノレール万博記念公園駅徒歩 5 分，入场费 260 日元。坑点：园区太大完整逛完要 3–4 小时；需要在吹田市，从大阪梅田过来 25 分钟。适合带小孩的家庭（配合儿童广场 + EXPOCITY 购物）、想避开大阪市中心人潮的游客；对 1970 万博建筑感兴趣的文化爱好者。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_osaka_tennoji",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-07"
+      },
+      "name_ja": "天王寺公園 慶沢園",
+      "name_zh": "天王寺公园 庆泽园",
+      "description": "大阪市内的明治时期日式庭园（住友家原宅邸庭），庭园内池泉回游式布局 + 樱花 + 背景阿倍野 HARUKAS 摩天楼，是大阪少见的「传统庭园×现代都市」对照画面。未进 walkerplus 全国 top100。JR/地下鉄天王寺駅徒歩 5 分，入场费 150 日元。坑点：庭园面积小 20 分钟逛完；人流量不大但拍照角度受限。适合想在天王寺 HARUKAS 前后找个 30 分钟文化站点的短时游客、日式庭园爱好者；带老人行走负担小。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_osaka_kema",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-15"
+      },
+      "name_ja": "毛馬桜之宮公園",
+      "name_zh": "毛马樱之宫公园",
+      "description": "大川沿岸约 4.2 公里的樱花长廊，约 4800 棵染井吉野组成河畔樱花隧道，是大阪市内最震撼的赏樱线性景观。walkerplus 2026 全国第 56 位（43 票）。JR/地下鉄桜ノ宮駅/天満橋駅/京橋駅多站可达，徒歩 5 分内，免费。坑点：公园太长（4.2km）；建议从桜ノ宮駅沿大川往南走到天満橋 1.5 小时。适合喜欢线性漫步的游客、野餐家庭（园内有大片草地）、愿意边走边看的深度游；傍晚搭乘大川水上巴士可以换角度赏樱。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0727e26136/"
+    },
+    {
+      "event_def_id": "kansai_sakura_yoshino",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "04-05",
+        "end_md": "04-15"
+      },
+      "name_ja": "吉野山",
+      "name_zh": "吉野山",
+      "description": "日本赏樱圣地 No.1，山上下千本→中千本→上千本→奥千本共约 3 万棵樱花，自下而上依次开放花期约 1 个月。walkerplus 2026 全国第 23 位（80 票）。世界遗产纪伊山地灵场的一部分。近鉄吉野駅徒歩即到下千本，到中千本需要徒歩 1 小时或坐吉野山观光车。坑点：交通远（近鉄特急从大阪阿部野橋约 1.5 小时）；花期按海拔分层意味着没有「同时全部盛开」的时候；住宿要早半年订；周末及花期人流爆炸道路堵塞严重。适合愿意安排整天甚至过夜的深度赏樱爱好者；二次/三次到关西的资深游客；朝圣日本樱花文化的人。一日游不推荐（来回 3 小时车程 + 山上走路 3 小时）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e26171/"
+    },
+    {
+      "event_def_id": "kansai_sakura_nara_park",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-10"
+      },
+      "name_ja": "奈良公園",
+      "name_zh": "奈良公园",
+      "description": "奈良中心 500 公顷大公园，约 1700 棵樱花 + 1300 只野生鹿，鹿与樱花同框是奈良独有画面，东大寺大仏殿 + 春日大社参道沿途都有樱花。未进 walkerplus 全国 top100。近鉄奈良駅徒歩 5 分起。全园免费（寺院内部要门票）。坑点：鹿饼干会引来大群鹿围攻；春季游客激增鹿的攻击性也增加（要小心）；樱花分散没有集中震撼画面。适合带小孩的家庭（鹿是最大看点）、第一次来奈良的游客；配合东大寺/春日大社半日游。赏樱纯粹度不如其他景点。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_himeji",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "himeji",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "姫路城",
+      "name_zh": "姬路城",
+      "description": "世界遗产，日本现存最完整的江户时代木造天守。樱花期约 1000 棵染井吉野 + 白壁天守组合是日本「城+樱」画面天花板。未进 walkerplus 全国 top100（数据偏颇）但公认的日本樱花百选。JR 姫路駅徒歩 20 分，入场费 1000 日元（含好古园 1050 日元）。坑点：从京都/大阪单程 1 小时，加上城内参观半天，做日帰行程比较紧；天守内部是陡木阶梯老人/小孩爬得辛苦；樱花期周末人流极多。适合愿意花一天做姫路日帰の游客、历史/城郭爱好者；可配合好古园（日式回游庭园，樱花 + 茶室）。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_suma",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "須磨浦山上遊園",
+      "name_zh": "须磨浦山上游园",
+      "description": "神戸须磨海岸背山的山顶游园，缆车上去后山顶可俯瞰濑户内海 + 约 3200 棵樱花，是关西稀有的「海×山×樱」画面。未进 walkerplus 全国 top100。JR 须磨駅/山陽電鉄须磨浦公園駅转缆车直达。缆车往返约 1000 日元。坑点：缆车费用；天气不好时海景效果打折；园区设施老旧（昭和风游园地）。适合想看海 + 樱花组合的游客、神户局部半日游、家庭带孩子（有小型游园设施）；拍摄爱好者特别喜欢这种稀缺构图。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_yodo_suiro",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "03-25"
+      },
+      "name_ja": "淀水路の桜",
+      "name_zh": "淀水路樱花",
+      "description": "京都最容易被攻略遗漏的早开樱花点。品种是河津桜系，2 月中旬就开，比染井吉野早 1 个半月，是「3 月初到京都还想看樱花」的唯一像样的选择。walkerplus 2026 全国第 5 位（143 票）—— 这个排名甚至高于清水寺。京阪本線淀駅徒歩 5 分，从祇園四条 25 分钟直达。免费。水路两侧约 200 棵早樱连成粉色走廊，游客以当地人和摄影爱好者为主，国际游客很少。坑点：所在地淀是伏见以南的住宅区，周边商业几乎没有，看完需要原路返回。适合 2 月下旬–3 月初到访、想避开樱花季高峰、或者已经来过京都好几次想找小众点的用户。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e377750/"
+    },
+    {
+      "event_def_id": "kansai_sakura_ono_tsutsumi",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "おの桜づつみ回廊の桜",
+      "name_zh": "小野樱花堤回廊",
+      "description": "兵库县小野市加古川沿岸的樱花堤，4 公里长 650 棵 5 品种樱花组成「5 段开花接力」：早咲河津樱→染井吉野→山樱→八重紅彼岸→里樱。walkerplus 2026 全国第 9 位（110 票），兵库县赏樱票数最高的景点。从神户出发 JR 加古川駅转加古川线「厄神駅」，然后租车或打车 10 分钟，远郊交通。坑点：无公共交通直达花堤核心段，必须自驾或租车；一整段 4 公里走完要 2 小时；周边没有商店要自备食水。适合租车自驾游客、兵库深度游，以及想避开京都/大阪人潮的摄影爱好者。非自驾不推荐。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0728e382194/"
+    },
+    {
+      "event_def_id": "kansai_sakura_nanatanikawa",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "七谷川・和らぎの道の桜",
+      "name_zh": "七谷川和缓之道樱花",
+      "description": "京都丹波龟冈市的桜并木，七谷川沿岸约 1.5 公里 1500 棵樱花，被评为「京都桜百选」中的郊区代表。walkerplus 2026 全国第 12 位（101 票）。JR 山陰本線亀岡駅转市巴士 15 分钟到「七谷川」下车。远郊。坑点：亀冈从京都駅 25 分钟但离岚山比从京都市中心方便；公共交通班次少；游客以当地家庭为主，比京都市区清净。适合想跑一趟郊区深度游的二次/三次游客、避开市中心人潮的家庭出游；配合保津川遊船或嵯峨野小火车一起。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_sakura_takamino_sato",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "04-05",
+        "end_md": "04-25"
+      },
+      "name_ja": "高見の郷の桜",
+      "name_zh": "高见之乡樱花",
+      "description": "奈良县東吉野村海拔 650 米的私家樱花园，约 1000 棵枝垂樱在山顶形成「天空樱花千本桜」画面，被誉为「奈良小吉野」。walkerplus 2026 全国第 17 位（89 票）。4 月上旬–中旬见頃，比吉野山稍晚。近鉄榛原駅转巴士约 1 小时到「鷲家口」，再换免费接驳车 15 分钟（极远郊）。从大阪需要 2.5 小时单程。门票 1000 日元。坑点：极远郊交通痛苦；接驳车花期才发；必须全天投入。适合已经去过吉野山想找更小众樱花点的资深爱好者、摄影深度游客、愿意为极致画面付出交通成本的人。初到关西不推荐。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e584440/"
+    },
+    {
+      "event_def_id": "kansai_sakura_sayamaike",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-15"
+      },
+      "name_ja": "狭山池公園の桜",
+      "name_zh": "狭山池公园樱花",
+      "description": "日本最古老水库（推定 7 世纪建造）周围的樱花公园，约 1000 棵染井吉野环湖一圈约 3 公里，湖面倒映樱花是大阪府南部代表画面。walkerplus 2026 全国第 30 位（66 票）。南海高野線大阪狭山市駅徒歩 10 分。坑点：大阪南部远离市中心（从难波约 30 分钟）；环湖一圈要 1 小时；公园内商业少。适合想避开大阪市中心樱花人潮的游客、住在堺市/和泉市一带的用户、配合高野山行程的中转站。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0727e60611/"
+    },
+    {
+      "event_def_id": "kansai_sakura_sahogawa",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "佐保川の桜",
+      "name_zh": "佐保川樱花",
+      "description": "奈良市内佐保川沿岸约 4 公里樱花长廊，约 1000 棵染井吉野形成河畔樱花隧道，被称为「奈良染井吉野发祥地」。walkerplus 2026 全国第 31 位（66 票）。JR 奈良駅徒歩 15 分到河川北段起点；全程徒歩 1 小时可走完。坑点：河川沿岸线性太长，要选段来看；非花期几乎无可看性。适合想避开奈良公园人鹿、深度游奈良市内的用户；当地人的赏樱聚集地，比游客区更有生活气息；可在河川边野餐。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e585888/"
+    },
+    {
+      "event_def_id": "kansai_sakura_ishiyamadera",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "石山寺の桜",
+      "name_zh": "石山寺樱花",
+      "description": "世界遗产（紫式部创作《源氏物语》的寺院），境内约 600 棵樱花包括 3 品种，配合巨大的硅灰石巨岩（「石山」寺名来源）组成独特画面。walkerplus 2026 全国第 41 位（52 票）。京阪石山寺駅徒歩 10 分，从京都駅约 40 分钟（JR 石山駅转京阪）。入场费 600 日元。坑点：在滋贺大津市，对只玩京都的游客来说要专程跑一趟；境内依山而建高低差较大。适合想跑京都周边一日游的用户、《源氏物语》文学爱好者、配合琵琶湖游船 + 三井寺的滋贺深度游。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0725e26098/"
+    },
+    {
+      "event_def_id": "kansai_sakura_matabei",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "04-01",
+        "end_md": "04-15"
+      },
+      "name_ja": "又兵衛桜",
+      "name_zh": "又兵卫樱",
+      "description": "奈良宇陀市一棵独立生长 300 年以上的大枝垂樱，高 13 米 树冠宽 20 米，是日本「一本桜」的代表。walkerplus 2026 全国第 42 位（52 票）。近鉄榛原駅转巴士 20 分钟到「大宇陀」下车徒歩 15 分，或自驾。远郊，从大阪单程 2 小时。坑点：一棵树的景点意味着盛开窗口非常短（约 1 周）；花期要实时盯天气预报；交通不便。适合摄影爱好者、「一本桜」主题深度游客、愿意为了一棵传奇古树跑远郊的资深樱粉。时间错开就白跑一趟。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e60449/"
+    },
+    {
+      "event_def_id": "kansai_sakura_tsurumi_ryokuchi",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "02-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "花博記念公園 鶴見緑地の桜",
+      "name_zh": "花博纪念公园鹤见绿地樱花",
+      "description": "1990 年国际花卉博览会旧址的大型城市公园（123 公顷），约 1400 棵樱花 + 园内「大池」倒影，是大阪市内人少景大的赏樱点。walkerplus 2026 全国第 53 位（43 票）。大阪メトロ長堀鶴見緑地線鶴見緑地駅直结，免费。坑点：位置在大阪东北部远离市中心景点圈；园区太大需要步行；没有地标建筑背景。适合想避开大阪城人潮的本地家庭、野餐的游客、带小孩的家庭（园内有儿童游乐设施 + 风车之丘）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0727e380424/"
+    },
+    {
+      "event_def_id": "kansai_sakura_gion_shirakawa",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "祇園白川の桜",
+      "name_zh": "祇园白川樱花",
+      "description": "京都市中心最摄影网红的小段樱花街道，约 40 棵染井吉野 + 石畳 + 町家 + 白川小河，是京都「和风夜樱」构图的代表。walkerplus 2026 全国第 55 位（43 票）。京阪祇園四条駅徒歩 5 分，免费。坑点：长度只有 200 米左右 10 分钟看完；夜樱期间摄影机位爆满（尤其小桥附近）；附近料亭樱花座位 1 个月前订满。适合情侣夜樱约会、摄影爱好者出片、想拍「京都最京都」画面的游客。建议夜间 19:00–21:00 到访（打灯最美）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e458557/"
+    },
+    {
+      "event_def_id": "kansai_sakura_takada_senbon",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "高田千本桜",
+      "name_zh": "高田千本樱",
+      "description": "奈良大和高田市曽我川沿岸约 2.5 公里的樱花长廊，约 1200 棵染井吉野形成樱花隧道。walkerplus 2026 全国第 57 位（41 票）。近鉄大阪線大和高田駅徒歩即到。坑点：从大阪单程 30 分钟算近，但从京都要 1 小时；游客以当地家庭为主；商业设施少。适合想避开奈良公园 + 吉野山的人群、配合橿原神宮/飛鳥的奈良中南部行程的游客。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e60632/"
+    },
+    {
+      "event_def_id": "kansai_sakura_shukugawa",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "夙川河川敷緑地(夙川公園)の桜",
+      "name_zh": "夙川公园樱花",
+      "description": "兵库西宫市的城市型樱花河川公园，约 1660 棵染井吉野沿夙川两岸约 2.8 公里，是神户-大阪阪神间最大的赏樱点。walkerplus 2026 全国第 66 位（38 票）。JR/阪急/阪神夙川駅直接，免费。坑点：周末人流巨多（在阪神间通勤圈内）；长度很长要步行。适合住在大阪/神户交通线上的游客、家庭野餐、通勤圈赏樱便捷到访；配合芦屋/西宫 shopping 一日游。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0728e26150/"
+    },
+    {
+      "event_def_id": "kansai_sakura_yodogawa_sewari",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "淀川河川公園背割堤地区の桜",
+      "name_zh": "淀川背割堤樱花",
+      "description": "京都府八幡市淀川 + 木津川 + 宇治川三川交汇处的堤防，约 220 棵染井吉野在长 1.4 公里的堤道两侧形成樱花隧道，是京都南部代表画面。walkerplus 2026 全国第 69 位（36 票）。京阪石清水八幡宮駅徒歩 10 分，免费但樱花季要入场协力金 300 日元。坑点：纯樱花堤防没有其他景点；周末极其拥挤；没有遮阴。适合喜欢「樱花隧道」画面的摄影爱好者、配合石清水八幡宫一日游、京都-大阪中间位置对两边都方便。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0726e26124/"
+    },
+    {
+      "event_def_id": "kansai_sakura_miidera",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "04-05",
+        "end_md": "04-15"
+      },
+      "name_ja": "三井寺(園城寺)の桜",
+      "name_zh": "三井寺樱花",
+      "description": "世界遗产，滋贺大津的天台寺门宗总本山，境内约 1000 棵染井吉野 + 枝垂樱 + 山樱分布在高低错落的伽蓝。walkerplus 2026 全国第 71 位（35 票）。京阪石山坂本線三井寺駅徒歩 10 分，入场费 600 日元。坑点：占地广阔全部走完 1.5 小时；从京都单程约 30 分钟；山道坡度较大老人要量力。适合想跑京都周边一日游的用户、天台宗/佛教文化爱好者、配合琵琶湖疏水 + 石山寺的滋贺深度游。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0725e26099/"
+    },
+    {
+      "event_def_id": "kansai_sakura_mukogawa_sanda",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "武庫川桜づつみ回廊の桜",
+      "name_zh": "武库川樱花堤回廊",
+      "description": "兵库三田市武库川沿岸约 6 公里的樱花堤，约 1000 棵染井吉野 + 菜の花的组合形成「粉色+黄色」河畔画面。walkerplus 2026 全国第 85 位（30 票）。JR 福知山線三田駅徒歩 15 分。从大阪约 50 分钟（JR 宝塚线特急）。坑点：三田市属于兵库内陆远郊 交通时间长；樱花堤太长必须自驾或精选一段；没有地标建筑背景以自然画面为主。适合兵库深度游、自驾游客、配合宝塚歌剧院/有马温泉的兵库内陆行程。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0728e493723/"
+    },
+    {
+      "event_def_id": "kansai_sakura_hasedera",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-25"
+      },
+      "name_ja": "長谷寺の桜(奈良県)",
+      "name_zh": "长谷寺樱花（奈良）",
+      "description": "奈良樱井市的真言宗豊山派总本山，「西国三十三所」第 8 番札所，境内约 7000 棵樱花 + 牡丹，核心画面是从本堂礼堂俯瞰眼下一片樱花海。walkerplus 2026 全国第 90 位（29 票）。近鉄大阪線長谷寺駅徒歩 20 分（上坡），入场费 500 日元。坑点：从大阪单程 1 小时远郊；参道上坡 15 分钟对老人不友好；秋季红叶更有名赏樱略为次要。适合愿意跑远郊的深度游客、真言宗/西国札所巡礼者、配合室生寺 + 又兵衛桜的奈良东部一日游。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e26172/"
+    },
+    {
+      "event_def_id": "kansai_sakura_biwako_sosui",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "琵琶湖疏水の桜",
+      "name_zh": "琵琶湖疏水樱花",
+      "description": "从琵琶湖到京都的明治时期人工水路，滋贺大津段沿岸约 200 棵染井吉野 + 人工水路直线构图，与京都段蹴上对应的源头。walkerplus 2026 全国第 95 位（28 票）。京阪京津線三井寺駅徒歩 5 分。免费。坑点：景点分布线性零散；没有寺院神社等地标建筑；交通对只玩京都的游客不便。适合配合三井寺 + 琵琶湖 + 石山寺的大津半日游；明治近代化文化爱好者；想看「蹴上倾斜铁路源头」的资深京都爱好者。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0725e26100/"
+    },
+    {
+      "event_def_id": "kansai_sakura_shimokitayama",
+      "type": "sakura",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "下北山スポーツ公園の桜",
+      "name_zh": "下北山运动公园樱花",
+      "description": "奈良吉野郡下北山村的山区运动公园，湖畔约 1000 棵染井吉野 + 池原ダム湖面倒影，因海拔较高见頃比平地晚 10 天左右。walkerplus 2026 全国第 96 位（27 票）。无公共交通，必须自驾。从大阪单程 3 小时以上（通过西名阪+大台ケ原方向）。极远郊。坑点：交通极其不便；季节集中晚樱窗口小；村中设施有限。适合自驾深度游客、和歌山/纪伊半岛纵贯行程、已经去过吉野山想找更小众樱花点的硬核爱好者。初到关西完全不推荐。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0729e60512/"
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": "kansai_sakura_kiyomizudera_2026",
+      "event_def_id": "kansai_sakura_kiyomizudera",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_maruyama_2026",
+      "event_def_id": "kansai_sakura_maruyama",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_kodaiji_2026",
+      "event_def_id": "kansai_sakura_kodaiji",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_tenryuji_2026",
+      "event_def_id": "kansai_sakura_tenryuji",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_togetsukyo_2026",
+      "event_def_id": "kansai_sakura_togetsukyo",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_tetsugakunomichi_2026",
+      "event_def_id": "kansai_sakura_tetsugakunomichi",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_heian_jingu_2026",
+      "event_def_id": "kansai_sakura_heian_jingu",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_keage_incline_2026",
+      "event_def_id": "kansai_sakura_keage_incline",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_daigoji_2026",
+      "event_def_id": "kansai_sakura_daigoji",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_ninnaji_omuro_2026",
+      "event_def_id": "kansai_sakura_ninnaji_omuro",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_hirano_2026",
+      "event_def_id": "kansai_sakura_hirano",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_nijo_2026",
+      "event_def_id": "kansai_sakura_nijo",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_gyoen_2026",
+      "event_def_id": "kansai_sakura_gyoen",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_haratani_2026",
+      "event_def_id": "kansai_sakura_haratani",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_fushimi_jukkoku_2026",
+      "event_def_id": "kansai_sakura_fushimi_jukkoku",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_osaka_castle_2026",
+      "event_def_id": "kansai_sakura_osaka_castle",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_osaka_mint_2026",
+      "event_def_id": "kansai_sakura_osaka_mint",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": true,
+      "booking_url": "https://sakura-osaka.mint.go.jp",
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_osaka_expo_2026",
+      "event_def_id": "kansai_sakura_osaka_expo",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_osaka_tennoji_2026",
+      "event_def_id": "kansai_sakura_osaka_tennoji",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_osaka_kema_2026",
+      "event_def_id": "kansai_sakura_osaka_kema",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_yoshino_2026",
+      "event_def_id": "kansai_sakura_yoshino",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_nara_park_2026",
+      "event_def_id": "kansai_sakura_nara_park",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_himeji_2026",
+      "event_def_id": "kansai_sakura_himeji",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    },
+    {
+      "occurrence_id": "kansai_sakura_suma_2026",
+      "event_def_id": "kansai_sakura_suma",
+      "year": 2026,
+      "starts_at": null,
+      "ends_at": null,
+      "phases": {
+        "pre_start": null,
+        "peak_start": null,
+        "peak_end": null,
+        "post_end": null
+      },
+      "event_status": "unconfirmed",
+      "confidence": "historical_pattern",
+      "verified_date": "2026-04-09",
+      "verified_by": "system_init",
+      "overlay_overrides": null,
+      "admission": null,
+      "booking_required": false,
+      "booking_url": null,
+      "source_url": null
+    }
+  ]
+}

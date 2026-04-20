@@ -1,0 +1,9 @@
+{
+  "_doc": "宇治 Day Template Library v2.1. 日模板候选池。",
+  "_version": "2.1",
+  "_areas": {
+    "byodoin_area": "平等院・宇治橋通り・表参道",
+    "uji_river": "宇治川沿い・中の島・朝霧橋",
+    "uji_kami": "宇治上神社・源氏物語ミュージアム"
+  }
+}

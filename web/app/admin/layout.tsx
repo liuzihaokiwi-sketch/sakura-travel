@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { href: "/admin", icon: "📋", label: "订单看板", exact: true },
   { href: "/admin/catalog", icon: "🏨", label: "内容库" },
   { href: "/admin/clusters", icon: "🗺️", label: "活动簇" },
+  { href: "/admin/templates", icon: "🗓️", label: "模板库" },
   { href: "/admin/crawl", icon: "🔄", label: "数据抓取" },
   { href: "/admin/config", icon: "⚙️", label: "配置管理" },
   { href: "/admin/conversion", icon: "📈", label: "转化分析" },

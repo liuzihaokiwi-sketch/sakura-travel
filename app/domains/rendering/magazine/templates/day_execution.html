@@ -1,0 +1,52 @@
+{% from 'macros.html' import accent_bar, timeline, risk_card, text_block, diy_sticker, diy_freewrite %}
+{% set dz = vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | first | default(none) %}
+{% set has_diy = dz is not none %}
+<div class="page{% if has_diy %} has-diy{% endif %}">
+  {% if dz and dz.content.sticker_zone in ('top_right', 'corner') %}
+    {{ diy_sticker(dz.content.sticker_zone) }}
+  {% endif %}
+
+  <div class="page-header">
+    <div class="chapter-tag">Day {{ vm.day_index }}</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {% if vm.heading.subtitle %}<div class="page-header-subtitle">{{ vm.heading.subtitle | e }}</div>{% endif %}
+    {{ accent_bar() }}
+  </div>
+
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'text_block' and sec.heading == 'Mood' %}
+      <p style="font-style:italic;color:#7a7a7a;font-size:9.5pt;margin-bottom:8pt">{{ sec.content.text | e }}</p>
+    {% elif sec.section_type == 'timeline' %}
+      {{ timeline(sec.content['items']) }}
+    {% elif sec.section_type == 'risk_card' %}
+      {% set c = sec.content %}
+      {% if c.items is defined %}
+        {% for item in c.items %}
+          {{ risk_card(item.risk_type, item.description, item.action_required) }}
+        {% endfor %}
+      {% else %}
+        {{ risk_card(c.risk_type, c.description, c.action) }}
+      {% endif %}
+    {% elif sec.section_type == 'plan_b' %}
+      <div style="margin-top:8pt">
+        <div class="text-block-heading">Plan B 备选</div>
+        {% set items = sec.content.get('items', []) if sec.content is mapping else [] %}
+        {% for pb in items %}
+        <div class="plan-b-item">
+          <div class="plan-b-trigger">{{ pb.trigger | e }}</div>
+          <div class="plan-b-alt">{{ pb.alternative | e }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% if dz %}
+    {% if dz.content.sticker_zone not in ('top_right', 'corner') and dz.content.sticker_zone %}
+      {{ diy_sticker(dz.content.sticker_zone) }}
+    {% endif %}
+    {% if dz.content.freewrite_zone %}
+      {{ diy_freewrite(dz.content.freewrite_zone) }}
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,71 @@
+{
+  "template_id": "kyoto_railway_aquarium_day",
+  "label": "铁道博物馆+水族馆（亲子日）",
+  "tags": [
+    "museum",
+    "aquarium",
+    "indoor",
+    "family"
+  ],
+  "core_entities": [
+    "kyo_railway_museum",
+    "kyo_aquarium"
+  ],
+  "fit_audience": "family",
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 童心与好奇。京都铁道博物馆+梅小路公园+京都水族馆。三个设施在梅小路公园500m半径内，全室内为主，雨天完全友好。不只是'打发小孩'——铁道博物馆的蒸汽机车扇形车库是建筑级的壮观，大人也会觉得值。",
+  "hotel_area_note": "住京都站最方便：JR嵯峨野線→梅小路京都西站1站，或京都站步行20min。住四条：坐巴士到梅小路约15min。",
+  "slots": [
+    {
+      "slot_id": "fam_railway",
+      "time_range": "10:00-13:00",
+      "type": "poi",
+      "area": "kyoto_station",
+      "priority": "P1",
+      "duration_min": 180,
+      "entity_hint": "京都鉄道博物館（京都铁道博物馆）",
+      "note": "¥1,500成人/¥500小学/¥200幼儿（3岁以上）。蒸汽机车扇形车库（現役保存，20辆半圆排列）是最强拍照点——这个构图震撼到大人也会'哇'。SL蒸汽火车体验（¥300，梅小路公园内约1km乘车）小孩必乘，大人也有童年回忆。有婴儿车租借/哺乳室/多功能洗手间。2楼运转模拟器（¥100/次）小孩排队也要玩——规避排队：平日比周末人少一半以上，周末建议开馆即入。全程室内，不受天气影响。3h是标准游玩时间。"
+    },
+    {
+      "slot_id": "fam_lunch",
+      "time_range": "13:00-14:00",
+      "type": "meal",
+      "area": "kyoto_station",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "铁道博物馆2F有餐厅（可以边吃边看列车通过），或出来后梅小路公园周边有几家轻食。带小孩不远行——就近解决。"
+    },
+    {
+      "slot_id": "fam_aquarium",
+      "time_range": "14:00-16:30",
+      "type": "poi",
+      "area": "kyoto_station",
+      "priority": "P1",
+      "duration_min": 150,
+      "entity_hint": "京都水族館（京都水族馆）",
+      "note": "¥2,400成人/¥1,800高中/¥1,200小中学/¥800幼儿（3岁以上）。铁道博物馆步行5min。内陆型水族馆（京都不靠海），特色是淡水生态系统展示（京都鸭川生态链）和巨大水母区（クラゲワンダー，水母奇境）——水母在蓝光中飘浮的画面，视觉冲击很强。海豚表演每天2-3场（时间查当日官网）。有儿童餐/哺乳室。2-2.5h是标准时间。"
+    },
+    {
+      "slot_id": "fam_umekoji",
+      "time_range": "16:30-17:30",
+      "type": "walk",
+      "area": "kyoto_station",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "梅小路公园自由散步。有芝生広場（草坪广场，小孩可以跑）、すざくゆめ広場（朱雀梦广场，游乐设施）、ビオトープ（生态湿地池）。体力好继续玩——累了直接回京都站，步行或JR一站。"
+    },
+    {
+      "slot_id": "fam_dinner",
+      "time_range": "18:30-19:30",
+      "type": "meal",
+      "area": "kyoto_station",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "京都站内晚餐。京都站大楼The CUBE B1-2F / 伊势丹B1-2F有多家亲子友好餐厅。带小孩别再远行了——在站内解决最省力。京都站大台阶（駅ビル大階段，车站大楼大阶梯）晚上有LED灯光秀（171级台阶变光墙），从餐厅出来顺便看一下。"
+    }
+  ]
+}

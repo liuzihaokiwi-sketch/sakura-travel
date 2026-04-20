@@ -1,0 +1,83 @@
+{
+  "template_id": "kyoto_audience_friends_day",
+  "label": "东山闺蜜版（和服+拍照+锦市场）",
+  "tags": [
+    "friends",
+    "photo",
+    "shopping",
+    "culture"
+  ],
+  "core_entities": [
+    "kyo_yasaka_shrine"
+  ],
+  "fit_audience": "friends",
+  "weather_sensitive": true,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "闺蜜日不是'去网红点打卡'——而是在京都的颜值街区里一起发现、一起拍、一起买、一起笑。和服变装+东山坡道拍照+锦市场边走边吃+町家咖啡厅发呆。节奏比情侣日快一档，但不赶——留够时间给'站在路边研究菜单'和'进每家小店看看'这种闺蜜旅行的核心快乐。day_mood: 发现与分享。",
+  "hotel_area_note": "住四条河原町/祇園最佳——活动范围都在步行半径内。住京都站：巴士到清水道/祇園约15-20min。",
+  "slots": [
+    {
+      "slot_id": "friends_kimono",
+      "time_range": "09:00-10:00",
+      "type": "poi",
+      "area": "higashiyama_south",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "和服体验——清水坂/東山周边有大量和服出租店（¥3,000-8,000/人/含发型，一般到17:00-18:00归还）。选衣服+着付（穿戴和服）约45-60min。一起选和服的过程本身就是闺蜜旅行最开心的部分之一——互相参谋颜色/花纹，拍选衣服过程的照片。建议9:00开门就去——早到选择多+避免排队。不想穿和服完全OK——直接跳到下一个slot，东山散步穿便服也很好。"
+    },
+    {
+      "slot_id": "friends_higashiyama",
+      "time_range": "10:00-12:00",
+      "type": "walk",
+      "area": "higashiyama_south",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "穿着和服走东山——二年坂/产宁坂/清水坂/八坂庚申堂。八坂庚申堂的彩色くくり猿（缘结布猴）是闺蜜拍照的超级热门背景——一面墙的彩色球+和服的组合，Instagram/小红书刷屏画面。二年坂的石板坡道+两侧町家也是和服照的黄金场景。沿途有大量小店——陶器/扇子/香袋/和纸/抹茶周边，每家都值得进去看看。不赶——'一起逛街边讨论要不要买'这种时间是闺蜜日最核心的快乐。"
+    },
+    {
+      "slot_id": "friends_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "higashiyama_south",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "东山/祇園方向午餐。颜值和味道都要——闺蜜午餐的照片要发朋友圈。京都有大量'器物很美+份量适中+摆盘讲究'的午餐店。抹茶系甜品店也可以当午餐（京都允许这种操作）。避开和其他天重复的菜系。"
+    },
+    {
+      "slot_id": "friends_nishiki",
+      "time_range": "13:30-15:00",
+      "type": "poi",
+      "area": "nishiki_shijo",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "锦市场+新京极/寺町通购物——从东山走到锦市场约15-20min（或巴士/地铁）。锦市场边走边吃：出汁玉子烧（高汤玉子烧）/抹茶团子/渍物试吃/豆乳甜甜圈——几个人share着吃是最开心的方式。新京极/寺町通有药妆/杂货/二手和服店/文具。这段的节奏是'走走停停吃吃买买'——2h左右自由度最高。如果其他天已经安排了锦市场：换到三条通/御幸町通方向的独立店铺巡游（器物/衣服/vintage）。"
+    },
+    {
+      "slot_id": "friends_cafe",
+      "time_range": "15:00-16:00",
+      "type": "optional_poi",
+      "area": "nishiki_shijo",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "逛累了找一家颜值咖啡厅——京都的町家/蔵改装咖啡厅密度全日本最高。坐下来喝东西+看今天拍的照片+分享购物战利品。这个'坐下来回味'的时间对闺蜜日很重要——不是浪费时间而是旅行记忆的固化moment。"
+    },
+    {
+      "slot_id": "friends_return_kimono",
+      "time_range": "16:30-17:00",
+      "type": "transport",
+      "note": "如果穿了和服：17:00前回到和服店归还。归还后的'回到便服'的感觉也是一种有趣的体验转换——和服一整天之后走路轻松了很多。"
+    },
+    {
+      "slot_id": "friends_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "闺蜜日晚餐——升档，要'坐下来就想拍环境照'的氛围。方向：(1) 三条通/御幸町一带的创作料理——比先斗町人少，町家改装的设计感店多，适合拍照 (2) 先斗町南段（四条以南）——比北段安静，小店密度高。避开午餐方向的菜系。"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "_doc": "奈良 Day Template Library v2.1. 日模板候选池。",
+  "_version": "2.1",
+  "_areas": {
+    "nara_park": "奈良公園・東大寺・春日大社・興福寺",
+    "naramachi": "ならまち（元興寺周辺の町家エリア）",
+    "nara_station": "近鉄奈良駅・JR奈良駅周辺"
+  }
+}

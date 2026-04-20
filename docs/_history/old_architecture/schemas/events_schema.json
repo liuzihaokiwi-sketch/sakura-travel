@@ -1,0 +1,185 @@
+{
+  "_doc": "限时活动系统 Schema v2.0。事件定义(event_def)与年度发生(occurrence)两层分离。覆盖日本所有城市圈。",
+  "_version": "2.0",
+
+  "event_types": {
+    "sakura":       {"label": "樱花花期", "date_type": "forecast"},
+    "koyo":         {"label": "红叶期",   "date_type": "forecast"},
+    "illumination": {"label": "灯光活动", "date_type": "fixed_annual"},
+    "festival":     {"label": "祭典",     "date_type": "fixed_calendar"},
+    "special_open": {"label": "特别公开", "date_type": "fixed_annual"},
+    "season_timing":{"label": "季节时段调整", "date_type": "fixed_season"}
+  },
+
+  "event_def": {
+    "_doc": "永久定义层。一个景点的一种事件类型对应一条 event_def，不随年份变化。",
+    "fields": {
+      "event_def_id":   "string. 格式: {circle}_{type}_{spot_id}. 如 kansai_sakura_kiyomizudera",
+      "type":           "enum: sakura/koyo/illumination/festival/special_open/season_timing",
+      "circle":         "enum: kansai/kanto/chukyo",
+      "city":           "string. 与 circle_registry.json city_code 对齐",
+      "area":           "string|null. 与 day_template._areas 对齐",
+      "spot_id":        "string. 景点唯一ID",
+      "spot_name_ja":   "string",
+      "spot_name_zh":   "string",
+      "match_scope":    "enum: spot_exact/area/citywide",
+      "precedence":     "number. 冲突优先级，越小越优先。同天多事件按此排序后依次合并 overlay",
+      "usual_window":   {"start_md": "MM-DD", "end_md": "MM-DD", "note": "string|null"},
+      "date_rule":      "string|null. fixed_calendar 类型用，如'每年5月15日'",
+      "applies_to": {
+        "_doc": "影响哪些模板/slot。支持回退：poi_id → slot_id → template_id。大阪/奈良等未建模板的城市留空数组。",
+        "type": "array",
+        "items": {"template_id": "string", "slot_id": "string|null", "poi_id": "string|null"}
+      },
+      "default_overlay": {
+        "_doc": "typed patch 数组，定义命中事件时的默认改动。occurrence 可通过 overlay_overrides 覆盖。",
+        "type": "array of patch objects (见 overlay_patch_types)"
+      },
+      "data_source":    "string. 如'京都観光Navi / 日本気象協会'"
+    }
+  },
+
+  "occurrence": {
+    "_doc": "年度实例层。每年为每个 event_def 生成一条 occurrence，填入当年的具体日期和状态。",
+    "fields": {
+      "occurrence_id":    "string. 格式: {event_def_id}_{year}. 如 kansai_sakura_kiyomizudera_2026",
+      "event_def_id":     "string. 引用 event_def",
+      "year":             "number",
+      "starts_at":        "YYYY-MM-DD|null. 活动开始日",
+      "ends_at":          "YYYY-MM-DD|null. 活动结束日",
+      "phases": {
+        "_doc": "仅 sakura/koyo 类型使用",
+        "pre_start":  "YYYY-MM-DD|null. 开始变色/开花",
+        "peak_start": "YYYY-MM-DD|null. 进入最强窗口",
+        "peak_end":   "YYYY-MM-DD|null. 最强窗口结束",
+        "post_end":   "YYYY-MM-DD|null. 完全结束"
+      },
+      "event_status":     "enum: active/cancelled/postponed/unconfirmed",
+      "confidence":       "enum: confirmed/forecast/historical_pattern",
+      "verified_date":    "YYYY-MM-DD",
+      "verified_by":      "string. 如 'system_init' / 'human_ops' / 'scraper'",
+      "overlay_overrides": "array of patch objects|null. 覆盖 event_def.default_overlay 的当年特殊改动",
+      "admission":        {"adult_jpy": "number|null", "note": "string|null"},
+      "booking_required": "boolean",
+      "booking_url":      "string|null",
+      "source_url":       "string|null"
+    }
+  },
+
+  "overlay_patch_types": {
+    "_doc": "typed patch 操作。每个 patch 是一个对象，type 字段决定操作类型和允许的字段。",
+    "types": {
+      "add_slot": {
+        "fields": ["insert_after_slot", "slot_id", "time_range", "label", "area", "priority", "note", "admission", "booking"],
+        "example": "插入夜樱/点灯等新段"
+      },
+      "update_slot_time": {
+        "fields": ["slot_id", "new_start", "new_end", "reason"],
+        "example": "樱花期清水寺开始时间提前到 07:30"
+      },
+      "extend_duration": {
+        "fields": ["slot_id", "new_duration_min"],
+        "example": "秋季天龙寺停留延长到 90min"
+      },
+      "append_note": {
+        "fields": ["slot_id", "note"],
+        "example": "追加季节说明文字。slot_id 为 null 时追加到整天"
+      },
+      "raise_priority": {
+        "fields": ["slot_id", "new_priority"],
+        "example": "P3 → P1"
+      },
+      "replace_evening": {
+        "fields": ["slot_id", "replacement"],
+        "example": "替换晚间安排为夜间点灯"
+      },
+      "require_booking": {
+        "fields": ["slot_id", "booking_note", "booking_url"],
+        "example": "标记需要提前预约"
+      }
+    }
+  },
+
+  "confidence_permissions": {
+    "_doc": "confidence 级别决定允许使用的 patch 类型",
+    "historical_pattern": ["append_note"],
+    "forecast": ["append_note", "update_slot_time", "extend_duration"],
+    "confirmed": ["add_slot", "update_slot_time", "extend_duration", "append_note", "raise_priority", "replace_evening", "require_booking"]
+  },
+
+  "conflict_resolution": {
+    "_doc": "同一天同一 slot 被多个事件命中时的处理",
+    "rule": "按 precedence 升序排列，依次应用 overlay patch",
+    "merge_behavior": {
+      "append_note": "合并（所有 note 拼接）",
+      "update_slot_time": "后者覆盖前者",
+      "add_slot": "全部保留（多个夜间段并列供选）",
+      "raise_priority": "取最高（数字最小）",
+      "replace_evening": "precedence 最小的生效",
+      "require_booking": "任一标记即生效"
+    }
+  },
+
+  "query_interface": {
+    "primary_query": {
+      "inputs": ["circle", "city_list", "trip_start_date", "trip_end_date"],
+      "logic": "找出 occurrence.starts_at <= trip_end AND occurrence.ends_at >= trip_start 的所有记录。starts_at/ends_at 为 null 时回退到 event_def.usual_window + year 构造日期，confidence 标为 historical_pattern",
+      "output": "生效的 occurrence 列表，附带其 event_def"
+    },
+    "per_day_query": {
+      "inputs": ["circle", "city", "day_date", "template_id"],
+      "logic": "从 primary_query 结果中筛选：day_date 在 occurrence 日期范围内 AND event_def.applies_to 匹配 template_id。按 precedence 排序返回",
+      "output": "当天生效的 patch 列表，按优先级排序"
+    }
+  },
+
+  "file_structure": {
+    "schema": "data/events/schema.json",
+    "kansai": {
+      "sakura": "data/events/kansai/sakura.json",
+      "koyo": "data/events/kansai/koyo.json",
+      "festivals": "data/events/kansai/festivals.json",
+      "illumination": "data/events/kansai/illumination.json",
+      "special_open": "data/events/kansai/special_open.json"
+    },
+    "kanto": {
+      "sakura": "data/events/kanto/sakura.json",
+      "koyo": "data/events/kanto/koyo.json",
+      "festivals": "data/events/kanto/festivals.json",
+      "illumination": "data/events/kanto/illumination.json",
+      "special_open": "data/events/kanto/special_open.json"
+    },
+    "chukyo": {
+      "sakura": "data/events/chukyo/sakura.json",
+      "koyo": "data/events/chukyo/koyo.json",
+      "festivals": "data/events/chukyo/festivals.json",
+      "illumination": "data/events/chukyo/illumination.json",
+      "special_open": "data/events/chukyo/special_open.json"
+    }
+  },
+
+  "annual_update_checklist": {
+    "sakura": {
+      "timing": "每年2月底–3月初",
+      "action": "更新 occurrences 的 phases + starts_at/ends_at + confidence→forecast",
+      "sources": ["sakura.weathernews.jp", "n-kishou.com", "各景点官网"]
+    },
+    "koyo": {
+      "timing": "每年9月下旬",
+      "action": "更新 occurrences 的 phases + starts_at/ends_at + confidence→forecast",
+      "sources": ["koyo.walkerplus.com", "n-kishou.com", "各景点官网"]
+    },
+    "festivals": {
+      "timing": "每年1月",
+      "action": "确认 event_status，更新 starts_at/ends_at，confidence→confirmed"
+    },
+    "illumination": {
+      "timing": "每年10月",
+      "action": "确认 event_status + 门票 + 预约要求，confidence→confirmed"
+    },
+    "special_open": {
+      "timing": "各季节前1个月",
+      "action": "确认开放景点列表和日期"
+    }
+  }
+}

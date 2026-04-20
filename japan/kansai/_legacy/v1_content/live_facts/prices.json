@@ -1,0 +1,33 @@
+{
+  "_doc": "票价信息。高频变化，独立于模板内容管理。entity_id对应各池子中的id",
+  "_last_verified": "2026-04-08",
+
+  "poi": {
+    "osaka_castle": {"adult": 1200, "currency": "JPY", "note": "2025年起涨价", "free_with": "大阪周游卡(16:00前)"},
+    "tsutenkaku": {"adult": 900, "currency": "JPY", "note": "含展望台", "free_with": "大阪周游卡", "tower_slider": 1000},
+    "usj": {"range": "8600-11900", "currency": "JPY", "note": "淡旺季浮动，另购Express快速通关券"},
+    "kaiyukan": {"adult": 2700, "currency": "JPY", "child_6_15": 1400, "child_3_5": 700},
+    "tempozan_ferris": {"adult": 800, "currency": "JPY", "free_with": "大阪周游卡", "transparent_cabin_extra": 0},
+    "sky_building": {"adult": 1500, "currency": "JPY", "free_with": "大阪周游卡(16:00前)", "couple_set": "含香槟"},
+    "legoland_discovery": {"range": "2200-2800", "currency": "JPY", "note": "必须提前网上预约时段"},
+    "solaniwa_onsen": {"adult_weekday": 2790, "adult_holiday": 3010, "currency": "JPY", "note": "岩盘浴额外收费"},
+    "mint_bureau": {"adult": 0, "currency": "JPY", "note": "免费，必须网上预约 sakura-osaka.mint.go.jp"}
+  },
+
+  "transport": {
+    "kansai_airport_to_namba": {"rapi_t": 1450, "nankai_express": 930, "currency": "JPY", "time_min": "35-45"},
+    "namba_to_kyoto": {"kintetsu_limited": 1280, "jr_rapid": 580, "currency": "JPY", "time_min": "30-50"},
+    "namba_to_kobe": {"hanshin": 330, "currency": "JPY", "time_min": 40},
+    "namba_to_nara": {"kintetsu": 680, "currency": "JPY", "time_min": 40},
+    "umeda_to_minoo": {"hankyu": 280, "currency": "JPY", "time_min": 25},
+    "icoca_card": {"initial": 2000, "deposit": 500, "currency": "JPY", "note": "关西机场一出站就买"}
+  },
+
+  "seasonal_events": {
+    "sumo_spring": {"chair_seat": "3500-9000", "masu_seat_4pax": "~40000", "currency": "JPY", "sale_start": "1月底"},
+    "tenjin_matsuri": {"paid_seat": "JTB运营，4月上旬开售", "note": "船上席秒空"},
+    "yodogawa_hanabi": {"panorama": 5000, "premier": 18000, "boat": 27000, "currency": "JPY"},
+    "kishiwada_danjiri": {"paid_seat": "3000-8000", "currency": "JPY"},
+    "hikari_renaissance": {"price": 0, "note": "全程免费"}
+  }
+}

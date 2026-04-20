@@ -1,0 +1,74 @@
+{
+  "template_id": "osaka_banpaku_ume_day",
+  "label": "万博记念公园梅林日（大阪早春主场·140 品种 680 本）",
+  "tags": [
+    "ume",
+    "park",
+    "walking",
+    "garden",
+    "early_spring",
+    "seasonal"
+  ],
+  "core_entities": [
+    "osa_banpaku_kinenkouen",
+    "osa_taiyou_no_tou"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "travel_dates overlap 2月中-3月上 (梅まつり期間)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed"
+  },
+  "description": "day_mood: 大阪早春最浓的一抹粉白。万博记念公园（吹田市）的自然文化園/日本庭園共植约 140 品种 680 本梅——京阪神地区梅花品种数最多。祭り期间（2026/2/8-3/8）日本庭園有落语、呈茶、梅ガイド等家庭向活动。园区主体是 1970 大阪万博旧址，岡本太郎「太陽の塔」仍在。这是一个早春「完整半日梅 + 内部观光/博物館」的大阪模板——不拥挤、适合带长辈或孩子、地铁末站但交通可控。",
+  "hotel_area_note": "万博记念公园位于吹田市——不在大阪市中心。动线：御堂筋线「新大阪」→千里中央（北大阪急行）→转大阪モノレール（单轨）→「万博記念公園」站，从难波/心斋桥出发约 50-60 min；从梅田出发约 40-50 min。住大阪市中心（难波/心斋桥/梅田）均 OK，一日游往返。入园料大人 ¥260、中小学生 ¥80（自然文化園 + 日本庭園共通券）。",
+  "slots": [
+    {
+      "slot_id": "banpaku_morning",
+      "time_range": "09:30-11:30",
+      "type": "poi",
+      "area": "banpaku",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "万博记念公园 梅林（自然文化園）",
+      "note": "早到避人流。9:30 开园。入场后直奔自然文化園的梅林——约 140 品种 680 本，包括红白对比的「春日野」、优雅的「呉服枝垂」等。梅林散步 60-90 min，拍照 + 香气都到位。梅まつり期间（2026/2/8-3/8）日本庭園内有落语/呈茶/梅ガイド亲子向活动，适合带娃。注意：3/8 后梅まつり结束但梅花本身仍可赏至 3 月中下。"
+    },
+    {
+      "slot_id": "banpaku_taiyou",
+      "time_range": "11:30-13:00",
+      "type": "poi",
+      "area": "banpaku",
+      "priority": "P1",
+      "duration_min": 90,
+      "entity_hint": "太阳の塔（岡本太郎）",
+      "note": "1970 大阪万博的象征、岡本太郎作品。外観免费，内部见学需预约（¥930，官网 expo70-park.jp 提前预约）——内部保留了当年的「生命之树」，是昭和日本博物馆学的代表作，适合对建筑/艺术有兴趣的人。外観拍照+绕一圈 30-40 min；内部参观 60-90 min。家庭/情侣推荐内部见学。"
+    },
+    {
+      "slot_id": "banpaku_lunch",
+      "time_range": "13:00-14:15",
+      "type": "meal",
+      "area": "banpaku_expocity",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "公园西侧有 EXPOCITY（ららぽーとEXPOCITY）复合商场，2 层饮食街有多数选择（ラーメン、洋食、カフェ）。也可出公园前在梅林附近的茶店吃简餐。早春室外冷，推荐进室内吃。"
+    },
+    {
+      "slot_id": "banpaku_afternoon",
+      "time_range": "14:30-16:30",
+      "type": "optional_poi",
+      "area": "banpaku_expocity",
+      "priority": "P2",
+      "duration_min": 120,
+      "note": "下午选项（根据人群选）：（1）家庭/亲子：NIFREL（生物主题博物馆，成人 ¥2,200/小学生 ¥1,100），整体设计是 '水族馆+动物园+艺术'混合，室内温暖。（2）情侣/摄影：公园再逛日本庭園（梅林外的另一重点，泉池+枝垂梅），或レッドホース大阪ホイール（大摩天轮，¥1,000，日本最高 123m）。（3）休整型：直接回市区休息，留力气晚上去道頓堀。"
+    },
+    {
+      "slot_id": "banpaku_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "osaka_center",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "晚餐建议回市区吃——万博记念公园周边晚上没什么选择。单轨→御堂筋线→难波/心斋桥约 45-50 min，赶上道頓堀晚餐（17:30-20:00 是居酒屋/串炸/章鱼烧的高峰）。"
+    }
+  ]
+}

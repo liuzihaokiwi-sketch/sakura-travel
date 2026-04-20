@@ -1,0 +1,28 @@
+{% from 'macros.html' import accent_bar %}
+<div class="page">
+  <div class="page-header">
+    <h2>目录</h2>
+    {{ accent_bar() }}
+  </div>
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'toc_list' %}
+    <div>
+    {% for entry in sec.content.entries %}
+    <div class="toc-entry">
+      <div class="toc-title">
+        {% if entry.page_type == 'day_execution' %}
+          <strong>Day {{ entry.title.replace('Day ', '') | e }}</strong>
+        {% elif entry.page_type == 'chapter_opener' %}
+          <span style="color:#C0392B;font-weight:600">{{ entry.title | e }}</span>
+        {% else %}
+          {{ entry.title | e }}
+        {% endif %}
+      </div>
+      <div class="toc-dots"></div>
+      <div class="toc-page">{{ entry.page_number }}</div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

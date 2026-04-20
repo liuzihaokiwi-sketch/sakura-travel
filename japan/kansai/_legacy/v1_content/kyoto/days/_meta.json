@@ -1,0 +1,18 @@
+{
+  "_doc": "京都 Day Template Library v2.1. 日模板候选池，由 opus_assembler 硬筛 + Opus 最终选择。每条模板完整独立，无继承。",
+  "_version": "2.1",
+  "_areas": {
+    "fushimi": "伏见稻荷・伏见区",
+    "higashiyama_south": "清水寺・三年坂・二年坂・八坂",
+    "gion": "祇园・花见小路・白川南通",
+    "arashiyama": "岚山・竹林・天龙寺・渡月桥",
+    "central_kyoto": "二条城・京都御苑・乌丸御池",
+    "nishiki_shijo": "锦市场・四条河原町・木屋町・先斗町",
+    "okazaki": "冈崎・平安神宫・南禅寺・哲学之道",
+    "kinugasa_kitano": "金阁寺・龙安寺・仁和寺・北野天满宫",
+    "kyoto_station": "京都站・梅小路・东寺",
+    "tofukuji_area": "东福寺・泉涌寺・京阪东福寺",
+    "ohara": "大原・三千院・寂光院"
+  },
+  "template_ids": []
+}

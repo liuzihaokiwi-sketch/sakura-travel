@@ -1,0 +1,214 @@
+{
+  "_doc": "关西圈特别公开/非公开文化财开放数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "special_open",
+    "circle": "kansai",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kansai_special_kyoto_fuyu_no_tabi",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "01-09",
+        "end_md": "03-18"
+      },
+      "name_ja": "京都 冬の旅（非公開文化財特別公開）",
+      "name_zh": "京都冬之旅（非公开文化财特别公开）",
+      "description": "京都市観光協会主催，1月上旬〜3月中旬（約10週）に約15-20ヶ所の非公開寺社仏閣を特別公開するシリーズ。毎年異なる景点が選定されるため，同じ年に二度と来られない組合せが生まれる。¥600-800/箇所，各所で現場購入可。過去の出展例：大徳寺塔頭，二尊院，勝持寺，長興院など——通常絶対に入れない非公開エリアが対象。坑点：公開景点リストは毎年11〜12月に官方网站で発表されるため，渡航前に確認必須。适配：京都通の深度游客/文化財マニア向け。一般観光客より「ほかの人が見られないものを見たい」层。",
+      "source_url": "https://kyoto-kanko.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_kyoto_haru",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "04-20",
+        "end_md": "05-15"
+      },
+      "name_ja": "京都 春の特別公開",
+      "name_zh": "京都春季特别公开",
+      "description": "京都古文化保存協会主催，4月下旬〜5月中旬に非公開文化財約10-15ヶ所を特別公開。ゴールデンウィーク期間と重なり，通常入れない塔頭庭園・秘仏・仏像が期間限定で公開される。¥800前後/箇所。過去の出展例：大覚寺の秘仏，妙心寺塔頭，仁和寺御殿，廬山寺など——春の京都観光に「深度レイヤー」を加えるプログラム。坑点：GW期間は京都全体が混雑，公開箇所が増えても移動に時間がかかる。1日1-2ヶ所が現実的。适配：京都を何度も来ている/通常の観光地では物足りない深度游客層。",
+      "source_url": "https://www.buzan.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_kyoto_aki",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "京都 秋の特別公開",
+      "name_zh": "京都秋季特别公开",
+      "description": "京都古文化保存協会主催，10月下旬〜12月上旬に非公開文化財约10-15ヶ所を特別公開。紅葉期に重なる。紅葉×非公開庭園の組合せは京都秋の最高难度グレードの体験。¥800前後/箇所。過去の出展例：東本願寺渉成園，相国寺法堂，聖護院御殿，本法寺など。坑点：紅葉ピーク期（11月20日〜12月初旬）は京都全体が過混雑。特別公開会場も行列が発生する。适配：「京都の紅葉は何度も来た，次は特別な文化財を見たい」という上级客向け。",
+      "source_url": "https://www.buzan.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_toji_spring",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "05-25"
+      },
+      "name_ja": "東寺 春の特別公開",
+      "name_zh": "东寺春季特别公开",
+      "description": "真言宗の総本山・東寺の春期特別公開（3月下旬〜5月下旬）。¥800。通常非公開の五重塔初層内部（国宝，四方仏と密教世界観）+宝物館の特別展示。東寺の五重塔（高さ54.8m，現存木造塔として日本一高）の初層に入れる世界遺産体験として唯一無二。JR京都駅から徒步15min，访問のしやすさでも最高クラス。坑点：五重塔内部は狭く，入場人数を制限するため行列が発生する場合あり。适配：京都駅周辺+世界遺産+秘仏体験を半日で完結させたい行程に最適。",
+      "source_url": "https://toji.or.jp/event"
+    },
+    {
+      "event_def_id": "kansai_special_toji_autumn",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "09-20",
+        "end_md": "11-25"
+      },
+      "name_ja": "東寺 秋の特別公開",
+      "name_zh": "东寺秋季特别公开",
+      "description": "東寺の秋期特別公開（9月下旬〜11月下旬）。¥800。内容は春季とほぼ同じ：五重塔初層内部+宝物館特別展示。紅葉期に重なる10月下旬〜11月は東寺境内の紅葉+五重塔のライトアップ（夜間）と組み合わせ可能。坑点：秋の特別公開は春より空いているが，11月連休は混雑。适配：春に来られなかった人の秋版代替，紅葉行程のついでに組み込む価値あり。",
+      "source_url": "https://toji.or.jp/event"
+    },
+    {
+      "event_def_id": "kansai_special_myoshinji_taizoin",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "妙心寺 退蔵院 春の特別公開",
+      "name_zh": "妙心寺退藏院春季特别公开",
+      "description": "妙心寺塔頭・退蔵院の枝垂れ桜期間の特別公開（3月下旬〜4月上旬）。通常¥600。余香苑の大枝垂れ桜（高さ14m）+狩野元信の枯山水庭園は妙心寺エリアで最も格の高い桜景観。妙心寺は通常の観光ルートから少し離れた北野・衣笠エリアにあり，混雑度が低い穴場。JR花園駅徒步10min/嵐電妙心寺駅すぐ。坑点：開花年によってピーク日が1週間以内に集中するため，事前に開花状況確認推奨。适配：人混みを避けた穴場の桜体験を求める客向け，金閣寺/北山エリア行程の追加として最適。",
+      "source_url": "https://taizoin.com"
+    },
+    {
+      "event_def_id": "kansai_special_nanzenji_saisho_in",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "南禅寺 最勝院 秋の特別公開",
+      "name_zh": "南禅寺最胜院秋季特别公开",
+      "description": "南禅寺塔頭・最勝院の秋の特別公開（10月下旬〜12月上旬，年によって期間調整）。¥600前後。通常非公開の書院庭園（池泉回游式，明治期）と紅葉の組合せで永観堂の隣という立地から動線が完璧。南禅寺本坊〜永観堂〜最勝院の一帯が京都秋の紅葉連続コースとして完成する。坑点：特別公開期間が毎年微調整されるため，南禅寺官方サイトで事前確認。适配：永観堂ライトアップと同日の昼間追加として最高效率。",
+      "source_url": "https://www.nanzenji.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_daikakuji_spring",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-07"
+      },
+      "name_ja": "大覚寺 春の特別公開",
+      "name_zh": "大觉寺春季特别公开",
+      "description": "嵯峨天皇の離宮跡である大覚寺の春の特別公開（3月下旬〜4月上旬）。¥1000（庭園+宸殿込）。大沢池（日本最古の人工庭池）の周囲+宸殿の間（中国絵画「群仙図」など）の特別公開。大沢池+桜+嵐山近郊の静かな自然は嵐山本体と比べて観光客が少なく，写真品質が高い。嵐山中心から徒步20min/バス5min。坑点：嵐山との組み合わせには午前早起き必須（嵐山で全力消費すると体力的に辛い）。适配：嵐山を何度も来た深度游客向けの発展版，春の嵯峨野行程の文化的厚みを加える。",
+      "source_url": "https://www.daikakuji.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_todaiji_omizutori",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-01",
+        "end_md": "03-14"
+      },
+      "name_ja": "東大寺 修二会（お水取り）",
+      "name_zh": "东大寺修二会（取水仪式）",
+      "description": "東大寺二月堂で3/1-14に行われる1260余年一度も中断しない法会。「お松明」——每晚僧侶が巨大火把を持ち二月堂回廊を走り火花が舞い散る——が最大の見どころ（18:30〜19:30，無料）。3/12深夜は「お水取り」本番（二月堂の井戸から聖水を汲み上げる）+11本の大松明で最高潮。3月の奈良訪問なら最優先イベント，夜間追加行程として必ず組み込む。坑点：3/12夜は18:00前から場所取りが必要。末班バスに注意（奈良駅22:30頃）。适配：奈良の仏教文化体験として関西最高ランク，特别公開というより必須の年中行事として扱う。",
+      "source_url": "https://www.todaiji.or.jp/event/shuniee"
+    },
+    {
+      "event_def_id": "kansai_special_toshodaiji_ganjin",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "06-05",
+        "end_md": "06-07"
+      },
+      "name_ja": "唐招提寺 鑑真和上坐像特別開帳",
+      "name_zh": "唐招提寺鉴真和上坐像特别开龛",
+      "description": "国宝・鑑真和上坐像（脱活乾漆造，8世纪）は年間を通じて非公開，唯一の公開が鑑真忌前後の3日間（毎年6/5-7前後）。¥1000（金堂参拝込）。奈良の国宝仏像の中で「最も人の肖像に近い」とされ，中国からの渡来僧・鑑真の歴史的価値も高い。中国人旅客にとって鑑真は特别な存在——唐から命がけで渡来した僧の坐像を唯一公開日に見る体験は中国語圏の旅行者に強く響く。西大寺駅からバス，または近鉄西ノ京駅徒步10min。坑点：6月梅雨期，天候注意。3日間のみのため，日程を逃すと翌年まで待つ必要あり。适配：鑑真に関心のある中国人客/奈良深度游客向けの唯一無二体験。",
+      "source_url": "https://www.toshodaiji.jp"
+    },
+    {
+      "event_def_id": "kansai_special_horyuji",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "04-11",
+        "end_md": "05-18"
+      },
+      "name_ja": "法隆寺 夢殿 秘仏公開（救世観音）",
+      "name_zh": "法隆寺梦殿秘佛公开（救世观音）",
+      "description": "法隆寺夢殿の秘仏・救世観音像（国宝，飛鳥時代，等身大，183cm）の春の特別公開（4/11〜5/18）。同仏は明治以前数百年間一度も開扉されず，秘仏の中の秘仏として知られる。¥500（夢殿区域）。秋版：10/22〜11/22にも公開。JR法隆寺駅から徒步20min（バスあり），または奈良からJR25min。坑点：夢殿内部は狭く，一度に数名しか参拝できない。ピーク日（GW/紅葉期）は並ぶ。适配：飛鳥仏教文化の核心を体験したい深度游客向け。奈良→法隆寺日帰り半日コースとして完結。",
+      "source_url": "https://www.horyuji.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_todaiji_mantoe",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "08-15",
+        "end_md": "08-15"
+      },
+      "name_ja": "東大寺 万灯供養会",
+      "name_zh": "东大寺万灯供养会",
+      "description": "毎年8/15の盂蘭盆節に東大寺境内に約2500個の灯籠が灯される万灯供養会（19:00〜21:30，無料参拝）。大仏殿正面の桟唐戸（3枚）が特別開扉され，灯籠の明かりの中で正面から大仏の顔を仰ぐことができる——通常の参拝では絶対に体験できない唯一無二の景観。坑点：8/15は奈良市内が盂蘭盆期の人出，宿は混雑。深夜の最終バスに注意。适配：8月中旬に奈良を含む行程であれば最優先で夜間プランに組み込む価値あり。",
+      "source_url": "https://www.todaiji.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_shitennoji_shoryo",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "04-22",
+        "end_md": "04-22"
+      },
+      "name_ja": "四天王寺 聖霊会（聖徳太子忌）",
+      "name_zh": "四天王寺圣灵会（圣德太子忌）",
+      "description": "聖徳太子の命日（4/22）に四天王寺で行われる法要と舞楽奉納（重要無形民俗文化財）。天王寺舞楽は大陸から伝来した古代の音楽舞踊を1400年以上伝える日本最古のクラス，日中友好の文化的接点としても意義深い。境内参拝無料，舞楽は境内中心部の亀井堂前で鑑賞。坑点：4/22は固定のため行程上の組み込みが難しい，偶然訪れた旅客に案内する形が多い。适配：大阪深度游客/仏教・歴史文化爱好者向け。通天閣/新世界エリアからも近いので立ち寄りやすい。",
+      "source_url": "https://www.shitennoji.or.jp"
+    },
+    {
+      "event_def_id": "kansai_special_engakuji_jizo",
+      "type": "special_open",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "08-23",
+        "end_md": "08-24"
+      },
+      "name_ja": "須磨寺 地蔵盆 特別公開",
+      "name_zh": "须磨寺地藏盆特别公开",
+      "description": "神戸須磨区の福祥寺（須磨寺）で毎年8/23-24に地蔵盆として特別公開が行われる。境内の地蔵尊が飾り付けられ，子供の守護仏として御利益を授かる地域行事。平敦盛ゆかりの寺として有名で，境内の「青葉の笛」など源平合戦関連の展示も。山陽電鉄須磨寺駅すぐ（神戸三宮から約20min）。境内無料。坑点：規模は小さく，地域行事の性格が強い。神戸観光の追加エリアとして組み込む形が無理なく。适配：神戸深度游/地域文化体験希望者向け，メイン観光ではなくオプション扱い。",
+      "source_url": "https://www.sumadera.or.jp"
+    }
+  ],
+  "occurrences": []
+}

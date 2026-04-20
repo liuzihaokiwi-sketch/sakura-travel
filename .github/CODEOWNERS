@@ -1,0 +1,25 @@
+# CODEOWNERS — 代码所有者
+
+# ── 后端 ──
+app/                      @liuzihaokiwi-sketch
+scripts/                  @liuzihaokiwi-sketch
+/tests/                   @liuzihaokiwi-sketch
+/pyproject.toml           @liuzihaokiwi-sketch
+/Dockerfile               @liuzihaokiwi-sketch
+/docker-compose.yml       @liuzihaokiwi-sketch
+
+# ── 前端 ──
+web/                      @liuzihaokiwi-sketch
+
+# ── 产品内容 ──
+content/                  @liuzihaokiwi-sketch
+
+# ── 数据库 ──
+app/db/                   @liuzihaokiwi-sketch
+
+# ── 文档 ──
+docs/                     @liuzihaokiwi-sketch
+
+# ── 基础设施 ──
+deploy/                   @liuzihaokiwi-sketch
+.env.example              @liuzihaokiwi-sketch

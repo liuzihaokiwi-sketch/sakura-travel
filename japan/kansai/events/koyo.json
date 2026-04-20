@@ -1,0 +1,732 @@
+{
+  "_doc": "关西圈红叶花期数据库。设计用途同 sakura.json：人/AI 在设计手账本模板时查阅的资料库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_annual_update": "每年9月下旬。更新各 occurrence 的 date_range.peak_start / peak_end / confidence / verified_date。来源：https://koyo.walkerplus.com / https://n-kishou.com/corp/news-contents/koyo/",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "koyo",
+    "circle": "kansai",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名（含地点简称）",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+walkerplus 排名+交通+坑点+人群适配",
+    "source_url": "walkerplus 详情页 URL（null 表示不在 walkerplus top100 榜内）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kansai_koyo_tofukuji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "東福寺",
+      "name_zh": "东福寺",
+      "description": "京都红叶绝对头牌。通天橋横跨洗玉涧，桥下约 2000 棵枫树从桥上俯瞰是一片红色海洋，京都「必去一次」的红叶点。walkerplus 2026 全国第 58 位（59 票，但此榜单偏关东用户池，京都市内实际人气远高于此）。JR/京阪東福寺駅徒歩 10 分。坑点：11 月下旬人山人海，通天橋会限流 + 排队；门票本堂庭园 1000 日元（红叶季加价）；通天橋全面禁止从桥上拍照只能快速通过。适合所有第一次秋季来京都的游客；怕人多的用户避开周末；想从上俯瞰枫海的摄影爱好者。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e13141/"
+    },
+    {
+      "event_def_id": "kansai_koyo_komyoin",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-10",
+        "end_md": "11-30"
+      },
+      "name_ja": "光明院",
+      "name_zh": "光明院",
+      "description": "东福寺塔头寺院，昭和作庭家重森三玲设计的「波心の庭」是京都现代枯山水代表作，秋季苔庭 + 红枫 + 青苔的组合被称为「虹の苔寺」。未进 walkerplus 全国 top100（太小众）。JR/京阪東福寺駅徒歩 12 分（在东福寺南侧），拝观协力金 500 日元。坑点：寺院小 20 分钟看完；室内禁止三脚架；游客以摄影爱好者和庭园粉为主。适合已经看过东福寺想找安静小众点的二次游客、枯山水庭园爱好者、摄影爱好者追求「红+绿+白沙」三色构图。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_eikando",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "11-25"
+      },
+      "name_ja": "永観堂 禅林寺",
+      "name_zh": "永观堂 禅林寺",
+      "description": "京都红叶「永観堂のもみじ」古谚所指，境内约 3000 棵枫树覆盖放生池 + 多宝塔 + 伽蓝，是京都红叶数量密度双高的经典名所。walkerplus 2026 全国第 13 位（126 票）。市巴士「南禅寺・永観堂道」徒歩 3 分，入场费 1000 日元（红叶季）+ 600 日元寺宝展。坑点：红叶季人流量仅次于东福寺；放生池周围的机位要排队；门票红叶季涨价偏贵。夜间特别拜观需另购票。适合所有京都秋季游客、喜欢数量型红叶景观的人；配合南禅寺 + 哲学之道半日游。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e13137/"
+    },
+    {
+      "event_def_id": "kansai_koyo_kiyomizudera",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-18",
+        "end_md": "12-05"
+      },
+      "name_ja": "清水寺",
+      "name_zh": "清水寺",
+      "description": "从清水舞台俯瞰下方山谷红枫 + 京都市街 + 远方远山的画面是京都秋季名场面，虽然红叶数量不如东福寺但构图独一无二。未进 walkerplus 全国 top100（同清水寺春樱情况）。市巴士「清水道」徒歩 10 分，门票 500 日元。坑点：红叶见頃（11 月中下旬）清水坂人流挤到移动困难；夜间特别拜观（11 月底到 12 月初）要加购门票但画面最强。适合第一次秋季来京都的游客（和樱花季一样的经典地位）、情侣夜景约会；不适合追求红叶数量密集画面的硬核粉。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_kodaiji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "高台寺",
+      "name_zh": "高台寺",
+      "description": "京都东山南段的夜红叶名所，方丈庭园「波心庭」+ 枯山水 + 竹林 + 红枫，夜间灯光秀投影在枫林和池面上是京都秋季限定艺术。未进 walkerplus 全国 top100。市巴士「東山安井」徒歩 5 分，夜间特别拝观 600 日元。坑点：夜间 17:00 后才开放特别拜观；灯光秀集中在 18:30–20:00；方丈庭机位人多需要等。适合情侣夜红叶约会、想看「艺术装置 + 红叶」的文艺向用户、已去过东福寺/永観堂想找夜间互补项目的深度游客。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_tenryuji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-10",
+        "end_md": "11-30"
+      },
+      "name_ja": "天龍寺",
+      "name_zh": "天龙寺",
+      "description": "岚山秋季主战场。庭园曹源池背后红叶 + 嵐山山坡枫叶 + 借景构图，是岚山最有层次感的赏枫点。世界遗产。未进 walkerplus 全国 top100。嵐電嵐山駅徒歩 3 分，庭园 500 日元 + 本堂 300 日元。坑点：岚山红叶季人流量比樱花季还夸张；庭园拍照要排队；建议 8 点前到场。适合岚山一日游的所有游客；配合常寂光寺 + 祇王寺 + 二尊院的奥嵯峨半日路线。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_arashiyama_trio",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "11-28"
+      },
+      "name_ja": "常寂光寺・二尊院・祇王寺",
+      "name_zh": "常寂光寺・二尊院・祇王寺",
+      "description": "岚山奥嵯峨地区的三座红叶名寺合集：常寂光寺多宝塔+满山枫红、二尊院参道红叶隧道、祇王寺苔庭+落叶红毯。每一处风格都不同可以串连逛半天。未进 walkerplus 全国 top100（三寺都是小众但高质量）。从嵐電嵐山駅徒歩 15–20 分可到起点常寂光寺，之后沿奥嵯峨小路依次走。门票三寺合计约 1500 日元。坑点：奥嵯峨比嵐山中心清净但仍需步行 30 分钟以上；寺院分散；建议避开周末。适合想深度赏枫的二次游客、喜欢「串连小寺」慢逛体验的人、摄影爱好者追求多样构图。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_takao",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "11-25"
+      },
+      "name_ja": "高雄三寺（神護寺・西明寺・高山寺）",
+      "name_zh": "高雄三寺（神护寺·西明寺·高山寺）",
+      "description": "京都洛北高雄山区的三座古寺合集，「京都红叶最早见頃地区」（11 月上旬开始），清泷川沿岸山谷红叶 + 石阶 + 古寺氛围是京都山寺赏枫的代表路线。walkerplus 2026 全国第 70 位（53 票，仅神護寺上榜）。市巴士「高雄」下车（JR 京都駅直达约 50 分钟），三寺徒歩 30 分钟可串完。坑点：从京都市内交通 50 分钟 + 爬山 1 小时体力需求大；神護寺石阶约 400 级对老人小孩不友好。适合想看「京都最早见頃」红叶的游客、11 月初到访错过市内主力期的人、体力较好的深度游客、山寺氛围爱好者。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e12990/"
+    },
+    {
+      "event_def_id": "kansai_koyo_tetsugaku",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-20",
+        "end_md": "12-05"
+      },
+      "name_ja": "哲学の道",
+      "name_zh": "哲学之道",
+      "description": "京都红叶散步道。从银閣寺到南禅寺约 1.8 公里的琵琶湖疏水两侧红叶 + 水面反射，比樱花季更清净因为游客集中在永観堂。未进 walkerplus 全国 top100。市巴士「銀閣寺道」下车起点，免费。坑点：11 月下旬见頃但比东福寺/永観堂稍晚 1 周；水面反射需要无风天气；沿途没有遮阴。适合喜欢散步慢旅的游客、配合银阁寺/永観堂/南禅寺的经典 walking course、想避开主力红叶寺人潮的二次游客。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_nanzenji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-12",
+        "end_md": "12-05"
+      },
+      "name_ja": "南禅寺",
+      "name_zh": "南禅寺",
+      "description": "京都五山之首 + 临济宗南禅寺派大本山。境内枫树分布在三门+法堂+方丈庭 + 水路閣（明治时期红砖水道），「水路閣 + 红叶」是京都最上镜的近代和风融合构图。未进 walkerplus 全国 top100。地下鉄東西線蹴上駅徒歩 10 分，境内免费，三门/方丈庭分别收费。坑点：水路閣机位人多要排队；三门上楼要另付 600 日元。适合想看「红叶 + 红砖」独特构图的摄影爱好者、禅宗文化爱好者、配合永観堂 + 哲学之道的东山赏枫经典路线。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_bishamondo",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-12",
+        "end_md": "12-05"
+      },
+      "name_ja": "毘沙門堂",
+      "name_zh": "毗沙门堂",
+      "description": "京都山科地区的天台宗门迹寺院，秋季「敷紅葉」（落叶铺满石阶形成红毯）是京都名场面，比其他寺院的立体红叶更有氛围感。未进 walkerplus 全国 top100（山科地区偏僻少有榜单曝光）。JR 山科駅徒歩 20 分（含 5 分钟上坡），拝观费 500 日元。坑点：从京都市中心要专程跑一趟（约 20 分钟车程）；「敷紅葉」画面窗口期非常短（11 月底落叶最密的 3–5 天），时机很难把握。适合追求「落叶红毯」画面的摄影爱好者、想找京都冷门寺院的深度游客、已经看完主力红叶想要差异化体验的人。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_kibune",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "11-20"
+      },
+      "name_ja": "貴船神社",
+      "name_zh": "贵船神社",
+      "description": "京都洛北深山的水神社，秋季「もみじ灯籠」灯笼小路 + 鞍马/贵船红叶是京都山岳赏枫的代表场景。未进 walkerplus 全国 top100（山区偏远）。叡山電車貴船口駅下车转京都巴士或徒歩 30 分钟。免费但想逛奥宫要爬山。坑点：山区海拔高 11 月上旬就见頃（比市内早 2 周），时机不好来会扑空；交通一次就要 1 小时 40 分钟；冬天山区冷要穿羽绒。适合 11 月上旬早于市内见頃的游客、配合鞍马寺徒步的登山路线、想逃离京都市中心人潮找深山灯笼氛围的文艺用户。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_osaka_castle",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "12-05"
+      },
+      "name_ja": "大阪城公園",
+      "name_zh": "大阪城公园",
+      "description": "大阪市内红叶散步点。公园西の丸庭園 + 天守阁周边分布约 100 棵枫树 + 200 棵银杏，红叶 + 银杏双色 + 天守阁组合是大阪秋季代表画面。walkerplus 2026 全国第 98 位（46 票）。JR 大阪城公園駅/森ノ宮駅徒歩 5 分。公园免费，西の丸庭園 200 日元。坑点：红叶数量不多（相比京都）；见頃 11 月下旬–12 月上旬比市外晚一些；主要看点是「城 + 红叶 + 银杏」组合而非红叶数量。适合大阪短时间停留还想看红叶的游客、家庭出游、配合大阪历史博物馆/难波半日游。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0727e154680/"
+    },
+    {
+      "event_def_id": "kansai_koyo_banpaku",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-10",
+        "end_md": "12-05"
+      },
+      "name_ja": "万博記念公園",
+      "name_zh": "万博记念公园",
+      "description": "大阪北摂的大型公园（260 公顷），约 1 万棵树木中枫树集中在「日本庭園」+「自然文化園」区域，红叶季「紅葉渓」地区约 500 棵枫树 + 池水倒影是大阪市内最震撼的红叶数量画面。未进 walkerplus 全国 top100。大阪モノレール万博記念公園駅徒歩 5 分，入场费 260 日元。坑点：园区太大（260 公顷）至少 3 小时才能逛完核心红叶区；位置在吹田市从大阪梅田 25 分钟。适合想在大阪府内找红叶数量型景观的游客、带小孩的家庭、配合 EXPOCITY 购物一日游。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_minoh",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-12",
+        "end_md": "12-05"
+      },
+      "name_ja": "箕面大滝",
+      "name_zh": "箕面大瀑布",
+      "description": "大阪北摂的「日本瀑布百选」之一，瀑布高 33 米 + 周围山谷 2 公里红叶散步道是大阪郊区最经典的「瀑布 + 红叶」组合。未进 walkerplus 全国 top100。阪急箕面線箕面駅徒歩 40 分（沿散步道上山），或打车到滝附近徒歩 5 分。免费。坑点：从箕面駅到大滝徒歩 40 分钟上坡，来回 2 小时体力需求；大阪北部远离市中心；周末人流极多。沿途有卖「もみじ天ぷら」（炸红叶，当地特产）。适合体力好愿意走路的游客、家庭出游、配合箕面温泉/胜尾寺的北摂一日游。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_katsuoji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-08",
+        "end_md": "12-05"
+      },
+      "name_ja": "勝尾寺",
+      "name_zh": "胜尾寺",
+      "description": "大阪北摂箕面山上的「勝ち運」寺院，境内约 3000 棵枫树 + 境内遍地达磨娃娃的组合是独一无二的画面。未进 walkerplus 全国 top100。阪急北千里駅转阪急巴士 30 分钟；自驾方便但周末塞车。入场费 500 日元。坑点：公共交通班次少（周末临时班次多）；上山盘山路自驾有难度；游客因「勝ち運」祈愿目的混杂了很多非赏枫的客群，境内比较热闹。适合自驾游客、想看「红叶 + 达磨」独特画面的摄影爱好者、祈愿 + 赏枫二合一的日本文化爱好者。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_nara_park",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "11-12",
+        "end_md": "12-05"
+      },
+      "name_ja": "奈良公園",
+      "name_zh": "奈良公园",
+      "description": "奈良公园内约 1700 棵枫树分布在春日大社参道 + 若草山 + 东大寺周围，「红叶 + 鹿」是奈良独有的秋季画面。未进 walkerplus 全国 top100。近鉄奈良駅徒歩 5 分起。全园免费（寺院内部要门票）。坑点：红叶数量比京都少，主要是氛围而非密度；11 月下旬见頃；鹿饼干引来鹿群围攻的情况春秋都一样要小心。适合带小孩的家庭（鹿是主角）、第一次秋季来奈良的游客、配合东大寺/春日大社半日游；纯粹赏枫不推荐。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_yoshino",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "10-20",
+        "end_md": "11-15"
+      },
+      "name_ja": "吉野山",
+      "name_zh": "吉野山",
+      "description": "世界遗产吉野山秋季版。约 3 万棵樱花树秋季转为黄红色系，与春季樱花同名的下千本→中千本→上千本→奥千本四区域依次变色，比春樱人少但画面同样壮阔。未进 walkerplus 全国 top100（秋季知名度不如春季）。近鉄吉野駅起点，徒歩 + 吉野山观光车。坑点：从大阪单程 1.5 小时 + 山上 3 小时步行；10 月下旬–11 月中旬见頃比市内主力期早 2 周；秋季商业设施多已关闭。适合爱好吉野山想看「春秋对比」的二次游客、愿意安排整天的深度赏枫人、比春季清净得多。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_kobe_nunobiki",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "11-08",
+        "end_md": "12-05"
+      },
+      "name_ja": "神戸布引ハーブ園",
+      "name_zh": "神户布引香草园",
+      "description": "神户市区背山的山顶香草园，缆车上去后山顶俯瞰神户港夜景 + 红叶 + 南欧风格花园建筑，是神户少见的「城市 + 山景 + 红叶」立体构图。未进 walkerplus 全国 top100。JR/阪神/阪急三宮駅徒歩 15 分到缆车站，来回 1800 日元（含园内）。坑点：缆车费用偏贵；红叶数量不算多主要看城市背景；山顶风大要穿外套；周末人多。适合神户一日游的游客、想看「港口夜景 + 红叶」独特画面的摄影爱好者、情侣约会（缆车 + 夜景氛围好）、家庭带小孩（有小型游乐设施）。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_himeji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "himeji",
+      "usual_window": {
+        "start_md": "11-12",
+        "end_md": "12-05"
+      },
+      "name_ja": "姫路城・好古園",
+      "name_zh": "姬路城·好古园",
+      "description": "世界遗产姫路城旁边的江户时代回游式庭园（9 个庭园构成），秋季「潮音斎」茶室前的红叶 + 池泉 + 姫路城天守阁借景是日本庭园红叶最上镜构图之一。walkerplus 2026 全国第 31 位（84 票）。JR 姫路駅徒歩 15 分，姫路城 + 好古园共通券 1050 日元。坑点：从京都/大阪单程 1 小时远郊；姫路城 + 好古园都要逛的话一整天；好古園本身较小 1 小时逛完。适合姫路日帰の游客、日式回游庭园爱好者、摄影爱好者追求「天守阁 + 红叶 + 茶室」完美构图；家庭带老人（庭园平地易走）。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kansai_koyo_saikyoji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "12-05"
+      },
+      "name_ja": "西教寺の紅葉",
+      "name_zh": "西教寺红叶",
+      "description": "滋贺大津比叡山脚下的天台真盛宗总本山，「千年の古刹」参道的 60 米红叶隧道 + 境内 100 棵枫树是关西秋季排名第一的红叶体验。walkerplus 2026 全国第 2 位（522 票）—— 关西赏枫票数最高，仅次于新潟苗场缆车。京阪坂本比叡山口駅徒歩 20 分或转巴士。坑点：从京都要经过坂本地区（约 40 分钟 + 换乘），对只玩京都的游客是额外负担；参道见頃 11 月中下旬；入场费 500 日元。适合愿意出京都跑滋贺一日的深度游客、配合比叡山延暦寺/日吉大社的坂本半日路线；已经看过京都主力红叶想要「全国第 2 名」加成的摄影爱好者。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0725e393635/"
+    },
+    {
+      "event_def_id": "kansai_koyo_hasedera",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "奈良 長谷寺の紅葉",
+      "name_zh": "长谷寺红叶（奈良）",
+      "description": "奈良樱井市的真言宗豊山派总本山，「西国三十三所」第 8 番，境内 7000 棵樱花 + 红叶，礼堂俯瞰「登廊」石阶两侧的红叶层次是奈良红叶代表画面。walkerplus 2026 全国第 3 位（211 票）—— 关西第 2 位。近鉄大阪線長谷寺駅徒歩 15 分（含上坡），入场费 500 日元。坑点：从大阪单程 1 小时远郊；参道 399 级石阶对老人不友好；红叶时期游客排长龙。适合愿意跑远郊的深度游客、真言宗/西国札所巡礼者、配合室生寺/飛鳥的奈良东部一日游；体力好的二次关西游客。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0729e13081/"
+    },
+    {
+      "event_def_id": "kansai_koyo_metasequoia",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "メタセコイア並木の紅葉",
+      "name_zh": "水杉大道红叶",
+      "description": "滋贺高岛市 2.4 公里长的水杉直线大道，约 500 棵水杉秋季金红色形成「隧道画面」，被日本「新並木百景」评为关西 No.1。walkerplus 2026 全国第 4 位（207 票）—— 关西第 3 位。JR 湖西線マキノ駅徒歩 25 分或打车 5 分。坑点：极远郊（从京都单程 1.5 小时以上）；路中央拍照要注意来车（是现役道路）；没有商业设施；冬天日落早 16:30 后光线不够。适合自驾游客、摄影爱好者追求「极简直线构图」、配合琵琶湖西岸一日游；非自驾者不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0725e12687/"
+    },
+    {
+      "event_def_id": "kansai_koyo_kogenji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "11-15"
+      },
+      "name_ja": "高源寺の紅葉",
+      "name_zh": "高源寺红叶",
+      "description": "兵库丹波市的临济宗妙心寺派禅寺，「天目カエデ」品种（中国传来的原生品种）的红叶颜色比普通枫叶更深红，三重塔 + 山门 + 红叶层次是丹波地区代表画面。walkerplus 2026 全国第 6 位（171 票）—— 关西第 4 位。JR 福知山線柏原駅转巴士 25 分到「佐中」下车徒歩 15 分。极远郊。坑点：从大阪/京都单程 2 小时以上；巴士班次稀少必须查好；入场费 300 日元；山区 11 月中旬以前就见頃时机难把握。适合自驾游客、兵库深度游、已经去过京都主力红叶的资深爱好者；非自驾不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0728e154687/"
+    },
+    {
+      "event_def_id": "kansai_koyo_rurikoin",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-01",
+        "end_md": "12-14"
+      },
+      "name_ja": "瑠璃光院の紅葉",
+      "name_zh": "瑠璃光院红叶",
+      "description": "京都红叶 SNS 最火现象级机位。秋季限定特别公开期间（通常 10 月初–12 月中旬），书院二楼黑漆桌面把窗外红叶反射成镜像 —— 近几年小红书/Instagram 刷屏画面。walkerplus 2026 全国第 11 位（146 票）。叡山電車八瀬比叡山口駅徒歩 5 分，从出町柳 15 分钟。坑点：秋季必须网上预约（当天基本拿不到票）；参观费 2000 日元偏贵；桌面机位要排队轮拍；限时入场。适合想出大片的年轻情侣、摄影爱好者、SNS 向用户；带老人/小孩或追求松弛感的不推荐；预算敏感的用户 2000 日元的门槛要想清楚。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e416761/"
+    },
+    {
+      "event_def_id": "kansai_koyo_naruiaiji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "11-25"
+      },
+      "name_ja": "成相寺の紅葉",
+      "name_zh": "成相寺红叶",
+      "description": "京都宫津市「天橋立」北侧山上的西国三十三所第 28 番札所，从寺院境内俯瞰天桥立 + 宫津湾 + 红叶的超视点构图，是关西唯一的「三景 + 红叶」组合。walkerplus 2026 全国第 12 位（139 票）。从天橋立站渡船到对岸后登山缆车 + 巴士到寺院。远郊（京都特急单程 2 小时 + 当地交通 1 小时）。坑点：极远郊交通疲劳；冬季山区气温低；天桥立观光一日游本身就紧如果再加红叶要全天投入。适合愿意跑天桥立 1–2 天深度游的游客、日本三景 check list 旅客、已看过京都主力红叶想要差异化景观的人；初到京都不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e12724/"
+    },
+    {
+      "event_def_id": "kansai_koyo_keisokuji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "鶏足寺(旧飯福寺)の紅葉",
+      "name_zh": "鸡足寺红叶",
+      "description": "滋贺长浜市「湖北」地区的废寺遗迹（已无住职），参道一段 200 米的石阶铺满落叶 + 两侧枫树拱顶形成京都所没有的「敷紅葉」一本道。walkerplus 2026 全国第 18 位（102 票）。JR 高月駅徒歩 30 分，或从长滨租自行车 40 分钟。远郊。坑点：从京都单程 1.5 小时，需要换车；车站到寺院徒歩远；「敷紅葉」窗口期很短（11 月下旬落叶最密的 5 天左右）；寺院周围几乎没有商业。适合自驾或深度行程游客、摄影爱好者追求「落叶一本道」画面、配合黑壁广场/伊吹山的长浜一日游；短期行程不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0725e12758/"
+    },
+    {
+      "event_def_id": "kansai_koyo_sagano_torokko",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "嵯峨野トロッコ列車の紅葉",
+      "name_zh": "嵯峨野小火车红叶",
+      "description": "岚山观光小火车（嵯峨→龟冈），穿过保津峡谷约 7.3 公里山区红叶谷，从车窗看层层山壁红叶是岚山秋季独特体验。walkerplus 2026 全国第 23 位（89 票）。JR 嵯峨嵐山駅徒歩 2 分到トロッコ嵯峨駅。单程 880 日元。坑点：11 月红叶季车票必须提前 1 个月网上预约（当天卖完）；乘车 25 分钟单程，往返需换保津川遊船或 JR；周末车票更抢手。适合所有岚山一日游的游客、喜欢「车窗赏枫」体验的人、带小孩的家庭（小火车本身是卖点）、情侣约会（小火车浪漫氛围）。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e372783/"
+    },
+    {
+      "event_def_id": "kansai_koyo_tanzan",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "談山神社の紅葉",
+      "name_zh": "谈山神社红叶",
+      "description": "奈良樱井市多武峰的古社（藤原鎌足传说地），境内「十三重塔」（日本唯一木造十三重塔）+ 3000 棵枫树构成奈良第一红叶画面。walkerplus 2026 全国第 25 位（88 票）。近鉄大阪線桜井駅转巴士 25 分。远郊，从大阪单程 1.5 小时。坑点：山区，11 月见頃比市内晚；巴士班次少；入场费 600 日元。适合愿意跑奈良东部深度游的游客、日本古代史/藤原氏爱好者、摄影爱好者追求「十三重塔 + 红叶」独特构图；配合长谷寺/室生寺的奈良东部一日游。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0729e13054/"
+    },
+    {
+      "event_def_id": "kansai_koyo_zuihoji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "11-25"
+      },
+      "name_ja": "瑞宝寺公園の紅葉",
+      "name_zh": "瑞宝寺公园红叶",
+      "description": "神户有马温泉的明治时期废寺公园（2500 棵枫树），「太閤秀吉赞赏の紅葉」史话加持，温泉镇步行即到 + 完全免费是关西罕见的组合。walkerplus 2026 全国第 36 位（81 票）。神戸電鉄有馬温泉駅徒歩 10 分。免费。坑点：在有马温泉镇必须配合温泉才划算来一趟；公园本身 1 小时逛完；11 月下旬见頃。适合住在有马温泉的游客、一日温泉 + 赏枫套餐、配合六甲山缆车/神户市内的北摂行程；带老人（平地易走 + 温泉放松）；性价比党（免费入场）。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0728e154695/"
+    },
+    {
+      "event_def_id": "kansai_koyo_hieizan",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "11-15"
+      },
+      "name_ja": "比叡山の紅葉",
+      "name_zh": "比叡山红叶",
+      "description": "京都/滋贺交界的世界遗产延暦寺本部山区，三塔（东塔 + 西塔 + 横川）分散分布，海拔 848 米意味着红叶见頃比市内早 2 周（10 月下旬开始）是京都周边最早红叶。walkerplus 2026 全国第 43 位（68 票）。京阪坂本比叡山口駅转坂本缆车 + 山内巴士，或叡山電車+缆车。入山费 1000 日元。坑点：交通复杂（需要 2 次换乘）；山上风大冬装；三塔完整跑完 4 小时以上；冬天 11 月下旬已经很冷。适合想看「京都最早红叶」的 10 月下旬游客、天台宗/佛教文化爱好者、愿意全天投入山岳朝圣的硬核用户；短期行程不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0725e13056/"
+    },
+    {
+      "event_def_id": "kansai_koyo_mogamiyama",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "11-25"
+      },
+      "name_ja": "最上山公園 もみじ山の紅葉",
+      "name_zh": "最上山公园红叶山",
+      "description": "兵库宍粟市山区公园，约 3000 棵枫树形成「紅葉山」单点整山变红的画面，是兵库西北部代表红叶。walkerplus 2026 全国第 49 位（62 票）。JR 姫路駅转巴士约 1 小时到「山崎」（极远郊）。坑点：极远郊从大阪/神户单程 2.5 小时以上；公共交通几乎不可行；「ライトアップ」夜间点灯期间加收门票。适合自驾游客、兵库西北部深度游、已经看过主力红叶想要「整山变红」数量型景观的硬核爱好者；非自驾不推荐。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0728e13185/"
+    },
+    {
+      "event_def_id": "kansai_koyo_daisen_garden",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "大仙日本庭園の紅葉",
+      "name_zh": "大仙日本庭园红叶",
+      "description": "大阪堺市的现代造园日本庭园（位于仁德天皇陵旁），池泉回游式布局 + 200 棵枫树 + 茶室的组合是大阪市内最精致的赏枫庭园。walkerplus 2026 全国第 57 位（59 票）。JR 阪和線百舌鳥駅徒歩 10 分。入场费 200 日元。坑点：庭园不大 1 小时逛完；位置在堺市远离大阪中心；红叶数量有限主要看庭园构图而非数量。适合日式庭园爱好者、摄影爱好者追求精致构图、配合仁德天皇陵（世界遗产）/百舌鳥古坟群的堺市半日游；带老人（平地易走）。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0727e330563/"
+    },
+    {
+      "event_def_id": "kansai_koyo_minoh_park",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "箕面公園の紅葉",
+      "name_zh": "箕面公园红叶",
+      "description": "大阪北摂箕面市以箕面大滝为核心的自然公园，约 5000 棵枫树沿 2 公里散步道分布，瀑布 + 红叶 + 「炸红叶天ぷら」当地特产是大阪郊区最有体验感的赏枫点。walkerplus 2026 全国第 60 位（59 票）。阪急箕面駅徒歩即到公园入口，徒歩 40 分到大滝。免费。坑点：与「箕面大滝」基本是同一个景点（大滝是公园内的瀑布）；散步道 2 公里体力需求；周末人流极多。适合家庭出游、深度赏枫散步、自然爱好者；大阪市内出发 40 分钟即达交通友好；想看「红叶天ぷら」独特美食的游客。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0727e13007/"
+    },
+    {
+      "event_def_id": "kansai_koyo_kitano_odoi",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "12-07"
+      },
+      "name_ja": "北野天満宮「史跡 御土居のもみじ苑」の紅葉",
+      "name_zh": "北野天满宫御土居红叶苑",
+      "description": "北野天满宫境内的豊臣秀吉筑造的京都防御土垒遗迹区，约 350 棵枫树 + 200–400 年树龄古枫，国宝本殿 + 古枫组合是京都西部代表画面。walkerplus 2026 全国第 73 位（52 票）。市巴士「北野天満宮前」即到，もみじ苑入场费 1200 日元（含茶菓子）。坑点：もみじ苑入场费偏贵 1200 日元，但含茶菓子值回票价；季节限定窗口（通常 10 月下旬–12 月初）；12 月见頃尾声时游客会挤到本殿参拝区。适合想看「古枫」树龄感的资深爱好者、配合金閣寺/龍安寺/仁和寺的洛北-洛西一日游、愿意为文化体验付费的文艺向用户。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e154656/"
+    },
+    {
+      "event_def_id": "kansai_koyo_toumijinja",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "12-05"
+      },
+      "name_ja": "等彌神社の紅葉",
+      "name_zh": "等弥神社红叶",
+      "description": "奈良樱井市的古社（神武天皇ゆかり），境内「上の社」参道 + 灯籠石段两侧约 200 棵枫树形成幽静红叶隧道，是奈良樱井地区的冷门小众点。walkerplus 2026 全国第 80 位（50 票）。近鉄大阪線桜井駅徒歩 20 分。免费。坑点：交通不便徒歩远；规模小 30 分钟看完；几乎没有游客（小众到鲜有国人知道）。适合想找奈良冷门神社的深度游客、摄影爱好者追求无人空景、配合谈山神社/长谷寺的樱井一日游。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0729e417126/"
+    },
+    {
+      "event_def_id": "kansai_koyo_takagamine_genkouan",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "11-25"
+      },
+      "name_ja": "鷹峯(源光庵)の紅葉",
+      "name_zh": "鹰峯源光庵红叶",
+      "description": "京都洛北鹰峯的曹洞宗寺院，「悟りの窓」（圆窗）与「迷いの窓」（方窗）框出的红叶画面是京都最哲学意味的构图，近几年 SNS 热门机位。walkerplus 2026 全国第 88 位（48 票）。市巴士「鷹峯源光庵前」徒歩 1 分，入场费 400 日元（秋季 500 日元）。坑点：寺院小 30 分钟看完；两窗机位人多排队；从京都市中心单程 40 分钟偏远。适合摄影爱好者追求「圆窗 + 红叶」独特构图、禅宗文化爱好者、已看过主力红叶想找独特机位的二次游客；配合金閣寺/常照寺的洛北半日路线。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0726e13169/"
+    },
+    {
+      "event_def_id": "kansai_koyo_kongorunji",
+      "type": "koyo",
+      "circle": "kansai",
+      "city": "shiga",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "12-05"
+      },
+      "name_ja": "湖東三山 金剛輪寺の紅葉",
+      "name_zh": "湖东三山金刚轮寺红叶",
+      "description": "滋贺湖东三山之一（与西明寺 + 百済寺并称），本堂前的「血染めのもみじ」传说 + 境内 500 棵枫树是滋贺赏枫知名度仅次于西教寺的景点。walkerplus 2026 全国第 97 位（46 票）。JR 琵琶湖線稲枝駅转巴士或自驾。入场费 600 日元。远郊。坑点：公共交通班次少（周末临时巴士）；山道参拝所需体力；从京都单程 1.5 小时。适合愿意跑滋贺东部深度游的游客、自驾游客、配合西明寺 + 百済寺的「湖东三山」经典路线；天台宗/佛教文化爱好者。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0725e13209/"
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": "kansai_koyo_tofukuji_2026",
+      "event_def_id": "kansai_koyo_tofukuji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "2026年红叶预测将于9月下旬更新。历年峰值约11/15–11/25，具体见 koyo.walkerplus.com / n-kishou.com。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_komyoin_2026",
+      "event_def_id": "kansai_koyo_komyoin",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "与东福寺同期，历年约11/15–11/25。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_eikando_2026",
+      "event_def_id": "kansai_koyo_eikando",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–11/28，夜间点灯通常11月上旬至12月上旬。门票红叶期涨至¥1000，需确认当年。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_kiyomizudera_2026",
+      "event_def_id": "kansai_koyo_kiyomizudera",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/20–12/5，夜间特别拝観通常11月中旬–12月初。当年日期见清水寺官方公告。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_kodaiji_2026",
+      "event_def_id": "kansai_koyo_kodaiji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "高台寺花期跨度长（10月中–12月初），夜间点灯与白天同期举行。3D mapping是否当年举行需确认。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_tenryuji_2026",
+      "event_def_id": "kansai_koyo_tenryuji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–11/30，与岚山整体红叶期吻合。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_arashiyama_trio_2026",
+      "event_def_id": "kansai_koyo_arashiyama_trio",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "三寺峰值略有差异，常寂光寺最早，祇王寺稍晚。历年约11/5–11/25整体都有红叶。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_takao_2026",
+      "event_def_id": "kansai_koyo_takao",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "高雄是京都最早变色区域，历年约11/1–11/20是最佳窗口，11/20后峰值已过。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_tetsugaku_2026",
+      "event_def_id": "kansai_koyo_tetsugaku",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "哲学之道是京都晚变色景点，历年约11/25–12/5银杏+红叶混色最强。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_nanzenji_2026",
+      "event_def_id": "kansai_koyo_nanzenji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5，与永观堂同期。三门与水路閣周边红叶持续时间较长。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_bishamondo_2026",
+      "event_def_id": "kansai_koyo_bishamondo",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5，秋季特别拝観白天开放，无夜间版。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_kibune_2026",
+      "event_def_id": "kansai_koyo_kibune",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "贵船属于北山区域，比市区早。历年约11/1–11/20峰值，灯籠点灯历年11/1–11/24。11/25后峰值已过不推荐。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_osaka_castle_2026",
+      "event_def_id": "kansai_koyo_osaka_castle",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/20–12/5，西の丸庭園¥200。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_banpaku_2026",
+      "event_def_id": "kansai_koyo_banpaku",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5，银杏约11/20前后全黄。需确认2026年园区是否因万博后续整修有变动。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_minoh_2026",
+      "event_def_id": "kansai_koyo_minoh",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5，溪谷步道红叶持续时间较长。周末极度拥挤，建议平日或早上。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_katsuoji_2026",
+      "event_def_id": "kansai_koyo_katsuoji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/10–12/5，夜间灯光具体日期见当年公告。¥1000门票需确认2026当年。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_nara_park_2026",
+      "event_def_id": "kansai_koyo_nara_park",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5。奈良公园整体为免费区域，各寺社门票另计。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_yoshino_2026",
+      "event_def_id": "kansai_koyo_yoshino",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "吉野山红叶峰值比奈良市区早，历年约10/20–11/15。奥千本最早，下千本最晚。需半天以上行程。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_kobe_nunobiki_2026",
+      "event_def_id": "kansai_koyo_kobe_nunobiki",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/10–12/5。ロープウェイ运行时间需确认当年（通常至18:00或20:00）。"
+    },
+    {
+      "occurrence_id": "kansai_koyo_himeji_2026",
+      "event_def_id": "kansai_koyo_himeji",
+      "year": 2026,
+      "date_range": null,
+      "confidence": "historical_pattern",
+      "verified_date": null,
+      "note": "历年峰值约11/15–12/5，好古园夜间点灯具体日期见当年公告。姬路城¥1000/好古园¥310需确认2026年票价。"
+    }
+  ]
+}

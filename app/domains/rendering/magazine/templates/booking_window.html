@@ -1,0 +1,35 @@
+{% from 'macros.html' import accent_bar, stat_strip, booking_badge %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">预约提醒</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {% if vm.heading.subtitle %}<div class="page-header-subtitle">{{ vm.heading.subtitle | e }}</div>{% endif %}
+    {{ accent_bar() }}
+  </div>
+
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'stat_strip' %}
+      {{ stat_strip(sec.content.stats) }}
+    {% elif sec.section_type == 'booking_timeline' %}
+      {% set items = sec.content.get('items', []) if sec.content is mapping else [] %}
+      <div>
+      {% for item in items %}
+      <div class="booking-item">
+        <div class="booking-level-badge">{{ booking_badge(item.booking_level) }}</div>
+        <div class="booking-body">
+          <div class="booking-name">{{ item.entity_name | e or item.label | e }}</div>
+          <div class="booking-meta">
+            {% if item.deadline_hint %}{{ item.deadline_hint | e }}{% endif %}
+            {% if item.deadline_date %} · 截止 {{ item.deadline_date | e }}{% endif %}
+            {% if item.booking_method %} · {{ item.booking_method | e }}{% endif %}
+          </div>
+          {% if item.impact_if_missed %}
+          <div class="booking-meta" style="color:#C0392B">⚠ {{ item.impact_if_missed | e }}</div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

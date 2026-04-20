@@ -1,0 +1,77 @@
+{
+  "template_id": "nara_luxury_stay",
+  "label": "奈良公园内温泉旅馆一泊（与鹿共度的一夜）",
+  "tags": [
+    "onsen",
+    "ryokan",
+    "nature",
+    "luxury"
+  ],
+  "core_entities": [],
+  "fit_audience": [
+    "couple",
+    "default"
+  ],
+  "weather_sensitive": true,
+  "condition": "budget in ['premium', 'luxury']",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed",
+    "span_days": 2
+  },
+  "description": "day_mood: 住在古都的奢华。住进奈良公园内的高级旅馆（ふふ奈良=隈研吾设计/全室露天风呂/鹿会来到庭院等），与日归的奈良会有完全不同的体验。早晨的奈良公园只有鹿和自己——傍晚的春日大社参道有灯笼的光。樱花季（4月）整个公园被樱花包围，红叶季（11月）是浮云园地（浮雲園地）的红叶。全年的奈良公园早晨和傍晚，不住在这里就看不到。",
+  "hotel_area_note": "ふふ奈良：从近铁奈良站步行约15min/位于奈良公园内。全室附露天风呂。一泊两食¥50,000-100,000/人。推荐提前数个月预约（樱花/红叶季尤其需要）。",
+  "slots": [
+    {
+      "slot_id": "nrs_d1_nara",
+      "time_range": "D1 10:00-15:00",
+      "type": "poi",
+      "area": "nara_park",
+      "priority": "P2",
+      "duration_min": 300,
+      "note": "日间奈良观光（与 nara_day 模板联动）。东大寺→春日大社→奈良町（ならまち）的标准路线。但在这个模板中，'傍晚入住旅馆之后才是正题'，日间不要强撑。15:00左右旅馆办理入住。"
+    },
+    {
+      "slot_id": "nrs_d1_checkin",
+      "time_range": "D1 15:00-16:30",
+      "type": "poi",
+      "area": "nara_park",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "Opus 从酒店池中选'奈良公园内/步行可达春日参道'类型的高级旅馆。ふふ奈良（隈研吾设计/全室私人露天風呂/鹿来庭院）是代表选项。旅馆办理入住后趁天亮进入客室的露天风呂（药草温泉）。庭院有时会有鹿来——透过窗户看着鹿泡澡是只有奈良才能做到的体验。"
+    },
+    {
+      "slot_id": "nrs_d1_evening",
+      "time_range": "D1 16:30-18:00",
+      "type": "walk",
+      "area": "nara_park",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "傍晚的奈良公园散步——游客回去后的奈良公园。鹿群坐在草坪上的平静夕景。浮云园地（浮雲園地）/飞火野（飛火野）一带傍晚光线最美。在灯笼开始点亮时走春日大社参道（万灯笼是节分/盂兰盆节限定，但平常的常灯笼在傍晚也有气氛）。"
+    },
+    {
+      "slot_id": "nrs_d1_dinner",
+      "time_range": "D1 18:30-20:30",
+      "type": "meal",
+      "area": "nara_park",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "旅馆晚餐——ふふ奈良是日本料理或铁板烧。使用奈良食材（大和野菜/吉野葛/三轮素面/大和牛等）的套餐。BAR里也有原创鸡尾酒。日归的奈良餐饮选择有限，但旅馆住宿的话食也能一并解决。"
+    },
+    {
+      "slot_id": "nrs_d2_morning",
+      "time_range": "D2 06:30-08:30",
+      "type": "walk",
+      "area": "nara_park",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "早朝的奈良公园——这是住在这里的最大理由。6:30的奈良公园是只有鹿和自己的世界。晨雾中的东大寺南大门，鹿在草坪上吃早饭的安静光景。往若草山方向稍微爬一点，可以看到朝日照耀下的奈良盆地全景。如果是樱花季，这个早晨有樱花+鹿+朝雾的组合。晨浴→早餐→退房。"
+    },
+    {
+      "slot_id": "nrs_d2_continue",
+      "time_range": "D2 10:00+",
+      "type": "transport",
+      "note": "退房后前往京都或大阪方向。或者把奈良没看完的地方补一补再下午移动。以奈良住宿的第二天替代nara_day，可以1泊2日深度享受奈良。"
+    }
+  ]
+}

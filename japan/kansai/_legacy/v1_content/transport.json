@@ -1,0 +1,134 @@
+{
+  "_doc": "关西城市间大交通参考。recommendation: primary=最推荐/natural=自然顺路/possible=可行但非最优/avoid=不建议。数据来源：各铁道公司官网+駅探 2025-2026。",
+  "_verified": "2026-04-14",
+  "hubs": {
+    "kix": "关西国际机场",
+    "osaka": "大阪（难波/梅田）",
+    "kyoto": "京都站",
+    "kobe": "三宮",
+    "nara": "近鉄奈良",
+    "uji": "JR宇治",
+    "himeji": "姫路",
+    "arima": "有馬温泉",
+    "kinosaki": "城崎温泉",
+    "koyasan": "高野山",
+    "ohara": "大原",
+    "kurama": "鞍馬/貴船",
+    "takao": "高雄"
+  },
+  "routes": [
+    {
+      "from": "kix", "to": "osaka",
+      "recommendation": "primary",
+      "best": {"method": "南海特急Rapi:t（ラピート）", "duration": "38min", "price": "¥1,490", "note": "KIX→难波直达。关空特惠票（関空トク割きっぷ）¥1,350"},
+      "alt": {"method": "南海机场急行（空港急行）", "duration": "45min", "price": "¥970", "note": "同一路线但无需支付特急费。有可能无法坐到座位", "when": "想省钱/Rapi:t时间不合适"}
+    },
+    {
+      "from": "kix", "to": "kyoto",
+      "recommendation": "primary",
+      "best": {"method": "JR特急Haruka（はるか）", "duration": "80min", "price": "¥3,110（自由席）", "note": "KIX→京都站直达。J-WEST无票（チケットレス）¥2,760"},
+      "alt": {"method": "南海+地铁+阪急", "duration": "110min", "price": "¥1,670", "note": "最便宜路线但需换乘2次", "when": "想尽量省钱"}
+    },
+    {
+      "from": "osaka", "to": "kyoto",
+      "recommendation": "primary",
+      "best": {"method": "JR新快速", "duration": "29min", "price": "¥580", "note": "大阪→京都。15分钟间隔运行。速度和性价比最强"},
+      "alt": {"method": "阪急特急", "duration": "45min", "price": "¥490", "note": "梅田→河原町（四条中心）直达。前往祇园方向更方便", "when": "想直达四条河原町/从梅田出发"}
+    },
+    {
+      "from": "osaka", "to": "kobe",
+      "recommendation": "primary",
+      "best": {"method": "JR新快速", "duration": "20min", "price": "¥420", "note": "大阪→三宮直达"},
+      "alt": {"method": "阪急特急", "duration": "27min", "price": "¥330", "note": "梅田→三宮。稍微便宜一点", "when": "从梅田出发且想省钱"}
+    },
+    {
+      "from": "kyoto", "to": "kobe",
+      "recommendation": "natural",
+      "best": {"method": "JR新快速", "duration": "50min", "price": "¥1,110", "note": "京都→三宮直达。无需换乘"}
+    },
+    {
+      "from": "kyoto", "to": "nara",
+      "recommendation": "primary",
+      "best": {"method": "近铁急行", "duration": "45min", "price": "¥760", "note": "京都→近铁奈良。无需额外费用且班次多"},
+      "alt": {"method": "近铁特急", "duration": "35min", "price": "¥1,280", "note": "全车指定席，可确保坐到座位。节省10分钟", "when": "想确保有座/行李多"}
+    },
+    {
+      "from": "osaka", "to": "nara",
+      "recommendation": "primary",
+      "best": {"method": "近铁快速急行", "duration": "40min", "price": "¥680", "note": "难波→近铁奈良直达"}
+    },
+    {
+      "from": "kyoto", "to": "uji",
+      "recommendation": "primary",
+      "best": {"method": "JR奈良线快速", "duration": "17min", "price": "¥240", "note": "京都→宇治。各站停车也只需23min。最轻松的日归目的地"}
+    },
+    {
+      "from": "osaka", "to": "uji",
+      "recommendation": "avoid",
+      "best": {"method": "JR转乘", "duration": "60min+", "price": "¥820", "note": "需要换乘。从京都去宇治方便得多"}
+    },
+    {
+      "from": "kobe", "to": "arima",
+      "recommendation": "primary",
+      "best": {"method": "地铁+神户电铁", "duration": "30min", "price": "¥640", "note": "三宮→谷上→有馬温泉。去有馬温泉从神户出发最顺路"}
+    },
+    {
+      "from": "osaka", "to": "arima",
+      "recommendation": "possible",
+      "best": {"method": "高速巴士", "duration": "60min", "price": "¥1,400", "note": "梅田或难波→有馬温泉直达巴士"},
+      "alt": {"method": "JR→神户电铁", "duration": "50min", "price": "¥1,060", "note": "三宮换乘。比巴士便宜但需换乘", "when": "巴士时间不合适"}
+    },
+    {
+      "from": "kyoto", "to": "arima",
+      "recommendation": "avoid",
+      "best": {"method": "JR+地铁+神户电铁", "duration": "80min+", "price": "¥2,000+", "note": "需换乘2次以上。有馬温泉放进神户行程最自然"}
+    },
+    {
+      "from": "osaka", "to": "himeji",
+      "recommendation": "primary",
+      "best": {"method": "JR新快速", "duration": "62min", "price": "¥1,460", "note": "大阪→姬路直达。无需换乘"},
+      "alt": {"method": "新干线", "duration": "28min", "price": "¥3,220", "note": "新大阪→姬路。时间减半", "when": "早上时间紧张/回程晚了"}
+    },
+    {
+      "from": "kyoto", "to": "himeji",
+      "recommendation": "natural",
+      "best": {"method": "JR新快速", "duration": "95min", "price": "¥2,310", "note": "京都→姬路直达。时间长但无需换乘"},
+      "alt": {"method": "新干线", "duration": "45min", "price": "¥4,950", "note": "京都→姬路。时间减半但票价高", "when": "想节省往返时间延长姬路游览"}
+    },
+    {
+      "from": "kyoto", "to": "kinosaki",
+      "recommendation": "primary",
+      "best": {"method": "JR特急Kinosaki（きのさき）", "duration": "2h20min", "price": "¥4,510", "note": "京都→城崎温泉直达。全车指定席"}
+    },
+    {
+      "from": "osaka", "to": "kinosaki",
+      "recommendation": "natural",
+      "best": {"method": "JR特急Kounotori（こうのとり）", "duration": "2h40min", "price": "¥5,300", "note": "大阪→城崎温泉直达。比京都出发多20min"}
+    },
+    {
+      "from": "osaka", "to": "koyasan",
+      "recommendation": "primary",
+      "best": {"method": "南海特急+缆车（ケーブルカー）", "duration": "2h", "price": "¥2,860", "note": "难波→极乐桥（極楽橋）→高野山。高野山世界遗产套票（高野山・世界遺産きっぷ）¥3,400（往返）更划算"}
+    },
+    {
+      "from": "kyoto", "to": "koyasan",
+      "recommendation": "avoid",
+      "best": {"method": "JR+南海+缆车", "duration": "3h+", "price": "¥4,000+", "note": "换乘次数多。高野山从大阪出发最自然"}
+    },
+    {
+      "from": "kyoto", "to": "ohara",
+      "recommendation": "primary",
+      "best": {"method": "京都巴士17号线（バス17系統）", "duration": "60min", "price": "¥580", "note": "京都站或四条河原町→大原。每小时2-3班"}
+    },
+    {
+      "from": "kyoto", "to": "kurama",
+      "recommendation": "primary",
+      "best": {"method": "叡山电铁", "duration": "30min", "price": "¥430", "note": "出町柳→鞍馬。秋季有红叶隧道车窗景观"}
+    },
+    {
+      "from": "kyoto", "to": "takao",
+      "recommendation": "primary",
+      "best": {"method": "JR巴士高雄京北线（バス高雄京北線）", "duration": "45min", "price": "¥530", "note": "京都站→栂ノ尾（高雄地区）"}
+    }
+  ]
+}

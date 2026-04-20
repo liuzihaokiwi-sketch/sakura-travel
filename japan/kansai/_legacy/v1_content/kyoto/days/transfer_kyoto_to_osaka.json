@@ -1,0 +1,63 @@
+{
+  "template_id": "transfer_kyoto_to_osaka",
+  "label": "京都→大阪换城日（可经由奈良）",
+  "tags": [
+    "transfer",
+    "walking",
+    "food"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": "itinerary_includes_both_kyoto_and_osaka",
+  "assembly": {
+    "phase": "transfer",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 章节切换。京都→大阪的移动日。从用户洞察来看，奈良是'桥'——在从京都去大阪的途中插入奈良是最高效的方案。途经奈良的情况走nara_day的缩小版（东大寺+鹿+奈良町2-3h）。不途经的情况则是京都早晨+大阪下午。",
+  "hotel_area_note": "京都→奈良：近铁约45min（¥760）。奈良→大阪：近铁约40min（¥680）或JR约50min。京都→大阪直达：JR新快速约30min。",
+  "slots": [
+    {
+      "slot_id": "tr_ko_morning",
+      "time_range": "08:00-10:00",
+      "type": "optional_poi",
+      "area": "nishiki_shijo",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "京都最后的早晨——参照departure_half的内容（鸭川晨间散步/锦市场最后购物/花见小路早晨）。京都的'告别画面'在这里。约10:00离开京都。季节提示：樱花季（3月底-4月初）移动途中可在背割堤（京阪石清水八幡宫站/京都-大阪间/220棵染井吉野（染井吉野，最常见的日本樱花品种）的1.4km樱花隧道/¥300入场协力金）停留——30-60min。"
+    },
+    {
+      "slot_id": "tr_ko_nara_option",
+      "time_range": "10:30-14:30",
+      "type": "optional_poi",
+      "area": "nara_park",
+      "priority": "P2",
+      "duration_min": 240,
+      "note": "途经奈良的情况：近铁京都→近铁奈良约45min。行李处理方案：(1)【推荐】黑猫宅急便（ヤマト運輸）当日寄送——京都酒店前台交给黑猫，当日或翌日送到大阪酒店（关西圈内当日午后-翌日午前着，约¥1,500-2,500/箱，酒店前台通常可代办发送）。轻装上阵逛奈良，到大阪酒店时箱子已经在了。(2) 近铁奈良站coin locker（站内¥400-700/个，大件柜数量有限旺季可能满）。不建议拖着行李箱逛奈良公园——砂利路+台阶+鹿会咬行李带。走东大寺+鹿公园+奈良町午饭的缩小版3-4h。奈良作为独立1天安排时（nara_day），跳过这个slot直接京都→大阪。"
+    },
+    {
+      "slot_id": "tr_ko_move_osaka",
+      "time_range": "14:30-15:30",
+      "type": "transport",
+      "note": "途经奈良：近铁奈良→近铁难波约40min。直行：JR京都→JR大阪约30min。大阪酒店办理入住+整理行李。"
+    },
+    {
+      "slot_id": "tr_ko_osaka_landing",
+      "time_range": "16:00-18:00",
+      "type": "walk",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "着陆大阪——从京都的静谧一转，进入道顿堀的喧嚣。这种对比是关西旅行的醍醐味（精髓所在）。步行难波/心斋桥感受大阪的空气。明天起才是大阪正式行程——今天先把握街道的氛围。"
+    },
+    {
+      "slot_id": "tr_ko_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "大阪的第一顿晚饭——换个方向，远离京都的和食/京料理，吃大阪风味的东西（串炸/章鱼烧/大阪烧等）。避开道顿堀面向游客的店，往裏难波/法善寺横丁方向。'道顿堀走10分钟之后才是真货'。"
+    }
+  ]
+}

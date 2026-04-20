@@ -1,0 +1,18 @@
+{% from 'macros.html' import accent_bar, text_block, diy_freewrite %}
+{% set dz = vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | first | default(none) %}
+<div class="page{% if dz %} has-diy{% endif %}">
+  <div class="page-header">
+    <div class="chapter-tag">出发准备</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {% if vm.heading.subtitle %}<div class="page-header-subtitle">{{ vm.heading.subtitle | e }}</div>{% endif %}
+    {{ accent_bar() }}
+  </div>
+
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'text_block' %}
+      {{ text_block(sec.heading, sec.content.text, sec.content['items']) }}
+    {% endif %}
+  {% endfor %}
+
+  {% if dz and dz.content.freewrite_zone %}{{ diy_freewrite(dz.content.freewrite_zone) }}{% endif %}
+</div>

@@ -1,0 +1,162 @@
+{
+  "_doc": "受控标签词表。所有实体的标签必须从这里选，不允许自由发挥。editor_note字段除外",
+
+  "vibe_tags": {
+    "_doc": "氛围/体验感受",
+    "values": [
+      "romantic",
+      "quiet",
+      "lively",
+      "photogenic",
+      "local_life",
+      "nostalgic",
+      "design_forward",
+      "kid_friendly",
+      "elderly_friendly",
+      "group_fun",
+      "solo_friendly",
+      "cultural",
+      "nature",
+      "urban_energy",
+      "luxury_feel",
+      "casual"
+    ]
+  },
+
+  "facility_tags": {
+    "_doc": "设施/硬件特征",
+    "values": [
+      "onsen",
+      "outdoor_onsen",
+      "river_view",
+      "night_view",
+      "city_panorama",
+      "garden",
+      "tatami",
+      "private_bath",
+      "kids_menu",
+      "kids_chair",
+      "baby_amenities",
+      "counter_seat",
+      "private_room",
+      "terrace",
+      "open_kitchen",
+      "free_lounge",
+      "free_breakfast",
+      "free_late_snack",
+      "luggage_storage",
+      "station_direct",
+      "wheelchair_ok"
+    ]
+  },
+
+  "cuisine_tags": {
+    "_doc": "菜系分类（餐厅用）",
+    "values": [
+      "soba",
+      "udon",
+      "ramen",
+      "sushi_omakase",
+      "sushi_kaiten",
+      "tempura",
+      "tonkatsu",
+      "yakitori",
+      "kushikatsu",
+      "okonomiyaki",
+      "takoyaki",
+      "fugu",
+      "unagi",
+      "wagyu",
+      "niku_kappo",
+      "kappo",
+      "kaiseki",
+      "oden",
+      "curry",
+      "yoshoku",
+      "omurice",
+      "izakaya",
+      "french",
+      "italian",
+      "teppanyaki",
+      "cafe_sweets",
+      "bakery",
+      "street_snack"
+    ]
+  },
+
+  "shop_type_tags": {
+    "_doc": "店铺类型",
+    "values": [
+      "tax_free_drugstore",
+      "department_store",
+      "vintage_clothing",
+      "handcraft",
+      "kitchenware",
+      "bookstore_cafe",
+      "otaku_anime",
+      "retro_games",
+      "design_goods",
+      "local_souvenir",
+      "food_model",
+      "shopping_street",
+      "mall"
+    ]
+  },
+
+  "meal_role": {
+    "_doc": "每顿饭在旅行中的角色",
+    "values": [
+      "arrival_recovery",
+      "core_local_experience",
+      "theme_park_recovery",
+      "audience_day_showcase",
+      "everyday_good",
+      "affordable_local"
+    ]
+  },
+
+  "day_role": {
+    "_doc": "每天在旅行中的角色",
+    "values": [
+      "arrival",
+      "core",
+      "module_usj",
+      "module_seasonal",
+      "audience",
+      "deep_dive",
+      "recovery",
+      "transfer",
+      "departure"
+    ]
+  },
+
+  "day_fatigue": {
+    "_doc": "一天的体力消耗等级",
+    "values": ["light", "medium", "heavy", "very_heavy"]
+  },
+
+  "budget_tier": {
+    "_doc": "预算档位",
+    "values": ["economy", "mid", "mid_high", "high", "top"]
+  },
+
+  "party_type": {
+    "_doc": "人群类型",
+    "values": ["couple", "friends", "family", "default"]
+  },
+
+  "density": {
+    "_doc": "旅行密度",
+    "values": ["packed", "balanced", "relaxed"]
+  },
+
+  "ab_role": {
+    "_doc": "A/B推荐角色",
+    "values": ["A_safe", "B_surprise"]
+  },
+
+  "hotel_preference": {
+    "_doc": "酒店偏好",
+    "values": ["quality_first", "resort_vibe", "value_for_money", "balanced"]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "template_id": "santa_cruz_flamenco_day",
+  "label": "Santa Cruz + Flamenco 开场日",
+  "tags": ["moorish", "cathedral", "flamenco", "santa_cruz", "anchor_day"],
+  "core_entities": ["sev_alcazar", "sev_catedral_giralda", "sev_santa_cruz", "sev_flamenco_anchor"],
+  "fit_audience": "all",
+  "region": "andalucia",
+  "city": "sevilla",
+  "weather_sensitive": false,
+  "summer_heat_sensitive": true,
+  "condition": null,
+  "assembly": {
+    "phase": "anchor",
+    "best_pace": "compact"
+  },
+  "description": "世界遗产三连(Alcázar+大教堂+Santa Cruz)→ sobremesa 慢午餐 → 午后室内 → merienda → 河岸 paseo → 晚餐 → Flamenco 22:00 场。这是塞维利亚的灵魂日——摩尔余韵 + 橙花 + 骨子里的 flamenco 一次到位。day_mood: 慢热积累 + 晚间爆发。",
+  "hotel_area_note": "住 Santa Cruz 区或大教堂周边(5 分钟步行到 Alcázar)。住 Triana 需过 Puente de Triana,早上步行 15 分钟或 bus 约 10 分钟。Parador 系统在 Sevilla 无直接选项,历史名宿推荐 Hotel Alfonso XIII(1929 年,大教堂南侧)。",
+  "booking_requirements": {
+    "L3_two_weeks_ahead": ["alcazar_sevilla", "catedral_sevilla_giralda"],
+    "L5_flamenco": ["casa_de_la_memoria_OR_la_casa_del_flamenco"],
+    "passport_named_ticket": ["alcazar_sevilla", "catedral_sevilla"]
+  },
+  "slots": [
+    {
+      "slot_id": "sc_breakfast",
+      "time_range": "08:30-09:30",
+      "type": "meal",
+      "area": "santa_cruz",
+      "priority": "P3",
+      "duration_min": 60,
+      "meal_role": "everyday_good",
+      "note": "塞维利亚早餐是轻的——tostada con tomate(橄榄油+番茄泥面包)+ café con leche,€3-4。方向:La Cacharrería(小红书推)或 Virgen Café。如赶 9:30 Alcázar 开门,可用酒店早餐省时。**不要吃 churros**——那是马德里早餐,Sevilla churros 是 merienda 时段吃的。"
+    },
+    {
+      "slot_id": "sc_alcazar",
+      "time_range": "09:30-11:30",
+      "type": "poi",
+      "area": "santa_cruz",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "Real Alcázar de Sevilla",
+      "note": "**必须提前 2 周网上订票**(官网 alcazarsevilla.org),记名票带护照核对。时段票 5 分钟粒度,每时段 80 人,前后弹性 15 分钟。**开门就进**是关键——9:30-10:00 是人最少的窗口;10:30 后大团涌入。穆迪札尔风格是理解摩尔西班牙的钥匙:Mudéjar 是穆斯林工匠为天主教国王做的装饰,这种'被征服者的审美征服征服者'是安达露西亚文化叠加的核心。动线:先走大使馆厅(Salón de Embajadores,星空藻井)→ 少女庭院(Patio de las Doncellas)→ **后花园**(爬山虎 + 茉莉 + 宁静)——**后花园留 40 分钟**,大多数游客赶景点漏这里,但这是体验'园林发呆'的地方。权游粉注意:多恩'流水花园'取景地(Yunquera 和 Ambassador 厅)。"
+    },
+    {
+      "slot_id": "sc_catedral",
+      "time_range": "11:30-13:30",
+      "type": "poi",
+      "area": "santa_cruz",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "Catedral de Sevilla + Giralda",
+      "note": "从 Alcázar 步行 1 分钟到大教堂。**提前 2 周订票**,记名票。世界最大哥特教堂(按体积)。**Puerta del Lagarto 入口**是网上票入口,别走 Puerta del Príncipe(现场票)。**Dress code 硬要求:过膝 + 不无袖 + 不吊带**——被拒案例很多,衣服不行当场被请出来。核心看点:哥伦布灵柩(4 个中世纪国王肩扛的雕塑,象征 4 王国 Castilla/León/Aragón/Navarra)+ 黄金祭坛屏风(Retablo Mayor,西语区最大)+ Giralda 登塔(**34 段缓坡,不是台阶**,慢走 15 分钟上顶,俯瞰老城 + 大教堂屋顶 + 后面的 Parque María Luisa)。季节提示:夏季 13:00+ 登塔会很热,早去。"
+    },
+    {
+      "slot_id": "sc_lunch",
+      "time_range": "14:00-16:00",
+      "type": "meal",
+      "area": "santa_cruz",
+      "priority": "P1",
+      "duration_min": 120,
+      "meal_role": "core_local_experience",
+      "note": "**午餐 + sobremesa 2 小时**,不是'吃 1 小时就走'。Sobremesa 是西班牙不赶路的入口,饭后 45-60 分钟咖啡/甜酒/聊天是这一段真正的内容。方向:Santa Cruz 区传统小馆。A 轨:Taberna Coloniales(中央区本地小酒馆,rabo de toro/炖牛尾 + carrillada/猪颊雪莉酒慢炖——两道都是安达露西亚名菜)。B 轨 surprise:Bodega Santa Cruz 'Las Columnas'(站着吃 tapa,白墙手写记账,本地阿姨挤着点 pringá),是另一种体验。**周一到周五可点 menú del día**(€10-15 三道菜+酒+咖啡)——高档用户也别错过,这是西班牙独有的平价美食制度。**点啤酒说 'una caña'**,点酒说 'un tinto de verano',别说 cerveza / sangría(游客词)。"
+    },
+    {
+      "slot_id": "sc_siesta_indoor",
+      "time_range": "16:00-17:30",
+      "type": "siesta_indoor",
+      "area": "santa_cruz",
+      "priority": "P3",
+      "duration_min": 90,
+      "note": "午后是 Sevilla 最热的时段(夏季 40°C+),也是传统 siesta 时间。三个方向任选:(1) **回酒店休息 1 小时**,晚上 flamenco 要精神(这条最实用);(2) Casa de Pilatos(哥特+穆德哈尔+文艺复兴混合,游客比 Alcázar 少得多,室内凉),€10;(3) Museo del Baile Flamenco(博物馆+晚场合一,看博物馆顺便订 19:00 场,但会挤晚餐节奏)。夏季强烈建议 (1);冬季可选 (2)。"
+    },
+    {
+      "slot_id": "sc_santa_cruz_walk",
+      "time_range": "17:30-18:30",
+      "type": "walk",
+      "area": "santa_cruz",
+      "priority": "P2",
+      "duration_min": 60,
+      "entity_hint": "Santa Cruz 区(Judería)",
+      "note": "Santa Cruz 是老犹太区,15 世纪犹太人被驱逐后改建,巷子错综复杂 = 这是特色不是 bug。**必走:el callejón del Agua(水巷)**——茉莉花巷,白墙从 Alcázar 外墙一路沿伸,是塞维利亚的明信片景。巷子里无数 pátios(庭院)从铁门望进去能看到橙树+瓷砖+喷泉。**注意**:白天逛,夜晚 Santa Cruz 小巷昏暗,回酒店走主街。不要赶景点,让巷子带你走。橙花季(3-4 月)这里是嗅觉轰炸。"
+    },
+    {
+      "slot_id": "sc_merienda",
+      "time_range": "18:30-19:15",
+      "type": "meal",
+      "area": "santa_cruz",
+      "priority": "P2",
+      "duration_min": 45,
+      "meal_role": "merienda",
+      "note": "**Merienda 不是可选,是一餐**。如果跳过,10 点晚饭前会饿崩。方向:La Campana(1885 年,Sevilla 最老甜品店,离 Santa Cruz 走 10 分钟)——tocino de cielo(蛋黄焦糖)/ yemas(蛋黄球)/ torrijas(Semana Santa 时的法式吐司)配 café con leche。或就近的老咖啡馆坐 20 分钟,点 un cortado + 一块 churros(此时段吃 churros 合理,早上吃是游客)。**17-18h 不点啤酒**——社交错位,这时段是咖啡时间。"
+    },
+    {
+      "slot_id": "sc_paseo",
+      "time_range": "19:15-20:30",
+      "type": "paseo",
+      "area": "guadalquivir_or_murillo",
+      "priority": "P1",
+      "duration_min": 75,
+      "dress_code": "换一套像样的衣服,不要运动装/沙滩装,不带大相机",
+      "note": "**Paseo 是西班牙傍晚的社会仪式**,不是散步——核心原则 'ver y ser visto'(看与被看)。全城换装出来走。两条路线任选:(A) Guadalquivir 河岸从 Torre del Oro 走到 Puente de Triana,对岸看黄金塔夕照;(B) Parque de Murillo / Jardines de Murillo(Santa Cruz 东侧),橘树 + 瓷砖长椅,本地老人家庭聚集。这 75 分钟不是'看景点',是把节奏降下来,感受城市从白天切到夜晚的那个 20 分钟——天没黑透,街灯刚亮,所有人都在路上。**Dress code 一句话**:穿你约会时穿的那套,不是逛街那套。"
+    },
+    {
+      "slot_id": "sc_dinner",
+      "time_range": "20:30-21:45",
+      "type": "meal",
+      "area": "santa_cruz_or_arenal",
+      "priority": "P2",
+      "duration_min": 75,
+      "meal_role": "affordable_local",
+      "note": "**晚餐提早吃**(Sevilla 本地人 22:00 才吃晚餐,但今晚 22:00 要看 flamenco,只能提早)。轻餐 tapas 2-3 样 + 一杯酒。方向:Flamenco 场所周边的小酒馆。若 flamenco 在 Casa de la Memoria(Santa Cruz 内部),步行 5 分钟范围;若在 Tablao el Arenal,在 Arenal 区附近。**不要进'挂满 flamenco + 斗牛装饰'的餐厅**,那是游客陷阱。西文菜单点半份(media ración),两个人 3 样菜够吃。点一杯 fino 雪莉(Andalucía 餐前酒),或 tinto de verano。"
+    },
+    {
+      "slot_id": "sc_flamenco",
+      "time_range": "22:00-23:30",
+      "type": "flamenco_show",
+      "area": "santa_cruz",
+      "priority": "P1",
+      "duration_min": 90,
+      "entity_hint": "Casa de la Memoria / La Casa del Flamenco",
+      "booking_ahead_days": 7,
+      "note": "**今天的峰值**。A 轨:**Casa de la Memoria**(16 世纪庭院,<50 座,无 mic,无餐——'flamenco puro')或 **La Casa del Flamenco**(15 世纪安达露西亚庭院,小剧场,世界级艺人)。**春秋提前 5-7 天订,先到先坐**。B 轨 surprise:**Casa Anselma**(Triana,免费进门,点酒消费,Anselma 本人迎接,混进去听——完全不同的体验角色,但不确定性高——可能没座)。鉴赏要点:不看艺人年轻貌美,**看'骨子里迸发的劲道'**。吉他 + cante(歌唱)+ 响板 + 脚踩节奏 + 拍手——5 层音乐叠加。**不拍照,不说话,投入进去**才对。看完那一刻你会懂为什么这城市是 flamenco 的圣地。避开:大型 dinner show(€40+ 套餐版,'有 flamenco 元素'但艺人参差,中文源明确点名红线)。"
+    },
+    {
+      "slot_id": "sc_night_option",
+      "time_range": "23:30-00:30",
+      "type": "walk",
+      "area": "santa_cruz",
+      "priority": "P5",
+      "duration_min": 60,
+      "note": "Flamenco 散场后可选:(1) 走回酒店(推荐,明天继续);(2) 去 Triana 的 Calle Betis(河岸酒吧一字排开,Sevillanos drinking street),但明天还有行程,节制;(3) 一杯 digestivo 再回。Santa Cruz 小巷夜晚走主街。"
+    },
+    {
+      "slot_id": "sc_shops",
+      "time_range": null,
+      "type": "shop_info",
+      "area": "santa_cruz",
+      "priority": "P5",
+      "note": "Santa Cruz 区:手工扇子(Casa Rubio,传统 abanico)、瓷砖/陶瓷(El Postigo)、弗拉门戈披肩 mantón de Manila、橄榄油专门店。大教堂周边是游客溢价重灾区——买东西在 Triana Mercado 或 Calle Sierpes 中段更好。"
+    }
+  ]
+}

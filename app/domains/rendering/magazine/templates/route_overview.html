@@ -1,0 +1,18 @@
+{% from 'macros.html' import accent_bar, timeline %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">路线总览</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'timeline' %}
+      {{ timeline(sec.content['items']) }}
+    {% elif sec.section_type == 'text_block' %}
+      <div class="text-block">
+        {% if sec.heading %}<div class="text-block-heading">{{ sec.heading | e }}</div>{% endif %}
+        {% if sec.content.text %}<div class="text-block-content">{{ sec.content.text | e }}</div>{% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,63 @@
+{
+  "template_id": "transfer_osaka_to_kyoto",
+  "label": "大阪→京都换城日",
+  "tags": [
+    "transfer",
+    "walking",
+    "food"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": "itinerary_includes_both_osaka_and_kyoto",
+  "assembly": {
+    "phase": "transfer",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 章节切换。上午大阪轻收尾+上午移动+下午京都轻落地。行李策略明确。强度低。",
+  "hotel_area_note": "推荐交通方式：阪急梅田→河原町（约45min/¥410/直达四条河原町中心）。JR大阪→京都站（约30min/¥580/到京都站）。住难波的情况是地铁→梅田→阪急，或难波→JR难波→JR京都。行李：【推荐】黑猫宅急便（ヤマト運輸）——前一天晚上在大阪酒店前台寄出（跟前台说「荷物を京都のホテルに送りたい」），关西圈内翌日午前着，约¥1,500-2,500/箱。酒店前台通常免费代办发送手续。到了京都酒店check-in时箱子已经在了，换城日全程轻装。便利店（ファミマ/セブン）也可以寄但箱子尺寸有限。",
+  "slots": [
+    {
+      "slot_id": "tr_ok_morning",
+      "time_range": "09:00-11:00",
+      "type": "optional_poi",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "大阪最后的早晨——退房后轻松活动。之前没去到的地方现在去。没有的话在大阪随意走走，'最后再吸一口这座城市的空气'就够了。不需要沉重的行程。"
+    },
+    {
+      "slot_id": "tr_ok_move",
+      "time_range": "11:00-12:00",
+      "type": "transport",
+      "note": "推荐阪急梅田→河原町（¥410/约45min）——出了河原町站的瞬间就在四条河原町十字路口，'到了'京都中心的实感最强。使用JR的情况，京都站到达→地铁或巴士到四条（多约15min）。行李最好提前送到酒店。当天自带的情况用寄存柜（京都站八条口/¥700-1,000）或提前寄存到酒店。"
+    },
+    {
+      "slot_id": "tr_ok_kyoto_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "京都的第一顿——到了河原町的话往锦市场方向。京都的饮食方向性与大阪完全不同——同样是'日本料理'，但摆盘的精致和味道的温和是不同的。这只能吃了用身体感受。"
+    },
+    {
+      "slot_id": "tr_ok_kyoto_walk",
+      "time_range": "14:00-17:00",
+      "type": "walk",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 180,
+      "note": "京都的第一个下午——P1景点明天以后再去，今天先掌握四条～祇园的'表情'。推荐路线：四条河原町→先斗町通（窄巷走走看/白天的先斗町很安静）→鸭川沿岸南下→建仁寺（祇园内的禅寺/境内自由/风神雷神图的复制品可自由参观）→朝花见小路望一眼→走到八坂神社再折返。步行约1.5-2h。目的不是'游览'，而是'把明天开始的京都行程地图装进身体'。傍晚的祇园气氛与大阪完全不同——这是感受那种对比的时间。"
+    },
+    {
+      "slot_id": "tr_ok_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "京都第一顿晚饭。先斗町/木屋町方向。在大阪吃了串炸/粉食的话，京都选和食方向。第一天进没预约就能进的休闲店就好——有预约的店放到明天以后。"
+    }
+  ]
+}

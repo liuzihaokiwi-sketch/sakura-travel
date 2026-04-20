@@ -1,0 +1,438 @@
+{
+  "_doc": "关东圈樱花花期数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "sakura",
+    "circle": "kanto",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kanto_sakura_chidorigafuchi",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "千鳥ヶ淵緑道の桜",
+      "name_zh": "千鸟之渊绿道樱",
+      "description": "皇居西侧护城河沿岸约700m樱花走廊，约260株染井吉野倒映护城河，是东京最代表性的赏樱点。walkerplus 全日本 top18（東京都最高位）、行ってよかった87票。地下鉄半蔵門駅/九段下駅徒歩5min。夜间22点前有ぼんぼり点灯（3月下旬-4月上旬）。坑点：花期周末人潮每年数百万级，地下鉄出口排队限行，平日上午是唯一清净窗口。适配：情侣/朋友拍照首选，老人不推荐（步行距离长+人挤人）。可配合北の丸公園/靖国神社串联半日。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e25833/"
+    },
+    {
+      "event_def_id": "kanto_sakura_meguro_river",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "目黒川の桜",
+      "name_zh": "目黑川樱",
+      "description": "中目黒至池尻大橋约4km的目黒川两岸约800株樱花走廊，枝条垂向水面，夜间ぼんぼり点灯将河面染成粉色。walkerplus 全日本 top19、行ってよかった83票。东急東横線中目黒駅直结。夜桜+两岸咖啡馆+沿路屋台是东京最热闹的赏樱体验。坑点：花期周末地铁限流，人挤人体验差，平日傍晚最佳。适配：情侣/朋友拍照和约会，带老人带娃不推荐。中目黒+代官山串联半日为佳。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e25849/"
+    },
+    {
+      "event_def_id": "kanto_sakura_mitsuike_park",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "04-15"
+      },
+      "name_ja": "県立三ツ池公園の桜",
+      "name_zh": "県立三ツ池公園樱",
+      "description": "横滨鶴見区，日本の桜名所100選，约1600株78品种樱花是关东品种最多的樱花公园。walkerplus 全日本 top20、行ってよかった82票（横滨第一）。JR鶴見駅乘巴士15min或京急生麦駅徒歩20min。3月上旬河津樱至4月中旬晩樱可看一个月。坑点：位置略偏，交通略不便，赏樱方式以公园散步为主。适配：亲子/老人散步首选（有池塘+草坪）。横滨一日行程收尾最佳。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e25856/"
+    },
+    {
+      "event_def_id": "kanto_sakura_kyunakagawa",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "01-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "旧中川の桜",
+      "name_zh": "旧中川樱",
+      "description": "江戸川区与墨田区之间的旧中川河岸约500株染井吉野沿河成列，东京スカイツリーを背景にした桜並木で知られる。walkerplus 全日本 top21、行ってよかった81票。JR総武線平井駅徒歩10min。人流比目黑川少得多，有划船体验。坑点：沿河景观单调，没有夜樱点灯。适配：带娃和摄影爱好者首选（スカイツリー+桜的構図），情侣拍照也合适。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e377376/"
+    },
+    {
+      "event_def_id": "kanto_sakura_rikugien",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "六義園の桜",
+      "name_zh": "六义园樱",
+      "description": "小石川后乐园齐名的回游式大名庭园，入口处的大型枝垂樱（高さ15m・幅20m）是东京最有名的一株。walkerplus 全日本 top35、行ってよかった58票。JR山手線駒込駅徒歩7min。夜间ライトアップ期间延长至21点闭园。¥300入园。坑点：仅一株大枝垂桜是看点，主庭园染井吉野规模有限，夜间拍照要排队。适配：老人/情侣（庭园散步+一本大樱花），带娃不适合（夜拥挤）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e26443/"
+    },
+    {
+      "event_def_id": "kanto_sakura_koishikawa_korakuen",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-05"
+      },
+      "name_ja": "小石川後楽園の桜",
+      "name_zh": "小石川后乐园樱",
+      "description": "水戸徳川家的大名庭园，国指定特别史迹+特别名胜，回游式池泉庭园里枝垂桜+染井吉野的配置最为古典。walkerplus 全日本 top43、行ってよかった50票。JR水道橋駅徒歩5min（东京ドーム隔壁）。¥300入园。坑点：规模不大（7ha），一小时逛完。适配：老人/情侣文化散步首选，亲子带娃也合适（草坪+池塘）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e60406/"
+    },
+    {
+      "event_def_id": "kanto_sakura_takanawa_prince",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "04-05"
+      },
+      "name_ja": "グランドプリンスホテル高輪の桜",
+      "name_zh": "高轮グランドプリンス酒店庭园樱",
+      "description": "JR品川駅旁边，グランドプリンスホテル的庭园樱是东京酒店庭园赏樱的代表。约200株17品种，枝垂桜+染井吉野，历代当主庭园。walkerplus 全日本 top45、行ってよかった48票。JR品川駅徒歩5min。入场免费（ホテル庭園開放）。坑点：周末有活动（桜フェア+屋台）时人多，餐厅需预约。适配：带老人/带娃首选（有餐饮+无楼梯+近车站）。情侣可配合午餐使用。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e377509/"
+    },
+    {
+      "event_def_id": "kanto_sakura_shinjuku_gyoen",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "04-15"
+      },
+      "name_ja": "新宿御苑の桜",
+      "name_zh": "新宿御苑樱",
+      "description": "58ha の旧皇室庭园，约1000株65品种樱花是东京品种最多+花期最长的公园（2月河津桜至4月八重桜可看2个月）。walkerplus 全日本 top52、行ってよかった44票。新宿三丁目駅/新宿駅南口徒歩10min。¥500入园（花期时段无法携带酒类）。坑点：花期周末排队1小时以上入园，平日上午是唯一窗口。禁酒禁野餐垫叠坐（2019年规定）。适配：全人群首选（轮椅友好+草坪广+交通便利+花期长），亲子带娃野餐最佳。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e25816/"
+    },
+    {
+      "event_def_id": "kanto_sakura_ooka_river",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "大岡川プロムナードの桜",
+      "name_zh": "大冈川樱花道",
+      "description": "横滨弘明寺至日ノ出町约3km的大岡川两岸约500株染井吉野，夜间约1300个ぼんぼり点灯，桜+屋形船是横滨代表画面。walkerplus 全日本 top60、行ってよかった41票。京急弘明寺駅/日ノ出町駅徒歩5min。夜樱ぼんぼり3月下旬-4月上旬。坑点：沿路有屋台和居酒屋，夜间嘈杂，老人不适。适配：情侣夜樱约会首选（坐屋形船体验独特），带娃不推荐。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e60455/"
+    },
+    {
+      "event_def_id": "kanto_sakura_hamarikyu",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-15"
+      },
+      "name_ja": "浜離宮恩賜庭園の桜",
+      "name_zh": "浜离宫恩赐庭园樱",
+      "description": "东京湾沿岸的旧德川将军家庭园，潮入の池（海水引入）+ 300年松+樱花的组合是东京独一无二的景观。walkerplus 全日本 top68、行ってよかった37票。大江戸線汐留駅徒歩5min。¥300入园。坑点：樱花数量不多（约120株），主看点是庭园本身而非樱花规模。适配：老人/文化愛好者首选（历史庭园+海景+少人），可配合日の出桟橋水上バス游隅田川。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e30652/"
+    },
+    {
+      "event_def_id": "kanto_sakura_hibiya",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "日比谷公園の桜",
+      "name_zh": "日比谷公园樱",
+      "description": "東京都心丸の内のビジネス街に隣接する日本最古级別の洋式公園。约60株樱花环绕心字池+云形池，是东京办公族最熟悉的赏樱场所。walkerplus 全日本 top75、行ってよかった35票。日比谷駅/有楽町駅徒歩3min。入园免费。坑点：樱花数量少，主力在公園内の小規模エリア。适配：商务出行+短暂驻足+午休赏樱，亲子不是首选。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e25855/"
+    },
+    {
+      "event_def_id": "kanto_sakura_asukayama",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "飛鳥山公園の桜",
+      "name_zh": "飞鸟山公园樱",
+      "description": "江户时代八代将軍德川吉宗植樱200年，是日本最古い桜名所之一。约650株樱花，王子駅至公園有复古小火车（アスカルゴ）。walkerplus 全日本 top84、行ってよかった32票。JR王子駅徒歩すぐ。入园免费。坑点：花期周末醉酒花見人多，适合平日白天。适配：亲子带娃首选（斜面草坪+小火车+博物馆），老人和情侣也合适。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e25821/"
+    },
+    {
+      "event_def_id": "kanto_sakura_komatsugawa",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-05"
+      },
+      "name_ja": "小松川千本桜",
+      "name_zh": "小松川千本樱",
+      "description": "荒川沿岸約2kmの桜堤，约1000株染井吉野从新小岩駅方向延伸至東京スカイツリー方向的视野开阔河堤散步道。walkerplus 全日本 top87、行ってよかった30票。JR新小岩駅徒歩15min。入园免费。坑点：沿路无咖啡馆/餐厅，需自带补给，日照强。适配：摄影爱好者+跑步/骑行者，带娃有野餐空间，老人不推荐（距离长）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e381573/"
+    },
+    {
+      "event_def_id": "kanto_sakura_nihonbashi",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-05"
+      },
+      "name_ja": "江戸桜通りの桜（日本橋）",
+      "name_zh": "江户樱花通（日本桥）",
+      "description": "日本橋三井本館/コレド室町周辺の江戸桜通り約170m一段，每年3月下旬-4月上旬举办 SAKURA FES NIHONBASHI，樱花点灯+プロジェクションマッピング+特别限定咖啡。walkerplus 全日本 top29、行ってよかった72票（东京都商业区最高）。三越前駅直结。入场免费。坑点：樱花规模小，主要看夜间演出和商业配套。适配：情侣约会+伴手礼购物首选（コレド室町配套餐厅/购物），带娃和老人不是首选。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e380304/"
+    },
+    {
+      "event_def_id": "kanto_sakura_mukojima_kyunakagawa",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "04-05"
+      },
+      "name_ja": "墨田区立旧中川水辺公園の桜",
+      "name_zh": "墨田区旧中川水边公园樱",
+      "description": "旧中川河岸の水辺公園，约80株染井吉野沿河与スカイツリー对望。小众但有正面スカイツリー+桜构图。walkerplus 全日本 top77、行ってよかった33票。JR平井駅/錦糸町駅徒歩15min。入园免费。坑点：规模小，一小时内逛完。适配：摄影爱好者+当地散步，不值得专程。旧中川樱行程顺带即可。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e380311/"
+    },
+    {
+      "event_def_id": "kanto_sakura_new_otani",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-05",
+        "end_md": "04-15"
+      },
+      "name_ja": "ホテルニューオータニ 日本庭園の桜",
+      "name_zh": "新大谷酒店日本庭园樱",
+      "description": "江戸时代大名（加藤清正）庭园，ホテルニューオータニ的日本庭園开放给一般游客，紀尾井町に位置し都心屈指の桜+滝+錦鯉の池の組合せ。walkerplus 全日本 top78、行ってよかった33票。赤坂見附駅/永田町駅徒歩3min。庭园入场免费（酒店大堂直接进入）。坑点：樱花规模不大（约50株），主要欣赏历史庭园。适配：老人/情侣文化散步首选，配合酒店下午茶或Happy Hour升级体验。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0313e382206/"
+    },
+    {
+      "event_def_id": "kanto_sakura_egawa",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "03-25",
+        "end_md": "04-05"
+      },
+      "name_ja": "江川せせらぎ緑道の桜",
+      "name_zh": "江川せせらぎ绿道樱",
+      "description": "横滨都筑区的江川清流沿线约2km樱花走廊，约450株染井吉野，近年上榜成为横滨新兴人气点。walkerplus 全日本 top26、行ってよかった76票。横浜市営地下鉄センター南駅徒歩5min。入场免费。坑点：两岸路面狭窄，周末会车困难。适配：在地人散步+亲子亲水，外地游客不值得专程。横滨本地行程收尾可用。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e460500/"
+    },
+    {
+      "event_def_id": "kanto_sakura_nishihira",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "02-05",
+        "end_md": "03-05"
+      },
+      "name_ja": "西平畑公園の桜（松田町）",
+      "name_zh": "松田町西平畑公园樱（河津樱）",
+      "description": "神奈川県足柄上郡松田町の河津桜名所。小田急新松田駅徒歩20min。公園斜面从360株河津桜と菜花の黄色的组合，富士山为背景。walkerplus 全日本 top50、行ってよかった46票。河津桜花期2月中旬-3月上旬比染井吉野早1个月，是关东最早能赏樱的地方之一。¥300入园（花期）。坑点：小站周边无大配套，周末堵车2小时以上，建议平日早起出发。适配：早鸟赏樱族（2月也想看樱花）+富士山摄影+家庭出游。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e377380/"
+    },
+    {
+      "event_def_id": "kanto_sakura_ooi_yumenosato",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "02-15",
+        "end_md": "03-15"
+      },
+      "name_ja": "おおいゆめの里の桜（大井町）",
+      "name_zh": "大井町梦之里樱",
+      "description": "神奈川県足柄上郡大井町，是西平畑公園の姉妹スポット，約350株河津桜+富士山+早春の菜花+梅の混植。walkerplus 全日本 top81、行ってよかった32票。JR上大井駅徒歩20min。入场免费。坑点：位置分散，停车有限，徒步线路较长。适配：早鸟赏樱族的第二站（和西平畑公園同日串联）。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e495847/"
+    },
+    {
+      "event_def_id": "kanto_sakura_agri_sagayama",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "02-07",
+        "end_md": "03-22"
+      },
+      "name_ja": "あぐりパーク嵯峨山苑の桜（松田町）",
+      "name_zh": "阿格利公园嵯峨山苑樱（松田町）",
+      "description": "神奈川県松田町的山顶公园，河津桜+寒緋桜+富士山俯瞰是与西平畑公园不同的高处视角。walkerplus 全日本 top92、行ってよかった29票。新松田駅乘巴士+徒歩约30min（山道）。入场免费。坑点：山道陡，老人不适。适配：登山爱好者+摄影爱好者专程，日常家庭游不是首选。",
+      "source_url": "https://hanami.walkerplus.com/detail/ar0314e495185/"
+    },
+    {
+      "event_def_id": "kanto_sakura_ueno_park",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "上野恩賜公園の桜",
+      "name_zh": "上野恩赐公园樱",
+      "description": "约800株樱花贯穿公园主干道，江户时代以来东京最大众的花见场所，花期每年媒体报道占据头条。**未进 walkerplus 全日本 top100（因醉酒花見人太多、散乱的宴会场面拉低在地评价），但仍是东京知名度+人流第一的赏樱点。**JR上野駅徒歩すぐ。入园免费。坑点：周末白天地面坐满宴会，卫生和体验差；推荐早晨7-9点或雨后傍晚。适配：只想「看看樱花感受氛围」的走马观花首选，不适合安静欣赏。亲子带娃可配合上野动物园。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_yasukuni",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "靖国神社の桜",
+      "name_zh": "靖国神社樱",
+      "description": "東京の桜開花基準標本木が境内にある神社，気象庁每年在此宣布东京开花宣言和满开宣言。约500株樱花。**未进 walkerplus top100，但在地理媒体地位无可替代（开花基準木）。**九段下駅徒歩5min，与千鳥ヶ淵緑道步行可串联为一体行程。入场免费。坑点：历史话题敏感，中国游客需注意媒体/言论场合，建议谨慎合影。适配：关心气象/开花节奏的深度游客，不作为普通游客首推。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_sumida_park",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "隅田公園の桜",
+      "name_zh": "隅田公园樱",
+      "description": "隅田川両岸（浅草+墨田区）约1000株樱花贯穿1km河岸，桜+东京スカイツリー+水上バスの組合は東京最具代表性的春季画面。**未进 walkerplus top100，但浅草地区首选赏樱，中国游客广泛认知。**浅草駅徒歩5min。入场免费。坑点：花期周末浅草/スカイツリー双重人流交织，地铁站限流。适配：浅草一日游串联+带老人带娃（距离近配套全）。水上バス一扫人流烦扰，性价比高。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_nakameguro_shibuya",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "代々木公園の桜",
+      "name_zh": "代代木公园樱",
+      "description": "约600株樱花散布在54ha广阔草坪上，是东京核心商圈（原宿/涉谷）最大的野餐花見場所。**未进 walkerplus top100（花量不如目黑川），但年轻人野餐宴会首选，在地人流量极高。**原宿駅/涉谷駅徒歩5-10min。入场免费。坑点：花见宴会场面嘈杂，老人体验差。适配：年轻人野餐首选，带老人/带娃不推荐。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_sankeien",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "三溪園の桜",
+      "name_zh": "三溪园樱",
+      "description": "横滨本牧の大名庭園，国指定名勝。约250株樱花沿回游式池泉，历史建物（旧燈明寺三重塔）+樱花是关东最具京都风格的赏樱景观。**未进 walkerplus sakura top100，但紅葉期排 top29 的通年人気庭園。**JR根岸駅乘巴士15min。¥900入园。坑点：距横滨市中心约30min巴士，交通略不便。适配：老人/文化爱好者首选，情侣约会也合适。亲子带娃可以但需选合适时段。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_tsurugaoka",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "鶴岡八幡宮 源氏池の桜",
+      "name_zh": "鹤冈八幡宫源氏池樱",
+      "description": "鎌倉代表的神社，段葛参道+源氏池の桜+朱塗り橋+八幡宮の朱殿の組合せは鎌倉で最も絵になる春の画面。**未进 walkerplus top100（鎌倉名气超過票数），但中国游客关注度极高，鎌倉一日游必经。**JR鎌倉駅徒歩10min。段葛＋境内入场免费。坑点：鎌倉全区花期周末交通瘫痪，江ノ電/JR双双限流。适配：鎌倉一日游首选，老人/情侣/亲子全人群通用。早起7点到鹤冈是唯一避开人群的方法。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_kenchoji",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "建長寺の桜",
+      "name_zh": "建长寺樱",
+      "description": "鎌倉五山第一の臨済宗大本山，境内の総門→三門→仏殿の参道に沿って桜と苔庭。禅寺的静謐さ+桜の组合，比鶴岡八幡宮安静许多。**未进 walkerplus top100，但鎌倉深度游首选。**JR北鎌倉駅徒歩15min/鎌倉駅徒歩20min。¥500拝観料。坑点：位置在山脚，远离江ノ電主线，通勤略繁琐。适配：文化深度爱好者+老人寺庙巡礼。带小娃不适合（禅寺需安静）。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_hakone_ashinoko",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "箱根 芦ノ湖畔の桜",
+      "name_zh": "箱根芦之湖畔樱",
+      "description": "箱根芦ノ湖畔（箱根神社周辺+元箱根の湖畔遊歩道）约100株染井吉野与富士山雪頂+赤い鳥居の組合せは箱根春天最代表的画面。**未进 walkerplus top100（箱根樱花规模有限），但富士山+湖+樱花的三重画面唯此处可得。**小田原駅→箱根湯本→箱根町港（总约2小时）。入场免费。坑点：箱根海拔高，花期比东京晚7-10天（4月中旬才盛），来箱根赏樱需精准时机。适配：和富士山摄影+温泉行程结合首选，单纯赏樱不值得专程。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_nikko_toshogu",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "日光東照宮周辺の桜",
+      "name_zh": "日光东照宫周边樱",
+      "description": "日光东照宫境内と参道周辺的樱花（染井吉野+山桜+枝垂桜），神橋+赤杉桜の組合は世界遺産の格を高める。**未进 walkerplus top100，但日光四月赏樱+世界遗产双重体验无可替代。**JR/东武日光駅乘巴士10min。神社境内免费，东照宫拝観¥1300。坑点：日光海拔700m，花期比东京晚15天（4月中下旬才盛），行程日期需准确。适配：日光深度游+历史文化爱好者首选，配合华严瀑布/中禅寺湖一日游。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_sakura_kawagoe_hikawa",
+      "type": "sakura",
+      "circle": "kanto",
+      "city": "kawagoe",
+      "usual_window": {
+        "start_md": "03-20",
+        "end_md": "04-10"
+      },
+      "name_ja": "川越氷川神社 新河岸川の桜",
+      "name_zh": "川越氷川神社新河岸川樱",
+      "description": "川越氷川神社裏手の新河岸川约500株染井吉野延长1.5km的河川桜並木，加上川越藏造り街道的江户情緒是关东最有昭和感的赏樱地。**未进 walkerplus top100，但中国游客对「小江户川越」关注度高。**西武新宿線本川越駅徒歩20min/JR川越駅乘巴士10min。入场免费。坑点：花期周末川越本身就堵，樱花地段道路狭窄。适配：复古街道摄影+亲子出游，与川越藏造り街道+菓子屋横丁组合一日游。",
+      "source_url": null
+    }
+  ],
+  "occurrences": []
+}

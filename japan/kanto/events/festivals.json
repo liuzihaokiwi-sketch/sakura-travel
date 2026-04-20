@@ -1,0 +1,228 @@
+{
+  "_doc": "关东圈祭典数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "festival",
+    "circle": "kanto",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kanto_festival_sumida_hanabi",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "07-26",
+        "end_md": "07-27"
+      },
+      "name_ja": "隅田川花火大会",
+      "name_zh": "隅田川花火大会",
+      "description": "東京最古（享保18年=1733年）かつ最大規模の花火大会，7月下旬土曜夜（浮動）。第1会場（桜橋付近）と第2会場（駒形橋付近）に分かれ，両者合計約22000発を打ち上げ。約960000人が来場。最佳観覧：厩橋〜言問橋周辺の隅田公園河川敷（无料立見），有料テラス席は6ヶ月前から抽選必要。坑点：周辺全路线の交通が20:00〜22:00過ぎまで混雑極致，浅草・押上駅は入場規制。帰宅は22:30過ぎ以降（人混みが引いてから）が現実的。适配：東京夏の最大イベント——7月下旬の行程ならば夜のメインとして組み込む。事前に観覧席確認必要。",
+      "source_url": "https://www.sumidagawa-hanabi.com"
+    },
+    {
+      "event_def_id": "kanto_festival_sanja_matsuri",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "05-17",
+        "end_md": "05-19"
+      },
+      "name_ja": "三社祭（浅草神社例大祭）",
+      "name_zh": "三社祭（浅草神社例大祭）",
+      "description": "浅草神社の例大祭，5月第3週末3日間（土日月）。東京最大のお神輿祭りで約200万人が来場。見どころ：100基を超える町神輿の巡行（土日），本社神輿の3基（宮神輿）が浅草の街を練り歩く（日曜午後）。浅草寺周辺の仲見世・伝法院通りが歩行者天国，屋台密集。坑点：浅草の通常観光と完全に重なるため，三社祭週末は浅草だけで人流が爆発。交通規制あり。适配：浅草観光と祭典体験の一石二鳥——5月第3週末に東京行程があれば迷わず優先。",
+      "source_url": "https://www.asakusajinja.jp/sanjamatsuri"
+    },
+    {
+      "event_def_id": "kanto_festival_kanda_matsuri",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "05-11",
+        "end_md": "05-13"
+      },
+      "name_ja": "神田祭（神田明神例大祭）",
+      "name_zh": "神田祭（神田明神例大祭）",
+      "description": "日本三大祭の一つ（天下祭），神田明神の例大祭，5月中旬（西暦奇数年に本祭開催，偶数年は陰祭）。本祭の神幸祭では神田・秋葉原・大手町・東京駅前の大通りを約300人の行列+神輿が練り歩く。神田明神はJR御茶ノ水駅/地下鉄末広町駅から徒步5min。坑点：本祭は奇数年のみ（偶数年は規模縮小），行程計画時に年号確認必須。适配：秋葉原/御茶ノ水エリアと組み合わせた観光動線で一日コース完成。",
+      "source_url": "https://www.kandamyoujin.or.jp/kanda-matsuri"
+    },
+    {
+      "event_def_id": "kanto_festival_harajuku_omotesando_genki",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "07-27",
+        "end_md": "07-27"
+      },
+      "name_ja": "原宿表参道元氣祭スーパーよさこい",
+      "name_zh": "原宿表参道元气祭超级土佐舞",
+      "description": "全国から約150チーム・約10000人が集まる東京最大のよさこい祭り，毎年7月最終土曜日。表参道〜神宮前エリアの特設ステージで豪華な踊りの連続——東京の若者文化と高知よさこいの融合。原宿駅/表参道駅直结エリア，无需购票，沿道自由観覧。坑点：7月末の原宿は暑热+祭典で人口密集度が高い。日陰が少ないため熱中症対策必須。适配：原宿・表参道エリアに行く行程に組み込み，伝統祭典と现代東京の融合体験として。",
+      "source_url": "https://www.omotesando-genki.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_tokyo_jidai_matsuri",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-03",
+        "end_md": "11-03"
+      },
+      "name_ja": "東京時代まつり（浅草）",
+      "name_zh": "东京时代祭（浅草）",
+      "description": "浅草の街を舞台に毎年11/3文化の日に開催される時代行列祭，約500名が江戸〜明治の装束で浅草寺周辺を行進。京都の時代祭より規模は小さいが，浅草・スカイツリーをバックに江戸情緒を演出。浅草駅すぐ，行進ルートは仲見世〜浅草寺雷門周辺。坑点：規模は小さく，時代祭と並べると見劣りする。浅草観光のオマケとして捉える方が適切。适配：11/3に浅草を訪れる行程向け，浅草寺観光と自然に組み合わせられる。",
+      "source_url": "https://www.asakusa.gr.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_tori_no_ichi",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "11-30"
+      },
+      "name_ja": "酉の市（鷲神社・花園神社）",
+      "name_zh": "酉の市（鹫神社·花园神社）",
+      "description": "11月の酉の日（通常2-3回）に浅草の鷲神社と新宿の花園神社で開催される縁起物の市，年間100万人以上が来場。熊手（福笹）の露店が境内と周辺に並び，大きな熊手を購入すると店員が大きな手拍子で見送る文化が人気。浅草の鷲神社は浅草観光と一体で回れる。花園神社は新宿歌舞伎町の中心という特别なロケーション。坑点：酉の日は11月の干支暦で変動するため毎年日程確認必要（11月に2〜3回）。大賑わいで移動困難。适配：11月に東京にいる行程なら，夕方1-2時間の追加体験として自然に組み込める。",
+      "source_url": "https://www.otorisama.or.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_setsubun_tokyo",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "02-03",
+        "end_md": "02-03"
+      },
+      "name_ja": "東京 節分祭（浅草寺・成田山新勝寺ほか）",
+      "name_zh": "东京节分祭（浅草寺·成田山等）",
+      "description": "2/3（または4日，毎年要確認）に東京各所の寺社で節分の豆まき行事が開催。規模頭部：浅草寺（雷門前の大豆まきに毎年著名人参加，約10万人），成田山新勝寺（有名力士参加で大規模），池上本門寺（豆まき大会），浅草神社など。各所で鬼追い+豆まき+厄除け行事が当日限定で行われ，屋台も出る。坑点：2/3は東京都内のほぼ全ての寺社で同時开催——1日で全部回るのは不可能，1-2ヶ所に集中。适配：2月初旬東京行程の冬の文化体験として，浅草観光と組み合わせが最良。",
+      "source_url": "https://www.senso-ji.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_yokohama_chinatown_spring",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "01-25",
+        "end_md": "02-10"
+      },
+      "name_ja": "横浜中華街 春節祭",
+      "name_zh": "横滨中华街春节祭",
+      "description": "日本最大の中華街・横浜中華街の春節庆典，农历春节前後约10-14日間（浮動日程）。獅子舞・龍舞・変面・廟会屋台が三日間以上連続して中華街全体で展開，日本三大中華街中最大規模。東急東横線・みなとみらい線元町・中華街駅すぐ。大阪南京町と同時期のため，訪問場所の選択が必要。坑点：農曆年によって日程が±1週変動，当年の正確な日程は横浜中華街公式サイトで確認必須。适配：横滨一日観光の2月ルートとして山下公園+中華街+春節祭は完璧な日帰りコース。",
+      "source_url": "https://www.chinatown.or.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_yokohama_jazz",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "10-27"
+      },
+      "name_ja": "横浜ジャズプロムナード",
+      "name_zh": "横滨爵士散步",
+      "description": "毎年10月下旬の3日間，横浜市内（関内・みなとみらい周辺）の約60会場で約170演奏が繰り広げられる日本最大のジャズフェスティバル。スタジアム系ホール+路上/公園+バーなど多様な会場，一日パスポート制と無料会場が混在。みなとみらい+関内エリアの洋館・赤レンガ倉庫との組合せで横浜の異国情緒が最大化。坑点：有料会場チケットは人気アーティスト出演日は完売になる。無料会場から先に見ることを推奨。适配：音楽好き/横浜の街歩きが好きな大人向け，秋の横浜行程に最良の文化的厚みを加える。",
+      "source_url": "https://www.yokohama-jazzpromenade.com"
+    },
+    {
+      "event_def_id": "kanto_festival_kamakura_matsuri",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "04-07",
+        "end_md": "04-15"
+      },
+      "name_ja": "鎌倉まつり",
+      "name_zh": "镰仓祭",
+      "description": "毎年4月第2週（月曜日前後の9日間），鶴岡八幡宮を中心に開催される鎌倉最大の春祭り。流鏑馬（4/14，馬背射箭神事），静の舞（4/12，白拍子の演舞），大名行列，神事舞台など。鶴岡八幡宮境内の桜+流鏑馬の组合せは鎌倉春の最強組合せ，桜のピークとも重なる。坑点：江ノ電/JR鎌倉駅周辺が桜+祭典+GW前の組み合わせで極度混雑。平日が最良。适配：鎌倉一日観光の4月行程に自然に組み込める，4/14の流鏑馬は必見レベル。",
+      "source_url": "https://www.kamakura-matsuri.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_hakone_daimyo_gyoretsu",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-03",
+        "end_md": "11-03"
+      },
+      "name_ja": "箱根大名行列",
+      "name_zh": "箱根大名行列",
+      "description": "毎年11/3文化の日に旧東海道小田原〜箱根湯本の宿場町を江戸時代の参勤交代を再現した約400人の大名行列が練り歩く。槍持・挟箱持・鉄砲方などが揃い，沿道で「下にー，下に！」の掛け声が響く時代絵巻。小田原駅前から出発，箱根湯本まで約12kmを2時間かけて行進。坑点：11/3は文化の日の連休中，箱根全体が秋の紅葉目的の観光客で交通混雑。适配：箱根温泉泊まりの秋行程に組み込む日帰り観覧として最適，時代劇ファン/家族向け。",
+      "source_url": "https://www.hakone.or.jp/matsuri"
+    },
+    {
+      "event_def_id": "kanto_festival_nikko_toshogu_spring",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "05-17",
+        "end_md": "05-18"
+      },
+      "name_ja": "日光東照宮 春の例大祭（百物揃千人武者行列）",
+      "name_zh": "日光东照宫春季例大祭（千人武者行列）",
+      "description": "徳川家康の命日に近い5/17-18，日光東照宮の春の例大祭が開催。最大の見どころ：5/18の「百物揃千人武者行列」——約1200人が江戸時代の武者装束で東照宮境内を行進する壮観な時代絵巻。世界遺産の杉並木参道をバックに千人の甲冑武者が進む画面は日本中世史の最高の再現。JR/東武日光駅からバスまたは徒步40min。坑点：5月中旬は日光の新緑+祭典が重なり，観光バスと個人客で駐車場・道路が極限混雑。平日来訪か，早朝到着推奨。适配：歴史/日本史好きの深度游客向け，日光1泊2日行程の5/17-18泊まりに設計。",
+      "source_url": "https://www.toshogu.jp/festival"
+    },
+    {
+      "event_def_id": "kanto_festival_nikko_toshogu_autumn",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "10-17",
+        "end_md": "10-17"
+      },
+      "name_ja": "日光東照宮 秋の例大祭（流鏑馬等）",
+      "name_zh": "日光东照宫秋季例大祭",
+      "description": "10/17に日光東照宮で行われる秋の例大祭。春ほど規模は大きくないが，流鏑馬の奉納神事が境内で観覧できる。秋の日光は紅葉（10月中旬がいろは坂ピーク）と東照宮秋祭の組合せで1泊2日の行程価値が最大化。坑点：10/17は固定のため，いろは坂渋滞+祭典人流の二重混雑になることがある。适配：紅葉行程の10/17前後に1泊2日を計画する場合の行程核心として最適。",
+      "source_url": "https://www.toshogu.jp/festival"
+    },
+    {
+      "event_def_id": "kanto_festival_kawagoe_hikawa_tanabata",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "kawagoe",
+      "usual_window": {
+        "start_md": "07-07",
+        "end_md": "08-31"
+      },
+      "name_ja": "川越氷川神社 縁結び風鈴",
+      "name_zh": "川越氷川神社缘结风铃",
+      "description": "川越氷川神社の縁結びの神様に因み，7月〜8月末まで境内に約2000個の縁結び風鈴が飾られる夏の人気イベント。境内に並ぶ色とりどりの風鈴+浴衣参拝客の組合せは川越で最も写真映えするスポットとして SNS で大人気。西武新宿線本川越駅から徒步20min。坑点：8月土日は午前中から参道が混雑，早朝到着推奨。氷川神社の月次祭（毎月月末）が重なる日は特に混雑。适配：情侣/カップル向けの夏の縁結び参拝として川越観光の核心——「小江戸」観光ルートに完全組み込み可。",
+      "source_url": "https://www.kawagoehicha-jinja.or.jp"
+    },
+    {
+      "event_def_id": "kanto_festival_kawagoe_matsuri",
+      "type": "festival",
+      "circle": "kanto",
+      "city": "kawagoe",
+      "usual_window": {
+        "start_md": "10-19",
+        "end_md": "10-20"
+      },
+      "name_ja": "川越まつり（川越氷川祭の山車行事）",
+      "name_zh": "川越祭（山车行事，国家重要无形民俗文化财）",
+      "description": "毎年10月第3週末（土日）に開催。国指定重要無形民俗文化財の山車行事——29基の山車が川越の藏造り街道を練り歩き，曳っかわせ（山車の競り合い）の場面は「小江戸の祇園祭」と称される。約50万人が来場，川越の年間最大イベント。坑点：川越市内の交通が完全にマヒする——電車利用のみ推奨，車での訪問は×。适配：川越を観光プランに入れるなら10月第3週末が最高グレード，特に历史/山车好き向け。",
+      "source_url": "https://www.kawagoematsuri.jp"
+    }
+  ],
+  "occurrences": []
+}

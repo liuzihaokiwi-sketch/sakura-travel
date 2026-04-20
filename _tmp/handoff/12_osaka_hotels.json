@@ -1,0 +1,569 @@
+{
+  "_doc": "大阪酒店池。每家自带标签和点评，系统根据人群+预算+偏好自动选最匹配的一家",
+
+  "hotels": [
+    {
+      "id": "hillarys_shinsaibashi",
+      "name_ja": "Hotel Hillarys 心斎橋",
+      "name_zh": "希拉里斯心斋桥",
+      "area": "namba_dotonbori",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 250, "high": 560},
+      "vibe_tags": ["romantic"],
+      "facility_tags": ["onsen", "free_breakfast"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "balanced",
+      "editor_note": "顶楼大浴场免费，情侣评分9.3，经济型里综合体验好",
+      "review": {
+        "location": "心斎橋站6号出口步行约3分钟",
+        "room": "标准双人约17㎡，110cm单人床×2",
+        "highlight": "含自助早餐+大堂全日免费饮料；13楼男女分开大浴场",
+        "note": "临街低层可能吵，偏好安静者选高层",
+        "summary": "购物狂的梦想基地，含浴场含早餐，预算友好型中难得的综合优质体验"
+      }
+    },
+    {
+      "id": "via_inn_shinsaibashi",
+      "name_ja": "VIA INN 心斎橋",
+      "name_zh": "VIA INN心斋桥",
+      "area": "namba_dotonbori",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 310, "high": 750},
+      "vibe_tags": ["casual"],
+      "facility_tags": ["free_breakfast"],
+      "practical_tags": [],
+      "quality_bias": "value",
+      "experience_bias": "balanced",
+      "editor_note": "JR西日本直营，含早餐，12岁以下免费加床，家庭经济之选",
+      "review": {
+        "location": "心斎橋站7号出口步行约2分钟",
+        "room": "标准双人房，JR西日本直营品质稳定",
+        "highlight": "含早餐日式热食，12岁以下儿童免费",
+        "note": "综合评分9分+，硬件朴实但干净可靠",
+        "summary": "JR直营品质保底，含早餐且儿童免费，适合不追求花样只要干净省钱的家庭"
+      }
+    },
+    {
+      "id": "vessel_shinsaibashi",
+      "name_ja": "ベッセルホテル心斎橋",
+      "name_zh": "威塞尔心斋桥",
+      "area": "namba_dotonbori",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 300, "high": 700},
+      "vibe_tags": ["casual", "kid_friendly"],
+      "facility_tags": ["free_breakfast"],
+      "practical_tags": [],
+      "quality_bias": "value",
+      "experience_bias": "balanced",
+      "editor_note": "免费饮料吧，早餐有生鱼片，经济型中餐食水准突出",
+      "review": {
+        "location": "心斎橋站步行约4分钟",
+        "room": "标准双人房，设施简洁干净",
+        "highlight": "免费饮料吧全天供应；早餐含生鱼片等日式料理，超出经济型水准",
+        "note": "房间偏小但符合经济型定位",
+        "summary": "早餐和饮料吧在经济型中属于越级表现，性价比突出"
+      }
+    },
+    {
+      "id": "dormy_inn_premium_namba",
+      "name_ja": "ドーミーインPREMIUM なんば",
+      "name_zh": "多美Inn Premium难波",
+      "area": "namba_dotonbori",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 370, "high": 850},
+      "vibe_tags": ["casual"],
+      "facility_tags": ["onsen", "free_breakfast", "free_late_snack"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "天然温泉+免费宵夜拉面，863间大体量，Dormy系列王牌店",
+      "review": {
+        "location": "日本橋站步行约5分钟",
+        "room": "863间大体量，标准Dormy品质",
+        "highlight": "天然镭温泉大浴场；免费深夜拉面21:30-23:00；早餐海鲜丼",
+        "note": "大浴场旺季高峰时段拥挤，建议错峰使用",
+        "summary": "Dormy系列标杆——温泉+宵夜拉面+海鲜早餐三件套，经济型天花板体验"
+      }
+    },
+    {
+      "id": "oyado_nono_namba",
+      "name_ja": "御宿野乃なんば",
+      "name_zh": "御宿野乃难波",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 540, "high": 1200},
+      "vibe_tags": ["quiet", "nostalgic"],
+      "facility_tags": ["onsen", "outdoor_onsen", "tatami", "free_late_snack"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "high",
+      "editor_note": "全馆榻榻米脱鞋+天然温泉+露天风吕，城市中的旅馆体验，旺季需提前2-3月预订",
+      "review": {
+        "location": "日本橋站6号出口步行约1分钟",
+        "room": "全馆榻榻米铺设，脱鞋入馆，和式旅馆氛围",
+        "highlight": "奈良生驹天然温泉+室外露天风吕；免费拉面+冰棒；全馆和风体验",
+        "note": "旺季需提前2-3个月预订，热门日期一房难求",
+        "summary": "大阪市中心的旅馆奇迹——榻榻米+露天温泉+免费拉面，Dormy高端线的极致形态"
+      }
+    },
+    {
+      "id": "candeo_namba",
+      "name_ja": "カンデオホテルズ大阪なんば",
+      "name_zh": "光芒酒店难波",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 520, "high": 1300},
+      "vibe_tags": ["romantic", "urban_energy"],
+      "facility_tags": ["onsen", "night_view"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "顶楼Sky Spa空中温泉，道顿堀步行3分钟，夜景泡汤绝配",
+      "review": {
+        "location": "日本橋站步行约5分钟，道顿堀步行3分钟",
+        "room": "496间客房，全房Simmons席梦思床垫",
+        "highlight": "顶层Sky Spa获桑拿米其林特别奖；城市夜景中泡露天温泉",
+        "note": "价格在mid档中偏亲民，性价比突出",
+        "summary": "Sky Spa夜景温泉是难波区最浪漫的泡汤体验，价格却只是mid档入门水平"
+      }
+    },
+    {
+      "id": "monterey_grasmere",
+      "name_ja": "ホテルモントレ グラスミア大阪",
+      "name_zh": "蒙特利Grasmere大阪",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 590, "high": 1400},
+      "vibe_tags": ["quiet", "cultural"],
+      "facility_tags": ["station_direct", "city_panorama"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "JR难波站直结，24-31F大阪湾全景，英式庄园主题，适合不想折腾交通的旅客",
+      "review": {
+        "location": "JR难波站直连，雨天免淋雨",
+        "room": "21-31层，英国科茨沃尔德庄园主题装修",
+        "highlight": "JR难波直结零步行；含OCAT直达关西机场巴士；22楼法式餐厅",
+        "note": "庄园主题见仁见智，但硬件品质和交通便利性无可挑剔",
+        "summary": "JR难波直结+高层大阪湾景观，交通便利性在难波区无出其右"
+      }
+    },
+    {
+      "id": "vessel_inn_namba",
+      "name_ja": "Vessel Inn Namba",
+      "name_zh": "威塞尔难波",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 300, "high": 750},
+      "vibe_tags": ["kid_friendly", "casual"],
+      "facility_tags": ["baby_amenities"],
+      "practical_tags": [],
+      "quality_bias": "value",
+      "experience_bias": "balanced",
+      "editor_note": "18岁以下免费加床+婴儿用品租借，mid档价格实际是economy水平，亲子首选",
+      "review": {
+        "location": "难波站步行约5分钟",
+        "room": "标准双人房，可加床",
+        "highlight": "18岁以下免费加床；提供婴儿床、婴儿澡盆等用品免费租借",
+        "note": "硬件朴实，卖点是亲子政策而非设施",
+        "summary": "大阪亲子住宿性价比王——18岁以下免费+婴儿用品齐全，省下的钱够吃一顿好的"
+      }
+    },
+    {
+      "id": "swissotel_nankai",
+      "name_ja": "Swissotel Nankai Osaka",
+      "name_zh": "瑞士南海大阪",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 940, "high": 2800},
+      "vibe_tags": ["urban_energy", "luxury_feel"],
+      "facility_tags": ["station_direct"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "南海难波站正上方，关西机场线直达，36层546间，难波地标级存在",
+      "review": {
+        "location": "南海难波站正上方，步行0分钟；关西机场Rapi:t直达",
+        "room": "36层546间，标准房约30㎡起",
+        "highlight": "行政酒廊全日茶点；9家餐厅+泳池+桑拿；机场直达零换乘",
+        "note": "建筑年代较早，部分楼层装修风格偏传统商务",
+        "summary": "难波交通枢纽的绝对王者——站上方零步行+机场直达，商务和赶飞机场景无可替代"
+      }
+    },
+    {
+      "id": "nikko_osaka",
+      "name_ja": "Hotel Nikko Osaka",
+      "name_zh": "日航大阪",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 700, "high": 2200},
+      "vibe_tags": ["urban_energy"],
+      "facility_tags": ["station_direct"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "心斋桥站直结，对面大丸百货，购物+交通双便利，老牌日航品质稳定",
+      "review": {
+        "location": "心斋桥站直结，对面即大丸百货",
+        "room": "标准日航品质，房间宽敞整洁",
+        "highlight": "心斋桥站直结零步行；大丸百货正对面；日航品牌服务稳定",
+        "note": "不追求网红感，胜在位置和品质的绝对稳定",
+        "summary": "心斋桥购物圈的定海神针——站直结+百货对面，品质稳定不翻车"
+      }
+    },
+    {
+      "id": "centara_grand_osaka",
+      "name_ja": "センタラグランドホテル大阪",
+      "name_zh": "盛泰澜大阪",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 770, "high": 2400},
+      "vibe_tags": ["design_forward", "lively"],
+      "facility_tags": ["night_view"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "2023新开业，8家餐厅+楼顶酒吧，泰系奢华品牌日本首秀，硬件全新",
+      "review": {
+        "location": "难波站步行约5分钟",
+        "room": "2023年新开，全新硬件，东南亚奢华风格",
+        "highlight": "8家餐厅覆盖多国料理；楼顶酒吧俯瞰大阪夜景",
+        "note": "泰国品牌在日本认知度较低，但硬件品质不输国际五星",
+        "summary": "2023全新开业的黑马——8家餐厅+楼顶酒吧，硬件碾压同价位老牌酒店"
+      }
+    },
+    {
+      "id": "caption_hyatt_namba",
+      "name_ja": "キャプション by Hyatt なんば",
+      "name_zh": "凯悦尚萃难波",
+      "area": "namba_dotonbori",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 1100, "high": 2700},
+      "vibe_tags": ["design_forward", "lively"],
+      "facility_tags": [],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "凯悦潮牌线日本首家，社交型酒店，适合年轻情侣和朋友",
+      "review": {
+        "location": "难波站步行约5分钟",
+        "room": "凯悦潮牌线设计，年轻化风格",
+        "highlight": "凯悦集团潮牌线日本首店；社交公共空间设计出色",
+        "note": "定位年轻社交，带长辈可能不太合适",
+        "summary": "凯悦年轻线的日本首秀——设计感和社交氛围突出，年轻旅客的凯悦入门之选"
+      }
+    },
+    {
+      "id": "w_osaka",
+      "name_ja": "W Osaka",
+      "name_zh": "W大阪",
+      "area": "namba_dotonbori",
+      "budget_tier": "high",
+      "price_range_cny": {"low": 2000, "high": 6000},
+      "vibe_tags": ["design_forward", "photogenic", "lively"],
+      "facility_tags": ["night_view"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "日本首家W，安藤忠雄监制，3000激光切孔隧道+无边际泳池，打卡型奢华",
+      "review": {
+        "location": "心斎橋站步行约5分钟",
+        "room": "安藤忠雄监制黑色外立面；樱花粉或深海蓝两种主题客房",
+        "highlight": "3000激光切孔隧道入口；屋顶无边际泳池；日本首家W酒店",
+        "note": "设计大胆前卫，不喜欢花哨风格的旅客可能不适应",
+        "summary": "大阪最具话题性的酒店——安藤忠雄×W的大胆碰撞，每个角落都是拍照素材"
+      }
+    },
+    {
+      "id": "fourpoints_flex_umeda",
+      "name_ja": "フォーポイントフレックス by シェラトン大阪梅田",
+      "name_zh": "福朋Flex梅田",
+      "area": "umeda_kita",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 380, "high": 1000},
+      "vibe_tags": ["casual"],
+      "facility_tags": [],
+      "practical_tags": [],
+      "quality_bias": "value",
+      "experience_bias": "balanced",
+      "editor_note": "万豪系性价比最高的线，梅田区经济型首选，积分党友好",
+      "review": {
+        "location": "梅田站步行约8分钟",
+        "room": "万豪Flex系列标准，简洁现代",
+        "highlight": "万豪系最具性价比的品牌线；可累积万豪积分",
+        "note": "Flex系列定位精简，不含泳池健身房等高端配套",
+        "summary": "万豪积分党的梅田据点——品牌背书+积分累积，经济型中最有连锁保障"
+      }
+    },
+    {
+      "id": "livemax_premium_umeda",
+      "name_ja": "リブマックスホテル梅田",
+      "name_zh": "Livemax Premium梅田",
+      "area": "umeda_kita",
+      "budget_tier": "economy",
+      "price_range_cny": {"low": 300, "high": 750},
+      "vibe_tags": ["casual"],
+      "facility_tags": ["onsen"],
+      "practical_tags": [],
+      "quality_bias": "value",
+      "experience_bias": "balanced",
+      "editor_note": "天然温泉+席梦思床垫，经济型中罕见的温泉配置",
+      "review": {
+        "location": "梅田站步行约10分钟",
+        "room": "席梦思床垫，房间紧凑但设施齐全",
+        "highlight": "天然温泉大浴场；全房Simmons席梦思床垫",
+        "note": "Livemax品牌知名度不高，但Premium线硬件超出预期",
+        "summary": "梅田隐藏宝藏——300元起步就有天然温泉+席梦思，经济型的越级体验"
+      }
+    },
+    {
+      "id": "mitsui_garden_premier",
+      "name_ja": "三井ガーデンホテル大阪プレミア",
+      "name_zh": "三井花园Premier",
+      "area": "umeda_kita",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 700, "high": 1800},
+      "vibe_tags": ["quiet", "romantic"],
+      "facility_tags": ["onsen", "outdoor_onsen", "river_view", "free_lounge"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "high",
+      "editor_note": "中之岛河景+16F免费露天温泉+专属酒廊，米其林指南连续6年推荐",
+      "review": {
+        "location": "肥後橋站步行约5分钟；JR大阪站有免费接驳巴士",
+        "room": "Premier Floor木地板可赤脚，河景房俯瞰中之岛",
+        "highlight": "16楼免费露天温泉；Premier专属酒廊免费啤酒葡萄酒；米其林指南连续6年推荐",
+        "note": "离梅田核心步行稍远，但有免费接驳补偿",
+        "summary": "大阪mid档的标杆——露天温泉+免费酒廊+河景+米其林六连推，综合体验远超价位"
+      }
+    },
+    {
+      "id": "granvia_osaka",
+      "name_ja": "ホテルグランヴィア大阪",
+      "name_zh": "格兰维亚大阪",
+      "area": "umeda_kita",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 750, "high": 1800},
+      "vibe_tags": ["nostalgic", "quiet"],
+      "facility_tags": ["station_direct", "free_lounge"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "JR大阪站直结，豪华层专属休息室，昭和时代的稳重品质",
+      "review": {
+        "location": "JR大阪站直连，步行0分钟",
+        "room": "豪华楼层27F有专属休息室",
+        "highlight": "JR大阪站直结零步行；27楼豪华层专属休息室；19楼法式餐厅",
+        "note": "装修保留昭和历史温度，不追求新潮但有底蕴",
+        "summary": "JR大阪站直结的老牌名门——交通便利性满分，适合把大阪当中转枢纽的行程"
+      }
+    },
+    {
+      "id": "candeo_tower_osaka",
+      "name_ja": "カンデオホテルズ大阪ザ・タワー",
+      "name_zh": "光芒酒店塔楼",
+      "area": "umeda_kita",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 900, "high": 2200},
+      "vibe_tags": ["romantic", "photogenic"],
+      "facility_tags": ["onsen", "outdoor_onsen", "city_panorama", "night_view"],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "2024新开，吉尼斯认证135米世界最高露天温泉，大阪新地标体验",
+      "review": {
+        "location": "淀屋橋站步行约6分钟",
+        "room": "2024年新开业，全新硬件",
+        "highlight": "吉尼斯世界纪录135米世界最高露天温泉；芬兰Löyly正宗桑拿",
+        "note": "位置在淀屋桥而非梅田核心，但温泉体验值得专程",
+        "summary": "2024年大阪最值得体验的新酒店——135米高空露天温泉看大阪全景，此生必泡"
+      }
+    },
+    {
+      "id": "hankyu_respire",
+      "name_ja": "ホテル阪急レスパイア大阪",
+      "name_zh": "阪急Respire",
+      "area": "umeda_kita",
+      "budget_tier": "mid",
+      "price_range_cny": {"low": 650, "high": 2000},
+      "vibe_tags": ["urban_energy", "casual"],
+      "facility_tags": [],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "balanced",
+      "editor_note": "Grand Front大阪旁，梅田商圈核心位置，阪急品牌品质稳定",
+      "review": {
+        "location": "JR大阪站步行约5分钟，Grand Front大阪旁",
+        "room": "阪急品牌标准，现代简洁风格",
+        "highlight": "Grand Front大阪紧邻，梅田商圈购物餐饮一步之遥",
+        "note": "没有温泉等特色设施，纯靠位置和品质取胜",
+        "summary": "梅田商圈的稳妥之选——位置好品质稳，不惊艳但绝不出错"
+      }
+    },
+    {
+      "id": "canopy_hilton_umeda",
+      "name_ja": "キャノピーbyヒルトン大阪梅田",
+      "name_zh": "希尔顿花树梅田",
+      "area": "umeda_kita",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 1400, "high": 3500},
+      "vibe_tags": ["design_forward", "lively"],
+      "facility_tags": [],
+      "practical_tags": [],
+      "quality_bias": "balanced",
+      "experience_bias": "high",
+      "editor_note": "2024新开，希尔顿生活方式品牌，设计感强，适合年轻高端旅客",
+      "review": {
+        "location": "梅田站步行约5分钟",
+        "room": "2024年新开，希尔顿Canopy系列设计风格",
+        "highlight": "希尔顿生活方式品牌2024新店；在地文化融入设计",
+        "note": "Canopy定位lifestyle，不是传统希尔顿的商务感",
+        "summary": "希尔顿的年轻化尝试——2024全新硬件+在地设计，梅田区最有设计感的国际品牌"
+      }
+    },
+    {
+      "id": "imperial_osaka",
+      "name_ja": "帝国ホテル大阪",
+      "name_zh": "帝国酒店大阪",
+      "area": "umeda_kita",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 1000, "high": 2500},
+      "vibe_tags": ["quiet", "luxury_feel", "nostalgic"],
+      "facility_tags": ["river_view"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "日本三大名门酒店之一，大川河畔樱花通道旁，传统奢华的极致",
+      "review": {
+        "location": "JR桜ノ宮站步行约5分钟；JR大阪站有免费接驳巴士",
+        "room": "传统奢华装修，房间宽敞，大川河景",
+        "highlight": "大川沿岸紧邻造幣局樱花通道；8家餐厅含なだ万日本料理；4400㎡健身俱乐部",
+        "note": "位置偏离梅田核心，但有免费接驳巴士；樱花季河景无价",
+        "summary": "日本酒店业的活化石——百年帝国的大阪分号，樱花季大川河景是所有酒店中最诗意的"
+      }
+    },
+    {
+      "id": "hilton_osaka",
+      "name_ja": "ヒルトン大阪",
+      "name_zh": "希尔顿大阪",
+      "area": "umeda_kita",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 1600, "high": 3500},
+      "vibe_tags": ["urban_energy"],
+      "facility_tags": ["station_direct"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "balanced",
+      "editor_note": "梅田核心老牌希尔顿，品质稳定，商务和旅游都不会出错",
+      "review": {
+        "location": "JR大阪站/梅田站步行约3分钟",
+        "room": "标准希尔顿品质，客房宽敞",
+        "highlight": "梅田核心位置；希尔顿品牌全球标准服务",
+        "note": "老牌酒店，硬件不算最新但维护良好",
+        "summary": "梅田区最稳的国际五星——不惊喜也不失望，希尔顿会员首选"
+      }
+    },
+    {
+      "id": "intercontinental_osaka",
+      "name_ja": "InterContinental Osaka",
+      "name_zh": "洲际大阪",
+      "area": "umeda_kita",
+      "budget_tier": "mid_high",
+      "price_range_cny": {"low": 1200, "high": 3000},
+      "vibe_tags": ["luxury_feel", "quiet"],
+      "facility_tags": ["onsen"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "high",
+      "editor_note": "温泉Spa+米其林餐厅，梅田区综合体验最完整的高端酒店",
+      "review": {
+        "location": "梅田站步行约8分钟",
+        "room": "高端装修，房间宽敞，城市景观",
+        "highlight": "酒店内温泉Spa设施；米其林星级餐厅进驻",
+        "note": "位置稍偏但设施完整度补偿",
+        "summary": "梅田区唯一自带温泉Spa+米其林的高端酒店，追求一站式享受的首选"
+      }
+    },
+    {
+      "id": "conrad_osaka",
+      "name_ja": "Conrad Osaka",
+      "name_zh": "康莱德大阪",
+      "area": "umeda_kita",
+      "budget_tier": "high",
+      "price_range_cny": {"low": 2500, "high": 6000},
+      "vibe_tags": ["luxury_feel", "photogenic", "quiet"],
+      "facility_tags": ["river_view", "city_panorama", "night_view"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "high",
+      "editor_note": "中之岛33-40层，双河汇流200米全景，389件艺术品，大阪奢华酒店标杆",
+      "review": {
+        "location": "肥後橋站/渡辺橋站直连",
+        "room": "中之岛33-40层共164间，每间都有200米全景窗",
+        "highlight": "40层风神雷神主题大堂；389件当代艺术品散布全馆；双河汇流全景",
+        "note": "TripAdvisor 4.7/5；中之岛位置离梅田核心步行约15分钟",
+        "summary": "大阪最美的酒店——33层以上双河全景+389件艺术品，每个房间都是一幅画"
+      }
+    },
+    {
+      "id": "waldorf_astoria_osaka",
+      "name_ja": "ウォルドーフ・アストリア大阪",
+      "name_zh": "华尔道夫大阪",
+      "area": "umeda_kita",
+      "budget_tier": "top",
+      "price_range_cny": {"low": 4500, "high": 9000},
+      "vibe_tags": ["luxury_feel", "design_forward", "quiet"],
+      "facility_tags": ["station_direct", "city_panorama"],
+      "practical_tags": [],
+      "quality_bias": "high",
+      "experience_bias": "high",
+      "editor_note": "2025新开，希尔顿最高端线，André Fu操刀，JR大阪站直结，大阪天花板",
+      "review": {
+        "location": "JR大阪站直结（グラングリーン大阪综合体内）",
+        "room": "31-38层，André Fu设计，Lantern概念——7米高300根木质百叶",
+        "highlight": "2025年亚洲最佳新酒店；André Fu大师设计；JR大阪站直结新综合体",
+        "note": "2025年开业，大阪最新最高端的酒店，无历史口碑参考",
+        "summary": "大阪酒店的新王者——华尔道夫×André Fu×JR大阪站直结，2025年亚洲最佳新酒店"
+      }
+    },
+    {
+      "id": "izumisano_placeholder",
+      "name_ja": null,
+      "name_zh": null,
+      "area": "izumisano",
+      "budget_tier": null,
+      "price_range_cny": null,
+      "vibe_tags": [],
+      "facility_tags": [],
+      "practical_tags": [],
+      "quality_bias": null,
+      "experience_bias": null,
+      "editor_note": "TODO: 需采集关西机场周边酒店数据。典型需求：最后一晚赶早班飞机，需要机场10分钟内的酒店",
+      "review": null
+    }
+  ],
+
+  "area_rules": {
+    "_doc": "酒店区域选择规则",
+    "namba_dotonbori": {
+      "when": "osaka_stay >= 3 nights",
+      "reason": "道顿堀步行5min，深度玩大阪"
+    },
+    "umeda_kita": {
+      "when": "osaka_stay <= 2 nights",
+      "reason": "方便切京都，阪急/JR直达30-40min"
+    },
+    "izumisano": {
+      "when": "last_night_before_flight",
+      "reason": "关西机场10min，赶早班飞机"
+    }
+  },
+
+  "hotel_preference_behavior": {
+    "quality_first": "同预算选综合品质最稳的，哪怕少一点风景和话题感",
+    "resort_vibe": "允许为了特色接受综合品质不如标准五星的trade-off",
+    "value_for_money": "同品质选最便宜的",
+    "balanced": "先保底线品质，再看位置和体验"
+  }
+}

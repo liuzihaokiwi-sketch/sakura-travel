@@ -1,0 +1,28 @@
+{% from 'macros.html' import accent_bar, stat_strip %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">行程亮点</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'stat_strip' %}
+      {{ stat_strip(sec.content.stats) }}
+    {% elif sec.section_type == 'entity_card' %}
+      {% set spots = sec.content.spots or sec.content.get('spots', []) %}
+      {% for spot in spots %}
+      <div class="entity-card">
+        <div style="display:table;width:100%">
+          <div style="display:table-cell;vertical-align:top;width:32pt">
+            <span style="font-size:13pt;color:#C0392B;font-weight:700">D{{ spot.day_index or '' }}</span>
+          </div>
+          <div style="display:table-cell;vertical-align:top">
+            <div class="entity-card-name">{{ spot.name | e }}</div>
+            {% if spot.area %}<div class="entity-card-meta">{{ spot.area | e }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,63 @@
+{
+  "template_id": "minoo_koyo_day",
+  "label": "箕面红叶日（大阪的红叶+瀑布）",
+  "tags": [
+    "koyo",
+    "nature",
+    "hiking",
+    "autumn"
+  ],
+  "core_entities": [
+    "osa_minoo_falls"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'koyo'",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 大阪也有红叶。大阪=美食+繁华街的印象，但箕面公园是大阪府内最高级别的红叶景点。滝道（たきみち）徒步（单程约2.5km/40min）看箕面大瀑布（日本百选瀑布/落差33m）+红叶隧道。枫叶天妇罗（もみじの天ぷら，炸红叶——箕面名物）在其他地方吃不到。从梅田坐电车30min。",
+  "hotel_area_note": "梅田→阪急箕面线→箕面站约30min（¥280）。从箕面站到滝道入口步行即到。",
+  "slots": [
+    {
+      "slot_id": "mno_transport",
+      "time_range": "09:00-09:30",
+      "type": "transport",
+      "note": "阪急梅田→石桥阪大前→箕面（约30min/¥280）。出了箕面站就是滝道入口——从这里到箕面大瀑布约2.5km/步行约40min。"
+    },
+    {
+      "slot_id": "mno_takimichi",
+      "time_range": "09:30-12:00",
+      "type": "poi",
+      "priority": "P1",
+      "duration_min": 150,
+      "note": "箕面公园滝道（瀑布道，たきみち）徒步——沿川步道到箕面大瀑布。11月中旬-12月上旬是红叶隧道（伊吕波枫/约1,000棵）。途中有瀧安寺（瀑布寺，日本最古老的弁财天（弁才天，财富/艺术女神）），昆虫馆（带孩子的适合）。箕面大瀑布落差33m——白色瀑布在红叶画框中落下的构图。枫叶天妇罗（もみじの天ぷら，盐味的炸红叶片/¥300-500/滝道沿途茶屋有售）是箕面限定——其他地方吃不到。红叶期周末人多——推荐平日或清早去。回程走原路返回或穿出勝尾寺（胜尾寺）方向（可坐巴士回箕面站）。"
+    },
+    {
+      "slot_id": "mno_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "在箕面站周边吃午饭。站前的咖啡厅/食堂。或者在滝道沿途的茶屋吃轻食。回程在梅田吃也可以。"
+    },
+    {
+      "slot_id": "mno_afternoon",
+      "time_range": "14:00-17:00",
+      "type": "optional_poi",
+      "priority": "P3",
+      "duration_min": 180,
+      "note": "午后选项：(1) 勝尾寺（胜尾寺，从箕面坐巴士约15min/¥400/以8000个达摩奉纳闻名/红叶夜间点灯11月期间限定）(2) 从箕面回梅田，下午购物/咖啡厅 (3) 中之岛公园玫瑰园（秋玫瑰10月下旬-11月中旬与红叶重叠的时期）。徒步后身体愉快地疲累——下午放松就好。"
+    },
+    {
+      "slot_id": "mno_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市内吃晚饭。上午走了山路，是想吃得扎实的夜晚。换个与午饭不同的菜系。"
+    }
+  ]
+}

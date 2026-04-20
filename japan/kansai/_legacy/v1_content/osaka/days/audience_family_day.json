@@ -1,0 +1,71 @@
+{
+  "template_id": "audience_family_day",
+  "label": "亲子日：海游馆+乐高+摩天轮",
+  "tags": [
+    "aquarium",
+    "indoor",
+    "family"
+  ],
+  "core_entities": [
+    "osa_kaiyukan"
+  ],
+  "fit_audience": "family",
+  "weather_sensitive": false,
+  "condition": "total_days >= 4.5",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 欢笑与安心。亲子专属一天。全程天保山区域500m半径内，全室内为主，雨天完全友好。设施之间步行3-5min，不需要任何公共交通——带小孩这一点至关重要。备选：天王寺动物園（¥500）或Kids Plaza Osaka（梅田附近）。",
+  "hotel_area_note": "住难波坐地铁到大阪港站约25min。住天保山周边（如Hotel Universal Port等）最方便但选择少。",
+  "slots": [
+    {
+      "slot_id": "aud_fam_kaiyukan",
+      "time_range": "10:00-13:00",
+      "type": "poi",
+      "area": "tempozan",
+      "priority": "P1",
+      "duration_min": 180,
+      "entity_hint": "大阪海遊館（大阪海游馆）",
+      "note": "带小孩需3-4h（成人2h够）。动态定价：成人¥2,700-3,500/小学生¥1,400-1,800/3-6岁¥700-900/2岁以下免费。螺旋路线从8F走到1F，婴儿车可用（入口有租借）。触摸池区域（ふれあいコーナー，触摸角）小孩最喜欢——可以摸鲨鱼卵和鳐鱼。中途可再入场（出口盖章），体力不支可以出去吃饭再回来看后半段。"
+    },
+    {
+      "slot_id": "aud_fam_lunch",
+      "time_range": "13:00-14:00",
+      "type": "meal",
+      "area": "tempozan",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "天保山Marketplace 2F フードコート（美食广场），有儿童椅和儿童餐。不需要出区域找餐厅——带小孩转移成本太高。"
+    },
+    {
+      "slot_id": "aud_fam_legoland",
+      "time_range": "14:00-17:00",
+      "type": "poi",
+      "area": "tempozan",
+      "priority": "P2",
+      "duration_min": 180,
+      "entity_hint": "レゴランドディスカバリーセンター大阪（乐高发现中心大阪）",
+      "note": "海游馆旁天保山Marketplace 3F，步行3min。¥2,800成人/¥2,200子供（3-12岁），网上提前购票有折扣且必须预约时段（现场不卖票或卖完）。室内乐高主题乐园，3-10岁最适合。有4D电影、迷你兰大阪城模型、软积木游乐区。2h是标准游玩时间，小孩兴奋可待更久。注意：大人不能单独入场（必须带3-15岁儿童）。"
+    },
+    {
+      "slot_id": "aud_fam_ferris",
+      "time_range": "17:00-17:30",
+      "type": "poi",
+      "area": "tempozan",
+      "priority": "P3",
+      "duration_min": 15,
+      "entity_hint": "天保山大観覧車（天保山大摩天轮）",
+      "note": "¥900（3岁以上同价/3岁以下免费）。有4个无障碍轮椅舱。"
+    },
+    {
+      "slot_id": "aud_fam_dinner",
+      "time_range": "18:00-19:00",
+      "type": "meal",
+      "area": "tempozan",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "天保山Marketplace内或回难波吃。带小孩建议就在天保山解决（18:00后Marketplace人少了反而舒服），回难波晚高峰地铁带小孩辛苦。"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "template_id": "deep_dive_urban",
+  "label": "都市文化日：中之岛→天神桥筋→中崎町",
+  "tags": [
+    "culture",
+    "cafe",
+    "vintage",
+    "walking"
+  ],
+  "core_entities": [],
+  "fit_audience": [
+    "couple",
+    "friends",
+    "default"
+  ],
+  "weather_sensitive": false,
+  "condition": "extra_days_available",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 悠然与发现。中之岛洋馆建筑群→天神桥筋商店街（日本最长2.6km）→中崎町昭和長屋文艺区→梅田食道街。串联大阪「不是道顿堀和USJ」的那一面。适合第二次来或对文化/设计有兴趣的用户。",
+  "hotel_area_note": "住梅田最方便（中崎町步行12min）。住难波坐御堂筋线到淀屋桥约10min。",
+  "slots": [
+    {
+      "slot_id": "dd_u_nakanoshima",
+      "time_range": "09:30-11:00",
+      "type": "poi",
+      "area": "nakanoshima",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "中之岛公园散步→中之岛美術館NAKKA（中之岛美术馆，2022年开馆，黑色方块设计，1F有免费公共通道+咖啡/商店，展览另购票）or 国立国際美術館NMAO（国立国际美术馆，两馆相邻步行1min）→东洋陶磁美術館（东洋陶瓷美术馆，安宅Collection，中国/韩国陶瓷收藏世界级）三选一。不需要全看——选一个感兴趣的深度看，比三个都走马观花强。"
+    },
+    {
+      "slot_id": "dd_u_lunch",
+      "time_range": "11:00-12:00",
+      "type": "meal",
+      "area": "nakanoshima",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "中之岛/北浜区域午餐。中央公会堂1F有使用原始家具的餐厅（建筑本身1918年重要文化财）。"
+    },
+    {
+      "slot_id": "dd_u_tenjinbashi",
+      "time_range": "12:30-14:30",
+      "type": "poi",
+      "area": "umeda_kita",
+      "priority": "P3",
+      "duration_min": 120,
+      "entity_hint": "天神橋筋商店街（天神桥筋商店街）",
+      "note": "日本最长商店街2.6km（南北贯穿1丁目到6丁目），不用走全程——从南端（南森町站出发）往北走到3丁目约1km就够。这段有最多地道小店和价格合理的食堂。中途可选：大阪くらしの今昔館（大阪生活今昔馆，天六站旁，¥600，10F有等比复原的江户时代大阪街道，可穿浴衣拍照¥500）。"
+    },
+    {
+      "slot_id": "dd_u_nakazakicho",
+      "time_range": "15:00-17:30",
+      "type": "poi",
+      "area": "nakazakicho",
+      "priority": "P2",
+      "duration_min": 150,
+      "note": "中崎町：免费漫步区域，各店铺消费另计。二战中幸存的昭和長屋群（昭和老民宅群），保留原始外观但内部改装成咖啡厅/古着店/独立书店/画廊。大阪最有文艺气息的街区，和道顿堀完全是两个大阪。代表店：Salon de AManTo（2001年开业的元祖改装民家咖啡厅，附设电影院+书店+旅舍）、太陽ノ塔咖啡厅（太阳之塔咖啡厅，先驱咖啡厅，2002年开业）、サクラビルヂング（樱花大楼，60年以上老楼，1F vintage衣/杂货/书店集合）。大多数店11:00开/18:00-20:00关。平日下午人最少。地铁谷町线中崎町站出站即到，或从梅田步行12min。2-3h是舒适的探索时间。"
+    },
+    {
+      "slot_id": "dd_u_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "umeda_kita",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "梅田周边晚餐。中崎町出来步行到梅田12min。新梅田食道街（高架桥下昭和小店群）和这天的昭和文化主题很搭。"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "template_id": "recovery_day",
+  "label": "恢复日",
+  "tags": [
+    "rest",
+    "shopping"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": "previous_day.fatigue in ['very_heavy', 'heavy']",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed"
+  },
+  "description": "day_mood: 充电与闲逛。USJ或大型季节活动后的恢复日。整天只做一件事：恢复体力。比温泉放松日更轻——连温泉都不安排（USJ后第二天腿疼到不想动）。",
+  "hotel_area_note": "不需要考虑交通——整天在酒店附近活动。",
+  "slots": [
+    {
+      "slot_id": "rec_morning",
+      "time_range": "09:00-12:00",
+      "type": "rest",
+      "priority": "P1",
+      "note": "睡到自然醒，不设闹钟。酒店早餐或brunch。USJ后第二天通常走路都疼——这个上午就是用来缓解的。"
+    },
+    {
+      "slot_id": "rec_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "酒店附近轻松午餐。步行5min内解决，不远行。"
+    },
+    {
+      "slot_id": "rec_afternoon",
+      "time_range": "14:00-17:00",
+      "type": "optional_poi",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "不强制安排。选项：(1) 心斋桥/道顿堀散步（走走停停）(2) 购物——松本清/唐吉诃德/心斋桥筋 (3) 法善寺横丁白天散步（比夜晚更安静的另一面）(4) 找一家咖啡厅坐一下午。重点是恢复体力，选哪个都对。"
+    },
+    {
+      "slot_id": "rec_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "恢复日晚餐。体力恢复了可以稍微走远一点找好的——但也完全可以在酒店附近解决。这顿的定位是'不赶不挤舒服吃一顿'。避开需要排队的网红店——刚恢复的身体不应该站着等。裏难波的小路居酒屋或心斋桥偏南的本地小店都合适。"
+    }
+  ]
+}

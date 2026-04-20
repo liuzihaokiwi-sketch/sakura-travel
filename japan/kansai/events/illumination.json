@@ -1,0 +1,270 @@
+{
+  "_doc": "关西圈灯光活动数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "illumination",
+    "circle": "kansai",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kansai_illumination_kiyomizudera_spring",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-22",
+        "end_md": "04-10"
+      },
+      "name_ja": "清水寺 春の夜間特別拝観",
+      "name_zh": "清水寺 春季夜间特别拜观",
+      "description": "清水寺の春の夜間拝観（3月下旬-4月上旬，约2-3週）。夜间¥400，受付18:00-21:00。清水の舞台+桜+ライトアップ三重叠加——本堂・奥の院を灯光打亮した後の舞台俯瞰は京都春の最強夜景画面。最混雑日は染井吉野満開+土日の重なり，17:30前に到着推奨。坑点：現場売りのみ（事前予約なし），満開週末は入場列30-60min。适配：情侣/朋友夜樱首选，老人和体力有限者注意清水坂的坡道。",
+      "source_url": "https://www.kiyomizudera.or.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_kodaiji_spring",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-14",
+        "end_md": "05-06"
+      },
+      "name_ja": "高台寺 春の夜間特別拝観",
+      "name_zh": "高台寺 春季夜间特别拜观",
+      "description": "高台寺の春の夜参观（3月中旬-5月上旬，関西で最も期間が長い寺院夜間点灯）。¥600，受付17:00-21:30。枯山水庭園+竹林+枝垂れ桜のライトアップ+プロジェクションマッピング演出（テーマ毎年変更）。特に方丈前の庭園に設置される大型映像演出が高台寺ならではの現代的演出。坑点：3月下旬-4月上旬は清水寺夜間と同日程——二者を「16時高台寺白天夜間連続→20時清水寺」で串联する効率ルートあり。适配：デジタルアート体験が好きな若い世代+情侣向け，伝統系より現代演出寄り。",
+      "source_url": "https://www.kodaiji.com"
+    },
+    {
+      "event_def_id": "kansai_illumination_heian_jingu_spring",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "04-05",
+        "end_md": "04-10"
+      },
+      "name_ja": "平安神宮 紅しだれコンサート",
+      "name_zh": "平安神宫 红枝垂樱音乐会",
+      "description": "平安神宮の神苑（¥600）で4月上旬約1週間，八重紅枝垂れ桜が満開になる時期に夜間特別開放。西神苑の八重紅枝垂れ桜が一斉に灯光打亮される画面は京都最華丽な夜桜の一つ。同期間に「紅しだれコンサート」（有料チケット別途）も開催されるが，コンサート抜きの夜間拝観のみも可能。坑点：開花年によって1週間以内で満開→散花，ピーク日は毎年変動するため要確認。适配：音樂会を含む上品なデート向け，もしくは夜桜巡礼の岡崎エリア締めとして最適。",
+      "source_url": "https://www.heianjingu.or.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_nijo_spring",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-22",
+        "end_md": "04-17"
+      },
+      "name_ja": "二条城 春の灯り",
+      "name_zh": "二条城 春の灯り",
+      "description": "世界遺産・二条城の春期夜間特別公開（3月下旬-4月中旬）。夜間¥1300+，21:00閉城（受付20:30）。二の丸御殿の金障壁画（夜間特别公開）+城内約300本の桜ライトアップ+NAKED演出の組合せ。世界遺産の城を夜に独占的に回遊できる体験は京都都市部では他にない。坑点：通常の入城料より高め（昼間¥800+夜間¥500前後）。チケットは事前オンライン購入推奨。适配：世界遺産の歴史+现代演出を同時に楽しみたい中〜上档次行程。情侣首选。",
+      "source_url": "https://nijo-jocastle.city.kyoto.lg.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_maruyama_spring",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "03-28",
+        "end_md": "04-07"
+      },
+      "name_ja": "円山公園 夜桜ライトアップ（祇園枝垂れ桜）",
+      "name_zh": "圆山公园夜樱点灯（祇园枝垂樱）",
+      "description": "円山公園中央の「祇園の夜桜」と呼ばれる二代目枝垂れ桜のライトアップ（¥無料，日没後〜24:00）。高さ約12mの大枝垂れ桜が夜空に映える姿は京都夜桜の最大シンボルであり，全国メディアが毎年トップ画像に採用する構図。八坂神社から徒歩すぐ，祇園エリアとの組合せ動線が完璧。坑点：開花期はライトアップ期间と一致させているが，年によって枯れ込みが早い場合あり。周辺のお茶屋の屋台混雑注意。适配：夜桜入門として全人群に推奨できる最も大众化した场所。短時間でも心に残る。",
+      "source_url": "https://kanko.city.kyoto.lg.jp/detail/kanko_id/Spot_22023"
+    },
+    {
+      "event_def_id": "kansai_illumination_kiyomizudera_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-14",
+        "end_md": "12-03"
+      },
+      "name_ja": "清水寺 秋の夜間特別拝観",
+      "name_zh": "清水寺 秋季夜间特别拜观",
+      "description": "清水寺の秋の夜間拝観（11月中旬-12月上旬，约2-3週）。夜間¥400，受付18:00-21:00。清水の舞台+紅葉+ライトアップ——奥の院の回廊から俯瞰する舞台+紅葉+京都夜景の三重構図は関西秋の夜景最強候補。春より人出が多く，週末は受付前に長蛇の列ができる。17:30前到着を強く推奨。坑点：11月下旬〜12月上旬は京都市内全体が红叶ピーク期，宿は1年前から予約要。适配：京都秋の夜間体験として全行程中の优先度最高クラス，絶対外せない一択。",
+      "source_url": "https://www.kiyomizudera.or.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_kodaiji_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-17",
+        "end_md": "12-10"
+      },
+      "name_ja": "高台寺 秋の夜間特別拝観",
+      "name_zh": "高台寺 秋季夜间特别拜观",
+      "description": "高台寺の秋の夜参観（10月中旬-12月上旬，関西最長級の夜間点灯）。¥600，受付17:00-21:30。方丈前の臥龍廊+霊屋の周辺に大楓+石灯篭，池面に映る紅葉倒影が最もフォトジェニックな场面。プロジェクションマッピング演出あり。10月は紅葉前で比較的人少な穴場。11月下旬ピークは混雑。坑点：清水寺夜間と東山エリアで被るため，同日に両方は行程的に厳しい（片方に集中推奨）。适配：デジタル演出系が好みの若い世代，清水寺夜間が混んでいる日の代替としても価値あり。",
+      "source_url": "https://www.kodaiji.com"
+    },
+    {
+      "event_def_id": "kansai_illumination_eikando_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-06",
+        "end_md": "12-06"
+      },
+      "name_ja": "永観堂 秋のライトアップ",
+      "name_zh": "永观堂 秋季点灯",
+      "description": "永観堂（禅林寺）の夜間拝観（11月上旬-12月上旬）。¥600（夜間），受付17:00-21:00。弁天島+多宝塔+紅葉+池の倒映は「京都秋季三大点灯」の头牌と各メディアが評価。南禅寺からの徒步5min，岡崎エリアの夜間ルート締めとして最高の動線。坑点：ピーク週末は17時開場直後からほぼ満員，最低30分前から並ぶ必要あり。适配：京都秋の夜間ライトアップのベスト選択肢，情侣/老人/どんな层にも通用。",
+      "source_url": "https://www.eikando.or.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_tofukuji_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-05",
+        "end_md": "12-05"
+      },
+      "name_ja": "東福寺 通天橋 夜間拝観",
+      "name_zh": "东福寺通天桥夜间拜观",
+      "description": "東福寺の通天橋（回廊）から俯瞰する臥雲橋+洗玉澗渓谷の紅葉は京都で「最も規模が大きい紅葉谷」として知られ，夜間特別拝観（¥1000，受付18:00-20:30）では谷全体が灯光打亮されライトアップ。JR東福寺駅から徒步5min，京都駅からのアクセスが最良の紅葉名所。坑点：日中の通天橋も非常に混雑（週末は入場1時間待ち），夜間も主要点灯期は列できる。适配：京都駅近で効率よく大規模な紅葉体験ができる点が最大の强み，時間が限られた行程向け。",
+      "source_url": "https://tofukuji.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_nijo_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-20",
+        "end_md": "12-05"
+      },
+      "name_ja": "二条城 秋のライトアップ（NAKED演出）",
+      "name_zh": "二条城 秋季点灯（NAKED数字艺术）",
+      "description": "二条城の秋期夜間特別公開（11月下旬-12月初）。¥1300+，21:00閉城。NAKED Inc.が企画するデジタルアート演出が城内庭園+石垣+建物に投影され，古城×現代アートの融合体験。城内の二の丸庭園+唐門周辺の紅葉打亮も同時开催。坑点：事前オンライン購入推奨（当日券は混雑ピーク時に売り切れる）。适配：「京都で普通の寺よりも刺激的な体験をしたい」若い世代+現代アート好み向け。",
+      "source_url": "https://nijo-jocastle.city.kyoto.lg.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_kibune_autumn",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "11-24"
+      },
+      "name_ja": "貴船神社 もみじ灯篭",
+      "name_zh": "贵船神社 红叶灯笼",
+      "description": "貴船神社の参道石段両側に並ぶ石灯篭が点灯（11/1-24，17:30-20:30，入場無料）。赤い鳥居+石段+紅葉+灯篭の組合せは京都近郊で最も絵になる夜紅葉の一つ。叡山電鉄貴船口駅→徒步or巴士15min。鞍馬山と同日行程が効率最高（昼：鞍馬→夕方：貴船）。坑点：電鉄+步行で市中心から約1.5時間，専用バス(叡電臨時增発)でも混雑。末班電車22時前後に注意。适配：京都近郊の自然+夜景体験として情侣/写真爱好者首推。鞍馬セットで日帰り完結。",
+      "source_url": "https://www.kifunejinja.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_arashiyama_hanatouro",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "12-08",
+        "end_md": "12-17"
+      },
+      "name_ja": "嵐山花灯路",
+      "name_zh": "岚山花灯路",
+      "description": "嵐山エリアの竹林小路+渡月橋+天龍寺前の約6kmに行灯が設置される冬の夜間イベント（12月上旬约10日間，17:30-20:30，入場無料）。竹林の夜道を行灯で照らす体験は嵐山の昼間とは全く異なる静謐な空間。注意：2022年の第20回を最後に本来の主催団体が撤退，2023年以降は地域振兴団体が别の形式で引き継いでいるが規模・演出は変動中。毎年公式確認必須。坑点：冬の嵐山は寒く（0-8℃），暖かい服装必携。行灯は控えめで派手さはない。适配：静かな冬の京都体験を求める大人向け。嵐山宿泊者には特に推奨。",
+      "source_url": "https://www.arashiyama-kankou.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_osaka_hikari_renaissance",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "12-14",
+        "end_md": "12-25"
+      },
+      "name_ja": "大阪・光のルネサンス / 御堂筋イルミネーション",
+      "name_zh": "大阪光のルネサンス / 御堂筋イルミネーション",
+      "description": "大阪冬季二大灯光イベントが同期開催。①御堂筋イルミネーション：なんば〜梅田4kmの大銀杏並木に金色LEDが灯る（11月中旬-12月下旬，無料）。②光のルネサンス：中之島・大阪市役所前の欧式建築に映像投影+大規模LED展（12月中旬約10日，無料）。両者は御堂筋〜中之島で徒步で串連可能，所要1.5-2時間。坑点：12月下旬のクリスマス前週末が最混雑。御堂筋は車道が封鎖になる日程あり。适配：大阪的都市夜景体験として全人群向け，短時間でも十分に楽しめる。",
+      "source_url": "https://www.hikari-renaissance.com"
+    },
+    {
+      "event_def_id": "kansai_illumination_osaka_castle_illuminage",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-03",
+        "end_md": "03-17"
+      },
+      "name_ja": "大阪城 イルミナージュ",
+      "name_zh": "大阪城 イルミナージュ",
+      "description": "大阪城西の丸庭園で11月初旬〜翌3月中旬まで開催される関西最大規模のLEDテーマパーク型点灯（¥1200-2000，17:00-21:00）。150万球のLEDが大阪城天守閣をバックに庭園を照らし，フォトスポットが园内に多数配置。大阪城地下鉄大阪ビジネスパーク駅から徒步10min，大阪城公園駅からも近い。坑点：日程は年により若干変動，毎年公式確認推奨。屋外のため雨天・寒冷日は要防寒。适配：大阪城日間観光+夜間イルミナージュを同日に組み合わせた「城フルコース」行程に最適。",
+      "source_url": "https://www.osakacastle-illuminage.com"
+    },
+    {
+      "event_def_id": "kansai_illumination_expo_illumina",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "12-25"
+      },
+      "name_ja": "万博記念公園 自然文化園のライトアップ",
+      "name_zh": "万博纪念公园灯光秀",
+      "description": "吹田市の万博記念公園（EXPO'70 跡地）で秋〜冬にかけて自然文化園の紅葉+ライトアップが開催。太陽の塔をバックにしたイチョウ並木+紅葉の打亮は大阪近郊では他にない規模感。EXPOシティ（隣接大型商業施設）と組み合わせ，ショッピング+ライトアップの半日コース構成が可能。地下鉄御堂筋線→北大阪急行延伸→万博記念公園駅直结（新規延伸線，2024年開業）。坑点：以前は遠かったが北大阪急行延伸後は梅田から30min以内に。以前のアクセス情報は無効になっている。适配：大阪近郊日帰り，ファミリー/カップル向け。EXPOシティと組合せで一日コンテンツ充実。",
+      "source_url": "https://www.expo70-park.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_kobe_luminarie",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "01-10",
+        "end_md": "01-19"
+      },
+      "name_ja": "神戸ルミナリエ",
+      "name_zh": "神户ルミナリエ",
+      "description": "1995年阪神大震災の追悼と復興シンボルとして創設された灯光祭，毎年1月中下旬約10日間（近年1/17震災記念日前後）。旧居留地〜東游園地の欧式回廊（フロントーネ+ガレリア，イタリア製ガラス電球）は年300万人が訪れる神戸の象徴的冬景観。入場無料（募捐¥1000推奨），18:00-21:30点灯。三宮駅から徒步10min。坑点：2024年まで12月开催だったが，2025年から1月に完全移行。毎年官网で日程確認必須（規模縮小年もあり）。适配：神戸港夜景+ルミナリエ夜間コースは1-2時間でまとめられ，情侣/家族どちらにも最適。",
+      "source_url": "https://www.kobe-luminarie.jp"
+    },
+    {
+      "event_def_id": "kansai_illumination_kitano_ijinkan",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "12-01",
+        "end_md": "12-25"
+      },
+      "name_ja": "神戸 北野異人館 クリスマス点灯",
+      "name_zh": "神户北野异人馆圣诞点灯",
+      "description": "北野異人館街の各館（英国館・風見鶏の館・ラインの館等）がクリスマス期間に外観+ガーデンをライトアップ。19世紀欧州建築×ガス灯×クリスマスデコレーションの组合せは神戸の洋風文化を最も濃厚に体験できる季節演出。北野坂一帯の坂道も飾り付けられ，歩きながら楽しめる。坑点：各館によって点灯時間と有料無料が異なる。冬の北野坂は寒い+急坂，防寒+歩きやすい靴必携。适配：「神戸＝異国情緒」を最大限体験したい行程に最適。情侣クリスマス旅行にも強くなる。",
+      "source_url": "https://www.ijinkan.net"
+    },
+    {
+      "event_def_id": "kansai_illumination_nara_night_deer",
+      "type": "illumination",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "10-26",
+        "end_md": "11-08"
+      },
+      "name_ja": "奈良公園 夜の鹿寄せ+東大寺ライトアップ",
+      "name_zh": "奈良公园夜鹿+东大寺点灯",
+      "description": "秋の奈良公園で実施される夜間の特別イベント。①「鹿寄せ（夜版）」：ホルンの音に集まる鹿の夕暮れ景色（10月下旬〜11月上旬の特定日）。②東大寺ライトアップ：南大門〜大仏殿が灯光打亮され，無料で外観鑑賞可。両者を日没後18:00-20:30の間にまとめて体験できる動線が完成している。坑点：鹿寄せは実施日が限定的（毎年奈良県観光局サイトで日程確認必須）。深夜は奈良市内の最終バスに注意。适配：昼の奈良観光に夕方〜夜のプログラムを追加したい行程向け。特に子連れ/動物好きに響く体験。",
+      "source_url": "https://www.todaiji.or.jp"
+    }
+  ],
+  "occurrences": []
+}

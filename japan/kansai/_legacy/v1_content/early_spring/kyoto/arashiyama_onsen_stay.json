@@ -1,0 +1,88 @@
+{
+  "template_id": "arashiyama_onsen_stay",
+  "label": "岚山温泉旅馆一泊（川景+岚山步行圈）",
+  "tags": [
+    "onsen",
+    "ryokan",
+    "nature",
+    "luxury"
+  ],
+  "core_entities": [
+    "kyo_arashiyama_stay"
+  ],
+  "fit_audience": [
+    "couple",
+    "default"
+  ],
+  "weather_sensitive": true,
+  "condition": "budget in ['premium', 'luxury']",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed",
+    "span_days": 2
+  },
+  "description": "day_mood: 非日常的一夜。和京都市内酒店完全不同维度的体验——住在岚山大堰川沿岸的高级旅馆本身就是目的。这个模板只覆盖岚山川景stay（翠嵐/星のや京都等），不含高雄山里stay（高雄走 takao_onsen_2day 模板，那是完全不同的体验范式）。翠嵐（すいらん）是川景露天温泉+人力车接送的luxury旅馆；星のや京都（ほしのやきょうと）是只能从渡月桥乘专用船15分钟才能到达的隐秘旅宿——船行本身就是入住体验。红叶季（11月）窗外是燃烧的红色——樱花季（4月）是川沿的樱花。住宿是体验的核心，周边散步是附加。",
+  "hotel_area_note": "岚山川沿温泉旅馆¥40,000-150,000/人/晚（随季节和档次大幅浮动）。红叶季·樱花季需提前数月预约。注意：高雄（もみぢ家等）不在本模板范围内——高雄是山里的体验，走 takao_onsen_2day 模板。",
+  "slots": [
+    {
+      "slot_id": "ars_d1_arashiyama",
+      "time_range": "D1 10:00-14:00",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 240,
+      "note": "入住前先在岚山走走（与arashiyama_day模板联动——同一天不同时使用两个模板）。如果已经在arashiyama_day安排了岚山，这天可以去嵯峨野的安静区域（sagano_deep方向），或上午安排保津川漂流（¥4,500/约2h/龟冈→嵐山/需预约）。乘保津川漂流'抵达'嵐山→直接旅馆入住，是最完美的流程。"
+    },
+    {
+      "slot_id": "ars_d1_checkin",
+      "time_range": "D1 15:00-16:30",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "旅馆入住——从这里开始是今天的核心。星のや京都：渡月桥码头乘专用船15min沿大堰川上行（这段船行本身就是入住体验——手机信号渐弱，树越来越密，到了就是另一个世界）。翠嵐：有人力车从JR嵯峨岚山站接送，川景露天浴池套房是卖点。入住后在房间喘口气——确认窗外川景的时间。如有客房露天浴池，趁天亮时先泡第一次。"
+    },
+    {
+      "slot_id": "ars_d1_evening_walk",
+      "time_range": "D1 16:30-17:30",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "傍晚的岚山散步——游客散去后的岚山是另一个世界。渡月桥的日落、竹林无人的时间带。星のや京都的住客可以沿旅馆前的川边小径走，完全私密。翠嵐的住客可以步行到渡月桥，看大堰川夕照。这个「只有住宿者才能体验的傍晚岚山」是与市内酒店住宿的最大差异——17:00以后游客全部离开，整个岚山变得安静得不可思议。"
+    },
+    {
+      "slot_id": "ars_d1_dinner",
+      "time_range": "D1 18:00-20:00",
+      "type": "meal",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "旅馆晚餐——京料理套餐。岚山旅馆使用京都蔬菜+川鱼+当季食材。星のや京都每季有特别晚餐体验（Dining Out等，需提前预约，时令食材+岚山环境的沉浸式用餐）。翠嵐的餐厅「京 翠嵐」有铁板烧和会席料理。用餐场所（房间用餐/餐厅/テラス）本身就是体验的一部分——吃什么固然重要，但在哪吃更重要。"
+    },
+    {
+      "slot_id": "ars_d1_night_onsen",
+      "time_range": "D1 21:00-22:00",
+      "type": "optional_poi",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "夜间温泉——翠嵐（翠岚）的包场露天温泉浴池（¥4,427/45min/需预约）、星野屋京都的水疗，或客房露天浴池。红叶季有旅馆可以从露天浴池欣赏灯光下的庭园。夜晚的宁静+温泉+岚山的空气。"
+    },
+    {
+      "slot_id": "ars_d2_morning",
+      "time_range": "D2 07:00-09:00",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "清晨的岚山——7:00的渡月桥/竹林是住宿者的特权。晨雾笼罩的大堰川（大堰川）与照片里的岚山完全不同。晨浴→早餐→退房前散步。这个清晨的2小时是'住在岚山的意义'的最大回收。"
+    },
+    {
+      "slot_id": "ars_d2_checkout",
+      "time_range": "D2 10:00-11:00",
+      "type": "transport",
+      "note": "退房后回市区进行下一段行程。JR嵯峨嵐山站→京都站约14min / 阪急嵐山站→河原町约20min。星のや京都退房后乘专用船回渡月桥——来时和走时各乘一次，但感受完全不同。"
+    }
+  ]
+}

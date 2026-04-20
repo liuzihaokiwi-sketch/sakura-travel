@@ -1,0 +1,80 @@
+{
+  "template_id": "audience_default_day",
+  "label": "天王寺·阿倍野日（ハルカス展望+下町散策）",
+  "tags": [
+    "city_view",
+    "modern",
+    "walking",
+    "local"
+  ],
+  "core_entities": [
+    "osa_abeno_harukas"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 高度与温度。大阪南轴线的完整一天——天王寺/阿倍野区域。早上四天王寺（大阪最古老寺院）→ ハルカス300展望台俯瞰全城 → 午餐 → 通天阁と新世界街区 → 傍晚回难波。和北部梅田/道顿堀的喧闹完全不同：更旧、更本地、更有城市纵深感。适合已走过核心区域想换味道的用户，或天气好想站在高处看大阪全貌的任何人。这张模板专属天王寺区域，不与海游馆/梅田系模板争实体。",
+  "hotel_area_note": "住难波出发：地铁御堂筋线→天王寺站约5min，或步行约15min。住梅田：地铁御堂筋线→天王寺约10min。全天活动集中在天王寺/阿倍野/新世界，晚餐后回难波。",
+  "slots": [
+    {
+      "slot_id": "aud_d_shitennoji",
+      "time_range": "09:30-11:00",
+      "type": "poi",
+      "area": "tennoji_shinsekai",
+      "priority": "P2",
+      "duration_min": 90,
+      "entity_hint": "四天王寺（してんのうじ）",
+      "note": "593年聖徳太子创建，大阪最古老的寺院之一，免费进入外部伽蓝范围（中心伽蓝内部另¥300成人）。早上9:30来几乎没有旅行团——巨大石鸟居、五重塔和金堂在安静中有另一种分量感。这里是全程'大阪原来也有这么古的东西'的惊喜时刻，和道顿堀的商业热闹形成最大反差。外国游客极少，基本是本地居民和修学旅行。从天王寺站步行约7min。"
+    },
+    {
+      "slot_id": "aud_d_harukas",
+      "time_range": "11:00-13:00",
+      "type": "poi",
+      "area": "tennoji_shinsekai",
+      "priority": "P1",
+      "duration_min": 120,
+      "entity_hint": "あべのハルカス300（阿倍野ハルカス展望台）",
+      "note": "关西最高建筑，展望台ハルカス300（58-60F）。成人¥1,500（需確認当日価格，近鉄百貨店前台现购或网上预约）。天晴时视野覆盖大阪平原全域、六甲山、生駒山、天气极好时可见明石海峡大桥。58F室内+屋外テラス（露台）360°全開放——屋顶没有遮挡玻璃，风和阳光是真实的。正下方就是天王寺駅/あべのキューズモール（阿倍野购物中心）的高密度城市截面——站在这里俯瞰大阪，和梅田Sky Building的高层感完全不同维度（Sky Building在市中心看城市，Harukas在南端看整个大阪盆地铺开的轮廓）。59-60Fに専用カフェ（付费飞行体验另购）。建议11:00前到——天气最透明，且比下午人少。"
+    },
+    {
+      "slot_id": "aud_d_lunch",
+      "time_range": "13:00-14:00",
+      "type": "meal",
+      "area": "tennoji_shinsekai",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "天王寺/阿倍野区域午餐。あべのキューズモール（Harukas直下，B1-2F飲食）或天王寺MIO（天王寺站直结）选择丰富，价格比梅田合理。或者直接步行去新世界方向，在串炸老字号吃午餐（比晚上人少很多）。菜系避开当天晚餐计划方向。"
+    },
+    {
+      "slot_id": "aud_d_shinsekai",
+      "time_range": "14:00-16:30",
+      "type": "poi",
+      "area": "tennoji_shinsekai",
+      "priority": "P2",
+      "duration_min": 150,
+      "entity_hint": "新世界・通天閣（新世界・通天阁）",
+      "note": "从Harukas步行约10min到新世界。通天阁（¥1,000/展望台，昭和复原楼层+Billiken御足像更有看头）是这个区域的标志，但真正的新世界在街区本身——ジャンジャン横丁（万代横丁，100m昭和小巷，将棋俱乐部/立食串炸/扭蛋机密集）。从四天王寺的古代大阪 → Harukas的现代大阪 → 新世界的昭和大阪——这三段把大阪的时间轴走了一遍。午餐已吃者下午在新世界喝啤酒或买限定物（通天阁周边的串炸酱/Billiken周边品）。人气最集中在11:00-15:00，16:00后稍微退潮。"
+    },
+    {
+      "slot_id": "aud_d_tennoji_park",
+      "time_range": "16:30-17:30",
+      "type": "walk",
+      "area": "tennoji_shinsekai",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "天王寺公園てんしば（Tennoji Park Tenshiba）——Harukas和天王寺動物園の隣、芝生広場（草坪广场）。傍晚光线下的草坪+Harukas仰拍是这个区域的惊喜构图（从地面仰望300m大楼和草坪的反差）。开放免费。体力有余者可加入天王寺動物園（¥500，蛍池通から入场，15:00以后入場割引があるケースも要確認）。悠闲在草坪坐下休息也成立——今天走了相当多路。"
+    },
+    {
+      "slot_id": "aud_d_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "晚餐回难波/心斋桥方向（天王寺→地铁→难波约5min）。今天走的全是'另一面大阪'，晚餐可以是'大阪经典面'的补完——道顿堀/法善寺横丁方向的烧肉或居酒屋。避开白天在新世界已经吃过的菜系（串炸/粉物）。"
+    }
+  ]
+}

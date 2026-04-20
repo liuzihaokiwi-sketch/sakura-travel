@@ -1,0 +1,86 @@
+{
+  "template_id": "kitano_ume_day",
+  "label": "北野梅苑 × 平野神社 × 金阁寺（京都西北赏梅日）",
+  "tags": [
+    "ume",
+    "shrine",
+    "temple",
+    "garden",
+    "early_spring",
+    "walking",
+    "seasonal"
+  ],
+  "core_entities": [
+    "kyo_kitano_tenmangu",
+    "kyo_hirano_jinja",
+    "kyo_kinkakuji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "travel_dates overlap 2/14-3/22 (2026年梅苑「花の庭」公開期間)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 学问之神的梅。北野天満宫是日本约 12,000 间天满宫的总本社，境内 50 品种 1500 本梅——规模是京都最大。祭神菅原道真以'东风吹かば 匂ひおこせよ 梅の花'名句爱梅，境内梅花 2 月中-3 月末盛开，3 月中下旬是御手洗川周辺的枝垂梅最盛期。2026 年 2/14-3/22 特別开催「KYOTO NIPPON FESTIVAL」，梅苑挂 1,200 个水晶装置（「光と花の庭」），拝观料含装置艺术共通 ¥3,000。下午延伸至平野神社（赏桜名所但梅花早开）和金阁寺，这是一条北野-平野-金阁的西北古都线。和普通 kinkaku_kitano_day 的区别：这里以梅花为主角，金阁只是下午附带。",
+  "hotel_area_note": "北野天満宫位于京都市上京区，不在主观光带。交通：市巴士 50/101 系统（京都站→北野天満宫 约 35 min），地铁烏丸線「今出川」下步行 20 min 或转巴士，嵐電「北野白梅町」下步行 5 min。住四条/京都站皆可一日往返。冬季清晨气温 3-7℃ 保暖。",
+  "slots": [
+    {
+      "slot_id": "kitano_morning",
+      "time_range": "09:00-11:30",
+      "type": "poi",
+      "area": "kitano",
+      "priority": "P1",
+      "duration_min": 150,
+      "entity_hint": "北野天満宫 梅苑「花の庭」",
+      "note": "早到避人流 + 光线最佳。北野天満宫境内（本殿参拝）免费全天开放。梅苑公开期间 2026/2/14-3/22，8:30-15:10 入苑（2026 共通券 ¥3,000 含 KYOTO NIPPON FESTIVAL 装置艺术「光と花の庭」——1,200 个水晶挂在梅树上，阳光下折射彩光）。拝观流程：楼门 → 本殿（参拝，学业祈願必打卡）→ 三光门 → 梅苑入口 → 御土居（江户期加茂川沿防线 + 枝垂梅）→ 御手洗川（3 月中下旬枝垂梅最盛）→ 梅苑茶屋（含梅こぶ茶 + 和菓子，含于拝观券）。苑内 1500 本 50 品种，枝垂・紅梅・白梅・豊後梅・冬至梅逐个开花。全程 2-2.5 h。3/25 起是'梅花祭'（菅公祭日），有上七軒芸妓献茶（另需预约）。"
+    },
+    {
+      "slot_id": "kitano_lunch",
+      "time_range": "11:30-13:00",
+      "type": "meal",
+      "area": "kitano_kamishichiken",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "午餐。上七軒（かみしちけん）是京都最古的花街，在北野天満宫东侧步行 5 min——花街料理/町家蕎麦屋/豆腐料理都有。这里不像祇园游客密集，白天有更真实的花街气质。预算档：普通午餐 ¥1,500-2,500，花街料亭 ¥5,000-10,000。要赶路的话就在北野白梅町周边吃ラーメン/定食。"
+    },
+    {
+      "slot_id": "kitano_hirano",
+      "time_range": "13:15-14:15",
+      "type": "poi",
+      "area": "kitano",
+      "priority": "P2",
+      "duration_min": 60,
+      "entity_hint": "平野神社",
+      "note": "平野神社距北野天満宫步行 10 min。免费参拝。本社以早樱（3 月中下旬多数品种开）知名但 2 月下-3 月也有少量梅花，更重要的是'京都平安以来の桜名所'——3 月中下旬部分品种（河津桜、寒桜）开始开，早春尾段可提前体验樱花气息。如只赏梅花无兴趣可跳过直接去金阁。"
+    },
+    {
+      "slot_id": "kitano_kinkaku",
+      "time_range": "14:30-16:00",
+      "type": "poi",
+      "area": "kinkaku",
+      "priority": "P1",
+      "duration_min": 90,
+      "entity_hint": "金阁寺（鹿苑寺）",
+      "note": "平野神社→金阁寺：市巴士 205/204（'わら天神'站→'金閣寺道'站）约 10 min 或步行 25 min。拝观料 ¥500（中学生以上）。9:00-17:00。金阁对早春游客最大卖点：3 月初游客量较樱花季/红叶季低约 30-40%，能真的看到金阁倒影镜湖池而不是后背人头。主线：総门 → 镜湖池正面的金阁倒影（关键镜头，早春天气晴时水面镜般完整）→ 顺路北侧上坡 → 龙门瀑 → 安民泽 → 夕佳亭（茶室）→ 出口。60-90 min。"
+    },
+    {
+      "slot_id": "kitano_afternoon_option",
+      "time_range": "16:15-17:30",
+      "type": "optional_poi",
+      "area": "kinkaku_ryoanji",
+      "priority": "P3",
+      "duration_min": 75,
+      "note": "下午延伸选项（视体力）：（1）龙安寺：金阁→龙安寺嵐電北野線 1 站 + 步行 7 min，枯山水石庭世遗（¥600，16:00 前入园），闭门前 45 min 进場可避大巴团。（2）仁和寺：再下一站，御室桜 3 月末才开，早春不建议。（3）直接回市中心休整。"
+    },
+    {
+      "slot_id": "kitano_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "shijo_kawaramachi",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "晚餐回四条河原町/京都站一带。北野白梅町→四条大宫/四条河原町（嵐電 + 阪急）约 25-35 min。晚饭是全天的 reward，可以定一家有点档次的和食/割烹/先斗町的町家——早春赏梅日适合用温かい鍋物或汤豆腐收尾。"
+    }
+  ]
+}

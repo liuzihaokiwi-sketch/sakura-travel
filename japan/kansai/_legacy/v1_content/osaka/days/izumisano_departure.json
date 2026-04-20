@@ -1,0 +1,42 @@
+{
+  "template_id": "izumisano_departure",
+  "label": "泉佐野收尾（温泉+临空城+机场直结）",
+  "tags": [
+    "departure",
+    "onsen",
+    "shopping"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "departure",
+    "best_pace": "relaxed"
+  },
+  "description": "day_mood: 放松收尾。最后一晚不住大阪市区而住泉佐野/临空城——关西机场只有15min，消除最后一早赶路的焦虑。前一晚泡温泉（Vess温泉等）作为全程收尾，当天轻松去机场。临空城Outlets可以最后采购。适合14:00前航班。",
+  "hotel_area_note": "大阪市区→泉佐野：JR关空快速约50min or 南海约45min。泉佐野→关西机场：JR/南海约15min。",
+  "slots": [
+    {
+      "slot_id": "izm_prev_evening",
+      "time_range": "D-1 18:00-22:00",
+      "type": "poi",
+      "priority": "P2",
+      "duration_min": 240,
+      "note": "前一天傍晚在泉佐野方向的酒店办理入住。在温泉设施（临空温泉/犬鸣山温泉等）泡旅程最后一次温泉。消除全程的身体疲劳——用温泉结束最后一晚是最好的'收尾方式'。"
+    },
+    {
+      "slot_id": "izm_morning",
+      "time_range": "当日 08:00-10:00",
+      "type": "optional_poi",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "早上慢慢来。在临空高级奥特莱斯（りんくうプレミアム・アウトレット，临空高档商业城，10:00开门/关西最大级）最后购物——在这里补购忘买的土产。或者什么也不做在酒店悠悠然。14:00前的航班的话，10:30左右前往机场。"
+    },
+    {
+      "slot_id": "izm_airport",
+      "time_range": "当日 10:30-11:00",
+      "type": "transport",
+      "note": "泉佐野→关西机场（JR/南海约15min）。国际航班推荐提前3h办理值机。机场内也可以购物/用餐（KIX航站楼内餐厅选择丰富）。最后从关空展望大厅看飞机也是一个选择。"
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "_doc": "大阪店铺池。AI根据标签+用户人群/兴趣自动选最合适的组合，不需要手动替换矩阵",
+
+  "shops": [
+    {
+      "id": "donki_dotonbori",
+      "name_ja": "ドン・キホーテ道頓堀店",
+      "name_zh": "唐吉诃德道顿堀店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "tax_free_drugstore",
+      "vibe_tags": ["lively", "urban_energy"],
+      "grade": "S+",
+      "day_refs": ["arrival_day", "core_day", "departure_half"],
+      "editor_note": "24小时营业，药妆零食电器一站搞定，直接免税不排队"
+    },
+    {
+      "id": "doguyasuji",
+      "name_ja": "道具屋筋商店街",
+      "name_zh": "道具屋筋",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "kitchenware",
+      "vibe_tags": ["local_life", "nostalgic", "cultural"],
+      "grade": "S",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "章鱼烧模具/食品模型/漆器，最有大阪特色的伴手礼街，150m+厨具专门店"
+    },
+    {
+      "id": "daikokuya",
+      "name_ja": "大黒屋 心斎橋店",
+      "name_zh": "大黑屋心斋桥店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "department_store",
+      "vibe_tags": ["luxury_feel", "urban_energy"],
+      "grade": "S-",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "日本最大奢侈品二手链，1947年创业，免税对应，LV/Chanel比国内便宜30-50%"
+    },
+    {
+      "id": "jam2_americamura",
+      "name_ja": "古着屋JAM 2号店",
+      "name_zh": "古着屋JAM 2号店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "vintage_clothing",
+      "vibe_tags": ["casual", "group_fun", "lively"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "美国村最大古着店，130坪11000件，Levi's/军装/夏威夷衫分区陈列"
+    },
+    {
+      "id": "standard_books",
+      "name_ja": "STANDARD BOOKSTORE",
+      "name_zh": "STANDARD BOOKSTORE",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "bookstore_cafe",
+      "vibe_tags": ["quiet", "design_forward", "solo_friendly"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "书+咖啡+杂货复合空间，美国村文艺地标，适合逛累了坐下来"
+    },
+    {
+      "id": "asagi_americamura",
+      "name_ja": "ASAGI",
+      "name_zh": "ASAGI",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "vintage_clothing",
+      "vibe_tags": ["romantic", "quiet", "design_forward"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "美国村精选古着，偏欧洲风格，选品精致有约会感，适合情侣慢逛"
+    },
+    {
+      "id": "ichi_horie",
+      "name_ja": "ichi",
+      "name_zh": "ichi",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "handcraft",
+      "vibe_tags": ["romantic", "quiet", "design_forward"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "堀江手工艺集合店，皮革/银饰/陶器，可现场体验手作，情侣纪念品首选"
+    },
+    {
+      "id": "santonibunnoichi",
+      "name_ja": "サントニブンノイチ アメリカ村店",
+      "name_zh": "三分之一古着店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "vintage_clothing",
+      "vibe_tags": ["photogenic", "group_fun", "casual"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "粉色外观+粉彩系古着，闺蜜拍照圣地，均价500-1500日元"
+    },
+    {
+      "id": "asoko_minami",
+      "name_ja": "ASOKO",
+      "name_zh": "ASOKO",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "design_goods",
+      "vibe_tags": ["photogenic", "group_fun", "casual"],
+      "grade": "B",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "北欧风设计杂货，大部分300日元以内，闺蜜团伴手礼量贩首选"
+    },
+    {
+      "id": "namba_parks",
+      "name_ja": "なんばパークス",
+      "name_zh": "难波Parks",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "mall",
+      "vibe_tags": ["kid_friendly", "casual", "urban_energy"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "屋顶花园8层绿化梯田，带娃休息好去处，地下直通难波站"
+    },
+    {
+      "id": "food_model_exp",
+      "name_ja": "デザインポケット食品サンプル体験",
+      "name_zh": "食品模型制作体验",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "food_model",
+      "vibe_tags": ["kid_friendly", "group_fun", "cultural"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "亲手做天妇罗/寿司模型带回家，亲子体验45min，需预约"
+    },
+    {
+      "id": "mandarake_nipponbashi",
+      "name_ja": "まんだらけ グランドカオス",
+      "name_zh": "Mandarake日本桥店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "otaku_anime",
+      "vibe_tags": ["lively", "urban_energy", "group_fun"],
+      "grade": "S",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "日本桥5层楼手办漫画圣地，绝版品和限定品丰富，二次元必去"
+    },
+    {
+      "id": "super_potato",
+      "name_ja": "スーパーポテト 大阪店",
+      "name_zh": "Super Potato大阪店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "retro_games",
+      "vibe_tags": ["nostalgic", "group_fun", "lively"],
+      "grade": "A",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "复古游戏天堂，FC/SFC/N64实机可试玩，楼上有复古街机厅"
+    },
+    {
+      "id": "daimaru_shinsaibashi",
+      "name_ja": "大丸心斎橋店",
+      "name_zh": "大丸百货心斋桥店",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "department_store",
+      "vibe_tags": ["luxury_feel", "urban_energy"],
+      "grade": "S",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "凭护照5%折扣+免税，地下食品层伴手礼齐全，建筑本身是Vories设计名作"
+    },
+    {
+      "id": "shinsaibashi_suji",
+      "name_ja": "心斎橋筋商店街",
+      "name_zh": "心斋桥筋商店街",
+      "area": "namba_dotonbori",
+      "shop_type_tag": "shopping_street",
+      "vibe_tags": ["lively", "urban_energy", "casual"],
+      "grade": "S",
+      "day_refs": ["arrival_day", "core_day"],
+      "editor_note": "600m有顶商店街，药妆/服饰/美食全覆盖，雨天也能逛，大阪购物主动脉"
+    },
+    {
+      "id": "takimikoji",
+      "name_ja": "滝見小路",
+      "name_zh": "的见小路",
+      "area": "umeda_kita",
+      "shop_type_tag": "local_souvenir",
+      "vibe_tags": ["nostalgic", "photogenic", "cultural"],
+      "grade": "S+",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "蓝天大厦B1昭和复古美食街，街道还原度极高，拍照+吃饭一举两得"
+    },
+    {
+      "id": "nakazakicho",
+      "name_ja": "中崎町商店街",
+      "name_zh": "中崎町商店街",
+      "area": "umeda_kita",
+      "shop_type_tag": "shopping_street",
+      "vibe_tags": ["nostalgic", "quiet", "local_life", "design_forward"],
+      "grade": "S",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "400m古着+手工杂货街，梅田步行圈内最文艺的区域，适合慢逛"
+    },
+    {
+      "id": "hanshin_basement",
+      "name_ja": "阪神梅田本店 地下食品街",
+      "name_zh": "阪神梅田本店地下食品街",
+      "area": "umeda_kita",
+      "shop_type_tag": "department_store",
+      "vibe_tags": ["local_life", "lively"],
+      "grade": "S-",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "地下美食殿堂，名物章鱼烧每日现做排长队，伴手礼+熟食一站买齐"
+    },
+    {
+      "id": "grand_front",
+      "name_ja": "グランフロント大阪",
+      "name_zh": "Grand Front大阪",
+      "area": "umeda_kita",
+      "shop_type_tag": "mall",
+      "vibe_tags": ["urban_energy", "casual", "kid_friendly"],
+      "grade": "A",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "梅田站直结大型商业体，品牌齐全+展示空间，带娃/雨天/购物通吃"
+    },
+    {
+      "id": "kaya_cafe",
+      "name_ja": "salon de AManTo 天人",
+      "name_zh": "KAYA cafe",
+      "area": "umeda_kita",
+      "shop_type_tag": "bookstore_cafe",
+      "vibe_tags": ["quiet", "nostalgic", "romantic", "solo_friendly"],
+      "grade": "A",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "中崎町90年老屋改造，古民家咖啡+杂货+画廊，逛商店街的休憩站"
+    },
+    {
+      "id": "nakazaki_vintage_cluster",
+      "name_ja": "中崎町古着群（BOW&ARROW/olfe等）",
+      "name_zh": "中崎町古着群",
+      "area": "umeda_kita",
+      "shop_type_tag": "vintage_clothing",
+      "vibe_tags": ["casual", "group_fun", "nostalgic"],
+      "grade": "A",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "BOW&ARROW/olfe/FREAK等10+家古着店密集，闺蜜扫货半天起"
+    },
+    {
+      "id": "pokemon_center_osaka",
+      "name_ja": "ポケモンセンターオーサカ",
+      "name_zh": "宝可梦中心大阪",
+      "area": "umeda_kita",
+      "shop_type_tag": "otaku_anime",
+      "vibe_tags": ["kid_friendly", "photogenic", "lively"],
+      "grade": "A",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "大丸梅田13F，大阪限定皮卡丘周边，亲子/宝可梦粉必到"
+    },
+    {
+      "id": "mandarake_umeda",
+      "name_ja": "まんだらけ 梅田店",
+      "name_zh": "Mandarake梅田店",
+      "area": "umeda_kita",
+      "shop_type_tag": "otaku_anime",
+      "vibe_tags": ["nostalgic", "urban_energy"],
+      "grade": "B",
+      "day_refs": ["core_day", "audience_day"],
+      "editor_note": "梅田区二次元据点，规模不及日本桥但通勤顺路，手办/同人志"
+    }
+  ],
+
+  "area_pools": {
+    "_doc": "按区域分组，方便AI根据当天活动区域选店",
+    "namba_dotonbori": [
+      "donki_dotonbori",
+      "doguyasuji",
+      "daikokuya",
+      "jam2_americamura",
+      "standard_books",
+      "asagi_americamura",
+      "ichi_horie",
+      "santonibunnoichi",
+      "asoko_minami",
+      "namba_parks",
+      "food_model_exp",
+      "mandarake_nipponbashi",
+      "super_potato",
+      "daimaru_shinsaibashi",
+      "shinsaibashi_suji"
+    ],
+    "umeda_kita": [
+      "takimikoji",
+      "nakazakicho",
+      "hanshin_basement",
+      "grand_front",
+      "kaya_cafe",
+      "nakazaki_vintage_cluster",
+      "pokemon_center_osaka",
+      "mandarake_umeda"
+    ],
+    "tennoji_shinsekai": []
+  }
+}

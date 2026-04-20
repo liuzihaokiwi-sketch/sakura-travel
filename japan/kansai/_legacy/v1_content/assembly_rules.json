@@ -1,0 +1,85 @@
+{
+  "_doc": "Opus 装配原则。Python 代码按 party/density/vibe 筛选 applies_to，将适用规则注入 Opus prompt。硬约束在 policy.json，这里只放软原则。",
+  "_version": "1.0",
+
+  "rules": [
+    {
+      "id": "peak_end_per_day",
+      "priority": "must",
+      "applies_to": "*",
+      "instruction": "每一天必须有一个体验高点（视觉/情绪/味觉的最强时刻）和一个收尾意象（让人记住这一天的最后画面）。不能让一天平淡结束。"
+    },
+    {
+      "id": "peak_end_per_city",
+      "priority": "must",
+      "applies_to": "*",
+      "instruction": "每个城市段（连续在同一城市的天数）也需要有各自的高潮和收尾。多城市行程中，每段离开前的最后半天要有仪式感。"
+    },
+    {
+      "id": "no_consecutive_same_type",
+      "priority": "must",
+      "applies_to": "*",
+      "instruction": "相邻两天不要安排同类型体验主题（连续两天都是寺庙历史、连续两天都是商业购物、连续两天都是自然公园）。体验类型要打散交替。"
+    },
+    {
+      "id": "avoid_negative_peak",
+      "priority": "must",
+      "applies_to": ["elderly", "children", "relaxed", "balanced"],
+      "instruction": "避免在高体力消耗活动之后紧接安排上坡路线、长距离步行、或站立等待类景点。重体力日的下午优先安排坐着欣赏或轻松漫步的内容。"
+    },
+    {
+      "id": "avoid_negative_peak_all",
+      "priority": "should",
+      "applies_to": ["packed"],
+      "instruction": "即使是紧凑节奏，也要避免连续两个以上的高体力景点不间断排列，中间需要有坐下来的餐饮或咖啡休息节点。"
+    },
+    {
+      "id": "free_roam_segment",
+      "priority": "should",
+      "applies_to": ["balanced", "relaxed"],
+      "instruction": "行程中留至少一个'自由漫游段'（通常在某天下午）：给出方向和范围（比如'四条河原町一带'），但不锁定具体景点顺序。这是专家设计的留白，不是内容不够。"
+    },
+    {
+      "id": "upward_ending",
+      "priority": "must",
+      "applies_to": "*",
+      "instruction": "最后一天不能是'自由活动'式平淡收场。离开日必须有一个仪式感收束：可以是一顿有仪式感的早餐、一个标志性的最后画面、或一段有意义的散步收尾。让人离开时带着完整感而非遗憾。"
+    },
+    {
+      "id": "city_order_energy_arc",
+      "priority": "should",
+      "applies_to": "*",
+      "instruction": "城市顺序应形成能量弧线：通常建议先高能量城市（大阪市井热闹）再低能量城市（京都安静沉浸），或根据用户 vibe 反向设计。不要让能量曲线平直。"
+    },
+    {
+      "id": "transfer_day_light",
+      "priority": "must",
+      "applies_to": "*",
+      "instruction": "换城市当天（转移日）下午不安排正式重量级景点。可以安排轻松步行、咖啡、购物类内容，让用户有时间适应新城市节奏。"
+    },
+    {
+      "id": "sensory_variety",
+      "priority": "should",
+      "applies_to": "*",
+      "instruction": "一天中尽量包含不同感官维度的体验：不要全部都是'看'（博物馆+寺庙+展览）。要有吃/触/嗅/听的切换，比如市场、手工体验、温泉、音乐演出等。"
+    },
+    {
+      "id": "kyoto_osaka_contrast",
+      "priority": "should",
+      "applies_to": "*",
+      "instruction": "京都和大阪之间不需要设计过渡缓冲日。15分钟新干线，两城气质对立（安静沉浸vs热闹市井）反而产生强烈对比感，这种切换本身就是关西的魅力。直接切换即可，不要在中间插入轻松过渡内容。"
+    },
+    {
+      "id": "cognitive_engagement",
+      "priority": "should",
+      "applies_to": "*",
+      "instruction": "每天至少有一个'主动认知参与型'体验——大脑需要主动处理新信息而非识别已知模式。不以景点评级判断，而以新奇程度判断：第一次接触的文化仪式、水族馆动物行为观察、市场闲逛、工坊体验，都比'第三个寺庙'产生更深的时间感知和记忆编码。"
+    },
+    {
+      "id": "experience_dimension_balance",
+      "priority": "should",
+      "applies_to": "*",
+      "instruction": "检查整段行程是否覆盖以下三个容易缺失的体验维度：①刷新（真正放松、不赶路的半天，如温泉/发呆/咖啡馆）②知识（主动学到了什么，如酒造参观/茶道/寺庙历史解说）③参与（亲手做或身体深度介入，如工坊体验/骑车穿街/市场互动）。享乐和新奇几乎自动有，这三个需要主动保证各出现至少一次。"
+    }
+  ]
+}

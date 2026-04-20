@@ -1,0 +1,27 @@
+{% from 'macros.html' import accent_bar, text_block %}
+<div class="page">
+  <div class="page-header">
+    <div class="chapter-tag">住宿策略</div>
+    <h2>{{ vm.heading.title | e }}</h2>
+    {{ accent_bar() }}
+  </div>
+  {% for sec in vm.sections %}
+    {% if sec.section_type == 'entity_card' %}
+      {% set spots = sec.content.get('spots', []) if sec.content is mapping else [] %}
+      {% for hotel in spots %}
+      <div class="entity-card">
+        <div class="entity-card-name">
+          {{ hotel.hotel_name | e if hotel.hotel_name else (hotel.area | e or '待定') }}
+          {% if hotel.is_fixed %}<span style="font-size:7pt;color:#C0392B;border:1px solid #C0392B;padding:0 3pt;margin-left:4pt">已锁定</span>{% endif %}
+        </div>
+        <div class="entity-card-meta">{{ hotel.city | e }}{% if hotel.area %} · {{ hotel.area | e }}{% endif %}</div>
+      </div>
+      {% endfor %}
+    {% elif sec.section_type == 'text_block' %}
+      {{ text_block(sec.heading, sec.content.text, sec.content['items']) }}
+    {% elif sec.section_type == 'stat_strip' %}
+      {% from 'macros.html' import stat_strip %}
+      {{ stat_strip(sec.content.stats) }}
+    {% endif %}
+  {% endfor %}
+</div>

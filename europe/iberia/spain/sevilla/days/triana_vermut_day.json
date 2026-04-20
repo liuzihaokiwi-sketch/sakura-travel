@@ -1,0 +1,141 @@
+{
+  "template_id": "triana_vermut_day",
+  "label": "Triana 本地灵魂 + Vermut 仪式日",
+  "tags": ["triana", "vermut", "ceramics", "local_life", "market"],
+  "core_entities": ["sev_triana_bridge", "sev_mercado_triana", "sev_capilla_marineros", "sev_calle_betis"],
+  "fit_audience": "all",
+  "region": "andalucia",
+  "city": "sevilla",
+  "weather_sensitive": false,
+  "summer_heat_sensitive": true,
+  "condition": "weekend_preferred_for_vermut",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "leisurely"
+  },
+  "description": "过 Puente de Triana → 水手礼拜堂 → Mercado de Triana 早市 → **vermut 站吧台**(中午仪式) → 过桥午餐 → Casa de Pilatos → Metropol Parasol 日落 → 晚餐 tapeo。这是 Sevilla 的另一面——没有宏大景点,都是'生活密度'。Trianeros 自认不是 Sevillanos,这天住在他们的骄傲里。day_mood: 扎根本地的一天。",
+  "hotel_area_note": "住 Santa Cruz 或大教堂周边都行,Triana 步行 15 分钟或 bus 10 分钟。住 Triana 内部(如 Hotel Boutique Elvira Plaza)当天 0 通勤最优。",
+  "booking_requirements": {
+    "L4_loose": ["casa_de_pilatos", "metropol_parasol_roof"],
+    "no_strict_booking": true
+  },
+  "slots": [
+    {
+      "slot_id": "tr_cross_bridge",
+      "time_range": "09:30-10:00",
+      "type": "walk",
+      "area": "triana_bridge",
+      "priority": "P2",
+      "duration_min": 30,
+      "entity_hint": "Puente de Isabel II (Puente de Triana)",
+      "note": "从 Santa Cruz / 大教堂方向步行过桥(10 分钟到桥头)。**Puente de Isabel II** 是 Sevilla 最老的金属桥(1852),桥型仿巴黎 Pont du Carrousel。过桥那一刻是情绪切换——身后是游客密集的老城,对岸是 Trianeros 的街区。桥中段停下来看河湾:左边 Torre del Oro 方向,右边 Calle Betis 酒吧一线。**Trianeros 骄傲**:'我是 Triana 人,不是 Sevilla 人。'这天你就走进他们的地盘。"
+    },
+    {
+      "slot_id": "tr_capilla",
+      "time_range": "10:00-10:45",
+      "type": "poi",
+      "area": "triana",
+      "priority": "P3",
+      "duration_min": 45,
+      "entity_hint": "Capilla de los Marineros",
+      "note": "过桥 5 分钟到水手礼拜堂。**Esperanza de Triana**(Triana 的圣母,Semana Santa 时最重要的游行圣像之一)常年在这里——Trianeros 把这座圣母当自己人,圣周凌晨抬出来游行是 Sevilla 最情感浓烈的场面。免费进,小而密集。看细节:圣母披风上 Trianeros 捐的珠宝和徽章——这些不是装饰是情感契约。"
+    },
+    {
+      "slot_id": "tr_mercado",
+      "time_range": "10:45-11:45",
+      "type": "poi",
+      "area": "triana",
+      "priority": "P1",
+      "duration_min": 60,
+      "entity_hint": "Mercado de Triana",
+      "note": "建在 **San Jorge 城堡遗址**上(13 世纪摩尔城堡,后来是宗教裁判所总部——这层历史在市场地下有小展厅可看)。2001 年翻修,今天是 Trianeros 买菜的活市场,不是游客市场。逛海鲜摊(Sevilla 虽是内陆但 Huelva 海鲜 1 小时送到)/ 伊比利亚火腿(按橡果等级分 Bellota > Cebo > 普通)/ 本地蜗牛 caracoles(春夏热门下酒菜) / 陶瓷工艺(Triana 是 Sevilla 陶瓷发源地)。市场内几家小吃摊可以站着吃 tapa + vermut——如果时间赶,午餐+vermut 在这里一并解决也行。"
+    },
+    {
+      "slot_id": "tr_vermut",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "triana",
+      "priority": "P1",
+      "duration_min": 60,
+      "meal_role": "vermut_ritual",
+      "note": "**今天的灵魂 slot**。Vermut 仪式:周末中午本地人站在 zinc 吧台(不坐),一杯 dry vermouth(Yzaguirre / Lustau / Zarro)+ olives 或 boquerones(醋浸凤尾鱼)+ 一片火腿 = €3-5,站 20 分钟就走。**不是吃饭,是仪式**。Sobremesa 发生在午餐后,vermut 发生在午餐前。两个都是'西班牙不赶路'的具体入口。方向:**Bar Santa Ana**(Triana 百年店,全年墙上挂满 Semana Santa 圣母像,'365 天都在圣周')——这一家本身就是 wild card。A 轨:标准 vermutería 体验。B 轨:**Casa Cuesta**(Triana 老派 taberna,喝 vermut 配 tortilla 威士忌酱)。**周日最本地**——工作日也行但氛围减弱。"
+    },
+    {
+      "slot_id": "tr_lunch",
+      "time_range": "13:30-15:30",
+      "type": "meal",
+      "area": "triana",
+      "priority": "P1",
+      "duration_min": 120,
+      "meal_role": "core_local_experience",
+      "note": "**午餐 + sobremesa 2 小时**。Triana 的餐厅比 Santa Cruz 本地化得多,游客价差 30-40%。A 轨:**Taberna la Plazuela** 或 **Casa Cuesta**(carrillada 猪颊 Pedro Ximénez / tortilla 威士忌酱 / solomillo al whiskey)。B 轨 surprise:**Puratasca**(Triana 后巷,不好找但招牌炒饭 + 天妇罗 chorizo,是'没想到能这样吃'的惊喜)。饭后咖啡不赶——午餐后在桌边坐 30-45 分钟是标配。**Sobremesa 不能砍**——砍了就不是西班牙。周一到周五这家可能有 menú del día(€12-18 三道菜),工作日来的话优先点这个。"
+    },
+    {
+      "slot_id": "tr_siesta_option",
+      "time_range": "15:30-17:00",
+      "type": "siesta_indoor",
+      "area": "flexible",
+      "priority": "P3",
+      "duration_min": 90,
+      "note": "夏季(40°C+)必须室内休息。选项:(1) 回酒店躺 1 小时(推荐,晚上还要 tapeo);(2) 过桥回老城,进 Casa de Pilatos(见下一个 slot,提早进);(3) Triana 内部小散步看陶瓷店(Cerámica Triana Santa Ana 一带,不赶景点)。冬季 11-2 月温度 15-20°C,可跳过 siesta 直接接 Casa de Pilatos。"
+    },
+    {
+      "slot_id": "tr_pilatos",
+      "time_range": "17:00-18:30",
+      "type": "poi",
+      "area": "old_town_east",
+      "priority": "P2",
+      "duration_min": 90,
+      "entity_hint": "Casa de Pilatos",
+      "note": "过桥回老城走 15 分钟到东北侧。**哥特 + 穆德哈尔 + 文艺复兴**三种风格在同一栋 16 世纪贵族宅邸里叠加——这是 Alcázar 的'小弟',但游客量 1/10,可以慢慢走。核心看点:主庭院(24 位罗马皇帝雕像环绕,穆德哈尔瓷砖)+ 意大利文艺复兴楼梯(金色藻井)+ 花园(柑橘 + 茉莉)。**为什么不在 Day 1**:这天要留时间给 Santa Cruz 漫步和 Alcázar 细看,Casa de Pilatos 放在 Day 3 作为'再深一层理解塞维利亚建筑语言'。€10,记名票要带证件。"
+    },
+    {
+      "slot_id": "tr_merienda",
+      "time_range": "18:30-19:15",
+      "type": "meal",
+      "area": "old_town",
+      "priority": "P2",
+      "duration_min": 45,
+      "meal_role": "merienda",
+      "note": "**La Campana**(Sevilla 最老甜品店,1885 年)——离 Casa de Pilatos 步行 10 分钟。点 tocino de cielo(蛋黄焦糖,几乎纯糖浆蛋黄,血糖拉满)+ café cortado,€3-4。站在大理石吧台吃,15 分钟就走。或者 Confitería Filella(老派 merienda 店)。注意:**Churros con chocolate**(马德里经典)在 Sevilla 不是 merienda 主角,想吃的话 Bar Churros Las Golondrinas 也行,但 Sevilla 的 merienda 核心是糖果 pastelería,不是 churros。"
+    },
+    {
+      "slot_id": "tr_metropol_sunset",
+      "time_range": "19:30-20:45",
+      "type": "paseo",
+      "area": "metropol_parasol",
+      "priority": "P1",
+      "duration_min": 75,
+      "entity_hint": "Metropol Parasol (Las Setas)",
+      "dress_code": "smart casual,不带大相机",
+      "note": "**今天的峰值画面**。Metropol Parasol('都市阳伞',本地人叫'Las Setas' = 蘑菇)是**世界最大木结构建筑**(150m×70m×25m 高),2011 年在 Plaza de la Encarnación 建成。屋顶步道 €15 含饮料,**日落前 30 分钟进,走一圈正好落日**。这个 slot 同时是 paseo——从屋顶下来后在 La Encarnación / Calle Cuna 一带慢走,老城的街灯刚亮,店铺橱窗都还开——是 Sevilla 最上相的夜景时段。**为什么这里比河岸更好**:Day 1 的 paseo 已经在河岸做过了,今天换另一视角——从高处看老城,大教堂 Giralda 在夕阳里剪影化。"
+    },
+    {
+      "slot_id": "tr_tapeo",
+      "time_range": "21:30-23:30",
+      "type": "tapeo_crawl",
+      "area": "santa_cruz_or_triana",
+      "priority": "P1",
+      "duration_min": 120,
+      "meal_role": "tapeo_crawl",
+      "note": "**晚餐是 tapeo 不是坐餐**——3 家 tapas 串,每家 1-2 样 + 1 杯酒,站着或吧台坐。这是西班牙 tapas 文化的正确打开方式——一家一个特色,人不在一家坐死。路线建议(Santa Cruz 版):第一家 Bodega Santa Cruz 'Las Columnas'(白墙记账,点 pringá/溶解型猪肉 tapa + fino)→ 第二家 El Rinconcillo(**1670 年开业**,Sevilla 最老 taberna,点 espinacas con garbanzos/菠菜鹰嘴豆)→ 第三家 La Azotea(现代 tapas,点牛尾 raviolo)。Triana 版:Bar Santa Ana → Casa Cuesta → Blanca Paloma。**点半份 media ración** 人多才点全份。点啤酒说 'una caña'。**每家不超过 30 分钟**,才够 tapeo 的节奏。"
+    },
+    {
+      "slot_id": "tr_calle_betis",
+      "time_range": "23:30-00:30",
+      "type": "walk",
+      "area": "triana",
+      "priority": "P5",
+      "duration_min": 60,
+      "note": "可选收尾。**Calle Betis** 是河岸一线的 Sevillanos drinking street——十几家酒吧一字排开,对岸 Torre del Oro 打灯,水面倒影。不点酒也可以就沿河走一段。这是'塞维利亚做得最好的小事之一'——没有景点,就是河 + 夜 + 一杯酒的组合。明天无重体力行程才做这一段。"
+    },
+    {
+      "slot_id": "tr_shops",
+      "time_range": null,
+      "type": "shop_info",
+      "area": "triana",
+      "priority": "P5",
+      "note": "Triana 特产:**陶瓷**(Cerámica Santa Ana / Cerámica Montalván,从小件 €5 冰箱贴到整套 €200 餐具)——这是 Triana 14 世纪以来的手艺,Alhambra 和 Alcázar 的部分瓷砖当年就是 Triana 烧的。皮革工艺、马具店、弗拉门戈服饰(Calle Pureza 一带)。不推游客集中区(Sierpes 街)的纪念品店。"
+    }
+  ]
+}

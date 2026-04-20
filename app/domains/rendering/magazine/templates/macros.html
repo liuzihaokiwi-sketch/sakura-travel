@@ -1,0 +1,130 @@
+{% macro hero_image(url, alt="", css_class="") %}
+{% if url %}
+<img class="hero-image {{ css_class }}" src="{{ url }}" alt="{{ alt | e }}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="hero-placeholder" style="display:none"><span class="placeholder-label">{{ alt | e or "图片" }}</span></div>
+{% else %}
+<div class="hero-placeholder {{ css_class }}"><span class="placeholder-label">{{ alt | e or "图片" }}</span></div>
+{% endif %}
+{% endmacro %}
+
+{% macro accent_bar() %}<div class="accent-bar"></div>{% endmacro %}
+
+{% macro stat_strip(stats) %}
+{% if stats %}
+<div class="stat-strip">
+{% for s in stats %}
+<div class="stat-item">
+  <span class="stat-value">{{ s.value | e }}</span>
+  <span class="stat-label">{{ s.label | e }}{% if s.unit %}<span class="stat-unit"> {{ s.unit | e }}</span>{% endif %}</span>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro timeline(items) %}
+<div class="timeline">
+{% for item in items %}
+<div class="timeline-item">
+  <div class="timeline-time">{{ item.time | e }}</div>
+  <div class="timeline-dot-col"><span class="timeline-dot {{ item.type_icon | e }}"></span></div>
+  <div class="timeline-body">
+    <div class="timeline-name">{{ item.name | e }}</div>
+    {% if item.duration or item.note %}
+    <div class="timeline-meta">
+      {% if item.duration %}{{ item.duration | e }}min{% endif %}
+      {% if item.duration and item.note %} · {% endif %}
+      {% if item.note %}{{ item.note | e }}{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro key_reasons(reasons) %}
+<div class="key-reasons">
+{% for r in reasons %}
+<div class="key-reason-item">
+  <div class="key-reason-icon">◆</div>
+  <div class="key-reason-text">{{ r | e }}</div>
+</div>
+{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro risk_card(risk_type, description, action) %}
+<div class="risk-card">
+  <div class="risk-label">{{ risk_type | e }}</div>
+  <div class="risk-desc">{{ description | e }}</div>
+  {% if action %}<div class="risk-action">→ {{ action | e }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro text_block(heading, text, item_list) %}
+<div class="text-block">
+  {% if heading %}<div class="text-block-heading">{{ heading | e }}</div>{% endif %}
+  {% if text %}<div class="text-block-content">{{ text | e }}</div>{% endif %}
+  {% if item_list %}
+  <ul class="text-block-list">
+    {% for item in item_list %}<li>{{ item | e }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro diy_sticker(position) %}
+{% if position and position != 'none' %}
+{% set css = {'top_right': 'top-right', 'bottom_left': 'bottom-left', 'corner': 'corner'}.get(position, 'top-right') %}
+<div class="diy-sticker-zone {{ css }}">
+  <span class="diy-icon">&#9734;</span>
+  <span class="diy-label">贴纸区<br>Sticker Zone</span>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro diy_freewrite(position) %}
+{% if position and position != 'none' %}
+{% set css = {'bottom_strip': 'bottom-strip', 'side_margin': 'side-margin', 'full_half': 'full-half'}.get(position, 'bottom-strip') %}
+<div class="diy-freewrite-zone {{ css }}">
+  <span class="diy-label">&#9998; 手写区 / Notes</span>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro diy_zones(sticker, freewrite) %}
+{% set is_top = sticker in ('top_right', 'corner') %}
+{% if is_top and sticker %}{{ diy_sticker(sticker) }}{% endif %}
+{% if not is_top and sticker or freewrite %}
+<div class="diy-zones-wrapper">
+  {% if not is_top %}{{ diy_sticker(sticker) }}{% endif %}
+  {{ diy_freewrite(freewrite) }}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro page_header(title, subtitle) %}
+<div class="page-header">
+  <div class="page-header-title">{{ title | e }}</div>
+  {% if subtitle %}<div class="page-header-subtitle">{{ subtitle | e }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro entity_card(name, meta, day_index) %}
+<div class="entity-card">
+  <div class="entity-card-name">{{ name | e }}</div>
+  {% if meta %}<div class="entity-card-meta">{{ meta | e }}</div>{% endif %}
+  {% if day_index is not none %}<div class="entity-card-meta">Day {{ day_index }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro booking_badge(level) %}
+{% set cfg = {
+  'must_book': ('必订', 'badge-must'),
+  'should_book': ('建议订', 'badge-should'),
+  'good_to_book': ('推荐订', 'badge-good'),
+  'walkin_ok': ('可现场', 'badge-walkin')
+}.get(level, (level, 'badge-walkin')) %}
+<span class="badge {{ cfg[1] }}">{{ cfg[0] }}</span>
+{% endmacro %}

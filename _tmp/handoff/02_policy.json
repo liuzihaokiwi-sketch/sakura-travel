@@ -1,0 +1,206 @@
+{
+  "_doc": "机器可读的硬约束、退化规则和校验红线。原则性内容在brief.md，这里只放需要程序检查的规则",
+
+  "hard_constraints": {
+    "dining": {
+      "same_day_no_repeat_cuisine": true,
+      "same_day_no_two_flour_meals": true,
+      "flour_cuisines": ["ramen", "udon", "okonomiyaki", "soba"],
+      "consecutive_days_no_repeat_cuisine_in_A_track": true,
+      "showcase_meal_max_per_city": 1,
+      "showcase_meal_max_per_trip": 2,
+      "family_never_top_tier": true,
+      "no_chinese_cuisine": true,
+      "chinese_exceptions": ["551_horai"],
+      "reservation_5star_excluded": true,
+      "reservation_5star_examples": ["尽誠", "mikami limited50", "京洛焼肉ぽめ", "本湖月", "もめん"],
+      "restaurant_must_be_in_day_area": true
+    },
+    "cross_city_dedup": {
+      "dedup_scope": "A_track_only",
+      "general_cuisine_max_across_trip": 2,
+      "general_cuisines": ["ramen", "tempura", "izakaya", "udon", "yoshoku", "yakitori"],
+      "second_occurrence_must_differ_meal_role": true,
+      "priority_city": {
+        "wagyu": "kobe",
+        "sushi_omakase": "osaka",
+        "kaiseki": "kyoto",
+        "fugu": "osaka"
+      },
+      "city_exclusive_no_dedup": {
+        "osaka": ["takoyaki", "kushikatsu", "okonomiyaki", "fugu", "551_horai"],
+        "kyoto": ["kaiseki", "yudofu", "kyo_ryori", "matcha_sweets"],
+        "kobe": ["kobe_beef"],
+        "nara": ["kakinoha_sushi"]
+      }
+    },
+    "assembly": {
+      "transfer_day_afternoon_no_heavy_poi": true,
+      "transfer_day_intensity": "light",
+      "heavy_day_next_morning_must_be_light": true,
+      "arrival_day_no_formal_poi": true,
+      "departure_half_keep_light": true,
+      "usj_day_never_cut_by_density": true,
+      "audience_day_never_cut_core_sequence": true
+    },
+    "hotel": {
+      "system_picks_one_not_user_chooses": true,
+      "handbook_shows_one_plus_one_backup": true
+    }
+  },
+
+  "budget_constraints": {
+    "economy": { "max_mid_high_meals": 1, "max_high_meals": 0 },
+    "mid": { "max_high_meals": 1, "min_economy_experience_meals": 1 },
+    "high": { "max_top_meals": 1, "min_mid_or_lower_meals": 2 }
+  },
+
+  "day_type_dining_adjustments": {
+    "arrival_day_lunch": -1,
+    "usj_day_dinner": -1,
+    "heavy_walking_day_dinner": -1,
+    "audience_day_lunch": 1,
+    "audience_day_dinner": { "min": 1, "max": 2 }
+  },
+
+  "party_dining_modifiers": {
+    "couple": { "audience_day_dinner_bonus": 1, "allow_top_tier": true },
+    "friends": { "audience_day_dinner_bonus": 1, "allow_top_tier": true },
+    "family": { "overall_shift": -0.5, "audience_day_dinner_cap": "mid_high", "allow_top_tier": false },
+    "default": { "audience_day_bonus": 1, "allow_top_tier": false }
+  },
+
+  "density_cut_rules": {
+    "packed": { "cut_from": null, "note": "no cuts" },
+    "balanced": { "cut_from": "P4" },
+    "relaxed": { "cut_from": "P3" }
+  },
+
+  "shop_count_by_free_time": {
+    "high": { "min_hours": 3, "count": 5 },
+    "medium": { "min_hours": 1.5, "count": 3 },
+    "low": { "min_hours": 0.5, "count": 2 },
+    "none": { "min_hours": 0, "count": 0 }
+  },
+
+  "degradation_priority": {
+    "_doc": "天数不够时的砍减优先级，数字越大越先砍",
+    "order": [
+      { "priority": 1, "item": "core_city_anchor", "action": "never_cut" },
+      { "priority": 2, "item": "one_highlight_module", "action": "never_cut" },
+      { "priority": 3, "item": "audience_memory_point", "action": "cut_last_resort" },
+      { "priority": 4, "item": "secondary_anchor", "action": "cut_if_needed" },
+      { "priority": 5, "item": "shops_cafe_shopping", "action": "cut_early" },
+      { "priority": 6, "item": "photo_spots_extras", "action": "cut_first" }
+    ]
+  },
+
+  "module_conflict_resolution": {
+    "_doc": "用户勾选过多模块时的取舍规则",
+    "rule": "rank_by_scarcity_then_time_then_irreplaceability",
+    "squeezed_module_gets_explanation_text": true
+  },
+
+  "restaurant_fallback_order": {
+    "_doc": "餐厅池不足时的退化顺序",
+    "order": [
+      "widen_walking_radius",
+      "relax_budget_half_tier",
+      "relax_B_requirement",
+      "allow_A_only_no_B",
+      "change_slot_role_keep_mainline"
+    ]
+  },
+
+  "city_allocation": {
+    "_doc": "城市天数分配规则。系统根据总天数+风格自动分配，不需要用户选城市",
+    "city_min_days": {
+      "osaka": 2.5,
+      "kyoto": 2,
+      "nara": 0.5,
+      "kobe": 1,
+      "arima_onsen": 1,
+      "himeji": 1,
+      "uji": 0.5,
+      "koyasan": 1.5,
+      "kinosaki": 1.5,
+      "shirahama": 2
+    },
+    "transfer_cost_days": 0.5,
+    "vibe_defaults": {
+      "_doc": "各风格的默认城市偏好，天数不够时按此优先级分配",
+      "classic": {"primary": ["osaka", "kyoto"], "secondary": ["nara"]},
+      "romantic": {"primary": ["osaka", "kyoto"], "secondary": ["arima_onsen", "nara"]},
+      "photogenic": {"primary": ["kyoto", "osaka"], "secondary": ["nara", "uji"]},
+      "family_fun": {"primary": ["osaka", "kyoto"], "secondary": ["nara"]}
+    },
+    "vibe_default_experiences": {
+      "_doc": "各风格默认包含的体验模块",
+      "classic": [],
+      "romantic": [],
+      "photogenic": ["arashiyama"],
+      "family_fun": ["usj"]
+    },
+    "auto_add_rules": {
+      "_doc": "天数充裕时自动加入",
+      "7+": ["nara"],
+      "9+": ["kobe_or_onsen"]
+    },
+    "arrival_slot_capacity": {
+      "morning": 1.0,
+      "afternoon": 0.5,
+      "evening": 0.25
+    },
+    "departure_slot_capacity": {
+      "morning": 0.25,
+      "afternoon": 0.5,
+      "evening": 0.75
+    }
+  },
+
+  "budget_mix_ratios": {
+    "_doc": "餐饮升降档混搭比例，按天数和档位计算总费用时使用",
+    "dining": {
+      "street": {"base_pct": 0.75, "upgrade_pct": 0.15, "downgrade_pct": 0.10},
+      "local_good": {"base_pct": 0.70, "upgrade_pct": 0.15, "downgrade_pct": 0.15},
+      "fine": {"base_pct": 0.70, "upgrade_pct": 0.10, "downgrade_pct": 0.20},
+      "top": {"base_pct": 0.65, "upgrade_pct": 0.10, "downgrade_pct": 0.25}
+    },
+    "dining_price_ranges_cny": {
+      "street": {"low": 40, "high": 60},
+      "local_good": {"low": 80, "high": 150},
+      "fine": {"low": 200, "high": 350},
+      "top": {"low": 500, "high": 800}
+    },
+    "hotel": {
+      "budget": {"upgrade_nights_per_trip": 0},
+      "comfort": {"upgrade_nights_per_7": 1},
+      "premium": {"upgrade_nights_per_7": 1},
+      "luxury": {"upgrade_nights_per_7": 1}
+    },
+    "hotel_price_ranges_cny": {
+      "budget": {"low": 250, "high": 450},
+      "comfort": {"low": 500, "high": 900},
+      "premium": {"low": 1000, "high": 1800},
+      "luxury": {"low": 2000, "high": 3500}
+    }
+  },
+
+  "validation_checklist": {
+    "_doc": "拼装完成后必须通过的检查项",
+    "checks": [
+      "no_same_cuisine_lunch_dinner_same_day",
+      "no_consecutive_day_same_cuisine_A_track",
+      "no_heavy_poi_on_transfer_afternoon",
+      "no_two_consecutive_heavy_days",
+      "showcase_meal_within_caps",
+      "budget_distribution_within_constraints",
+      "all_restaurants_in_day_area",
+      "no_A_B_same_cuisine_same_role",
+      "seasonal_events_date_matched_correctly",
+      "cross_city_cuisine_within_caps",
+      "audience_day_dining_matches_theme",
+      "closing_scene_not_high_stimulus_after_peak"
+    ]
+  }
+}

@@ -13,6 +13,7 @@ from app.core.sentry import init_sentry
 from app.api import trips
 from app.api import trips_generate
 from app.api import trips_preview
+from app.api import trips_v2
 from app.api import trips_tuning
 from app.api import chat
 from app.api import pois
@@ -108,6 +109,7 @@ app.add_middleware(RateLimitMiddleware, backend=InMemoryBackend())
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(chat.router)                              # /chat/*
 app.include_router(trips.router, prefix="/trips", tags=["trips"])
+app.include_router(trips_v2.router, prefix="/v2/trips", tags=["trips-v2"])
 app.include_router(trips_generate.router, tags=["trips-plan"])
 app.include_router(trips_preview.router, tags=["trips-preview"])
 app.include_router(trips_tuning.router, tags=["self-serve-tuning"])

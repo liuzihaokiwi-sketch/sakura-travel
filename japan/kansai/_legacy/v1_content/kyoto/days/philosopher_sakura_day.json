@@ -1,0 +1,89 @@
+{
+  "template_id": "philosopher_sakura_day",
+  "label": "哲学之道+银阁寺樱花日",
+  "tags": [
+    "sakura",
+    "temple",
+    "walking",
+    "nature"
+  ],
+  "core_entities": [
+    "kyo_ginkakuji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'sakura' (3月下旬-4月上旬)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 沉浸与花筏。银阁寺→哲学之道2km樱花隧道（花筏）→南禅寺水路阁→蹴上インクライン廃線桜（蹴上倾斜铁道废线樱花）。京都春季最经典的东山北线。和tofukuji_koyo_day对称——一春一秋。",
+  "hotel_area_note": "住四条：巴士到银阁寺前约30min。住京都站：巴士5号约30min到银阁寺前，或100号系统。建议早出门——樱花季哲学之道上午10点后人爆多。",
+  "slots": [
+    {
+      "slot_id": "sak_ginkakuji",
+      "time_range": "08:30-10:00",
+      "type": "poi",
+      "area": "okazaki",
+      "priority": "P1",
+      "duration_min": 90,
+      "entity_hint": "銀閣寺",
+      "note": "¥500成人。8:30开门——樱花季建议8:30到门口。银阁寺是足利义政建的（金阁寺是他祖父足利义满），刻意不贴金箔——'侘寂'美学的物理体现。银沙滩的白砂造型+月待山的借景构图。苔藓庭园和金阁寺的华丽完全反向——如果行程里有金阁寺，两者的对比会自然形成。展望台俯瞰京都市街+樱花前景。整体1-1.5h。"
+    },
+    {
+      "slot_id": "sak_philosopher",
+      "time_range": "10:00-11:30",
+      "type": "walk",
+      "area": "okazaki",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "哲学之道——银阁寺门前往南走。免费，24h通行。约2km的疏水沿岸散步道，两岸约400棵染井吉野（ソメイヨシノ）+大岛樱形成樱花隧道。画家桥本关雪捐赠的'关雪樱'。落花开始时期（4月上旬-中旬）出现花筏（花瓣在水面漂流）——从步道往水面俯看，粉色花瓣带在流淌。途中有小寺社/咖啡厅/猫——都可以顺路拐进去。2km但花1.5h慢走才是正解。早朝（8:30前）人最少最美。"
+    },
+    {
+      "slot_id": "sak_nanzenji",
+      "time_range": "11:30-12:30",
+      "type": "poi",
+      "area": "okazaki",
+      "priority": "P1",
+      "duration_min": 60,
+      "entity_hint": "南禅寺",
+      "note": "哲学之道南端步行5min到南禅寺。境内自由（三门/方丈庭园有料：三门¥600/方丈¥600）。三门是歌舞伎中石川五右卫门说'絶景かな（绝景啊）'的地方——从门上看京都市街的眺望+樱花。水路阁（琵琶湖疏水的红砖拱形水道桥）是明治时代的近代建筑×寺院境内的异色组合——有樱花前景的水路阁是春季限定画面。是否登三门（¥600）看时间而定——上面的景色很壮观，但樱花多的年份从下面仰望的构图可能更美。"
+    },
+    {
+      "slot_id": "sak_incline",
+      "time_range": "12:30-13:00",
+      "type": "walk",
+      "area": "okazaki",
+      "priority": "P2",
+      "duration_min": 30,
+      "note": "蹴上铁道倾斜线（蹴上インクライン）——南禅寺南侧近旁。琵琶湖疏水用台车运送船只的倾斜铁道废线遗址（全长582m）。可以走在铁轨上+两侧樱花隧道——'废线×樱花'的组合是京都春天最上镜的画面之一。在Instagram上享誉世界的景点。樱花季非常拥挤——从南禅寺走来顺路经过最自然。"
+    },
+    {
+      "slot_id": "sak_lunch",
+      "time_range": "13:00-14:00",
+      "type": "meal",
+      "area": "okazaki",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "冈崎区域午餐。平安神宫大鸟居可见的道路沿线有多家餐厅。樱花季哪里都排队，13:00后晚些去吃是明智之举。一整个上午都在走路之后的喘息——坐下来吃东西就是幸福。避开和其他天重复的菜系。"
+    },
+    {
+      "slot_id": "sak_afternoon",
+      "time_range": "14:30-16:30",
+      "type": "optional_poi",
+      "area": "okazaki",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "午后选项：(1) 平安神宫神苑（¥600）——红枝垂樱名所，染井吉野开始凋谢时（4月上旬-中旬）垂樱进入花期，是樱花接力赛的延长战 (2) 永观堂——红叶名所，但春樱+新绿也很美，游客极少是隐秘好去处 (3) 京都国立近代美术馆/京都市京瓷美术馆——室内歇脚+欣赏艺术 (4) 体力不够的话直接回市区——上午已经充分赏樱。"
+    },
+    {
+      "slot_id": "sak_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市区晚餐。樱花季的京都先斗町也是满开——窄巷里的灯笼+枝垂樱在夜晚最美。白天走了一整天的樱花隧道，晚上在先斗町的灯光下吃饭收尾。避开午餐方向的菜系。"
+    }
+  ]
+}

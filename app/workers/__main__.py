@@ -31,6 +31,8 @@ from app.workers.jobs.render_export import render_export
 from app.workers.jobs.send_booking_reminders import send_booking_reminders
 from app.workers.jobs.decay_recommendation_counts import decay_recommendation_counts
 from app.workers.jobs.refresh_entities import refresh_entities
+from app.workers.jobs.generate_plan_preview import generate_plan_preview
+from app.workers.jobs.generate_handbook_final import generate_handbook_final
 
 
 # ── Job 推导规则 ───────────────────────────────────────────────────────────────
@@ -474,6 +476,8 @@ class WorkerSettings:
         send_booking_reminders,
         decay_recommendation_counts,
         refresh_entities,
+        generate_plan_preview,
+        generate_handbook_final,
     ]
 
     cron_jobs = [

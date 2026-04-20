@@ -1,0 +1,750 @@
+{
+  "_doc": "京都季节模块。全年骨架 70% 不动，这里定义 30% 的改法。结构：每个季节说明'改哪些天 + 怎么改'。分三类改法：[timing] 改时段/顺序，[swap_slot] 换某个 slot 的内容，[add_segment] 夜间加段，[add_day] 独立加天（仅祇园祭）。live_facts（具体日期/开放时间/门票）见 live_facts/ 目录。",
+  "_version": "1.0",
+  "_change_types": {
+    "timing": "改变出发时间或停留时段分配，POI不换",
+    "swap_slot": "替换某个 slot 的目标地点或注记",
+    "add_segment": "在原有白天骨架上叠加夜间段（夜樱/点灯/特别公开）",
+    "add_day": "增加独立一天，只用于祇园祭"
+  },
+
+  "spring": {
+    "_label": "春季版（3月下旬–5月上旬）",
+    "_summary": "改 2 天：arrival_fushimi + higashiyama_day 强改，arashiyama_day 中改，其余不动。核心变化：夜间特别开放是春季最大加法。",
+    "_priority_window": "3/25–4/10 是京都樱花主力期，清水寺/岚山/哲学之道最强。4/10后樱花向北移，高台寺/平安神宫延续。",
+
+    "changes": [
+      {
+        "applies_to": "arrival_fushimi",
+        "slot_id": "fushimi_inari",
+        "change_type": "timing",
+        "original": "15:30–18:00",
+        "spring_version": "16:00–18:30",
+        "reason": "春季傍晚光线最美，且4月樱花期伏见稻荷周边有染井吉野，稍晚进场可以同时看到樱花和黄昏鸟居。"
+      },
+      {
+        "applies_to": "arrival_fushimi",
+        "slot_id": "arrival_walk",
+        "change_type": "swap_slot",
+        "spring_version": {
+          "area": "gion",
+          "note": "樱花期祇园白川南通的吉野樱是京都最美的夜樱街道之一。饭后从四条步行即到，免费，20:00后灯光打在河面上的倒影是当晚最强画面。"
+        },
+        "original_note": "春季把到达夜散步升级为夜樱感受"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_kiyomizu",
+        "change_type": "timing",
+        "original": "08:00–10:00",
+        "spring_version": "07:30–10:00",
+        "reason": "樱花期清水寺8点后人流激增，7:30进场可以在人群到来前看一个完整的春晨。开门时间通常6:00，实际可更早。"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_evening",
+        "change_type": "add_segment",
+        "segment": {
+          "slot_id": "spring_yozakura",
+          "time_range": "18:30–21:00",
+          "label": "夜樱特别开放",
+          "area": "higashiyama_south",
+          "priority": "P1",
+          "options": [
+            {
+              "entity_hint": "清水寺 夜間特別拝観",
+              "note": "春季夜间特别开放，加收拝観料约¥400。清水舞台在聚光灯下的樱花树是京都春季最强画面之一。日期见 live_facts/。提前确认当年开放期。",
+              "booking": "不需预约，但傍晚排队长，建议18:00前到队尾"
+            },
+            {
+              "entity_hint": "高台寺 春の夜間特別拝観（高台寺春季夜间特别参拜）",
+              "note": "高台寺春季点灯，竹林和枯山水在灯光下有完全不同的质感。日期见 live_facts/。¥600。",
+              "booking": "不需预约"
+            },
+            {
+              "entity_hint": "祇園白川南通の夜桜（祇园白川南通夜樱）",
+              "note": "免费，步行即到。白川南通的吉野樱在夜灯下倒映水面，是京都最上镜的夜樱地点之一，不需要买票。",
+              "booking": "不需预约"
+            }
+          ]
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_tenryuji",
+        "change_type": "swap_slot",
+        "spring_version": {
+          "entity_hint": "天龍寺",
+          "note": "春季曹源池庭园的樱花借景构图是岚山最强花见地点，与全年版完全相同但体验完全不同。¥500庭园+¥300本堂，春季建议加本堂（可从内部看院落樱花）。提前到8:30开门时入场。",
+          "duration_min": 90,
+          "priority": "P1"
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_optional_train",
+        "change_type": "swap_slot",
+        "spring_version": {
+          "priority": "P2",
+          "note": "嵯峨野观光小火车（嵯峨野トロッコ列車）春季强推，沿途樱花带是全程体验最强的交通工具时刻。提前购票（可能售罄）。",
+          "booking_warning": "春季极难购票，需提前1个月以上在官网或JR绿色窗口（みどりの窓口）购买"
+        }
+      },
+      {
+        "applies_to": "day5_okazaki",
+        "slot_id": "d5o_tetsugaku",
+        "change_type": "swap_slot",
+        "spring_version": {
+          "entity_hint": "哲学の道",
+          "note": "春季哲学之道的染井吉野樱花道是京都最重要的花见步道之一，从银阁寺走到南禅寺2km樱花隧道。3月底到4月初最强，4月5日左右前后1周是峰值。",
+          "duration_min": 120,
+          "priority": "P1"
+        }
+      },
+      {
+        "applies_to": "day5_okazaki",
+        "slot_id": "d5o_heian",
+        "change_type": "add_segment",
+        "segment": {
+          "slot_id": "spring_heian_yozakura",
+          "time_range": "18:00–20:00",
+          "label": "平安神宫春季夜间开放",
+          "note": "平安神宫神苑春季夜间特别参拜，¥1500。八重红枝垂樱是京都最华丽的晚樱品种，园内有池塘倒影。3月底到4月中旬，日期见 live_facts/。",
+          "booking": "不需预约，当日排队购票"
+        }
+      }
+    ],
+
+    "sakura_spots_not_in_skeleton": {
+      "_doc": "以下樱花景点不在全年骨架的固定日模板里，需要在 trip_skeleton 组装时主动插入，或作为 day5 的季节替换选项。按优先级排序。",
+      "spots": [
+        {
+          "id": "maruyama_park",
+          "name_ja": "円山公園・祇園の枝垂れ桜",
+          "name_zh": "円山公园祇园垂枝樱",
+          "area": "gion",
+          "how_to_add": "融入 higashiyama_day 的 hm_gion_walk 段，步行经过即可，无需单独排时间",
+          "duration_min": 30,
+          "admission": "免费",
+          "peak": "3月下旬–4月上旬",
+          "grade": "S",
+          "note": "八坂神社旁步行3min，京都最标志性的单棵垂枝樱（约百年树龄），夜间灯光打亮后是教科书级别的京都春景。higashiyama_day 傍晚祇园散步时必经，写进 hm_gion_walk 的 fit_audience/spring 注记里即可，不需要加额外slot。"
+        },
+        {
+          "id": "daigoji",
+          "name_ja": "醍醐寺",
+          "name_zh": "醍醐寺",
+          "area": "daigo",
+          "how_to_add": "spring_only_day 独立半天，或替换 central_kyoto_day 的上午段",
+          "duration_min": 120,
+          "admission": "¥1500（春季特別入山料，含霊宝館・三宝院）",
+          "transport": "地铁東西線→醍醐駅，从四条乌丸约20min，再步行10min",
+          "peak": "3月下旬–4月上旬",
+          "grade": "S",
+          "note": "丰臣秀吉'醍醐赏花'（醍醐の花見）举办地，1598年那次花见邀请了近1300人。境内约700棵染井吉野、垂枝樱、山樱。规模是京都市内最大的单寺庙樱花群之一。春季入山费比平时贵很多但完全值得。交通比岚山方便，适合4.5天以上行程加入。"
+        },
+        {
+          "id": "hirano_jinja",
+          "name_ja": "平野神社",
+          "name_zh": "平野神社",
+          "area": "kinugasa_kitano",
+          "how_to_add": "day5_classic 顺路加入，金阁寺→平野神社步行20min",
+          "duration_min": 60,
+          "admission": "免费（桜苑¥500）",
+          "peak": "3月下旬–4月下旬（品种最多，开花期最长）",
+          "note": "日本最多樱花品种的神社，约60种400棵，从3月底开到4月下旬，比其他景点花期长2-3周。day5_classic 走金阁寺/北山线时，从金阁寺步行20min可顺路，不影响主线节奏。御室仁和寺的「御室桜」（矮樱，4月中旬开）也在步行范围内。"
+        },
+        {
+          "id": "ninnaji_omuro",
+          "name_ja": "仁和寺 御室桜",
+          "name_zh": "仁和寺御室桜",
+          "area": "kinugasa_kitano",
+          "how_to_add": "day5_classic 已有仁和寺，春季改注记升级为重点",
+          "duration_min": 90,
+          "admission": "¥800（含御室桜）",
+          "peak": "4月中旬（比染井吉野晚约2周，是最晚开的品种之一）",
+          "note": "京都最晚开的樱花，4月中旬才开。树形矮小（因地层薄，根无法深扎），眼睛平视看樱花，与清水寺/岚山的仰视感完全不同。day5_classic 本来就有仁和寺，春季时把停留时间延长到90min，并在注记里重点提示御室桜。"
+        },
+        {
+          "id": "keage_incline",
+          "name_ja": "蹴上インクライン",
+          "name_zh": "蹴上斜面铁道",
+          "area": "okazaki",
+          "how_to_add": "融入 day5_okazaki 的 d5o_nanzenji 段，步行顺路，无需单独排时间",
+          "duration_min": 30,
+          "admission": "免费",
+          "peak": "3月下旬–4月上旬",
+          "transport": "地铁蹴上駅出站即到",
+          "note": "琵琶湖疏水的船只牵引轨道（1891年），已废用但轨道保留，两侧约500棵染井吉野形成樱花隧道。与南禅寺步行5min，day5_okazaki 本来就去南禅寺，蹴上直接顺路经过，不需要单独排 slot。免费，是这条线上'不去会后悔'的隐藏景点。"
+        },
+        {
+          "id": "haratani_en",
+          "name_ja": "原谷苑",
+          "name_zh": "原谷苑（私人庭园）",
+          "area": "kinugasa_kitano",
+          "how_to_add": "spring only B选项，替换 day5_classic 的下午段，或单独作为半天加选",
+          "duration_min": 60,
+          "admission": "¥500–2000（随季节浮动，樱花期高）",
+          "peak": "3月下旬–4月上旬（垂枝樱为主角）",
+          "transport": "金阁寺乘巴士15min，或从金阁寺打车约10min",
+          "note": "私人庭园，春季限定开放。原谷庄（原谷の里）的垂枝樱以'粉色爆发感'著名，规模不大但密度极高，是京都最适合出片的小众庭园。不在官方推荐名单，但在日本旅游博主和小红书口碑极高。spring B选项——当A是醍醐寺，B就是原谷苑，两个都是'为樱花专程去'的选择，但氛围完全不同（宏大vs秘密花园）。"
+        },
+        {
+          "id": "fushimi_jukkoku_bune",
+          "name_ja": "伏見 十石舟",
+          "name_zh": "伏见十石舟游船",
+          "area": "fushimi",
+          "how_to_add": "融入 arrival_fushimi，在伏见稻荷前或后顺路加入",
+          "duration_min": 60,
+          "admission": "¥1500",
+          "peak": "3月下旬–4月上旬",
+          "transport": "伏见稻荷步行15min至乘船处，或从京阪中書島駅步行5min",
+          "operating": "3月下旬–12月，每小时一班",
+          "note": "沿伏见运河穿行于酒库群和垂枝樱之间，约50分钟游程。与伏见稻荷在同一区域但体验完全不同——稻荷是仰望鸟居的山林感，十石舟是平视酒仓+樱花的水乡感。arrival_fushimi 春季版可在伏见稻荷后（18:30前）加入傍晚最后一班，或单独安排上午出发。"
+        },
+        {
+          "id": "nijo_castle_sakura",
+          "name_ja": "二条城 桜",
+          "name_zh": "二条城樱花",
+          "area": "central_kyoto",
+          "how_to_add": "central_kyoto_day 已有二条城，春季升级注记+加夜间点灯",
+          "duration_min": 120,
+          "admission": "¥1300（含入城+二之丸御殿），夜间点灯另计",
+          "peak": "3月下旬–4月上旬",
+          "night_illumination": "春季夜间点灯，历年有举行，需确认当年安排（见 live_facts/）",
+          "note": "城内约300棵樱花，品种丰富（染井吉野/垂枝樱/八重樱等）。central_kyoto_day 本来就去二条城，春季把停留时间延长并提示夜间点灯版本。若要接夜间点灯，安排17:00再入场（可能需要重新购票，确认当年安排）。"
+        }
+      ]
+    },
+
+    "spring_sakura_schedule": {
+      "_doc": "京都樱花开放顺序，用于 trip_skeleton 判断哪些景点在用户行程日期内处于最强状态。具体年份峰值见 live_facts/。",
+      "early": {
+        "period": "3月20日–3月底",
+        "spots": [
+          "平野神社（早开品种，部分3月中开始）",
+          "原谷苑（垂枝樱，3月下旬开始）",
+          "伏见稻荷周边（染井吉野开始）",
+          "伏见十石舟（运河沿线垂枝樱开始）"
+        ]
+      },
+      "peak": {
+        "period": "3月末–4月上旬（约3/28–4/7，每年约1周波动）",
+        "spots": [
+          "清水寺（染井吉野+垂枝樱，夜间开放）",
+          "円山公园（祇园垂枝樱，最标志性）",
+          "天龙寺（庭园借景）",
+          "醍醐寺（规模最大，约700棵）",
+          "哲学之道（2km樱花隧道）",
+          "岚山渡月桥（山+水+樱）",
+          "白川南通（夜樱免费）",
+          "蹴上铁道倾斜线（蹴上インクライン，铁道樱花隧道，免费）",
+          "二条城（城内约300棵，有夜间点灯）"
+        ]
+      },
+      "late": {
+        "period": "4月上旬–4月中旬",
+        "spots": [
+          "高台寺（垂枝樱+竹林）",
+          "平安神宫（八重红垂枝樱，夜间开放）",
+          "平野神社（晚开品种，花期最长）",
+          "上贺茂神社・下鸭神社糺之森（糺の森）"
+        ]
+      },
+      "very_late": {
+        "period": "4月中旬–4月下旬",
+        "spots": [
+          "仁和寺 御室桜（最晚，矮樱，4月中旬才开）",
+          "平野神社（部分晚开品种仍在）"
+        ]
+      },
+      "not_recommended_for_spring": {
+        "spots": ["高雄（神護寺/西明寺/高山寺）"],
+        "reason": "高雄三寺春樱规模一般，交通60-85min，主角是11月红叶。春季不值得专程去，留给秋季行程。"
+      }
+    },
+
+    "special_events": [
+      {
+        "name": "葵祭",
+        "date": "每年5月15日（固定）",
+        "type": "add_day",
+        "applicable_to": "day5_classic 或 day5_okazaki",
+        "description": "京都三大祭之一，平安时代宫廷仪仗游行，路线：御所→下鸭神社→上贺茂神社。约500人着装平安服饰，全程约3h。若行程撞上5月15日，把第5天完整切换为葵祭日。",
+        "viewing_tips": "最佳观看点在下鸭神社糺之森（糺の森）路段，人较少且林荫美。记得提前查当年游行路线确认是否因雨推迟。",
+        "live_facts_ref": "live_facts/events.json"
+      }
+    ],
+
+    "live_facts_dependency": [
+      "清水寺春季夜间开放日期（每年微调）",
+      "高台寺春季夜间特别参拜日期",
+      "哲学之道樱花开放预测",
+      "嵯峨野小火车（嵯峨野トロッコ列車）购票状态"
+    ]
+  },
+
+  "summer": {
+    "_label": "夏季版（6月下旬–9月）",
+    "_summary": "内容不换景点，几乎全行程改时段。户外重段前置，中午插入室内/休息，傍晚再开第二段。祇园祭为独立加天。",
+    "_priority_window": "7月祇园祭（前祭17日/后祭24日）是唯一需要重排全天的时间节点。其余夏季日期都是时段调整。",
+
+    "changes": [
+      {
+        "applies_to": "arrival_fushimi",
+        "slot_id": "fushimi_inari",
+        "change_type": "timing",
+        "original": "15:30–18:00",
+        "summer_version": "17:00–19:30",
+        "reason": "夏季15-16点气温最高，17点后开始降温，傍晚进场体感好很多。鸟居在日落余晖下颜色最红。"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_kiyomizu",
+        "change_type": "timing",
+        "original": "08:00–10:00",
+        "summer_version": "07:30–09:30",
+        "reason": "夏季清水寺上坡到10点后体感已经很热，越早越好。早进场后中途去找冰饮歇一歇。"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "change_type": "timing",
+        "description": "全天节奏重排",
+        "summer_version": {
+          "morning": "07:30–10:30 清水寺+坡道，趁凉",
+          "midday_rest": "10:30–13:00 寻找室内午餐+休息，这段是夏季最难熬的时段，不强行排POI",
+          "afternoon": "13:00–16:30 高台寺+宁宁之道，树荫多，相对耐热",
+          "evening": "17:00–19:00 祇园/白川南通散步，傍晚凉下来",
+          "dinner": "19:00以后，此时最舒服"
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_bamboo",
+        "change_type": "timing",
+        "original": "08:30–09:30",
+        "summer_version": "07:30–08:30",
+        "reason": "竹林是露天走廊，夏季7:30是进场最后机会，8:30后体感很热且游客已多。"
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "change_type": "timing",
+        "description": "夏季岚山全天节奏",
+        "summer_version": {
+          "early_morning": "07:30–10:00 竹林+天龙寺，最凉快的窗口",
+          "midday": "10:00–13:00 午餐+室内休息，不强行安排户外",
+          "afternoon": "13:00–15:30 渡月桥河边，树荫+河风，相对凉爽",
+          "optional": "16:00后 可选嵯峨野散步，气温开始回落"
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_optional_train",
+        "change_type": "swap_slot",
+        "summer_version": {
+          "priority": "P2",
+          "note": "夏季保津川漂流（保津川下り）是岚山最对的夏日体验，水面凉爽，和竹林完全不同的感官体验。4月–11月运行，约¥4500含JR回程。提前网上预约。",
+          "fit_season": ["summer"]
+        }
+      }
+    ],
+
+    "special_events": [
+      {
+        "name": "祇园祭",
+        "date": "7月1日–31日（主要巡行：前祭17日、后祭24日）",
+        "type": "add_day",
+        "description": "日本最大祭典之一，整个7月都是祭典氛围。山鉾巡行（17日/24日）把四条通封路为巡游路线，是视觉最强的时刻。宵山（前夜，16日/23日）是夜间鉾町漫步的最好时机。",
+        "template_impact": {
+          "if_overlap_with_16_or_17": "把central_kyoto_day或day5替换为祇园祭日。下午宵山，晚上正式巡行观看点。",
+          "viewing_tips": "观看巡行推荐在四条烏丸~四条河原町段，用河原町站作为逃跑路线。人非常多，做好心理准备。",
+          "yoiyama_walk": "宵山（16日/23日）鉾町夜间开放，各山鉾都有纸灯笼和御神体，慢慢走比白天更有氛围。"
+        },
+        "live_facts_ref": "live_facts/events.json"
+      },
+      {
+        "name": "五山送火",
+        "date": "每年8月16日",
+        "type": "add_segment",
+        "description": "大文字送火，大原野、船型、鸟居形等5处山上同时点火，为盂兰盆节送走先祖。观看地点在鸭川河边或吉田山。",
+        "viewing_tips": "20:00开始，大文字（东山如意岳）最大最早，约10-15分钟后依次点燃其他四处。鸭川三条~四条河床是观看视角最好的免费地点。"
+      },
+      {
+        "name": "贵船川床（纳凉）",
+        "date": "6月–9月",
+        "type": "add_segment",
+        "description": "贵船神社沿贵船川设置的川床料理，坐在流水上方吃怀石料理，是京都夏季独有体验。非常popular，需要提前1个月预约。",
+        "applicable_to": "arashiyama_day 替换方案，或独立加半天",
+        "booking_warning": "贵船川床需要1个月以上提前预约，且价格在premium档（约¥8000–20000/人）"
+      }
+    ],
+
+    "live_facts_dependency": [
+      "祇园祭各山鉾巡行具体时间和路线",
+      "五山送火确认日期（通常8/16但偶有调整）",
+      "贵船川床各家预约开放时间",
+      "京都夏季各景点是否有特别活动"
+    ]
+  },
+
+  "autumn": {
+    "_label": "秋季版（11月上旬–12月上旬）",
+    "_summary": "改 2–3 天：higashiyama_day + arashiyama_day 强改，day5 调整，optional：central_kyoto_day 可换成东福寺方向。核心加法：夜间点灯是秋季最大收益。",
+    "_priority_window": "11/15–12/5 是京都红叶主力期。东福寺通常11/15–11/30最强，清水寺/高台寺11/20–12/5，岚山11/15–11/30，哲学之道稍晚可到12/5。",
+
+    "changes": [
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_kiyomizu",
+        "change_type": "timing",
+        "original": "08:00–10:00",
+        "autumn_version": "07:30–10:00",
+        "reason": "秋季红叶期清水寺8点后人流和春季一样极多。早进场是唯一的解法。"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_kodaiji",
+        "change_type": "swap_slot",
+        "autumn_version": {
+          "entity_hint": "高台寺",
+          "note": "秋季高台寺是红叶最强的收费景点之一，¥600。'竹林与庭园的红叶'是整个东山日最值得停留的组合。下午进场时有阳光打进的光线角度，傍晚再接夜间点灯。",
+          "priority": "P1",
+          "duration_min": 90
+        }
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "slot_id": "hm_evening",
+        "change_type": "add_segment",
+        "segment": {
+          "slot_id": "autumn_yoru_momiji",
+          "time_range": "18:00–20:30",
+          "label": "秋季夜间点灯",
+          "area": "higashiyama_south",
+          "priority": "P1",
+          "options": [
+            {
+              "entity_hint": "清水寺 秋の夜間特別拝観（清水寺秋季夜间特别参拜）",
+              "note": "秋季夜间特别开放，加¥400。被灯光打亮的红叶配合清水舞台，是京都秋季最经典的夜景。日期见 live_facts/。",
+              "booking": "不需预约，当晚排队较长，建议17:30到队尾"
+            },
+            {
+              "entity_hint": "高台寺 秋の夜間特別拝観（高台寺秋季夜间特别参拜）",
+              "note": "高台寺点灯，¥600。3D投影mapping（不是每年都有，确认当年安排）让枯山水的石头'活'了。日期见 live_facts/。",
+              "booking": "不需预约"
+            }
+          ]
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_tenryuji",
+        "change_type": "swap_slot",
+        "autumn_version": {
+          "entity_hint": "天龍寺",
+          "note": "秋季天龙寺曹源池庭园红叶+借景岚山，是京都最强的红叶庭园构图之一。¥500庭园+¥300本堂，秋季本堂值得加（可从室内看院落红叶）。",
+          "priority": "P1",
+          "duration_min": 90
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "slot_id": "ara_optional_train",
+        "change_type": "swap_slot",
+        "autumn_version": {
+          "priority": "P1",
+          "note": "嵯峨野观光小火车（嵯峨野トロッコ列車）秋季极强推荐，7.3km沿途红叶（紅葉）带是岚山秋季最难忘的体验之一。购票极难，必须提前1个月以上。",
+          "booking_warning": "秋季是全年最难买的时段，JR绿色窗口（みどりの窓口）或官网，绝对提前购票"
+        }
+      },
+      {
+        "applies_to": "central_kyoto_day",
+        "change_type": "swap_slot",
+        "autumn_note": "秋季可考虑把 central_kyoto_day 替换为东福寺日（见下）",
+        "optional": true
+      },
+      {
+        "applies_to": "day5_okazaki",
+        "slot_id": "d5o_tetsugaku",
+        "change_type": "swap_slot",
+        "autumn_version": {
+          "entity_hint": "哲学の道",
+          "note": "秋季哲学之道约11/25–12/5红叶最佳，比春季晚。银杏和红叶混在一起，颜色更丰富。从银阁寺走南下2km全程都有颜色。",
+          "duration_min": 120,
+          "priority": "P2"
+        }
+      }
+    ],
+
+    "optional_swap_days": [
+      {
+        "swap_target": "central_kyoto_day",
+        "replacement": {
+          "template_id": "tofukuji_day",
+          "label": "东福寺红叶日（秋季专属）",
+          "condition": "autumn && total_kyoto_days >= 4.5",
+          "description": "东福寺→通天桥→光明院。东福寺红叶是京都最大规模的集中红叶区，11月中旬–下旬全日本游客来这里朝圣。",
+          "slots": [
+            {
+              "slot_id": "tf_tofukuji",
+              "time_range": "08:00–11:00",
+              "type": "poi",
+              "area": "fushimi",
+              "priority": "P1",
+              "entity_hint": "東福寺",
+              "note": "¥600，通天桥展望台下方的红叶谷是核心观赏点。11月中旬–下旬极度拥挤，越早越好，8点开门前到。如果行程里本来就有伏见稻荷日，东福寺可以和伏见稻荷拼成一天（两个都在南部）。"
+            },
+            {
+              "slot_id": "tf_komyoin",
+              "time_range": "11:00–12:00",
+              "type": "poi",
+              "area": "fushimi",
+              "priority": "P3",
+              "entity_hint": "光明院",
+              "note": "东福寺附属塔头，不限时参拜¥400。枯山水'波心庭'的红叶反射是秋季最小众的绝景，距东福寺步行5min。"
+            },
+            {
+              "slot_id": "tf_lunch",
+              "time_range": "12:30–13:30",
+              "type": "meal",
+              "area": "fushimi",
+              "meal_ref": "tofukuji_area_lunch",
+              "note": "东福寺区域或回市区午餐"
+            },
+            {
+              "slot_id": "tf_afternoon",
+              "time_range": "14:00–17:00",
+              "type": "walk",
+              "area": "nishiki_shijo",
+              "note": "回市区，下午四条河原町轻松散步，锦市场或鸭川河边收尾"
+            }
+          ]
+        }
+      }
+    ],
+
+    "koyo_spots_not_in_skeleton": {
+      "_doc": "以下红叶景点不在全年骨架的固定日里，需要在 trip_skeleton 组装时主动插入，或作为 optional_swap_days 的替换选项。按优先级排序。",
+      "spots": [
+        {
+          "id": "eikando_zenrinji",
+          "name_ja": "永観堂 禅林寺",
+          "name_zh": "永观堂禅林寺",
+          "area": "okazaki",
+          "how_to_add": "插入 day5_okazaki 的上午段，替换或跟随银阁寺→哲学之道",
+          "duration_min": 90,
+          "admission": "¥600（红叶期涨价至¥1000，确认当年）",
+          "transport": "地铁蹴上站→步行15min，或市巴士5号→南禅寺/疏水纪念馆前",
+          "peak": "11月中旬–11月下旬（11/15–11/28），与东福寺同期",
+          "night_illumination": "有，11月上旬–12月上旬，¥600。历年举行，是京都秋季最重要的夜间点灯之一",
+          "grade": "S",
+          "note": "'红叶的永观堂'（紅葉の永観堂）是京都红叶界的最高荣誉称号，境内约3000棵红叶树，密度和色彩都是京都第一梯队。与南禅寺步行5min，哲学之道步行10min，三者连成一条完美的秋季文化轴线。day5_okazaki 本来就去南禅寺，秋季版把上午银阁寺→永观堂→南禅寺打通，是这天最强排法。夜间点灯是额外加分项。"
+        },
+        {
+          "id": "ninnaji_arashiyama_trio",
+          "name_ja": "常寂光寺・二尊院・祇王寺",
+          "name_zh": "岚山红叶三寺",
+          "area": "arashiyama",
+          "how_to_add": "融入 arashiyama_day 的下午段，三寺在竹林北侧500m内，步行串联",
+          "duration_min": 120,
+          "admission": "各¥500左右",
+          "peak": "11月上旬–11月下旬",
+          "night_illumination": "无",
+          "note": "常寂光寺：竹林旁小山坡，苔藓庭院+红叶，人少于天龙寺，是岚山最值得多走一步的隐藏版。二尊院：参道两侧红叶形成拱顶，'红叶马场'（紅葉の馬場）是岚山最出片的步行段之一。祇王寺：苔寺特色，苔藓+红叶落叶，规模最小但氛围最安静。arashiyama_day 秋季版把 ara_kameyama 下午段替换为这三寺串联，比龟山公园红叶体验强很多。"
+        },
+        {
+          "id": "takao_sanki",
+          "name_ja": "高雄三寺（神護寺・西明寺・高山寺）",
+          "name_zh": "高雄三寺",
+          "area": "takao",
+          "how_to_add": "独立加天，仅推荐7天以上行程且行程日期在11月1–20日",
+          "duration_min": 300,
+          "admission": "各¥400–600",
+          "transport": "JR京都站→市巴士JR高雄·栂尾方向（8号系）→高雄下车，约60min。班次少（约30min一班），去程建议9:00前出发",
+          "peak": "11月上旬–11月中旬（京都最早变色区域，通常比东福寺早2-3周）",
+          "night_illumination": "无",
+          "note": "京都最早变红的区域，若行程在11月5–15日，这里比东福寺/清水寺更值得优先。三寺沿清滝川溪谷步行串联（神護寺→西明寺→高山寺约2km），山中溪流+红叶的自然感是市区景点无法替代的。高山寺是世界遗产，茶园背景独特。交通唯一的问题是班次少（30min一班），去程务必9点前到，14:30前离开确保末班车。不推荐11月20日以后去，那时市区景点红叶已经更强。"
+        },
+        {
+          "id": "bishamon_do",
+          "name_ja": "毘沙門堂",
+          "name_zh": "毗沙门堂",
+          "area": "yamashina",
+          "how_to_add": "day5_classic 或 tofukuji_day 的下午加选，JR山科駅步行15min",
+          "duration_min": 60,
+          "admission": "¥500",
+          "transport": "JR/地铁山科駅→步行15min（上坡），约25min from 京都駅",
+          "peak": "11月中旬–12月上旬",
+          "night_illumination": "无（有秋季特別拝観，白天）",
+          "note": "将敕使门前石阶参道染成朱红色的垂枝红叶（枝垂れ紅葉）是代表画面——从石阶仰望这一角度在京都找不到第二个。与东福寺同方向（山科区），tofukuji_day 下午回程顺路可加。人少、交通比市区景点略麻烦，但质量配得上专程。"
+        },
+        {
+          "id": "kibune_jinja",
+          "name_ja": "貴船神社",
+          "name_zh": "贵船神社",
+          "area": "kurama_kibune",
+          "how_to_add": "独立半天，或与鞍马寺组成'北山一日游'，适合5天以上行程",
+          "duration_min": 120,
+          "admission": "免费参拜",
+          "transport": "地铁烏丸線→国際会館駅→鞍馬線→貴船口駅→巴士5min，约50min from 四条",
+          "peak": "11月上旬–11月中旬（较早，11/1–11/20）",
+          "night_illumination": "有，石灯笼点灯（灯籠ライトアップ），历年11月1–24日，免费",
+          "note": "红色鸟居参道+红叶+石灯笼的组合是贵船最强的视觉语言。夜间点灯免费是一大亮点，适合傍晚去看灯笼点亮的时刻。峰值比市区早，若行程在11月初选这里时机最好。鞍马寺（牛若丸修行之地）与贵船步行30min，可组合成半天。"
+        },
+        {
+          "id": "nijo_castle_koyo",
+          "name_ja": "二条城 紅葉",
+          "name_zh": "二条城红叶",
+          "area": "central_kyoto",
+          "how_to_add": "central_kyoto_day 已有二条城，秋季升级注记+加夜间点灯段",
+          "duration_min": 120,
+          "admission": "¥1300，夜间点灯另计（历年¥800–1000）",
+          "peak": "11月中旬–12月上旬",
+          "night_illumination": "有，历年11月下旬–12月初，NAKED公司演出类夜间活动（含光雕投影）",
+          "note": "二条城内约50棵枫树+城郭建筑的组合，体量不如东福寺，但夜间点灯的质量是京都最高水准——NAKED公司会做光雕投影把本丸御殿和庭园变成艺术装置。central_kyoto_day 秋季版把傍晚段改为'二条城夜间点灯'，是这天最强的收尾方式。"
+        }
+      ]
+    },
+
+    "koyo_schedule": {
+      "_doc": "京都红叶开放顺序，用于 trip_skeleton 判断哪些景点在用户行程日期内处于最强状态。具体年份见頃见 live_facts/。",
+      "very_early": {
+        "period": "10月下旬–11月上旬（约10/25–11/10）",
+        "spots": [
+          "高雄三寺（神護寺/西明寺/高山寺，京都最早变色）",
+          "貴船神社（北山溪谷，比市区早）",
+          "常寂光寺（岚山早变色寺院）"
+        ]
+      },
+      "peak_early": {
+        "period": "11月中旬（约11/10–11/20）",
+        "spots": [
+          "東福寺（通天桥红叶谷，全日本游客朝圣）",
+          "永观堂禅林寺（永観堂禅林寺，红叶的永观堂，3000棵）",
+          "天龍寺（庭园借景岚山）",
+          "岚山渡月桥（山坡全面变色）",
+          "二条城（城郭+枫树）"
+        ]
+      },
+      "peak_main": {
+        "period": "11月中旬–11月下旬（约11/15–11/30，最强窗口）",
+        "spots": [
+          "清水寺（夜间特别开放）",
+          "高台寺（点灯+3D映射）",
+          "光明院（枯山水波心庭反射）",
+          "哲学之道（银杏+红叶混色）",
+          "南禅寺（三门+水路閣）",
+          "岚山三寺（常寂光寺/二尊院/祇王寺）",
+          "毗沙门堂（石阶垂枝红叶）"
+        ]
+      },
+      "late": {
+        "period": "12月上旬（约12/1–12/10）",
+        "spots": [
+          "清水寺（延续）",
+          "高台寺（延续）",
+          "哲学之道（晚变色银杏）",
+          "岚山花灯路（嵐山花灯路）（12月上旬，部分年份取消）"
+        ]
+      },
+      "not_recommended_peak_season": {
+        "note": "高雄三寺11月20日后不值得专程去，市区景点已经进入更强的窗口；贵船11月25日后峰值已过。"
+      }
+    },
+
+    "autumn_illumination_schedule": {
+      "_note": "以下为历年常规安排，具体日期和门票见 live_facts/",
+      "entries": [
+        {"spot": "清水寺", "usual_period": "11月中–12月初", "admission": "加¥400", "night_illumination": true},
+        {"spot": "高台寺", "usual_period": "10月中–12月上旬", "admission": "¥600", "night_illumination": true},
+        {"spot": "永観堂禅林寺", "usual_period": "11月上旬–12月上旬", "admission": "¥1000（红叶季涨价）", "night_illumination": true},
+        {"spot": "二条城", "usual_period": "11月下旬–12月初（NAKED光雕投影）", "admission": "别售¥800–1000", "night_illumination": true},
+        {"spot": "貴船神社", "usual_period": "11月1日–11月24日（灯籠点灯）", "admission": "免费", "night_illumination": true},
+        {"spot": "東福寺", "usual_period": "白天，不做夜间点灯", "admission": "¥600", "night_illumination": false},
+        {"spot": "岚山花灯路（嵐山花灯路）", "usual_period": "12月上旬（部分年份取消，确认当年）", "admission": "免费", "night_illumination": true}
+      ]
+    },
+
+    "live_facts_dependency": [
+      "各景点秋季夜间开放具体日期",
+      "当年红叶峰值预测（紅葉見頃情報，各主要气象网站发布）",
+      "嵯峨野小火车（嵯峨野トロッコ列車）购票状态",
+      "东福寺当年是否有特别人流规制",
+      "岚山花灯路（嵐山花灯路）当年是否举行（近年有取消先例）",
+      "二条城夜间活动当年安排及购票",
+      "高雄巴士班次当年时刻表（班次少，务必确认）"
+    ]
+  },
+
+  "winter": {
+    "_label": "冬季版（12月下旬–3月中旬）",
+    "_summary": "改 1–2 天：主要把 central_kyoto_day 或 day5 替换为冬季特别公开。户外主线保留但节奏收紧（晚出发、减少连续暴露）。",
+    "_priority_window": "1月–3月中旬有 Kyoto Winter Special Openings，这是改动最核心的窗口。12月下旬则可能延续秋季点灯。",
+
+    "changes": [
+      {
+        "applies_to": "arrival_fushimi",
+        "slot_id": "fushimi_inari",
+        "change_type": "timing",
+        "original": "15:30–18:00",
+        "winter_version": "14:00–16:30",
+        "reason": "冬季日落早（约17:00），15:30进场光线已经很弱。14点进场可以在日落前完整看到千本鸟居。"
+      },
+      {
+        "applies_to": "higashiyama_day",
+        "change_type": "timing",
+        "description": "冬季东山日节奏",
+        "winter_version": {
+          "morning": "09:00 出发（比夏季晚，冬季不必极早），清水寺人也相对少",
+          "pace": "全天步行量保持，但减少在空旷户外的停留时间，多找室内/廊下暖场点",
+          "dinner": "18:00–19:30，冬季傍晚7点后较冷，晚餐提前结束"
+        }
+      },
+      {
+        "applies_to": "arashiyama_day",
+        "change_type": "timing",
+        "description": "冬季岚山日节奏",
+        "winter_version": {
+          "start": "09:00（不必7:30极早，冬季人少，且太早太冷）",
+          "bamboo": "竹林冬日安静，09:00进场已经足够舒适",
+          "tenryuji": "09:30–11:00，冬季庭园干净、枯山水更清晰",
+          "afternoon": "渡月桥14:00前完成，冬季下午提早收尾",
+          "skip": "龟山公园冬季登山体感很冷，可跳过"
+        }
+      },
+      {
+        "applies_to": "central_kyoto_day",
+        "slot_id": "ck_nijo",
+        "change_type": "add_segment",
+        "winter_note": "若当年二条城冬季夜间活动仍运行，可在下午结束后接夜间点灯版。历年有NAKED夜间活动（付费）。确认见 live_facts/。"
+      },
+      {
+        "applies_to": "central_kyoto_day",
+        "change_type": "swap_slot",
+        "description": "冬季特别公开插入",
+        "winter_version": {
+          "note": "把 central_kyoto_day 下午的锦市场/四条散步段（ck_shijo_stroll）替换为1–2个冬季特别公开景点。京都冬之旅（京都冬の旅，非公开文化财特别公开）通常1月上旬–3月中旬，开放平时不对外的寺社建筑室内。",
+          "examples": [
+            "相国寺的开山堂·浴室（通常不公开）",
+            "妙莲寺的客殿（通常不公开）"
+          ],
+          "booking": "不需预约，购票入场"
+        }
+      }
+    ],
+
+    "winter_special_openings": {
+      "_label": "京都冬之旅（京都冬の旅，非公开文化财特别公开）",
+      "_note": "每年1月上旬–3月中旬举行，具体景点和日期年年微调，见 live_facts/events.json。2026年为1/9–3/18。",
+      "how_to_use": "选择1–2个与当日动线相近的特别公开景点，插入 central_kyoto_day 或 day5 的下午段。无需大改骨架，只替换1个 slot。",
+      "typical_areas": ["上京区", "中京区", "下京区（与central_kyoto_day路线重叠度高）"]
+    },
+
+    "live_facts_dependency": [
+      "京都冬之旅（非公开文化财特别公开）当年景点和日期",
+      "二条城冬季夜间活动是否举行及购票",
+      "岚山花灯路（嵐山花灯路）是否当年举行（近年有取消先例）",
+      "各景点冬季营业时间（部分景点冬季缩短）"
+    ]
+  }
+}

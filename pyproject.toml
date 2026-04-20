@@ -62,7 +62,7 @@ packages = ["app"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
-testpaths = ["tests", "app/domains/planning_v2/tests"]
+testpaths = ["app/tests", "app/domains/planning_v2/tests"]
 markers = [
     "l2_contract_blocker: planning_v2 contract gate — must stay green before merging pipeline changes",
     "smoke: 3 core regression cases (7d_classic, 9d_must_visit, 13d_complex)",

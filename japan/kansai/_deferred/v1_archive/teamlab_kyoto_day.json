@@ -1,0 +1,69 @@
+{
+  "template_id": "teamlab_kyoto_day",
+  "label": "teamLab京都+京都站周边",
+  "tags": [
+    "art",
+    "immersive",
+    "modern",
+    "indoor"
+  ],
+  "core_entities": [
+    "kyo_teamlab_kyoto"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "2025年10月开业的teamLab生命电流京都（チームラボ バイオヴォルテックス 京都）——国内最大的teamLab常设馆，距京都站步行8min。展示面积约1万㎡，50件以上作品群，官方推荐参观4h。在连续3天逛寺庙之后插入，体验的幅度一下子变宽——光、影像与身体的沉浸体验是古都京都完全不同的维度。雨天完全友好。适合所有人群（3岁以下免费，运动之森连小孩也会沉迷）。day_mood: 沉浸与惊喜。",
+  "hotel_area_note": "京都站东南部，从京都站八条口步行约8min。从任何区域都很方便到达。",
+  "slots": [
+    {
+      "slot_id": "tl_morning_option",
+      "time_range": "09:00-10:00",
+      "type": "optional_poi",
+      "area": "kyoto_station",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "teamLab开馆前的早上1h——京都站周边早活动。选项：(1) 东寺早晨散步（步行15min/境内5:00开放/五重塔早晨的表情）(2) 涉成园（9:00开园/步行7min/早晨的庭园很安静）(3) 慢慢享用早餐。teamLab 10:00开馆，利用之前的时间。"
+    },
+    {
+      "slot_id": "tl_teamlab",
+      "time_range": "10:00-14:00",
+      "type": "poi",
+      "area": "kyoto_station",
+      "priority": "P1",
+      "duration_min": 240,
+      "entity_hint": "チームラボ バイオヴォルテックス 京都（teamLab生命电流京都）",
+      "note": "¥3,400起（浮动定价制/推荐提前网上购票）。高中·初中¥2,800/小孩(4-12岁)¥1,800/3岁以下免费。国内最大的室内teamLab常设馆——3层楼，50件以上作品群。看点：(1) 巨大空间影像装置（墙面+地面+天花板360度影像沉浸）(2) 灯光之森（无数灯具变换颜色明灭）(3) 运动之森（用身体体验空间——小孩可以跑动玩耍）(4) 未来乐园（小孩的画被投影在墙上的共同创作空间）。伸手颜色会变，走路花朵会盛开——'自己成为作品一部分'的体验。可拍照/录像。场内较暗，幼儿推荐使用背带。4h也可能看不完。附设咖啡厅。周二定休（需确认）。"
+    },
+    {
+      "slot_id": "tl_lunch",
+      "time_range": "14:00-15:00",
+      "type": "meal",
+      "area": "kyoto_station",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "迟午饭。在teamLab馆内咖啡厅吃，或出来往京都站方向走。京都站内The CUBE/Porta/伊势丹有很多选择。从teamLab的黑暗空间出来后的明亮外光令人愉悦——在外面吃也不错。"
+    },
+    {
+      "slot_id": "tl_afternoon",
+      "time_range": "15:30-17:30",
+      "type": "optional_poi",
+      "area": "kyoto_station",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "午后选项：(1) 京都站大楼探索——大台阶灯光秀（每晚22:00前）、空中廊道天桥（地上45m/免费/正面看到京都塔）、京都塔展望台（¥900/地上100m/京都盆地一览）(2) 东寺散步（步行15min/¥800/五重塔+庭园）——从teamLab的光的世界到平安时代的木造建筑，反差极强 (3) 梅小路公园方向散步（躺草坪发呆）(4) 回市内追加其他行程。今天体力消耗中等——走路累不算，但感官上可能有些疲惫。"
+    },
+    {
+      "slot_id": "tl_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "kyoto_station",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "晚餐。两个方向：(1) 京都站内/周边——今天是在京都站区域完结的一天，在站内吃也有效率。拉面小路/The CUBE的居酒屋/伊势丹上层餐厅街 (2) 移动到四条方向——地铁到四条5min，先斗町/木屋町方向。今天一整天体验了'现代京都'，晚餐回到'传统京都'也是有趣的反差。"
+    }
+  ]
+}

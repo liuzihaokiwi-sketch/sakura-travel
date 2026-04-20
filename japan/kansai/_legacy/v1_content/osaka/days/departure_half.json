@@ -1,0 +1,45 @@
+{
+  "template_id": "departure_half",
+  "label": "大阪最后半天",
+  "tags": [
+    "shopping",
+    "departure"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": null,
+  "assembly": {
+    "phase": "departure",
+    "best_pace": "relaxed"
+  },
+  "description": "day_mood: 余韵与告别。大阪最后半天。不是'购物+赶路'的中性结尾——要有一个'大阪的告别画面'。可以是黑门市场最后一次早餐、法善寺横丁的晨参、或者难波八阪神社的巨大狮子殿。松弛收尾，不赶行程。",
+  "hotel_area_note": "住梅田时购物在梅田周边（大丸梅田/阪急百货），出发从JR大阪站/阪急梅田更方便。",
+  "slots": [
+    {
+      "slot_id": "dep_farewell",
+      "time_range": "08:00-09:30",
+      "type": "optional_poi",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "大阪的告别画面——这是整段大阪行程的收尾moment，不能是'退房赶路'。选项：(1) 黑门市场最后一次早餐，买能带走的食材当伴手礼 (2) 法善寺横丁晨参——白天的水掛不動（泼水不动明王）和夜晚完全不同，早上几乎没人 (3) 难波八阪神社（步行6min，巨大獅子殿（狮子头殿）建筑，大阪最有冲击力的神社画面，求胜运必去）。三选一，选哪个都是'大阪果然到最后一天还有惊喜'。"
+    },
+    {
+      "slot_id": "dep_shopping",
+      "time_range": "09:30-11:00",
+      "type": "shopping",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "药妆/零食扫货。松本清/唐吉诃德都有免税柜台，不排队。购物优惠券（下载APP提前领）可叠加免税。住梅田时改为梅田周边购物（大丸梅田B1-2F食品/药妆集中）。"
+    },
+    {
+      "slot_id": "dep_transport",
+      "time_range": "11:00-12:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "前往下一城市。去京都：从难波坐近铁特急约50min直达/从JR大阪站坐新快速约30min。去神户：从梅田坐阪急约30min到三宫/从难波坐阪神约40min。去奈良：从近铁难波直达约40min。行李：酒店可寄存到出发（大多数到14:00），或用车站coin locker（难波站/大阪站，大件¥700-1,000/天）。"
+    }
+  ]
+}

@@ -1,277 +1,197 @@
-# 项目工程规范
+# 项目总入口(每次会话必读)
 
-## 质量第一原则
+> AI 进入这个项目第一份读的文档。2026-04-20 更新,瘦身到入口+导航,详情引用 docs/。
 
-本项目的产出是**付费旅行手账本**（国内298/国外348元），质量标准是"十个日本旅游专家联合做出的攻略"级别。
+## 一、5 秒理解
 
-- 每个推荐必须有充分理由（为什么推这家而不是那家）
-- 不允许为了赶进度降低标准，宁可少覆盖城市也要做到极致
-- 最终判断标准：一个真实的日本旅行顾问看到方案会不会认可
+- **做什么**:付费旅行手账本,¥298 国内/¥348 国外,纸质本 + 贴纸 DIY 包
+- **核心价值**:专家策展(AI 辅助) → 中国游客"照着走就对了"
+- **当前阶段**:关西样板间,早春京都模板精修中
+- **产品精髓**:一本日记 ≠ 攻略;像懂当地的朋友在耳边讲
 
-## Token 与资源使用规范
+**质量标准**:真实日本旅行顾问看到会不会点头。不点头就重做。
 
-### 上下文管理
-- 上下文过长时主动压缩，不要等系统自动截断
-- 长文件不要全部读入，用 offset/limit 读需要的部分
-- 搜索代码先用 Grep/Glob 精确查找，不要用 Agent 做简单搜索
+---
 
-### 并发控制
-- Agent 最多 3 个并发，不要开更多
-- Anthropic API 串行调用，不做高并发（会被限速）
-- 高并发场景用阿里云（qwen-max）
+## 二、工作类型导航(按你要做什么查入口)
 
-### 避免重复工作
-- 读过的文件内容记住关键信息，不要反复读同一个文件
-- Agent 完成的研究结果要提炼总结，不要让多个 Agent 做重复搜索
-- 修改代码前先确认修改方案，不要改了又改回来
+### 🟢 做关西模板(当前主线)
 
-### 输出精简
-- 回复简洁直接，不要重复用户说过的话
-- 不要在每次工具调用后总结"我刚刚做了什么"
-- 代码修改后不需要把整个文件内容贴出来
+**必读**:
+- `docs/04_操作SOP/模板写作.md` — Part 0 策展 + Part 1 搜索 + Part 2 字段 + Part B 自检
+- `japan/kansai/产品原则.md` — 关西餐饮/酒店/密度/退化/7 条化学反应
+- `japan/kansai/research/insights.md` — 关西城市洞察
 
-## 绝对禁止的行为
+**真实模板样板**:`japan/kansai/common/kyo_arashiyama__core.json`
 
-### 1. 不许硬编码业务数据
-配置数据（城市圈映射、grade 阈值、价格上限、人群分类）必须从配置文件或 DB 读取，不许写死在 Python 代码里。
+**🔗 联动**:挖到小众视角/10% 惊喜/本地冷知识 → `marketing/japan/kansai/素材库.md`
 
-**错误示例：**
-```python
-# 写死在代码里，加新城市就要改代码
-_EXTENDED_CITIES = {"uji": "kyoto", "arima": "kobe"}
-```
+### 🟢 做调研
 
-**正确做法：**
-```python
-# 从 taxonomy.json 读取，加新城市只改 JSON
-region_map = _build_region_city_map()  # 读 taxonomy.json.regions
-day_trips = _build_day_trip_targets()  # 读 taxonomy.json.day_trip_links
-```
+**必读**:`docs/04_操作SOP/研究方法.md` — 5 阶段 + 7 问 + MTE 框架
 
-**判断标准：** 如果一个值将来可能变（新城市、新人群类型、价格调整），它就不该在代码里。用 dataclass config、JSON 配置文件、或 DB 记录。
+**🔗 联动**:opencli 搜到爆款 → `marketing/{地区}/爆款参考.md`;本地视角/痛点 → 素材库
+
+### 🟢 做数据采集
+
+**必读**:`docs/04_操作SOP/数据采集.md` — AI 不写事实 + 三轴判断 + 可信度分级
+
+**🔗 联动**:带传播性的冷知识/避坑 → 素材库
+
+### 🟡 做运营内容
+
+**必读**:`marketing/strategy.md` + `marketing/japan/kansai/素材库.md` + `爆款参考.md`
+
+### 🟡 改架构 / 字段变更
+
+**必读**:`docs/02_历史决策/DECISIONS.md` + `DEFERRED.md` + `docs/03_数据契约/SCHEMA.md`
+
+**硬规**:字段变更**先改 SCHEMA.md**,再改其他(SCHEMA 是入口不是出口)
+
+### 🟡 改代码
+
+**必读**:`docs/03_数据契约/数据流.md` + `docs/02_历史决策/DECISIONS.md`
+
+**注意**:2026-04-20 仓库重构后,app/ 里 import 路径对老 `content/kansai/` `data/events/` 失效,当前代码跑不起来。改代码时要同步路径。
+
+### 🟡 客服/业务流程
+
+**必读**:`docs/03_数据契约/业务流.md` + `docs/05_情境手册/客服应对.md`
+
+---
+
+## 三、6 条绝对红线(任何工作都不能破)
+
+### 1. 数据真实性(第一红线)
+
+适用:所有事实性内容——JSON 字段、文档元数据、素材库条目。
+
+**可信度分级**:`verified`(2+ P0/P1 交叉) / `cross_checked`(1 P0/P1+其他) / `single_source`(仅 P2) / `ai_generated`(**不可上生产**)
+
+**自检**:写"事实"前问"真搜过的还是推断?"——推断的去真搜 / 或标"未核实",**绝不把推断写成事实**。
+
+**反例**:给餐厅填 `rating=4.3` 没搜过 Tabelog;写博主站"coverage=关西"没访问过;写"WebFetch 可用"没试过。
 
 ### 2. 不许打补丁绕过问题
-遇到 bug 或设计缺陷时，必须修根因，不许用 workaround 跳过。
 
-**错误示例：**
-```python
-# DB 连接失败 → 加 force_ai=True 跳过爬虫
-# 测试发现问题 → 写断言"不在池里"让测试通过
-# party_type 不识别 → 在消费端列举所有可能值
-```
+修根因,不要 workaround。
+- DB 连接失败 → 修连接,不加 `force_ai=True` 跳过
+- 测试失败 → `xfail(strict=True)` 追踪,不改断言放水
+- party_type 不识别 → 在定义本身携带属性,不在消费端列举
 
-**正确做法：**
-```python
-# DB 连接失败 → 修连接配置
-# 测试发现问题 → @pytest.mark.xfail(strict=True, reason="...") 追踪
-# party_type 不识别 → 在 party_type 定义本身携带属性
-```
+### 3. 不许硬编码业务数据
 
-### 3. 不许用 AI 知识代替真实数据
-所有事实性字段（评分、价格、坐标、营业时间）必须来自真实数据源验证。搜不到填 null，绝不编造。
+配置数据(城市圈映射/阈值/价格上限/人群分类)必须从配置文件或 DB 读。
+**判断**:将来可能变的,不该在代码里。
 
-**数据可信度分级：**
-- `verified`: 2+ 个 P0/P1 源交叉验证 → 可上生产
-- `cross_checked`: 1 个 P0/P1 + 其他 → 可用，标注
-- `single_source`: 仅 P2 源 → 可用，标注
-- `ai_generated`: 无真实源 → **不可上生产**
+### 4. 字段变更必须先改 SCHEMA.md
 
-### 4. 不许在函数体内重复 import
-所有 import 放模块顶部。函数体内 `from datetime import datetime` 这种写法是偷懒。
+唯一权威源是 `docs/03_数据契约/SCHEMA.md`。顺序:SCHEMA → 写作指引 → DECISIONS。
+**禁止反向**(先加字段再改 SCHEMA)。
 
 ### 5. 不许假装修了实际没修
-典型模式：S/A 和 B/C 两个分支写了不同注释但做了相同的事（都 continue）。如果逻辑相同就写一个分支，不要用注释掩盖。
+
+S/A 和 B/C 两分支写不同注释但做相同事(都 continue) → 逻辑相同写一个分支,不用注释掩盖。
+
+### 6. 不许在函数体内重复 import
+
+所有 import 放模块顶部。
 
 ---
 
-## 系统设计原则
+## 四、产品第一性原理(灰色判断时的锚)
 
-### 配置驱动，不硬编码
-- 城市圈归属 → `taxonomy.json.regions`
-- 跨圈可达 → `taxonomy.json.day_trip_links`
-- 画像加成 → `taxonomy.json.profile_boost_rules`
-- Grade 策略 → `PoolConfig` dataclass（可被 orchestrator/测试覆盖）
-- Budget 阈值 → `PoolConfig.admission_cap`
-- Party type 属性 → `PoolConfig.children_party_types` / `elderly_party_types`
+### 模板精髓(用户视角)
 
-### 数据契约对齐
-上游步骤的输出字段必须与下游步骤的期望输入完全对齐。每次加新字段或改字段名，检查所有消费该输出的下游步骤。
+> **① 这不是一本攻略,是为我量身准备的一本日记。**
+>
+> **② 每翻一页,像有个懂当地的朋友在耳边跟我讲这段旅行。**
 
-已知的关键数据流：
-- Step 7 `meals_included` → Step 8 `hotel_breakfast/dinner_included` → Step 13 跳过对应餐池
-- Step 13.5 输出 `{meal_selections: [{day, breakfast, lunch, dinner}]}` → Step 14 必须理解这个格式
-- CandidatePool.city_code → Step 5 按城市分组（不用 tag 匹配）
+### 数据精髓
 
-### Thinking tokens 提取
-Anthropic API 中 extended thinking tokens 计入 `output_tokens`。SDK 没有独立的 `thinking_tokens` 字段。不要用 `cache_creation_input_tokens`，不要用 budget 值兜底。
+> **① 用户照着这条去现场,一切和本子一样。**
+>
+> **② 用户觉得"这家只有懂当地的人才会挑出来"。**
 
-```python
-# 正确
-output_tokens = getattr(response.usage, "output_tokens", 0)
+### 研究精髓
 
-# 错误
-thinking_tokens = getattr(usage, "cache_creation_input_tokens", 0)  # 错误字段
-thinking_tokens = THINKING_BUDGET_TOKENS  # 保守估算 = 假数据
+> **① 用户翻开觉得"懂这个地方"。**
+>
+> **② 走一趟回来觉得"我好像真的懂了这个国家"。**
+
+所有 SOP 都是这些精髓的展开。灰色判断回到这几句。
+
+---
+
+## 五、关键目录速查
+
 ```
-
-### 安全访问可选字段
-`review_signals` 和 `open_hours` 是 `Optional[dict]`，访问前必须防 None：
-
-```python
-# 正确
-(c.review_signals or {}).get("in_main_corridor", False)
-
-# 错误 — AttributeError when None
-c.review_signals.get("in_main_corridor", False)
+travel-ai/
+├── japan/kansai/       ← 关西工作区(主战场)
+│   ├── 当前状态.md     ← 换窗口先读这个
+│   ├── 产品原则.md     ← 关西哲学
+│   └── 这是什么.md     ← 关西定位
+├── china/ europe/
+├── marketing/          ← 运营(素材库/爆款参考在这)
+├── docs/
+│   ├── 01_项目定位/    ← 判断标准
+│   ├── 02_历史决策/    ← 过去为什么这样做
+│   ├── 03_数据契约/    ← SCHEMA/流程
+│   ├── 04_操作SOP/     ← 模板/数据/研究怎么做
+│   └── 05_情境手册/    ← 客服等
+├── app/ web/ data/
+└── _deprecated/        ← 废弃兜底
 ```
 
 ---
 
-## API 调用规范
+## 六、工作方式(精简速记)
 
-### Anthropic API
-- **不许高并发**。串行或最多 2-3 个并行。高并发会被限速。
-- 高并发场景用阿里云（qwen-max）。
-- 模型 ID 用精确版本：`claude-opus-4-6`、`claude-sonnet-4-6`，不写泛称。
+- **质量优先,简洁高效**:宁可少覆盖,不降低质量
+- **信息整合 + 好的思考**:参考市面最佳(小红书/Black Tomato/Tabelog/BRUTUS),不自己发明
+- **当专家自主判断**:小事直接做,动产品形态时才问
+- **有问题一次性提 3 个**,不逐个确认
+- **Agent ≤2 并发**,简单用 haiku/sonnet,质量判断用 opus
+- **Anthropic API 不高并发**(会限速),高并发用阿里云 qwen-max
+- **边做边沉淀素材** → marketing/ 素材库(产品护城河)
 
-### Google Routes API
-- `computeRouteMatrix` transit 模式上限 100 elements。
-- Step 9 不做全量 N×N POI 矩阵，只算稀疏矩阵（当日活动+候补+住宿）。
-- 必须带 field mask。
-
----
-
-## 测试规范
-
-### 生产级别原则
-
-**测试的目的是观察攻略质量，不是验证用例通过。用例通过但攻略质量差 = 测试失败。**
-
-#### 1. 测试必须完美模拟生产环境
-- 测试跑的路径必须和生产一模一样，不允许用 fallback 或 mock 替代 AI 步骤
-- AI 步骤（Step 3/5/7/9/12/13.5/15）：Anthropic Opus/Sonnet 可用时用 Anthropic，不可用时用阿里云 qwen-max（OpenAI 兼容接口），绝不用规则 fallback 代替
-- 系统步骤（Step 1/2/4/6/8/10/13/14）：必须连真实数据源（DB 或 JSON），不允许构造假数据
-
-#### 2. 不准偷懒，不准打补丁
-- 遇到 DB 连不上 → 修连接配置，不换成 SQLite mock
-- 遇到 API 报错 → 换阿里云或查 key，不改成 fallback
-- 遇到数据缺失 → 上报为数据问题（xfail 追踪），不改断言让测试通过
-- 遇到 entity_id 不存在 → 上报数据问题，不改测试用例的 id 凑合
-
-#### 3. 最终标准是攻略质量，不是用例是否通过
-- 每次测试必须输出可读的攻略文本（Markdown），供人工判断质量
-- 结构断言（字段存在、天数正确）是底线检查，不是目标
-- 以下问题结构断言检测不到，但会让用户退款：
-  - 情侣 mid 档推了主题乐园（USJ）
-  - 7天行程每天只有 1 个景点
-  - 城市来回折腾（Day1 京都→Day2 大阪→Day3 京都）
-  - 走廊名用 tag 而不是地名
-
-#### 4. 发现问题必须上报，不自行修复
-- 测试发现数据问题（entity_id 缺失、city_code 不在 circle.cities）→ `xfail(strict=True)` 标注，不改数据
-- 测试发现逻辑问题（fallback 推了 USJ、每天只有 1 个景点）→ 在测试报告中记录，不改测试断言放水
-- 上报格式：`[数据问题]`/`[逻辑问题]` + 具体现象 + 影响
-
-### xfail 追踪问题，不掩盖问题
-```python
-# 正确：问题可见，修复后 XPASS 强制去标注
-@pytest.mark.xfail(strict=True, reason="数据问题：hyo_arima_kinsen.city_code='arima' 不在 circle.cities，需修 circle_registry.json")
-def test_must_visit_in_pool_13d_complex(): ...
-
-# 错误：断言问题存在 = 绿灯 = 问题被掩盖
-def test_must_visit_in_pool_13d_complex():
-    assert "hyo_arima_kinsen" not in pool_ids  # "通过"但 must_visit 无法满足
-```
-
-### 效果测试 > 无 bug 测试
-测试工程师的核心标准：**一个真实的日本旅行顾问看到这个方案，会不会觉得合理？**
-不是"代码没报错"就行。
+详细工作方式见 `MEMORY.md` 的 feedback 类笔记。
 
 ---
 
-## 16 步管线架构
+## 七、当前状态
 
-```
-Step  1: resolve_user_constraints       系统(DB)
-Step  2: build_region_summary           系统(DB)
-Step  3: plan_city_combination          Opus AI
-Step  4: build_poi_pool                 系统(DB) ← PoolConfig 驱动
-Step  5: plan_daily_activities          Opus AI
-Step  5.5: validate_and_substitute      Sonnet AI（5种冲突检测）
-Step  6: build_hotel_pool               系统(DB) ← 两阶段：Haversine粗筛+通勤精排
-Step  7: select_hotels                  Sonnet AI
-Step  7.5: check_commute_feasibility    系统(API)
-Step  8: build_daily_constraints_list   系统(DB+astral)
-Step  9: plan_daily_sequences           Opus AI
-Step 10: check_feasibility              系统(纯Python) ← buffer块不参与检查
-Step 11: resolve_conflicts              系统+Opus ← hard_infeasible vs capacity_overload
-Step 12: build_timeline                 Sonnet AI
-Step 13: build_restaurant_pool          系统(DB) ← 营业时段校验
-Step 13.5: select_meals                 Sonnet AI
-Step 14: estimate_budget                系统(纯Python)
-Step 15: build_plan_b                   Sonnet AI
-Step 16: generate_handbook_content      Sonnet AI（非阻塞）
-```
+关西进展 + 下一窗口接什么 → **读 `japan/kansai/当前状态.md`**。
 
-入口：`app/workers/jobs/generate_trip.py` → `run_planning_v2()`。
+**最近重要决策**(详见 DECISIONS.md):
+- D32 关西 v2 四层架构
+- D33 季节目录 10→7 档
+- D34 仓库按"大洲/圈"聚合
+- D35 docs/ 5 类重构
 
 ---
 
-## 代码质量规范
+## 八、工具速查
 
-### 错误处理
-- 不要用 `except Exception` 吞掉所有异常。区分数据错误（ValueError/KeyError → error 级别）和网络错误（ConnectionError/TimeoutError → warning 级别）
-- fallback 值必须在日志中标记来源（`mode="fallback_data_error"` 而不是静默用默认值）
-- Step 16（手账本）失败不阻塞主管线，其他步骤失败必须上报
+- **opencli**(小红书搜索):`cd D:/projects/projects/travel-ai/opencli-main && node dist/main.js xiaohongshu search "xxx" --limit 10 --format md`——**collects > likes** 的更值得看
+- **xhs 防盗链**:Referer `xiaohongshu.com` + iPhone UA(见 memory)
+- **数据源优先级**:P0 官方/权威 → P1 中国用户源(小红书/携程)→ P2 参考 → P3 AI 兜底(不用于事实)
 
-### 代码改动范围
-- 不加用户没要求的功能、重构、文档注释
-- Bug 修复不需要"顺便"清理周围代码
-- 不加 feature flag 或向后兼容层，能直接改就直接改
+---
 
-### Git 规范
-- 不主动 commit，用户要求时才 commit
-- 不 push，不 force push，不 amend，除非用户明确要求
+## 九、Git / 代码规范(要改代码时看)
+
+- 不主动 commit/push/force push/amend,除非用户明确要求
 - commit message 写"为什么改"而不是"改了什么"
-- 分支命名: `feature/<name>` / `fix/<name>` / `refactor/<name>` / `docs/<name>`
-- Commit 格式: `<type>(<scope>): <description>` (type: feat/fix/chore/docs/refactor/test)
+- 不加用户没要求的功能、重构、文档注释
+- Bug 修复不"顺便"清理周围代码
+- 不留死代码 / 注释掉的代码 / `# removed`
 
-### 代码格式化
-- Python: `ruff check --fix app/ scripts/ && ruff format app/ scripts/`
-- TypeScript: `cd web && pnpm lint`
-- 数据库迁移: `alembic revision --autogenerate -m "描述"`
-
-### 文件管理
-- 不创建 README、文档文件，除非用户要求
-- 优先编辑现有文件，不新建文件（防止文件膨胀）
-- 不留死代码、注释掉的代码、`# removed` 标记
+格式化:`ruff check --fix app/ scripts/ && ruff format app/ scripts/`
 
 ---
 
-## 数据源优先级
+## 十、获取帮助
 
-```
-P0 (权威源): Tabelog / Michelin / 一休 / 楽天 / Google Maps API
-P1 (中国用户源): 小红书 / 携程 / 大众点评 / 马蜂窝
-P2 (参考源): japan-guide / JNTO / 旅行博客
-P3 (兜底): AI 知识库 — 仅用于结构化、分类、推荐语，不用于事实性数据
-```
-
-所有事实性字段（评分、价格、坐标、营业时间）必须来自 P0-P2 验证。P3 数据标记 `data_confidence: "ai_generated"`，不可直接用于生产输出。
-
----
-
-## 关键配置文件
-
-| 文件 | 用途 | 代码消费方 |
-|------|------|-----------|
-| `data/circle_registry.json` | 圈元数据、预算配置、城市列表、时区坐标 | CircleProfile（models.py） |
-| `data/{circle}/taxonomy.json` | 分类体系、regions、画像加成、day_trip_links、sub_region_codes | step04 PoolConfig |
-| `data/{circle}/corridor_definitions.json` | 走廊地理定义 | step05、step13 |
-| `data/{circle}/*.json` | 景点/餐厅/酒店候选数据 | 数据导入脚本 |
-| `app/domains/planning_v2/orchestrator.py` | 16步编排器 | generate_trip.py |
-| `app/workers/jobs/generate_trip.py` | 主入口 → `run_planning_v2()` | arq worker |
-
-> 注：`{circle}` 指 CircleProfile.data_dir，如 `kansai_spots`、`guangfu_spots`。
-> 新增圈需要：circle_registry.json 条目 + taxonomy.json + corridor_definitions.json + DB 数据。
-> orchestrator 启动时会调用 `CircleProfile.validate()` 校验配置齐备，缺失则拒绝运行。
+- `/help`(Claude Code)
+- 反馈:https://github.com/anthropics/claude-code/issues

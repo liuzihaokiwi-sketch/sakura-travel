@@ -1,0 +1,70 @@
+{
+  "template_id": "kyoto_craft_day",
+  "label": "京都手工艺半日+街区散歩",
+  "tags": [
+    "craft",
+    "culture",
+    "walking",
+    "hands-on"
+  ],
+  "core_entities": [],
+  "fit_audience": [
+    "couple",
+    "friends",
+    "default"
+  ],
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed"
+  },
+  "description": "上午只做一项体验，下午走访与该体验相关的工匠街区。陶艺的话是五条坂的窑元通，织物的话是西阵（西陣）的町家街区。体验与街步结合，让'京都的手工艺'立体呈现。寺庙连续安排3天后插入这一天，体验广度会一下子拓展。雨天完全适应。day_mood: 用手感受京都。",
+  "hotel_area_note": "五条坂（清水烧产区）在清水道公交站周边。西阵在今出川/堀川一带。从四条出发坐巴士/地铁15-20min均可到达。",
+  "slots": [
+    {
+      "slot_id": "craft_experience",
+      "time_range": "10:00-12:00",
+      "type": "poi",
+      "area": "higashiyama_south",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "上午只做一项体验（预约制，前一天前预约）。推荐的组合——体验+下午街步区域成套：(A) 清水烧陶艺（五条坂/手捏或电动轱辘/¥3,000-5,000/约1.5-2h/作品事后邮寄）→下午在五条坂窑元通散步 (B) 和菓子制作（祇園/四条周边/¥3,000-4,000/当季上生和菓子3-4个/约1.5h/当场配抹茶食用）→下午在祇园/花见小路散步 (C) 京友禅（京都友禅染）染色（二条/¥2,000-4,000/手帕或包包/约1-2h）→下午在二条城周边。一项就够——做两项会让'创作'变成消费。"
+    },
+    {
+      "slot_id": "craft_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "higashiyama_south",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "在体验工坊附近吃午饭。五条坂的话选茶碗坂（茶わん坂）沿线的食堂。祇园的话在花见小路外围找。"
+    },
+    {
+      "slot_id": "craft_artisan_walk",
+      "time_range": "13:30-16:00",
+      "type": "walk",
+      "area": "higashiyama_south",
+      "priority": "P2",
+      "duration_min": 150,
+      "note": "与上午体验相关联的街步。选了(A)的情况：五条坂～茶碗坂的窑元·画廊巡游——朝日焼（朝日烧）/清水焼団地（清水烧窑区）/个人作家的工坊商店。自己动手做过之后再看职人的作品，理解深度完全不同。买东西也变成'有了解再买'。选了(B)的情况：祇园周边老铺散步——一保堂茶舗（可以学到煎茶的冲泡方式）/鍵善良房（葛切老铺）/香十（香料老铺）。选了(C)的情况：二条通～三条通的工艺&画廊通——古董/器物/纺织品。"
+    },
+    {
+      "slot_id": "craft_cafe",
+      "time_range": "16:00-17:00",
+      "type": "optional_poi",
+      "area": "nishiki_shijo",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "找家咖啡厅休息。一边看着上午自己做的东西（陶艺看照片，和菓子看实物）一边喝茶——这是整趟旅行中最有'手感'的纪念品诞生的一天。"
+    },
+    {
+      "slot_id": "craft_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "晚餐。今天的主题是'手艺人'——晚餐也适合去割烹的吧台座（坐在眼前看厨师的手艺）。五条坂方向的话是清水五条周边的小割烹（游客较少的区域），西阵方向的话是堀川/大宮（大宫）附近的本地向餐厅。不用特意赶回先斗町。"
+    }
+  ]
+}

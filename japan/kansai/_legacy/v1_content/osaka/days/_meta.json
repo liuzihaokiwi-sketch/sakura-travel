@@ -1,0 +1,16 @@
+{
+  "_doc": "大阪 Day Template Library v2.1. 日模板候选池，由 opus_assembler 硬筛 + Opus 最终选择。每条模板完整独立，无继承。",
+  "_version": "2.1",
+  "_areas": {
+    "namba_dotonbori": "难波・道顿堀・心斋桥",
+    "osaka_castle": "大阪城公园周边",
+    "tennoji_shinsekai": "天王寺・新世界・通天阁",
+    "tempozan": "天保山・海游馆・港区",
+    "umeda_kita": "梅田・北区・中之岛北",
+    "nakanoshima": "中之岛・北浜",
+    "amerikamura": "美国村・南船场",
+    "usj_area": "此花区・USJ",
+    "nakazakicho": "中崎町"
+  },
+  "template_ids": []
+}

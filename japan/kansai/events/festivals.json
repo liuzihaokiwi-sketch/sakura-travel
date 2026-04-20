@@ -1,0 +1,284 @@
+{
+  "_doc": "关西圈祭典数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "festival",
+    "circle": "kansai",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kansai_festival_gion_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "07-01",
+        "end_md": "07-31"
+      },
+      "name_ja": "祇園祭",
+      "name_zh": "祇园祭",
+      "description": "京都三大祭之首，7月整月的总祭典。核心看点：山鉾巡行（前祭7/17、後祭7/24）——32基华丽山鉾列队游行四条通，宵山（前宵7/14-16、後宵7/21-23）——山鉾点灯+步行者天国+屋台密集是京都夏夜最强体验。最佳观位：御池通り有料観覧席¥2000-3500（提前购票）或四条烏丸周边6点前站位。坑点：7月京都极度拥挤，酒店须提前3-6个月预订。7/17封路建议步行出行。适配：全人群体验首选，但8月以前已售出或满员的酒店无法临时更改，需行程提前确认。",
+      "source_url": "https://www.gion-matsuri.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_aoi_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "05-15",
+        "end_md": "05-15"
+      },
+      "name_ja": "葵祭",
+      "name_zh": "葵祭",
+      "description": "京都三大祭の一つ，日本现存最古の祭典（飛鳥時代起源）。5/15固定（雨天翌日順延）。约500人的平安装束行列从京都御所出発→下鴨神社→上賀茂神社（全程5km）。最佳观位：下鴨神社参道有料観覧席¥2100（京都市観光協会购）。沿路站位免费，京都御所出発約10:30。坑点：行列速度缓慢，等待2-3小时需耐心。雨天翌日顺延时临时改期须注意。适配：历史文化爱好者+希望体验平安贵族文化的客户。5/15全天以此为核心安排。",
+      "source_url": "https://www.kyokanko.or.jp/aoi"
+    },
+    {
+      "event_def_id": "kansai_festival_jidai_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-22",
+        "end_md": "10-22"
+      },
+      "name_ja": "時代祭",
+      "name_zh": "时代祭",
+      "description": "京都三大祭之一，明治28年平安神宮創建1100年纪念时创办。10/22固定（雨天翌日順延）。约2000人的历史扮装行列（明治維新→平安時代各时代装束），从京都御所出発→丸太町通→御池通→平安神宮（全程約4.5km）。最佳観覧：御池通り有料席¥2100或市役所前站位（12:00出發，約16:30抵達平安神宮）。重点提示：10/22 与鞍馬の火祭同日，可安排「白天時代祭行列→17:30搭叡電赶赴鞍馬」双活动。坑点：行程时间超过4小时，需早到占位。适配：历史爱好者首选，秋季京都最有规模的文化体验之一。",
+      "source_url": "https://www.heianjingu.or.jp/matsuri/jidai.html"
+    },
+    {
+      "event_def_id": "kansai_festival_kurama_himatsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "10-22",
+        "end_md": "10-22"
+      },
+      "name_ja": "鞍馬の火祭",
+      "name_zh": "鞍马火祭",
+      "description": "由岐神社の例祭，10/22夜间。鞍馬山の村人が松明（火把）を手に夜の参道を練り歩く，深夜0時前に最高潮。山中の石段両側に並ぶ松明の火の列は京都秋で最も迫力ある夜間行事。出発点：叡山電鉄鞍馬駅，徒步10min で由岐神社。重点提示：10/22 は時代祭と同日——「白天時代祭→傍晚17:30搭叡電出発」で両方見られる。坑点：深夜行事のため末班電車を要確認（鞍馬駅最終22:30前後）。入場制限あり，早めに到着。适配：夜间体验爱好者/非走马观花的深度游客，时代祭+火祭的双打组合是10/22行程绝配。",
+      "source_url": "https://www.yukijinja.co.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_gozan_okuribi",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "08-16",
+        "end_md": "08-16"
+      },
+      "name_ja": "五山送り火",
+      "name_zh": "五山送火",
+      "description": "盂兰盆节送走祖先亡灵的仪式，8/16固定，20:00点火。五山依次点火：大文字(20:00)→妙法(20:05)→船形(20:10)→左大文字(20:15)→鳥居形(20:20)。最佳观位按目标：大文字＝加茂川河原/銀閣寺道，船形＝北山通り，鳥居形＝松尾橋周辺。建议提前90分钟到位，无需购票，全程免费。坑点：8月京都暑热+旺季，酒店需提前预订。当日公共交通极拥挤。适配：8/16在京都行程时必须以此为晚间核心安排，其他日不适用。",
+      "source_url": "https://kyoto.travel/ja/event/gozan_okuribi"
+    },
+    {
+      "event_def_id": "kansai_festival_setsubun_kyoto",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kyoto",
+      "usual_window": {
+        "start_md": "02-03",
+        "end_md": "02-04"
+      },
+      "name_ja": "京都 節分祭（吉田神社・壬生寺ほか）",
+      "name_zh": "京都节分祭（吉田神社·壬生寺等）",
+      "description": "立春前日（通常2/3）の節分を全国最大規模で祝う京都の各社寺行事。頭部：吉田神社（全国节分祭の元祖，幽玄の大元宮参拝），壬生寺（壬生狂言+鬼追い），八坂神社（お化け），下鴨神社（節分の茶粥）。节分豆撒き+厄除け行事が各所で開催，屋台も賑やか。坑点：2/3は京都各所で同時開催のため，1日で全部まわるのは困難。厳選して1-2ヶ所に集中推奨。适配：2月初旬在京都的行程必须加入的冬季文化体验，老人/家族/文化爱好者首推。",
+      "source_url": "https://www.yoshidajinja.com"
+    },
+    {
+      "event_def_id": "kansai_festival_tenjin_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "07-24",
+        "end_md": "07-25"
+      },
+      "name_ja": "天神祭",
+      "name_zh": "天神祭",
+      "description": "日本三大祭之一（与祇園祭・神田祭并称），7/24-25固定。25日本宮の精华：傍晚船渡御（约100艘船队在大川上行进）+夜间约4000発奉納花火。最佳观位：桜宮橋周辺河川敷（免费）或大阪城公園側有料観覧席。地铁天満橋駅徒步5min。宵宮（7/24）各神楽舞台も精彩，人少於本宮，安静欣赏的好选择。坑点：7/25大阪市区极拥挤，地铁提前规划。酒店暑期旺季需提前预订。适配：7/25在大阪时全天以天神祭为核心。宵宮（7/24）傍晚行程加入也合适。",
+      "source_url": "https://www.tenjinsan.com/t-m.html"
+    },
+    {
+      "event_def_id": "kansai_festival_kishiwada_danjiri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "09-13",
+        "end_md": "09-15"
+      },
+      "name_ja": "岸和田だんじり祭",
+      "name_zh": "岸和田だんじり祭",
+      "description": "大阪最激烈的祭典，每年9月敬老日前后周末（通常第3周土日）。数十基巨型だんじり（山车）以时速约20km全速冲刺急转弯「やりまわし」，是日本最具冲击力的車祭。岸和田城前広場と旧市街のコースが主観覧エリア。南海本線岸和田駅徒步5min。坑点：浮动日期每年变化，须提前确认。周边道路大规模封路，公共交通出行。适配：刺激体验爱好者/非走马观花的深度游客，需全天安排。与大阪市区半日游可搭配（南海特急约30min）。",
+      "source_url": "https://www.city.kishiwada.osaka.jp/soshiki/47/danjiri.html"
+    },
+    {
+      "event_def_id": "kansai_festival_sumiyoshi_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "07-30",
+        "end_md": "08-01"
+      },
+      "name_ja": "住吉大社 住吉祭",
+      "name_zh": "住吉大社住吉祭",
+      "description": "全国2300余座住吉神社の総本社の例大祭，7/30-8/1固定。8/1の神輿渡御（神轿穿越住吉大社の反橋）が最大の見どころ。7/30宵宮・7/31夏越祓神事も厳粛で美しい。住吉大社は南海本線住吉大社駅直结（難波から10min），アクセス抜群。重点提示：7月末は天神祭（7/25）と近接，大阪7月末の祭典ラッシュに注意してスケジューリング。坑点：8/1 は天神祭後の週のため，酒店已进入旺季。适配：大阪の在地文化を深く知りたい客户，住吉大社自体も一日観光地として価値あり。",
+      "source_url": "https://www.sumiyoshitaisha.net"
+    },
+    {
+      "event_def_id": "kansai_festival_tokaebisu",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "01-09",
+        "end_md": "01-11"
+      },
+      "name_ja": "今宮戎神社 十日戎",
+      "name_zh": "今宫戎神社十日戎",
+      "description": "「商売繁盛で笹もってこい」——大阪商人文化の代表祭典，1/9-11固定，3日間で約100万人参拝。福笹（熊手飾り付き）を受けるのが主な体験，縁起物の屋台も並ぶ。地铁恵美須町駅すぐ。宵戎（1/9傍晚）は本戎より人少なく，ゆっくり参拝できる穴場時間帯。坑点：1/10本戎は100万人参拝で移動困難，公共交通限流。适配：1月初旬在大阪的行程必须加入——体験大阪商人文化的最好机会，1-2小时可完成。",
+      "source_url": "https://www.imamiya-ebisu.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_osaka_tenjin_hanabi",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "osaka",
+      "usual_window": {
+        "start_md": "07-25",
+        "end_md": "07-25"
+      },
+      "name_ja": "天神祭奉納花火",
+      "name_zh": "天神祭奉纳花火",
+      "description": "天神祭本宮（7/25）夜間に大川河上で打ち上げる約4000発の花火大会，船渡御の船队が桟橋からの花火に照らされる画面は大阪夏の代表画面。桜宮橋から天満橋周辺の河川敷が無料観覧エリア，有料観覧席はオンラインで事前購入必要。坑点：花火打ち上げ付近は人口密集極致，最寄り駅から花火スポットまで1時間かかることもある。适配：天神祭行程のセットとして組み込む。大阪夏の花火として最高ランク。",
+      "source_url": "https://www.tenjinsan.com/t-m.html"
+    },
+    {
+      "event_def_id": "kansai_festival_shunie_omizutori",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "03-01",
+        "end_md": "03-14"
+      },
+      "name_ja": "東大寺 修二会（お水取り）",
+      "name_zh": "东大寺修二会（取水仪式）",
+      "description": "1260余年一度も中断したことのない奈良最古の行事，3/1-14固定。最大の见どころ：二月堂の「お松明」——每晚18:30-19:30頃，僧侶が巨大火把（松明）を持ち二月堂回廊を走り，火花が舞い散る。3/12深夜は「お水取り」本番（水取り仪式）+11本の大松明で年间最大の見ごろ。観覧は二月堂下广场（無料）。3/12は18:00前から場所取り必要，18時到着でほぼ満員。坑点：3/1-11は比較的人少なく穴場，3/12は厳しい混雑。末班バス確認必須。适配：3月初旬在奈良の行程に必ず組み込む。日本の仏教文化体験として関西最高ランク。",
+      "source_url": "https://www.todaiji.or.jp/event/shuniee"
+    },
+    {
+      "event_def_id": "kansai_festival_kasuga_mantoro",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "02-03",
+        "end_md": "02-04"
+      },
+      "name_ja": "春日大社 万灯篭",
+      "name_zh": "春日大社万灯笼",
+      "description": "春日大社の约3000基の燈籠（石燈籠+釣燈籠）が全点灯する年2回の神事：節分（通常2/3）と中元（8/14-15）。本殿回廊内の釣燈篭が灯される夜間特別参拝（19:00-21:30，¥500）は奈良最神秘の夜間体験。通常非公開の本殿まで入場できる唯一の機会でもある。坑点：年2回仅1-2晚举办，日期要提前确认官网（每年微调）。事前予約不要，当日購入可。适配：2月初或8月中旬に奈良を訪問する場合は最优先で組み込む。老人/文化爱好者首推。",
+      "source_url": "https://www.kasugataisha.or.jp/event/mantoro"
+    },
+    {
+      "event_def_id": "kansai_festival_nara_toukae",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "08-05",
+        "end_md": "08-14"
+      },
+      "name_ja": "奈良燈花会",
+      "name_zh": "奈良燈花会",
+      "description": "奈良公園内に約20000根のロウソク灯籠が点灯する夏の夜間イベント，8月上旬约10日间（浮动日期，通常8/5前後）。浮見堂・猿沢池・東大寺大仏殿前など多くの会場が同時点灯，夜の鹿と灯りの組合せは奈良固有の幻想的画面。全会場入場無料，日落後点灯，約19:30が最美時間帯。坑点：毎年日程が変わるため官网で事前確認必須。バスの最終便に注意。适配：8月初旬在奈良の行程の夜間メインとして組み込む。全人群通用，感動保証。",
+      "source_url": "https://www.toukae.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_wakakusa_yamayaki",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "nara",
+      "usual_window": {
+        "start_md": "01-25",
+        "end_md": "01-28"
+      },
+      "name_ja": "若草山焼き",
+      "name_zh": "若草山烧山",
+      "description": "若草山の33haの山肌を焼く奈良冬の伝統行事，1月第4土曜日前後（近年は1月下旬）。18:15に鹿角花火+打ち上げ花火で開幕後，18:30頃に一斉点火。山全体がオレンジ色に燃え上がる画面と花火の組合せは奈良でしか見られない。観覧エリアは春日野園地（無料）。交通：JR/近鉄奈良駅から徒步20min，または春日大社前バス停下車。坑点：1月末の奈良は極寒（0-5℃），防寒必携。浮動日程，毎年官网確認。适配：1月下旬に奈良を訪問する場合の夜間メインとして最適。カップル/家族向け。",
+      "source_url": "https://www3.pref.nara.jp/kanko/item/5584.htm"
+    },
+    {
+      "event_def_id": "kansai_festival_nankinmachi_shunsetsu",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "01-25",
+        "end_md": "02-10"
+      },
+      "name_ja": "南京町春節祭",
+      "name_zh": "南京町春节祭",
+      "description": "日本三大中華街の一つ・神戸南京町（元町）の春節庆典，农历春节前後约10-14日間（浮動日程）。舞獅・変面・雑技・廟会屋台が密集する関西最熱闹的中国節慶体験。関内広場が主会場，元町駅徒步5min。大阪から日帰り可能（JR神戸線約20min），神戸半日行程の収尾にも最適。坑点：農曆年份によって毎年日程が変動（±1週），当年の正確な日程は官网確認必須。适配：中国人旅客の熟悉イベントとして特别な共感体験あり，1-2小時で完結できる手軽さも好評。",
+      "source_url": "https://www.nankinmachi.or.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_kobe_luminarie",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "01-17",
+        "end_md": "01-26"
+      },
+      "name_ja": "神戸ルミナリエ",
+      "name_zh": "神户ルミナリエ",
+      "description": "1995年阪神淡路大震災の犠牲者追悼と復興願いで生まれた灯光祭，毎年1月中下旬约10日間。旧居留地から東游园地にかけてのイタリア製ガラス灯架（フロントーネ+ガレリア）は年间約300万人が訪れる神戸の代表景観。入場無料（募捐¥1000推奨），18:00-21:30点灯。三宮駅から徒步10min。坑点：近年日程が12月→1月に変更済，行程計画時は必ず当年官网確認。規模縮小年もあり。适配：神戸港夜景+ルミナリエの夜間コースで1-2時間。情侣/家族向けの感動体験。",
+      "source_url": "https://www.kobe-luminarie.jp"
+    },
+    {
+      "event_def_id": "kansai_festival_kobe_jazz_street",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "kobe",
+      "usual_window": {
+        "start_md": "10-05",
+        "end_md": "10-08"
+      },
+      "name_ja": "神戸ジャズストリート",
+      "name_zh": "神户爵士街",
+      "description": "1981年創始，毎年10月上旬の土日2日間，三宮・北野・元町エリアの約30会場で200以上の演奏が繰り広げられる日本最古のジャズフェスティバル。有料（メイン会場・パスポート制），街を歩きながら各所の演奏を楽しむスタイル。神戸の洋風建築（旧居留地・異人館）の音楽イベントとしての组合せは他圈唯一。坑点：10月上旬は紅葉前で混雑は少ない。日程は年によって変動，官网確認。适配：音楽爱好者/おしゃれな神戸カルチャー体験希望者向け，ほかの観光とも組合せやすい。",
+      "source_url": "https://www.kobejazzstreet.com"
+    },
+    {
+      "event_def_id": "kansai_festival_himeji_oshiro_matsuri",
+      "type": "festival",
+      "circle": "kansai",
+      "city": "himeji",
+      "usual_window": {
+        "start_md": "08-25",
+        "end_md": "08-26"
+      },
+      "name_ja": "姫路お城まつり",
+      "name_zh": "姬路御城祭",
+      "description": "姫路城（世界遗产）を舞台とした夏の市民祭典，8月下旬の週末2日間。大名行列・歴史時代行列・武者行列が姫路市内を練り歩き，姫路城天守をバックにしたステージイベントも开催。花火大会（第1日夜）は約1万発，姫路城との組合せで壮大。JR姫路駅徒步15min（世界遗产シャトルバスあり）。坑点：日程は年ごとに変動，官网確認必須。姫路城入場は混雑覚悟。适配：世界遗产+夏祭り+花火をワンセットで体験したい客。日帰り可（新幹線で姫路まで30min）。",
+      "source_url": "https://www.city.himeji.lg.jp/kanko/oshiro.html"
+    }
+  ],
+  "occurrences": []
+}

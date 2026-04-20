@@ -1,0 +1,69 @@
+{
+  "template_id": "nintendo_museum_day",
+  "label": "任天堂博物馆+宇治半日",
+  "tags": [
+    "museum",
+    "gaming",
+    "modern",
+    "family"
+  ],
+  "core_entities": [
+    "kyo_nintendo_museum"
+  ],
+  "fit_audience": ["family", "friends", "default"],
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 童心与发现。2024年10月开业的任天堂博物馆——从花札到Switch的完整任天堂历史+巨大化手柄互动体验。在宇治小倉，近铁京都线20min直达。完全预约制（3个月前抽选），中了才能去。和寺庙/神社完全不同维度的一天——触觉互动型体验，小孩和大人都会沉浸进去。下午可以顺路去宇治（平等院/抹茶）。雨天完全友好。",
+  "hotel_area_note": "近铁京都线京都站→小倉站约20min（¥310）。JR奈良线→JR小倉站步行约8min也可。建议早上出发——10:00开馆就进。",
+  "slots": [
+    {
+      "slot_id": "nintendo_transport",
+      "time_range": "09:30-10:00",
+      "type": "transport",
+      "area": "fushimi",
+      "priority": "P1",
+      "duration_min": 30,
+      "note": "近铁京都线→小仓站约20min（¥310），出站步行5min到博物馆。或JR奈良线→JR小仓站步行约8min。提前30min到——入场是分时段制。"
+    },
+    {
+      "slot_id": "nintendo_museum",
+      "time_range": "10:00-13:30",
+      "type": "poi",
+      "area": "fushimi",
+      "priority": "P1",
+      "duration_min": 210,
+      "entity_hint": "ニンテンドーミュージアム（任天堂博物馆）",
+      "note": "¥3,300成人/¥2,200初高中生/¥1,100小学生/学龄前免费。完全预约制（提前3个月用任天堂账号申请抽选→次月1日下午通知结果）——无当日券，没抽中就进不去。馆内分2层：1F是互动体验区（巨大化的红白机手柄/Game Boy/Wii遥控器可以实际玩游戏——大人也会沉迷）、2F是展示区（从花牌到Switch 2的完整产品历史）。工作坊（¥500-2,000/当天馆内预约/30-60min）也有。咖啡厅约130席——马里奥和动物森友会主题菜单。商店仅限入场者——很多独家周边。官方推荐3h，游戏玩家可待5-6h。周二休馆。"
+    },
+    {
+      "slot_id": "nintendo_lunch",
+      "time_range": "13:30-14:30",
+      "type": "meal",
+      "area": "fushimi",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "在馆内咖啡厅吃，或出来在小仓站附近吃。馆内咖啡厅有主题菜单很有趣，但可能排队——平日中午前比较空。外面吃的话小仓站附近以连锁店为主——移动到宇治吃选择更好（JR小仓→JR宇治1站/3min）。"
+    },
+    {
+      "slot_id": "nintendo_afternoon",
+      "time_range": "15:00-17:00",
+      "type": "optional_poi",
+      "area": "fushimi",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "午后选项：(1) 顺道去宇治——JR小仓→JR宇治1站/3min。平等院（¥700/世界遗产/十日元硬币背面的凤凰堂）+宇治川沿岸散步+中村藤吉本店的抹茶圣代。与宇治日模板重叠时可跳过 (2) 直接回京都市区自由活动——在博物馆玩了3-4h后体力应该还有余裕 (3) 在博物馆再多待一会儿——游戏玩家可以用掉5-6h。"
+    },
+    {
+      "slot_id": "nintendo_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "gion",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市区晚餐。今天一整天是现代体验——晚餐可以反差到传统方向（京料理/町家割烹），也可以继续现代风格（洋食/创作料理）。从宇治/小仓回四条：京阪宇治→中书岛→祇园四条约30min，或JR小仓→京都站约15min→地铁→四条。"
+    }
+  ]
+}

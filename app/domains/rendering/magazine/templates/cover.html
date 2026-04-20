@@ -1,0 +1,25 @@
+{% from 'macros.html' import hero_image, stat_strip, accent_bar, diy_sticker %}
+<div class="page cover-page{% if vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | list %} has-diy{% endif %}">
+  {% set hero = vm.hero %}
+  {% if hero and hero.image_url %}
+  {{ hero_image(hero.image_url, hero.image_alt, 'cover-hero') }}
+  {% else %}
+  <div class="hero-placeholder" style="height:120mm"><span class="placeholder-label">封面图</span></div>
+  {% endif %}
+
+  {% set dz = vm.sections | selectattr('section_type', 'equalto', 'diy_zone') | first | default(none) %}
+  {% if dz %}{{ diy_sticker(dz.content.sticker_zone) }}{% endif %}
+
+  <div class="cover-content">
+    <div class="cover-tagline">旅行手账</div>
+    <h1>{{ vm.heading.title | e }}</h1>
+    {{ accent_bar() }}
+    {% if vm.heading.subtitle %}<p style="font-size:11pt;color:#7a7a7a;margin-top:6pt">{{ vm.heading.subtitle | e }}</p>{% endif %}
+
+    {% for sec in vm.sections %}
+      {% if sec.section_type == 'stat_strip' %}
+        {{ stat_strip(sec.content.stats) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

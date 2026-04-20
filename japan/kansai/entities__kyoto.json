@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "description": "京都 entity 静态数据层（跨季节共用）。真实数据不带观点。字段变更前先读 docs/research/kansai_route_study/08_new_architecture.md 和 09_facts_to_collect.md。",
+    "seed_date": "2026-04-17",
+    "seed_scope": "P0 岚山三个 entity（样板验证用）",
+    "data_confidence_legend": "verified = 2+ 个 P0/P1 源交叉；cross_checked = 1 个 P0/P1 + 其他；single_source = 仅 P2 源"
+  },
+
+  "kyo_arashiyama_bamboo": {
+    "entity_id": "kyo_arashiyama_bamboo",
+    "name_zh": "嵯峨野竹林小径",
+    "name_ja": "竹林の小径",
+    "name_en": "Sagano Bamboo Grove",
+    "area": "arashiyama",
+    "category": "natural_path",
+    "coordinates": {"lat": 35.017407, "lng": 135.671858},
+    "address_ja": "京都市右京区嵯峨天龍寺芒ノ馬場町〜小倉山田淵山町（約400m の散策路）",
+    "official_url": null,
+    "access": "JR 嵯峨野线「嵯峨嵐山」站步行约 9 分钟；嵐電「嵐山」站步行约 5 分钟；阪急嵐山线「嵐山」站步行约 10 分钟；嵯峨野観光鉄道「トロッコ嵐山」站步行约 3 分钟；京都市バス「野々宮」下车即到",
+    "short_desc": "从野宫神社经天龙寺北门通往大河内山荘的约 400 米小径，两侧小柴垣围合的青竹通廊，嵯峨野标志性景观",
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "is_public_path": true,
+    "data_confidence": "verified",
+    "data_sources": ["Japan Travel-Navi", "嵯峨野観光鉄道 公式", "Kyoto Travel Navi（京都市公式）"],
+    "last_verified": "2026-04-17"
+  },
+
+  "kyo_tenryuji": {
+    "entity_id": "kyo_tenryuji",
+    "name_zh": "天龙寺",
+    "name_ja": "天龍寺",
+    "name_en": "Tenryu-ji Temple",
+    "area": "arashiyama",
+    "category": "unesco_temple",
+    "coordinates": {"lat": 35.015734, "lng": 135.673779},
+    "address_ja": "〒616-8385 京都府京都市右京区嵯峨天龍寺芒ノ馬場町68",
+    "official_url": "https://www.tenryuji.com/",
+    "phone": "075-881-1235",
+    "access": "JR 嵯峨野线「嵯峨嵐山」站步行约 13 分钟；嵐電「嵐山」站步行约 1 分钟；阪急嵐山线「嵐山」站步行约 15 分钟",
+    "short_desc": "临济宗天龙寺派大本山，世界文化遗产。梦窗疎石设计的曹源池庭园是日本最早指定的特别名胜之一，借景远处岚山",
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "is_public_path": false,
+    "unesco": true,
+    "data_confidence": "verified",
+    "data_sources": ["天龍寺 公式 tenryuji.com/visit", "天龍寺 公式 tenryuji.com/unryuzu", "天龍寺 公式 tenryuji.com/cn"],
+    "last_verified": "2026-04-17"
+  },
+
+  "kyo_togetsukyo": {
+    "entity_id": "kyo_togetsukyo",
+    "name_zh": "渡月桥",
+    "name_ja": "渡月橋",
+    "name_en": "Togetsukyo Bridge",
+    "area": "arashiyama",
+    "category": "bridge",
+    "coordinates": {"lat": 35.013008, "lng": 135.677738},
+    "address_ja": "京都市右京区嵯峨中ノ島町（桂川／大堰川に架かる）",
+    "official_url": null,
+    "access": "嵐電「嵐山」站步行约 2 分钟；阪急嵐山线「嵐山」站步行约 5 分钟；JR 嵯峨野线「嵯峨嵐山」站步行约 12 分钟",
+    "short_desc": "横跨桂川（大堰川）的 155m 石板车道桥，1934 年钢筋混凝土重建保留旧木桥风貌，栏杆为桧木。岚山最具代表性的地标",
+    "bridge_length_m": 155,
+    "bridge_width_m": 12.2,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "is_public_path": true,
+    "data_confidence": "verified",
+    "data_sources": ["Wikipedia JA 渡月橋", "京都市公式 京都観光 Navi", "京とらん（嵐電）"],
+    "last_verified": "2026-04-17"
+  }
+}

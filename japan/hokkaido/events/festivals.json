@@ -1,0 +1,130 @@
+{
+  "_doc": "北海道圈祭典数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "festival",
+    "circle": "hokkaido",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "hokkaido_festival_sapporo_snow",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "02-04",
+        "end_md": "02-11"
+      },
+      "name_ja": "さっぽろ雪まつり",
+      "name_zh": "札幌雪祭",
+      "description": "世界三大雪まつりの一つ，毎年2月上旬7日間。大通公園（メイン会場）・すすきの・つどーむの3会場で，大雪像（高さ15m超）・中雪像・氷彫刻が200基以上並ぶ。大通公園は全長1.5km，迫力のある雪像＋屋台が密集。夜間ライトアップあり（18:00〜22:00）。入場無料。JR札幌駅/地下鉄大通駅徒步5min。坑点：2月の札幌は最低気温-15℃以下，防寒具必携。宿は半年前から予約が必要。适配：北海道冬旅行のメインイベント——2月上旬の行程はこれを中心に設計。全人群だが極寒対策が前提条件。",
+      "source_url": "https://www.snowfes.com"
+    },
+    {
+      "event_def_id": "hokkaido_festival_yosakoi_soran",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "06-12",
+        "end_md": "06-16"
+      },
+      "name_ja": "YOSAKOIソーラン祭り",
+      "name_zh": "YOSAKOI索兰祭",
+      "description": "高知よさこいと北海道の民謡「ソーラン節」を融合させた1992年創始の夏祭り，毎年6月第2週水〜日（5日間）。全国から約250チーム・33000人が参加する日本最大規模の踊り祭り，来場者約180万人。大通公園・中島公園など9会場で同時開催，チームごとに個性的な衣装と演出。入場無料（有料観覧席別途）。坑点：6月の北海道は気候が不安定（雨+低温の日もある），防寒・雨具準備。适配：北海道夏旅行の文化体験として最適——6月第2週の行程に組み込む価値大。若い世代向け。",
+      "source_url": "https://www.yosakoi-soran.jp"
+    },
+    {
+      "event_def_id": "hokkaido_festival_sapporo_beer",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "07-22",
+        "end_md": "08-17"
+      },
+      "name_ja": "さっぽろ大通ビアガーデン",
+      "name_zh": "札幌大通啤酒花园",
+      "description": "大通公園の2〜10丁目（約900m）が全て屋外ビアガーデンになる北海道夏最大のイベント，毎年7月下旬〜8月中旬の約4週間。サッポロ・アサヒ・キリン・サントリーの4大メーカーがブースを競い，ジンギスカン+ラム+各種グルメ屋台も出店。入場无料（飲食別途）。地下鉄大通駅すぐ，来場者約200万人。坑点：最混雑は週末夕方（17:00-21:00）。座席確保が困難，平日のランチ〜夕方がベスト。适配：7月末-8月に札幌を訪れるすべての旅行者向け——夜のメインとして組み込む。全人群通用。",
+      "source_url": "https://www.sapporo-odori-beergarden.jp"
+    },
+    {
+      "event_def_id": "hokkaido_festival_hakodate_summer",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "hakodate",
+      "usual_window": {
+        "start_md": "07-17",
+        "end_md": "07-20"
+      },
+      "name_ja": "函館港まつり（イカ踊り）",
+      "name_zh": "函馆港祭（鱿鱼舞）",
+      "description": "函館の夏最大のお祭り，毎年8月1日〜5日（但し花火は日程変動）。5日間で約100万人来場。見どころ：①函館港の花火大会（第1日夜，約3000発）②「函館いか踊り」パレード——参加者が烏賊に扮して通りを踊り歩く独特の行事。函館の新鮮なイカ料理（函館朝市・ビアガーデン）と祭典の组合せで食+文化の両立行程。坑点：夏の函館（7-8月）は霧が多く，花火が霧に隠れる年もある。适配：函館一泊行程の7月末-8月訪問者向け最强追加体験。",
+      "source_url": "https://www.hakodate-kankou.com"
+    },
+    {
+      "event_def_id": "hokkaido_festival_sapporo_autumn_fest",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "sapporo",
+      "usual_window": {
+        "start_md": "09-12",
+        "end_md": "10-05"
+      },
+      "name_ja": "さっぽろオータムフェスト",
+      "name_zh": "札幌秋季美食节",
+      "description": "大通公園で9月中旬〜10月上旬の約3週間開催される北海道最大の食フェスティバル，来場者約220万人。北海道各地の名物グルメ（毛ガニ・ジンギスカン・スープカレー・新米・デザート等）が一堂に会し，農業/水産/酒類の各ブースが大通公園8区まで展開。入場無料（飲食別途）。坑点：9月後半〜10月初旬は北海道の紅葉が始まる旬——フェスト+近郊紅葉の組合せ行程が理想。适配：北海道の食を集約体験したい旅行者に最適——9月中下旬の札幌行程は必ず組み込む。",
+      "source_url": "https://www.autumnfest.jp"
+    },
+    {
+      "event_def_id": "hokkaido_festival_otaru_yukiakari",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "otaru",
+      "usual_window": {
+        "start_md": "02-08",
+        "end_md": "02-17"
+      },
+      "name_ja": "小樽雪あかりの路",
+      "name_zh": "小樽雪烛之路",
+      "description": "毎年2月上〜中旬の10日間，小樽運河沿いにキャンドルの雪洞が無数に灯される幻想的な冬祭り。さっぽろ雪まつりと同期間に開催，JRで約35分のため「札幌雪まつり昼＋小樽雪あかり夜」のセット行程が定番。小樽運河＋ガラス工芸の街並み＋雪洞は北海道冬の最もロマンチックな画面。入場無料，19:00-21:30が点灯時間。坑点：2月の小樽は-8℃前後，防寒必携。運河沿いは混雑するが余市方面は落ち着く。适配：情侣/カップル向けの北海道冬旅行必訪スポット——雪まつりとセット化が最良。",
+      "source_url": "https://www.yukiakari.net"
+    },
+    {
+      "event_def_id": "hokkaido_festival_noboribetsu_jigoku",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "noboribetsu",
+      "usual_window": {
+        "start_md": "03-01",
+        "end_md": "03-31"
+      },
+      "name_ja": "登別 地獄まつり",
+      "name_zh": "登别地狱祭",
+      "description": "登別温泉の名物行事，主要な開催時期は8月（花火大会+鬼踊り大パレード）と3月（冬の鬼踊り）。赤鬼・青鬼が巨大な金棒を持って登別温泉街を練り歩く「鬼パレード」が最大の特色。地獄谷（活火山の噴気口）の幻想的な景観＋鬼キャラクターの結合は北海道でしか体験できない。JR登別駅からバス15min，または車で10min。坑点：温泉旅行がメインであり，祭典自体は規模が中程度。期待値を正確に伝えることが重要。适配：登別温泉宿泊者が「温泉+地域文化体験」をセットにするための行程追加として最適。",
+      "source_url": "https://www.noboribetsu-spa.jp"
+    },
+    {
+      "event_def_id": "hokkaido_festival_furano_lavender",
+      "type": "festival",
+      "circle": "hokkaido",
+      "city": "furano",
+      "usual_window": {
+        "start_md": "07-01",
+        "end_md": "07-31"
+      },
+      "name_ja": "富良野ラベンダーまつり",
+      "name_zh": "富良野薰衣草祭",
+      "description": "富良野市で7月に開催されるラベンダー祭典，富田ファーム（JRラベンダー畑駅すぐ）のラベンダー花期（7月上旬〜中旬ピーク）に合わせた各種イベント。紫のラベンダー畑＋北海道の丘陵景観は日本で富良野にしかない絶景，年間観光客数が最も多い7月の農村体験。ラベンダーソフトクリーム・ラベンダーグッズ・フラワーアレンジ体験が揃う。坑点：7月上旬がピーク，下旬は花が落ち始める。JRラベンダー畑臨時停車は期間限定。适配：北海道夏旅行（7月）に富良野エリアを含む行程全員に最強推奨——写真的価値が全行程中最高。",
+      "source_url": "https://www.farm-tomita.co.jp"
+    }
+  ],
+  "occurrences": []
+}

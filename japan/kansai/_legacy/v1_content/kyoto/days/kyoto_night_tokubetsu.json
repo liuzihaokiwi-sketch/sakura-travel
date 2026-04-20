@@ -1,0 +1,48 @@
+{
+  "template_id": "kyoto_night_tokubetsu",
+  "label": "京都夜间特别参拜（春秋限定灯光秀）",
+  "tags": [
+    "night",
+    "temple",
+    "illumination",
+    "seasonal"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": "season in ['sakura_spring', 'koyo_autumn'] && travel_dates overlap 夜间特别参拜期间",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 夜晚的京都。春（3月中旬-4月中旬）和秋（11月中旬-12月上旬）多个寺社举行夜间特别参拜——与白天截然不同的寺院在灯光中浮现。本模板作为白天主行程之后追加的夜间slot使用。白天安排常规行程，傍晚开始夜间参拜。",
+  "hotel_area_note": "住四条/祇園到东山寺社步行/巴士15-20min。夜间参观最终入场多在20:30-21:00——约21:30结束。",
+  "slots": [
+    {
+      "slot_id": "night_daytime",
+      "time_range": "09:00-17:00",
+      "type": "optional_poi",
+      "area": "nishiki_shijo",
+      "priority": "P3",
+      "note": "白天照常安排京都行程（其他模板的白天slot）。夜间参拜是傍晚以后的事，不影响白天计划。但要为夜间步行保留体力——白天行程轻量化。"
+    },
+    {
+      "slot_id": "night_early_dinner",
+      "time_range": "17:00-18:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "夜间参拜前提前吃晚餐。参拜期间无法饮食，所以先吃。如果在东山方向吃，选祇园/花见小路周边——考虑到参拜后还要回来，越近越好。"
+    },
+    {
+      "slot_id": "night_tokubetsu",
+      "time_range": "18:00-21:00",
+      "type": "poi",
+      "area": "higashiyama_south",
+      "priority": "P1",
+      "duration_min": 180,
+      "note": "夜间特别参拜——每年举办的主要寺社（日程·票价每年有变动，出发前需确认）：(1) 高台寺（¥600/春秋/投影映射+庭园灯光秀/东山演出最精彩的）(2) 清水寺（¥400/春秋/也有千日詣（千日参拜，一次参拜等于千日功德）/清水舞台+伸向夜空的蓝光柱）(3) 永観堂（永观堂，¥600/仅秋季/红叶灯光秀被誉为京都第一/需有拥挤的心理准备）(4) 东寺（¥1,000/春秋/五重塔+樱花或红叶映入水池=京都最强夜景构图）。一晚去1-2处是实际可行的。高台寺+清水寺相邻可以一起游览。去2处的话：17:30-18:00开门直后进第1处→移动→第2处。避开拥挤：避开周五六日/开门直后或最终入场前1h相对较空。"
+    }
+  ]
+}

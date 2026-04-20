@@ -1,0 +1,81 @@
+{
+  "template_id": "ohara_day",
+  "label": "大原深度日",
+  "tags": [
+    "temple",
+    "nature",
+    "countryside",
+    "walking"
+  ],
+  "core_entities": [],
+  "fit_audience": [
+    "couple",
+    "default"
+  ],
+  "weather_sensitive": true,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "relaxed"
+  },
+  "description": "巴士1h进入大原山间→三千院苔藓庭园→寂光院→田园散步→回市区。京都近郊的山村一日，节奏极慢。适合京都5天以上、想减速的用户。秋季红叶（三千院苔藓+红叶）和初夏紫阳花最佳。day_mood: 远离与回归。",
+  "hotel_area_note": "大原没有什么住宿选择，当日往返。住四条出发需1h+。住京都站出发巴士60-70min。建议10:00前出发。",
+  "slots": [
+    {
+      "slot_id": "ohr_transport",
+      "time_range": "09:00-10:00",
+      "type": "transport",
+      "note": "最快路线：地铁乌丸线→国际会馆站（约20min/¥290）→京都巴士19号→大原（约20min/¥400）。共约45min+等车。直达但慢：京都站→京都巴士17号→大原（60-70min/¥630）。巴士班次约30min一班——查好时刻表，不要在大原错过末班车。"
+    },
+    {
+      "slot_id": "ohr_sanzenin",
+      "time_range": "10:00-12:00",
+      "type": "poi",
+      "area": "ohara",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "三千院——大原巴士站步行上坡约10min。天台宗门迹寺院。核心体验：有清园（ゆうせいえん）的苔藓庭园——青苔覆盖的地面+杉木+小地藏石像，被称为'童子地藏'，苔藓中探出头的小石像是三千院的代名词画面。聚碧园的池泉庭园从客殿的回廊看最好——坐下来看。宸殿（皇家建筑风格正殿）的阿弥陀三尊像是国宝。整体1.5-2h。秋季（11月中旬）苔藓+红叶的色彩组合极美。¥700。"
+    },
+    {
+      "slot_id": "ohr_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "ohara",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "三千院参道上有几家小餐厅/茶屋。味噌锅/湯豆腐（汤豆腐）/山菜料理是大原特色——用当地味噌和蔬菜。选择不多但氛围好——在山村的小店里吃当地的东西，这本身就是体验。不需要追求什么餐厅——安静吃一顿就好。"
+    },
+    {
+      "slot_id": "ohr_jakkoin",
+      "time_range": "13:30-14:30",
+      "type": "poi",
+      "area": "ohara",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "寂光院——三千院反方向步行约20min（过大原巴士站继续往西走）。尼寺，与《平家物语》中建礼门院德子相关——平家灭亡后德子在此出家度过余生。非常小非常安静，红叶季苔藓台阶+枫树构图很美。¥600。如果体力不够或时间紧，这个slot可以跳过——三千院已经是大原的核心。"
+    },
+    {
+      "slot_id": "ohr_countryside_walk",
+      "time_range": "14:30-15:30",
+      "type": "walk",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "大原田园散步——从寂光院回巴士站的路上不赶，走田间小路。稻田/小河/远山——这是'京都市区看不到的京都'。如果天气好这段是全天的'10%惊喜时刻'——不是任何景点，就是一条山间小路的安静。",
+      "area": "ohara"
+    },
+    {
+      "slot_id": "ohr_return_dinner",
+      "time_range": "16:00-17:00",
+      "type": "transport",
+      "note": "大原→巴士→国际会馆或京都站（约45-60min）。注意末班巴士时刻（冬季约17:00-17:30，夏季约18:00）——不要错过。回市区后吃晚饭。"
+    },
+    {
+      "slot_id": "ohr_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市区晚餐。回程路过出町柳——那一带有安静的本地居酒屋和京大周边的小店，从大原的山村回来接着在安静的地方吃很顺。或者继续坐到祇园四条找不同风格的。大原白天吃的是山菜/味噌/豆腐，晚餐换方向（寿司/烤肉/西餐）。"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "_doc": "关东圈特别公开/非公开文化财开放数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "special_open",
+    "circle": "kanto",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kanto_special_ueno_museum_spring",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "06-10"
+      },
+      "name_ja": "東京国立博物館 春の特別展",
+      "name_zh": "东京国立博物馆春季特别展",
+      "description": "上野の東京国立博物館（TNM）が毎年3月下旬〜6月上旬に開催する大型特別展。過去の開催例：「法然と浄土宗」「空也上人と六波羅蜜寺」「茶の湯」「縄文」など，毎年注目度の高い国宝・重要文化財が集結。¥1600〜2000（展示により変動），JR上野駅公園口徒歩5min。上野公園の花見+TNM特別展の組合せは春の東京深度文化コースとして最良。坑点：人気展示は会期末に向けて混雑（事前日時指定チケット購入推奨）。适配：歴史・文化財好きの深度游客，「東京で博物館を見たい」という要望への最优解。",
+      "source_url": "https://www.tnm.jp"
+    },
+    {
+      "event_def_id": "kanto_special_edo_tokyo_kichiku",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "04-01",
+        "end_md": "05-31"
+      },
+      "name_ja": "江戸東京たてもの園 春の特別公開",
+      "name_zh": "江户东京建筑园春季特别公开",
+      "description": "小金井市の江戸東京たてもの園（野外博物館）で春に行われる建物内部の特別公開。通常は外観のみ公開の明治〜昭和初期の歴史的建造物（旧光华殿，前川国男邸，三井八郎右衛門邸など）の内部を見学できる。¥400入园+特別公開追加。JR武蔵小金井駅からバス5min。坑点：小金井市は都心から車で40min/電車+バスで1時間弱，専程する価値があるかを事前判断。适配：建築好き/昭和レトロ好き/日本近代史好きの深度游客向けのニッチ選択肢。",
+      "source_url": "https://www.tatemonoen.jp"
+    },
+    {
+      "event_def_id": "kanto_special_senso_ji_garan",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "10-17",
+        "end_md": "10-19"
+      },
+      "name_ja": "浅草寺 御本尊示現会（秘仏公開）",
+      "name_zh": "浅草寺御本尊示现会（秘佛公开）",
+      "description": "浅草寺の御本尊・聖観世音菩薩は「絶対秘仏」として一般には永遠非公開——ただし毎年12月13日に「煤払い」等の法要で庭内の特別行事あり。一般に公開されることのない秘仏の代わり，仏像ではなく春（3月17-18日）と秋（10月17-18日）に「示現大祭」として特別拝観と法要が開催。境内特別法要の見学は無料，浅草観光と自然に組み合わせられる。坑点：「秘仏を実際に見られる」訳ではなく，特別法要・奉納行事の体験。事前に内容を正確に伝えること。适配：浅草観光の深度レイヤーとして，宗教文化に関心のある旅行者向けの追加情報。",
+      "source_url": "https://www.senso-ji.jp"
+    },
+    {
+      "event_def_id": "kanto_special_yokohama_museum_spring",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "04-01",
+        "end_md": "06-30"
+      },
+      "name_ja": "横浜美術館 春の特別展",
+      "name_zh": "横滨美术馆春季特别展",
+      "description": "みなとみらいの横浜美術館で毎年春に開催される大型特別展。過去例：「ターナー展」「蜷川実花展」「ゴッホとゴーギャン展」など国際レベルの企画展が並ぶ。¥1500〜2000（展示により変動），みなとみらい駅徒步5min。みなとみらいの港散步+ランドマークタワー展望台+美術館を一日に組み合わせた横浜文化コース。坑点：横浜美術館は2021年より改修（2024年秋に再開予定），最新の開館状況は確認必須。适配：アートが好きな深度游客，横浜を「港＋美術館」で楽しみたい客。",
+      "source_url": "https://yokohama.art.museum"
+    },
+    {
+      "event_def_id": "kanto_special_sankeien_special",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "03-15",
+        "end_md": "04-10"
+      },
+      "name_ja": "三溪園 春の観桜会（重文建築特別公開）",
+      "name_zh": "三溪园春季赏樱会（重文建筑特别公开）",
+      "description": "三溪園では桜の季節（3月下旬〜4月上旬）に，通常非公開の旧燈明寺本堂・旧燈明寺三重塔の内部や，原三溪が実際に使用した旧鶴翔閣（大正時代の和風建築）の特別公開が行われる。¥900+特別公開追加料金。JR根岸駅乘巴士15min。通常の三溪園庭園観覧+桜+重文建築内部見学の3層体験が1ヶ所で完結。坑点：桜のピーク時は入場者が多く，建物内は一度に少人数しか入れない。适配：横浜深度游の文化コース，通常観光では見られないものを体験したい層向け。",
+      "source_url": "https://www.sankeien.or.jp"
+    },
+    {
+      "event_def_id": "kanto_special_engakuji_hojo",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "12-05"
+      },
+      "name_ja": "円覚寺 方丈庭園 秋の特別公開",
+      "name_zh": "圆觉寺方丈庭园秋季特别公开",
+      "description": "鎌倉五山第二位・円覚寺の通常非公開エリア「方丈庭園」+「大方丈（書院）」が秋の紅葉期に特別公開。書院建築+枯山水庭園+紅葉の組合せは鎌倉で最も静謐な秋の文化体験。¥500+特別公開追加。JR北鎌倉駅からすぐ（徒歩1min）。坑点：特別公開は毎年実施日程が変動するため公式サイトで確認。秋の鎌倉週末は江ノ電規制あり。适配：鎌倉紅葉深度游の核心——円覚寺（特別公開）+明月院+建長寺の紅葉一日コース組成。",
+      "source_url": "https://www.engakuji.or.jp"
+    },
+    {
+      "event_def_id": "kanto_special_kencho_ji_hondo",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "11-01",
+        "end_md": "11-30"
+      },
+      "name_ja": "建長寺 秘仏・特別公開",
+      "name_zh": "建长寺秘佛·特别公开",
+      "description": "鎌倉五山第一位・建長寺の法堂「天井龍図（雲龍図）」と仏殿内部の特別公開が11月に行われる。天井に描かれた小泉淳作作の大龍（直径9m）は通常非公開エリアで，特別公開日のみ仏殿内から仰ぎ見ることができる。¥500+特別公開料金。JR北鎌倉駅徒步15min/鎌倉駅徒步20min。坑点：特別公開は期間・日程が年によって変動，公式サイト確認必須。适配：禅寺文化爱好者/龍の絵に関心ある深度游客向け，鎌倉一日行程の文化プラスアルファ。",
+      "source_url": "https://www.kenchoji.com"
+    },
+    {
+      "event_def_id": "kanto_special_toshogu_shinkyu",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "05-01",
+        "end_md": "11-30"
+      },
+      "name_ja": "日光東照宮 眠り猫（伝左甚五郎作）特別参観",
+      "name_zh": "日光东照宫眠猫（左甚五郎作）特别参观",
+      "description": "東照宮の国宝「眠り猫」の裏面（正面からは見えない雀の彫刻）と，奥宮（徳川家康の墓所）への参道が通常有料参観エリアとして開放されている（¥1300の東照宮入場セット）。奥宮への急峻な石段（207段）+杉並木+古木に囲まれた家康廟は東照宮の最も神聖な場所。坑点：石段の急勾配（傾斜角約35度）は老人・小娃連れには厳しい。适配：日光東照宮の奥深さを伝えたい行程——普通の観光以上の体験として「奥宮参拝」を加えるだけで全く別物になる。",
+      "source_url": "https://www.toshogu.jp"
+    },
+    {
+      "event_def_id": "kanto_special_kawagoe_kita_in",
+      "type": "special_open",
+      "circle": "kanto",
+      "city": "kawagoe",
+      "usual_window": {
+        "start_md": "04-01",
+        "end_md": "11-30"
+      },
+      "name_ja": "喜多院 五百羅漢 特別公開",
+      "name_zh": "喜多院五百罗汉特别公开",
+      "description": "川越大師・喜多院の境内に並ぶ五百羅漢（534体）は江戸時代に造られた石像群で，通常は自由見学だが，春（4月上旬）と秋（11月上旬）に羅漢堂内部の特別公開が行われる。¥400（境内）+特別公開追加。本川越駅徒歩15min。「顔を夜に触ると自分の顔に似た羅漢が見つかる」という伝承もあり，体験ガイドとして使いやすい。坑点：五百羅漢は屋外に並ぶため雨天の体験は△。通常期は自由参拝可のため特別公開の価値は限定的。适配：川越一日行程の文化レイヤーとして組み込む追加体験，専程する価値は中程度。",
+      "source_url": "https://www.kitain.jp"
+    }
+  ],
+  "occurrences": []
+}

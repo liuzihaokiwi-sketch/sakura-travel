@@ -1,0 +1,40 @@
+{
+  "template_id": "module_usj",
+  "label": "USJ环球影城",
+  "tags": [
+    "theme_park",
+    "usj"
+  ],
+  "core_entities": [
+    "osa_usj"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "locked"
+  },
+  "description": "day_mood: 全力释放。全天USJ。体力消耗极大，次日必须安排恢复日或轻量日。USJ日不被任何密度设置砍减——整天都是USJ本身的体验。",
+  "hotel_area_note": "住USJ官方酒店最方便（步行入园）。住难波/梅田需坐JR梦咲线，单程约30min。",
+  "slots": [
+    {
+      "slot_id": "usj_full_day",
+      "time_range": "08:00-21:00",
+      "type": "poi",
+      "area": "usj_area",
+      "priority": "P1",
+      "duration_min": 480,
+      "entity_hint": "ユニバーサル・スタジオ・ジャパン（日本环球影城）",
+      "note": "整天在园内。关键tips：(1) 提前官网买门票+Express Pass快速通关券，现场买排队30-60min且经常售罄；(2) 早于开园30-60min到门口排队，实际开门通常比公告时间早15-30min；(3) 入园后先冲哈利波特区（人最多，10点后排队2h+）；(4) 火曜/木曜人最少，参考ユニバリアル的人流日历做规划；(5) 闭园前有灯光秀/游行；(6) 午餐在园内解决（偏贵¥1,500-2,500，但出去吃再入园不现实）。注意：闭园后出口极度拥挤，21:00散场时JRゆめ咲線（JR梦咲线）会挤到变形——建议提前10min往出口走，或在CityWalk商业区等20min人潮散去再走。"
+    },
+    {
+      "slot_id": "usj_dinner",
+      "time_range": "21:30-22:30",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "回程经过难波吃晚饭。JRゆめ咲線（JR梦咲线）→西九条→JR环状线→难波（约30min，注意末班车时间）。USJ恢复餐定位：快速、不折腾、吃饱就好。拉面/牛丼/居酒屋都行，不安排高档餐。"
+    }
+  ]
+}

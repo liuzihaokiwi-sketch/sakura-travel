@@ -1,0 +1,368 @@
+{
+  "_doc": "关东圈红叶花期数据库。设计用途：人/AI 在设计手账本模板时查阅的资料库，不是运行时数据库。每个 event_def 用 description 描述「为什么值得去+票数佐证+交通+坑点+人群适配」，AI 读 description 综合判断。系统仅按 type+circle+city+usual_window 做硬筛。",
+  "_version": "2.0",
+  "_schema": {
+    "event_def_id": "unique key",
+    "type": "koyo",
+    "circle": "kanto",
+    "city": "city code",
+    "usual_window": "{start_md, end_md} — 系统硬筛用",
+    "name_ja": "日文名",
+    "name_zh": "中文名",
+    "description": "5-8 行：特色+权威佐证+交通+坑点+人群适配",
+    "source_url": "权威数据源 URL（null 表示无公开URL）"
+  },
+  "event_defs": [
+    {
+      "event_def_id": "kanto_koyo_rikugien",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-15"
+      },
+      "name_ja": "六義園の紅葉",
+      "name_zh": "六义园红叶",
+      "description": "JR駒込駅徒歩7minの大名庭園。回游式池泉庭園の池畔と築山に約560本の楓+櫨。walkerplus 全日本 top10、行ってよかった147票（東京都最高位）。夜間ライトアップ期間（11月下旬-12月初）开放至21时，水面映る紅葉は東京都心で唯一の光景。¥300入园（夜間ライトアップ期は別料金の場合あり）。坑点：花期周末入园需排队30-60分钟，平日早晨/夜间是唯一窗口。适配：老人/情侣/文化爱好者首选，亲子带小娃也可以。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e12667/"
+    },
+    {
+      "event_def_id": "kanto_koyo_otaguro",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "大田黒公園の紅葉",
+      "name_zh": "大田黑公园红叶",
+      "description": "杉並区の音楽評論家大田黒元雄邸跡（昭和初）の回游式日本庭園。約100本の銀杏並木+楓+池の組合せが東京都心の隠れた紅葉名所。walkerplus 全日本 top22、行ってよかった90票。JR荻窪駅徒歩10min。入园免费。夜間ライトアップ（11月下旬-12月初）の銀杏並木は SNS で話題。坑点：規模小（约1ha），15分钟逛完。适配：在地人/文化爱好者首选，带老人散步也合适，亲子游不是首推。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e372631/"
+    },
+    {
+      "event_def_id": "kanto_koyo_kahaku_shizenkyoiku",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-15"
+      },
+      "name_ja": "国立科学博物館附属自然教育園の紅葉",
+      "name_zh": "国立科学博物馆附属自然教育园红叶",
+      "description": "目黒区白金台。武蔵野原生林を残す約20haの自然教育園，徳川家臣松平讃岐守の下屋敷跡。約100本の楓+櫟+櫨が原生林の中で色付く。walkerplus 全日本 top33、行ってよかった83票。JR目黒駅徒歩9min。¥320入园。坑点：教育園として人数制限あり（同时入园300人），周末需排队。适配：自然散歩+静かな撮影が好きな人，老人/情侣首选，带娃需安静配合。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e154520/"
+    },
+    {
+      "event_def_id": "kanto_koyo_showa_kinen",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "11-25"
+      },
+      "name_ja": "国営昭和記念公園の紅葉",
+      "name_zh": "国营昭和记念公园红叶",
+      "description": "立川市の165ha国营公園。約300本の銀杏並木（カナールイチョウ並木+うんどう広場いちょう並木）が东京最大級の黄色トンネル。約400本の楓も同时见ごろ。walkerplus 全日本 top46、行ってよかった65票。JR立川駅/西立川駅徒歩2-10min。¥450入园。坑点：广大公園のため，移動距離が長い（徒步30-60min）。适配：亲子带娃首选（草坪+自行车租赁+草地野餐），情侣/老人也合适。立川 day trip 可一天玩满。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e13052/"
+    },
+    {
+      "event_def_id": "kanto_koyo_okutama",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "10-25",
+        "end_md": "11-15"
+      },
+      "name_ja": "奥多摩(奥多摩湖畔)の紅葉",
+      "name_zh": "奥多摩湖畔红叶",
+      "description": "東京都西多摩郡奥多摩町。奥多摩湖（小河内ダム湖）周辺の山々が一面紅葉する東京最大級の自然紅葉地。约5000株楓+櫟+ブナ。walkerplus 全日本 top75、行ってよかった52票。JR奥多摩駅乘巴士15min。湖畔免费。坑点：东京站乘JR约2小时（青梅线+末端），周末巴士排队，需早起。海拔较高，11月上旬就已盛红。适配：登山+自然摄影爱好者首选，带老人和小娃要慎重（巴士长+步行多）。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e12825/"
+    },
+    {
+      "event_def_id": "kanto_koyo_koishikawa_korakuen",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "小石川後楽園の紅葉",
+      "name_zh": "小石川后乐园红叶",
+      "description": "水戸徳川家の上屋敷跡，国指定特别史迹+特别名胜。回游式池泉庭園の通天橋（朱塗）+紅葉の組合せは東京都心で京都嵐山に最も近い画面。walkerplus 全日本 top81、行ってよかった49票。JR水道橋駅徒歩5min（東京ドーム隣接）。¥300入园。坑点：規模約7ha，1时间内逛完。盛期短（11月下旬-12月初一周左右）。适配：老人/情侣/文化爱好者首选，亲子也可以。短时间高效赏紅。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e12666/"
+    },
+    {
+      "event_def_id": "kanto_koyo_kokyo_higashi",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-15"
+      },
+      "name_ja": "皇居東御苑の紅葉",
+      "name_zh": "皇居东御苑红叶",
+      "description": "旧江戸城本丸+二の丸庭園。約280本の楓+銀杏が天守台跡や石垣の周辺で色付く。皇居外苑からのアクセスで观光と紅葉を一体化できる。walkerplus 全日本 top84、行ってよかった49票。大手町駅/東京駅徒歩10min。入园免费（所持品検査あり）。坑点：皇居全体は広大，東御苑だけで2-3小时。月/金は休園日。适配：东京一日游观光客首选（皇居+丸の内+银座一日串联），文化深度游也合适。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e393170/"
+    },
+    {
+      "event_def_id": "kanto_koyo_shinjuku_gyoen",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-25",
+        "end_md": "12-05"
+      },
+      "name_ja": "新宿御苑の紅葉",
+      "name_zh": "新宿御苑红叶",
+      "description": "新宿駅近の58ha旧皇室庭園。約3000本の樹木中楓+銀杏の紅葉が回游路沿いに。日本庭園+イギリス風景式庭園+フランス整形式庭園の3種類の庭園が同时楽しめる。walkerplus 全日本 top86、行ってよかった48票。新宿三丁目駅徒歩5min。¥500入园。坑点：花期周末排队入园，平日上午是窗口。适配：全人群通用（轮椅友好+草坪），亲子+老人首选。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0313e392494/"
+    },
+    {
+      "event_def_id": "kanto_koyo_sankeien",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "yokohama",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-15"
+      },
+      "name_ja": "三溪園の紅葉",
+      "name_zh": "三溪园红叶",
+      "description": "横浜本牧の175,000㎡大名庭園。原三溪が京都/鎌倉から移築した重要文化財17棟（旧燈明寺三重塔ほか）と約500本の楓+銀杏の組合せは横浜で京都に最も近い秋の画面。walkerplus 全日本 top29、行ってよかった86票（神奈川県最高位）。JR根岸駅乘巴士15min（市营バス58/99系统）。¥900入园。夜間特別開園あり（11月下旬-12月初）。坑点：横浜駅から30min巴士（横浜駅から直行バスはない）。适配：文化深度游+京都风格爱好者+老人/情侣首选，带娃也合适。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0314e123975/"
+    },
+    {
+      "event_def_id": "kanto_koyo_daiyuzan",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "11-25"
+      },
+      "name_ja": "大雄山最乗寺の紅葉",
+      "name_zh": "大雄山最乘寺红叶",
+      "description": "神奈川県南足柄市の曹洞宗寺院。標高300m+の山中に建つ巨大寺院で，約2万本の杉+楓の境内は深山幽谷の紅葉景観。walkerplus 全日本 top56、行ってよかった60票。伊豆箱根鉄道大雄山駅乘巴士10min。境内入场免费。坑点：山道含む参道は徒步30-60分，老人需注意体力。海拔高，11月中旬就盛。适配：寺院巡礼+自然爱好者首选，与箱根/小田原一日游串联。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0314e154527/"
+    },
+    {
+      "event_def_id": "kanto_koyo_chuzenji",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "10-15",
+        "end_md": "11-05"
+      },
+      "name_ja": "日光(中禅寺湖湖畔)の紅葉",
+      "name_zh": "日光中禅寺湖湖畔红叶",
+      "description": "栃木県日光市の中禅寺湖（標高1269m）+男体山+華厳の滝の組合せは関東最高峰の秋景色。10月中旬から下旬がピーク。walkerplus 全日本 top85、行ってよかった49票。JR/東武日光駅乘巴士45min（いろは坂经由）。坑点：いろは坂の渋滞が紅葉期は5-10倍に膨张，平日早朝出発が必須（朝6点出発推奨）。适配：日光1泊2日深度游+秋季摄影+老人和情侣的纪念性行程。",
+      "source_url": "https://koyo.walkerplus.com/detail/ar0309e13029/"
+    },
+    {
+      "event_def_id": "kanto_koyo_meijijingu_gaien",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "明治神宮外苑 いちょう並木",
+      "name_zh": "明治神宫外苑银杏并木",
+      "description": "青山通り→明治神宮外苑の300m銀杏並木约146本，11月下旬-12月初に黄金トンネルを形成。**未进 walkerplus top100（虽然名气巨大，但完全是银杏不是红叶系统认知），但东京最知名的秋季画面之一。**JR信濃町駅/外苑前駅徒歩5min。入场免费。坑点：花期周末并木道两侧人潮拥挤，地面坐拍照都难，平日是唯一窗口。适配：情侣约会+商务游客的高效短暂赏秋（30分钟可看完），亲子带娃要避开拥挤时段。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_jingu_gaien_2",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "神宮外苑 銀杏祭り (Gaien Ichou Festival)",
+      "name_zh": "明治神宫外苑银杏祭",
+      "description": "上述銀杏並木の周辺で毎年11月中旬-12月初開催のグルメ屋台祭り。**未进 walkerplus（活动属性而非景点），但是东京晚秋最大型的纪念活动。**外苑前駅徒歩5min。入场免费，屋台另付费。坑点：屋台密度高+人数极多，吃饭需排队30分钟。适配：情侣/朋友体验东京秋祭氛围首选。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_yoyogi",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "代々木公園の紅葉",
+      "name_zh": "代代木公园红叶",
+      "description": "渋谷/原宿隣接の54ha公園に約1000本の楓+櫟+銀杏。**未进 walkerplus top100（紅葉品种比花园城市少），但年轻人在地野餐+渋谷徒歩圏内的秋季首选地。**原宿駅/渋谷駅徒歩5-10min。入场免费。坑点：紅葉规模有限，主要是大草坪+局部紅葉。适配：年轻人野餐+亲子带娃，老人/情侣专程不值得。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_takao_san",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "高尾山の紅葉",
+      "name_zh": "高尾山红叶",
+      "description": "東京都八王子市の標高599m，年间登山客260万人の超人気山。約1000本の楓+櫟+ブナ，山頂駅展望台と1号路の参道+ケーブルカー+高尾山薬王院の組合せ。**未进 walkerplus top100（地元人気は東京最高だが投票が分散），但是关东最容易抵达的低难度紅葉登山。**京王高尾山口駅徒歩5min（新宿から特急50min）。ケーブルカー往復¥950。坑点：花期周末ケーブルカー排队2小时，平日早朝出発推奨（朝7时山麓集合）。适配：东京近郊一日游+亲子带娃首选，老人需选ケーブルカー上山+步行下山。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_mt_mitake",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "tokyo",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "御岳山の紅葉",
+      "name_zh": "御岳山红叶",
+      "description": "東京都青梅市の標高929m，武蔵御嶽神社+ロックガーデン的紅葉が高尾山より静かで本格的。**未进 walkerplus top100，但东京登山深度游进阶选项。**JR御嶽駅乘巴士10min+ケーブルカー6min。ケーブルカー往復¥1130。坑点：高尾山より远（新宿から1.5小时）+山麓の徒步距離長い。适配：登山中级以上+自然摄影爱好者，亲子小娃不適。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_engakuji",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "円覚寺の紅葉",
+      "name_zh": "圆觉寺红叶",
+      "description": "鎌倉五山第二位，臨済宗大本山。北鎌倉駅徒歩すぐの参道+山門+仏殿の周辺の楓は鎌倉で最も古都の風情を感じさせる。**未进 walkerplus top100，但鎌倉紅葉深度游首选寺院。**JR北鎌倉駅徒歩1min。¥500拝観料。坑点：盛期は11月下旬-12月初，東京より約1-2週遅い。週末是江ノ電/JR双瘫痪。适配：文化爱好者+老人寺庙巡礼，亲子带小娃不适合（禅寺安静要求）。鎌倉一日游紅葉行程の出発点。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_meigetsuin",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "明月院の紅葉",
+      "name_zh": "明月院红叶",
+      "description": "鎌倉北鎌倉「あじさい寺」として有名だが，11月下旬-12月初の紅葉も見事。本堂の悟りの窓から見る方丈庭園の紅葉が SNS で人気。**未进 walkerplus top100，但鎌倉紅葉摄影爱好者必去。**JR北鎌倉駅徒歩10min。¥500拝観料（紅葉期は¥600）。坑点：悟りの窓を撮るためには境内别区拜観が必要（追加料金）+ 排队1时间。适配：摄影爱好者+情侣约会，老人和带娃不是首推。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_hasedera",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "kamakura",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "長谷寺の紅葉",
+      "name_zh": "长谷寺红叶",
+      "description": "鎌倉長谷観音で有名な寺院。境内の眺望散策路から鎌倉の街+由比ヶ浜+紅葉が一望できる。11月下旬-12月初にライトアップ，関東で京都に最も近い夜紅葉体验。**未进 walkerplus top100，但鎌倉夜紅葉首选。**江ノ電長谷駅徒歩5min。¥400拝観料。坑点：夜ライトアップは事前ネット予約必須（当日売り切れ常态）。适配：情侣约会+夜紅葉摄影爱好者首选。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_hakone_bijutsukan",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "箱根美術館の紅葉",
+      "name_zh": "箱根美术馆红叶",
+      "description": "強羅にある日本で最も歴史ある私立美術館の苔庭+紅葉。約200本の楓が苔の緑との対比で色付く神山楼の前庭は箱根紅葉の代表画面。**未进 walkerplus top100，但箱根紅葉のNo.1是公认的（公式观光局推荐第一）。**箱根登山ケーブルカー公園上駅徒歩1min。¥1430（美術館入館料）。盛期：11月上旬-中旬（東京より早）。坑点：盛期周末は1时间ごとの入场整理券，事前ネット予約推奨。适配：箱根温泉宿泊行程+老人/情侣文化深度游首选。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_gora_park",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "強羅公園の紅葉",
+      "name_zh": "强罗公园红叶",
+      "description": "箱根強羅の西洋式庭園+ローズガーデン+楓+カエデの混植が箱根駅から徒步圏内の紅葉スポット。**未进 walkerplus top100，但箱根温泉宿泊客の散歩首选。**箱根登山ケーブルカー公園下駅徒歩1min。¥700入园。盛期：11月中旬。坑点：規模約3ha，30-60分钟逛完。适配：箱根温泉客的傍晚散歩，专程不值得。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_sengokuhara_susuki",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "hakone",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "仙石原 すすき草原",
+      "name_zh": "仙石原芒草原",
+      "description": "箱根仙石原の台ヶ岳の山麓に広がる約18ha のススキ草原。10月中旬-11月中旬に黄金色に染まる秋景色は箱根の代表画面の一つ。**未进 walkerplus 紅葉 top100（ススキは紅葉に分類されない），但箱根秋季体验缺一不可。**箱根登山バス仙石高原下車すぐ。入场免费。坑点：盛期周末バス満員，自行车/タクシー推奨。适配：情侣/朋友拍照首选，亲子也合适，老人需注意步行距离。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_kegon_falls",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "華厳の滝の紅葉",
+      "name_zh": "华严瀑布红叶",
+      "description": "日本三名瀑の一つ。落差97mの瀑布と中禅寺湖周辺の紅葉の組合せは10月中旬から下旬の日光最強画面。**未进 walkerplus top100（已被「日光中禅寺湖」概括），但实际是更具代表性的拍照地。**JR/東武日光駅乘巴士45min。エレベーター¥570（観瀑台用）。坑点：いろは坂渋滞2-4小时，必须早朝6点前出发。适配：日光秋季一日深度游+摄影爱好者必经。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_irohazaka",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "nikko",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "いろは坂の紅葉",
+      "name_zh": "色叶坂红叶",
+      "description": "日光から中禅寺湖に至る48カーブの山道。沿線2000本の楓+櫟+ブナがカーブごとに色付く，運転自体が紅葉ドライブ体験。**未进 walkerplus（道路は景点として登録されない），但日光秋季最具特色的体验之一。**JR/東武日光駅から車で30min。通行料金無料。坑点：紅葉期週末は2-4小时渋滞，徒步は不可（道路狭い）。适配：自驾游或者観光バスツアー，公共交通難。",
+      "source_url": null
+    },
+    {
+      "event_def_id": "kanto_koyo_kitain",
+      "type": "koyo",
+      "circle": "kanto",
+      "city": "kawagoe",
+      "usual_window": {
+        "start_md": "11-15",
+        "end_md": "12-05"
+      },
+      "name_ja": "喜多院の紅葉",
+      "name_zh": "喜多院红叶",
+      "description": "川越大師喜多院。徳川家光ゆかりの天台宗寺院で，国指定名勝の紅葉山庭園は11月下旬に約100本の楓が色付く。江戸城の建物（家光誕生の間+春日局化粧の間）が境内にある。**未进 walkerplus top100，但川越深度游+江户文化爱好者首选。**本川越駅徒歩15min。¥400拝観料。坑点：規模約3ha，1时间内逛完。适配：川越藏造り街道+菓子屋横丁+喜多院的一日游路线の文化重点。",
+      "source_url": null
+    }
+  ],
+  "occurrences": []
+}

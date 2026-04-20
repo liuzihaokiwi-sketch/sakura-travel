@@ -1,0 +1,79 @@
+{
+  "template_id": "arrival_day",
+  "label": "到达日",
+  "tags": [
+    "arrival",
+    "food",
+    "walking"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": null,
+  "assembly": {
+    "phase": "arrival",
+    "best_pace": "relaxed"
+  },
+  "description": "day_mood: 初遇与兴奋。不安排正式景点——到达日刻意留白，恢复+道顿堀小吃+晚餐。到达日的任务只有一个：让用户觉得'大阪果然是这样的'。",
+  "hotel_area_note": "住梅田时午餐在梅田地下街解决，傍晚坐御堂筋线10min到难波，其余不变。",
+  "slots": [
+    {
+      "slot_id": "arrival_lunch",
+      "time_range": "12:00-14:30",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "到达后第一顿，不折腾。难波站周边或酒店附近快速解决。住梅田的在梅田地下街（Whity Umeda/阪急三番街）吃——那里选择密度极高，不需要专门找店。到达恢复餐的定位：轻松、快速、不踩雷。"
+    },
+    {
+      "slot_id": "arrival_rest",
+      "time_range": "15:00-17:00",
+      "type": "rest",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "14:30前到酒店寄行李（避开15:00集中check-in高峰，商务酒店15:00-16:30排队30min很常见）。15:30后再回来办手续。长途飞行后这1-1.5h休息是必须的，不省。"
+    },
+    {
+      "slot_id": "arrival_snack",
+      "time_range": "17:00-18:00",
+      "type": "snack",
+      "area": "namba_dotonbori",
+      "priority": "P1",
+      "duration_min": 45,
+      "note": "道顿堀边走边吃是到达日的核心体验。章鱼烧（本家大たこ/たこ八（章鱼八），道顿堀总本店，两家都在戎桥旁50m内）+ 551蓬莱肉包（难波本店常年排队但翻台快，5-10min）。不需要每样都吃，两三样就够——重点是'走在道顿堀的感觉'，不是吃饱。"
+    },
+    {
+      "slot_id": "arrival_dinner",
+      "time_range": "18:00-20:00",
+      "type": "meal",
+      "area": "namba_dotonbori",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "到达日晚餐要和小吃菜系错开。小吃已经吃了章鱼烧/肉包（粉物+中华），晚餐避开这两类。推荐方向：烧肉/寿司/居酒屋。避开：道顿堀正面街门口站人招揽的店——步行3min走进法善寺横丁或裏难波方向，价格差30%排队差一倍。"
+    },
+    {
+      "slot_id": "arrival_shops",
+      "time_range": null,
+      "type": "shop_info",
+      "area": "namba_dotonbori",
+      "priority": "P5",
+      "note": "附近推荐店铺列表，不排入时间线。道顿堀/心斋桥步行圈内购物供自由时间参考。"
+    },
+    {
+      "slot_id": "arrival_cafe",
+      "time_range": null,
+      "type": "cafe_info",
+      "area": "namba_dotonbori",
+      "priority": "P3",
+      "note": "休息点推荐。道顿堀周边咖啡厅供体力不支时使用。"
+    },
+    {
+      "slot_id": "arrival_photo",
+      "time_range": null,
+      "type": "photo_spots",
+      "priority": "P3",
+      "note": "格力高看板（戎桥上正面最佳，天黑后亮灯更好）、道顿堀运河夜景（太左衛門橋（太左卫门桥）上拍全景）、心斋桥筋入口霓虹。"
+    }
+  ]
+}

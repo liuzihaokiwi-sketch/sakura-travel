@@ -1,0 +1,12 @@
+{
+  "_doc": "神戸 Day Template Library v2.1. 日模板候选池。",
+  "_version": "2.1",
+  "_areas": {
+    "sannomiya": "三宮・元町・旧居留地",
+    "kitano": "北野異人館街",
+    "nankinmachi": "南京町（中華街）",
+    "harbor": "メリケンパーク・ハーバーランド",
+    "himeji": "姫路城・好古園",
+    "arima": "有馬温泉街"
+  }
+}

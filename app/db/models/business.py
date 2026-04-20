@@ -144,8 +144,8 @@ class TripRequest(Base):
 
     # 处理状态
     status: Mapped[str] = mapped_column(
-        String(20), nullable=False, default="new",
-        comment="new / sample_viewed / paid / detail_filling / detail_submitted / validating / needs_fix / validated / generating / done / delivered / cancelled / refunded"
+        String(30), nullable=False, default="new",
+        comment="new / sample_viewed / paid / detail_filling / detail_submitted / validating / needs_fix / validated / plan_generating / plan_preview / plan_confirmed / budget_confirmed / generating / done / delivered / cancelled / refunded"
     )
     last_job_error: Mapped[Optional[str]] = mapped_column(Text, comment="最后一次 job 报错摘要")
     retry_count: Mapped[int] = mapped_column(SmallInteger, default=0)
@@ -296,6 +296,48 @@ class TripProfile(Base):
         JSONB, comment="航班详情 {outbound:{...}, return:{...}}",
     )
 
+    # ── v2 模板驱动新增字段 ──
+    trip_vibe: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="classic / romantic / photogenic / family_fun",
+    )
+    density: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="packed / balanced / relaxed — 覆盖旧 pace 字段",
+    )
+    arrival_slot: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="morning / afternoon / evening — 到达时段",
+    )
+    departure_slot: Mapped[Optional[str]] = mapped_column(
+        String(10), comment="morning / afternoon / evening — 离开时段",
+    )
+
+    # 拆分预算（预算确认后写入）
+    dining_tier: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="street / local_good / fine / top",
+    )
+    dining_preference: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="taste_first / comfort_first",
+    )
+    hotel_tier: Mapped[Optional[str]] = mapped_column(
+        String(20), comment="budget / comfort / premium / luxury",
+    )
+    hotel_preferences: Mapped[Optional[list]] = mapped_column(
+        JSONB, comment='多选 ["stable","experience","convenient"]',
+    )
+    comfort_addons: Mapped[Optional[dict]] = mapped_column(
+        JSONB, comment='{"luggage_delivery": true, "occasional_taxi": false}',
+    )
+
+    # 方案版本追踪
+    current_plan_version: Mapped[Optional[int]] = mapped_column(
+        SmallInteger, comment="当前方案版本号",
+    )
+    plan_confirmed_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="用户确认方案时间",
+    )
+    budget_confirmed_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), comment="用户确认预算时间",
+    )
+
     normalized_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
@@ -327,6 +369,9 @@ class TripVersion(Base):
     version_number: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     change_reason: Mapped[Optional[str]] = mapped_column(
         String(200), comment="initial / user_edit / re_plan / ..."
+    )
+    plan_data: Mapped[Optional[dict]] = mapped_column(
+        JSONB, nullable=True, comment="v2流程：Opus装配的plan快照（plan_preview或final_plan）"
     )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
