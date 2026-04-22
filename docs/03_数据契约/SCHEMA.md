@@ -42,9 +42,9 @@
 | 层 | 文件 | 格式 | 消费方 |
 |---|---|---|---|
 | 模板 | `templates/**/*.json` | JSON | 渲染代码（生成手账本布局）+ AI 装配读 slot |
-| 事实 | `facts/entities__*.json` `facts/restaurants__*.json` `facts/hotels__*.json` | JSON | 渲染代码（取门票/坐标/开门）+ AI 装配硬筛 |
-| 装配 | `assembly/{模板装配,餐厅装配,酒店装配}.md` | **Markdown** | AI 装配读（不是机械查表） |
-| 事件 | `events/*.{md}` | **Markdown**（待迁移，原 JSON） | AI 装配读 |
+| 景点（事实层） | `entities/{kyoto,osaka,other}.json` | JSON | 渲染代码（取门票/坐标/开门）+ AI 装配硬筛 |
+| 装配规则 | `assembly/{templates,restaurants,hotels}/*.md` | **Markdown** | AI 装配读（不是机械查表） |
+| 装配数据 | `assembly/{templates,restaurants,hotels}/data/*.json` | JSON | 装配 AI 按规则消费（餐厅池/酒店池/季节窗口） |
 
 **为什么装配/事件用 markdown**：消费方主要是 AI，markdown 让 AI 像读 SOP 一样读，比 JSON 嵌套自然。
 
@@ -214,7 +214,21 @@
 
 ---
 
-## 2. 事实层字段（facts/）
+## 2. 景点层字段（entities/）
+
+**entities/ 是景点完整信息层**——3 个文件按城市归属：
+- `entities/kyoto.json` 京都景点（含 live facts 已并入对应景点）
+- `entities/osaka.json` 大阪景点
+- `entities/other.json` 其他城市（奈良/兵库/神户·有马 等合并）
+
+模板 slot.entity 直接引用，渲染代码读这层取门票/坐标/开门时间，景点附属内容（拍照/冷知识/小店/避坑）全在 `notes` 自由文本。
+
+**餐厅池和酒店池在装配层**：
+- 餐厅池 → `assembly/restaurants/data/restaurants__{city}.json`
+- 酒店池 → `assembly/hotels/data/hotels__kansai.json`
+
+**季节窗口（樱花/红叶/祭典）在装配数据**：
+- `assembly/templates/data/{sakura,koyo,festivals,illumination,special_open}.json`
 
 ### 2.1 entities（景点）
 
@@ -238,10 +252,9 @@
 | `official_url` | 有就写 |
 | `admission` | 收费才写：`{adult: 500, child: 200, unit: "JPY"}`。免费景点不写 |
 | `reservation_required` | 需要预约才写 `true`（默认 false 不存字段） |
-| `photo_spots[]` | 这景点真有"游客通常不走的角度"才写（清水寺子安塔小径、渡月桥黄昏南岸）。普通寺院随手拍的不写 |
-| `fun_facts[]` | 朋友带你到现场会忍不住讲的那段话才算（金阁三岛由纪夫纵火、渡月桥名字来自龟山上皇）。维基百科摘要"始建于xx年" 不写 |
-| `nearby_shops[]` | "懂当地朋友会指给你看的小店"才写（森嘉豆腐、% Arabica 渡月桥河岸）。京都伴手礼 TOP10 不写 |
-| `notes` | **自由文本字段**（按宪法第一条）。装跟这景点相关的零碎细节：跨景点衔接 tip、票价细分指引、避坑、其他**没法用上面结构化字段表达**的内容。可以用子标题分段（"## 衔接 / ## 票价指引 / ## 避坑"），怎么清晰怎么来 |
+| `notes` | **自由文本大字段**（按宪法第一条），装跟这景点相关的所有零碎信息——拍照机位、冷知识、顺路小店、避坑、票价指引、当年临时变更等。**全部用中文子标题分段**，见下方 §2.1.4 |
+
+**注意**：原 `photo_spots[]` / `fun_facts[]` / `nearby_shops[]` 三个结构化数组**已全部砍掉**，所有内容合并到 `notes` 自由文本（D36 决定，按宪法第一条"能用文字就用文字"）。
 
 #### 2.1.3 category 枚举（约 12 个）
 
@@ -264,18 +277,39 @@
 | `theme_park` | 主题乐园 | USJ/海游馆 |
 | `district` | 散步区域 | 嵯峨鸟居本/岚山区域 |
 
-### 2.1.4 photo_spots / fun_facts / nearby_shops 元素结构
+### 2.1.4 notes 字段子标题规范
 
-**photo_spots**：
-```json
-{"location": "子安塔背后小径", "best_time": "7:30 光线斜打", "composition": "俯瞰本堂舞台", "tip": "禁三脚架"}
-```
+`notes` 用 markdown 子标题分段，**用统一中文标题词汇**（保持一致 AI/渲染才好处理）：
 
-**fun_facts**：字符串数组（每条 1-3 句）。
+| 子标题 | 装什么 | 写的判断 |
+|---|---|---|
+| `## 拍照位置` | 出片机位 | 这景点真有"游客通常不走的角度"才写。每条 = 机位+时段+构图，一行一条 |
+| `## 冷知识` | 朋友会忍不住讲的故事 | 不是百科摘要。"金阁 1950 年纵火三岛由纪夫" 算，"始建于 xx 年" 不算 |
+| `## 顺路小店` | 懂当地朋友会指给你看的小店 | 不是伴手礼 TOP10 |
+| `## 衔接` | 跨景点动线 tip | 跟具体动线相关的衔接说明（"北门接竹林南端，北门 16:50 关门"） |
+| `## 票价指引` | 票价细分/购票建议 | 票价基础已在 admission 字段，这里写"加诸堂 +¥300，建议先买基础再决定" 这种判断 |
+| `## 避坑` | 常见踩坑/误解 | "8 点后人爆炸" / "禁穿和服入内" 等 |
+| `## 当年临时` | 当年特殊变更 | 票价涨/临时闭馆/活动停。明确写年份 |
+| `## 季节` | 春/夏/秋/冬 各有什么不同 | 有差异才写 |
 
-**nearby_shops**：
-```json
-{"name": "森嘉豆腐", "category": "food_specialty", "note": "170 年豆腐老铺，川端康成《古都》写到的那家"}
+**示例**：
+
+```markdown
+## 拍照位置
+- 子安塔背后小径：7:30 光线斜打，俯瞰本堂舞台
+- 音羽の滝下方：仰拍舞台木柱结构，禁三脚架
+
+## 冷知识
+舞台 12 米高、139 根榉木立柱榫卯无钉。"清水の舞台から飛び降りる" 是日语谚语，意思"豁出去做件大事"。
+
+## 衔接
+出庭园走北门接竹林南端，北门 16:50 关门注意。
+
+## 票价指引
+庭园 ¥500，加诸堂 +¥300，加云龙图 +¥500（周末和春秋特别公开期间每天）。建议先买基础再现场决定要不要加。
+
+## 当年临时
+2026 年起夜间特别参拜票价涨至 ¥600。
 ```
 
 ### 2.1.5 砍掉的字段（不要再加回来）
@@ -295,22 +329,27 @@
 - ~~`last_verified`~~（无效设计）
 - ~~`data_confidence` / `data_sources[]`~~（内部管控放别处，不进生产数据）
 - ~~`access_difficulty`~~（**砍掉**——偏远是装配层考虑"要不要给这用户推该模板"的事，不在事实层。装配花名册中标注模板"偏远 / 需 X 天以上"即可）
+- ~~`photo_spots[]` / `fun_facts[]` / `nearby_shops[]`~~（**全砍**——内容合并到 `notes` 自由文本，按宪法第一条。子标题分段见 §2.1.4）
 
-### 2.2 restaurants（餐厅）
+### 2.2 restaurants（餐厅）— 已挪装配层
 
-字段保持 SCHEMA v1 §2.2 定义（17 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该餐厅的零碎说明：避坑/历史背景/必点必知/季节限定）。
+**文件位置**：`japan/kansai/assembly/餐厅装配/餐厅池/restaurants__{city}.json`
+
+字段保持原定义（17 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该餐厅的零碎说明：避坑/历史背景/必点必知/季节限定）。
 
 字段：`id / name_ja / name_zh / area / cuisine_tag / meal_type_fit / budget_tier / price_cny / vibe_tags / facility_tags / score / ab_role / meal_role / reservation_difficulty / opening_hours / risk_flags / last_verified / notes`
 
-**当前模板 meal slot 多数不指定 entity**，由餐厅装配按规则从池里挑。规则见 [japan/kansai/assembly/餐厅装配/](../../japan/kansai/assembly/餐厅装配/)。
+**当前模板 meal slot 永远不指定 entity**，由餐厅装配按规则从池里挑。装配规则见 [assembly/餐厅装配/餐厅装配.md](../../japan/kansai/assembly/餐厅装配/餐厅装配.md)。
 
-### 2.3 hotels（酒店）
+### 2.3 hotels（酒店）— 已挪装配层
 
-字段保持 SCHEMA v1 §2.3 定义（14 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该酒店的零碎说明：位置细节/特色/适配/淡旺季差异）。
+**文件位置**：`japan/kansai/assembly/酒店装配/酒店池/hotels__kansai.json`
+
+字段保持原定义（14 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该酒店的零碎说明：位置细节/特色/适配/淡旺季差异）。
 
 字段：`id / name / area / budget_tier / price_range_cny / vibe_tags / facility_tags / practical_tags / score / checkin / checkout / risk_flags / last_verified / notes`
 
-**当前模板 hotel slot 多数不指定 entity**，由酒店装配按规则从池里挑。规则见 [japan/kansai/assembly/酒店装配/](../../japan/kansai/assembly/酒店装配/)。
+**当前模板 hotel slot 永远不指定 entity**，由酒店装配按规则从池里挑。装配规则见 [assembly/酒店装配/酒店装配.md](../../japan/kansai/assembly/酒店装配/酒店装配.md)。
 
 ---
 
