@@ -1,328 +1,440 @@
 # SCHEMA — 字段唯一权威源
 
-> 最后更新:2026-04-20(从 architecture/SCHEMA.md 搬入并加第一性原理)
-> 关联:[DECISIONS.md](../02_历史决策/DECISIONS.md) D28(Opus 装配)/ D29(字段两分法)/ D30(score 0-5 统一)
+> 最后更新：2026-04-22（大瘦身：模板字段从 30+ 砍到 12，事实层从 25+ 砍到最多 15，装配层独立 markdown）
+> 关联：[DECISIONS.md](../02_历史决策/DECISIONS.md) D36（2026-04-22 字段大瘦身 + 装配层 markdown 化）
 
-## ⚠️ 重要:当前是过渡状态,字段会继续演化
+## ⚠️ 设计宪法（最高原则，永久有效）
 
-2026-04-20 版本的 schema **不是最终版本**,仍在演化中。已知待变动方向:
+### 第一条：能用自然语言文字的，绝不用字段
 
-- **餐厅字段**:当前是按区域(`meal_area`)的简化版本,未来会变得更复杂——可能加菜系维度、场景维度(日常/招待/约会)、季节限定菜、A/B 角色分级等。**当前写的关西模板只用 `meal_area + cuisine_hint` 对齐**,别的字段等真需要再加
-- **装配层代码**还没完全实现,很多字段定义仍可能随装配策略调整
-- **v1 → v2 过渡中**:文档里提到的旧字段(`role`/`priority`/`fatigue` 等)已废弃,但仍可能在 `_legacy/v1_content/` 的历史模板里出现
+**字段的唯一意义**：
+1. **给系统看**（代码/装配 AI 要按它做硬判断、硬筛、硬分组）
+2. **确定的等级或标签**（P1/P2/P3、budget_tier、selectable_tag、category 等枚举值）
 
-**字段变更原则**(D31):
-1. 改字段前先在本文件登记
-2. 加字段必须有"消费方"——代码真读或表单真填
-3. 去字段要扫全仓库 import,避免孤儿字段
-4. 过渡期允许字段多版本共存,但必须清晰标注哪个版本活跃
+任何"看起来像信息但本质是描述/解释/判断说明"的内容 → **写自然语言段落，不要做字段**。
+
+→ 推论：宁可写一段长文字（甚至带子标题），也不为每种小信息单独立字段。AI 读自然语言比读嵌套字段更自然。
+
+### 第二条：内容归属对象，谁的事谁解决
+
+| 问题层级 | 解决在哪 |
+|---|---|
+| 跟具体景点相关（拍照/冷知识/周边小店/动线衔接 tip/避坑） | **景点对象本身**（事实层 entity 的 notes） |
+| 跟具体餐厅相关（菜系/A-B 角色/价格/avoid） | **餐厅对象本身** |
+| 跟具体酒店相关（位置/特色/适配） | **酒店对象本身** |
+| 装配规则（打分/天数门槛/A-B 双推/跨城去重/人群升降/酒店升档） | **对应的装配 markdown** |
+| 真正需要"模板设计"才能解决的（动线顺序/peak-end 编排/三档怎么砍/整天思路） | **模板自己** |
+
+→ 推论：模板瘦身的判断标准不是"字段越少越好"，而是"**这件事是不是只能在模板这一层解决**？"
+
+### 字段扩展硬规
+
+**禁止随意扩展字段。**任何想加字段，先回答这 3 个问题：
+
+1. **消费方是谁？** —— 渲染代码 / AI 装配 / 写作者本人。说不出消费方 = 不要加。
+2. **能不能用现有字段或自然语言段落表达？** —— 能用 `note` / `description` / `notes` 等承载的，不要加新字段。
+3. **是不是装配层的事？** —— 跟"用户档位/天数/人群/A-B 餐厅/酒店升档"相关的全部不进模板和事实层，去 [assembly/](../../japan/kansai/assembly/) markdown 写。
+
+**触发任何字段变更必须先改本文件再改其他文档。**
+
+### 三层文件格式分工
+
+| 层 | 文件 | 格式 | 消费方 |
+|---|---|---|---|
+| 模板 | `templates/**/*.json` | JSON | 渲染代码（生成手账本布局）+ AI 装配读 slot |
+| 事实 | `facts/entities__*.json` `facts/restaurants__*.json` `facts/hotels__*.json` | JSON | 渲染代码（取门票/坐标/开门）+ AI 装配硬筛 |
+| 装配 | `assembly/{模板装配,餐厅装配,酒店装配}.md` | **Markdown** | AI 装配读（不是机械查表） |
+| 事件 | `events/*.{md}` | **Markdown**（待迁移，原 JSON） | AI 装配读 |
+
+**为什么装配/事件用 markdown**：消费方主要是 AI，markdown 让 AI 像读 SOP 一样读，比 JSON 嵌套自然。
+
+---
 
 ## 文档第一性原理
 
 这份文档回答"**所有结构化字段长什么样、怎么命名、取什么值**"。
-- 不回答"字段怎么填好"(看 `04_操作SOP/模板写作.md` / `数据采集.md`)
-- 不回答"为什么要这些字段"(看 `02_历史决策/DECISIONS.md`)
-- 不回答"代码怎么消费这些字段"(看 `数据流.md` / `业务流.md`)
+- 不回答"字段怎么填好"（看 [模板写作.md](../04_操作SOP/模板写作.md) / [数据采集.md](../04_操作SOP/数据采集.md)）
+- 不回答"为什么要这些字段"（看 [DECISIONS.md](../02_历史决策/DECISIONS.md) D36）
+- 不回答"装配怎么挑餐厅/酒店"（看 [assembly/](../../japan/kansai/assembly/) markdown）
 
-**字段变动硬规**:任何字段变动**必须先改本文件,再改其他文档**。其他文档(写作指引、地区层文档)只引用本文,不复述定义。
+## 契约的精髓
 
-## 契约的精髓(唯一判断锚)
+> **字段是"机器和人共读的最小语言"——任何读到这个字段的人或 AI，对它的理解必须完全一致。**
 
-> **字段是"机器和人共读的最小语言"——任何读到这个字段的人或 AI,对它的理解必须完全一致。**
-
-判断一个字段设计得好不好:
-- 不同的人/AI 读到同一个字段,会不会产生不同理解?→ 会 = 字段没定义清
-- 字段值的取值范围是否明确?(枚举 / 范围 / 正则 / 自然语言)
-- 有没有"既可以这样也可以那样"的灰色?→ 灰色 = 字段要重拆
-- 字段变了,下游哪些消费方会断?→ 清楚 = 字段有契约;不清楚 = 危险
+判断字段设计好坏：
+- 不同的人/AI 读到同一个字段，会不会产生不同理解？→ 会 = 字段没定义清
+- 字段值的取值范围是否明确？（枚举 / 范围 / 正则 / 自然语言）
+- 有没有"既可以这样也可以那样"的灰色？→ 灰色 = 字段要重拆
+- 字段变了，下游哪些消费方会断？→ 清楚 = 字段有契约
 
 ---
 
-## 0. 通用约定
+## 1. 模板字段（templates/**/*.json）
 
-### 0.1 字段两分法（D29）
+### 1.1 顶层必填（7 个）
+
+| 字段 | 类型 | 取值 | 一句话语义 |
+|---|---|---|---|
+| `template_id` | string | snake_case | 全局唯一标识，如 `kyo_arashiyama_core_full` |
+| `label` | string | - | 人可读的模板名称，如 "岚山日（全年通用）" |
+| `template_kind` | string | `full_day` / `half_day` / `night_module` | 模板时段类型 |
+| `applicable_dates` | array | 见 §1.2 | 适用时间列表；常年模板默认 `[]` |
+| `note` | string | 自然语言 | **设计 note（不展示给用户）**：整天为什么这样排——路线/体验/情绪/旺季应对的设计思考 |
+| `description` | string | 自然语言 | 用户总览（含钩子）：对 note 的面向用户提炼 |
+| `slots` | object | `{packed, balanced, relaxed}` | 三档完整 slot 数组，见 §1.4 |
+
+> **`selectable_tag` 已挪装配层**：用户勾选入口（USJ/温泉/和服/手作等）由 [assembly/模板装配.md](../../japan/kansai/assembly/模板装配.md) 维护，模板自身不持有这个标签。
+
+### 1.2 applicable_dates 元素
+
+**格式**：一个时间区间对象，`MM-DD` 月日，**不写年**。
+
+| 字段 | 类型 | 必填 | 一句话语义 |
+|---|---|---|---|
+| `start` | string | ✓ | `MM-DD` 起始月日 |
+| `end` | string | ✓ | `MM-DD` 结束月日（单日祭典 start = end） |
+| `label` | string | ✓ | 人可读说明，如 "山鉾巡行" / "红叶最佳期" / "梅花季" |
+
+**取值示例**：
+- 单日祭典（祇园祭山鉾巡行 7/17）：`[{"start": "07-17", "end": "07-17", "label": "山鉾巡行"}]`
+- 窗口期（红叶 11/15-12/5）：`[{"start": "11-15", "end": "12-05", "label": "红叶最佳期"}]`
+- 跨年窗口（深冬 12/20-02/28）：`[{"start": "12-20", "end": "02-28", "label": "深冬"}]` —— 代码识别 `start > end` 表示跨年
+- 常年通用模板：`[]`（空数组）
+
+### 1.3 顶层可选字段（**有就写，没有不写**）
+
+| 字段 | 类型 | 写的判断标准 |
+|---|---|---|
+| `hotel_area_note` | string | 偏远 / 起点对酒店区敏感的模板才写（岚山要算交通、有马一泊要算路线）。市区核心模板不写 |
+| `curators_notes` | string[] | 1-4 条策展小巧思，每条 30-50 字。**懂当地朋友才知道的小决定**（"早到是岚山日成立的关键"）。"以官方为准" 类废话不写 |
+| `contingencies` | object | 应急预案；**5 子项有内容才写，不硬填**。见 §1.5 |
+
+### 1.4 slots 三档结构
+
+`slots` 是对象，含三个键：
+
+```json
+"slots": {
+  "packed":   [...],   // 紧凑档：写作者排好的紧凑版完整序列
+  "balanced": [...],   // 平衡档：写作者排好的中等强度版本
+  "relaxed":  [...]    // 放松档：写作者排好的最少版本
+}
+```
+
+**关键设计**：三档不是 P1/P2/P3 砍法，是**写作者亲自排好的三套独立完整序列**。装配代码按用户选的密度档直接取对应数组用，不再砍。
+
+每档 slot 数组的元素见 §1.4.1。
+
+**硬规：slots 数组必须按 time 时间正序排列**——数组顺序 = 实际行程顺序。装配/渲染代码读的是数组顺序，不是 time 字段。写作者必须保证"数组从上到下的顺序 = 时间从早到晚的顺序"，否则生成的手账本页面顺序会错。
+
+#### 1.4.1 slot 元素字段（按 type 区分）
+
+**通用字段**：
+
+| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
+|---|---|---|---|---|
+| `type` | string | ✓ | `poi` / `meal` / `hotel` / `transport` | slot 类型 |
+| `time` | string | ✓ | `"HH:MM-HH:MM"` 范围 | 时间范围（含排队/含通行）。**用范围不用死点**。transport 用窗口表达起止 |
+
+**poi 类专属**：
+
+| 字段 | 必填 | 一句话语义 |
+|---|---|---|
+| `entity` | ✓ | 景点 ID（含商业街/河岸/区域型 entity） |
+
+**meal 类专属**：
+
+| 字段 | 必填 | 一句话语义 |
+|---|---|---|
+| `meal_type` | ✓ | `breakfast` / `lunch` / `dinner` |
+| `meal_area` | ✓ | 餐厅区域，装配按此从餐厅池筛 |
+
+**meal slot 不允许写 `entity` 指定具体餐厅**。即便是"灵魂餐厅"（如神户和牛之夜），也由餐厅装配按规则从池里挑——规则写在 [assembly/餐厅装配.md](../../japan/kansai/assembly/餐厅装配.md)。
+
+**hotel 类专属**：
+
+| 字段 | 必填 | 一句话语义 |
+|---|---|---|
+| `hotel_area` | ✓ | 酒店区域 |
+
+**hotel slot 不允许写 `entity` 指定具体酒店**。即便是"灵魂酒店"（如有马温泉旅馆），也由酒店装配按规则从池里挑——规则写在 [assembly/酒店装配.md](../../japan/kansai/assembly/酒店装配.md)。
+
+**transport 类专属**：无额外字段，只 `type` + `time`。
+
+#### 1.4.2 slot 字段彻底清掉的（不要再加回来）
+
+- ~~`priority`~~（P1/P2/P3 被三档 slots 取代）
+- ~~`note`~~（slot 内 note 取消，整天思路写在模板顶层 `note`）
+- ~~`fun_fact`~~（挪事实层 entity）
+- ~~`cuisine_hint`~~（餐厅装配按 area + 用户偏好挑，模板不指挥菜系）
+- ~~`max_wait_min`~~（time 范围已含排队）
+- ~~`stay_nights`~~（hotel 几晚由酒店装配算）
+- ~~`kind`~~（保留 `type` 字段名）
+
+### 1.5 contingencies 子项（5 个，有内容才写）
+
+| 子项 | 写的条件 |
+|---|---|
+| `rain_light` | 小雨真有特别玩法时（雨后苔藓更深）；普通模板不写 |
+| `rain_heavy` | 大雨需要改路线时（户外重的模板）。一段文字告诉用户怎么办，不另造模板 |
+| `crowd` | 旺季有特殊应对（不是"人多时早点去" 这种废话） |
+| `swap_candidates` | 整个模板雨天不成立、需要换其他模板时。template_id 数组 |
+| ~~`minimum_viable`~~ | **彻底砍掉**——半天用半天模板，不在全天模板里搞兜底 |
+
+### 1.6 模板字段彻底清掉的（不要再加回来）
+
+跟"用户档位/天数/人群/A-B/酒店升档"相关的字段全部不进模板，挪到 [assembly/](../../japan/kansai/assembly/) markdown。
+
+- ~~`tier`~~（A/B/C 投入精力分级，被 score.min_days 取代，且 score 已挪装配层）
+- ~~`status`~~（开发状态没意义）
+- ~~`weather_sensitive`~~（写模板时判断，contingencies 表达）
+- ~~`day_peak`~~（写模板时判断，slot 顺序+note 表达）
+- ~~`design_rationale`~~（合并进顶层 note）
+- ~~`pace_variants`~~（三档 slots 取代）
+- ~~`season_notes`~~（季节用文件夹表达）
+- ~~`negative_peak_guard`~~（写模板时考虑）
+- ~~`season_trigger`~~（季节用文件夹表达）
+- ~~`time_of_day`~~（写进 template_id） 
+- ~~`fit_audience`~~（装配层 audience_bonus 已有）
+- ~~`tags`~~（砍）
+- ~~`special_dates`~~（applicable_dates 取代）
+- ~~`condition`~~（无明确消费方）
+- ~~`variant_of` / `variant_type` / `trigger_condition`~~（template_id 已表达，如 `_atmosphere_full` `_photo_full`）
+- ~~`early_spring_notes`~~（季节用文件夹表达）
+- ~~`assembly_hints` / `assembly` / `season_window`~~（装配层 markdown 表达）
+- ~~`core_entities`~~（slots 里 entity 字段汇总即可）
+- ~~`photo_spots` / `nearby_shops` / `fun_facts`~~（**全挪事实层 entity**）
+- ~~`score`~~（含 audience_bonus / execution_risk **挪装配层 markdown**）
+- ~~`min_days`~~（**挪装配层 markdown**）
+- ~~`day_type`~~（USJ日/人群日/到达日 **挪装配层 markdown**）
+- ~~`exclusive_with`~~（互斥模板 **挪装配层 markdown**）
+- ~~`night_options`~~（**挪装配层 markdown**——装配层维护"白天模板可接哪些夜模块"）
+- ~~`selectable_tag`~~（**挪装配层 markdown**——用户表单勾选入口由装配层维护）
+- ~~`_xxx` 临时注释字段~~（_season_restriction / _architecture_todo / _meta 等全清）
+
+---
+
+## 2. 事实层字段（facts/）
+
+### 2.1 entities（景点）
+
+#### 2.1.1 必填（8 个）
+
+| 字段 | 类型 | 一句话语义 |
+|---|---|---|
+| `entity_id` | string | 唯一标识，如 `kyo_kiyomizudera` |
+| `name_zh` | string | 中文名（手账本印） |
+| `name_ja` | string | 日文名（手账本印 / 现场找路） |
+| `area` | string | 所在区域（装配匹配餐厅/酒店池） |
+| `category` | string | 类别（去重用），见 §2.1.3 |
+| `coordinates` | object | `{lat, lng}` 经纬度 |
+| `short_desc` | string | 一句话介绍（手账本印） |
+| `opening_hours` | object | `{regular: "06:00-18:00", closed: "无休"}` |
+
+#### 2.1.2 可选（**有"比较好的"才写，不凑数**）
+
+| 字段 | 写的判断标准 |
+|---|---|
+| `official_url` | 有就写 |
+| `admission` | 收费才写：`{adult: 500, child: 200, unit: "JPY"}`。免费景点不写 |
+| `reservation_required` | 需要预约才写 `true`（默认 false 不存字段） |
+| `photo_spots[]` | 这景点真有"游客通常不走的角度"才写（清水寺子安塔小径、渡月桥黄昏南岸）。普通寺院随手拍的不写 |
+| `fun_facts[]` | 朋友带你到现场会忍不住讲的那段话才算（金阁三岛由纪夫纵火、渡月桥名字来自龟山上皇）。维基百科摘要"始建于xx年" 不写 |
+| `nearby_shops[]` | "懂当地朋友会指给你看的小店"才写（森嘉豆腐、% Arabica 渡月桥河岸）。京都伴手礼 TOP10 不写 |
+| `notes` | **自由文本字段**（按宪法第一条）。装跟这景点相关的零碎细节：跨景点衔接 tip、票价细分指引、避坑、其他**没法用上面结构化字段表达**的内容。可以用子标题分段（"## 衔接 / ## 票价指引 / ## 避坑"），怎么清晰怎么来 |
+
+#### 2.1.3 category 枚举（约 12 个）
+
+| 值 | 中文 | 例子 |
+|---|---|---|
+| `temple` | 寺 | 清水寺/金阁/天龙寺 |
+| `shrine` | 神社 | 伏见稻荷/八坂 |
+| `castle` | 城 | 大阪城/姬路城/二条城 |
+| `bridge` | 桥 | 渡月桥 |
+| `park` | 公园 | 奈良公园/圆山 |
+| `garden` | 庭园 | 曹源池 |
+| `market` | 市场 | 锦市场/黑门市场 |
+| `commercial_street` | 商业街 | 道顿堀/心斋桥/先斗町 |
+| `department_store` | 百货 | 阪急梅田 |
+| `museum` | 博物馆 | 任天堂/铁博 |
+| `onsen` | 温泉 | 有马/城崎 |
+| `view_spot` | 展望台 | 龟山公园/摩耶山 |
+| `natural_path` | 自然步道 | 竹林/哲学之道 |
+| `riverside` | 河岸 | 鸭川/桂川 |
+| `theme_park` | 主题乐园 | USJ/海游馆 |
+| `district` | 散步区域 | 嵯峨鸟居本/岚山区域 |
+
+### 2.1.4 photo_spots / fun_facts / nearby_shops 元素结构
+
+**photo_spots**：
+```json
+{"location": "子安塔背后小径", "best_time": "7:30 光线斜打", "composition": "俯瞰本堂舞台", "tip": "禁三脚架"}
+```
+
+**fun_facts**：字符串数组（每条 1-3 句）。
+
+**nearby_shops**：
+```json
+{"name": "森嘉豆腐", "category": "food_specialty", "note": "170 年豆腐老铺，川端康成《古都》写到的那家"}
+```
+
+### 2.1.5 砍掉的字段（不要再加回来）
+
+- ~~`name_en`~~（手账本不印英文）
+- ~~`address_ja`~~（coordinates 够定位）
+- ~~`phone`~~（临时查官网）
+- ~~`access`~~（用户用不到，模板 hotel_area_note 表达交通）
+- ~~`unesco`~~（写进 short_desc 一句话）
+- ~~`photo_ok` / `tripod_allowed`~~（合并进 photo_spots 的 tip）
+- ~~`is_public_path`~~（opening_hours 表达 24h）
+- ~~`seasonal_notes`~~（季节用模板文件夹表达）
+- ~~`dwell_time_min`~~（slot.time 已定）
+- ~~`kimono_policy`~~（写模板时 WebSearch）
+- ~~`weather_sensitive`~~（写模板时判断）
+- ~~`negative_peak_cautions`~~（写模板时考虑，写在模板 note）
+- ~~`last_verified`~~（无效设计）
+- ~~`data_confidence` / `data_sources[]`~~（内部管控放别处，不进生产数据）
+- ~~`access_difficulty`~~（**砍掉**——偏远是装配层考虑"要不要给这用户推该模板"的事，不在事实层。装配花名册中标注模板"偏远 / 需 X 天以上"即可）
+
+### 2.2 restaurants（餐厅）
+
+字段保持 SCHEMA v1 §2.2 定义（17 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该餐厅的零碎说明：避坑/历史背景/必点必知/季节限定）。
+
+字段：`id / name_ja / name_zh / area / cuisine_tag / meal_type_fit / budget_tier / price_cny / vibe_tags / facility_tags / score / ab_role / meal_role / reservation_difficulty / opening_hours / risk_flags / last_verified / notes`
+
+**当前模板 meal slot 多数不指定 entity**，由餐厅装配按规则从池里挑。规则见 [japan/kansai/assembly/餐厅装配/](../../japan/kansai/assembly/餐厅装配/)。
+
+### 2.3 hotels（酒店）
+
+字段保持 SCHEMA v1 §2.3 定义（14 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该酒店的零碎说明：位置细节/特色/适配/淡旺季差异）。
+
+字段：`id / name / area / budget_tier / price_range_cny / vibe_tags / facility_tags / practical_tags / score / checkin / checkout / risk_flags / last_verified / notes`
+
+**当前模板 hotel slot 多数不指定 entity**，由酒店装配按规则从池里挑。规则见 [japan/kansai/assembly/酒店装配/](../../japan/kansai/assembly/酒店装配/)。
+
+---
+
+## 3. 装配层（assembly/）— **Markdown 不是 JSON**
+
+装配层维护的是"装配规则 + 模板元数据"，消费方主要是 AI，**用 markdown 不是 JSON**。
+
+### 3.1 文件组织
+
+```
+japan/kansai/assembly/
+├── 模板装配.md                  ← 模板花名册 + 打分 + min_days + day_type + 互斥 + 关西7条化学反应
+├── 餐厅装配/
+│   ├── 餐厅装配.md              ← 总规则（A/B 策略 / meal_role / 跨城去重 / 日类型升降）
+│   ├── 京都/{先斗町_河原町,祇园,京都站,...}.md
+│   ├── 大阪/{梅田_新地,难波_道顿堀,心斋桥,...}.md
+│   └── 其他/{神户,奈良,有马,城崎,高野山}.md     ← 每个文件内按区域分章节
+└── 酒店装配/
+    ├── 酒店装配.md              ← 总规则（升档比例表 / 修饰器 / 区域偏好 / 人群预算冲突）
+    ├── 京都/{四条河原町,京都站,祇园,...}.md
+    ├── 大阪/{难波_道顿堀,梅田,心斋桥,...}.md
+    └── 其他/{神户,奈良,有马,城崎,高野山}.md
+```
+
+**装配 markdown 全部用中文书写**。消费方是 Opus，中文比英文键名自然。
+
+**热门 vs 补充**：京都/大阪 各热门区域单独一份 md（数量多、引用频率高）；其他城市在"其他/"下每个城市一份 md，文件内按区域分章节。
+
+**每份区域 md 内部结构**：区域说明（氛围/适合场景/A 主推/B 惊喜/避坑/价格/跨城角色/景点关联）+ 该区域餐厅或酒店列表。
+
+**产品原则的装配策略已挪走**：原 [产品原则.md](../../japan/kansai/产品原则.md) §4 餐饮 / §5 酒店 / §12 关西 7 条化学反应整章已迁到装配 markdown，产品原则中删除（避免两份并存冲突）。
+
+### 3.2 模板装配.md = 顶层模板花名册（核心规范）
+
+**所有模板的元属性集中在一份顶层 markdown 里维护**，不分散到各个模板 JSON。
+
+**为什么这样**：
+- 模板 JSON 干净，只管动线
+- 元属性可以横向对比（一眼看完所有模板的打分/季节/人群偏好/互斥关系）
+- 修改装配规则只改一个文件
+- AI 装配读一份花名册就知道全局，不用扫 98 个 JSON
+
+**花名册每个模板一段 markdown，含**：
+
+| 字段 | 内容 |
+|---|---|
+| 季节 | early_spring / sakura / tsuyu / matsuri_peak_summer / summer_low / koyo / deep_winter / common（与模板所在文件夹一致，作为元数据冗余便于查询） |
+| 人群偏好 | 情侣 / 朋友 / 家庭 / 默认 各档加成（实际就是 audience_bonus） |
+| 打分 | core_experience（0-60）+ audience_bonus（情侣/朋友/家庭，-15~+20）+ execution_risk（0~-3） |
+| min_days | 推荐总天数门槛（默认 0=任何天数） |
+| day_type | regular / arrival / departure / theme_park / audience_day |
+| exclusive_with | 互斥模板 ID 数组（关西 §12 化学反应规则） |
+| no_pace_downgrade | bool，true 表示任何密度都不降档（USJ 日/人群日） |
+| night_options | 这模板结束后可接哪些 night_module（template_id 数组） |
+| selectable_tag | 用户表单勾选入口（onsen / usj / kimono / craft 等）；null 表示装配自动判断 |
+
+### 3.3 events/ 也是 markdown（待迁移）
+
+现有 `events/{sakura,koyo,festivals,illumination,special_open}.json` 5 个文件实质是给 AI 装配读的"窗口+判断上下文"，应迁移为 markdown。`live_facts__kyoto.json` 同样。
+
+---
+
+## 4. 通用字段约定
+
+### 4.1 字段两分法（D29，仍适用）
 
 所有结构化字段只有两类，其余一律自然语言：
 
 - **客观事实字段**：世界的属性（id / 坐标 / 营业时间 / 价格等），机器和人都精确读
 - **表单对应字段**：表单会按它过滤、或用户看得到的展示分类（人群 / 预算档 / 氛围标签等）
 
-不属于这两类的全部写进 `editor_note` / `review` / `story` / `flow detail` 等自然语言字段。
+不属于这两类的全部写进 `note` / `description` / `curators_notes` 等自然语言字段。
 
-### 0.2 硬字段保留 5 条标准（D29）
+### 4.2 命名规范
 
-一个字段进入硬字段表，必须满足以下至少一条：
+- 字段名：snake_case
+- ID：snake_case，带城市/圈前缀（`kyo_arashiyama_bamboo`）
+- 双语字段：`name_zh` / `name_ja`，日文汉字不要写成简体
+- 时间格式：`HH:MM-HH:MM`（slot.time）/ `MM-DD`（applicable_dates）/ `YYYY-MM-DD`（具体日期）
 
-1. 表单按它过滤
-2. 用户看得到的展示分类
-3. 客观事实
-4. 硬约束机械判定需要
-5. 系统运维需要
-
-### 0.3 通用字段约定
+### 4.3 通用结构
 
 | 字段 | 类型 | 取值 / 格式 | 一句话语义 |
 |---|---|---|---|
-| `id` | string | snake_case，带城市/圈前缀 | 全局唯一标识，如 `kyo_kiyomizudera` |
-| `score` | float | 0.0-5.0，一档对应一分 | 编辑综合评分（D30）：4.0+ S 级 / 3.0-3.9 A / 2.0-2.9 B / 1.0-1.9 C |
-| `risk_flags` | string[] | 自由词表 | 风险标签（观光化严重 / 价格陷阱 / 服务差等），表单可放开 |
-| `last_verified` | string | YYYY-MM-DD | 最后核验日期 |
 | `coordinates` | object | `{lat: float, lng: float}` | 经纬度，必须 Google Maps 验证 |
-| `opening_hours` | object | 自定义结构（含定休日） | 营业时间 |
-| `seasonal_notes` | object（可选） | `{季节名: 自然语言说明}` | key 自由命名（樱花期/红叶期/夏季等），只有"有季节故事"的实体才填 |
-
-### 0.4 命名规范
-
-- `name_ja` / `name_zh`：日文 / 中文名称双字段。日文汉字不要写成简体。
-- `area`：所在区域（对齐模板 area 枚举），用于装配反查
+| `opening_hours` | object | `{regular: string, closed: string}` | 营业时间含定休日 |
+| `admission` | object | `{adult: int, child: int, unit: "JPY"}` | 门票 |
 
 ---
 
-## 1. 日模板候选池（day_templates）
+## 5. 字段变更流程（硬规）
 
-> 对应文件：`content/<circle>/<city>/days/` 目录（`_meta.json` + 每个模板一个 `.json`）
-> 消费方：`opus_assembler.py` 硬筛 + Opus 最终选择
-> 模板里的自然语言内容（description、slot note、editor_note 等）不在本文件定义格式，由写作指引管内容完整性。
-
-### 1.1 模板级硬字段
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `template_id` | string | ✓ | snake_case | 全局唯一标识，如 `arrival_day`、`higashiyama_day` |
-| `label` | string | ✓ | - | 人可读的模板名称 |
-| `tags` | string[] | ✓ | 受控词表 | 体验标签，用于 skip_tags 过滤（如 `["temple", "walking"]`） |
-| `core_entities` | string[] | ✓ | 实体 ID | 核心景点 1-2 个，用于装配跨天去重 |
-| `fit_audience` | string \| string[] | ✓ | `"all"` / `["couple", "friends"]` | 适合人群（默认 `"all"`） |
-| `weather_sensitive` | bool | ✓ | true/false | 是否依赖晴天（true = 雨天需 Plan B） |
-| `condition` | string \| null | - | 自然语言 | 触发条件描述，Opus 读取判断是否适用。常年模板为 null |
-
-### 1.2 assembly 装配元数据
-
-嵌在每个模板内的 `assembly` 对象。`phase` 供 Python 分组，`best_pace` 供 Opus 决策。
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `phase` | string | ✓ | `arrival` / `departure` / `transfer` / `sightseeing` | Python 按此分组候选池，告诉 Opus "这几天从这些里挑" |
-| `best_pace` | string | ✓ | `compact` / `standard` / `relaxed` / `locked` | 这个模板在哪种节奏下体验最佳。`locked` = 强度固定无法降级（如 USJ），Opus 会自动让下一天降级补偿 |
-| `span_days` | int | 仅多日 | 2+ | 多日模板占几天，Python 检查剩余天数是否足够 |
-
-> **已废弃字段**：`role`（被 `phase` 替代）、`priority`（Opus 从 description 判断）、`fatigue`（被 `best_pace` + P1/P2/P3 slot 体系替代）
-
-### 1.3 slot 时间槽硬字段
-
-模板内 `slots` 数组的每个元素。
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `slot_id` | string | ✓ | snake_case | 槽位标识 |
-| `type` | string | ✓ | `poi` / `meal` / `snack` / `transport` / `rest` / `walk` / `shopping` / `cafe` / `evening_auto` / `optional_poi` / `shop_info` / `cafe_info` / `photo_spots` | 槽位类型 |
-| `area` | string | 仅 poi/meal | 对齐城市 area 枚举 | 所在区域，用于匹配餐厅/酒店池 |
-| `priority` | string | 仅内容槽 | `P1` / `P2` / `P3` | P1=灵魂景点必去，P2=顺路推荐，P3=顺路加项让紧凑节奏饱满。shop_info 槽可用 P5 |
-| `duration_min` | int | 仅内容槽 | 分钟 | 建议时长 |
-
-### 1.4 when 触发条件（季节模板用）
-
-| 字段 | 类型 | 必填 | 一句话语义 |
-|---|---|---|---|
-| `event_ref` | string | 二选一 | 引用 L0 `event_def_id`，由 L0 维护当年窗口 |
-| `period_md` | object | 二选一 | `{start: "MM-DD", end: "MM-DD"}`，月日区间，无对应 L0 事件时用 |
-
----
-
-## 2. 实体（entities）
-
-四类实体共享 §0.3 的通用字段。本节只列各类型独有的硬字段。
-
-### 2.1 景点 attractions（14 字段）
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `id` | string | ✓ | - | 见 §0.3 |
-| `name_ja` | string | ✓ | - | 日文名称 |
-| `name_zh` | string | ✓ | - | 中文名称 |
-| `area` | string | ✓ | 对齐模板 area 枚举 | 所在区域 |
-| `score` | float | ✓ | 0-5 | 见 §0.3 |
-| `coordinates` | object | ✓ | - | 见 §0.3 |
-| `visit_duration_min` | int | ✓ | 分钟 | 建议游览时长，必须搜索验证 |
-| `opening_hours` | object | ✓ | - | 见 §0.3 |
-| `admission_fee` | object \| null | ✓ | `{adult: int, child: int}`（人民币），搜不到 null | 票价 |
-| `booking_required` | bool | ✓ | - | 是否需要预约（参拜预约 / 宿坊预约等） |
-| `weather_sensitive` | bool | ✓ | - | 是否怕下雨（户外且雨天体验大幅下降 → true） |
-| `fit_audience` | string \| string[] | ✓ | 默认 `"all"` | 适合人群 |
-| `risk_flags` | string[] | ✓ | - | 见 §0.3 |
-| `last_verified` | string | ✓ | - | 见 §0.3 |
-
-**自然语言字段**：`editor_note`（一句话编辑点评，永远成立）、`review`（三段：亮点 / 怎么玩 / 缺点）、`seasonal_notes`（见 §0.3）
-
-### 2.2 餐厅 restaurants（17 字段）
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `id` | string | ✓ | - | 见 §0.3 |
-| `name_ja` | string | ✓ | - | 日文名称 |
-| `name_zh` | string | ✓ | - | 中文名称 |
-| `area` | string | ✓ | - | 所在区域 |
-| `cuisine_tag` | string | ✓ | 受控词表 | 菜系（用于跨城去重 + 表单过滤） |
-| `meal_type_fit` | string[] | ✓ | `[breakfast, lunch, dinner, snack]` 子集 | 适合餐次 |
-| `budget_tier` | string | ✓ | `economy` / `mid` / `mid_high` / `premium` / `top` | 预算档 |
-| `price_cny` | int | ✓ | 人民币 | 人均价 |
-| `vibe_tags` | string[] | ✓ | 浪漫 / 热闹 / 安静 / 小众 等 | 氛围标签（表单过滤 + 展示） |
-| `facility_tags` | string[] | ✓ | 包间 / 儿童椅 / 无障碍 / 英文菜单 等 | 设施标签（表单过滤） |
-| `score` | float | ✓ | 0-5 | 见 §0.3 |
-| `ab_role` | string | ✓ | `A_safe` / `B_surprise` | A/B 角色（D29 明确保留，每天展示一对） |
-| `meal_role` | string | ✓ | 见 §2.2.1 | 餐次角色（Opus 装配语义提示） |
-| `reservation_difficulty` | string | ✓ | `walk_in` / `1week` / `1month` / `2month+` | 预约难度（`2month+` 默认不进推荐池） |
-| `opening_hours` | object | ✓ | - | 见 §0.3 |
-| `risk_flags` | string[] | ✓ | - | 见 §0.3 |
-| `last_verified` | string | ✓ | - | 见 §0.3 |
-
-**自然语言字段**：`editor_note`、`review`（三段：亮点 / 必点必知 / 缺点）
-
-#### 2.2.1 meal_role 取值
-
-| 值 | 含义 |
-|---|---|
-| `arrival_recovery` | 到达恢复餐，轻松简单 |
-| `core_local_experience` | 城市核心名物体验 |
-| `showcase` | 全程高光餐（每城最多 1，全程最多 2） |
-| `everyday_good` | 日常好餐，稳定输出 |
-| `local_life_experience` | 本地生活体验（路边摊/站着吃） |
-| `theme_park_recovery` | 主题公园后恢复餐 |
-
-### 2.3 酒店 hotels（14 字段）
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `id` | string | ✓ | - | 见 §0.3 |
-| `name_ja` | string | ✓ | - | 日文名称 |
-| `name_zh` | string | ✓ | - | 中文名称 |
-| `area` | string | ✓ | - | 酒店所在区域（模板 hotel_area 反查这个） |
-| `budget_tier` | string | ✓ | `economy` / `mid` / `mid_high` / `premium` / `luxury` | 预算档 |
-| `price_range_cny` | object | ✓ | `{min: int, max: int}` | 每晚人均价格区间（人民币） |
-| `vibe_tags` | string[] | ✓ | 浪漫 / 传统 / 设计感 / 商务 等 | 氛围标签 |
-| `facility_tags` | string[] | ✓ | 温泉 / 早餐 / 儿童友好 / 无障碍 等 | 设施标签 |
-| `practical_tags` | string[] | ✓ | 地铁步行 5 分钟 / 免费停车 / 24h 前台 等 | 实用标签 |
-| `score` | float | ✓ | 0-5 | 见 §0.3 |
-| `checkin` | string | ✓ | `HH:MM` | 标准入住时间 |
-| `checkout` | string | ✓ | `HH:MM` | 标准退房时间 |
-| `risk_flags` | string[] | ✓ | - | 见 §0.3 |
-| `last_verified` | string | ✓ | - | 见 §0.3 |
-
-**自然语言字段**：`editor_note`、`review`（三段：亮点 / 位置房间 / 缺点）
-
-> **2026-04-12 砍掉的字段**：`quality_bias`（性价比/均衡/高品质）、`experience_bias`（普通/强体验）。理由：不是表单过滤维度（用户只问预算档）、不是客观事实、不是展示分类，可完全用 editor_note 表达。装配引擎是 Opus，读 editor_note 比读粗粒度标签更准确。
-
-### 2.4 店铺 shops（10 字段）
-
-| 字段 | 类型 | 必填 | 取值 | 一句话语义 |
-|---|---|---|---|---|
-| `id` | string | ✓ | - | 见 §0.3 |
-| `name_ja` | string | ✓ | - | 日文名称 |
-| `name_zh` | string | ✓ | - | 中文名称 |
-| `area` | string | ✓ | - | 所在区域 |
-| `shop_type_tag` | string | ✓ | 传统工艺 / 二次元 / 服饰 / 古着 / 生活杂货 / 伴手礼 等 | 店铺类型 |
-| `vibe_tags` | string[] | ✓ | 小众 / 网红 / 老牌 / 设计感 等 | 氛围标签 |
-| `score` | float | ✓ | 0-5 | 见 §0.3 |
-| `opening_hours` | object | ✓ | - | 见 §0.3 |
-| `risk_flags` | string[] | ✓ | - | 见 §0.3 |
-| `last_verified` | string | ✓ | - | 见 §0.3 |
-
-**自然语言字段**：`editor_note`（一段话 2-4 句，店铺不做多段 review）
-
----
-
-## 3. L0 事实层（events）
-
-### 3.1 event_def 字段
-
-| 字段 | 类型 | 必填 | 一句话语义 |
-|---|---|---|---|
-| `event_def_id` | string | ✓ | 事件唯一标识，如 `kansai_sakura_daigoji` |
-| `usual_window` | object | ✓ | 历史规律窗口，月日格式 |
-| `current_year_window` | object | - | 当年预测窗口，由年度更新脚本写入 |
-
-### 3.2 usual_window
-
-| 字段 | 类型 | 一句话语义 |
-|---|---|---|
-| `start_md` | string | `MM-DD` 起始月日 |
-| `end_md` | string | `MM-DD` 结束月日 |
-
-### 3.3 current_year_window
-
-| 字段 | 类型 | 一句话语义 |
-|---|---|---|
-| `year` | int | 年份 |
-| `start` | string | `YYYY-MM-DD` 当年起始 |
-| `end` | string | `YYYY-MM-DD` 当年结束 |
-| `updated_at` | string | `YYYY-MM-DD` 更新时间 |
-| `source` | string | 数据来源（`weathernews` / `jma` 等） |
-
-装配引擎优先用 `current_year_window`，无当年数据时回退 `usual_window`。
-
----
-
-## 4. 受控词表（enums）
-
-### 4.1 budget_tier
-
-| 餐厅 | 酒店 |
-|---|---|
-| `economy` | `economy` |
-| `mid` | `mid` |
-| `mid_high` | `mid_high` |
-| `premium` | `premium` |
-| `top` | `luxury` |
-
-### 4.2 cuisine_tag（餐厅）
-
-受控词表见 [content/kansai/tag_vocab.json](../content/kansai/tag_vocab.json)。常用值：怀石 / 寿司 / 天妇罗 / 拉面 / 乌冬 / 烧鸟 / 串炸 / 大阪烧 / 居酒屋 / 西餐 / 咖啡 / 和菓子 等。
-
-### 4.3 meal_type_fit / meal_type
-
-`breakfast` / `lunch` / `dinner` / `snack`
-
-### 4.4 reservation_difficulty
-
-| 值 | 说明 |
-|---|---|
-| `walk_in` | 随时去，无需预约 |
-| `1week` | 提前 1 周内可预约 |
-| `1month` | 提前 1 个月 |
-| `2month+` | 提前 2 个月以上或介绍/会员制（默认不进推荐池） |
-
-### 4.5 fit_audience
-
-`all` / `couple` / `friends` / `family` / `solo` / `elderly` / 自定义子集
-
-### 4.6 ab_role
-
-`A_safe` / `B_surprise`
-
----
-
-## 5. 字段变更流程（硬规则）
-
-任何字段变动必须按以下顺序执行：
+任何字段变动**必须按以下顺序**：
 
 1. **先改本文件 SCHEMA.md**（这是唯一权威源）
-2. 再改受影响的写作指引（[templates/CONTENT_POOL_WRITING_GUIDE.md](templates/CONTENT_POOL_WRITING_GUIDE.md)、[templates/TEMPLATE_CREATION_GUIDE.md](templates/TEMPLATE_CREATION_GUIDE.md)）
-3. 如有架构层影响，在 [DECISIONS.md](DECISIONS.md) 加新决策号
+2. 再改受影响的写作指引（[模板写作.md](../04_操作SOP/模板写作.md)）
+3. 在 [DECISIONS.md](../02_历史决策/DECISIONS.md) 加新决策号
+4. 批量改现有数据/模板文件
 
 **禁止反向操作**：不许"先在写作指引里加字段，回头再改 SCHEMA"。这会导致字段定义不一致。
 
+**禁止随意扩展字段**：触发任何"新加字段"想法，先回答 §⚠️ 核心规范的 3 个问题。
+
 ---
 
-## 6. 历史砍掉的字段（D29 + 2026-04-12）
+## 6. 历史砍掉的字段（D36 大瘦身 2026-04-22）
 
-以下字段在装配引擎转 Opus 驱动（D28）后被砍：
+模板字段从 30+ 砍到 12（必填 8 + 可选 4），事实层从 25+ 砍到最多 15。详见 §1.6 / §2.1.5 砍单。
 
-**模板**：旧版定义了 `story` / `flow` / `flow.detail` 等自然语言字段的结构。2026-04-12 起不再定义自然语言字段的格式，由写作指引管内容完整性。
+砍的核心逻辑：
+- **景点相关的内容（介绍/拍照/冷知识/小店/门票/开门）→ 全在事实层 entity**
+- **跟用户档位/天数/人群相关的（打分/min_days/A-B/升档/互斥）→ 全在装配层 markdown**
+- **模板只剩动线判断（顺序/时段/区域/类型）+ 设计 note + 用户 description**
 
-**餐厅**：`day_refs` / `season_affinity` / `fallback_for_dedup`
+---
 
-**酒店**：`quality_bias` / `experience_bias` / 多维 ratings
+## 7. 历史决策链
 
-**店铺**：`day_refs`
-
-**全局**：`grade`（被 score 0-5 取代，D30）/ `tag_vocab.json` 强制约束（降级为风格指南）
+- D28 Opus 装配（2026-03-15）
+- D29 字段两分法（2026-03-22）
+- D30 score 0-5 统一（2026-04-08）
+- D31 字段变更流程（2026-04-12）
+- D32 关西 v2 四层架构（2026-04-17）
+- D33 季节目录 10→7 档（2026-04-20）
+- D34 仓库聚合重构（2026-04-20）
+- D35 docs 5 类重构（2026-04-20）
+- **D36 字段大瘦身 + 装配层 markdown 化**（2026-04-22）← 本次

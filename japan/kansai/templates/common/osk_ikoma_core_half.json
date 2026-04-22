@@ -1,0 +1,71 @@
+{
+  "template_id": "osk_ikoma_core_half",
+  "label": "生驹山游乐园·日落飞车",
+  "template_kind": "half_day",
+  "time_of_day": "evening",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": ["osk_ikoma_sanjo_yuenchi"],
+  "weather_sensitive": true,
+
+  "score": {
+    "core_experience": 30,
+    "audience_bonus": {"couple": 4, "friends": 3, "family": 3},
+    "execution_risk": -2,
+    "access_convenience": 3,
+    "base_score": 31,
+    "note": "execution_risk:开放日历不固定需提前查;access_convenience:需换乘缆车"
+  },
+  "selectable_tag": "night_view",
+
+  "description": "大阪本地家庭才知道的山顶昭和游乐园——生駒山上遊園地(1929年开业)。高空飞车在山顶轨道上运行时,整个大阪盆地和大阪湾在脚下展开。日落时段(17:00-21:00)是专为看夕阳和夜景去的,而不是'游乐园'本身——这是关西被严重低估的夕阳展望点。3万收藏的爆款实证有强大市场。day_mood:高空与余晖。",
+
+  "design_rationale": "生驹山横跨大阪府和奈良县的山脊,海拔642m。从大阪近铁20分到生駒站,再转ケーブル(缆车)上山10分。游乐园本身保留昭和时代设施,主要客群是本地家庭——这份昭和感加上夕阳展望是吸引力来源。适合大阪行程最后一个下午,或接晚餐前的窗口段。",
+
+  "slots": [
+    {
+      "time": "16:00-17:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "近铁奈良线/大阪难波线→生駒站(从难波约20分,¥430)。生駒站換乘宝山寺线缆车(ケーブル)→山上(約10分,¥600往返)。缆车是大阪府境内最古老的缆车(1918年),昭和感满满。目标17:00前到山顶游乐园。"
+    },
+    {
+      "entity": "osk_ikoma_sanjo_yuenchi",
+      "time": "17:00-20:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "生駒山上遊園地。入园料+乗車料セット约¥1500-2000(以官方为准,季节性变动)。**出发前必查官网日历**——夜间营业通常限周末和假日，平日开园时间和内容不同。高空飞车(ローラーコースター)在山顶轨道上行驶,低速但视野极开阔,大阪湾/大阪城/あべのハルカス一望。日落约18:30-19:30(季节不同),趁光线最好时在展望台等待。夜景全开后整个大阪平原灯光铺开。本地家庭带孩子来,游客几乎都是日本人——真正的本地体验。"
+    }
+  ],
+
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "高空飞车轨道最高点,大阪盆地在脚下360度展开的那一瞬",
+    "peak_end_line": "夜景完全亮起后从展望台往下看大阪平原——比梅田Sky Building多一份'站在山上俯瞰一座城'的感受"
+  },
+
+  "photo_spots": [
+    {
+      "location": "山顶展望台",
+      "best_time": "日落前30分钟到日落后20分钟(蓝调时刻)",
+      "composition": "大阪盆地全景+远处大阪湾,前景游乐园设施剪影",
+      "tip": "日落时段变化快,多拍几张;手机广角能把整个盆地收进去"
+    }
+  ],
+
+  "contingencies": {
+    "rain_light": "山顶云雾天气不适合,雨天跳过",
+    "rain_heavy": "跳过此模板",
+    "minimum_viable": {
+      "condition": "只有1小时",
+      "must_do": "坐高空飞车一次(5分钟)+展望台看日落(30分钟)",
+      "why": "日落展望是来这里的唯一理由"
+    }
+  },
+
+  "assembly_hints": {
+    "best_position": "大阪行程某一天下午的最后一段(17:00-20:00)",
+    "not_for": ["非夜景营业日(平日白天开园体验大不同)","阴雨天(视野全无)"],
+    "combines_well_with": "接晚餐回难波/梅田"
+  }
+}

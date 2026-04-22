@@ -1,0 +1,112 @@
+{
+  "template_id": "kyo_mimurotoji_ajisai_full",
+  "season_window": "tsuyu",
+  "score": {
+    "core_experience": 48,
+    "audience_bonus": {
+      "couple": 3,
+      "friends": 3,
+      "family": 1
+    },
+    "execution_risk": 0,
+    "access_convenience": 3,
+    "base_score": 51,
+    "note": "三室户寺紫阳花园关西最大规模/梅雨雨天反而更美/access=3需京阪+步行"
+  },
+  "label": "绣球花巡礼（6月限定）",
+  "tags": [
+    "ajisai",
+    "temple",
+    "nature",
+    "seasonal"
+  ],
+  "core_entities": [
+    "kyo_mimurotoji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": false,
+  "condition": "season == 'summer'",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 最适合雨天的京都。6月是樱花与红叶之间的'淡季'，观光客少——但有只有这个时期才能看到的绣球花（あじさい）寺院。三室戸寺的1万株令人叹为观止。雨天的绣球花才是最美的——苔藓+雨+绣球花的组合是京都6月独有的色彩。不与其他季节的模板竞争。",
+  "hotel_area_note": "三室戸寺在宇治区域（京阪三室戸站步行15min）。藤森神社在京都市内（京阪墨染站步行5min）。两处可以在一天内游览完。",
+  "slots": [
+    {
+      "slot_id": "aji_mimurotoji",
+      "time_range": "09:00-11:00",
+      "type": "poi",
+      "area": "uji_river",
+      "priority": "P1",
+      "duration_min": 120,
+      "note": "三室戸寺——京阪三室戸站步行15min。绣球花园6月1日-7月上旬公开（¥1,000/绣球花期间）。约50种·1万株绣球花开在杉树林的斜坡上——规模是京都最大。心形绣球花（自然长成心形的株/寻找很有趣）在社交媒体上很有名。雨天花色更鲜艳+人也更少——这是一个不要排斥6月雨天的日子。周末有绣球花亮灯（期间限定/19:00-21:00），但夜间活动需另行确认。",
+      "time": "09:00-11:00"
+    },
+    {
+      "slot_id": "aji_uji_option",
+      "time_range": "11:00-12:30",
+      "type": "optional_poi",
+      "area": "uji_river",
+      "priority": "P3",
+      "duration_min": 90,
+      "note": "从三室戸寺步行约20min或京阪2站到宇治中心部。如果有时间可追加平等院/宇治川散步（注意与uji_day内容重复——已有宇治日的话直接跳过回京都市内）。6月的宇治是新茶的季节——在茶铺喝一杯新茶也是这个时期限定的享受。",
+      "time": "11:00-12:30"
+    },
+    {
+      "slot_id": "aji_lunch",
+      "time_range": "12:30-13:30",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "在宇治或回京都市内吃午餐。还在宇治的话选茶荞麦面或中村藤吉。回市内的话随意。",
+      "time": "12:30-13:30"
+    },
+    {
+      "slot_id": "aji_fujinomori",
+      "time_range": "14:30-16:00",
+      "type": "poi",
+      "area": "fushimi",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "藤森神社——京阪墨染站步行5min。以'绣球花神社'闻名（约3,500株/2处绣球花苑/¥500）。比三室戸寺更紧凑、更安静——下午悠闲参观。6月有紫陽花祭（绣球花节）。也以胜运之神闻名，在赛马迷中颇有人气。这个时期游客极少，可以感受京都'当地神社'的氛围。",
+      "time": "14:30-16:00"
+    },
+    {
+      "slot_id": "aji_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市内吃晚餐。6月的京都是香鱼（鮎，あゆ）的当季——香鱼盐烤是夏日京料理的代表。贵船的川床也从6月开始（可与kurama_kibune_day组合）。",
+      "time": "18:30-20:00"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready"
+}

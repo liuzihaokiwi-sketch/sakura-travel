@@ -1,0 +1,157 @@
+{
+  "template_id": "kyo_arashiyama_koyo_full",
+  "label": "岚山红叶日（天龙寺+奥嵯峨三寺）",
+  "season_window": "koyo",
+  "score": {
+    "core_experience": 52,
+    "audience_bonus": {
+      "couple": 4,
+      "friends": 3,
+      "family": 1
+    },
+    "execution_risk": -1,
+    "access_convenience": 4,
+    "base_score": 55,
+    "note": "岚山红叶是11月末山区主场/渡月桥+常寂光寺+祇王寺三重叠加/risk-1=11月末旅行团涌入"
+  },
+  "tags": [
+    "koyo",
+    "temple",
+    "walking",
+    "nature"
+  ],
+  "core_entities": [
+    "kyo_arashiyama",
+    "kyo_tenryuji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'koyo' (11月中旬-12月上旬)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "compact"
+  },
+  "description": "day_mood: 深度与沉浸。岚山日的红叶版——和常规岚山日共享岚山+天龙寺自动互斥。早起竹林（无人）→天龙寺借景红叶→奥嵯峨三寺串连（常寂光寺多宝塔红叶/二尊院参道红叶隧道/祇王寺苔庭落叶红毯）→渡月桥红叶全景收尾。三寺各有不同的红叶风格，不是'看三遍一样的'。",
+  "hotel_area_note": "JR嵯峨嵐山站或阪急嵐山站。住四条：阪急→嵐山约25min（¥410）。住京都站：JR嵯峨野线→嵯峨嵐山约17min（¥240）。红叶季岚山人流量比樱花季还大——建议7:30前到。",
+  "slots": [
+    {
+      "slot_id": "ak_bamboo",
+      "time_range": "07:30-08:15",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 45,
+      "note": "竹林小径——7:30前到是拍到无人竹林的唯一窗口（红叶季8:00后就有人了）。竹林本身不是红叶景点但是岚山的标志画面——绿色的竹+周边的红叶形成反差色彩。从JR嵯峨嵐山站步行10min到竹林北入口。",
+      "time": "07:30-08:15"
+    },
+    {
+      "slot_id": "ak_tenryuji",
+      "time_range": "08:30-09:45",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 75,
+      "entity_hint": "天龍寺（天龙寺）",
+      "note": "庭园¥500+本堂¥300。8:30开门——红叶季建议8:30到。曹源池庭园是岚山红叶的主战场：池面倒映红叶+嵐山山坡的借景构图是教科书级的日式庭园设计（梦窗疏石作庭，世界遗产）。红叶季的借景层次感是其他季节看不到的——远山的红叶从庭园延伸到天际线。本堂天花板的云龙图（加藤東一作，1997年）值得抬头看。北门出去直接接竹林→奥嵯峨方向。1h-1.5h。",
+      "time": "08:30-09:45"
+    },
+    {
+      "slot_id": "ak_jojakko",
+      "time_range": "10:00-11:00",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 60,
+      "entity_hint": "常寂光寺",
+      "note": "¥500。天龙寺北门出来步行约15min（经过竹林→小倉山（小仓山）方向）。常寂光寺是奥嵯峨三寺中红叶最震撼的——从山门进去，石阶两侧枫树形成红色隧道，爬到多宝塔（重要文化财）位置可以俯瞰整个嵯峨野+京都市区的红叶全景。这个'从下往上爬、越爬越美'的体验设计是京都最好的红叶动线之一。苔庭+落叶的组合也很美。境内面积不大但高低差明显——慢慢看1h。",
+      "time": "10:00-11:00"
+    },
+    {
+      "slot_id": "ak_nisonin",
+      "time_range": "11:00-11:45",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 45,
+      "entity_hint": "二尊院",
+      "note": "¥500。常寂光寺步行5min。'紅葉の馬場（红叶马场）'——200m长的参道两侧枫树形成红叶隧道，是京都'参道红叶'的代表画面（和常寂光寺的'登山红叶'风格完全不同）。释迦如来+阿弥陀如来二尊并立是寺名由来。境内还有藤原定家的时雨亭遗迹（与《百人一首》相关之地）。红叶季参道人多但比常寂光寺少——很多人不知道从常寂光寺可以直接走过来。45min。",
+      "time": "11:00-11:45"
+    },
+    {
+      "slot_id": "ak_gioji",
+      "time_range": "11:45-12:15",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P3",
+      "duration_min": 30,
+      "entity_hint": "祇王寺",
+      "note": "¥300。二尊院步行5min。奥嵯峨三寺中最小最安静的——整个寺院就是一间草庵+一片苔庭。红叶季的看点不是'立体的红叶'而是'落在苔上的红叶'——紅葉の絨毯（红叶红毯）。这里是《平家物语》中白拍子祇王悲恋故事的舞台。20-30min。如果已经看了太多红叶审美疲劳，可以跳过这个直接去午餐。",
+      "time": "11:45-12:15"
+    },
+    {
+      "slot_id": "ak_lunch",
+      "time_range": "12:30-13:30",
+      "type": "meal",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "奥嵯峨→嵐山中心部方向步行约15min回来。岚山的餐厅红叶季非常挤——避开12:00-13:00最高峰。渡月桥北侧/嵐電嵐山站（岚山电车嵐山站）附近有选择。方向：汤豆腐（嵐山也有名店）/京料理/荞麦面。天龙寺门前的篩月（精进料理，¥5,500起，需预约）是岚山最有仪式感的选择但需要提前。红叶季嵐山的外卖小食（栗子/烤团子/抹茶冰淇淋）也是体验的一部分。",
+      "time": "12:30-13:30"
+    },
+    {
+      "slot_id": "ak_togetsukyo",
+      "time_range": "13:30-15:00",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 90,
+      "note": "渡月桥+桂川沿岸散步。渡月桥本身不是红叶景点但是看嵐山山坡红叶全景的最佳位置——从桥上往西看整面山是红黄绿三色。下午的光线从西面打过来，嵐山的红叶被照得最亮。桂川南岸（渡月桥过桥后左转沿河走）人比北岸少很多，有河畔长椅可以坐下来看山。中之島公園（桂川中的小岛）也是休息好地方。这段是一天的'减速带'——上午看了三座寺的红叶，下午在桥上河边放松就好。",
+      "time": "13:30-15:00"
+    },
+    {
+      "slot_id": "ak_afternoon_option",
+      "time_range": "15:00-16:30",
+      "type": "optional_poi",
+      "area": "arashiyama",
+      "priority": "P3",
+      "duration_min": 90,
+      "note": "下午选项：(1) 宝厳院（宝严院，天龙寺塔头，¥700红叶季特别公开，獅子吼の庭（狮子吼庭园）是红叶名所，30-40min，人少的隐秘景点）(2) 嵯峨野小火车红叶（¥880，红叶季车票必须提前1个月网上预约，25min穿越保津峡红叶谷，有票就去没票就算）(3) 大覚寺（大觉寺）/大沢池散步（红叶+池面倒影，距嵐電稍远）(4) 体力不够直接回市区——上午已经看了足够多的红叶。",
+      "time": "15:00-16:30"
+    },
+    {
+      "slot_id": "ak_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "两个方向：(1) 嵐山吃完再回市区——嵐山站周边有几家安静的店，红叶季17:00后游客大量撤离，傍晚的嵐山恢复安静 (2) 回市区吃——阪急嵐山→四条河原町约25min，二条/丸太町（丸太町）方向人少质量好。今天一整天在嵐山的自然里，晚餐换个方向：肉料理/洋食/居酒屋，不需要再吃京料理。",
+      "time": "18:00-19:30"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready"
+}

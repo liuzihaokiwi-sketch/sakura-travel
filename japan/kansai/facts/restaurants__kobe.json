@@ -1,0 +1,1356 @@
+[
+  {
+    "id": "kobe_000",
+    "name_ja": "満月",
+    "name_zh": "满月",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.74",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_001",
+    "name_ja": "欧風料理 もん",
+    "name_zh": "欧风料理 Mon",
+    "area": "sannomiya",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_002",
+    "name_ja": "料理屋 植むら",
+    "name_zh": "料理屋 植村",
+    "area": "sannomiya",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.36",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_003",
+    "name_ja": "寿志 城助",
+    "name_zh": "寿志 城助",
+    "area": "kitano_shinkobe",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:4.25",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_004",
+    "name_ja": "すし うえだ",
+    "name_zh": "寿司 上田",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:4.23",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_005",
+    "name_ja": "麤皮",
+    "name_zh": "麤皮",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.94",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_006",
+    "name_ja": "炭焼塩ホルモン『あ』神戸酒場",
+    "name_zh": "炭烧盐内脏 神户酒场",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.89",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_007",
+    "name_ja": "ふじお商店",
+    "name_zh": "藤尾商店",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.8",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_008",
+    "name_ja": "勇すし",
+    "name_zh": "勇寿司",
+    "area": "sannomiya",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.79",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_009",
+    "name_ja": "雄三郎",
+    "name_zh": "雄三郎",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_010",
+    "name_ja": "コム・シノワ",
+    "name_zh": "如中华",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_011",
+    "name_ja": "パティスリー モンプリュ 本店",
+    "name_zh": "糕点店 蒙普吕 本店",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_012",
+    "name_ja": "サ・マーシュ",
+    "name_zh": "萨·马什",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_013",
+    "name_ja": "カファレル 神戸北野本店",
+    "name_zh": "加法雷尔 神户北野本店",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.74",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_014",
+    "name_ja": "つけ麺 繁田",
+    "name_zh": "沾面 繁田",
+    "area": "sannomiya",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_015",
+    "name_ja": "焼肉ぜん",
+    "name_zh": "烧肉禅",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_016",
+    "name_ja": "楽関記",
+    "name_zh": "楽関記",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_017",
+    "name_ja": "カフェ フロインドリーブ 本店",
+    "name_zh": "咖啡 弗罗因德利伯 本店",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_018",
+    "name_ja": "洋食の朝日",
+    "name_zh": "洋食之朝日",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_019",
+    "name_ja": "北野坂 こばやし",
+    "name_zh": "北野坂 小林",
+    "area": "sannomiya",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_020",
+    "name_ja": "茜屋珈琲店",
+    "name_zh": "茜屋珈琲店",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_021",
+    "name_ja": "ENISHI総本店",
+    "name_zh": "ENISHI总本店",
+    "area": "sannomiya",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_022",
+    "name_ja": "麺 ヒキュウ 六甲道店",
+    "name_zh": "面 飞球 六甲道店",
+    "area": "sannomiya",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_023",
+    "name_ja": "麺や一芯",
+    "name_zh": "面家一芯",
+    "area": "sannomiya",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_024",
+    "name_ja": "焼肉bue",
+    "name_zh": "烧肉bue",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_025",
+    "name_ja": "大栄",
+    "name_zh": "大荣",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_026",
+    "name_ja": "グリル末松",
+    "name_zh": "格里尔末松",
+    "area": "sannomiya",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_027",
+    "name_ja": "丸高中華そば 神戸二宮 二宮店",
+    "name_zh": "丸高中华荞麦面 神户二宫 二宫店",
+    "area": "sannomiya",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_028",
+    "name_ja": "蕎麦前 中手 とうは",
+    "name_zh": "荞麦前 中手 东羽",
+    "area": "sannomiya",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_029",
+    "name_ja": "元町サントス",
+    "name_zh": "元町桑托斯",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_030",
+    "name_ja": "カフェ ケシパール",
+    "name_zh": "咖啡 月影珍珠",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_031",
+    "name_ja": "牛や たん平",
+    "name_zh": "牛屋 探平",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_032",
+    "name_ja": "エビアンコーヒー",
+    "name_zh": "埃维昂咖啡",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_033",
+    "name_ja": "神戸プレジール 本店",
+    "name_zh": "神户普莱西尔 本店",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_034",
+    "name_ja": "炭焼肉　石田屋。 Hanare",
+    "name_zh": "炭烧肉 石田屋 Hanare",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_035",
+    "name_ja": "もりぐち",
+    "name_zh": "森口",
+    "area": "sannomiya",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_036",
+    "name_ja": "Baron",
+    "name_zh": "Baron",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_037",
+    "name_ja": "讃岐麺房 すずめ",
+    "name_zh": "赞岐面房 雀",
+    "area": "sannomiya",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_038",
+    "name_ja": "八起",
+    "name_zh": "八起",
+    "area": "sannomiya",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_039",
+    "name_ja": "季節一品料理 藤原",
+    "name_zh": "季节一品料理 藤原",
+    "area": "sannomiya",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_040",
+    "name_ja": "なん天",
+    "name_zh": "南天",
+    "area": "sannomiya",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_041",
+    "name_ja": "天ぷら 天介",
+    "name_zh": "天妇罗 天介",
+    "area": "kitano_shinkobe",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_042",
+    "name_ja": "播州地酒 ひの",
+    "name_zh": "播州地酒 日野",
+    "area": "sannomiya",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_043",
+    "name_ja": "とんかつ comocchi",
+    "name_zh": "炸猪排 comocchi",
+    "area": "sannomiya",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_044",
+    "name_ja": "炭焼きステーキとワインobiobi",
+    "name_zh": "炭烧牛排与红酒 obiobi",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_045",
+    "name_ja": "ステーキハウス ミディアムレア",
+    "name_zh": "牛排屋 七分熟",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_046",
+    "name_ja": "鉄板焼 心",
+    "name_zh": "铁板烧 心",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_047",
+    "name_ja": "神戸温泉 創作ダイニング蒼",
+    "name_zh": "神户温泉 创作餐厅蓝",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_048",
+    "name_ja": "手しごと讃岐うどん 讃々",
+    "name_zh": "手工赞岐乌冬 赞々",
+    "area": "sannomiya",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_049",
+    "name_ja": "りょうり屋 くどう",
+    "name_zh": "料理屋 工藤",
+    "area": "sannomiya",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_050",
+    "name_ja": "伊藤グリル",
+    "name_zh": "伊藤格里尔",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_051",
+    "name_ja": "プロペラ",
+    "name_zh": "螺旋桨",
+    "area": "sannomiya",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.62",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_052",
+    "name_ja": "神戸トルコライス",
+    "name_zh": "神户土耳其饭",
+    "area": "sannomiya",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.62",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_053",
+    "name_ja": "グリル一平 三宮店",
+    "name_zh": "格里尔一平 三宫店",
+    "area": "sannomiya",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.61",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_054",
+    "name_ja": "久庵",
+    "name_zh": "久庵",
+    "area": "sannomiya",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.6",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_055",
+    "name_ja": "神戸牛ステーキ花ほうび",
+    "name_zh": "神户牛牛排 花赏",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_056",
+    "name_ja": "神戸鉄板ステーキ岩崎",
+    "name_zh": "神户铁板牛排 岩崎",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_057",
+    "name_ja": "KOBE BEEF Yamato",
+    "name_zh": "KOBE BEEF Yamato",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_058",
+    "name_ja": "神戸牛焼肉 岡虎（オカトラ）",
+    "name_zh": "神户牛烧肉 冈虎",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 15000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_059",
+    "name_ja": "神戸牛ステーキ 雪月風花 北野坂",
+    "name_zh": "神户牛牛排 雪月风花 北野坂",
+    "area": "kitano_shinkobe",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_060",
+    "name_ja": "神戸牛ステーキ鉄板焼 雪月花",
+    "name_zh": "神户牛牛排铁板烧 雪月花",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_061",
+    "name_ja": "鉄板焼 奥の細道",
+    "name_zh": "铁板烧 奥之细道",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_062",
+    "name_ja": "Watahan（わたはん）",
+    "name_zh": "Watahan",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_063",
+    "name_ja": "鶏soba座銀 神戸本店",
+    "name_zh": "鸡soba座银 神户本店",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_064",
+    "name_ja": "FISHERMAN'S MARKET",
+    "name_zh": "FISHERMAN'S MARKET",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 3000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_065",
+    "name_ja": "なると 鳴門鯛焼本舗",
+    "name_zh": "鸣门鲷鱼烧本铺",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_066",
+    "name_ja": "HARBS",
+    "name_zh": "HARBS",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_067",
+    "name_ja": "Tooth Tooth",
+    "name_zh": "Tooth Tooth",
+    "area": "sannomiya",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_068",
+    "name_ja": "炭焼肉 石田屋",
+    "name_zh": "炭烧肉 石田屋",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kobe_069",
+    "name_ja": "モーリヤ",
+    "name_zh": "莫里亚",
+    "area": "sannomiya",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_070",
+    "name_ja": "北野クラブ",
+    "name_zh": "北野俱乐部",
+    "area": "kitano_shinkobe",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 15000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kobe_071",
+    "name_ja": "ア・ラ・カンパーニュ",
+    "name_zh": "阿拉坎帕涅",
+    "area": "motomachi_nankinmachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  }
+]

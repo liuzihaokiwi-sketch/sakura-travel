@@ -1,0 +1,94 @@
+{
+  "template_id": "osk_kaiyukan_core_full",
+  "label": "海游馆·天保山(港区半日/一日)",
+  "template_kind": "full_day",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": ["osk_kaiyukan", "osk_tempozan_ferris"],
+  "weather_sensitive": false,
+  "selectable_tag": "aquarium",
+
+  "score": {
+    "core_experience": 40,
+    "audience_bonus": {"couple": 3, "friends": 2, "family": 5},
+    "execution_risk": -1,
+    "access_convenience": 4,
+    "base_score": 43,
+    "note": "亲子首选(family=5);海游馆是世界最大级水族馆/鲸鲨在身边游;risk -1=旺季排队时间长;可接teamlab长居公园"
+  },
+
+  "description": "海游馆是世界最大级水族馆——展示方式是'从8F螺旋走下去,围着一个9m深的大水槽'。鲸鲨在你身边游过是真实体验。天保山摩天轮(曾是世界最大)的日落是大阪港区限定画面——从112m看大阪湾+城市天际线。全程室内为主,雨天完全友好。亲子/情侣/default都适合。day_mood:壮观与日落。",
+
+  "slots": [
+    {
+      "time": "09:30-10:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "地铁中央线→大阪港站(1号出口步行5分钟到海游馆)。梅田/难波出发约25-30分。大阪周游券含海游馆入场——出发前确认是否覆盖。"
+    },
+    {
+      "entity": "osk_kaiyukan",
+      "time": "10:00-13:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "海游馆。¥2700(大人),10:00开馆(旺季8:30,查官网日历)。8层螺旋下降设计:从顶层依次穿越各水域——北太平洋/日本森林/蒙特雷湾/厄瓜多尔热带雨林→中央9m大水槽(鲸鲨+蝠鲼+各种鱼群)。鲸鲨是全亚洲少数能看到的——体长8-10m,在你身边缓缓游过是一辈子难忘的体验。门票含水獺/海豹表演(查当日schedule)。旺季排队30-60分钟——开馆前就位。"
+    },
+    {
+      "time": "13:00-14:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "tempozan",
+      "note": "天保山マーケットプレース(海游馆旁边商场)午餐。或自带便当天保山公园广场野餐(港口景观)。"
+    },
+    {
+      "entity": "osk_tempozan_ferris",
+      "time": "14:00-17:30",
+      "type": "poi",
+      "priority": "P2",
+      "note": "天保山摩天轮(¥900,透明机舱¥1000)。曾是世界最大(112m),晴天可见关西机场/明石海峡大桥。日落时段(约17:00-18:30)乘坐一圈约15分钟,是港区最浪漫的日落体验——比HARUKAS的静态观景更有移动感。旁边有大阪渡轮(周末和祝日运行,天保山→桜島渡河)。"
+    }
+  ],
+
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "中央大水槽里鲸鲨从头顶缓缓游过的那一刻——体量大到让人失语",
+    "peak_end_line": "天保山摩天轮上看大阪湾日落——飞机从关西机场方向飞来,城市灯光开始亮起"
+  },
+
+  "fun_facts": [
+    "海游馆的水槽用了7500吨盐水——建造时把整个水槽的尺寸设计为能容纳大型鲸鲨的最小值(长34m/深9m)。1990年开馆时是全球第一座'专门展示太平洋生态系'的水族馆,当时的展示理念影响了全球水族馆设计",
+    "天保山原本是大阪最高峰(4.53m)——1831年疏浚安治川时把泥土堆积成人工山,明治时代是著名的观光地。后来随着填海造陆和城市发展逐渐消失,现在只剩下'日本一低い山'的名头和一块石碑"
+  ],
+
+  "photo_spots": [
+    {
+      "location": "太平洋馆主水槽",
+      "best_time": "10:00-11:00 开馆人少",
+      "composition": "鲸鲨+人影剪影+深蓝水",
+      "tip": "禁止闪光，手机贴玻璃避反光，Portrait模式捕捉鲸鲨过头顶瞬间"
+    },
+    {
+      "location": "天保山摩天轮上",
+      "best_time": "16:30-17:30 日落时段",
+      "composition": "车厢+窗外大阪湾+关西机场方向",
+      "tip": "透明车厢(+¥100)视野无遮挡，广角装下大阪湾全景"
+    }
+  ],
+
+  "contingencies": {
+    "rain_light": "完全室内，不受影响——海游馆是大阪最雨天友好的体验之一",
+    "rain_heavy": "完全室内不影响，天保山公园和摩天轮略受影响但有遮盖",
+    "crowd": "旺季(7-9月/年末年始/GW)开馆前即排队；9:00到位开门即入最佳；周中平日几乎不排",
+    "minimum_viable": {
+      "condition": "只有2小时",
+      "must_do": "海游馆太平洋馆主水槽+鲸鲨",
+      "why": "鲸鲨+大水槽是海游馆不可替代的核心，摩天轮和周边可省"
+    }
+  },
+
+  "assembly_hints": {
+    "best_for": "亲子档/情侣/任何天气",
+    "not_for": ["深度文化游客(无历史深度)"],
+    "combines_with": "夏季夜场版用osk_kaiyukan_tempozan_night_half替代；或接teamLab Botanical Garden Osaka(长居公园)"
+  }
+}

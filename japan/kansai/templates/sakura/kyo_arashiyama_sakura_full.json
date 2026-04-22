@@ -1,0 +1,132 @@
+{
+  "template_id": "kyo_arashiyama_sakura_full",
+  "season_window": "sakura",
+  "score": {
+    "core_experience": 54,
+    "audience_bonus": {
+      "couple": 5,
+      "friends": 3,
+      "family": 1
+    },
+    "execution_risk": -1,
+    "access_convenience": 4,
+    "base_score": 57,
+    "note": "渡月桥+桂川两岸樱花是京都sakura最壮观画面之一/天龙寺借景+樱花组合/risk-1=樱花盛期人流极大"
+  },
+  "label": "岚山樱花日（天龙寺借景+渡月桥樱花全景）",
+  "tags": [
+    "sakura",
+    "temple",
+    "nature",
+    "walking"
+  ],
+  "core_entities": [
+    "kyo_arashiyama",
+    "kyo_tenryuji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'sakura' (3月下旬-4月上旬)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 春意盎然。岚山日的樱花版——与常规岚山日共享嵐山+天龙寺自动互斥。早起竹林（无人）→天龙寺借景樱花（曹源池+嵐山背景的樱花）→渡月桥+桂川樱花全景→嵐山公园龟山地区展望台→下午嵯峨野散步或保津川方向。整个嵐山染成粉色的春季限定画面。",
+  "hotel_area_note": "JR嵯峨嵐山站/阪急嵐山站。住四条：阪急→嵐山约25min。住京都站：JR嵯峨野线→嵯峨嵐山约17min。樱花季的岚山9:00之后极度拥挤——推荐早早抵达。",
+  "slots": [
+    {
+      "slot_id": "as_bamboo",
+      "time_range": "07:30-08:15",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 45,
+      "note": "竹林小径——7:30前到。樱花季虽不及红叶季拥挤，但8:30以后人也会增多。竹林的绿色+周边樱花的粉色对比是只有春天才有的色彩。JR嵯峨嵐山站步行10min。",
+      "time": "07:30-08:15"
+    },
+    {
+      "slot_id": "as_tenryuji",
+      "time_range": "08:30-10:00",
+      "type": "poi",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 90,
+      "entity_hint": "天龍寺（天龙寺）",
+      "note": "庭园¥500+本堂¥300。8:30开门。曹源池庭园的借景构图——池面+樱花+嵐山背景是春季最强画面。能以樱花为前景欣赏这座世界遗产庭园，一年只有约2周。本堂的云龙图也要看。从北门出去往竹林→嵯峨野方向。1.5h。",
+      "time": "08:30-10:00"
+    },
+    {
+      "slot_id": "as_togetsukyo",
+      "time_range": "10:00-11:30",
+      "type": "walk",
+      "area": "arashiyama",
+      "priority": "P1",
+      "duration_min": 90,
+      "note": "渡月桥区域。桂川两岸樱花+渡月桥+嵐山借景是岚山的代表性明信片画面。嵐山公园龟山地区展望台（从渡月桥南端步行10min上坡）的俯瞰构图——可以从上方俯览桂川+渡月桥+樱花+嵐山（即使拥挤时展望台也相对较空，是隐秘好去处）。在中ノ島公園（中之岛公园）坐长椅赏樱。樱花季渡月桥10:00以后人满为患——有时连在桥上停步都很难。1.5h。",
+      "time": "10:00-11:30"
+    },
+    {
+      "slot_id": "as_lunch",
+      "time_range": "11:30-12:30",
+      "type": "meal",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "嵐山区域午餐。樱花季12:00-13:00是高峰期——11:30入店可以错开。嵐電嵐山站（岚山电车嵐山站）周边/渡月桥北端有选择。在外面的摊位尝桜餅（樱花年糕）/みたらし団子（糖浆烤团子）也是赏花文化的一部分。",
+      "time": "11:30-12:30"
+    },
+    {
+      "slot_id": "as_afternoon",
+      "time_range": "13:00-15:30",
+      "type": "optional_poi",
+      "area": "arashiyama",
+      "priority": "P3",
+      "duration_min": 150,
+      "note": "下午选项（建议保持赏樱比例不超过60%，推荐非樱花体验）：(1) 嵯峨野小火车（¥880/樱花季也推荐预约/25min穿越保津峡樱花+川景/从车窗看到的构图是步行无法看到的）(2) 大覚寺（大觉寺）+大沢池（¥500/日本最古老的人工池+樱花/距嵐山中心稍远但人少）(3) 常寂光寺→二尊院方向的奥嵯峨散步（樱花不多但有苔藓+竹+新绿/春季有别于红叶季的宁静）(4) 嵐山モンキーパークいわたやま（嵐山岩田山猴子公园，¥550/从山顶可俯瞰京都市区+猴子/与樱花无关但小孩喜欢/登山15min）。",
+      "time": "13:00-15:30"
+    },
+    {
+      "slot_id": "as_dinner",
+      "time_range": "17:30-19:00",
+      "type": "meal",
+      "area": "arashiyama",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "在嵐山吃完再回去，或回市区吃。在嵐山吃的话，17:00以后日归客退潮变安静——有能看到渡月桥夕景+樱花的露台座位最好。回市区的话：阪急嵐山→四条河原町约25min，狙击先斗町/木屋町樱花季限定的鸭川沿线座位。",
+      "time": "17:30-19:00"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready",
+  "assembly_hints": {
+    "bloom_window": {
+      "primary": "2026-03-28~2026-04-05",
+      "peak_days": 7,
+      "window": "somei_peak",
+      "note": "岚山染井吉野+渡月桥"
+    }
+  }
+}

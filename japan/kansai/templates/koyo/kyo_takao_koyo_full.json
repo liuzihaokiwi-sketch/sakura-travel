@@ -1,0 +1,145 @@
+{
+  "template_id": "kyo_takao_koyo_full",
+  "season_window": "koyo",
+  "score": {
+    "core_experience": 40,
+    "audience_bonus": {
+      "couple": 2,
+      "friends": 2,
+      "family": 0
+    },
+    "execution_risk": 0,
+    "access_convenience": 2,
+    "base_score": 42,
+    "note": "京都最早红叶(11月上旬)/神护寺石阶是小众摄影名所/access=2需バス约1h"
+  },
+  "label": "高雄红叶一日（神护寺+高山寺+清滝川）",
+  "tags": [
+    "koyo",
+    "temple",
+    "hiking",
+    "nature"
+  ],
+  "core_entities": [
+    "kyo_jingoji"
+  ],
+  "fit_audience": [
+    "couple",
+    "friends",
+    "default"
+  ],
+  "weather_sensitive": true,
+  "condition": "season == 'koyo' (11月上旬-11月下旬)",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 山寺与溪谷。京都洛北高雄地区——京都最早红叶（比市内早2周，11月上旬见顷）。神护寺400级石阶+红叶是京都山寺赏枫的代表，高山寺有国宝鸟兽戏画（日本漫画的起源），清滝川溪谷是自然的红叶散步道。和市内寺庙红叶完全不同的'山里的秋天'。体力要求高（石阶多），不适合老人和幼儿。",
+  "hotel_area_note": "高雄在京都市右京区北部山区。从JR京都站乘JR巴士到'高雄'约50min（¥530）直达。从四条乌丸乘市巴士8号→'高雄'约45min。回程末班巴士约18:00，注意时间。",
+  "slots": [
+    {
+      "slot_id": "tk_transport",
+      "time_range": "08:00-09:00",
+      "type": "transport",
+      "note": "JR京都站八条口JR巴士乘车处→'高雄'约50min。建议乘8:00或8:30班次——红叶季9:00以后的班次会满员上不去。从四条乌丸乘市巴士8号→高雄约45min。巴士车内开始看到爱宕山方向的山景时心情会变。",
+      "priority": "P2",
+      "time": "08:00-09:00"
+    },
+    {
+      "slot_id": "tk_jingoji",
+      "time_range": "09:00-11:30",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 150,
+      "entity_hint": "神護寺（神护寺）",
+      "note": "¥600。从高雄巴士站下到清泷川，过吊桥，登约400级石阶（约需15-20min）。这段石阶很累，但石阶两侧红叶越爬越浓——是'越爬越美'的体验设计。进山门后是开阔的境内：金堂（药师如来/国宝）、多宝塔、和气清麻吕公墓所。核心体验：地藏院前的「土器投」（かわらけ投げ，素陶碟投掷游戏）——把素烧小碟（¥200/2枚）朝锦云溪的山谷投出去。碟子飞向红叶山谷的画面是高雄名物。日本最古老的肖像画（传源赖朝像/国宝）供奉在大师堂。下石阶时注意：湿落叶容易滑倒。2-2.5h。",
+      "time": "09:00-11:30"
+    },
+    {
+      "slot_id": "tk_saimyoji",
+      "time_range": "11:30-12:15",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P2",
+      "duration_min": 45,
+      "entity_hint": "西明寺",
+      "note": "¥500。从神护寺沿清泷川步行约15min（下坡比较轻松）。三尾（高雄·槙尾·栂尾）中间的小寺院。与神护寺的壮大截然相反，小巧玲珑的境内红叶密集——'箱庭式红叶'。释迦如来像（重要文化财）。人群集中在神护寺，所以这里是隐秘好去处——可以静静欣赏红叶。30-45min。",
+      "time": "11:30-12:15"
+    },
+    {
+      "slot_id": "tk_lunch",
+      "time_range": "12:15-13:15",
+      "type": "meal",
+      "area": "takao",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "高雄的餐饮处吃午饭。红叶家（もみぢ家，又称高雄枫家，清泷川沿岸老铺旅馆/仅午餐时段可使用/汤豆腐套餐¥3,000前后/边看红叶边用餐/推荐预约）是首选名店。没预约的话在高雄巴士站附近的食堂/茶屋吃山菜荞麦面/汤豆腐。高雄饮食选择少——午饭地点要提前决定好。在京都站买饭团或面包带来也是实际可行的选择。",
+      "time": "12:15-13:15"
+    },
+    {
+      "slot_id": "tk_kozanji",
+      "time_range": "13:15-14:30",
+      "type": "poi",
+      "area": "takao",
+      "priority": "P1",
+      "duration_min": 75,
+      "entity_hint": "高山寺",
+      "note": "境内自由（石水院¥1,000/红叶季）。世界遗产。三尾最北端'栂尾'所在。核心是石水院——明惠上人煮茶的建筑内有善财童子像，从开放式廊下看到的红叶借景是高雄最'上镜'的构图。国宝《鸟兽人物戏画》原作寄托于东京·京都国立博物馆，但馆内有精巧复制品展示——青蛙与兔子相扑的日本最古老的漫画（12世纪）与红叶无关，却是感受'日本文化深度'的非红叶体验。日本最古老的茶园也在境内（明惠上人从荣西处受茶种之地）。1-1.5h。",
+      "time": "13:15-14:30"
+    },
+    {
+      "slot_id": "tk_kiyotaki",
+      "time_range": "14:30-15:30",
+      "type": "walk",
+      "area": "takao",
+      "priority": "P3",
+      "duration_min": 60,
+      "note": "沿清泷川（きよたきがわ，清泷河）沿岸散步道走回高雄巴士站方向。溪谷沿岸的红叶是与寺院不同的'自然本身的秋天'——水声+红叶+苔藓岩石的组合在京都市内看不到。东海自然步道的一部分。脚下路况整备好，但推荐运动鞋。体力不够的话跳过，在巴士站休息等车也完全可以。",
+      "time": "14:30-15:30"
+    },
+    {
+      "slot_id": "tk_return",
+      "time_range": "15:30-16:30",
+      "type": "transport",
+      "note": "高雄巴士站→京都市内。JR巴士/市巴士约50min。红叶季回程巴士15:30-16:30最拥挤（可能没有座位）。末班巴士约18:00——最晚要赶上17:00的班次。",
+      "priority": "P2",
+      "time": "15:30-16:30"
+    },
+    {
+      "slot_id": "tk_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市内吃晚饭。整天在山里走路之后，想吃得扎实——肉料理/锅料理/烧肉方向。今天比起京料理的精细，量和温热才是正解。四条/乌丸方向。",
+      "time": "18:00-19:30"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready"
+}

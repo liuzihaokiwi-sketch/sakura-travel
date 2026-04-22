@@ -1,0 +1,62 @@
+{
+  "template_id": "kyo_kinkaku_snow_half",
+  "label": "金阁寺雪景(降雪触发)",
+  "template_kind": "half_day",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": [
+    "kyo_kinkakuji"
+  ],
+  "weather_sensitive": true,
+  "selectable_tag": null,
+  "condition": "weather_forecast includes snowfall in Kyoto",
+  "season_window": "deep_winter",
+  "score": {
+    "core_experience": 55,
+    "audience_bonus": {
+      "couple": 4,
+      "friends": 3,
+      "family": 2
+    },
+    "execution_risk": -3,
+    "access_convenience": 4,
+    "base_score": 56,
+    "note": "core_experience=55因为雪中金阁是京都最稀缺的画面之一;risk -3=高度依赖天气/降雪年频率低/需要极早行动"
+  },
+  "description": "京都最稀缺的画面——雪中金阁。金阁寺镜湖池上倒映金色楼阁,加上白雪覆盖的庭园和松树,是所有京都照片里最被追求却最难遇到的构图。每年降雪概率约10-20%(京都盆地不常积雪),碰上就是全年最高分的体验。触发条件:天气预报有降雪+当天早起行动。核心策略:开门即入(9:00),雪未融前拍照最佳。day_mood:稀缺与惊喜。",
+  "slots": [
+    {
+      "time": "08:30-09:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "降雪日必须9:00开门即入——积雪午后开始融化,10:30后金阁屋顶雪已大部分掉落。市バス101/102→金閣寺道站(从四条约30分)。降雪日公交可能延迟,也可打车(四条→金阁约¥1500)。"
+    },
+    {
+      "entity": "kyo_kinkakuji",
+      "time": "09:00-10:30",
+      "type": "poi",
+      "priority": "P1",
+      "note": "金阁寺。拝観料¥500(现金only),9:00-17:00。雪中金阁的最佳构图:镜湖池对岸正面仰拍,雪覆盖屋顶+金色楼阁+池面倒影。9:00-9:30雪最完整也是人最少的窗口,9:30后旅行团陆续到且雪开始融。快速完成拍照主要目标,不贪心停留——雪景是时效性极强的体验。"
+    },
+    {
+      "time": "10:30-12:00",
+      "type": "poi",
+      "priority": "P2",
+      "note": "雪后接龙安寺(步行20分或バス1站)——龙安寺石庭雪景同样极美,白砂+雪+石组的极简构图有禅意。或接仁和寺(御室桜雪景,另有季节加成)。"
+    }
+  ],
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "9:15,镜湖池边,金阁整面反光+雪顶+倒影——这张照片一辈子就这一次机会",
+    "peak_end_line": "雪融了,游客来了,回头看还好早起了"
+  },
+  "contingencies": {
+    "no_snow": "不触发此模板,用 kyo_kinkaku_kitano__northwest 常规版代替",
+    "snow_melting_fast": "若到达时雪已大量融化,仍值得拍照但不一定是'雪中金阁'了——龙安寺雪景保留更久(石庭面积大)"
+  },
+  "assembly_hints": {
+    "trigger": "天气预报京都有雪才激活此模板",
+    "replaces": "替换当天原有安排——雪中金阁是优先级最高的天气事件",
+    "best_years": "统计上每3-5年才有一次像样的积雪,遇上就是运气"
+  }
+}

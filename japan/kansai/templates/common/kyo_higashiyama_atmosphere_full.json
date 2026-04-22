@@ -1,0 +1,92 @@
+{
+  "template_id": "kyo_higashiyama_atmosphere_full",
+  "label": "东山氛围日（慢走·仪式感·白川黄昏）",
+  "template_kind": "full_day",
+  "core_entities": [
+    "kyo_kiyomizudera",
+    "kyo_nene_no_michi",
+    "kyo_shirakawa_minamidori"
+  ],
+  "weather_sensitive": true,
+  "selectable_tag": null,
+  "score": {
+    "core_experience": 50,
+    "audience_bonus": {
+      "couple": 8,
+      "friends": 3,
+      "family": -1
+    },
+    "execution_risk": 0,
+    "access_convenience": 5,
+    "base_score": 55,
+    "note": "东山精华日的氛围沉浸变种——节奏更慢,每段留更多时间坐下来感受,午餐升档町家怀石,白川黄昏是全天仪式感收尾"
+  },
+  "description": "和东山精华日走同一条动线,但节奏完全不同——不是'把景点走完',是'在这条路上度过一天'。清水寺早晨安静参拜(不赶)→宁宁之道町家咖啡坐1小时→石塀小路慢走→午餐升档割烹或怀石→八坂之塔下午光线→白川南通黄昏坐下来什么都不做。每个地方多停留30分钟,总步行量比精华日少2km。day_mood:沉浸与仪式感。",
+  "slots": [
+    {
+      "entity": "kyo_kiyomizudera",
+      "time": "08:00-10:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "清水寺。¥500,6:00开门现金only。8点前到,安静参拜不赶——子安塔小径慢走,音羽瀑布认真选一道,在本堂舞台前多站10分钟看京都盆地。不赶时间,不拍满100张照片。"
+    },
+    {
+      "time": "10:00-11:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "三年坂→二年坂→石塀小路慢走。进一家觉得有意思的小店坐坐——不是为了买,是为了停下来。よーじや咖啡可以坐20分钟。石塀小路拐进去走完整条(大多数人走一半就出来了)。"
+    },
+    {
+      "entity": "kyo_nene_no_michi",
+      "time": "11:30-13:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "pontocho_kawaramachi",
+      "cuisine_hint": "kyo_kaiseki_or_machiya_ryori",
+      "note": "宁宁之道附近午餐——这顿是全天的仪式感锚点。町家改造的割烹或怀石午市(¥3000-8000),不吃参道上的快餐。午餐后在庭院或缘侧多坐20分钟再走。"
+    },
+    {
+      "time": "13:30-15:30",
+      "type": "walk",
+      "priority": "P2",
+      "note": "高台寺→宁宁之道→八坂通下坡。高台寺(¥800)方丈庭园坐下来看枯山水15分钟——不是走马观花。八坂通下坡慢走到八坂之塔,下午顺光是最美的时段。% ARABICA买杯咖啡坐台阶上看塔。"
+    },
+    {
+      "time": "15:30-16:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "花见小路慢走→八坂神社。17:00前的花见小路游客少、光线好。八坂神社境内慢走——不是打卡,是感受这条路从白天切换到黄昏的过程。"
+    },
+    {
+      "entity": "kyo_shirakawa_minamidori",
+      "time": "17:00-18:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "白川南通黄昏——全天peak-end。巽橋边找位置坐下,不拍照,只看柳树倒影和町家窗光慢慢亮起来。这60分钟是整天最值钱的时段,什么都不做就是在做正确的事。"
+    },
+    {
+      "time": "19:00-21:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "pontocho_kawaramachi",
+      "cuisine_hint": "kyo_kappo_or_izakaya",
+      "note": "祇园/先斗町晚餐。peak已经兑现过了,晚餐放松吃——町家割烹或居酒屋,¥4000-8000。5-9月先斗町川床(鸭川河面平台)是这顿的最好选择,比白川晚餐更有仪式感收尾。"
+    }
+  ],
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "白川南通巽橋边坐下来的那60分钟",
+    "peak_end_line": "町家窗光一盏盏亮起来——这一天以这个画面结束"
+  },
+  "assembly_hints": {
+    "variant_of": "kyo_higashiyama_core_full",
+    "choose_when": "用户表单选择'注重氛围感/仪式感'或'这次旅行想慢慢感受'",
+    "vs_core": "精华日适合想把东山走全的用户;氛围日适合想在东山度过一天的用户——景点更少但每个地方停更久",
+    "vs_photo": "出片日以机位和光线为主线;氛围日以情绪节奏为主线"
+  },
+  "variant_of": "kyo_higashiyama_core_full",
+  "variant_type": "atmosphere",
+  "trigger_condition": "user_preference == 'atmosphere'",
+  "status": "ready",
+  "tier": "B"
+}

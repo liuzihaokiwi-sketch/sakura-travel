@@ -1,0 +1,97 @@
+{
+  "template_id": "kyo_arashiyama_sakura_atmosphere_full",
+  "label": "岚山樱花日·氛围版(渡月桥黄昏+川床+竹林)",
+  "template_kind": "full_day",
+  "variant_of": "kyo_arashiyama_sakura_full",
+  "variant_type": "atmosphere",
+  "season_window": "sakura",
+  "trigger_condition": "user_preference == 'atmosphere'",
+  "core_entities": [
+    "kyo_togetsukyo",
+    "kyo_arashiyama_bamboo",
+    "kyo_tenryuji"
+  ],
+  "weather_sensitive": true,
+  "selectable_tag": null,
+  "score": {
+    "core_experience": 54,
+    "audience_bonus": {
+      "couple": 15,
+      "friends": 5,
+      "family": 0
+    },
+    "execution_risk": -1,
+    "access_convenience": 4,
+    "note": "变种模板，score不参与与主模板的竞争排名，仅在用户选择atmosphere时替换主模板"
+  },
+  "description": "岚山樱花日的氛围版——不是把所有景点走完，是在樱花盛开的岚山把时间慢下来。晚起→10点后到竹林感受人潮前后的对比→天龙寺曹源池静坐→午餐河边茶屋→下午渡月桥南岸长椅坐一个小时什么都不做→黄昏桂川倒映樱花。节奏比标准版慢一半，总步行量减少。核心：渡月桥黄昏那段坐下来的时间是整天的仪式感收尾，樱花+夕阳+水声，什么都不用做。day_mood:慢与樱花。",
+  "slots": [
+    {
+      "time": "09:30-10:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "晚一点出发——10点后到竹林，人流已到高峰但对氛围版用户不是问题，重点不在无人竹林而在体验整体节奏。JR嵯峨嵐山站步行到竹林约10分。"
+    },
+    {
+      "entity": "kyo_arashiyama_bamboo",
+      "time": "10:00-10:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "竹林小径。不赶，慢走。有人也没关系——樱花季竹林两侧有几棵山樱点缀，竹绿+樱粉的颜色对比只在这个季节有。"
+    },
+    {
+      "entity": "kyo_tenryuji",
+      "time": "10:30-12:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "天龙寺曹源池。¥500庭园。樱花季曹源池的看点：池面倒映樱花+借景岚山，这是全年最好的时段。在方丈前廊坐下来20分钟，不要走马观花——这20分钟是整个上午最值钱的时段。"
+    },
+    {
+      "time": "12:00-14:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "arashiyama",
+      "cuisine_hint": "kawadoko_or_riverside_cafe",
+      "note": "河边茶屋/咖啡。樱花季渡月桥附近河边有临时茶屋——坐在桂川边，树上樱花飘落在餐桌上的感觉是岚山独有的。% ARABICA岚山店也可以，买了坐河堤边吹风。时间宽松，不赶下一个景点。"
+    },
+    {
+      "entity": "kyo_togetsukyo",
+      "time": "14:00-16:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "渡月桥南岸下午段。中之岛公园找长椅坐下——这段故意留白。樱花在头顶，桂川在脚边，对岸岚山连绵。什么都不做坐1-2小时。这不是在浪费时间，是整天情绪弧线里最重要的'空白'——买了手账本的用户，这段时间写写明信片也很对。"
+    },
+    {
+      "entity": "kyo_togetsukyo",
+      "time": "17:00-18:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "渡月桥黄昏peak-end。日落前30分钟就位，坐桥南岸台阶。樱花季黄昏：桂川两岸粉白樱花+远山剪影+水面金光。比非樱花季多了樱花倒影这一层，是樱花季岚山独有的画面。这一天以这个画面结束。"
+    },
+    {
+      "time": "19:00-20:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "pontocho_kawaramachi",
+      "note": "回市区晚餐。岚山夜晚餐厅供给弱，JR回市区吃——祇园/先斗町，升档一顿作为樱花日的完整收尾。"
+    }
+  ],
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "渡月桥南岸坐下来，下午光线把桂川两岸樱花打成金粉色——什么都不做就是在做正确的事",
+    "peak_end_line": "黄昏：樱花+远山+水面，这一天以这个画面结束"
+  },
+  "assembly_hints": {
+    "variant_of": "kyo_arashiyama_sakura_full",
+    "choose_when": "用户表单选择'注重氛围感/仪式感'或'这次想慢慢感受'",
+    "not_choose_when": "用户想把景点走完/出片为主/体力充沛想多看",
+    "season_lock": "sakura",
+    "bloom_window": {
+      "primary": "2026-03-28~2026-04-05",
+      "peak_days": 7,
+      "window": "somei_peak",
+      "note": "岚山氛围版同花期"
+    }
+  },
+  "status": "ready"
+}

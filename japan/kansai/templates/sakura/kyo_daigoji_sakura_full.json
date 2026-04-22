@@ -1,0 +1,122 @@
+{
+  "template_id": "kyo_daigoji_sakura_full",
+  "season_window": "sakura",
+  "score": {
+    "core_experience": 48,
+    "audience_bonus": {
+      "couple": 3,
+      "friends": 2,
+      "family": 1
+    },
+    "execution_risk": -1,
+    "access_convenience": 3,
+    "base_score": 50,
+    "note": "丰臣秀吉醍醐花见历史背景极强/规模壮观/access=3需地铁+步行/risk-1=盛期极拥挤"
+  },
+  "label": "醍醐寺樱花日（秀吉的花见+随心院）",
+  "tags": [
+    "sakura",
+    "temple",
+    "history",
+    "walking"
+  ],
+  "core_entities": [
+    "kyo_daigoji"
+  ],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'sakura'",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 华美与故事。1598年，天下人丰臣秀吉在去世前5个月邀请1300人举办了「醍醐の花見（醍醐花见）」——日本史上最华美的赏花活动舞台。约1000棵樱花分布于三宝院+伽蓝+灵宝馆，世界遗产。与清水寺/岚山'人气型'不同，这里是'感受历史厚重的赏樱'。walkerplus全国第16位。",
+  "hotel_area_note": "地铁东西线醍醐站步行10min。住四条：地铁东西线→醍醐约20min。住京都站：地铁乌丸线→烏丸御池（乌丸御池）→东西线→醍醐约25min。距市中心稍远，但换乘一次即可到达。",
+  "slots": [
+    {
+      "slot_id": "ds_daigoji",
+      "time_range": "09:00-12:00",
+      "type": "poi",
+      "area": "daigo",
+      "priority": "P1",
+      "duration_min": 180,
+      "entity_hint": "醍醐寺",
+      "note": "三区通票¥1,500（三宝院+伽蓝+灵宝馆）。9:00开门——樱花季推荐9:00到达（10:00后开始拥挤）。三宝院：秀吉亲自参与设计的庭园，正面矗立着垂枝樱巨树——「醍醐の花見（醍醐花见）」就在这个庭园举办。藤戸石（天下名石）是信长→秀吉→家康历代权贵争相夺取的宝物。伽蓝：五重塔（京都府最古老木造建筑/951年/国宝）+金堂（国宝）之间的参道有樱花。灵宝馆：展示约7万件寺宝，有春季特别展。三个区域全部游览需2.5-3h——如有体力和时间可去上醍醐（山顶/往返2h登山/不适合一般游客），通常下醍醐即已足够。",
+      "time": "09:00-12:00"
+    },
+    {
+      "slot_id": "ds_lunch",
+      "time_range": "12:00-13:00",
+      "type": "meal",
+      "area": "daigo",
+      "priority": "P2",
+      "duration_min": 60,
+      "note": "醍醐寺周边午餐。寺门前有数家咖啡馆/食堂。醍醐寺境内的雨月茶屋（湯葉料理（腐皮料理），¥2,000-3,000，可边赏樱边用餐）氛围最好。樱花季很拥挤——11:45左右出来提前占座也是个办法。",
+      "time": "12:00-13:00"
+    },
+    {
+      "slot_id": "ds_zuishin",
+      "time_range": "13:30-14:30",
+      "type": "poi",
+      "area": "daigo",
+      "priority": "P2",
+      "duration_min": 60,
+      "entity_hint": "随心院",
+      "note": "¥500。从醍醐寺步行约15min。与小野小町（平安时代绝世美女兼和歌名手）相关的寺院。境内梅园（3月）很有名，樱花季也能看到晚开的樱花+はねず踊り（哈内兹舞，3月最后一个周日，由儿童表演小野小町恋爱故事）。蓮弁写経体验（莲花瓣写经，¥1,000，在莲花瓣形纸上抄一个字/30min）是非赏樱体验——从醍醐寺的壮阔转换为在安静寺院执笔的时光。1h。",
+      "time": "13:30-14:30"
+    },
+    {
+      "slot_id": "ds_afternoon",
+      "time_range": "14:30-16:30",
+      "type": "optional_poi",
+      "area": "daigo",
+      "priority": "P3",
+      "duration_min": 120,
+      "note": "下午选项：(1) 前往伏见方向——京阪六地藏站→中書島（中书岛）约10min，在伏见酒蔵（酒仓）街散步+伏见十石舟（樱花季限定水上赏花/¥1,500/50min/需预约）——运河沿线酒蔵（酒仓）白墙+樱花是只有伏见才有的画面 (2) 回市内安排其他行程——在醍醐寺已充分赏樱，下午切换为非赏樱体验 (3) 山科方向→毘沙門堂（毘沙门堂，樱花不多但庭园安静/¥500/地铁山科站步行20min）。",
+      "time": "14:30-16:30"
+    },
+    {
+      "slot_id": "ds_dinner",
+      "time_range": "18:30-20:00",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "回市区晚餐。地铁醍醐→烏丸御池（乌丸御池）→四条约20min。今天在京都东南部转了一圈，晚上回到市中心。樱花季先斗町/木屋町推荐预约——能看到鸭川沿线樱花的座位只有这个季节才有。",
+      "time": "18:30-20:00"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready",
+  "assembly_hints": {
+    "bloom_window": {
+      "primary": "2026-03-28~2026-04-05",
+      "peak_days": 7,
+      "window": "somei_peak",
+      "note": "醍醐寺染井吉野(秀吉赏樱地)"
+    }
+  }
+}

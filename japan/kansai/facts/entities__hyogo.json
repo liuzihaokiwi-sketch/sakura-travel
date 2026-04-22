@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "description": "兵库（姫路等）entity 静态数据层（跨季节共用）。真实数据不带观点。字段变更前先读 docs/03_数据契约/SCHEMA.md。",
+    "p2_batch_date": "2026-04-21",
+    "seed_scope": "P2 批次共2个 entity（姫路城、好古园）",
+    "data_confidence_legend": "verified = 2+ 个 P0/P1 源交叉；cross_checked = 1 个 P0/P1 + 其他；single_source = 仅 P2 源"
+  },
+
+  "hyg_himejijo": {
+    "entity_id": "hyg_himejijo",
+    "name_zh": "姬路城",
+    "name_ja": "姫路城",
+    "name_en": "Himeji Castle",
+    "area": "himeji",
+    "category": "castle",
+    "coordinates": {"lat": 34.8394, "lng": 134.6939},
+    "official_url": "https://www.himejicastle.jp/en/",
+    "access": "JR「姫路」站北口步行约15分钟，或乘神姫巴士至「大手門前」约5分钟；从新大阪乘新干线约30分钟（¥2,910）至姫路；从大阪・三宮乘JR新快速约60分钟（¥1,080–¥1,310）。",
+    "short_desc": "日本最大・最完整的现存木造城郭（国宝），「白鷺城」之称因纯白灰泥外墙而来，1993年列入UNESCO世界文化遗产，日本第一号世界遗产之一。",
+    "opening_hours": {
+      "regular": "09:00–17:00（最终入场16:00）；夏季（4月27日–8月31日）09:00–18:00（最终入场17:00）",
+      "closed": "12月29日–31日",
+      "last_entry": "16:00（夏季17:00）"
+    },
+    "admission": {
+      "adult": 2500,
+      "student_elementary_junior": 1250,
+      "unit": "JPY",
+      "_note": "⚠️ 2026年3月1日起成人票由¥1,000涨至¥2,500；小・中学生由¥300涨至¥1,250（姫路城+好古园套票成人¥2,910）"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "unesco": true,
+    "seasonal_notes": {
+      "spring": "3月下旬–4月上旬西の丸庭园约1,000棵樱花，为日本最知名城×樱花景观",
+      "autumn": "11月天守阁与红叶构图"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.himejicastle.jp/en/",
+      "https://www.japan-guide.com/e/e3501.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "hyg_kokoen": {
+    "entity_id": "hyg_kokoen",
+    "name_zh": "好古园",
+    "name_ja": "好古園",
+    "name_en": "Kokoen Garden",
+    "area": "himeji",
+    "category": "garden",
+    "coordinates": {"lat": 34.8376, "lng": 134.6890},
+    "official_url": "https://www.himeji-machishin.jp/ryokka/kokoen/",
+    "access": "JR「姫路」站步行约15分钟；与姬路城西御屋敷跡直接相邻，参观完姬路城后步行约3分钟即达。",
+    "short_desc": "1992年开园，建于姬路城西御屋敷遗址，9个主题庭园（枯山水・茶庭・池泉回游等）组成约3.5公顷日本庭园，春秋特别夜间灯光最美。",
+    "opening_hours": {
+      "regular": "09:00–17:00（8月中旬特别延长至18:00；夜间特别开放期至20:00）",
+      "closed": "12月29日–31日",
+      "last_entry": "16:30"
+    },
+    "admission": {
+      "adult": 310,
+      "child": 150,
+      "unit": "JPY",
+      "_note": "单独入园：成人¥310，小・中学生¥150；姬路城+好古园套票成人¥2,910（更划算）"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "spring": "4月上旬约500棵樱花，与姬路城天守同景",
+      "autumn": "11月夜间灯光特别开放（约¥510，以官方为准）"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.himeji-machishin.jp/ryokka/kokoen/",
+      "https://www.japan-guide.com/e/e3502.html"
+    ],
+    "last_verified": "2026-04-21"
+  }
+}

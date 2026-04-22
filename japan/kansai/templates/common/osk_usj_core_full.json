@@ -1,0 +1,93 @@
+{
+  "template_id": "osk_usj_core_full",
+  "label": "USJ 环球影城日",
+  "template_kind": "full_day",
+  "tier": "A",
+  "status": "ready",
+  "core_entities": ["osk_usj"],
+  "weather_sensitive": false,
+  "selectable_tag": "usj",
+
+  "score": {
+    "core_experience": 45,
+    "audience_bonus": {"couple": 2, "friends": 4, "family": 5},
+    "execution_risk": -2,
+    "access_convenience": 4,
+    "base_score": 47,
+    "note": "selectable_tag=usj 用户主动选择才触发,execution_risk 因快速通关策略复杂扣2"
+  },
+
+  "description": "大阪环球影城全天。核心策略分两派:(P型)不顶门随缘玩7-9个项目 / (J型)顶门冲热门+快速通关省3600元。两种都能玩到内容,选适合自己节奏的。day_mood:热闹与沉浸。",
+
+  "design_rationale": "USJ和京都景点完全不同——这是'体力消耗+沉浸娱乐'型的一天。前一天不安排重体力，当天晚餐降档吃简单的(累了)。核心是快速通关策略和开园冲热门节奏，避免排队2h+的陷阱。",
+
+  "slots": [
+    {
+      "time": "07:30-09:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "JR环状线→西九条→JR梦咲线→ユニバーサルシティ站,约10分。J型顶门:8:30前到园门排队(官方开园时间9:00,繁忙期8:30);P型随意9-10点到。开园时间每天不同——出发前查官网日历确认。"
+    },
+    {
+      "time": "09:00-12:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "上午冲热门区域。哈利·波特魔法世界(Ollivanders 魔杖体验/霍格沃茨城堡)/任天堂世界(马力欧卡丁车/真实感互动体验)/侏罗纪公园(体力充沛时冲)。J型:开园即冲当日最热门;P型:随缘排队,看看走走。快速通关(Express Pass,¥4000-8000)建议只买1-2个最想要的项目,不必全买。"
+    },
+    {
+      "time": "12:00-13:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "usj_inside",
+      "note": "园内餐厅。Three Broomsticks(霍格莫德村黄油啤酒+炸鸡)/三角地带食堂(性价比)/各区主题餐厅。峰值期(11:30-13:00)等位30-60分钟——12:30后错开高峰或外带边走边吃。"
+    },
+    {
+      "time": "13:00-17:00",
+      "type": "poi",
+      "priority": "P1",
+      "note": "下午继续各区。亲子档重点:小小兵园区(随时可进)/儿童区;情侣档:任天堂世界互动体验(马力欧腕带购买点进园即买);默认:清扫剩余想玩的。下午3-4点人潮稍退,部分热门项目排队缩短。2026年新IP包括(查官网确认最新)侏罗纪世界更新。"
+    },
+    {
+      "time": "17:00-20:00",
+      "type": "poi",
+      "priority": "P2",
+      "note": "夜晚游园。USJ夜晚有灯光秀和特别演出(查当日schedule)。若当日有游行/烟花另外安排好观看位置。建议18:00找好晚餐位(园内or出园后难波)避开散场高峰。"
+    },
+    {
+      "time": "20:00-21:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "namba_dotonbori",
+      "note": "闭园后出园。避开20:00散场挤地铁:走路到桜島站(5分钟)坐JR比ユニバーサルシティ站人少。晚餐难波降档吃简单的——一天消耗完全不想再做决策,拉面/うどん/便利店都可以。"
+    }
+  ],
+
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "哈利·波特区霍格莫德村走进来那一刻——雪景小镇灯光全开,黄油啤酒在手",
+    "peak_end_line": "夜晚USJ灯光全开，哈利·波特区城堡投影秀从屋顶展开——白天的排队和疲惫在这一刻全部值得"
+  },
+
+  "negative_peak_guard": [
+    "热门项目等位2h+:建议开园即冲或买Express Pass 1-2个;不要试图'全都玩到'",
+    "USJ散场地铁挤爆:20:00闭园后站内人山人海,走到桜島站坐JR是最优解",
+    "园内餐厅12:00-13:00极拥挤:提前到11:30或推迟到13:30吃"
+  ],
+
+  "contingencies": {
+    "rain_light": "下雨USJ约40%项目室内,哈利·波特区/任天堂世界室内优先,室外项目排队反而少",
+    "rain_heavy": "暴雨部分室外项目暂停,园内室内区也能玩半天以上",
+    "minimum_viable": {
+      "condition": "只有半天",
+      "must_do": "哈利·波特区(2h)——霍格莫德村+城堡内部+黄油啤酒",
+      "why": "哈利·波特区是USJ最独特、其他任何地方都没有的体验"
+    }
+  },
+
+  "assembly_hints": {
+    "precondition": "需要用户提前决定是否去USJ(半天决策项)——在用户选择界面勾选",
+    "not_for": ["行程最后一天(闭园晚+体力消耗大,不适合次日赶飞机)"],
+    "day_type": "high_energy_day",
+    "recovery_next_day": "USJ后次日建议安排轻松模板(鸭川慢游/伏见稻荷/购物),不接高强度景点"
+  }
+}

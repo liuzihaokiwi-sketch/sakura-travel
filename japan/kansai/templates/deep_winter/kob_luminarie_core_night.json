@@ -1,0 +1,82 @@
+{
+  "template_id": "kob_luminarie_core_night",
+  "label": "神户Luminarie·旧居留地光之艺术节",
+  "template_kind": "night_module",
+  "season_window": "deep_winter",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": [
+    "kob_kyoryuchi",
+    "kob_higashi_yuenchi"
+  ],
+  "weather_sensitive": false,
+  "selectable_tag": null,
+  "condition": "date in ['1/30'-'2/8'] (2026年；具体日期每年查官方)",
+  "score": {
+    "core_experience": 40,
+    "audience_bonus": {
+      "couple": 8,
+      "friends": 5,
+      "family": 4
+    },
+    "execution_risk": -2,
+    "access_convenience": 4,
+    "note": "1995年阪神大地震后的复兴祭典；risk-2=人极多且日期限定；couple+8因为光之艺术节的情侣氛围极强"
+  },
+  "description": "神户Luminarie——1995年阪神大地震(1月17日，6434人遇难)后当年12月开始的光之艺术节，纪念与重建。2024年起从12月改至1月末-2月初。旧居留地明治洋馆建筑群+数万根彩灯形成的光之廊道，走进去是'被光包围'的体验。免费入场(主要区域)。从历史意义到视觉体验，Luminarie是日本最有故事的光之艺术节之一。day_mood:光与记忆。",
+  "slots": [
+    {
+      "time": "18:00-18:30",
+      "type": "transport",
+      "priority": "P1",
+      "note": "三宮站步行5-10分钟到东游园地/旧居留地。Luminarie开灯时间18:00，人流从17:30开始聚集。平日夜间人少于周末，但全程人流密集是常态。建议18:30-19:00到达，避开最初的开灯高峰。"
+    },
+    {
+      "time": "18:30-21:00",
+      "type": "walk",
+      "priority": "P1",
+      "note": "Luminarie主展区。**免费区域**：旧居留地街道光之廊道(フロントーネ，正面彩灯门廊)+东游园地(ガレリア，主展示区光之拱廊)。**付费区域**：Meriken Park约¥1000-1500(规模更大的集中展示+神户港背景)。路线：三宮→旧居留地(免费廊道)→东游园地(免费主展区)→Meriken Park(付费，可选)。旧居留地的价值：明治西洋建筑群本身+Luminarie灯光，两者叠加是神户独有的视觉——数万根彩灯挂在1900年代石造建筑上，城市历史和光艺术融为一体。"
+    },
+    {
+      "time": "21:00-22:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "sannomiya",
+      "cuisine_hint": "warmup_dinner_or_izakaya",
+      "note": "Luminarie后暖身晚餐。神户冬天1-7℃，长时间户外站立后需要温热食物。三宮的神户牛肉拉面/有名的神户家居酒屋/元町中华街暖汤都适合。这顿的功能是'结束一天的仪式'，而不是升档体验。"
+    }
+  ],
+  "day_peak": {
+    "type": "big_peak",
+    "moment": "旧居留地光之廊道——明治洋馆石墙+数万根彩灯从两侧延伸，走进去那一秒",
+    "peak_end_line": "东游园地广场中央，仰头看光之穹顶——这个祭典从1995年的废墟里开始，每年都还在"
+  },
+  "fun_facts": [
+    "神户Luminarie起源于1995年1月17日阪神大地震当年的12月——震后不到11个月，城市在废墟中举办了第一届光之艺术节。当时使用的彩灯是意大利工匠赶制的，象征'死者的灵魂和生者的希望'。30年后仍在举办，不只是艺术节，是城市创伤和重生的年度仪式",
+    "Luminarie的彩灯全部手工组装——每年所有灯具重新搭建，活动结束后全部拆除，不是常设装置。你看到的每一根灯管，是当年工人用手一根一根穿进铁架的"
+  ],
+  "photo_spots": [
+    {
+      "location": "旧居留地光之廊道正中央",
+      "best_time": "18:30-20:00",
+      "composition": "廊道透视+两侧彩灯+明治建筑",
+      "tip": "广角+低机位，让廊道延伸感最强；人多需等待无人瞬间"
+    },
+    {
+      "location": "东游园地光之穹顶下",
+      "best_time": "19:00-21:00",
+      "composition": "仰拍光之拱顶全景",
+      "tip": "直接仰躺/蹲下仰拍，把整个拱顶纳入"
+    }
+  ],
+  "contingencies": {
+    "rain": "Luminarie雨天照常进行，彩灯+雨滴散射的光效果更梦幻；保暖最重要，冬雨寒风是主要挑战",
+    "crowd": "周末人极多，平日工作日20:00后相对少；Meriken Park付费区比免费区人少"
+  },
+  "assembly_hints": {
+    "season_lock": "deep_winter",
+    "trigger_date": "约1月30日-2月8日(每年查官方)",
+    "date_change_note": "2024年起从12月改至1月末-2月初，装配时注意查当年日期",
+    "pairs_with": "神户一日行程最后的夜间收尾；或单独安排半日神户+夜间Luminarie"
+  }
+}

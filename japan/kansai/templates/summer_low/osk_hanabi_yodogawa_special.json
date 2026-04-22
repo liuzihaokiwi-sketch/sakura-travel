@@ -1,0 +1,59 @@
+{
+  "template_id": "osk_hanabi_yodogawa_special",
+  "label": "なにわ淀川花火大会(8月第1个周六)",
+  "template_kind": "special_date",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": [
+    "osk_yodogawa_kawadoko"
+  ],
+  "weather_sensitive": true,
+  "selectable_tag": null,
+  "condition": "travel_dates include 8/first_saturday",
+  "season_window": "summer_low",
+  "score": {
+    "core_experience": 42,
+    "audience_bonus": {
+      "couple": 4,
+      "friends": 3,
+      "family": 2
+    },
+    "execution_risk": -2,
+    "access_convenience": 4,
+    "base_score": 44,
+    "note": "关西规模最大花火之一约2万发;risk -2=散场拥挤+占位难度高;住梅田是核心优势"
+  },
+  "description": "なにわ淀川花火大会——关西规模最大的花火大会之一(约2万发,约1小时)。8月第1个周六限定,会场在淀川河川敷(十三~梅田西)。核心策略:白天轻量保体力→16:30前正餐吃完→17:30前到达占位→19:30-20:30看花火→散场主动绕开十三站走塚本/崇禅寺。住梅田最有利——步行圈内可找到好的免费观看位置。day_mood:夏夜巅峰。",
+  "slots": [
+    {
+      "time": "10:00-14:00",
+      "type": "poi",
+      "priority": "P3",
+      "note": "白天轻松保体力:花火夜晚要在户外站2h+,闷热且人多。梅田区域室内消遣(Grand Front/LUCUA购物)或中之岛公园散步。35℃+湿度80%的大阪盛夏,上午室内是储能。"
+    },
+    {
+      "time": "14:00-16:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "umeda_kita",
+      "note": "16:30前吃完正餐——此后到花火结束都不方便坐下吃。梅田附近解决。补充:矿泉水2瓶以上/折叠扇/防虫喷雾(河边蚊子多)。"
+    },
+    {
+      "time": "17:00-17:30",
+      "type": "walk",
+      "priority": "P1",
+      "note": "移动并占位。从梅田步行到淀川十三/梅田西河岸——道路管制约17:00开始,步行更快。淀川北岸(十三side)和南岸都能看,南岸梅田方向竞争少一些。提前1-2小时占位保证视野。"
+    },
+    {
+      "time": "19:30-20:30",
+      "type": "poi",
+      "priority": "P1",
+      "note": "花火大会。2万发约1小时。淀川北岸堤防上是最佳免费位置——无遮挡直视燃放点。散场策略:20:20提前离场走向塚本站(JR)或崇禅寺站(阪急)——比十三站人少很多;或等30分钟人潮散后再走。"
+    }
+  ],
+  "assembly_hints": {
+    "condition_strict": "8月第一个周六限定,具体日期每年查官网",
+    "住梅田最优": true,
+    "住难波次选": "坐地铁到十三约10分钟但散场更拥挤"
+  }
+}

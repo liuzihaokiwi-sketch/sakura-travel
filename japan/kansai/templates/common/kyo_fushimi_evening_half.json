@@ -1,0 +1,59 @@
+{
+  "template_id": "kyo_fushimi_evening_half",
+  "label": "伏见稻荷半日(傍晚版)",
+  "template_kind": "half_day",
+  "time_of_day": "afternoon_evening",
+  "tier": "B",
+  "status": "ready",
+  "core_entities": [
+    "kyo_fushimi_inari"
+  ],
+  "weather_sensitive": true,
+  "score": {
+    "core_experience": 44,
+    "audience_bonus": {
+      "couple": 0,
+      "friends": 0,
+      "family": -5
+    },
+    "execution_risk": 0,
+    "access_convenience": 5,
+    "base_score": 49,
+    "note": "小红书151收藏验证傍晚窗口;JR直达5分钟access=5;配合上午模板使用"
+  },
+  "description": "伏见稻荷的另一个时间窗口——傍晚6点上山。山脚游客已散场,鸟居内打进橙红色夕阳光线(和清晨逆光完全不同的质感),山腰展望台俯瞰整个京都的夕阳+夜景渐变。神社24小时开放,无门票。这个版本配当天已有上午安排的日子,不需要早起。day_mood:余晖与高处。",
+  "slots": [
+    {
+      "time": "16:30-17:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "JR奈良线→稲荷站(从京都站约5分/¥150)。出站即是伏见稻荷大社鸟居。16:30出发目标17:00到山脚——留够时间上山看日落。"
+    },
+    {
+      "entity": "kyo_fushimi_inari",
+      "time": "17:00-19:30",
+      "type": "poi",
+      "priority": "P1",
+      "note": "傍晚上山。17点山脚游客开始散,入口处千本鸟居走左侧(下山道,几乎无人停留)避开残余游客。往上走:千本鸟居→四ツ辻(山腰展望台,上山约40分钟)。展望台可俯瞰京都全盆地——夕阳在18:00-19:00(季节不同)慢慢落,之后城市灯光逐渐亮起。这个视角比山脚更壮阔,且此时段展望台本地人多游客极少。继续上山可到稲荷山山顶(全程约90分钟),但四ツ辻展望台是体验/体力最优的折返点。"
+    },
+    {
+      "time": "19:30-20:00",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "fushimi",
+      "note": "下山后伏见区域晚餐,或JR回京都站市区吃。稻荷周边餐厅晚间选择有限,建议回市区。"
+    }
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "四ツ辻展望台,夕阳落下的那20分钟——鸟居橙红色光线+京都盆地全景",
+    "peak_end_line": "夜景刚刚亮起时下山,鸟居在夜色里变成剪影"
+  },
+  "assembly_hints": {
+    "best_position": "当天上午已有安排,下午4点后的窗口",
+    "pairs_with_morning": "kyo_higashiyama__core / kyo_kinkaku_kitano__northwest / kyo_nijo_gosho 等上午模板",
+    "not_for": [
+      "行程早晨空档(用清晨版 kyo_fushimi_inari__half 代替)"
+    ]
+  }
+}

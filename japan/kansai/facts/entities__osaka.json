@@ -1,0 +1,722 @@
+{
+  "_meta": {
+    "description": "大阪 entity 静态数据层（跨季节共用）。真实数据不带观点。字段变更前先读 docs/03_数据契约/SCHEMA.md。",
+    "p0_batch_date": "2026-04-21",
+    "seed_scope": "P0 批次共5个 entity",
+    "data_confidence_legend": "verified = 2+ 个 P0/P1 源交叉；cross_checked = 1 个 P0/P1 + 其他；single_source = 仅 P2 源"
+  },
+
+  "osk_kaiyukan": {
+    "entity_id": "osk_kaiyukan",
+    "_alias": ["osa_kaiyukan"],
+    "name_zh": "海游馆",
+    "name_ja": "海遊館",
+    "name_en": "Osaka Aquarium Kaiyukan",
+    "area": "tempozan",
+    "category": "aquarium",
+    "coordinates": {"lat": 34.6527, "lng": 135.4240},
+    "official_url": "https://www.kaiyukan.com/language/eng/",
+    "access": "大阪Metro中央线「大阪港」站步行约5分钟。从JR大阪站乘大阪环线至弁天町站，转中央线2站至大阪港站。",
+    "short_desc": "日本最具规模的水族馆之一，以巨大的「太平洋」水槽（深9米）为核心，可近距离观看鲸鲨，展示约620种、3万只生物，螺旋式坡道从8楼盘旋而下。",
+    "opening_hours": {
+      "regular": "10:00–20:00（旺季延长，淡季10:00–19:00，具体请查官方日历）",
+      "closed": "每年数日不定期休馆，请查官方日历",
+      "last_entry": "闭馆前1小时"
+    },
+    "admission": {
+      "adult": 2700,
+      "child_7_15": 1400,
+      "toddler_3_6": 700,
+      "infant_free_under_age": 3,
+      "unit": "JPY",
+      "_note": "动态定价，旺季成人票最高¥3,500，儿童（7–15岁）最高¥1,800，幼儿（3–6岁）最高¥900"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "summer": "6–8月为家庭游高峰，室内凉爽，傍晚后夜水族馆模式",
+      "winter": "12月圣诞假期延长营业"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.kaiyukan.com/language/eng/",
+      "https://www.japan-guide.com/e/e4004.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_dotonbori": {
+    "entity_id": "osk_dotonbori",
+    "name_zh": "道顿堀",
+    "name_ja": "道頓堀",
+    "name_en": "Dotonbori",
+    "area": "namba",
+    "category": "district",
+    "coordinates": {"lat": 34.6687, "lng": 135.5013},
+    "official_url": "https://www.japan.travel/en/spot/2207/",
+    "access": "大阪Metro御堂筋线「难波」站14号出口步行约3分钟；或从「心斋桥」站步行约8分钟。",
+    "short_desc": "大阪最具代表性的夜生活与美食街，沿道顿堀川两岸延伸，霓虹招牌密集，格力高跑步人标志矗立江桥，章鱼烧・串烧・寿司等大阪名物林立。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": true,
+    "seasonal_notes": {
+      "summer": "7–8月夜间人流最旺",
+      "new_year": "除夕倒计时聚集大量人流"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.japan.travel/en/spot/2207/",
+      "https://www.japan-guide.com/e/e4016.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_osaka_castle": {
+    "entity_id": "osk_osaka_castle",
+    "_alias": ["osa_osaka_castle"],
+    "name_zh": "大阪城",
+    "name_ja": "大阪城",
+    "name_en": "Osaka Castle",
+    "area": "osaka_castle_park",
+    "category": "castle",
+    "coordinates": {"lat": 34.6873, "lng": 135.5262},
+    "official_url": "https://osakacastle.org/",
+    "access": "JR大阪环线「大阪城公园」站（东北入口）或「森之宫」站（东南入口）。或地铁「谷町四丁目」站（中央线/谷町线）步行约5分钟。",
+    "short_desc": "大阪历史地标，现存天守阁为1931年重建，共8层，内设历史博物馆及顶层观景台，公园占地约106公顷，春季樱花闻名全国。",
+    "opening_hours": {
+      "regular": "09:00–17:00（最终入馆16:30）；樱花季、黄金周及暑假期间延长营业",
+      "closed": "12月28日–1月4日（年末年始）；偶有维护临时休馆",
+      "last_entry": "16:30"
+    },
+    "admission": {
+      "adult": 1200,
+      "student_university_high": 600,
+      "child": 0,
+      "child_free_note": "初中生及以下免费，需出示证明",
+      "nishinomaru_garden": 200,
+      "unit": "JPY"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "spring": "3月下旬–4月上旬西丸庭园及公园内约600棵樱花盛开，人流极多；西丸庭园樱花季入场费涨至¥320",
+      "autumn": "银杏大道约11月下旬转黄",
+      "winter": "12月下旬天守阁关闭"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://osakacastle.org/hours/",
+      "https://osakacastle.org/entrance-fee/",
+      "https://www.japan.travel/en/spot/1087/"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_kuromon": {
+    "entity_id": "osk_kuromon",
+    "name_zh": "黑门市场",
+    "name_ja": "黒門市場",
+    "name_en": "Kuromon Ichiba Market",
+    "area": "namba",
+    "category": "market",
+    "coordinates": {"lat": 34.6672, "lng": 135.5058},
+    "official_url": "https://kuromon.com/en/",
+    "access": "大阪Metro堺筋线/千日前线「日本桥」站10号出口步行约3分钟；或从「难波」站步行约10分钟。",
+    "short_desc": "有「大阪厨房」之称的室内市场，全长约580米，约150家商铺，海鲜・肉类・蔬果・腌渍物一应俱全，近年成为游客热门美食打卡地，可当场品尝烤海鲜・寿司・章鱼烧等。",
+    "is_public_path": true,
+    "admission": null,
+    "opening_hours_note": "市场通道全天开放，店铺营业时间各异，约08:00–18:00为主；周日及节假日部分商铺关闭",
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "建议工作日上午10时前后到访，避开人流高峰"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://kuromon.com/en/",
+      "https://www.japan-guide.com/e/e4031.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_mint_bureau": {
+    "entity_id": "osk_mint_bureau",
+    "name_zh": "大阪造币局（樱花通道）",
+    "name_ja": "造幣局（桜の通り抜け）",
+    "name_en": "Osaka Mint Bureau Cherry Blossom Walk",
+    "area": "osaka_kita",
+    "category": "garden",
+    "coordinates": {"lat": 34.6928, "lng": 135.5175},
+    "official_url": "https://www.mint.go.jp/eng/topics-eng/2026-cherry-blossom-viewing-in-osaka.html",
+    "access": "地铁谷町线/京阪本线「天満橋」站步行10–15分钟；JR东西线「大阪天満宮」站/「大阪城北詰」站步行15分钟。无停车场。",
+    "short_desc": "明治6年起延续的「桜の通り抜け」，140种331棵八重樱在560米步道上盛开，每年4月仅开放约一周，近年实施预约制入场。",
+    "opening_hours": {
+      "regular": "平日10:00–19:15；周末09:00–19:15（活动期间）",
+      "closed": "仅每年4月约一周的活动期对外开放",
+      "last_entry": "19:00",
+      "_event_dates_2026": "2026年4月9日–15日"
+    },
+    "admission": {
+      "adult": 0,
+      "unit": "JPY",
+      "_note": "免费；但需提前网上预约"
+    },
+    "reservation_required": true,
+    "reservation_url": "https://sakura-osaka.mint.go.jp/",
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "spring": "每年仅开放约7天，时间根据花期预测于3月中旬公布；以八重樱为主，花期比染井吉野晚约2周",
+      "restrictions": "禁止三脚架、自拍杆、雨伞遮阳；需接受行李安检；禁止园内饮食吸烟；禁止携带宠物"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.mint.go.jp/eng/topics-eng/2026-cherry-blossom-viewing-in-osaka.html",
+      "https://www.mint.go.jp/eng/qa-eng/cherryblossom_qa.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_kyuanji": {
+    "entity_id": "osk_kyuanji",
+    "name_zh": "久安寺",
+    "name_ja": "久安寺",
+    "name_en": "Kyuan-ji",
+    "area": "osaka_ikeda",
+    "category": "temple",
+    "coordinates": {"lat": 34.8400, "lng": 135.4300},
+    "official_url": "https://kyuanji.jp/",
+    "access": "阪急宝塚线「池田」站乘阪急巴士138路（伏尾台/牧・希望丘方向）约15分钟至「久安寺」站下车即到；有免费停车场。",
+    "short_desc": "关西花之寺第12番，1,300年历史，占地约6.6公顷，绣球花约1,000株搭配水面漂浮绣球花（ガスク池）为特色，山门为国家重要文化财。",
+    "opening_hours": {
+      "regular": "09:00–16:00",
+      "closed": "全年开放",
+      "last_entry": "16:00"
+    },
+    "admission": {
+      "adult": 300,
+      "child": 300,
+      "unit": "JPY",
+      "_note": "大人・小学生统一¥300"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "ajisai": "6月上旬–7月上旬，约1,000株，5种；「ガスク池漂浮绣球花」活动约6/15–7/5",
+      "other_flowers": "春：牡丹・杜鹃；秋：红叶；冬：蜡梅・茶梅"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.ikedashi-kanko.jp/en/spot/recommend-spot17.html",
+      "https://osaka-info.jp/spot/kyuanji/"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_midosuji": {
+    "entity_id": "osk_midosuji",
+    "name_zh": "御堂筋",
+    "name_ja": "御堂筋",
+    "name_en": "Midosuji Boulevard",
+    "area": "osaka_central",
+    "category": "boulevard",
+    "coordinates": {"lat": 34.6750, "lng": 135.5017},
+    "official_url": "https://www.hikari-kyoen.com/en/midosuji/index.html",
+    "access": "地铁御堂筋线从「梅田」站（北端）至「なんば」站（南端）全区间直下运行；全程约4km，步行约1小时。",
+    "short_desc": "大阪南北大干线（全长约4km，宽44m），约900本银杏并木秋季转黄。11月每年举办「御堂筋イルミネーション（光の饗宴）」世界记录级灯光秀。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": true,
+    "seasonal_notes": {
+      "koyo_ginkgo": "例年11月中旬–12月上旬银杏黄叶高峰，11月下旬最佳；清晨人少适合拍摄",
+      "illumination": "每年11月初–12月末「御堂筋イルミネーション」，7个主题区段，2015年获世界纪录认定（街路树灯饰本数）；以当年官方公告日期为准"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.hikari-kyoen.com/en/midosuji/index.html",
+      "https://en.wikipedia.org/wiki/Mid%C5%8Dsuji"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_tempozan_ferris": {
+    "entity_id": "osk_tempozan_ferris",
+    "name_zh": "天保山摩天轮",
+    "name_ja": "天保山大観覧車",
+    "name_en": "Tempozan Giant Ferris Wheel",
+    "area": "tempozan",
+    "category": "ferris_wheel",
+    "coordinates": {"lat": 34.6562, "lng": 135.4310},
+    "official_url": "https://osaka-info.jp/en/spot/tempozan-ferris-wheel/",
+    "access": "大阪Metro中央线「大阪港」站1号出口步行约5分钟，与海游馆毗邻。",
+    "short_desc": "直径100米、高112.5米的超大型摩天轮，约15分钟一圈，8节透明地板车厢可俯瞰脚下。夜间灯光颜色预报翌日天气：红色晴・绿色阴・蓝色雨。",
+    "opening_hours": {
+      "regular": "平日10:00–21:00；周末及节假日10:00–22:00",
+      "closed": "与海游馆同日休馆，另有独立不定期休息日，请提前确认",
+      "last_entry": "关馆前15分钟"
+    },
+    "admission": {
+      "adult": 900,
+      "child": 900,
+      "unit": "JPY",
+      "_note": "3岁以上均为¥900；持残障手册半价¥450；团体（20人以上）¥800"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "夜间灯光效果最佳，日落后30分钟前往建议"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://osaka-info.jp/en/spot/tempozan-ferris-wheel/",
+      "https://www.japan-guide.com/e/e4010.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_abeno_harukas": {
+    "entity_id": "osk_abeno_harukas",
+    "name_zh": "阿倍野HARUKAS（晴空大厦）",
+    "name_ja": "あべのハルカス",
+    "name_en": "Abeno Harukas",
+    "area": "abeno_tennoji",
+    "category": "observation_deck",
+    "coordinates": {"lat": 34.6458, "lng": 135.5136},
+    "official_url": "https://www.abenoharukas-300.jp/en/",
+    "access": "近铁「大阪阿部野橋」站直结；JR「天王寺」站/地铁御堂筋线・谷町线「天王寺」站步行约3分钟。",
+    "short_desc": "日本近畿地区最高楼（300米，60层），展望台「ハルカス300」位于58–60层，晴天可360度眺望京都・神户・淡路岛。含近铁百货・大阪美术馆。",
+    "opening_hours": {
+      "regular": "展望台 09:00–22:00（最终入场21:30）",
+      "closed": "无固定休息（偶有维护，以官方公告为准）",
+      "last_entry": "21:30"
+    },
+    "admission": {
+      "adult": 2000,
+      "student_high_junior": 1200,
+      "child_elementary": 700,
+      "toddler_4_5": 500,
+      "unit": "JPY"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "晴天能见度高时最美；夕阳时间段（日落前30–60分钟）推荐；周末夜景（20:00后）较平日人少"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.abenoharukas-300.jp/en/observatory/",
+      "https://www.japan-guide.com/e/e4028.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_hozenji_yokocho": {
+    "entity_id": "osk_hozenji_yokocho",
+    "name_zh": "法善寺横丁",
+    "name_ja": "法善寺横丁",
+    "name_en": "Hozenji Yokocho",
+    "area": "namba",
+    "category": "district",
+    "coordinates": {"lat": 34.6678, "lng": 135.5022},
+    "official_url": "https://www.osaka.com/articles/hozenji-yokocho-alley/",
+    "access": "大阪Metro御堂筋线「難波」站14号出口步行约5分钟；从道顿堀步行约3分钟。",
+    "short_desc": "约80米青石板小巷，两侧约30家炉端烧・割烹・小酒馆，不动明王像覆满青苔（供水祈愿）。大阪最有老市井气息的夜食小巷，织田作之助《夫妇善哉》的舞台。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "傍晚（18:00起）店铺陆续开门，23:00前人气最旺；不动明王像青苔拍摄最佳在清晨"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.japan-guide.com/e/e4027.html",
+      "https://www.japan.travel/en/spot/1093/"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_nakanoshima": {
+    "entity_id": "osk_nakanoshima",
+    "name_zh": "中之岛",
+    "name_ja": "中之島",
+    "name_en": "Nakanoshima Island",
+    "area": "osaka_kita",
+    "category": "district",
+    "coordinates": {"lat": 34.6939, "lng": 135.5009},
+    "official_url": "https://nakanoshima-osaka.com/",
+    "access": "京阪「北浜」站/「渡辺橋」站；地铁堺筋线「北浜」站；地铁四つ橋线「肥後橋」站。各站步行3–8分钟至岛内。",
+    "short_desc": "堂岛川与土佐堀川夹成的细长洲岛，大阪市中心文化集中区，有中之岛图书馆（重要文化财）・大阪市役所・中之岛公园玫瑰园・国立国际美术馆（地下）。夜间灯光秀举世闻名。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": true,
+    "seasonal_notes": {
+      "spring": "5月玫瑰园约4000株盛开，免费；「大阪国際音楽祭」约5月举行",
+      "autumn": "「大阪光の饗宴・中之島イルミネーションストリート」约11月–12月"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://nakanoshima-osaka.com/",
+      "https://www.japan-guide.com/e/e4012.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_nakazakicho": {
+    "entity_id": "osk_nakazakicho",
+    "name_zh": "中崎町",
+    "name_ja": "中崎町",
+    "name_en": "Nakazakicho",
+    "area": "osaka_kita",
+    "category": "district",
+    "coordinates": {"lat": 34.7040, "lng": 135.5052},
+    "official_url": "https://osaka-info.jp/en/spot/nakazakicho/",
+    "access": "地铁谷町线「中崎町」站出口1步行即到。从梅田（JR大阪・阪急梅田）步行约10分钟。",
+    "short_desc": "梅田旁保留昭和时代木造长屋的复古街区，小艺廊・古着店・咖啡馆・二手书店密布，与梅田的商业繁华形成对比，是大阪文青生活方式代表地。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "无特定旺季；建议工作日白天前往，店铺多为12:00–19:00营业"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://osaka-info.jp/en/spot/nakazakicho/",
+      "https://www.japan-guide.com/e/e4014.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_namba": {
+    "entity_id": "osk_namba",
+    "name_zh": "难波",
+    "name_ja": "なんば",
+    "name_en": "Namba (Osaka)",
+    "area": "namba",
+    "category": "district",
+    "coordinates": {"lat": 34.6659, "lng": 135.5013},
+    "official_url": "https://www.japan.travel/en/spot/1091/",
+    "access": "大阪Metro御堂筋线/四つ橋线/千日前线「難波」站；南海「難波」站；近铁「大阪難波」站。各大铁路汇聚。",
+    "short_desc": "大阪最繁华的商业娱乐区，涵盖道顿堀・黑门市场・なんばCITY・WALK・高岛屋等，是全大阪购物・美食・夜生活的核心。连接梅田的「御堂筋线」地下商业街延伸。",
+    "is_public_path": true,
+    "admission": null,
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "全年旺盛，深夜至凌晨仍人流不断；阪神虎夺冠时道顿堀有跳河传统（注：目前桥边有隔离设施）"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.japan.travel/en/spot/1091/",
+      "https://www.japan-guide.com/e/e4016.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_osaka_museum_history": {
+    "entity_id": "osk_osaka_museum_history",
+    "name_zh": "大阪历史博物馆",
+    "name_ja": "大阪歴史博物館",
+    "name_en": "Osaka Museum of History",
+    "area": "osaka_castle_park",
+    "category": "museum",
+    "coordinates": {"lat": 34.6838, "lng": 135.5222},
+    "official_url": "https://www.mus-his.city.osaka.jp/eng/",
+    "access": "地铁谷町线/中央线「谷町四丁目」站9号出口步行约1分钟；大阪城步行约5分钟。",
+    "short_desc": "10层楼高的大阪城旁历史博物馆，从10楼逐步向下，展示从古代难波宫（实物发掘地）到近代大阪400年历史，顶层可俯瞰大阪城。",
+    "opening_hours": {
+      "regular": "09:30–17:00（最终入场16:30）；周五至20:00",
+      "closed": "每周二（节假日顺延）；12月28日–1月4日；展览更换时",
+      "last_entry": "16:30（周五19:30）"
+    },
+    "admission": {
+      "adult": 600,
+      "student_university": 400,
+      "student_high_junior": 0,
+      "unit": "JPY",
+      "_note": "常设展：成人¥600，大学生¥400，高中生以下免费；特别展另收"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.mus-his.city.osaka.jp/eng/",
+      "https://www.japan-guide.com/e/e4025.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_shitennoji": {
+    "entity_id": "osk_shitennoji",
+    "name_zh": "四天王寺",
+    "name_ja": "四天王寺",
+    "name_en": "Shitennoji Temple",
+    "area": "abeno_tennoji",
+    "category": "temple",
+    "coordinates": {"lat": 34.6529, "lng": 135.5162},
+    "official_url": "https://www.shitennoji.or.jp/",
+    "access": "地铁谷町线「四天王寺前夕陽ヶ丘」站4号出口步行约5分钟；JR环状线「天王寺」站步行约15分钟。",
+    "short_desc": "593年圣德太子建立，日本最古老的官立佛寺之一，也是日本最早的四天王像安置地。伽蓝（五重塔・金堂・講堂）按飞鸟样式复原，每月21・22日有骨董市集。",
+    "opening_hours": {
+      "regular": "境内 08:30–16:30；中心伽蓝 08:30–16:00；庭园「极楽净土の庭」3–10月 08:30–16:30，11–2月 08:30–16:00",
+      "closed": "无休（各区域开放时间略有不同）",
+      "last_entry": "各区域闭园前15分钟"
+    },
+    "admission": {
+      "adult": 300,
+      "child": 200,
+      "unit": "JPY",
+      "_note": "中心伽蓝参观：成人¥300，小中学生¥200；庭园（极楽净土の庭）另需¥300；境内参拜免费"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "spring": "境内樱花约4月上旬，与五重塔构图",
+      "monthly_market": "毎月21日（太子会）・22日周边骨董市集，早朝至16时"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.shitennoji.or.jp/",
+      "https://www.japan-guide.com/e/e4013.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_sumiyoshi_taisha": {
+    "entity_id": "osk_sumiyoshi_taisha",
+    "name_zh": "住吉大社",
+    "name_ja": "住吉大社",
+    "name_en": "Sumiyoshi Taisha Grand Shrine",
+    "area": "sumiyoshi",
+    "category": "shrine",
+    "coordinates": {"lat": 34.6120, "lng": 135.4928},
+    "official_url": "https://www.sumiyoshitaisha.net/",
+    "access": "南海本线「住吉大社」站步行约3分钟；阪堺电车「住吉鳥居前」站下车即到；南海「粉浜」站步行约5分钟。从难波约15分钟。",
+    "short_desc": "全国约2300座住吉神社总本社，创建约1800年历史（神功皇后时代），「住吉造」建筑样式为最古老日本建筑形式之一，以「太鼓橋」拱桥（反橋）与四本宫为核心。",
+    "opening_hours": {
+      "regular": "境内 6:00–17:00（各季节略有变化）；おまもり等社務所 09:00–17:00",
+      "closed": "无休",
+      "last_entry": null
+    },
+    "admission": {
+      "adult": 0,
+      "unit": "JPY",
+      "_note": "境内参拜免费"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "new_year": "1月1–3日初诣参拝者约200万人，全国屈指可数的人气神社；凌晨起即开放",
+      "summer": "6月30日大祓（茅の輪くぐり）；7月「住吉まつり」為大阪三大祭之一"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.sumiyoshitaisha.net/",
+      "https://www.japan-guide.com/e/e4009.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_taiyo_no_to": {
+    "entity_id": "osk_taiyo_no_to",
+    "name_zh": "太阳之塔",
+    "name_ja": "太陽の塔",
+    "name_en": "Tower of the Sun (Taiyo no To)",
+    "area": "suita_expo",
+    "category": "museum",
+    "coordinates": {"lat": 34.8078, "lng": 135.5303},
+    "official_url": "https://taiyounotou-expo70.jp/",
+    "access": "大阪モノレール「万博記念公園」站步行约15分钟（公园东口）；或万博纪念公园内西口附近。从梅田乘单轨约30分钟。",
+    "short_desc": "冈本太郎为1970年大阪世博会设计的高70米前卫艺术雕塑，现已作为博物馆开放内部参观，展示「生命之树」（183种生物）彩色装置艺术。",
+    "opening_hours": {
+      "regular": "10:00–17:00（最终入场16:30）",
+      "closed": "每周三（遇节假日则顺延至翌日）",
+      "last_entry": "16:30"
+    },
+    "admission": {
+      "adult": 720,
+      "child_elementary": 310,
+      "toddler": 0,
+      "unit": "JPY",
+      "_note": "内部参观（太阳の塔）：成人¥720，小学生¥310，未就学儿童免费；需提前网上预约"
+    },
+    "reservation_required": true,
+    "reservation_url": "https://taiyounotou-expo70.jp/",
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://taiyounotou-expo70.jp/",
+      "https://www.japan-guide.com/e/e4019.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_tsutenkaku": {
+    "entity_id": "osk_tsutenkaku",
+    "name_zh": "通天阁",
+    "name_ja": "通天閣",
+    "name_en": "Tsutenkaku Tower",
+    "area": "shinsekai",
+    "category": "observation_deck",
+    "coordinates": {"lat": 34.6524, "lng": 135.5063},
+    "official_url": "https://www.tsutenkaku.co.jp/en/",
+    "access": "地铁堺筋线「恵美須町」站3号出口步行约3分钟；地铁御堂筋线「動物園前」站1号出口步行约5分钟。",
+    "short_desc": "大阪新世界地区地标，高108米（二代目，1956年建），以福神ビリケン像・串炸文化・昭和风情著称。提供展望台（91米）、展望台SUPER（94米）及屋外展望台（97米）三层。",
+    "opening_hours": {
+      "regular": "10:00–20:00（最终入场19:30）",
+      "closed": "有不定期维护休息；以官方公告为准",
+      "last_entry": "19:30"
+    },
+    "admission": {
+      "adult": 1000,
+      "child": 400,
+      "unit": "JPY",
+      "_note": "展望台（一般）成人¥1,000；展望台SUPER（Top of TSUTENKAKU）成人¥1,800；屋外展望台成人¥300追加；三层套票成人¥3,000"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "旁边新世界串炸街（ジャンジャン横丁）：串炸二度漬け禁止是规矩；饮食后登展望台可避开人流高峰（14:00–15:00最旺）"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.tsutenkaku.co.jp/en/",
+      "https://www.japan-guide.com/e/e4007.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_umeda_sky": {
+    "entity_id": "osk_umeda_sky",
+    "name_zh": "梅田空中庭园展望台",
+    "name_ja": "梅田スカイビル・空中庭園展望台",
+    "name_en": "Umeda Sky Building – Floating Garden Observatory",
+    "area": "osaka_kita",
+    "category": "observation_deck",
+    "coordinates": {"lat": 34.7054, "lng": 135.4900},
+    "official_url": "https://www.skybldg.co.jp/en/",
+    "access": "JR「大阪」站中央口步行约7分钟；地铁御堂筋线「梅田」站步行约10分钟。",
+    "short_desc": "由两栋40层塔楼顶部通过空中圆盘连接的独特建筑，173米高空中庭园展望台360度眺望大阪湾・六甲山・生駒山，被米其林绿色指南收录（二星）。",
+    "opening_hours": {
+      "regular": "10:00–22:30（最终入场22:00）",
+      "closed": "无休（偶有维护，以官方公告为准）",
+      "last_entry": "22:00"
+    },
+    "admission": {
+      "adult": 1500,
+      "child_4_high": 700,
+      "unit": "JPY"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "autumn": "地下「瀧见小路」昭和复古街道常年开放",
+      "winter": "12月圣诞期间空中庭园灯光秀",
+      "general": "日落前后30分钟（彩霞・夜景两种景色切换）为最佳时段"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.skybldg.co.jp/en/",
+      "https://www.japan-guide.com/e/e4013b.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_ikoma_sanjo_yuenchi": {
+    "entity_id": "osk_ikoma_sanjo_yuenchi",
+    "name_zh": "生驹山上游乐园",
+    "name_ja": "生駒山上遊園地",
+    "name_en": "Ikoma Sanjo Amusement Park",
+    "area": "nara_ikoma",
+    "category": "amusement_park",
+    "coordinates": {"lat": 34.6794, "lng": 135.6862},
+    "official_url": "https://www.ikomasanjo.com/",
+    "access": "近铁生駒线「生駒」站换乗近铁生駒ケーブル（ミケ線/鳥居前口），约12分钟至「山上」站；另有宝山寺线「霞ヶ丘」站也可达。从大阪・奈良均约40分钟。",
+    "short_desc": "生驹山顶（標高642米）的古老游乐园，1929年开业，夏季烟花・秋季红叶可眺望奈良盆地，号称「天空的游乐园」，维护了传统木质游乐设施。",
+    "opening_hours": {
+      "regular": "周六日・节假日 10:00–21:00；夏季（7–8月）平日也开放 13:00–21:00",
+      "closed": "周一–五（夏季除外）；11月中旬–3月下旬冬季休园",
+      "last_entry": "20:30"
+    },
+    "admission": {
+      "adult": 0,
+      "unit": "JPY",
+      "_note": "入园免费；各游乐设施单独收费（约¥100–¥300/次）；缆车往返成人¥560，儿童¥290（另付）"
+    },
+    "reservation_required": false,
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "summer": "7–8月烟花大会（日程以官方公告为准）；盂兰盆节晚上人气最高",
+      "autumn": "10月下旬–11月山顶红叶，奈良盆地远景"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://www.ikomasanjo.com/",
+      "https://www.japan-guide.com/e/e4057.html"
+    ],
+    "last_verified": "2026-04-21"
+  },
+
+  "osk_teamlab_botanical": {
+    "entity_id": "osk_teamlab_botanical",
+    "_alias": ["kyo_teamlab_biovortex"],
+    "name_zh": "teamLab植物园大阪（鸣瀑）",
+    "name_ja": "チームラボボタニカルガーデン大阪",
+    "name_en": "teamLab Botanical Garden Osaka",
+    "area": "osaka_nagai",
+    "category": "experience",
+    "coordinates": {"lat": 34.6128, "lng": 135.5202},
+    "official_url": "https://botanicalgarden.teamlab.art/",
+    "access": "地铁御堂筋线「長居」站3号出口步行约5分钟，进入大阪市立长居植物园内。",
+    "short_desc": "大阪市立长居植物园内的沉浸式数字艺术夜间展览，约20件作品在植物园自然环境中展示，「白い氣配」巨型装置最具代表性，仅夜间开放（日落后）。",
+    "opening_hours": {
+      "regular": "日落–22:00（最终入场21:00；开门时间随日落变化，约17:00–19:00季节性变动）",
+      "closed": "无固定休息；偶有维护日，以官网为准",
+      "last_entry": "21:00"
+    },
+    "admission": {
+      "adult": 2000,
+      "student_university": 1400,
+      "child_4_high": 800,
+      "unit": "JPY",
+      "_note": "以官网最新票价为准；网上预约与现场均可，网上预约可避免现场等候"
+    },
+    "reservation_required": false,
+    "reservation_url": "https://botanicalgarden.teamlab.art/",
+    "photo_ok": true,
+    "tripod_allowed": false,
+    "seasonal_notes": {
+      "general": "雨天仍可参观（部分室外区在大雨时关闭）；穿戴方便走路的鞋子；散场时地铁较拥挤建议错开人流",
+      "summer": "日落较晚（19:00后），秋冬日落早（17:00前后），各季节时间差异大"
+    },
+    "data_confidence": "verified",
+    "data_sources": [
+      "https://botanicalgarden.teamlab.art/",
+      "https://www.japan-guide.com/e/e4034.html"
+    ],
+    "last_verified": "2026-04-21"
+  }
+}

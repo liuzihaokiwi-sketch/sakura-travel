@@ -1,0 +1,5498 @@
+[
+  {
+    "id": "kyoto_000",
+    "name_ja": "山元麺蔵",
+    "name_zh": "山元面蔵",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.9",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_001",
+    "name_ja": "鍵善良房 四条本店",
+    "name_zh": "鍵善良房 四条本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.78",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_002",
+    "name_ja": "麺屋 猪一",
+    "name_zh": "面屋猪一",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_003",
+    "name_ja": "蕎麦 ろうじな",
+    "name_zh": "荞麦 路地奈",
+    "area": "karasuma_oike",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_004",
+    "name_ja": "京極 かねよ",
+    "name_zh": "京极 金余",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3999,
+    "price_dinner_jpy": 3999,
+    "score": "michelin:bib_gourmand",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "必比登认证，本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_005",
+    "name_ja": "南禅寺 順正",
+    "name_zh": "南禅寺 顺正",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "tofu",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5500,
+    "price_dinner_jpy": 5500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都豆腐料理，清淡中见功夫",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_006",
+    "name_ja": "本家 第一旭",
+    "name_zh": "本家 第一旭",
+    "area": "kyoto_station",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_007",
+    "name_ja": "緒方",
+    "name_zh": "緒方",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 79999,
+    "score": "tabelog:4.57",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_008",
+    "name_ja": "木山",
+    "name_zh": "木山",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 14999,
+    "price_dinner_jpy": 29999,
+    "score": "tabelog:4.44",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_009",
+    "name_ja": "東山 吉寿",
+    "name_zh": "东山 吉寿",
+    "area": "kyoto_station",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.36",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_010",
+    "name_ja": "祇園 さゝ木",
+    "name_zh": "祇园 笹木",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 22000,
+    "price_dinner_jpy": 44000,
+    "score": "tabelog:4.34",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_011",
+    "name_ja": "草喰 なかひがし",
+    "name_zh": "草喰 中东",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 14999,
+    "price_dinner_jpy": 29999,
+    "score": "tabelog:4.29",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_012",
+    "name_ja": "未在",
+    "name_zh": "未在",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 79999,
+    "score": "tabelog:4.26",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_013",
+    "name_ja": "コリス",
+    "name_zh": "科里斯",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.82",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_014",
+    "name_ja": "大極殿本舗 六角店",
+    "name_zh": "大极殿本铺 六角店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.77",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_015",
+    "name_ja": "らぁ麺 とうひち",
+    "name_zh": "拉面 东七",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_016",
+    "name_ja": "十五",
+    "name_zh": "十五",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_017",
+    "name_ja": "いづう",
+    "name_zh": "いづう",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2999,
+    "price_dinner_jpy": 2999,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_018",
+    "name_ja": "和食晴ル",
+    "name_zh": "和食晴",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_019",
+    "name_ja": "三本木商店",
+    "name_zh": "三本木商店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_020",
+    "name_ja": "まつもと",
+    "name_zh": "松本",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.66",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_021",
+    "name_ja": "茶寮哲心",
+    "name_zh": "茶寮哲心",
+    "area": "karasuma_oike",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_022",
+    "name_ja": "鮨割烹 なか一",
+    "name_zh": "鮨割烹 中一",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.61",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_023",
+    "name_ja": "すし善",
+    "name_zh": "寿司善",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.6",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_024",
+    "name_ja": "グリル 小宝",
+    "name_zh": "格里尔小宝",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.58",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_025",
+    "name_ja": "祇をん 萬屋",
+    "name_zh": "祇园 万屋",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.57",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_026",
+    "name_ja": "菊乃井 本店",
+    "name_zh": "菊乃井 本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 19999,
+    "price_dinner_jpy": 39999,
+    "score": "michelin:3star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_027",
+    "name_ja": "祇園 にしかわ",
+    "name_zh": "祇园 西川",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 35000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_028",
+    "name_ja": "祇園 大渡",
+    "name_zh": "祇园 大渡",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 35000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_029",
+    "name_ja": "京星",
+    "name_zh": "京星",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_030",
+    "name_ja": "湯豆腐 嵯峨野",
+    "name_zh": "汤豆腐 嵯峨野",
+    "area": "arashiyama",
+    "cuisine_tag": "tofu",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 4400,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都豆腐料理，清淡中见功夫",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_031",
+    "name_ja": "先斗町 魯賓",
+    "name_zh": "先斗町 鲁宾",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_032",
+    "name_ja": "京料理六盛",
+    "name_zh": "京料理六盛",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_033",
+    "name_ja": "AWOMB 烏丸本店",
+    "name_zh": "AWOMB 乌丸本店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 12000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_034",
+    "name_ja": "麵屋極雞",
+    "name_zh": "面屋极鸡",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_035",
+    "name_ja": "炸牛排京都勝牛 先斗町本店",
+    "name_zh": "炸牛排京都胜牛 先斗町本店",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_036",
+    "name_ja": "貴船 右源太",
+    "name_zh": "贵船 右源太",
+    "area": "kibune_kurama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_037",
+    "name_ja": "西陣 鳥岩楼",
+    "name_zh": "西阵 鸟岩楼",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 3000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_038",
+    "name_ja": "丸久小山園 茶房元庵",
+    "name_zh": "丸久小山园 茶房元庵",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_039",
+    "name_ja": "飯田",
+    "name_zh": "飯田",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.59",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_040",
+    "name_ja": "啐啄 つか本",
+    "name_zh": "啐啄 冢本",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.55",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_041",
+    "name_ja": "徳ㇵ本也",
+    "name_zh": "德ハ本也",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.53",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_042",
+    "name_ja": "富小路 やま岸",
+    "name_zh": "富小路 山岸",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.51",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_043",
+    "name_ja": "竹屋町 三多",
+    "name_zh": "竹屋町 三多",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.49",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_044",
+    "name_ja": "にくの匠 三芳",
+    "name_zh": "肉之匠 三芳",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.47",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_045",
+    "name_ja": "きう",
+    "name_zh": "きう",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.4",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_046",
+    "name_ja": "京天神 野口",
+    "name_zh": "京天神 野口",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.38",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_047",
+    "name_ja": "料理 川口",
+    "name_zh": "料理 川口",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.37",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_048",
+    "name_ja": "旬席 鈴江",
+    "name_zh": "旬席 铃江",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.36",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_049",
+    "name_ja": "日本料理 研野",
+    "name_zh": "日本料理 研野",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.32",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_050",
+    "name_ja": "食堂 おがわ",
+    "name_zh": "食堂 小川",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:4.3",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_051",
+    "name_ja": "深夜焼肉 だいちゃん",
+    "name_zh": "深夜烧肉 大酱",
+    "area": "karasuma_oike",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:4.29",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "顶级口碑，上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_052",
+    "name_ja": "洋食 おがた",
+    "name_zh": "洋食 小方",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:4.03",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "高分名店，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_053",
+    "name_ja": "ぎをん鮨尚充",
+    "name_zh": "祇园鮨尚充",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.97",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_054",
+    "name_ja": "天ぷら 京星",
+    "name_zh": "天妇罗 京星",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.87",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_055",
+    "name_ja": "茶寮 宝泉",
+    "name_zh": "茶寮 宝泉",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.87",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_056",
+    "name_ja": "ひつじ",
+    "name_zh": "小羊",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.84",
+    "ab_role": "A_safe",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_057",
+    "name_ja": "パティスリー タンドレス",
+    "name_zh": "糕点店 唐德蕾丝",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.84",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_058",
+    "name_ja": "鮨まつもと",
+    "name_zh": "鮨松本",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 19999,
+    "price_dinner_jpy": 29999,
+    "score": "tabelog:3.83",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_059",
+    "name_ja": "パティスリー エス サロン",
+    "name_zh": "糕点店 S沙龙",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.82",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_060",
+    "name_ja": "天ぷら 松",
+    "name_zh": "天妇罗 松",
+    "area": "arashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.79",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_061",
+    "name_ja": "グリルフレンチ",
+    "name_zh": "格里尔法式",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.79",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_062",
+    "name_ja": "祇園 末友",
+    "name_zh": "祇园 末友",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 39999,
+    "score": "tabelog:3.78",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_063",
+    "name_ja": "グラン・ヴァニーユ",
+    "name_zh": "格兰·瓦尼耶",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.78",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_064",
+    "name_ja": "肉料理 荒川",
+    "name_zh": "肉料理 荒川",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.77",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_065",
+    "name_ja": "焼肉やまちゃん",
+    "name_zh": "烧肉山酱",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.77",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_066",
+    "name_ja": "宝泉 JR新幹線京都駅店",
+    "name_zh": "宝泉 JR新干线京都站店",
+    "area": "kyoto_station",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.77",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_067",
+    "name_ja": "洋食堂 すずき",
+    "name_zh": "洋食堂 铃木",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.77",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_068",
+    "name_ja": "鮨 こんどう",
+    "name_zh": "鮨 近藤",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_069",
+    "name_ja": "ちさき",
+    "name_zh": "千崎",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_070",
+    "name_ja": "ぎおん徳屋",
+    "name_zh": "祇园德屋",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_071",
+    "name_ja": "粟餅所・澤屋",
+    "name_zh": "粟饼所·泽屋",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.76",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_072",
+    "name_ja": "本家 第一旭 本店",
+    "name_zh": "本家 第一旭 本店",
+    "area": "kyoto_station",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.75",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_073",
+    "name_ja": "麺屋 極鶏 一乗寺本店",
+    "name_zh": "面屋 极鸡 一乘寺本店",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.75",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_074",
+    "name_ja": "空蝉亭",
+    "name_zh": "空蝉亭",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.75",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_075",
+    "name_ja": "呑小路 やま岸",
+    "name_zh": "呑小路 山岸",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.75",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_076",
+    "name_ja": "ファイブラン",
+    "name_zh": "五面包",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.75",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_077",
+    "name_ja": "祇園ろはん",
+    "name_zh": "祇园炉饭",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.74",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_078",
+    "name_ja": "オテルドゥオガワ",
+    "name_zh": "奥特尔·杜·小川",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.74",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_079",
+    "name_ja": "祇園 鮨 忠保",
+    "name_zh": "祇园 鮨 忠保",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 20000,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_080",
+    "name_ja": "セアブラノ神 壬生本店",
+    "name_zh": "脂神 壬生本店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_081",
+    "name_ja": "喫茶葦島",
+    "name_zh": "喫茶 芦岛",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_082",
+    "name_ja": "茶房いせはん",
+    "name_zh": "茶房伊势版",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_083",
+    "name_ja": "洋食の店　みしな",
+    "name_zh": "洋食之店 美品奈",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.73",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_084",
+    "name_ja": "麺や高倉二条",
+    "name_zh": "面家高仓二条",
+    "area": "karasuma_oike",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_085",
+    "name_ja": "本格手打うどん 大河",
+    "name_zh": "正宗手打乌冬 大河",
+    "area": "fushimi",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_086",
+    "name_ja": "おがわ",
+    "name_zh": "小川",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_087",
+    "name_ja": "フランソア喫茶室",
+    "name_zh": "法兰索瓦喫茶室",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_088",
+    "name_ja": "LA VOITURE",
+    "name_zh": "LA VOITURE",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_089",
+    "name_ja": "アルチザナル",
+    "name_zh": "阿尔蒂扎纳尔",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.72",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_090",
+    "name_ja": "さえき",
+    "name_zh": "佐伯",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_091",
+    "name_ja": "京都 鮨ノ蔵",
+    "name_zh": "京都 鮨之仓",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_092",
+    "name_ja": "拳ラーメン",
+    "name_zh": "拳拉面",
+    "area": "kyoto_station",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_093",
+    "name_ja": "晴耕雨読",
+    "name_zh": "晴耕雨読",
+    "area": "uji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_094",
+    "name_ja": "焼肉矢澤 京都",
+    "name_zh": "烧肉矢泽 京都",
+    "area": "karasuma_oike",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_095",
+    "name_ja": "赤垣屋",
+    "name_zh": "赤垣屋",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_096",
+    "name_ja": "スマート珈琲店",
+    "name_zh": "Smart珈琲店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.71",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_097",
+    "name_ja": "中華そば 高安",
+    "name_zh": "中华荞麦 高安",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_098",
+    "name_ja": "山崎麺二郎",
+    "name_zh": "山崎面二郎",
+    "area": "karasuma_oike",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_099",
+    "name_ja": "ラーメン二郎 京都店",
+    "name_zh": "拉面二郎 京都店",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_100",
+    "name_ja": "喫茶 マドラグ",
+    "name_zh": "喫茶 马德拉格",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.7",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_101",
+    "name_ja": "貝だし麺 きた田",
+    "name_zh": "贝出汁面 北田",
+    "area": "kyoto_station",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_102",
+    "name_ja": "あいつのラーメン かたぐるま 本店",
+    "name_zh": "那家伙的拉面 肩车 本店",
+    "area": "kyoto_station",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_103",
+    "name_ja": "りきちゃん 祇園店",
+    "name_zh": "力酱 祇园店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_104",
+    "name_ja": "酒処 てらやま",
+    "name_zh": "酒处 寺山",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_105",
+    "name_ja": "プチレストラン ないとう",
+    "name_zh": "小餐厅 内藤",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_106",
+    "name_ja": "山本まんぼ",
+    "name_zh": "山本万宝",
+    "area": "kyoto_station",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.69",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_107",
+    "name_ja": "末廣",
+    "name_zh": "末广",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_108",
+    "name_ja": "水暉 ザ・リッツ・カールトン京都",
+    "name_zh": "水暉 丽思卡尔顿京都",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_109",
+    "name_ja": "天ぷら 川辰",
+    "name_zh": "天妇罗 川辰",
+    "area": "arashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_110",
+    "name_ja": "京うどん 生蕎麦 岡北",
+    "name_zh": "京乌冬 生荞麦 冈北",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_111",
+    "name_ja": "そば茶寮 澤正",
+    "name_zh": "荞麦茶寮 泽正",
+    "area": "tofukuji",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_112",
+    "name_ja": "たかつじ 佳粋",
+    "name_zh": "高辻 佳粋",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_113",
+    "name_ja": "ひいらぎ亭",
+    "name_zh": "冬青亭",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_114",
+    "name_ja": "洋食堂 のろ",
+    "name_zh": "洋食堂 野郎",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_115",
+    "name_ja": "ドミニク・ブシェ・キョート・ル・レストラン",
+    "name_zh": "多米尼克·布歇·京都餐厅",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 25000,
+    "score": "tabelog:3.68",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_116",
+    "name_ja": "ぼるた",
+    "name_zh": "博尔塔",
+    "area": "arashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_117",
+    "name_ja": "祇園ねぎ焼 かな 東店",
+    "name_zh": "祇园葱烧 加奈 东店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.67",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_118",
+    "name_ja": "日出鮨",
+    "name_zh": "日出鮨",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_119",
+    "name_ja": "鮨 おび乃",
+    "name_zh": "鮨 带乃",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_120",
+    "name_ja": "天婦羅処 京林泉",
+    "name_zh": "天妇罗处 京林泉",
+    "area": "kyoto_station",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_121",
+    "name_ja": "祇園 やま岸",
+    "name_zh": "祇园 山岸",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_122",
+    "name_ja": "京都宇治金時や",
+    "name_zh": "京都宇治金时屋",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_123",
+    "name_ja": "しゅばく",
+    "name_zh": "洲麦",
+    "area": "uji",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_124",
+    "name_ja": "とんかつ山本",
+    "name_zh": "炸猪排山本",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_125",
+    "name_ja": "NISHITOMIYA",
+    "name_zh": "NISHITOMIYA",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.66",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_126",
+    "name_ja": "東寿し",
+    "name_zh": "东寿司",
+    "area": "kyoto_station",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_127",
+    "name_ja": "アジェ 松原本店",
+    "name_zh": "阿热 松原本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_128",
+    "name_ja": "KANEGURA",
+    "name_zh": "KANEGURA",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_129",
+    "name_ja": "居酒屋 ニエフ",
+    "name_zh": "居酒屋 尼叶夫",
+    "area": "karasuma_oike",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_130",
+    "name_ja": "グリル＆コーヒー はせがわ",
+    "name_zh": "格里尔&咖啡 长谷川",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.65",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_131",
+    "name_ja": "京都 和牛料理 一石三鳥",
+    "name_zh": "京都 和牛料理 一石三鸟",
+    "area": "kyoto_station",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_132",
+    "name_ja": "沐",
+    "name_zh": "沐",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.64",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_133",
+    "name_ja": "鮨 森学",
+    "name_zh": "鮨 森学",
+    "area": "karasuma_oike",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_134",
+    "name_ja": "へんこつ",
+    "name_zh": "顽固",
+    "area": "kyoto_station",
+    "cuisine_tag": "izakaya",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "tabelog:3.63",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "藏在小巷的居酒屋，下酒菜比菜单还多",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_135",
+    "name_ja": "京・富小路 天ぷら吉川",
+    "name_zh": "京·富小路 天妇罗吉川",
+    "area": "karasuma_oike",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 13000,
+    "price_dinner_jpy": 16500,
+    "score": "tabelog:3.62",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_136",
+    "name_ja": "リストランテ野呂",
+    "name_zh": "里斯托兰特野吕",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "nostalgic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "tabelog:3.62",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_137",
+    "name_ja": "千登利亭",
+    "name_zh": "千登利亭",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 15000,
+    "score": "tabelog:3.61",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_138",
+    "name_ja": "京都祇園 天ぷら八坂圓堂",
+    "name_zh": "京都祇园 天妇罗八坂圆堂",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.61",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_139",
+    "name_ja": "マルミヤ亭",
+    "name_zh": "丸宫亭",
+    "area": "tofukuji",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.6",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_140",
+    "name_ja": "手打ち蕎麦・鮨 いまふく",
+    "name_zh": "手打荞麦·鮨 今福",
+    "area": "fushimi",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.6",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_141",
+    "name_ja": "鴨川たかし",
+    "name_zh": "鸭川高志",
+    "area": "karasuma_oike",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_142",
+    "name_ja": "京やきにく 弘 祗園山名庵",
+    "name_zh": "京烧肉 弘 祇园山名庵",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_143",
+    "name_ja": "はつだ",
+    "name_zh": "初田",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_144",
+    "name_ja": "京洛焼肉やぶ",
+    "name_zh": "京洛烧肉薮",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_145",
+    "name_ja": "肉屋甲",
+    "name_zh": "肉屋甲",
+    "area": "karasuma_oike",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_146",
+    "name_ja": "蕎麦酒房 櫟",
+    "name_zh": "荞麦酒坊 栎",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_147",
+    "name_ja": "京都さしみ丸",
+    "name_zh": "京都刺身丸",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_148",
+    "name_ja": "つくもうどん 塩小路本店",
+    "name_zh": "九十九乌冬 盐小路本店",
+    "area": "kyoto_station",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_149",
+    "name_ja": "京都祇園 おかる",
+    "name_zh": "京都祇园 冈",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.59",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_150",
+    "name_ja": "肉家かぐら",
+    "name_zh": "肉家神乐",
+    "area": "karasuma_oike",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": "tabelog:3.58",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_151",
+    "name_ja": "お好み焼吉野",
+    "name_zh": "大阪烧吉野",
+    "area": "kyoto_station",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.58",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_152",
+    "name_ja": "錦 活鮨",
+    "name_zh": "锦 活鮨",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.57",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_153",
+    "name_ja": "あらた",
+    "name_zh": "新",
+    "area": "kyoto_station",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.57",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_154",
+    "name_ja": "おめん 銀閣寺本店",
+    "name_zh": "银阁寺 おめん 本店",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.56",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_155",
+    "name_ja": "ぎをん 藤",
+    "name_zh": "祇园 藤",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.55",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_156",
+    "name_ja": "御幸町ささき",
+    "name_zh": "御幸町佐佐木",
+    "area": "karasuma_oike",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5999,
+    "score": "tabelog:3.54",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_157",
+    "name_ja": "手打うどん けんどん屋",
+    "name_zh": "手打乌冬 剑道屋",
+    "area": "fushimi",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.54",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_158",
+    "name_ja": "伊藤久右衛門 宇治本店",
+    "name_zh": "伊藤久右卫门 宇治本店",
+    "area": "uji",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.54",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_159",
+    "name_ja": "点邑",
+    "name_zh": "点邑",
+    "area": "karasuma_oike",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.53",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_160",
+    "name_ja": "手打うどん春日井",
+    "name_zh": "手打乌冬春日井",
+    "area": "kyoto_station",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.53",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_161",
+    "name_ja": "もうやん",
+    "name_zh": "牟扬",
+    "area": "karasuma_oike",
+    "cuisine_tag": "soba",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.53",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "匠心荞麦搭出汁，简单而深邃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_162",
+    "name_ja": "酒場きのはち 四条烏丸",
+    "name_zh": "酒场木之八 四条乌丸",
+    "area": "karasuma_oike",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.52",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_163",
+    "name_ja": "讃式",
+    "name_zh": "讃式",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.52",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_164",
+    "name_ja": "おめんNIPPON 四条先斗町店",
+    "name_zh": "おめんNIPPON 四条先斗町店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.52",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_165",
+    "name_ja": "京一本店",
+    "name_zh": "京一本店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.52",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_166",
+    "name_ja": "冨美家",
+    "name_zh": "冨美家",
+    "area": "karasuma_oike",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.52",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_167",
+    "name_ja": "奇天屋",
+    "name_zh": "奇天屋",
+    "area": "karasuma_oike",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "tabelog:3.51",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_168",
+    "name_ja": "満寿形屋",
+    "name_zh": "满寿形屋",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.5",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_169",
+    "name_ja": "辨慶 東山店",
+    "name_zh": "辨庆 东山店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.5",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_170",
+    "name_ja": "大力邸",
+    "name_zh": "大力邸",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "upscale",
+      "romantic",
+      "casual"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.5",
+    "ab_role": "B_surprise",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_171",
+    "name_ja": "壹銭洋食 本店",
+    "name_zh": "壹钱洋食 本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.49",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_172",
+    "name_ja": "夢屋",
+    "name_zh": "梦屋",
+    "area": "karasuma_oike",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.47",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_173",
+    "name_ja": "ジャンボ",
+    "name_zh": "庄巴",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.45",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_174",
+    "name_ja": "まんまるの月 錦店",
+    "name_zh": "圆月 锦店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.44",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_175",
+    "name_ja": "どんぐり 京都駅前店",
+    "name_zh": "橡子 京都站前店",
+    "area": "kyoto_station",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.39",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_176",
+    "name_ja": "嵐山のむら",
+    "name_zh": "岚山之村",
+    "area": "arashiyama",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.39",
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_177",
+    "name_ja": "鉄板居酒屋 京とんちん亭 みやこみち店",
+    "name_zh": "铁板居酒屋 京顿珍亭 都路店",
+    "area": "kyoto_station",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.37",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_178",
+    "name_ja": "どんぐり 四条烏丸店",
+    "name_zh": "橡子 四条乌丸店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.37",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_179",
+    "name_ja": "オール鉄板 あつつ…",
+    "name_zh": "全铁板 阿兹兹…",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.35",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_180",
+    "name_ja": "Mr.Young Men",
+    "name_zh": "Mr.Young Men",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.34",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_181",
+    "name_ja": "お好み焼き＆鉄板焼き 中々",
+    "name_zh": "大阪烧&铁板烧 中々",
+    "area": "karasuma_oike",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "upscale",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.33",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_182",
+    "name_ja": "どんぐり 新堀川店",
+    "name_zh": "橡子 新堀川店",
+    "area": "fushimi",
+    "cuisine_tag": "local_food",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.33",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "当地人才知道的家常味，性价比极高",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_183",
+    "name_ja": "瓢亭",
+    "name_zh": "瓢亭",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 30000,
+    "price_dinner_jpy": 39999,
+    "score": "michelin:3star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_184",
+    "name_ja": "一子相伝 なかむら",
+    "name_zh": "一子相传 中村",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 35000,
+    "score": "michelin:3star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_185",
+    "name_ja": "山荘 京大和",
+    "name_zh": "山庄 京大和",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_186",
+    "name_ja": "京懐石 吉泉",
+    "name_zh": "京怀石 吉泉",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_187",
+    "name_ja": "美山荘",
+    "name_zh": "美山庄",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 25000,
+    "price_dinner_jpy": 29999,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_188",
+    "name_ja": "炭火割烹 いふき",
+    "name_zh": "炭火割烹 息吹",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_189",
+    "name_ja": "高台寺 和久傳",
+    "name_zh": "高台寺 和久传",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 33000,
+    "price_dinner_jpy": 33000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_190",
+    "name_ja": "建仁寺 祇園 丸山",
+    "name_zh": "建仁寺 祇园 丸山",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 30000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_191",
+    "name_ja": "菊乃井 露庵",
+    "name_zh": "菊乃井 露庵",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 14999,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_192",
+    "name_ja": "高台寺 十牛庵",
+    "name_zh": "高台寺 十牛庵",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_193",
+    "name_ja": "高台寺 十牛庵",
+    "name_zh": "高台寺 十牛庵",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_194",
+    "name_ja": "祇園 丸山",
+    "name_zh": "祇园 丸山",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 30000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_195",
+    "name_ja": "祇園 又吉",
+    "name_zh": "祇园 又吉",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_196",
+    "name_ja": "凌霄",
+    "name_zh": "凌霄",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale",
+      "romantic"
+    ],
+    "budget_tier": "showcase",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:2star",
+    "ab_role": "A_safe",
+    "meal_role": "audience_day_showcase",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_197",
+    "name_ja": "祇園まんま",
+    "name_zh": "祇园满满",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_198",
+    "name_ja": "かじ正",
+    "name_zh": "梶正",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_199",
+    "name_ja": "のぐち継",
+    "name_zh": "野口继",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_200",
+    "name_ja": "研覃 ほりべ",
+    "name_zh": "研覃 堀部",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_201",
+    "name_ja": "おが和",
+    "name_zh": "おが和",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_202",
+    "name_ja": "要庵 西富家",
+    "name_zh": "要庵 西富家",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_203",
+    "name_ja": "綾小路 唐津",
+    "name_zh": "绫小路 唐津",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_204",
+    "name_ja": "木乃婦",
+    "name_zh": "木乃婦",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_205",
+    "name_ja": "ぎをん福志",
+    "name_zh": "祇园福志",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_206",
+    "name_ja": "じき宮ざわ",
+    "name_zh": "直木 宫泽",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_207",
+    "name_ja": "HANA吉兆",
+    "name_zh": "HANA吉兆",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 35000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_208",
+    "name_ja": "佳肴 岡もと",
+    "name_zh": "佳肴 冈本",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_209",
+    "name_ja": "八寸",
+    "name_zh": "八寸",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_210",
+    "name_ja": "味舌",
+    "name_zh": "味舌",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_211",
+    "name_ja": "和ごころ泉",
+    "name_zh": "和心泉",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_212",
+    "name_ja": "祇園おかだ",
+    "name_zh": "祇园冈田",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_213",
+    "name_ja": "祇園きだ",
+    "name_zh": "祇园木田",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_214",
+    "name_ja": "水の",
+    "name_zh": "水の",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_215",
+    "name_ja": "料理屋まえかわ",
+    "name_zh": "料理屋前川",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_216",
+    "name_ja": "御幸町田がわ",
+    "name_zh": "御幸町田川",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_217",
+    "name_ja": "辻布紗",
+    "name_zh": "辻布纱",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_218",
+    "name_ja": "中満",
+    "name_zh": "中満",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_219",
+    "name_ja": "実怜",
+    "name_zh": "実怜",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_220",
+    "name_ja": "室町 唯",
+    "name_zh": "室町 唯",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_221",
+    "name_ja": "徳ハ本也",
+    "name_zh": "德ハ本也",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_222",
+    "name_ja": "二条城ふる田",
+    "name_zh": "二条城古田",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_223",
+    "name_ja": "二條みなみ",
+    "name_zh": "二条南",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_224",
+    "name_ja": "御料理 光安",
+    "name_zh": "御料理 光安",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_225",
+    "name_ja": "岩さき",
+    "name_zh": "岩崎",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_226",
+    "name_ja": "京料理 藤本",
+    "name_zh": "京料理 藤本",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_227",
+    "name_ja": "釜座 長島",
+    "name_zh": "釜座 长岛",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_228",
+    "name_ja": "室町和久傳",
+    "name_zh": "室町和久传",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 20000,
+    "price_dinner_jpy": 30000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_229",
+    "name_ja": "研野",
+    "name_zh": "研野",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_230",
+    "name_ja": "獨歩",
+    "name_zh": "独步",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_231",
+    "name_ja": "中善",
+    "name_zh": "中善",
+    "area": "shimogamo_ginkakuji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_232",
+    "name_ja": "陶然亭",
+    "name_zh": "陶然亭",
+    "area": "kinkaku_kitano",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_233",
+    "name_ja": "おきな",
+    "name_zh": "翁",
+    "area": "arashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_234",
+    "name_ja": "圓融菴 小林",
+    "name_zh": "圆融庵 小林",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，酥脆天妇罗油温精准，回味持久",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_235",
+    "name_ja": "菊乃井 鮨 蒼",
+    "name_zh": "菊乃井 鮨 蒼",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "core_local_experience",
+    "editor_note": "米其林星级，职人捏制寿司，鱼货新鲜出色",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_236",
+    "name_ja": "ラ ビオグラフィ",
+    "name_zh": "拉·比奥格拉菲",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_237",
+    "name_ja": "モコ",
+    "name_zh": "摩可",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_238",
+    "name_ja": "アンペイジ",
+    "name_zh": "昂培热",
+    "area": "fushimi",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_239",
+    "name_ja": "ラ・ブッシュ",
+    "name_zh": "拉·布修",
+    "area": "ohara",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_240",
+    "name_ja": "ムニ アラン ディカス",
+    "name_zh": "牟尼 阿兰·杜卡斯",
+    "area": "arashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 25000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_241",
+    "name_ja": "レーヌ デ プレ",
+    "name_zh": "蕾纳·德·普雷",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_242",
+    "name_ja": "ドロワ",
+    "name_zh": "德鲁瓦",
+    "area": "karasuma_oike",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_243",
+    "name_ja": "ひらまつ高台寺店",
+    "name_zh": "平松高台寺店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_244",
+    "name_ja": "チェンチ",
+    "name_zh": "千奇",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_245",
+    "name_ja": "しろ",
+    "name_zh": "白",
+    "area": "karasuma_oike",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_246",
+    "name_ja": "ドーディチ",
+    "name_zh": "多迪奇",
+    "area": "karasuma_oike",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_247",
+    "name_ja": "ヴェーナ",
+    "name_zh": "维纳",
+    "area": "karasuma_oike",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_248",
+    "name_ja": "TAKAYAMA",
+    "name_zh": "TAKAYAMA",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 12000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_249",
+    "name_ja": "鳥さき",
+    "name_zh": "鸟崎",
+    "area": "karasuma_oike",
+    "cuisine_tag": "yakitori",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 5000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "affordable_local",
+    "editor_note": "米其林星级，炭火串烧配冷啤，当地夜晚最对味",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_250",
+    "name_ja": "KOKE",
+    "name_zh": "KOKE",
+    "area": "karasuma_oike",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": "michelin:1star",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "米其林星级，本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_251",
+    "name_ja": "朝食喜心",
+    "name_zh": "朝食喜心",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_252",
+    "name_ja": "天龍寺 篩月",
+    "name_zh": "天龙寺 筛月",
+    "area": "arashiyama",
+    "cuisine_tag": "shojin",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": null,
+    "score": "michelin:bib_gourmand",
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "必比登认证，寺庙精进料理，素净中感受匠心",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_253",
+    "name_ja": "祢ざめ家（NEZAME-YA）",
+    "name_zh": "祢ざめ家",
+    "area": "fushimi",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_254",
+    "name_ja": "モリタ屋 木屋町店",
+    "name_zh": "森田屋 木屋町店",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_255",
+    "name_ja": "京都一の傳 本店",
+    "name_zh": "京都一の伝 本店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_256",
+    "name_ja": "米料亭 八代目儀兵衛",
+    "name_zh": "米料亭 八代目义兵卫",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 12000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_257",
+    "name_ja": "IL GHIOTTONE 京都本店",
+    "name_zh": "IL GHIOTTONE 京都本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "western",
+    "vibe_tags": [
+      "upscale",
+      "nostalgic"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 3000,
+    "price_dinner_jpy": 6000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "洋食老铺昭和风味，经久不衰",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_258",
+    "name_ja": "麵屋豚一（豚一）",
+    "name_zh": "面屋豚一",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_259",
+    "name_ja": "南禅寺順正",
+    "name_zh": "南禅寺顺正",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 5500,
+    "price_dinner_jpy": 5500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_260",
+    "name_ja": "祇をんう",
+    "name_zh": "祇园 宇",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_261",
+    "name_ja": "ひさご（葫芦）",
+    "name_zh": "葫芦",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": 3000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_262",
+    "name_ja": "京・黒桜",
+    "name_zh": "京·黑樱",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_263",
+    "name_ja": "MOURIYA 祇園（モーリヤ祇園）",
+    "name_zh": "MOURIYA 祇园",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 8000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_264",
+    "name_ja": "京都勝牛 祇園八坂店",
+    "name_zh": "京都胜牛 祇园八坂店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 10000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_265",
+    "name_ja": "茶寮都路里 祇園本店",
+    "name_zh": "茶寮都路里 祇园本店",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_266",
+    "name_ja": "三嶋亭 本店",
+    "name_zh": "三嶋亭 本店",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 19999,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "上等和牛现烤，去一次就会想二刷",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_267",
+    "name_ja": "INODA COFFEE 本店",
+    "name_zh": "INODA COFFEE 本店",
+    "area": "karasuma_oike",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_268",
+    "name_ja": "Smart Coffee（スマートコーヒー）",
+    "name_zh": "Smart Coffee",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_269",
+    "name_ja": "Okaffe kyoto（オカフェきょうと）",
+    "name_zh": "Okaffe kyoto",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_270",
+    "name_ja": "祇園 新橋 中谷",
+    "name_zh": "祇园 新桥 中谷",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 15000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_271",
+    "name_ja": "田ごと 本店",
+    "name_zh": "田乡 本店",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_272",
+    "name_ja": "京都晩餐 善哉",
+    "name_zh": "京都晚餐 善哉",
+    "area": "karasuma_oike",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_273",
+    "name_ja": "京星（京ぼし）",
+    "name_zh": "京星",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tempura",
+    "vibe_tags": [
+      "local_life",
+      "upscale"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 6000,
+    "price_dinner_jpy": 12000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "酥脆天妇罗油温精准，回味持久",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_274",
+    "name_ja": "Shinpukusaikan（新福菜館）天神川店",
+    "name_zh": "新福菜馆 天神川店",
+    "area": "arashiyama",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_275",
+    "name_ja": "祇園 白川拉麺",
+    "name_zh": "祇园 白川拉面",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "ramen",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "当地人排队的一碗，汤头是秘密",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_276",
+    "name_ja": "川村料理平",
+    "name_zh": "川村料理平",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 12000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_277",
+    "name_ja": "市川屋珈琲",
+    "name_zh": "市川屋珈琲",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_278",
+    "name_ja": "祇園 北川半兵衞",
+    "name_zh": "祇园 北川半兵卫",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_279",
+    "name_ja": "岡北",
+    "name_zh": "冈北",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "udon",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "手打乌冬弹牙有嚼劲，就该这样吃",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_280",
+    "name_ja": "岡北",
+    "name_zh": "冈北",
+    "area": "okazaki_nanzenji",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 4000,
+    "price_dinner_jpy": 6000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "本地人推荐，口碑经久不衰",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_281",
+    "name_ja": "中村藤吉 京都駅店",
+    "name_zh": "中村藤吉 京都站店",
+    "area": "kyoto_station",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_282",
+    "name_ja": "Koe Donuts Kyoto",
+    "name_zh": "Koe Donuts Kyoto",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_283",
+    "name_ja": "中村藤吉",
+    "name_zh": "中村藤吉",
+    "area": "kyoto_station",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_284",
+    "name_ja": "辻利兵衛本店",
+    "name_zh": "辻利兵卫本店",
+    "area": "uji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_285",
+    "name_ja": "茶寮都路里",
+    "name_zh": "茶寮都路里",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_286",
+    "name_ja": "伊藤久右衛門",
+    "name_zh": "伊藤久右卫门",
+    "area": "uji",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_287",
+    "name_ja": "MACCHA HOUSE",
+    "name_zh": "MACCHA HOUSE",
+    "area": "pontocho_kawaramachi",
+    "cuisine_tag": "cafe",
+    "vibe_tags": [
+      "local_life",
+      "nostalgic"
+    ],
+    "budget_tier": "economy",
+    "price_lunch_jpy": 1500,
+    "price_dinner_jpy": null,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "affordable_local",
+    "editor_note": "能坐半天的老铺咖啡，时间在这里慢下来",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_288",
+    "name_ja": "ゆば泉",
+    "name_zh": "汤叶泉",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "tofu",
+    "vibe_tags": [
+      "local_life"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 5000,
+    "price_dinner_jpy": 5000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都豆腐料理，清淡中见功夫",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_289",
+    "name_ja": "東山YUUZU",
+    "name_zh": "东山YUUZU",
+    "area": "gion_higashiyama",
+    "cuisine_tag": "kaiseki",
+    "vibe_tags": [
+      "upscale"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": 10000,
+    "price_dinner_jpy": 20000,
+    "score": null,
+    "ab_role": "B_surprise",
+    "meal_role": "core_local_experience",
+    "editor_note": "京都精髓怀石体验，值得专程赴约",
+    "reservation_required": true
+  },
+  {
+    "id": "kyoto_290",
+    "name_ja": "醐山料理 雨月茶屋 本店",
+    "name_zh": "醐山料理 雨月茶屋 本店",
+    "area": "fushimi_daigo",
+    "cuisine_tag": "japanese",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 2000,
+    "price_dinner_jpy": null,
+    "score": "tabelog:3.31",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "醍醐寺参拜后的落脚处，游客不多",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_291",
+    "name_ja": "肉の醍醐",
+    "name_zh": "肉の醍醐",
+    "area": "fushimi_daigo",
+    "cuisine_tag": "bbq",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "high",
+    "price_lunch_jpy": null,
+    "price_dinner_jpy": 4000,
+    "score": "tabelog:3.38",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "醍醐寺参拜后的落脚处，游客不多",
+    "reservation_required": false
+  },
+  {
+    "id": "kyoto_292",
+    "name_ja": "海鮮丼と干物定食専門店 京都醍醐店",
+    "name_zh": "海鮮丼と干物定食専門店 京都醍醐店",
+    "area": "fushimi_daigo",
+    "cuisine_tag": "sushi",
+    "vibe_tags": [
+      "local_life",
+      "casual"
+    ],
+    "budget_tier": "mid",
+    "price_lunch_jpy": 1200,
+    "price_dinner_jpy": 1500,
+    "score": "tabelog:3.29",
+    "ab_role": "A_safe",
+    "meal_role": "everyday_good",
+    "editor_note": "醍醐寺参拜后的落脚处，游客不多",
+    "reservation_required": false
+  }
+]

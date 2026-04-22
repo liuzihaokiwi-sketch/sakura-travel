@@ -1,0 +1,100 @@
+{
+  "template_id": "kyo_snow_core_full",
+  "season_window": "deep_winter",
+  "score": {
+    "core_experience": 40,
+    "audience_bonus": {
+      "couple": 3,
+      "friends": 2,
+      "family": 1
+    },
+    "execution_risk": -2,
+    "access_convenience": 4,
+    "base_score": 42,
+    "note": "雪景触发型/不降雪时体验平淡/risk-2=高度依赖天气预报+需要极早行动"
+  },
+  "label": "京都冬日（雪景色+暖心京都）",
+  "tags": [
+    "winter",
+    "temple",
+    "food",
+    "seasonal"
+  ],
+  "core_entities": [],
+  "fit_audience": "all",
+  "weather_sensitive": true,
+  "condition": "season == 'winter'",
+  "assembly": {
+    "phase": "sightseeing",
+    "best_pace": "standard"
+  },
+  "description": "day_mood: 冬之京都。这个模板有两条完全不同的路线，当天早上根据天气决定走哪条：【雪线】如果积雪——金阁寺雪化妆是一年只有数次的S级画面，整天围绕雪景展开；【常规冬线】没有雪——冬季游客少，是寺庙最安静的季节，用特别公开+美术馆+冬季限定美食构成一天。两条线共享午餐和晚餐slot。Opus装配时根据旅行日期的降雪概率选择主线，并在note里写明当天早上的判断方式。",
+  "hotel_area_note": "京都冬天底层寒气重（0-5℃+湿气，体感更冷）。防寒必须。住四条/京都站有暖气充足的地下街可以步行的路段。",
+  "slots": [
+    {
+      "slot_id": "win_morning",
+      "time_range": "09:00-11:30",
+      "type": "poi",
+      "area": "kinugasa_kitano",
+      "priority": "P1",
+      "duration_min": 150,
+      "note": "当天早上7:00判断走哪条线——看窗外有没有积雪，或查京都气象台当日预报。\n\n【雪线】积雪确认→直奔金阁寺（9:00开门，越早越好——雪化妆的赏味期限是上午，午后可能化掉）。金阁+雪+池面倒影是京都一年中只出现几次的S级画面，值得为它放弃所有其他安排。金阁寺之后：银阁寺（银沙滩上积雪后是银白世界/市巴士203或204号约40min）或贵船神社（红灯笼+雪的全球知名构图——积雪日限定点灯活动需确认/叡山电车约30min）。雪线一上午只去1-2个点——不贪，雪景本身就是目的。\n\n【常规冬线】没有雪→走安静的冬日寺院：北野天满宫（2月梅苑是冬季京都最强花景/12月下旬-1月宝物殿特别公开）、大德寺塔头巡礼（冬季特别公开多——高桐院苔藓+白霜构图/大仙院/瑞峯院等/每年不同需确认）。冬季人少是最大的优点——夏秋排队30分钟的寺院，冬天直接走进去。",
+      "time": "09:00-11:30"
+    },
+    {
+      "slot_id": "win_warm_lunch",
+      "time_range": "11:30-12:30",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P1",
+      "duration_min": 60,
+      "note": "冬季限定暖心菜单：(1) 汤豆腐（南禅寺周边名店——顺正/奥丹在冬天最能发挥。¥3,000-4,000/人。豆腐+出汁+配料的简单味道在冬天格外渗入心脾）(2) 鲱鱼荞麦面（京都冬日定番——甜煮鲱鱼+热荞麦面。松叶最有名，其他荞麦面店冬季菜单也有）(3) 酒粕汁（酒粕+蔬菜的汤物——伏见酒仓附近的食堂有供应）。京都冬天的饮食，'温热'就是正义。",
+      "time": "11:30-12:30"
+    },
+    {
+      "slot_id": "win_afternoon",
+      "time_range": "13:30-16:00",
+      "type": "poi",
+      "area": "higashiyama_south",
+      "priority": "P2",
+      "duration_min": 150,
+      "note": "【雪线午后】上午追完雪景，下午收力气：锦市场逛冬季食材（千枚渍/酸茎菜/冬季限定品上架）+ 町家咖啡厅坐下来取暖。京都冬天15:00后温度骤降——不要再往户外寺院跑了，上午的雪景已经是今天的峰值。\n\n【常规冬线午后】(1) 冬季特别公开巡礼（每年1-3月多处非公开文化财特别公开——东福寺光明院/建仁寺两足院等/每年不同，出发前在京都观光Navi确认当年清单）(2) 京都国立博物馆/京都市京瓷美术馆（室内温暖+冬天人少，是寺庙疲劳的解毒剂）(3) 锦市场+咖啡厅，同上。不论哪条线，冬天的下午节奏都该比其他季节慢——冷+日照短，16:00后强制室内。",
+      "time": "13:30-16:00"
+    },
+    {
+      "slot_id": "win_dinner",
+      "time_range": "18:00-19:30",
+      "type": "meal",
+      "area": "nishiki_shijo",
+      "priority": "P2",
+      "duration_min": 75,
+      "note": "冬季晚餐。锅料理（水炊き/寿喜烧/牡丹锅——猪肉锅是冬季限定）最适合京都的冬夜。先斗町/木屋町夏天以川床料理闻名，冬天则是坐在温暖的店内从窗边看鸭川——也是另一种美。12月下旬-1月岚山花灯路（あらしやまはなとうろ，岚山灯笼路活动）已于2021年终止，夜间大型活动较少，但先斗町的灯光一年四季都很美。",
+      "time": "18:00-19:30"
+    }
+  ],
+  "template_kind": "full_day",
+  "selectable_tag": null,
+  "night_options": [
+    "kyo_gear_night"
+  ],
+  "curators_notes": [
+    "v1 原始结构升级,内容待补齐"
+  ],
+  "day_peak": {
+    "type": "small_peak",
+    "moment": "见 slot",
+    "peak_end_line": "见 slot"
+  },
+  "contingencies": {
+    "rain_light": "",
+    "rain_heavy": "",
+    "crowd": "",
+    "minimum_viable": {
+      "condition": "",
+      "must_do": "",
+      "why": ""
+    },
+    "swap_candidates": []
+  },
+  "status": "ready"
+}
