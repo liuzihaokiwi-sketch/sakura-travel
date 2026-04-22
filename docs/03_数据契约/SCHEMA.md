@@ -1,7 +1,7 @@
 # SCHEMA — 字段唯一权威源
 
-> 最后更新：2026-04-22（大瘦身：模板字段从 30+ 砍到 12，事实层从 25+ 砍到最多 15，装配层独立 markdown）
-> 关联：[DECISIONS.md](../02_历史决策/DECISIONS.md) D36（2026-04-22 字段大瘦身 + 装配层 markdown 化）
+> 最后更新：2026-04-22（D37 修订：slots 改时间段+main+optional、模板目录按动线重组）
+> 关联：[DECISIONS.md](../02_历史决策/DECISIONS.md) D36（字段大瘦身）+ D37（目录重组 + slots 重构）
 
 ## ⚠️ 设计宪法（最高原则，永久有效）
 
@@ -71,19 +71,59 @@
 
 ## 1. 模板字段（templates/**/*.json）
 
+### 1.0 目录组织（D37）
+
+模板按城市/动线重组：
+
+```
+japan/kansai/templates/
+├── kyoto/
+│   ├── arashiyama/            动线（一日和两日变体统一编号，不分子层）
+│   │   ├── index.md           变体清单，标明每个编号是几日+主题
+│   │   ├── transport.md       该动线交通清单
+│   │   ├── 1.json             一日核心
+│   │   ├── 2.json             两日温泉
+│   │   ├── 3.json             两日红叶深度
+│   │   └── night.json         可选夜晚模块（一文件含多选项）
+│   ├── higashiyama/           清水+东山+祇园
+│   ├── kitayama/              金阁+龙安寺+北野+平野（合并）
+│   ├── okazaki_tetsugaku/     南禅寺+哲学之道+瑠璃光院（合并）
+│   ├── kurama_kibune/         鞍马+贵船（合并）
+│   ├── fushimi/
+│   ├── takao/                 高雄（一日+两日统一编号）
+│   ├── nijo/
+│   ├── uji/                   宇治+任天堂博物馆
+│   └── half_day/              京都半日池
+├── osaka/{expo, kaiyukan, nakazakicho, namba, osakajo, tennoji, usj, half_day}/
+├── other/{arima, kinosaki, kobe, koyasan, nara, yoshino, half_day}/
+├── arrivals/                  到达日
+├── departures/                离开日
+└── special_events/            特殊日 + 孤立小众景点（大文字/节分/祇园祭/天神祭/琵琶湖花火/Luminarie/铁道博物馆 等）
+                               里面每个文件是独立模板，不做变体互斥
+```
+
+**硬规**：
+- 文件命名 `1.json` / `2.json`（数字编号连续）/ `night.json`（夜晚单文件）
+- 动线文件夹不带城市前缀（父目录已表达）
+- **同动线文件夹内变体互斥**：装配每个动线文件夹最多选 1 个变体
+- **一日和两日统一编号，不分子层**。index.md 标明每个编号是几日
+- **special_events/ 例外**：里面每个 JSON 是独立模板，不在变体互斥范围内
+
 ### 1.1 顶层必填（7 个）
 
 | 字段 | 类型 | 取值 | 一句话语义 |
 |---|---|---|---|
-| `template_id` | string | snake_case | 全局唯一标识，如 `kyo_arashiyama_core_full` |
-| `label` | string | - | 人可读的模板名称，如 "岚山日（全年通用）" |
-| `template_kind` | string | `full_day` / `half_day` / `night_module` | 模板时段类型 |
+| `template_id` | string | snake_case | 全局唯一标识，如 `kyoto_arashiyama_1` |
+| `label` | string | - | 人可读名称，如 "岚山核心一日" |
+| `variant_label` | string | - | 变体自描述（如 "红叶版+情侣" / "核心一日" / "温泉一泊"），与文件名数字编号互补 |
 | `applicable_dates` | array | 见 §1.2 | 适用时间列表；常年模板默认 `[]` |
-| `note` | string | 自然语言 | **设计 note（不展示给用户）**：整天为什么这样排——路线/体验/情绪/旺季应对的设计思考 |
+| `note` | string | 自然语言 | **设计 note（不展示）**：整天为什么这样排——路线/体验/情绪/旺季应对 |
 | `description` | string | 自然语言 | 用户总览（含钩子）：对 note 的面向用户提炼 |
-| `slots` | object | `{packed, balanced, relaxed}` | 三档完整 slot 数组，见 §1.4 |
+| `slots` | array | 见 §1.4 | 时间段+main+optional 结构 |
 
-> **`selectable_tag` 已挪装配层**：用户勾选入口（USJ/温泉/和服/手作等）由 [assembly/模板装配.md](../../japan/kansai/assembly/模板装配.md) 维护，模板自身不持有这个标签。
+> **`selectable_tag` 已挪装配层**（D36）：用户勾选入口由 [assembly/templates/index.md](../../japan/kansai/assembly/templates/index.md) 维护。
+> **`template_kind` 已砍**（D37）：类型由文件夹位置表达（`half_day/` 下的是半日、`arrivals/` 下是到达日）。
+> **`night_options` 已砍**（D37）：夜晚模块跟动线文件夹绑定（同文件夹有 `night.json` 才能挂）。
 
 ### 1.2 applicable_dates 元素
 
@@ -109,57 +149,82 @@
 | `curators_notes` | string[] | 1-4 条策展小巧思，每条 30-50 字。**懂当地朋友才知道的小决定**（"早到是岚山日成立的关键"）。"以官方为准" 类废话不写 |
 | `contingencies` | object | 应急预案；**5 子项有内容才写，不硬填**。见 §1.5 |
 
-### 1.4 slots 三档结构
+### 1.4 slots 结构（D37 修订）
 
-`slots` 是对象，含三个键：
+`slots` 是**按时间段分组**的数组，每段包含 `main`（必做）+ `optional`（推荐）：
 
 ```json
-"slots": {
-  "packed":   [...],   // 紧凑档：写作者排好的紧凑版完整序列
-  "balanced": [...],   // 平衡档：写作者排好的中等强度版本
-  "relaxed":  [...]    // 放松档：写作者排好的最少版本
-}
+"slots": [
+  {
+    "time": "08:00-10:00",
+    "main": [
+      {"type": "poi", "entity": "kyo_arashiyama_bamboo"},
+      {"type": "poi", "entity": "kyo_tenryuji"}
+    ],
+    "optional": [
+      {"type": "poi", "entity": "kyo_kameyama_park", "note": "体力好/早到的用户加项"}
+    ]
+  },
+  {
+    "time": "12:00-13:30",
+    "main": [
+      {"type": "meal", "meal_type": "lunch", "meal_area": "arashiyama"}
+    ]
+  }
+]
 ```
 
-**关键设计**：三档不是 P1/P2/P3 砍法，是**写作者亲自排好的三套独立完整序列**。装配代码按用户选的密度档直接取对应数组用，不再砍。
+**关键设计**：
+- **外层按时间段分组**（一天 5-8 个时段）
+- **main** 数组：该时段必做，可含 1-N 个 slot
+- **optional** 数组：顺路推荐，装配按用户密度决定用不用
+- **装配规则**：
+  - packed 密度 → optional 全用
+  - balanced → optional 用 1 个（写作者排序前的那个）
+  - relaxed → optional 不用（+ 独立 `relaxed.json` 变体文件仅核心动线做）
+- **slots 数组必须按 time 时间正序排列**
 
-每档 slot 数组的元素见 §1.4.1。
+**为什么不再是三档 `{packed, balanced, relaxed}` 字段**：D36 定的三档强迫写作者为每模板写三套完整序列，工作量翻倍但多数档位差异只是"加不加顺路景点"。D37 改用"默认 main + 可选 optional"，节奏差异通过 optional 表达即可。
 
-**硬规：slots 数组必须按 time 时间正序排列**——数组顺序 = 实际行程顺序。装配/渲染代码读的是数组顺序，不是 time 字段。写作者必须保证"数组从上到下的顺序 = 时间从早到晚的顺序"，否则生成的手账本页面顺序会错。
+**放松版**：只有高强度动线（如东山）才在动线文件夹里单独做一个 `relaxed.json` 变体（里面再写一套完整 slots），多数动线不需要。
+
+### 1.4.0 slot.time 缓冲时间规则（D37）
+
+`slot.time` 时长 = 景点最佳游玩时间 + **缓冲**。缓冲给用户"不一定掐点到、不一定准点结束" 的稳态：
+
+| 最佳游玩时间 | 缓冲 |
+|---|---|
+| < 1h | +30 分钟 |
+| 1-2h | +30-45 分钟 |
+| 2-3h | +45-60 分钟 |
+| > 3h | +60 分钟 |
+
+缓冲不是浪费，是体验稳态。
 
 #### 1.4.1 slot 元素字段（按 type 区分）
+
+**slot 没有 `time` 字段**（时间在外层时段对象上）。slot 是 main/optional 数组里的元素。
 
 **通用字段**：
 
 | 字段 | 类型 | 必填 | 取值 | 一句话语义 |
 |---|---|---|---|---|
 | `type` | string | ✓ | `poi` / `meal` / `hotel` / `transport` | slot 类型 |
-| `time` | string | ✓ | `"HH:MM-HH:MM"` 范围 | 时间范围（含排队/含通行）。**用范围不用死点**。transport 用窗口表达起止 |
+| `note` | string | 可选 | 自然语言 | 该 slot 的动线判断 tip（optional slot 可写"体力好/早到的用户加项"） |
 
 **poi 类专属**：
-
-| 字段 | 必填 | 一句话语义 |
-|---|---|---|
-| `entity` | ✓ | 景点 ID（含商业街/河岸/区域型 entity） |
+- `entity` 必填：景点 ID（含商业街/河岸/区域型 entity）
 
 **meal 类专属**：
-
-| 字段 | 必填 | 一句话语义 |
-|---|---|---|
-| `meal_type` | ✓ | `breakfast` / `lunch` / `dinner` |
-| `meal_area` | ✓ | 餐厅区域，装配按此从餐厅池筛 |
-
-**meal slot 不允许写 `entity` 指定具体餐厅**。即便是"灵魂餐厅"（如神户和牛之夜），也由餐厅装配按规则从池里挑——规则写在 [assembly/餐厅装配.md](../../japan/kansai/assembly/餐厅装配.md)。
+- `meal_type` 必填：`breakfast` / `lunch` / `dinner`
+- `meal_area` 必填：餐厅区域
+- **不允许写 `entity`** 指定具体餐厅——即便灵魂餐厅也由餐厅装配按规则从池里挑
 
 **hotel 类专属**：
+- `hotel_area` 必填
+- **不允许写 `entity`** 指定具体酒店——由酒店装配挑
 
-| 字段 | 必填 | 一句话语义 |
-|---|---|---|
-| `hotel_area` | ✓ | 酒店区域 |
-
-**hotel slot 不允许写 `entity` 指定具体酒店**。即便是"灵魂酒店"（如有马温泉旅馆），也由酒店装配按规则从池里挑——规则写在 [assembly/酒店装配.md](../../japan/kansai/assembly/酒店装配.md)。
-
-**transport 类专属**：无额外字段，只 `type` + `time`。
+**transport 类专属**：无额外字段，只 `type`。
 
 #### 1.4.2 slot 字段彻底清掉的（不要再加回来）
 
@@ -170,6 +235,72 @@
 - ~~`max_wait_min`~~（time 范围已含排队）
 - ~~`stay_nights`~~（hotel 几晚由酒店装配算）
 - ~~`kind`~~（保留 `type` 字段名）
+
+### 1.4.3 动线内交通（transport.md）
+
+每个动线文件夹**可选**一份 `transport.md`——列该动线涉及的景点对之间的交通方式。模板 slot 过渡时装配读此文件。
+
+```markdown
+# {动线名} 交通
+
+## 动线起点（从市区到动线起始点）
+- {酒店区} → {起始点}：约 N 分钟（交通方式大类）
+
+## 景点间过渡
+- {A} → {B}：N 分钟（步行/地铁/JR/公交/组合）
+- {A} → {C}：...
+
+## 跨动线连接（如适用）
+- 动线 → 市区晚餐/下一动线：...
+```
+
+**硬规**：
+- 优先公共交通（地铁/JR/公交/私铁），不写具体线路编号，只写**大类**和**总时长**
+- 交通复杂时可加"推荐打车"作为补充，但公共交通也要写
+- 只有没公共交通的情况才只写打车
+- 每个动线景点对的交通**在这份文件维护一次**，模板不重复写交通细节
+
+### 1.4.2 night.json 结构（D37）
+
+动线文件夹内可选的夜晚模块文件。**一个文件装多个夜晚选项**，装配按用户人群/预算挑一个。
+
+```json
+{
+  "label": "东山夜晚模块",
+  "time": "19:30-21:30",
+  "options": [
+    {
+      "option_id": "gion_bar",
+      "label": "祇园威士忌吧",
+      "type": "bar",
+      "meal_area": "gion",
+      "fit_audience": "couple",
+      "note": "花见小路附近，情侣向"
+    },
+    {
+      "option_id": "gion_yozashiki",
+      "label": "お茶屋体验",
+      "type": "experience",
+      "meal_area": "gion",
+      "fit_audience": "couple",
+      "reservation_required": true,
+      "note": "舞妓/艺伎座敷，需预约"
+    }
+  ]
+}
+```
+
+**每个 option 字段**：
+- `option_id` 必填：option 唯一标识
+- `label` 必填：人可读
+- `type` 必填：`bar` / `experience` / `show` / `snack` 等
+- 按 option 类型加 `meal_area` / `entity` / `fit_audience` / `reservation_required` / `note`
+
+**硬规**：
+- `night.json` 不在 index.md 里作为独立变体计数（它是**白天模板的可选附加**）
+- 同一动线只有一份 `night.json`
+- 岚山/USJ/有马/温泉一泊等默认无 night.json
+- **夜间参拜不做 night.json**：延时参拜是白天模板的延伸（红叶夜间/樱花夜间），直接写在对应白天模板的 slots 末尾
 
 ### 1.5 contingencies 子项（5 个，有内容才写）
 

@@ -478,4 +478,130 @@
 - SCHEMA.md 重写，模板写作 SOP 顶部加覆盖段
 **关联**: 本次窗口讨论沉淀（待生成 session memory）
 
+## D37: 模板目录按动线重组 + slots 改单数组+时间段结构 + 节奏由 optional 表达
+
+**日期**: 2026-04-22（跟 D36 同一窗口后半段）
+
+**背景**: D36 定下"slots 三档 {packed, balanced, relaxed}" 和"模板按季节文件夹分" 后，再次讨论暴露两个问题：
+1. 三档 slots 强迫写作者为每个模板写三套完整 slot 序列，**工作量翻倍**，且多数档位差异本质只是"加不加顺路景点"
+2. 按季节分文件夹看不出"哪些模板属于同一条动线"——岚山 core / 岚山 koyo / 岚山 sakura 散在三个文件夹，无法感知动线全貌
+
+**选择**:
+
+1. **模板按城市/动线重组**：
+   ```
+   templates/
+   ├── kyoto/
+   │   ├── arashiyama/                  动线文件夹
+   │   │   ├── index.md                 变体清单（标明每个编号是几日）
+   │   │   ├── transport.md             该动线交通清单
+   │   │   ├── 1.json 2.json 3.json ... 变体（数字编号，一日和两日统一编号不分子层）
+   │   │   └── night.json               可选夜晚模块（一文件含多选项）
+   │   ├── half_day/                    该城市半日池
+   │   └── ...
+   ├── osaka/
+   ├── other/
+   ├── arrivals/                        到达日
+   ├── departures/                      离开日
+   └── special_events/                  特殊日 + 孤立小众景点（无动线归宿的）
+   ```
+   
+   **规则**：
+   - **一日/两日统一编号，不分子层**。编号从 1 开始连续，index.md 标明"1=一日核心 / 2=两日温泉 / 3=两日红叶深度" 等
+   - 同动线文件夹内变体**互斥**（用户只选一个）
+   - 只有一日或只有两日的动线 → 平铺
+   - 一日+两日并存的动线 → 也平铺，统一编号
+   - **special_events/**：装跨动线的特殊日（大文字/节分/祇园祭/天神祭/琵琶湖花火/Luminarie 等）+ 孤立小众景点（京都铁道博物馆等）。里面每个文件 = 单一 JSON，**不做变体互斥**（直接是一个独立模板）
+
+2. **同动线变体互斥**：一个动线文件夹内的所有 .json 变体**互相排斥**，装配每个动线文件夹最多选 1 个变体装入。
+
+3. **一日 vs 两日分独立文件夹**：`arashiyama/`（一日）和 `arashiyama_2day/`（岚山温泉两日）动线不同，分文件夹。
+
+4. **夜晚模板单文件多选项**：每个可配夜晚的动线文件夹含 `night.json`，**一个文件装多个夜晚选项（酒吧/夜パフェ/表演等）**，装配按用户人群/预算挑一个。岚山/USJ/有马/温泉一泊等默认无夜晚。**夜间参拜不做 night.json，并入对应红叶/樱花季白天模板**（本质是延时参拜不是独立夜晚活动）。
+
+5. **half_day 每城一个池**：`templates/{city}/half_day/` 下装该城所有半日变体（伏见半日/宇治半日/岚山半日等），装配每段行程每个城市最多用一个半日模板。
+
+6. **到达/离开/special_events 独立城市维度**：arrivals / departures / special_events 各建独立文件夹，不挂任何城市。
+
+7. **slots 结构改为"时间段 + main + optional"**（修订 D36 的三档 slots 设计）：
+   ```json
+   "slots": [
+     {
+       "time": "08:00-10:00",
+       "main": [
+         {"type": "poi", "entity": "kyo_arashiyama_bamboo"},
+         {"type": "poi", "entity": "kyo_tenryuji"}
+       ],
+       "optional": [
+         {"type": "poi", "entity": "kyo_kameyama_park", "note": "体力好/早到的用户加项"}
+       ]
+     }
+   ]
+   ```
+   - **外层按时间段分组**（一天 5-8 个时间段）
+   - **main** 必做（一段内可 1-N 个 slot）
+   - **optional** 顺路推荐景点（不强制）
+   - 装配按密度决定 optional 用不用：packed 全用 / balanced 用 1 个 / relaxed 不用
+   - **默认节奏**：main + 0-1 个 optional。**独立 relaxed 版本**只在"高强度动线"（如东山）才单独做另一个变体
+
+8. **缓冲时间 SOP**（写进 [模板写作.md](../04_操作SOP/模板写作.md)）：
+   - 最佳游玩 < 1h 的景点 → +30 分钟缓冲
+   - 最佳游玩 1-2h → +30-45 分钟
+   - 最佳游玩 2-3h → +45-60 分钟
+   - 最佳游玩 > 3h → +60 分钟
+   - 缓冲是给用户"不一定掐点到、不一定准点结束"的稳态
+
+9. **optional 推荐 SOP**：
+   - 推荐景点步行可达（≤15 分钟）或 1-2 站电车
+   - 主景点+推荐合并后总时间不超过 3 小时
+   - 推荐景点必须真值得（不是"凑数"）
+
+10. **文件命名**：
+    - 动线变体：`1.json` / `2.json`（数字编号，前缀是父目录表达）
+    - 动线夜晚模块：`night.json`
+    - 动线文件夹：不带城市前缀（父目录已表达），如 `kyoto/arashiyama/` 不是 `kyoto/kyo_arashiyama/`
+
+11. **全局装配导航**：`assembly/templates/index.md` —— 装配 AI 入口，含：
+    - 所有动线/变体的筛选索引（动线 ID / 季节 / 人群适配 / 天数 / selectable_tag）
+    - 跨动线互斥（关西 7 条化学反应，如宇治 vs 姬路/奈良不同日）
+    - 装配打分公式
+    - 到达/离开/半日模板的装配规则
+    
+    原 `assembly/templates/templates.md` 改名为 `assembly/templates/index.md`。
+
+12. **模板顶层新增 `variant_label` 字段**：描述该变体是什么（如 "岚山红叶+情侣版"），给写作者和装配 AI 自描述，与文件名数字编号互为补充。
+
+13. **模板顶层砍 selectable_tag / night_options**：
+    - selectable_tag 挪全局 index.md 的变体元属性（D36 已砍）
+    - night_options 不再需要——夜晚模块跟动线绑定（同文件夹有 night.json 才能挂）
+
+**修订 D36 的具体项**:
+- D36 §2 "slots 三档" → 改为 "slots 时间段 + main + optional 单数组"
+- D36 §7 "模板花名册所有模板元属性集中一份" → 改为 "每个动线 index.md 自管 + 全局 index.md 只管跨动线规则与装配筛选索引"
+- D36 未明确的"模板目录结构" → D37 明确按城市/动线重组
+
+**D36 其他决策保留不变**：设计宪法两条、字段大瘦身、景点 entity 的 notes 自由文本子标题、装配层 markdown 化、assembly/ 三子系统结构。
+
+**理由**:
+- 三档 slots 工作量大，多数差异靠 optional 表达即可
+- 按动线聚合比按季节聚合更贴近"产品单元"——岚山是一个产品，冬夏都是岚山
+- 一个文件夹变体互斥是天然组织约束，装配逻辑清晰
+- 夜晚模块跟白天动线绑定解决了"哪个白天能接哪个夜晚" 的配对问题
+
+**后果**:
+- 98 个模板需要**重新分类**到 22 个主流动线 + half_day × 3 + arrivals/departures/special_events × 3 = **28 个顶层文件夹**
+- slots 字段结构从三档对象改回单数组（格式升级）
+- 写作者每个模板工作量降低（写一套 slots + optional 而非三套）
+- 原 D36 落地工作计划作废，重写 D36_D37_落地工作计划.md
+
+**最终主流动线清单（22 个）**：
+
+京都 9：arashiyama（岚山，1+2日）/ fushimi（伏见）/ higashiyama（东山，含祇园+舞妓 night）/ kitayama（金阁+龙安寺+北野+平野合并）/ kurama_kibune（鞍马贵船合并）/ nijo（二条城）/ okazaki_tetsugaku（南禅寺+哲学之道+瑠璃光院合并）/ takao（高雄，1+2日）/ uji（宇治，含任天堂博物馆）
+
+大阪 7：expo（万博）/ kaiyukan（海游馆白+夜合并）/ nakazakicho（中崎町）/ namba（难波+御堂筋 night）/ osakajo（大阪城）/ tennoji（天王寺+新世界合并）/ usj（环球影城）
+
+其他 6：arima（有马，1+2日）/ kinosaki（城崎温泉，只2日）/ kobe（神户+姬路+Luminarie 作变体/night）/ koyasan（高野山，只2日）/ nara（奈良）/ yoshino（吉野山）
+
+**关联**: 本次窗口二次讨论沉淀
+
 ---
