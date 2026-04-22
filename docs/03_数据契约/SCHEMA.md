@@ -178,13 +178,17 @@ japan/kansai/templates/
 
 **关键设计**：
 - **外层按时间段分组**（一天 5-8 个时段）
-- **main** 数组：该时段必做，可含 1-N 个 slot
-- **optional** 数组：顺路推荐，装配按用户密度决定用不用
+- **main** 数组：该时段必做，**必须 ≥1 个 slot，不能为空数组**
+- **optional** 数组：顺路推荐，装配按用户密度决定用不用（可以为空或省略）
 - **装配规则**：
   - packed 密度 → optional 全用
   - balanced → optional 用 1 个（写作者排序前的那个）
   - relaxed → optional 不用（+ 独立 `relaxed.json` 变体文件仅核心动线做）
 - **slots 数组必须按 time 时间正序排列**
+
+**硬规：main 不能为空**
+- 如果某时段没有必做内容（如下午自由漫游），使用 `free_time` slot 类型填充 main（见 §1.4.1），**不要留空 main 把所有内容塞 optional**
+- 空 main + 满 optional 会让装配不知道"这段是干什么的"
 
 **为什么不再是三档 `{packed, balanced, relaxed}` 字段**：D36 定的三档强迫写作者为每模板写三套完整序列，工作量翻倍但多数档位差异只是"加不加顺路景点"。D37 改用"默认 main + 可选 optional"，节奏差异通过 optional 表达即可。
 
@@ -211,8 +215,13 @@ japan/kansai/templates/
 
 | 字段 | 类型 | 必填 | 取值 | 一句话语义 |
 |---|---|---|---|---|
-| `type` | string | ✓ | `poi` / `meal` / `hotel` / `transport` | slot 类型 |
-| `note` | string | 可选 | 自然语言 | 该 slot 的动线判断 tip（optional slot 可写"体力好/早到的用户加项"） |
+| `type` | string | ✓ | `poi` / `meal` / `hotel` / `transport` / `free_time` | slot 类型 |
+| `note` | string | 部分必填 | 自然语言 | 该 slot 的动线判断 tip（见下方硬规） |
+
+**note 硬规**：
+- **同一 entity 在同一天的 slots 里出现 ≥2 次时**（如渡月桥下午漫步 + 黄昏 peak-end），**每次 slot 必须写 note 区分用途**（该时段做什么、为什么这时间来），否则装配/渲染无法区分两次停留
+- optional slot 建议写 note 说明"什么情况下用"（如"体力好/早到的用户加项"）
+- 普通单次 slot 可不写 note
 
 **poi 类专属**：
 - `entity` 必填：景点 ID（含商业街/河岸/区域型 entity）
@@ -227,6 +236,22 @@ japan/kansai/templates/
 - **不允许写 `entity`** 指定具体酒店——由酒店装配挑
 
 **transport 类专属**：无额外字段，只 `type`。
+
+**free_time 类专属**（D37 新增）：
+- `theme` 必填：自由时段主题（如"下午自由漫游"/"午后茶歇"）
+- `options_note` 必填：自然语言列"几个不会错的方向"（多选一的专家决策）
+- 不挂 entity——因为自由时段是"在某个区域里，用户三选一做什么"，不绑单一景点
+- 示例：
+
+```json
+{
+  "type": "free_time",
+  "theme": "下午自由漫游",
+  "options_note": "三方向任选：(A) 渡月桥南岸 % ARABICA 买咖啡河堤坐；(B) 嵐電嵐山站足湯 ¥200-300 泡 15 分钟重置体力；(C) 嵯峨鳥居本传统建筑物群保护区漫步（江户街道风貌）"
+}
+```
+
+**为什么需要 free_time**：按产品原则"有些天要有自由漫游段——专家决定在这里留白+给 2-3 个不会错的方向"，自由时段是付费价值之一。`free_time` 不挂 entity 避免为咖啡店/足湯这类小型设施单独建 entity。
 
 #### 1.4.2 slot 字段彻底清掉的（不要再加回来）
 
@@ -309,15 +334,16 @@ japan/kansai/templates/
 - 岚山/USJ/有马/温泉一泊等默认无 night.json
 - **夜间参拜不做 night.json**：延时参拜是白天模板的延伸（红叶夜间/樱花夜间），直接写在对应白天模板的 slots 末尾
 
-### 1.5 contingencies 子项（5 个，有内容才写）
+### 1.5 contingencies 子项（4 个，有内容才写）
 
 | 子项 | 写的条件 |
 |---|---|
 | `rain_light` | 小雨真有特别玩法时（雨后苔藓更深）；普通模板不写 |
-| `rain_heavy` | 大雨需要改路线时（户外重的模板）。一段文字告诉用户怎么办，不另造模板 |
+| `rain_heavy` | 大雨需要改路线时（户外重的模板）。推荐用户躲进本地室内景点/咖啡馆。不另造模板 |
 | `crowd` | 旺季有特殊应对（不是"人多时早点去" 这种废话） |
-| `swap_candidates` | 整个模板雨天不成立、需要换其他模板时。template_id 数组 |
+| `indoor_backup` | 本地雨天躲进的室内景点/咖啡馆清单（一段文字，户外重模板有时写） |
 | ~~`minimum_viable`~~ | **彻底砍掉**——半天用半天模板，不在全天模板里搞兜底 |
+| ~~`swap_candidates`~~ | **彻底砍掉**——不一天都下雨，用户雨时躲进 `indoor_backup` 即可，不需要换整个模板 |
 
 ### 1.6 模板字段彻底清掉的（不要再加回来）
 
@@ -471,23 +497,23 @@ japan/kansai/templates/
 
 ### 2.2 restaurants（餐厅）— 已挪装配层
 
-**文件位置**：`japan/kansai/assembly/餐厅装配/餐厅池/restaurants__{city}.json`
+**文件位置**：`japan/kansai/assembly/restaurants/data/restaurants__{city}.json`
 
 字段保持原定义（17 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该餐厅的零碎说明：避坑/历史背景/必点必知/季节限定）。
 
 字段：`id / name_ja / name_zh / area / cuisine_tag / meal_type_fit / budget_tier / price_cny / vibe_tags / facility_tags / score / ab_role / meal_role / reservation_difficulty / opening_hours / risk_flags / last_verified / notes`
 
-**当前模板 meal slot 永远不指定 entity**，由餐厅装配按规则从池里挑。装配规则见 [assembly/餐厅装配/餐厅装配.md](../../japan/kansai/assembly/餐厅装配/餐厅装配.md)。
+**当前模板 meal slot 永远不指定 entity**，由餐厅装配按规则从池里挑。装配规则见 [assembly/restaurants/index.md](../../japan/kansai/assembly/restaurants/index.md)。
 
 ### 2.3 hotels（酒店）— 已挪装配层
 
-**文件位置**：`japan/kansai/assembly/酒店装配/酒店池/hotels__kansai.json`
+**文件位置**：`japan/kansai/assembly/hotels/data/hotels__kansai.json`
 
 字段保持原定义（14 字段）+ 新增 `notes` 自由文本字段（按宪法第一条，装该酒店的零碎说明：位置细节/特色/适配/淡旺季差异）。
 
 字段：`id / name / area / budget_tier / price_range_cny / vibe_tags / facility_tags / practical_tags / score / checkin / checkout / risk_flags / last_verified / notes`
 
-**当前模板 hotel slot 永远不指定 entity**，由酒店装配按规则从池里挑。装配规则见 [assembly/酒店装配/酒店装配.md](../../japan/kansai/assembly/酒店装配/酒店装配.md)。
+**当前模板 hotel slot 永远不指定 entity**，由酒店装配按规则从池里挑。装配规则见 [assembly/hotels/index.md](../../japan/kansai/assembly/hotels/index.md)。
 
 ---
 
@@ -499,20 +525,26 @@ japan/kansai/templates/
 
 ```
 japan/kansai/assembly/
-├── 模板装配.md                  ← 模板花名册 + 打分 + min_days + day_type + 互斥 + 关西7条化学反应
-├── 餐厅装配/
-│   ├── 餐厅装配.md              ← 总规则（A/B 策略 / meal_role / 跨城去重 / 日类型升降）
-│   ├── 京都/{先斗町_河原町,祇园,京都站,...}.md
-│   ├── 大阪/{梅田_新地,难波_道顿堀,心斋桥,...}.md
-│   └── 其他/{神户,奈良,有马,城崎,高野山}.md     ← 每个文件内按区域分章节
-└── 酒店装配/
-    ├── 酒店装配.md              ← 总规则（升档比例表 / 修饰器 / 区域偏好 / 人群预算冲突）
-    ├── 京都/{四条河原町,京都站,祇园,...}.md
-    ├── 大阪/{难波_道顿堀,梅田,心斋桥,...}.md
-    └── 其他/{神户,奈良,有马,城崎,高野山}.md
+├── templates/
+│   ├── index.md                 ← 模板花名册 + 打分 + min_days + day_type + 互斥 + 关西7条化学反应
+│   └── data/                    ← 季节窗口 JSON（sakura/koyo/festivals/illumination/special_open）
+├── restaurants/
+│   ├── index.md                 ← 总规则（A/B 策略 / meal_role / 跨城去重 / 日类型升降）
+│   ├── kyoto/{先斗町_河原町,祇园,京都站,...}.md
+│   ├── osaka/{梅田_新地,难波_道顿堀,心斋桥,...}.md
+│   ├── other/{神户,奈良,有马,城崎,高野山}.md    ← 每个文件内按区域分章节
+│   └── data/                    ← 餐厅池 JSON
+└── hotels/
+    ├── index.md                 ← 总规则（升档比例表 / 修饰器 / 区域偏好 / 人群预算冲突）
+    ├── kyoto/{四条河原町,京都站,祇园,...}.md
+    ├── osaka/{难波_道顿堀,梅田,心斋桥,...}.md
+    ├── other/{神户,奈良,有马,城崎,高野山}.md
+    └── data/                    ← 酒店池 JSON
 ```
 
-**装配 markdown 全部用中文书写**。消费方是 Opus，中文比英文键名自然。
+**路径命名硬规**：顶层和子目录**全英文**（避免 Windows/Python/Node 脚本对中文路径的兼容坑）；装配入口 md 文件名**统一 `index.md`**（跟 `templates/kyoto/arashiyama/index.md` 的动线入口一致）。区域 md 文件名用中文（写作者直接读，不进代码 import）。
+
+**装配 markdown 正文全部用中文书写**。消费方是 Opus，中文比英文键名自然。
 
 **热门 vs 补充**：京都/大阪 各热门区域单独一份 md（数量多、引用频率高）；其他城市在"其他/"下每个城市一份 md，文件内按区域分章节。
 
@@ -520,7 +552,7 @@ japan/kansai/assembly/
 
 **产品原则的装配策略已挪走**：原 [产品原则.md](../../japan/kansai/产品原则.md) §4 餐饮 / §5 酒店 / §12 关西 7 条化学反应整章已迁到装配 markdown，产品原则中删除（避免两份并存冲突）。
 
-### 3.2 模板装配.md = 顶层模板花名册（核心规范）
+### 3.2 assembly/templates/index.md = 顶层模板花名册（核心规范）
 
 **所有模板的元属性集中在一份顶层 markdown 里维护**，不分散到各个模板 JSON。
 
@@ -575,6 +607,27 @@ japan/kansai/assembly/
 | `coordinates` | object | `{lat: float, lng: float}` | 经纬度，必须 Google Maps 验证 |
 | `opening_hours` | object | `{regular: string, closed: string}` | 营业时间含定休日 |
 | `admission` | object | `{adult: int, child: int, unit: "JPY"}` | 门票 |
+
+---
+
+## 4.4 校验脚本
+
+`scripts/validate_template.py` 实现下面所有硬规的机械校验。每次改造模板后跑一次，违规才能提交审核。
+
+规则清单：
+1. 顶层 7 必填字段齐
+2. template_id 全局唯一
+3. slots 数组按 time 时间正序
+4. 每个时段对象 main 数组 ≥1 个 slot（不能空）
+5. 同一 entity 在同一天多次出现时每次 slot 必填 note
+6. meal slot 不写 entity
+7. hotel slot 不写 entity
+8. free_time slot 必有 theme + options_note，不写 entity
+9. poi slot 的 entity 在 entities/{city}.json 存在
+10. applicable_dates 元素含 start/end/label，格式 MM-DD
+11. contingencies 子项合法（rain_light/rain_heavy/crowd/indoor_backup，不含 swap_candidates/minimum_viable）
+12. 动线文件夹内 1.json/2.json 编号连续无缺
+13. 动线文件夹有 index.md（必）+ transport.md（必）
 
 ---
 
