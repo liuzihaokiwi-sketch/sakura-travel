@@ -1,0 +1,18 @@
+{
+  "template_id": "kyoto_arashiyama_5",
+  "label": "岚山樱花一日·出片",
+  "variant_label": "岚山樱花一日·出片（fixed_early 早起版·本期暂缓占位）",
+  "applicable_dates": [
+    {"start": "03-28", "end": "04-05", "label": "染井吉野盛期"}
+  ],
+  "note": "[本期暂缓] 出片版是 fixed_early pace_type——6:30 渡月桥晨光+7:30 无人竹林+8:30 曹源池倒影按光线排序,整天动线逻辑和 adaptive 9 点档不共用。D38 决定本期所有动线按标准 3 档(8/9/10)写,fixed_early 早起强动线留到后续窗口单独设计(清水寺独享/伏见无人/高雄/高野山/吉野山/岚山出片同批次处理)。届时需单独设计:早起人群话术、休息段安排、餐厅池适配、装配匹配规则。届时补:pace_type=fixed_early、6:30 渡月桥晨光机位、7:30 竹林侧光透竹、8:30 曹源池开门即进抢无风倒影、龟山展望俯瞰、下午嵯峨野逆光花瓣、17:00 渡月桥黄昏第二次。",
+  "description": "[本期暂缓] 出片版需 fixed_early pace_type 单独设计,留待早起版本统一补。",
+  "slots": [
+    {
+      "time": "TBD",
+      "main": [
+        {"type": "poi", "entity": "kyo_togetsukyo", "note": "[本期暂缓] fixed_early 6:30 渡月桥晨光待填"}
+      ]
+    }
+  ]
+}
