@@ -48,7 +48,8 @@
       "https://www.todaiji.or.jp/en/information/haikan/",
       "https://www.japan-guide.com/e/e4100.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 全年：大佛殿入场（¥600）基本 0-15 分钟等候；奈良公园鹿群免费无排队\n- 旺季（黄金周/春秋假/修学旅行期）：大佛殿 15-30 分钟\n- 大佛殿内柱洞钻洞体验：非排队，人流高峰时自然等候 5-10 分钟\n- 建议：8:30 或 9:00 开门即入最省时；奈良公园鹿群全天可遇\n- 数据来源：single_source（综合实况笔记估算，东大寺非极端排队景点）"
   },
   "nar_nara_park": {
     "entity_id": "nar_nara_park",
@@ -80,7 +81,8 @@
       "https://www.japan-guide.com/e/e4103.html",
       "https://www.japan.travel/en/destinations/kansai/nara/nara-park-and-around/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无入场排队（免费开放公园）\n- 鹿饼（150日元）售卖点：旺季早上 9:00-10:00 初期有售卖点人多，但非排队问题\n- 数据来源：single_source"
   },
   "nar_yoshino_yama": {
     "entity_id": "nar_yoshino_yama",
@@ -111,7 +113,8 @@
       "https://yoshinoyama-kankou.com/sakura/",
       "https://www.visitnara.jp/venues/E02027/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 樱花盛期（3月下旬-4月上旬）：山上人流极大，索道/缆车 30-60 分钟；建议早去或平日\n- 平季：无显著排队"
   },
   "nar_kasuga_taisha": {
     "entity_id": "nar_kasuga_taisha",
@@ -154,7 +157,8 @@
       "https://www.kasugataisha.or.jp/en/about_en/basic/",
       "https://www.japan-guide.com/e/e4102.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季（春鹿角/秋鹿鸣）：本殿参拜 0-15 分钟；境内免费参观无排队\n- 万燈籠特别参拝（2月3日/8月15日）：排队 15-30 分钟"
   },
   "nar_mizuya_chaya": {
     "entity_id": "nar_mizuya_chaya",
@@ -192,7 +196,8 @@
       "https://www.kasugataisha.or.jp/",
       "https://www.japan-guide.com/e/e4101.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；小茶屋随时可入"
   },
   "hyg_himejijo": {
     "entity_id": "hyg_himejijo",
@@ -232,7 +237,8 @@
       "https://www.himejicastle.jp/en/",
       "https://www.japan-guide.com/e/e3501.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 樱花期周末（3月下旬-4月上旬）：天守堂内部排队堪比迪士尼，30-60 分钟或以上\n- 普通旺季（周末）：入场 15-30 分钟；天守内 15-30 分钟\n- 平季工作日：0-15 分钟\n- 建议：开门（9:00）前排队，或下午 15:00 后人流减少\n- 数据来源：小红书「凯尔文」2026/3 collects=42（「周末天守堵成迪士尼」）；「竹bam」2025/4 collects=57（cross_checked）"
   },
   "hyg_kokoen": {
     "entity_id": "hyg_kokoen",
@@ -271,7 +277,8 @@
       "https://www.himeji-machishin.jp/ryokka/kokoen/",
       "https://www.japan-guide.com/e/e3502.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 姬路城套票入园；0-15 分钟"
   },
   "kob_maya_kikuseidai": {
     "entity_id": "kob_maya_kikuseidai",
@@ -317,7 +324,8 @@
       "https://koberope.jp/en/maya/price",
       "https://www.feel-kobe.jp/en/attractions/detail_1064.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；缆车旺季 15-30 分钟等候"
   },
   "kob_rokko_forest_garden": {
     "entity_id": "kob_rokko_forest_garden",
@@ -356,7 +364,8 @@
       "https://www.kobe-park.or.jp/shinrin/guide_garden/summary/",
       "https://kobe-rokko.jp/en/events/1483/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；0-15 分钟"
   },
   "kob_kitano_ijinkan": {
     "entity_id": "kob_kitano_ijinkan",
@@ -396,7 +405,8 @@
       "https://kobe-ijinkan.net/md/en/",
       "https://www.japan-guide.com/e/e3550.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；各异人馆独立买票 0-15 分钟"
   },
   "arm_arima_onsen": {
     "entity_id": "arm_arima_onsen",
@@ -429,7 +439,8 @@
       "https://www.japan-guide.com/e/e3558.html",
       "https://www.japan.travel/en/spot/1025/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 金之汤/银之汤旺季（周末/黄金周）：入浴 15-30 分钟等候；平季 0-15 分钟"
   },
   "arm_kin_no_yu": {
     "entity_id": "arm_kin_no_yu",
@@ -472,7 +483,8 @@
       "https://visit.arima-onsen.com/directory/do/kin-no-yu/",
       "https://www.japan-guide.com/e/e3558.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季周末：入浴排队 15-30 分钟\n- 平季工作日：0-15 分钟"
   },
   "arm_ginnosyu": {
     "entity_id": "arm_ginnosyu",
@@ -511,7 +523,8 @@
       "https://visit.arima-onsen.com/directory/do/gin-no-yu/",
       "https://www.japan-guide.com/e/e3558.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季周末：入浴排队 15-30 分钟\n- 平季：0-15 分钟"
   },
   "kob_meriken_park": {
     "entity_id": "kob_meriken_park",
@@ -541,7 +554,8 @@
       "https://www.feel-kobe.jp/en/attractions/detail_1012.html",
       "https://www.japan-guide.com/e/e3554.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（公共公园）"
   },
   "kob_rokko_cable": {
     "entity_id": "kob_rokko_cable",
@@ -579,7 +593,8 @@
       "https://www.rokkosan.com/cable_ropeway/",
       "https://www.japan-guide.com/e/e3551.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季（红叶/夜景期）：缆车 15-30 分钟等候；平季 0-15 分钟"
   },
   "kob_kitano_kyoryuchi": {
     "entity_id": "kob_kitano_kyoryuchi",
@@ -611,7 +626,8 @@
       "https://www.feel-kobe.jp/en/attractions/detail_1007.html",
       "https://www.japan-guide.com/e/e3553.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队"
   },
   "shg_biwako": {
     "entity_id": "shg_biwako",
@@ -662,7 +678,8 @@
       "https://www.japan.travel/en/spot/1052/",
       "https://japancheapo.com/travel/kyoto-lake-biwa-day-trip/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 游船/参观设施：0-15 分钟；大型活动日除外"
   },
   "kns_kinosaki": {
     "entity_id": "kns_kinosaki",
@@ -701,6 +718,7 @@
       "https://www.kinosaki-spa.gr.jp/",
       "https://www.japan-guide.com/e/e3567.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 各外汤（旺季周末）：排队 15-30 分钟；7个外汤可轮换，高峰错开\n- 平季：0-15 分钟"
   }
 }

@@ -1,0 +1,55 @@
+{
+  "template_id": "osk_arrival_core_half",
+  "label": "大阪到达日(轻量)",
+  "template_kind": "half_day",
+  "time_of_day": "afternoon_evening",
+  "tier": "B",
+  "status": "placeholder",
+  "core_entities": [
+    "osk_dotonbori"
+  ],
+  "weather_sensitive": false,
+  "selectable_tag": null,
+  "score": {
+    "core_experience": 30,
+    "audience_bonus": {
+      "couple": 0,
+      "friends": 0,
+      "family": 0
+    },
+    "execution_risk": 0,
+    "access_convenience": 5,
+    "base_score": 35,
+    "note": "功能模板,核心是时差恢复+轻量感受大阪;道顿堀格力高是最低门槛的大阪打卡"
+  },
+  "description": "到达大阪的第一个下午/晚上——不做重体力景点,让时差自然恢复,同时用道顿堀的感官刺激感受一下'大阪是什么'。关西机场→难波40分钟,到酒店check-in→步行到道顿堀吃一顿。这天的目标只有一个:让用户第一天就感受到'大阪这个城市有意思'。",
+  "slots": [
+    {
+      "time": "14:00-16:00",
+      "type": "transport",
+      "priority": "P1",
+      "note": "关西机场→难波:南海ラピート(特急约38分,¥1450)或空港バス(约60分,¥1100)。到酒店check-in或寄存行李。15:30前到酒店寄存,避开15:00集中check-in高峰。"
+    },
+    {
+      "time": "16:00-18:00",
+      "type": "walk",
+      "priority": "P2",
+      "note": "道顿堀轻量漫游。从难波步行5分钟到戎橋——格力高跑步人看一眼/道顿堀运河沿岸走一圈(约30分钟)/法善寺横丁窄巷走一遍。不做任何排队景点,只是感受大阪氛围。买一份章鱼烧(¥500)边走边吃——这才是大阪到达日应该做的第一件事。"
+    },
+    {
+      "time": "18:00-19:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "namba_dotonbori",
+      "cuisine_hint": "ramen_or_udon_or_light_local",
+      "note": "到达恢复餐——轻松的日式料理,不要顶级体验(今天不是高光日)。裏难波/法善寺横丁方向找本地小店,避开道顿堀主街的旅游餐厅。拉面/乌冬/定食,¥1000-1500,吃完回酒店早睡。"
+    }
+  ],
+  "assembly_hints": {
+    "phase": "arrival",
+    "next_day": "次日才安排重量级景点(大阪城/USJ/精华日)",
+    "not_for": [
+      "夜班机到达(太累不适合漫游)"
+    ]
+  }
+}

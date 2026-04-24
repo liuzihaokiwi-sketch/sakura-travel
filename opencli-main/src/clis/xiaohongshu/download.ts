@@ -32,6 +32,12 @@ cli({
     await page.goto(buildNoteUrl(rawInput));
 
     // Extract note info and media URLs
+    //
+    // Strategy (2026-04): XHS note pages hydrate their Vue app from an inline
+    // `window.__INITIAL_STATE__ = {...}` assignment inside a <script>. The
+    // live window object is a reactive proxy with circular refs (JSON.stringify
+    // fails), so we parse the raw script text instead and pull image/video URLs
+    // by regex. Falls back to DOM scraping if the inline state is missing.
     const data = await page.evaluate(`
       (() => {
         const result = {
@@ -48,106 +54,111 @@ cli({
           seenMedia.add(key);
           result.media.push({ type, url });
         };
+
         const locationMatch = (location.pathname || '').match(/\\/(?:explore|note|search_result|discovery\\/item)\\/([a-f0-9]+)/i);
         if (locationMatch) {
           result.noteId = locationMatch[1];
         }
 
-        // Get title
-        const titleEl = document.querySelector('.title, #detail-title, .note-content .title');
-        result.title = titleEl?.textContent?.trim() || 'untitled';
-
-        // Get author
-        const authorEl = document.querySelector('.username, .author-name, .name');
+        // Title / author via meta or DOM fallback
+        const titleEl = document.querySelector('#detail-title, .title, meta[property="og:title"]');
+        result.title = (titleEl?.getAttribute?.('content') || titleEl?.textContent || '').trim() || 'untitled';
+        const authorEl = document.querySelector('.username, .author-wrapper .name, .author-name');
         result.author = authorEl?.textContent?.trim() || 'unknown';
 
-        // Get images - try multiple selectors
-        const imageSelectors = [
-          '.swiper-slide img',
-          '.carousel-image img',
-          '.note-slider img',
-          '.note-image img',
-          '.image-wrapper img',
-          '#noteContainer .media-container img[src*="xhscdn"]',
-          'img[src*="ci.xiaohongshu.com"]'
-        ];
+        // Find the inline script that declares __INITIAL_STATE__
+        let stateScript = '';
+        document.querySelectorAll('script').forEach(s => {
+          const t = s.textContent || '';
+          if (t.includes('__INITIAL_STATE__') && t.length > stateScript.length) {
+            stateScript = t;
+          }
+        });
 
-        const imageUrls = new Set();
-        for (const selector of imageSelectors) {
-          document.querySelectorAll(selector).forEach(img => {
-            let src = img.src || img.getAttribute('data-src') || '';
-            if (src && (src.includes('xhscdn') || src.includes('xiaohongshu'))) {
-              src = src.split('?')[0];
-              src = src.replace(/\\/imageView\\d+\\/\\d+\\/w\\/\\d+/, '');
-              imageUrls.add(src);
+        const decode = (u) => String(u || '').replace(/\\\\u002F/g, '/').replace(/\\\\\\//g, '/');
+        const normalizeImage = (u) => {
+          let out = decode(u);
+          if (!out) return '';
+          // Strip query strings that cap size/quality; keep the raw path
+          out = out.split('?')[0];
+          return out;
+        };
+
+        if (stateScript) {
+          // --- Images ---
+          // Each note image appears as an entry in an "imageList" array, with
+          // concrete CDN URLs in "infoList":[{"imageScene":"WB_DFT"|"WB_PRV","url":"..."}].
+          // We can't reliably bound the outer imageList array with a regex
+          // (infoList has its own brackets), so instead we walk all scene/url
+          // pairs in the script, but only keep ones that sit between the first
+          // "imageList" and the next "videoInfoV2"/"interactInfo" marker —
+          // enough to avoid false positives from other arrays.
+          const imgStart = stateScript.indexOf('"imageList":');
+          let imgEnd = stateScript.length;
+          for (const marker of ['"videoInfoV2"', '"video":{', '"interactInfo"']) {
+            const p = stateScript.indexOf(marker, imgStart + 1);
+            if (p > imgStart && p < imgEnd) imgEnd = p;
+          }
+          if (imgStart >= 0) {
+            const slice = stateScript.slice(imgStart, imgEnd);
+            const infoRe = /\\{"imageScene":"([^"\\\\]+)","url":"([^"]+)"\\}/g;
+            // Group URLs by position so preview/default stay paired per image.
+            // We pick one URL per imageList entry: prefer WB_DFT, else WB_PRV.
+            const groups = []; // [{WB_DFT, WB_PRV, OTHER}]
+            let current = null;
+            let lastIndex = -1;
+            let m;
+            while ((m = infoRe.exec(slice)) !== null) {
+              const scene = m[1];
+              const url = normalizeImage(m[2]);
+              if (!url) continue;
+              // Heuristic: if more than ~400 chars since last match, start a new image group.
+              if (!current || m.index - lastIndex > 800) {
+                current = {};
+                groups.push(current);
+              }
+              if (!current[scene]) current[scene] = url;
+              lastIndex = m.index;
+            }
+            for (const g of groups) {
+              const pick = g.WB_DFT || g.WB_PRV || Object.values(g)[0];
+              if (pick) pushMedia('image', pick);
+            }
+          }
+
+          // --- Video ---
+          // h264 stream entries expose masterUrl + backupUrls arrays. Grab the
+          // first masterUrl per stream (top quality), fall back to first backup.
+          const streamRe = /"masterUrl":"([^"]+)"/g;
+          let vm;
+          while ((vm = streamRe.exec(stateScript)) !== null) {
+            pushMedia('video', decode(vm[1]));
+          }
+          if (result.media.filter(x => x.type === 'video').length === 0) {
+            const backupRe = /"backupUrls":\\[\\s*"([^"]+)"/g;
+            let bm;
+            while ((bm = backupRe.exec(stateScript)) !== null) {
+              pushMedia('video', decode(bm[1]));
+            }
+          }
+        }
+
+        // Fallback: DOM <img> scrape for non-video notes if state-based extraction yielded nothing
+        if (result.media.length === 0) {
+          const imgSet = new Set();
+          document.querySelectorAll('img').forEach(img => {
+            const src = img.src || img.getAttribute('data-src') || '';
+            if (src && /xhscdn|xiaohongshu/.test(src) && !/avatar|emoji|header-logo|qrcode/i.test(img.className || '')) {
+              imgSet.add(normalizeImage(src));
             }
           });
+          imgSet.forEach(u => pushMedia('image', u));
+
+          document.querySelectorAll('video source, video[src]').forEach(v => {
+            const src = v.src || v.getAttribute('src') || '';
+            if (src && !src.startsWith('blob:')) pushMedia('video', src);
+          });
         }
-
-        // Get video — prefer real URL from page state over blob: URLs
-
-        // Method 1: Extract from __INITIAL_STATE__ (SSR hydration data)
-        try {
-          const state = window.__INITIAL_STATE__;
-          if (state) {
-            const noteData = state.note?.noteDetailMap || state.note?.note || {};
-            for (const key of Object.keys(noteData)) {
-              const note = noteData[key]?.note || noteData[key];
-              const video = note?.video;
-              if (video) {
-                const vUrl = video.url || video.originVideoKey || video.consumer?.originVideoKey;
-                if (vUrl) {
-                  const fullUrl = vUrl.startsWith('http') ? vUrl : 'https://sns-video-bd.xhscdn.com/' + vUrl;
-                  pushMedia('video', fullUrl);
-                }
-                const streams = video.media?.stream?.h264 || [];
-                for (const stream of streams) {
-                  if (stream.masterUrl) pushMedia('video', stream.masterUrl);
-                }
-              }
-            }
-          }
-        } catch(e) {}
-
-        // Method 2: Extract video URLs from inline script JSON
-        if (result.media.filter(m => m.type === 'video').length === 0) {
-          try {
-            const scripts = document.querySelectorAll('script');
-            for (const s of scripts) {
-              const text = s.textContent || '';
-              const videoMatches = text.match(/https?:\\/\\/sns-video[^"'\\s]+\\.mp4[^"'\\s]*/g)
-                || text.match(/https?:\\/\\/[^"'\\s]*xhscdn[^"'\\s]*\\.mp4[^"'\\s]*/g);
-              if (videoMatches) {
-                videoMatches.forEach(url => {
-                  pushMedia('video', url.replace(/\\\\u002F/g, '/'));
-                });
-              }
-            }
-          } catch(e) {}
-        }
-
-        // Method 3: Fallback to DOM video elements, skip blob: URLs
-        if (result.media.filter(m => m.type === 'video').length === 0) {
-          const videoSelectors = [
-            'video source',
-            'video[src]',
-            '.player video',
-            '.video-player video'
-          ];
-          for (const selector of videoSelectors) {
-            document.querySelectorAll(selector).forEach(v => {
-              const src = v.src || v.getAttribute('src') || '';
-              if (src && !src.startsWith('blob:')) {
-                pushMedia('video', src);
-              }
-            });
-          }
-        }
-
-        // Add images to media
-        imageUrls.forEach(url => {
-          pushMedia('image', url);
-        });
 
         return result;
       })()

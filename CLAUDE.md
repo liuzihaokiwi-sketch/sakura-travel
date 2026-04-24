@@ -144,7 +144,7 @@ travel-ai/
 │   ├── 04_操作SOP/     ← 模板/数据/研究 SOP
 │   └── 05_情境手册/    ← 客服等
 ├── app/ web/ data/
-└── _deprecated/        ← 废弃兜底
+└── _archive/           ← 归档（旧版 docs / templates / _deprecated / _deferred / _legacy 合并于 japan/kansai/_archive/）
 ```
 
 ---

@@ -768,6 +768,12 @@ D38 原表格写"10 点档砍弹性段"——实际应为**不砍尾，压上午
 
 结构性冲突（景点塞不下、等位不清、季节窗口冲突）必须 opencli + WebSearch，不自己硬塞；微调（±15 分钟、次序小改）自行判断。
 
+### 9.5 特殊时段模板出门档无效（2026-04-23 增补,阶段 1.2 fushimi 批次发现）
+
+傍晚半日/夜樱/夜祭/夜间点灯特别拝观/早朝特别拝观等**体验核心锚定绝对时间**的模板,出门档(8/9/10)对它无意义——装配按 slots 绝对时间走,忽略用户出门档。
+
+写作要求见 `docs/04_操作SOP/模板写作.md` 五点一点二点一。
+
 ### 10. 撤回的 D36/D37 设计
 
 - D36 §"slot.note 取消" 仍然有效，但补充"早起加成日的整天 note 必写明早起人群说明"
@@ -797,3 +803,237 @@ D38 原表格写"10 点档砍弹性段"——实际应为**不砍尾，压上午
 **关联**: 本次窗口"出门时间档位 + 餐厅 A/B"讨论沉淀
 
 ---
+
+## D39 pace_type 三类规范化（2026-04-24）
+
+**背景**:
+
+D38 引入 `pace_type=fixed_early` 标记早起强动线，但定义模糊：阶段 2.4 写作时把 8 个模板错贴 fixed_early（arashiyama 2/3/5/6/7/9/10 + okazaki/2），审核拍板这些全部不合格——岚山远郊+瑠璃光院八濑远郊的"早起"要用户 5:30-6:00 起床+1 小时通勤，不符合合理产品形态。
+
+**讨论共识**:
+
+pace_type 本质是**装配层概念**，决定"装配引擎如何处理时间表"。回到第一性原理重新定义。
+
+### 共识 1：pace_type 只有 3 类
+
+- **adaptive**（默认）：用户主导节奏·按出门档（8/9/10）平移·模板写 9 点档基准
+- **fixed_early**：体验主导节奏·四要素齐全才贴·极度稀缺
+- **deep_stay**：两日连住·子类 `onsen` / `deep_local`
+
+**time_anchored（原来考虑的第 4 类）砍掉**——班次/抽签/祭典/夜樱等时间锚定在 `note` 和 `slots` 写清楚即可·pace_type 仍归 adaptive·装配时看出门档能否卡点·卡不上换模板。
+
+### 共识 2：fixed_early 四要素硬规
+
+1. **出片价值 + 早晚差异大**：值得出片+早到晚到体验明显不同；全年或季节都行（不限于樱花/红叶/雪景）
+2. **晨光 + 空景独家画面**
+3. **景点实际开放**：早到时景点开门或 24h 公共空间·不做"门外冻 3 小时"
+4. **市区景点 + 交通短 + 能回酒店休息**：景点离酒店 15-30 分钟内·远郊永不合格
+
+**关键判准**（第 4 条）：fixed_early 不是起床时间多早·**是用户能不能拍完真正回酒店休息**——清水寺住祇园附近拍完 10 分钟回酒店睡，岚山拍完只能咖啡店坐等，后者本质上就不是可持续的 fixed_early 产品。
+
+**合格候选**：清水寺 / 伏见稻荷 / 八坂塔·三年坂 / 祇园一带（市区东山）
+**不合格永远不做**：岚山 / 高雄 / 吉野山 / 高野山 / 金阁寺（9 点开门）/ 天龙寺（8:30 开门）
+
+### 共识 3：adaptive 三档平移 + ±20 分钟弹性
+
+- adaptive 模板写 **9 点档基准**·装配引擎按用户档（8/9/10）整体平移
+- **±20 分钟弹性是特殊规则非默认**：当日有时间约束（班次/抽签/预订/限期/日出光线）时·装配允许用户出门时间微调 ±20 分钟匹配最近保险时段；普通动线不微调
+- **预订类保险缓冲约 1 小时**：交通+换乘+取票/候场+延误容忍；不过度（2 小时以上用户车站干等）
+- 例：小火车班次每小时 02 分发车·8 点档→9:02·9 点档→10:02·10 点档→11:02
+
+### 共识 4：装配优先级
+
+**deep_stay > fixed_early > adaptive**
+
+- 两日深度能覆盖出片体验的·不另装 fixed_early（如樱花季用户装岚山 10 两日·D2 清晨自带出片段·不再叠岚山出片一日）
+- fixed_early 一次行程 ≤ 1 个·用户明确勾选才入池
+- deep_stay 子类 onsen / deep_local 各自 ≤ 1 个
+
+**理由**:
+
+- D38 的 fixed_early 定义只写「早起强动线」·实际落地时误把「任何早起有独家体验」的模板都贴标签·导致 8 个模板误分类
+- 四要素把「交通可行性+休息可行性」拉到硬规高度·直接排除岚山这类远郊早起·产品形态更干净
+- ±20 分钟弹性是装配引擎层处理·不污染模板内容·模板只写基准时刻
+- 保险缓冲约 1 小时是用户体验和容错的平衡点
+
+**后果**:
+
+- SCHEMA §1.3.1 重写（adaptive/fixed_early/deep_stay 三类 + 判定树 + 四要素硬规）
+- SCHEMA §1.3.2 新增 adaptive 三档平移规则
+- SCHEMA §1.3.3 新增 ±20 分钟弹性 + 预订类保险缓冲
+- 模板写作 SOP §五点二 重写
+- assembly/templates/index.md day_type 枚举统一到三类
+- 8 个旧错贴 fixed_early 模板按新归类改：
+  - arashiyama 2/3/6 + okazaki/2 → adaptive（早起建议写 note·不写 fixed_early）
+  - arashiyama 7 → adaptive + `time_sensitivity=soft`（小火车 1 小时一班的定期班次型，各出门档对齐不同班次）
+  - okazaki/2 → adaptive + `time_sensitivity=soft`（瑠璃光院抽签全天多场次每 20 分钟一场）
+  - arashiyama 9/10 → deep_stay（子类 deep_local·D2 清晨早起作为「住本地推荐加分段」非强制）
+  - **arashiyama 5 保留 fixed_early（唯一例外）**：模板叙事本身是为「愿意为出片早起」的用户设计的三机位晨光轮转（6:30 渡月桥镜面 / 7:30 竹林光柱 / 8:30 曹源池倒影），虽然岚山交通 1 小时不满足要素 D 理想形态，但模板不依赖「拍完回酒店睡」。此例外仅适用于**以晨光轨迹编排的出片模板**，不扩展到其他远郊景点
+- 新 fixed_early 候选（市区景点清水/伏见稻荷/八坂塔等）下轮按四要素挑
+- arashiyama/index.md + transport.md 去 fixed_early 标签·更新季节分布说明
+
+**关联**: 本次窗口 fixed_early 重命名讨论沉淀·推翻 D38 原始定义
+
+---
+
+## D40 装配架构四层化 + 模板字段大瘦身 + 诗意 variant_label（2026-04-24）
+
+**背景**:
+
+D39 落地后·审视整个装配系统·发现三大结构性问题：
+
+1. **花名册层 `assembly/templates/index.md`（1400 行）和动线 25 个子目录 `index.md` 职责重叠**：打分公式、互斥、夜模块挂载、pace_type 总库等字段同时散落在花名册 + 子目录 + 各 JSON 顶层
+2. **动线模板 JSON 顶层字段过度堆砌**（label/description/curators_notes/hotel_area_note/min_days/selectable_tag/day_type/exclusive_with/night_options/打分三件套/downgrade_target 等 11+ 个冗余字段）——很多字段是 D36/D37 设计时预设「装配 AI 实时打分选模板」场景的·但实际装配改为**预制行程方案**后都变成死字段
+3. **命名不讲究**：`variant_label` 被写成 `岚山樱花一日·出片（fixed_early·三机位晨光轮转·6:30 渡月桥→7:30 竹林→8:30 曹源池）` 这种技术化拼接·既丑又重复 note 内容·给用户看毫无美感
+
+**讨论共识**:
+
+### 共识 1：装配架构四层（D36 三层不够）
+
+```
+用户输入
+  ↓
+plans/（预制行程方案）    ← 新层·含骨架+槽位候选+跨日硬规
+  ↓
+templates/{city}/{动线}/  ← 动线层（动线说明.md 查阅册·给方案作者）
+  ↓                       ↓
+templates/.../*.json    变体层（模板 JSON·给装配引擎）
+  ↓
+assemble_schedule.py + assembly/ 餐厅酒店
+  ↓
+手账本输出
+```
+
+**方案可以预制到任一层**：
+- 预制到模板 ID（写死 template_id 直接装）
+- 预制到动线（引擎按季节挑变体）
+- 预制到槽位候选列表（方案作者手排优先级·引擎按规则挑）
+
+### 共识 2：模板 JSON 字段砍到骨（11+ 字段删）
+
+**必填（4 个）**：`template_id` / `applicable_dates` / `note` / `slots`
+
+**可选（6 个）**：`variant_label`（诗意标题·非必填）/ `pace_type` / `pace_type_sub`（onsen/deep_local）/ `time_sensitivity` / `time_sensitivity_note` / `contingencies`
+
+**删除**：`label` / `description` / `curators_notes` / `hotel_area_note` / `selectable_tag` / `template_kind` / `night_options` / `day_type` / `exclusive_with` / `min_days` / `downgrade_target` / `core_experience` / `audience_bonus` / `execution_risk`
+
+**迁移方向**：
+- 人群适配/打分 → 方案层（候选列表顺序 = 优先级·不用数字公式）
+- 互斥/最少天数/夜模块挂载 → 方案作者写方案时保证
+- description / label → 渲染层自动生成·或用 variant_label
+- curators_notes / hotel_area_note → 并入 note
+- downgrade_target → 改写进 contingencies.late_start 自然语言 Plan B
+
+### 共识 3：variant_label 诗意化+可选
+
+- **默认不写**·手账本渲染用「动线名 + 季节标注」自动生成（"岚山·樱花一日"）
+- **只有灵魂特别的变体才起独特名**（不为区分·为诗意）：
+  - 岚山 5（晨光轨迹）→ `晨光岚山·追光三站`
+  - 岚山 7（火车+漂流的反差）→ `上山坐火车·下山坐船`
+  - 岚山 9/10（夜枫/夜樱+清晨）→ `岚山·夜枫与清晨` / `岚山·夜樱与清晨`
+- 写作硬规：像日记标题·10-14 字·不含 `fixed_early` / `adaptive` / `9 点档` 等内部术语
+
+### 共识 4：fixed_early + deep_stay 候选总库定稿
+
+**fixed_early 全关西 5 个**（方案作者 ≤1/行程）：
+- `kyoto_arashiyama_5`（✅ 已有·D39 唯一远郊例外·晨光轨迹叙事不依赖睡回笼）
+- `kyoto_higashiyama_X` 清水独享·樱花版（⏳ 待建）
+- `kyoto_higashiyama_X` 清水独享·红叶版（⏳ 待建）
+- `kyoto_higashiyama_X` 清水独享·常年版（⏳ 待建）
+- `kyoto_fushimi_X` 伏见稻荷无人千本鸟居（⏳ 待建·常年）
+
+**deep_stay 全关西 7 个**（onsen ≤1 + deep_local ≤1/行程）：
+- onsen 4 个：kyo_arashiyama_8 / arima_1 / arima_3 / kinosaki_1
+- deep_local 3 个：kyo_arashiyama_9 / kyo_arashiyama_10 / koyasan_1
+
+**arm_arima_4（神户+有马 3 日组合）删除**——跨城组合由方案层拼·不做单 JSON。
+
+### 共识 5：岚山 7 回滚标签
+
+- arashiyama 2/3/6 → adaptive
+- arashiyama 7 → adaptive + time_sensitivity=soft（小火车 1 小时一班定期班次）
+- arashiyama 9/10 → deep_stay + pace_type_sub=deep_local
+- okazaki/2 → adaptive + time_sensitivity=soft（瑠璃光院抽签场次）
+- **arashiyama 5 保留 fixed_early**（D39 例外·D40 重申）
+
+### 共识 6：文档结构重组
+
+- **新建** `japan/kansai/plans/写作规范.md`（关西 7 条 + fixed_early/deep_stay 候选库 + 克制原则 + 槽位优先级思路）
+- **新建** `japan/kansai/plans/{主题}_{天数}日.md`（预制方案·后续窗口补）
+- **替换** `assembly/templates/index.md`（1400 行花名册）→ `assembly/engine.md`（50 行装配引擎行为）
+- **改造** 25 个子目录 `index.md` → 统一命名 `动线说明.md`·瘦身到动线层必要信息（不含模板变体清单/打分/互斥/夜模块·这些在 plans 或 JSON）
+- **SCHEMA §1.1/§1.3 瘦身**：字段定义 only·四要素硬规/候选清单/克制原则移到 plans/写作规范.md
+
+**理由**:
+
+- 字段越多越不知道怎么用·引擎不读的字段是对维护者的税·删到最小才能简洁高效
+- 诗意 variant_label 让用户看手账本有美感·技术标签在内部其他字段承载
+- 预制方案承担跨动线组合的复杂度·模板层专注单动线·职责边界清晰
+- 动线说明.md 服务方案作者（人类）查阅动线元信息·不干扰装配引擎
+
+**后果**:
+
+- 88 个模板 JSON 批量改造（删冗余字段 + 加 pace_type + contingencies 加 late_start + 日文中文化 + variant_label 筛选重写）
+- 25 个子目录 index.md → 动线说明.md（统一命名 + 瘦身）
+- assembly/templates/index.md → assembly/engine.md（彻底重写）
+- plans/ 目录新建 + 写作规范.md 新建
+- SCHEMA §1.1/§1.3 瘦身·四要素/候选/克制 移交 plans/写作规范.md
+- DECISIONS.md 本条（D40）
+- validate_template.py 白名单更新
+- 当前状态.md 更新
+- arm_arima_4 删除
+- _deprecated / _deferred / _legacy / templates_old_d36 合并 `_archive`
+- docs/04_操作SOP/D36_D37 落地计划.md 归档
+
+**关联**: 推翻 D36 的部分装配层设计（花名册打分 + 字段堆砌）·保留 D36 设计宪法两条（字段的唯一意义 / 内容归属对象）·D39 pace_type 三档定义保留但迁移克制原则到 plans/
+
+## D41: 携程五档 budget_tier + 13 个附加字段打标（2026-04-25）
+
+**背景**：
+
+现有 387 家酒店的 `budget_tier` 采用 `economy/mid/high/luxury` 四档，命名不直观（`mid` 不如「舒适」清晰），且缺少顶端奢华细分——携程 5 钻内部差异极大（¥20000/晚的新大谷和 ¥100000+/晚的四季其实是完全不同的产品）。同时，酒店池只有基本定位字段，缺乏温泉/旅馆等体验型标签和评分/早餐等决策字段，装配 AI 无法精确区分体验型住宿。
+
+**选择**：
+
+### 1. budget_tier 从四档升为五档
+
+旧：`economy / mid / high / luxury`
+新：`economy / comfort / premier / luxury / ultra_luxury`
+
+映射逻辑：
+- economy → economy（不变）
+- mid → comfort（3钻·舒适）
+- high → premier（4钻·高档精品）
+- luxury 按 ultra_luxury 筛选规则拆分：品牌白名单或价格 ≥¥60000 JPY/人→ ultra_luxury；其余 → luxury
+
+### 2. 添加 13 个附加字段，按采集成本分两批
+
+**为什么拆列表层/详情层**：列表 API 一次请求可覆盖该城市全部酒店，成本极低；详情 API 需要逐条请求（每家酒店一次），成本高约 300 倍。只有列表层拿不到的字段才去调详情。
+
+**列表层（5 个）**：experience_tags / ctrip_rating / ctrip_review_count / ctrip_hotel_type / breakfast  
+**详情层（8 个）**：opened_year / renovated_year / room_count / rating_subscores / breakfast_highlight / kid_friendly / free_shuttle / has_onsen_bath / nearest_station / nearest_station_distance_m / review_keywords
+
+### 3. review_keywords 为最高价值字段
+
+**理由**：携程「好评关键词」是真实入住用户的浓缩评价，直接对应「懂当地人会挑的理由」——「私汤舒适/景观很棒/亲子房/中文服务」这些关键词能让装配 AI 在写手账本时引用真实用户口吻，不需要编造文案。
+
+### 4. ultra_luxury 默认不入普通模板
+
+ultra_luxury 档（约 15-25 家）全部走客服奢华定制场景，装配 AI 默认不选。筛选依据：携程 5 钻内·品牌白名单（Ritz-Carlton/Four Seasons/Aman/Park Hyatt/Hoshinoya/Suiran/HOTEL THE MITSUI 等）OR 价格门槛 ≥¥60000 JPY/人·泊。
+
+**理由**：
+
+- `mid` 改 `comfort` 对应携程「3钻·舒适」筛选项，装配 AI 和用户理解一致，不用再翻译
+- 四季/丽思和¥20000 普通 5 钻是完全不同产品，不拆开会让装配 AI 推错
+- 体验型标签（温泉/旅馆/宿坊/町家）是关西产品的核心差异点，缺失会导致有马温泉旅馆和京都商务酒店被当同类处理
+- review_keywords 是「社交验证」字段，能把枯燥的评分转化为有温度的人物推荐理由
+
+**后果**：
+
+- SCHEMA §2.3 hotel 字段：budget_tier 枚举更新 + 13 个新字段定义
+- 387 家酒店 budget_tier 批量迁移（mid→comfort / high→premier / luxury 内部拆 ultra_luxury）
+- opencli 批量采集：8 城市 × 4 钻级 + 4 体验标签 ≈ 64 次列表 API
+- 匹配率目标 ≥80%，unmatched <80 家标 unverified 留白
+- validate_template.py budget_tier 枚举白名单更新
+- scripts/ 新增：fetch_ctrip_hotels.sh / match_ctrip_to_hotels.py / hotel_ctrip_tagging_log.md
+- ultra_luxury 档预计 15-25 家，由 Opus 最终确认白名单

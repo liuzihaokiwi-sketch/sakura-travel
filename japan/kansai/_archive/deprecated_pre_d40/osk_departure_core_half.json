@@ -1,0 +1,50 @@
+{
+  "template_id": "osk_departure_core_half",
+  "label": "离开日·关西机场",
+  "template_kind": "half_day",
+  "time_of_day": "morning",
+  "tier": "B",
+  "status": "placeholder",
+  "core_entities": [],
+  "weather_sensitive": false,
+  "selectable_tag": null,
+  "score": {
+    "core_experience": 20,
+    "audience_bonus": {
+      "couple": 0,
+      "friends": 0,
+      "family": 0
+    },
+    "execution_risk": -1,
+    "access_convenience": 5,
+    "base_score": 24,
+    "note": "功能模板;risk -1=峰值体验应该在离开前一天完成,不要把大购物放最后一天"
+  },
+  "description": "关西行程收尾日——让最后一个早晨有'告别仪式'而不是'匆忙赶飞机'。核心设计:给用户一个小的'上扬峰值'+平静结束,不要以购物收尾(结尾权重最重)。推荐:伏见稻荷清晨5分钟/鸭川早晨散步/某个喜欢的地方再坐一会→吃一顿真正好的早餐或早茶→回酒店取行李→机场。",
+  "slots": [
+    {
+      "time": "07:00-08:30",
+      "type": "poi",
+      "priority": "P2",
+      "note": "最后的早晨小峰值。选一个整趟旅行最喜欢的地方再去一次(清晨人最少):鸭川河边/伏见稻荷清晨/东山宁宁之道空空的石板路/岚山渡月桥……不是为了'再看一遍',是为了让这段旅行有一个值得记住的收尾画面。"
+    },
+    {
+      "time": "08:30-09:30",
+      "type": "meal",
+      "priority": "P1",
+      "meal_area": "kyoto_city",
+      "note": "最后一顿正餐——不要在机场吃。推荐:京都中央市场隔壁的早餐食堂(本地工人5点开始营业)/某个喜欢的咖啡店/或第一天没去成的那家店。这顿饭要有'告别意义'。"
+    },
+    {
+      "time": "09:30-10:30",
+      "type": "transport",
+      "priority": "P1",
+      "note": "回酒店取行李→机场。关西机场(KIX):从京都站乘はるか约75分(¥3640)/从难波乘ラピート约38分(¥1450)。国际线建议至少提前3小时到机场。行李策略:前一天把购物行李打包送关西机场(宅急便/酒店寄送服务),当天只带随身行李更轻松。"
+    }
+  ],
+  "assembly_hints": {
+    "phase": "departure",
+    "S4_rule": "离开日必须有'上扬小峰值'不能以购物收尾(参考模板写作SOP S4)",
+    "flight_time_dependency": "早班机(12:00前)→删减小峰值/只吃早餐;午班机以后→完整执行"
+  }
+}

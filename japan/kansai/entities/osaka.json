@@ -47,7 +47,8 @@
       "https://www.kaiyukan.com/language/eng/",
       "https://www.japan-guide.com/e/e4004.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季（黄金周/夏休假/三连休）：现场当天买票入场时间可能在买票后 1-1.5 小时后；建议提前在携程/官网购时段票\n- 普通旺季（周末）：提前买票即时入场；现场买票等 30-60 分钟\n- 平季工作日：现场买票 0-15 分钟等候\n- 建议：一定要提前买票，否则可能在外等 1.5 小时才能入场\n- 数据来源：小红书「海盐碎冰冰」2025/10 collects=22（「两点买的显示15:30入场」实况）；「yukkki」2025/7 collects=100（cross_checked）"
   },
   "osk_dotonbori": {
     "entity_id": "osk_dotonbori",
@@ -77,7 +78,8 @@
       "https://www.japan.travel/en/spot/2207/",
       "https://www.japan-guide.com/e/e4016.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 全年：道顿堀是步行街区，无入场排队；各餐厅/小吃摊有独立排队\n- 旺季（黄金周/樱花/秋假）：热门小吃摊（章鱼小丸子等）排队 15-30 分钟\n- 跨年/大假期高峰：戎桥-道顿堀河边人山人海，挪步困难；夜间 21:00-23:00 是最大人流窗口\n- 建议：10:00 之前或平日下午相对从容\n- 数据来源：small_source（综合多条小红书实况估算）"
   },
   "osk_osaka_castle": {
     "entity_id": "osk_osaka_castle",
@@ -123,7 +125,8 @@
       "https://osakacastle.org/entrance-fee/",
       "https://www.japan.travel/en/spot/1087/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 黄金周（4月下旬-5月初）：天守阁入场排队约 40 分钟\n- 樱花期（3月下旬-4月上旬）：公园免费，人流大但非排队；天守阁 15-30 分钟\n- 普通旺季（周末）：15-30 分钟入天守阁\n- 平季工作日：0-15 分钟\n- 数据来源：小红书「黑白熊学园长」2025/5（「大约需要40分钟」黄金周实况）（cross_checked）"
   },
   "osk_kuromon": {
     "entity_id": "osk_kuromon",
@@ -153,7 +156,8 @@
       "https://kuromon.com/en/",
       "https://www.japan-guide.com/e/e4031.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 全年：黑门市场是步行市场街，无统一入场排队\n- 热门摊位（海鲜/烤串）：排队 10-20 分钟；上午 10:00-13:00 是最多人时段\n- 晚间（17:00 后）：大部分摊位收摊，人流骤减\n- 建议：早上 10:00 前或平日避开午餐高峰\n- 数据来源：小红书实况笔记综合（single_source）"
   },
   "osk_mint_bureau": {
     "entity_id": "osk_mint_bureau",
@@ -193,7 +197,8 @@
       "https://www.mint.go.jp/eng/topics-eng/2026-cherry-blossom-viewing-in-osaka.html",
       "https://www.mint.go.jp/eng/qa-eng/cherryblossom_qa.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 桜の通り抜け（4月中旬约1周）：入場排队 30-60 分钟；早上开门即入最省时\n- 平季：不开放公众参观"
   },
   "osk_kyuanji": {
     "entity_id": "osk_kyuanji",
@@ -232,7 +237,8 @@
       "https://www.ikedashi-kanko.jp/en/spot/recommend-spot17.html",
       "https://osaka-info.jp/spot/kyuanji/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；0-15 分钟"
   },
   "osk_midosuji": {
     "entity_id": "osk_midosuji",
@@ -262,7 +268,8 @@
       "https://www.hikari-kyoen.com/en/midosuji/index.html",
       "https://en.wikipedia.org/wiki/Mid%C5%8Dsuji"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（公共大道）"
   },
   "osk_tempozan_ferris": {
     "entity_id": "osk_tempozan_ferris",
@@ -300,7 +307,8 @@
       "https://osaka-info.jp/en/spot/tempozan-ferris-wheel/",
       "https://www.japan-guide.com/e/e4010.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 摩天轮旺季：0-15 分钟等候"
   },
   "osk_abeno_harukas": {
     "entity_id": "osk_abeno_harukas",
@@ -339,7 +347,8 @@
       "https://www.abenoharukas-300.jp/en/observatory/",
       "https://www.japan-guide.com/e/e4028.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 展望台（300m楼）旺季：15-30 分钟\n- 平季：0-15 分钟"
   },
   "osk_hozenji_yokocho": {
     "entity_id": "osk_hozenji_yokocho",
@@ -368,7 +377,8 @@
       "https://www.japan-guide.com/e/e4027.html",
       "https://www.japan.travel/en/spot/1093/"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（小巷）；周边人气居酒屋旺季排队 15-30 分钟"
   },
   "osk_nakanoshima": {
     "entity_id": "osk_nakanoshima",
@@ -398,7 +408,8 @@
       "https://nakanoshima-osaka.com/",
       "https://www.japan-guide.com/e/e4012.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（公共岛屿）；市政厅/博物馆 0-15 分钟"
   },
   "osk_nakazakicho": {
     "entity_id": "osk_nakazakicho",
@@ -427,7 +438,8 @@
       "https://osaka-info.jp/en/spot/nakazakicho/",
       "https://www.japan-guide.com/e/e4014.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（街区漫步）"
   },
   "osk_namba": {
     "entity_id": "osk_namba",
@@ -456,7 +468,8 @@
       "https://www.japan.travel/en/spot/1091/",
       "https://www.japan-guide.com/e/e4016.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无门票无排队（商业街区）"
   },
   "osk_osaka_museum_history": {
     "entity_id": "osk_osaka_museum_history",
@@ -492,7 +505,8 @@
       "https://www.mus-his.city.osaka.jp/eng/",
       "https://www.japan-guide.com/e/e4025.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 无显著排队；0-15 分钟"
   },
   "osk_shitennoji": {
     "entity_id": "osk_shitennoji",
@@ -531,7 +545,8 @@
       "https://www.shitennoji.or.jp/",
       "https://www.japan-guide.com/e/e4013.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 全年：大寺院，入场无显著排队；0-15 分钟"
   },
   "osk_sumiyoshi_taisha": {
     "entity_id": "osk_sumiyoshi_taisha",
@@ -569,7 +584,8 @@
       "https://www.sumiyoshitaisha.net/",
       "https://www.japan-guide.com/e/e4009.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 初诣（1月1-3日）：参道人山人海，入场等候 60-90 分钟甚至更长\n- 平季：0-15 分钟"
   },
   "osk_taiyo_no_to": {
     "entity_id": "osk_taiyo_no_to",
@@ -606,7 +622,8 @@
       "https://taiyounotou-expo70.jp/",
       "https://www.japan-guide.com/e/e4019.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 须提前网上预约（1F-4F内部参观）；现场外观参观免费无排队"
   },
   "osk_tsutenkaku": {
     "entity_id": "osk_tsutenkaku",
@@ -644,7 +661,8 @@
       "https://www.tsutenkaku.co.jp/en/",
       "https://www.japan-guide.com/e/e4007.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季：入场 15-30 分钟；顶层展望台有人流\n- 平季：0-15 分钟"
   },
   "osk_umeda_sky": {
     "entity_id": "osk_umeda_sky",
@@ -683,7 +701,8 @@
       "https://www.skybldg.co.jp/en/",
       "https://www.japan-guide.com/e/e4013b.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 旺季（周末/黄金周）：空中庭园观景台入场 15-30 分钟；提前买票可省时\n- 平季：0-15 分钟"
   },
   "osk_ikoma_sanjo_yuenchi": {
     "entity_id": "osk_ikoma_sanjo_yuenchi",
@@ -721,7 +740,8 @@
       "https://www.ikomasanjo.com/",
       "https://www.japan-guide.com/e/e4057.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 开放期（春-秋）：热门游乐设施 15-30 分钟；绝叫系 30-45 分钟\n- 平季：0-15 分钟"
   },
   "osk_teamlab_botanical": {
     "entity_id": "osk_teamlab_botanical",
@@ -765,6 +785,46 @@
       "https://botanicalgarden.teamlab.art/",
       "https://www.japan-guide.com/e/e4034.html"
     ],
-    "last_verified": "2026-04-21"
+    "last_verified": "2026-04-21",
+    "notes": "## 排队\n- 须提前购买时段票；现场按时段入场无排队"
+  },
+  "osk_nishinomaru_garden": {
+    "entity_id": "osk_nishinomaru_garden",
+    "name_zh": "大阪城西の丸庭园",
+    "name_ja": "大阪城西の丸庭園",
+    "area": "osakajo",
+    "category": "park",
+    "coordinates": {"lat": 34.689, "lng": 135.524},
+    "short_desc": "大阪城二の丸西側庭园，约 300 棵染井吉野，樱花季有夜樱点灯（19:30-21:00），入场 ¥200，大阪城公园内最佳樱花视角",
+    "opening_hours": {"regular": "09:00-17:00(夜樱期延长至 21:00)","closed": "无休"},
+    "official_url": "https://www.osakacastlepark.jp/",
+    "admission": {"adult": 200, "child": 0, "unit": "JPY"},
+    "notes": "## 拍照位置\n- 庭园中心草坪远景大阪城天守阁+樱花前景：经典构图，下午光顺向\n- 夜樱点灯时段天守阁与樱花同框：19:30-21:00 灯柱沿樱树布设，长曝可拍\n\n## 衔接\n樱花季与大阪城公园一号馆（外护城河樱花步道）连游，庭园入口在西の丸樱门方向，与大手门/桜门形成环线。\n\n## 票价指引\n平日入场低价；樱花季夜樱点灯期间门票可能另定，以官网公告为准。\n\n## 避坑\n- 夜樱点灯期周末入口可能排队，建议 19:30 开灯前 15 分钟到场\n- 带食物入园受限，饮品可；野餐以草坪区指定范围为准\n\n## 季节\n- 春：染井吉野盛期西の丸是大阪城公园内最集中的樱花视角\n- 其他季节：庭园本身为草坪+石墙，樱花季外游客稀少，可作为避峰午后散步点"
+  },
+  "osk_shinsekai": {
+    "entity_id": "osk_shinsekai",
+    "name_zh": "新世界",
+    "name_ja": "新世界",
+    "area": "tennoji",
+    "category": "neighborhood",
+    "coordinates": {"lat": 34.651, "lng": 135.506},
+    "short_desc": "大阪昭和时代保留街区，通天阁为中心，串炸（串カツ）发源地，射击游艺等昭和娱乐，与周边天王寺公园/阿倍野 HArukas 形成新旧对比",
+    "opening_hours": {"regular": "各店自定，大部分 11:00-21:00","closed": "各店不同"},
+    "official_url": "https://www.shinsekai.net/",
+    "admission": {"adult": 0, "unit": "JPY", "note": "街区免费通行，通天阁展望台 ¥1000 另计"},
+    "notes": "## 拍照位置\n- 通天阁正下方仰拍霓虹灯招牌+街区纵深：傍晚点灯后最佳，人流侧身让过\n- ジャンジャン横丁入口的串炸招牌墙：昭和感最足，广角压缩前后招牌层次\n\n## 冷知识\n「新世界」名字源于 1912 年开发时模仿巴黎+纽约的都市计划；通天阁是第二代（初代 1943 年因火灾拆除）。「二度漬け禁止」（串炸酱汁不准蘸两次）是这里发明的规矩。\n\n## 顺路小店\n- だるま（串炸元祖，总本店在通天阁下）与八重勝（ジャンジャン横丁内）是当地两派，味道都可以\n- 射击游艺（スマートボール）现在日本只剩新世界还有几家，硬币投 100 日元可玩\n\n## 衔接\n与天王寺公园 / 阿倍野 HArukas 展望台连游形成「昭和 vs 现代」对比，步行约 15 分钟。地铁堺筋線動物園前站/JR 新今宮站最近。\n\n## 避坑\n- 白天人不多，傍晚 17:00 后霓虹点亮才出氛围\n- 新今宮站北口到新世界路径会经过「あいりん地区」，治安观感较差，建议走動物園前站方向\n- 串炸店排队 20-40 分钟是常态，旺季建议错峰 14:00 或 20:00 后"
+  },
+  "osk_usj": {
+    "entity_id": "osk_usj",
+    "name_zh": "环球影城",
+    "name_ja": "ユニバーサル・スタジオ・ジャパン (USJ)",
+    "area": "osaka_bay",
+    "category": "experience",
+    "coordinates": {"lat": 34.6654, "lng": 135.4323},
+    "short_desc": "日本最大主题乐园，任天堂世界/哈利波特/侏罗纪等园区，建议开园即进 + 提前购买快速通道，全天体验约 8-10 小时",
+    "opening_hours": {"regular": "09:00-21:00（以官网当日为准）","closed": "不定休"},
+    "official_url": "https://www.usj.co.jp/",
+    "admission": {"adult": 9800, "child": 6600, "unit": "JPY", "note": "1 日票以官网当年定价为准；快速通道另加"},
+    "notes": "## 票价指引\n- 1 日票以官网当日定价为准，日期调整制旺季/淡季价差明显\n- エクスプレス・パス（快速通道）4/7 券按热门项目数选，价格随日期浮动\n- 超级任天堂世界入场需持当日整理券（官方 APP 或园内抽）——**没有整理券进不去这个园区**\n\n## 避坑\n- 超级任天堂世界整理券开园 30 分钟内发完是常态，建议**开园前 1 小时到入口排队**，进园后第一件事 APP 领券\n- 雨天唐尼刚果国度（Donkey Kong Country）户外项目可能停运，玛利欧赛车室内运行\n- 食物园内贵且排队久，能量棒/水壶可带入省时间\n- 万圣季（9-10 月）夜场 Zombie Walk 非常拥挤，带小孩慎选日期\n\n## 衔接\nJR ゆめ咲線「ユニバーサルシティ」站徒步 5 分钟；与海游馆（大阪港站，地铁中央線换乘约 20 分钟）可作「主题乐园 vs 水族馆」两日分开安排，不建议同日连轴。\n\n## 季节\n- 春樱花季周末最挤，平日可冲\n- 夏暑热注意补水防晒，夜场 19 点后体感凉\n- 秋万圣季氛围最浓但人流峰值\n- 冬圣诞季点灯漂亮，园内表演最多"
   }
 }

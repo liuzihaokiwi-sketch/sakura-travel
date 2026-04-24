@@ -48,6 +48,26 @@
 
 **为什么装配/事件用 markdown**：消费方主要是 AI，markdown 让 AI 像读 SOP 一样读，比 JSON 嵌套自然。
 
+### 四层职责硬规（D38 补充）
+
+设计宪法第二条"内容归属对象"的具体落地——每层只写自己该写的内容，不越界不复述。
+
+| 层 | 职责 | 写什么 | 不写什么 |
+|---|---|---|---|
+| **entity**（事实层） | 事实权威 | 票价 / 时长 / 地址 / 排队 / 设施 / 开放时间 / 官方特色 | 动线判断 / 装配逻辑 |
+| **slot.main.note** | 动线即时判断 | 为什么这时间到这里 / 怎么接上下一段 / 即时人流提醒 | 原始事实（可引用不复述） |
+| **slot.optional.note** | 取舍依据 | 为什么是 optional / 什么密度档位加 / 加了影响什么 | 景点本身描述（去 entity） |
+| **整天 note**（模板正文） | 骨架逻辑（300-500 字） | 核心体验为什么成立 / 路线 / 节奏 / 情绪 / 旺季应对 / 硬限制 | 每个景点单独介绍 |
+| **curators_notes** | 印刷级巧思（30-50 字/条） | 金句级神动线 / 冷知识 / 极其具体的小技巧 | 通用判断 / 大段说明 |
+| **index.md** | 变体层 | 变体清单 / 互斥 / 前置条件 / 跨动线连接 / 装配说明 | 单模板内部逻辑 |
+| **transport.md** | 动线交通 | 门到门表 / 延伸连接 / 停运窗口 | 内部步行段（slot 顺序即路线） |
+
+**边界规则**：
+
+- slot note **可以引用**事实（如"人流峰值到 15:00"）作为判断依据，但**不复述**原始数据（票价 / 地址 / 开放时间等 entity 已有字段）。判断依赖的事实可以简略提一句，完整数据让下游查 entity。
+- 同一信息只在一个层存在。entity 改了不需要回头改 50 个模板——这是 D36 宪法的核心落地。
+- 写之前问自己：这句话的"事实主权"属于哪一层？错位了就挪到该去的地方。
+
 ---
 
 ## 文档第一性原理
@@ -111,21 +131,41 @@ japan/kansai/templates/
 - **一日和两日统一编号，不分子层**。index.md 标明每个编号是几日
 - **special_events/ 例外**：里面每个 JSON 是独立模板，不在变体互斥范围内
 
-### 1.1 顶层必填（7 个）
+### 1.1 顶层必填（4 个）
 
 | 字段 | 类型 | 取值 | 一句话语义 |
 |---|---|---|---|
 | `template_id` | string | snake_case | 全局唯一标识，如 `kyoto_arashiyama_1` |
-| `label` | string | - | 人可读名称，如 "岚山核心一日" |
-| `variant_label` | string | - | 变体自描述（如 "红叶版+情侣" / "核心一日" / "温泉一泊"），与文件名数字编号互补 |
 | `applicable_dates` | array | 见 §1.2 | 适用时间列表；常年模板默认 `[]` |
-| `note` | string | 自然语言 | **设计 note（不展示）**：整天为什么这样排——路线/体验/情绪/旺季应对 |
-| `description` | string | 自然语言 | 用户总览（含钩子）：对 note 的面向用户提炼 |
+| `note` | string | 自然语言 | **设计 note（不展示）**：整天为什么这样排——核心体验逻辑/路线/节奏/情绪/旺季应对/硬限制。**目标 300-500 字**；单个景点介绍归 entity，不要在 note 里逐景点描述 |
 | `slots` | array | 见 §1.4 | 时间段+main+optional 结构 |
 
-> **`selectable_tag` 已挪装配层**（D36）：用户勾选入口由 [assembly/templates/index.md](../../japan/kansai/assembly/templates/index.md) 维护。
-> **`template_kind` 已砍**（D37）：类型由文件夹位置表达（`half_day/` 下的是半日、`arrivals/` 下是到达日）。
-> **`night_options` 已砍**（D37）：夜晚模块跟动线文件夹绑定（同文件夹有 `night.json` 才能挂）。
+### 1.1.1 顶层可选（D40·2026-04-24）
+
+| 字段 | 类型 | 写的判断标准 |
+|---|---|---|
+| `variant_label` | string | **诗意标题**（非必填）。只有灵魂特别的变体才写·像日记标题 10-14 字·不含 `fixed_early` / `adaptive` / `9 点档` 等技术词（例：`晨光岚山·追光三站` / `上山坐火车·下山坐船` / `岚山·夜樱与清晨`）。**不写时**·渲染层用「动线名 + 季节标注」自动生成 |
+| `pace_type` | string | `adaptive` / `fixed_early` / `deep_stay`。默认 `adaptive` 可省略。见 §1.3.1 |
+| `pace_type_sub` | string | 仅 `pace_type=deep_stay` 可写·枚举 `onsen` / `deep_local` |
+| `time_sensitivity` | string | `flexible` / `soft` / `hard`。默认 `flexible` 可省略。见 §1.3.2 |
+| `time_sensitivity_note` | string | `soft` / `hard` 时必填一句约束说明 |
+| `contingencies` | object | 应急预案；子项有内容才写。见 §1.5。`fixed_early` / `time_sensitivity=hard` **必须写 `late_start`** |
+
+### 1.1.2 已删字段（D40·2026-04-24）
+
+`label` / `description` / `curators_notes` / `hotel_area_note` / `selectable_tag` / `template_kind` / `night_options` / `day_type` / `exclusive_with` / `min_days` / `downgrade_target` / `core_experience` / `audience_bonus` / `execution_risk`
+
+**原因**：方案层（`plans/`）预制行程已承担跨动线组合/人群匹配/候选优先级/夜模块挂载等职责·动线模板只留执行层真需要的字段。
+
+**迁移方向**：
+- `label` / `description` → 手账本渲染层自动生成·或用 `variant_label` 诗意标题
+- `curators_notes` → 可并入 `note` 或 slot 的 `note`·不单独字段
+- `hotel_area_note` → 并入 `note`
+- `exclusive_with` / `min_days` / `selectable_tag` / 打分三件套 → 方案层 [plans/写作规范.md](../../japan/kansai/plans/写作规范.md)
+- `night_options` → 方案作者在槽位里直接写夜模块组合
+- `downgrade_target` → 改写进 `contingencies.late_start` 自然语言 Plan B
+
+细节见 [DECISIONS.md D40](../02_历史决策/DECISIONS.md)。
 
 ### 1.2 applicable_dates 元素
 
@@ -143,25 +183,82 @@ japan/kansai/templates/
 - 跨年窗口（深冬 12/20-02/28）：`[{"start": "12-20", "end": "02-28", "label": "深冬"}]` —— 代码识别 `start > end` 表示跨年
 - 常年通用模板：`[]`（空数组）
 
-### 1.3 顶层可选字段（**有就写，没有不写**）
+### 1.3 pace_type + time_sensitivity 字段定义
 
-| 字段 | 类型 | 写的判断标准 |
+> **字段语义** 定义在本文。
+> **四要素硬规 / 候选清单 / 克制原则 / 判定树 / 装配打分** 全部迁至 [plans/写作规范.md](../../japan/kansai/plans/写作规范.md)——方案作者职责·不在 SCHEMA。
+> **装配引擎具体行为** 见 [assembly/engine.md](../../japan/kansai/assembly/engine.md)。
+
+### 1.3.1 pace_type 三档
+
+`pace_type` 是模板 JSON 顶层可选字段·装配引擎按此决定时间平移逻辑。
+
+| 取值 | 装配行为 |
+|---|---|
+| `adaptive`（默认） | 按用户出门档（8/9/10）整体平移 slots·模板 JSON 写 9 点档基准·**可省略字段** |
+| `fixed_early` | 绝对时间不平移·晨光轨迹是产品核心·`contingencies.late_start` 必写 |
+| `deep_stay` | 两日连住·D1/D2 slots 不平移·必配 `pace_type_sub`（`onsen` 或 `deep_local`） |
+
+**三档的选择判准 + 全关西候选清单**：见 [plans/写作规范.md §四](../../japan/kansai/plans/写作规范.md)。
+
+### 1.3.2 adaptive 三档平移（装配引擎实现）
+
+adaptive 模板 slots **以 9 点档为基准**·装配引擎按用户出门档平移：
+
+| 档位 | start | lunch | dinner |
+|---|---|---|---|
+| 8 点 | 08:00 | 12:00 | 18:00 |
+| 9 点（基准） | 09:00 | 12:30 | 18:30 |
+| 10 点 | 10:00 | 13:00 | 19:00 |
+
+**关键**：lunch/dinner 锚点按档位走·**不跟早出门整体前移**（吃饭是生理约束）。
+
+**start ±20 分钟微调**：当 `time_sensitivity=soft` 或 `hard` 时·装配引擎可 ±20 分钟微调 start 匹配光线/班次/场次·lunch/dinner 不动。
+
+**装配引擎**：`scripts/assemble_schedule.py`·详见 [assembly/engine.md](../../japan/kansai/assembly/engine.md)。
+
+### 1.3.3 time_sensitivity 三档（D39·2026-04-24）
+
+模板顶层可选字段，回答「这个模板当天的时间约束有多硬」。
+
+| 档 | 定义 | 装配行为 |
 |---|---|---|
-| `pace_type` | string | `"adaptive"`（默认，可省略）/ `"fixed_early"`。见 §1.3.1 |
-| `hotel_area_note` | string | 偏远 / 起点对酒店区敏感的模板才写（岚山要算交通、有马一泊要算路线）。市区核心模板不写 |
-| `curators_notes` | string[] | 1-4 条策展小巧思，每条 30-50 字。**懂当地朋友才知道的小决定**（"早到是岚山日成立的关键"）。"以官方为准" 类废话不写 |
-| `contingencies` | object | 应急预案；**4 子项有内容才写，不硬填**。见 §1.5 |
+| `flexible` | 早去晚去都无所谓 | 默认，不提醒用户；可省略字段 |
+| `soft` | 晚去光线差 / 部分关门 / 错过最佳；或定期班次/场次可按档位对齐 | 装配侧小提醒；装配引擎可用 ±20 分钟微调 start 匹配 |
+| `hard` | 固定时刻不可改，错过 = 产品当天崩 | 装配层按约束时刻判用户档兼容性，不兼容换模板；手账本重点提醒 |
 
-### 1.3.1 pace_type 字段（D38）
+**举例**：
 
-标记动线是否接受出门时间档位平移。
+| 档 | 模板 |
+|---|---|
+| flexible | 锦市场逛 / 商店街 / 鸭川散步 / 大部分神社 |
+| soft · 光线/人流型 | 金阁寺（17:00 关）/ 伏见稻荷（黄昏最美）/ 岚山竹林（10 点后人多）/ 日出日落机位 |
+| soft · 定期班次型 | 嵯峨野小火车（1 小时一班，出门提前 20 分钟各档对应不同班次）/ 全天多场次抽签（瑠璃光院每 20 分钟一场）/ 半小时一班的观光船 |
+| hard | 祇园祭山鉾巡行 9:00 / 五山送火 20:00 / USJ 快速通行券指定场次 / 一天一场的预约餐厅 / 烟火大会 |
 
-| 取值 | 含义 | 适用动线 |
-|---|---|---|
-| `"adaptive"` | 普通动线，跟随用户出门档（8/9/10）整体平移；**省略字段时默认此值** | 绝大多数动线 |
-| `"fixed_early"` | 早起强动线，整天 6:30 出门写绝对时间，不平移；仅装给勾"早起加成"用户 | 清水寺独享舞台 / 伏见无人千鸟居 / 高雄 / 高野山 / 吉野山等 |
+**判准**：
 
-**本期暂不做 `fixed_early` 模板**（D38），但字段保留供未来扩展。所有动线先按 `adaptive` + 9 点档基准写。
+- **错过 = 产品当天崩 → hard**：当天只有一次或一场的硬时刻，时间错了整个模板作废
+- **能按档位对齐 → soft**：定期班次（1 小时一班这种），各用户档都能对上不同班次，出门前后微调即可
+- **早晚光线/人流差 → soft**：体验打折但仍成立
+- **无差 → flexible**
+
+**定期班次型写法**：
+
+模板 slot 按 9 点档基准写（用户 9 点档 → 8:40 出门赶 10:02 班；装配引擎自动按档平移）：
+
+```json
+{
+  "time_sensitivity": "soft",
+  "time_sensitivity_note": "嵯峨野小火车 1 小时一班，出门提前 20 分钟赶最近班次",
+  "slots": [
+    {"time": "08:40-09:30", "main": ["祇园→嵯峨站 + 取票"]},
+    {"time": "10:02-11:02", "main": ["小火车嵯峨→龟冈 25 分 + 保津川漂流"]}
+  ]
+}
+```
+
+**写法通则**：soft / hard 时必填 `time_sensitivity_note` 一句约束说明。flexible 两个字段都省略。
 
 ### 1.4 slots 结构（D37 修订）
 
@@ -230,10 +327,22 @@ japan/kansai/templates/
 | `type` | string | ✓ | `poi` / `meal` / `hotel` / `transport` / `free_time` | slot 类型 |
 | `note` | string | 部分必填 | 自然语言 | 该 slot 的动线判断 tip（见下方硬规） |
 
-**note 硬规**：
-- **同一 entity 在同一天的 slots 里出现 ≥2 次时**（如渡月桥下午漫步 + 黄昏 peak-end），**每次 slot 必须写 note 区分用途**（该时段做什么、为什么这时间来），否则装配/渲染无法区分两次停留
-- optional slot 建议写 note 说明"什么情况下用"（如"体力好/早到的用户加项"）
-- 普通单次 slot 可不写 note
+**各层职责分工**：
+
+| 层 | 职责 | 写什么 | 不写什么 |
+|---|---|---|---|
+| entity | 事实权威 | 票价/时长/排队/开放时间/设施 | 动线判断/装配逻辑 |
+| slot.main.note | 动线即时判断 | 为什么这时间到/怎么接上/即时人流提醒（可引用事实作为判断依据，不复述 entity 原始数据） | 票价/开放时间/景点全面介绍 |
+| slot.optional.note | 取舍依据 | 为什么 optional/什么密度档位加/加了影响什么 | 景点本身描述（去 entity） |
+| 整天 note | 骨架逻辑 | 核心体验/路线/节奏/情绪/旺季应对/硬限制（300-500 字）| 每个景点单独介绍 |
+| curators_notes | 印刷级巧思 | 30-50 字金句级神动线/冷知识 | 通用说明/大段解释 |
+| index.md | 变体层 | 变体清单/互斥/前置/跨动线连接 | 单模板内部逻辑 |
+| transport.md | 交通 | 门到门表/延伸连接/停运窗口 | 内部步行段 |
+
+**slot note 硬规**：
+- **同一 entity 在同一天出现 ≥2 次**：每次 slot 必须写 note 区分用途（"下午减速带"vs"黄昏 peak-end"），否则装配/渲染无法区分
+- **optional slot 必须写 note**：写取舍依据（"packed 档才加/体力好才加"），不是景点介绍
+- 普通单次 main slot 可不写 note
 
 **poi 类专属**：
 - `entity` 必填：景点 ID（含商业街/河岸/区域型 entity）
@@ -515,7 +624,7 @@ japan/kansai/templates/
 
 字段：`id / name_ja / name_zh / area / cuisine_tag / meal_type_fit / budget_tier / price_cny / vibe_tags / facility_tags / score / ab_role / meal_role / reservation_difficulty / opening_hours / risk_flags / last_verified / notes`
 
-**当前模板 meal slot 永远不指定 entity**，由餐厅装配按规则从池里挑。装配规则见 [assembly/restaurants/index.md](../../japan/kansai/assembly/restaurants/index.md)。
+**当前模板 meal slot 永远不指定 entity**，由餐厅装配按规则从池里挑。装配规则见 [assembly/restaurants/](../../japan/kansai/assembly/restaurants/)（准入标准.md + 写作规范.md + 各区域 md）。
 
 ### 2.3 hotels（酒店）— 已挪装配层
 
@@ -525,7 +634,42 @@ japan/kansai/templates/
 
 字段：`id / name / area / budget_tier / price_range_cny / vibe_tags / facility_tags / practical_tags / score / checkin / checkout / risk_flags / last_verified / notes`
 
-**当前模板 hotel slot 永远不指定 entity**，由酒店装配按规则从池里挑。装配规则见 [assembly/hotels/index.md](../../japan/kansai/assembly/hotels/index.md)。
+**budget_tier 枚举（五档）**：
+- `economy` — 2钻及以下·经济快捷/青年旅舍
+- `comfort` — 3钻·舒适·中端连锁（原 `mid`）
+- `premier` — 4钻·高档精品（原 `high`）
+- `luxury` — 5钻·豪华型（原 `luxury` 大部分）
+- `ultra_luxury` — 携程5钻最顶端·¥80000 JPY+/人·泊·品牌白名单或价格门槛·**默认不入模板**·留客服奢华定制场景
+
+**ultra_luxury 筛选规则**（二选一满足）：
+- 品牌白名单：Ritz-Carlton / Four Seasons / Aman / Park Hyatt / Hoshinoya (星のや) / Suiran (翠岚) / HOTEL THE MITSUI / Amanemu / Six Senses / Bulgari
+- 价格门槛：`price_range_jpy.low >= 60000`
+
+**携程打标附加字段**（D41 新增，按采集来源分两批）：
+
+列表层字段（opencli 批量列表 API 获取）：
+- `experience_tags` — 数组·枚举：`onsen_ryokan / japanese_ryokan / shukubo / machiya / minshuku`
+- `ctrip_rating` — 浮点 0-5.0·携程综合评分
+- `ctrip_review_count` — 整数·点评数
+- `ctrip_hotel_type` — 枚举：`hotel / ryokan / minshuku / hostel / resort / apartment`
+- `breakfast` — 枚举：`included / optional / none`·含早则 included·可选则 optional·其他 none
+
+详情层字段（opencli 详情 API 获取）：
+- `opened_year` — 整数·开业年
+- `renovated_year` — 整数·最近翻新年
+- `room_count` — 整数·客房数
+- `rating_subscores` — 对象：`{hygiene, facility, environment, service}` 浮点·分项评分
+- `breakfast_highlight` — 枚举：`excellent / value_for_money / none`·`excellent`=早餐是体验亮点；`value_for_money`=性价比高值得推；`none`=普通不提·**只标有特色的**
+- `kid_friendly` — 布尔·true=儿童友好
+- `free_shuttle` — 布尔·true=有免费接站/班车
+- `has_onsen_bath` — 布尔·true=酒店内有温泉浴场
+- `nearest_station` — 字符串·最近地铁/JR站名（中文或日文均可）
+- `nearest_station_distance_m` — 整数·米
+- `review_keywords` — 数组·好评关键词·如「私汤舒适/景观很棒/亲子房/中文服务」·**最高价值字段**·直接对应「懂当地人会挑的理由」
+
+**未匹配处理**：携程搜索未能匹配的酒店·budget_tier 按旧值同义映射（mid→comfort / high→premier）·附加字段留空·内部标记 `unverified`（不进 JSON，进打标日志）
+
+**当前模板 hotel slot 永远不指定 entity**，由酒店装配按规则从池里挑。装配规则见 [assembly/hotels/](../../japan/kansai/assembly/hotels/)（准入标准.md + 写作规范.md + 各区域 md）。
 
 ---
 
@@ -533,28 +677,31 @@ japan/kansai/templates/
 
 装配层维护的是"装配规则 + 模板元数据"，消费方主要是 AI，**用 markdown 不是 JSON**。
 
-### 3.1 文件组织
+### 3.1 文件组织（D40·2026-04-24）
 
 ```
 japan/kansai/assembly/
+├── engine.md                    ← 装配引擎行为（时间平移/pace_type/time_sensitivity 装配逻辑）
 ├── templates/
-│   ├── index.md                 ← 模板花名册 + 打分 + min_days + day_type + 互斥 + 关西7条化学反应
 │   └── data/                    ← 季节窗口 JSON（sakura/koyo/festivals/illumination/special_open）
 ├── restaurants/
-│   ├── index.md                 ← 总规则（A/B 策略 / meal_role / 跨城去重 / 日类型升降）
+│   ├── 准入标准.md + 写作规范.md  ← 总规则（A/B 策略 / meal_role / 跨城去重 / 日类型升降）
 │   ├── kyoto/{先斗町_河原町,祇园,京都站,...}.md
 │   ├── osaka/{梅田_新地,难波_道顿堀,心斋桥,...}.md
-│   ├── other/{神户,奈良,有马,城崎,高野山}.md    ← 每个文件内按区域分章节
+│   ├── other/{神户,奈良,有马,城崎,高野山}.md
 │   └── data/                    ← 餐厅池 JSON
 └── hotels/
-    ├── index.md                 ← 总规则（升档比例表 / 修饰器 / 区域偏好 / 人群预算冲突）
+    ├── 准入标准.md + 写作规范.md  ← 总规则（升档比例表 / 修饰器 / 区域偏好 / 人群预算冲突）
     ├── kyoto/{四条河原町,京都站,祇园,...}.md
     ├── osaka/{难波_道顿堀,梅田,心斋桥,...}.md
     ├── other/{神户,奈良,有马,城崎,高野山}.md
     └── data/                    ← 酒店池 JSON
+
+japan/kansai/plans/
+└── 写作规范.md                   ← 方案作者规范（关西 7 条 / fixed_early + deep_stay 候选库 / 槽位优先级）
 ```
 
-**路径命名硬规**：顶层和子目录**全英文**（避免 Windows/Python/Node 脚本对中文路径的兼容坑）；装配入口 md 文件名**统一 `index.md`**（跟 `templates/kyoto/arashiyama/index.md` 的动线入口一致）。区域 md 文件名用中文（写作者直接读，不进代码 import）。
+**路径命名硬规**：顶层和子目录**全英文**；动线层入口 md 统一命名 `动线说明.md`（D40 从 `index.md` 改）；装配层主文件命名中文（`准入标准.md` / `写作规范.md` / `engine.md`），方便写作者直接读。
 
 **装配 markdown 正文全部用中文书写**。消费方是 Opus，中文比英文键名自然。
 
@@ -564,29 +711,24 @@ japan/kansai/assembly/
 
 **产品原则的装配策略已挪走**：原 [产品原则.md](../../japan/kansai/产品原则.md) §4 餐饮 / §5 酒店 / §12 关西 7 条化学反应整章已迁到装配 markdown，产品原则中删除（避免两份并存冲突）。
 
-### 3.2 assembly/templates/index.md = 顶层模板花名册（核心规范）
+### 3.2 装配元数据的归属（D40 取代 D36 花名册）
 
-**所有模板的元属性集中在一份顶层 markdown 里维护**，不分散到各个模板 JSON。
+D40 已**废除老花名册** `assembly/templates/index.md`（原 1400 行）。原花名册各字段归属如下：
 
-**为什么这样**：
-- 模板 JSON 干净，只管动线
-- 元属性可以横向对比（一眼看完所有模板的打分/季节/人群偏好/互斥关系）
-- 修改装配规则只改一个文件
-- AI 装配读一份花名册就知道全局，不用扫 98 个 JSON
-
-**花名册每个模板一段 markdown，含**：
-
-| 字段 | 内容 |
+| 原花名册字段 | 新归属 |
 |---|---|
-| 季节 | early_spring / sakura / tsuyu / matsuri_peak_summer / summer_low / koyo / deep_winter / common（与模板所在文件夹一致，作为元数据冗余便于查询） |
-| 人群偏好 | 情侣 / 朋友 / 家庭 / 默认 各档加成（实际就是 audience_bonus） |
-| 打分 | core_experience（0-60）+ audience_bonus（情侣/朋友/家庭，-15~+20）+ execution_risk（0~-3） |
-| min_days | 推荐总天数门槛（默认 0=任何天数） |
-| day_type | regular / arrival / departure / theme_park / audience_day |
-| exclusive_with | 互斥模板 ID 数组（关西 §12 化学反应规则） |
-| no_pace_downgrade | bool，true 表示任何密度都不降档（USJ 日/人群日） |
-| night_options | 这模板结束后可接哪些 night_module（template_id 数组） |
-| selectable_tag | 用户表单勾选入口（onsen / usj / kimono / craft 等）；null 表示装配自动判断 |
+| 打分（core_experience / audience_bonus / execution_risk）| **方案层** [plans/写作规范.md](../../japan/kansai/plans/写作规范.md) §五（候选列表顺序 = 优先级，不用数字公式） |
+| min_days / day_type / exclusive_with | **方案层**（方案作者写方案时保证跨日互斥 / 最少天数） |
+| 关西 7 条化学反应 | **方案层** [plans/写作规范.md §三](../../japan/kansai/plans/写作规范.md) |
+| no_pace_downgrade（USJ 日等）| 动线说明.md 的"适合谁"+"硬约束" |
+| night_options | 方案作者在方案骨架里直接写夜模块挂载 |
+| selectable_tag（onsen / usj / kimono / craft）| **方案层**·方案入口按人群/偏好匹配 |
+| 动线内变体互斥 / 跨动线规则 | 各动线 [动线说明.md](../../japan/kansai/templates/)"跨动线规则" + "变体差异"段 |
+| fixed_early / deep_stay 候选总库 | **方案层** [plans/写作规范.md §四](../../japan/kansai/plans/写作规范.md) |
+
+**动线说明.md 的职责**：动线定位 / 精髓 / 适合谁 / 变体差异 / fixed_early + deep_stay 候选（如适用）/ 跨动线规则 / 硬约束。**不含**打分 / min_days / selectable_tag / night_options / exclusive_with。
+
+老花名册副本已归档在 [_archive/templates_花名册_pre_d40.md](../../japan/kansai/_archive/)，供追溯不再维护。
 
 ### 3.3 events/ 也是 markdown（待迁移）
 

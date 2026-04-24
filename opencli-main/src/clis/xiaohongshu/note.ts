@@ -29,26 +29,66 @@ cli({
 
     const data = await page.evaluate(`
       (() => {
-        const loginWall = /登录后查看|请登录/.test(document.body.innerText || '')
-        const notFound = /页面不见了|笔记不存在|无法浏览/.test(document.body.innerText || '')
+        const bodyText = document.body.innerText || '';
+        const loginWall = /登录后查看|请登录/.test(bodyText);
+        const notFound = /页面不见了|笔记不存在|无法浏览/.test(bodyText);
 
-        const clean = (el) => (el?.textContent || '').replace(/\\s+/g, ' ').trim()
+        const clean = (el) => (el?.textContent || '').replace(/\\s+/g, ' ').trim();
 
-        const title = clean(document.querySelector('#detail-title, .title'))
-        const desc = clean(document.querySelector('#detail-desc, .desc, .note-text'))
-        const author = clean(document.querySelector('.username, .author-wrapper .name'))
-        const likes = clean(document.querySelector('.like-wrapper .count'))
-        const collects = clean(document.querySelector('.collect-wrapper .count'))
-        const comments = clean(document.querySelector('.chat-wrapper .count'))
+        // DOM-scraped values (may be empty on the current XHS build)
+        let title = clean(document.querySelector('#detail-title, .title'));
+        let desc = clean(document.querySelector('#detail-desc, .desc, .note-text'));
+        let author = clean(document.querySelector('.username, .author-wrapper .name'));
+        let likes = clean(document.querySelector('.like-wrapper .count'));
+        let collects = clean(document.querySelector('.collect-wrapper .count'));
+        let comments = clean(document.querySelector('.chat-wrapper .count'));
 
-        // Try to extract tags/topics
-        const tags = []
+        // Fallback: parse the inline __INITIAL_STATE__ script text directly.
+        // The reactive window.__INITIAL_STATE__ object has circular refs, but the
+        // raw script body is plain JSON-ish text we can regex-match.
+        let stateScript = '';
+        document.querySelectorAll('script').forEach(s => {
+          const t = s.textContent || '';
+          if (t.includes('__INITIAL_STATE__') && t.length > stateScript.length) stateScript = t;
+        });
+
+        const pick = (re) => {
+          const m = stateScript.match(re);
+          return m ? m[1] : '';
+        };
+        // JSON in the script may contain \\uXXXX escapes; decode them for display.
+        const jsonDecode = (s) => {
+          if (!s) return '';
+          try {
+            return JSON.parse('"' + s.replace(/"/g, '\\\\"') + '"');
+          } catch (e) { return s; }
+        };
+
+        if (stateScript) {
+          if (!title) title = jsonDecode(pick(/"title":"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"/));
+          if (!desc) desc = jsonDecode(pick(/"desc":"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"/));
+          if (!author) author = jsonDecode(pick(/"nickname":"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"/)
+            || pick(/"userInfo":\\{[^}]*?"nickname":"([^"\\\\]*)"/));
+          if (!likes) likes = jsonDecode(pick(/"likedCount":"([^"]+)"/));
+          if (!collects) collects = jsonDecode(pick(/"collectedCount":"([^"]+)"/));
+          if (!comments) comments = jsonDecode(pick(/"commentCount":"([^"]+)"/));
+        }
+
+        // Tags
+        const tags = [];
         document.querySelectorAll('#detail-desc a.tag, #detail-desc a[href*="search_result"]').forEach(el => {
-          const t = (el.textContent || '').trim()
-          if (t) tags.push(t)
-        })
+          const t = (el.textContent || '').trim();
+          if (t) tags.push(t);
+        });
+        if (tags.length === 0 && stateScript) {
+          const tagRe = /"name":"([^"\\\\]+)","type":"topic"/g;
+          let tm;
+          while ((tm = tagRe.exec(stateScript)) !== null) {
+            tags.push(jsonDecode(tm[1]));
+          }
+        }
 
-        return { loginWall, notFound, title, desc, author, likes, collects, comments, tags }
+        return { loginWall, notFound, title, desc, author, likes, collects, comments, tags };
       })()
     `);
 
