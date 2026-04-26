@@ -938,5 +938,118 @@
       "预约": "无需预约",
       "到店提醒": "早餐 8-10 点最对；女性局首选"
     }
+  },
+  {
+    "id": "kbe_sannomiya_aragawa",
+    "area": "sannomiya_kyukyoryuchi",
+    "near_attractions": [
+      {
+        "entity_id": "kbe_kitano_ijinkan",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "ステーキ",
+      "神戸牛"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1500,
+          2500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2000,
+          3500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "麤皮·あらがわ（Aragawa）",
+      "简介": "**1956 年创业·世界唯一 MICHELIN ステーキ部門 二つ星·Tabelog 3.92 神户最高分·百名店 2025**·三田産神戸牛指定农家·**紀州馬目備長炭 + 煉瓦炉釜「アラガワスタイル」**·二代目山田三也氏继承一子相伝。**12 岁以下仅午市可入·夜 ¥30,000-40,000+服务费 12%**·神户牛代名词。",
+      "亮点": [
+        "老铺名物",
+        "MICHELIN 二つ星 ステーキ",
+        "Tabelog 3.92 神户最高分",
+        "Tabelog 100 名店 2025",
+        "1956 老铺·世界唯一"
+      ],
+      "招牌菜": [
+        "アラガワスタイル 备長炭厚切ステーキ",
+        "三田産神戸牛 指定农家"
+      ],
+      "地址": "神戸市中央区中山手通 2-15-18·三ノ宮駅徒步 10 分",
+      "营业": "12:00-15:00 / 17:00-22:00·日曜定休（日月连休则月休）·席数 26（1 阶 17+2 阶 10 个室）",
+      "预约": "必须·2 名以上·公式 aragawa.co.jp / 一休·提前 2-3 周"
+    }
+  },
+  {
+    "id": "kbe_sannomiya_kobe_plaisir",
+    "area": "sannomiya_kyukyoryuchi",
+    "near_attractions": [
+      {
+        "entity_id": "kbe_kitano_ijinkan",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "ステーキ",
+      "神戸牛",
+      "鉄板焼"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          300,
+          600
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神戸プレジール本店（Kobe Plaisir Honten）",
+      "简介": "**JA 全農兵庫直営·2008 开业·三ノ宮徒步 3 分·Tabelog ステーキ・鉄板焼き WEST 100 名店 2025·3.69**·**初次神户牛入门首选**·ステーキ/せいろ蒸し/しゃぶしゃぶ/季节锅 4 种 course·主厨目前焼·店名仏语「満喫·喜び」·テーブル席便宜（昼 ¥6,000~/夜 ¥8,500~）·铁板席另价。",
+      "亮点": [
+        "老铺名物",
+        "JA 兵庫直営",
+        "Tabelog 100 名店",
+        "初次神户牛入门首选",
+        "テーブル席亲民"
+      ],
+      "招牌菜": [
+        "神戸ビーフもも 80g テーブルランチ",
+        "铁板焼ステーキコース dinner"
+      ],
+      "地址": "神戸市中央区下山手通 2-11-5 ホテル ザ・ビー神戸 1F·三ノ宮徒步 3 分",
+      "营业": "昼 11:30-15:00（LO 14:00）/ 夜 17:00-22:30（LO 21:00）·月曜定休",
+      "预约": "推荐预约·公式 kobe-plaisir.jp / 一休·席利用昼 1.5h 夜 2h·フィレ预约不取"
+    }
   }
 ]

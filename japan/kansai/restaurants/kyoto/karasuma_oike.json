@@ -1639,5 +1639,59 @@
       "预约": "**完全预约制**·官网/一休·提前 2 周",
       "到店提醒": "演出不允许中途录像；提前告知过敏/不吃食材"
     }
+  },
+  {
+    "id": "kyo_karasuma_una_sansho_gogyo",
+    "area": "karasuma_oike",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "鰻",
+      "ひつまぶし"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          250,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鰻 山椒 五行（Una Sansho Gogyo）",
+      "简介": "**2024 年 3 月开业·二条城前駅徒步 3 分**·京都「まるもち家」（水まる餅人気店）+ 黒船鰻店主合体·**和歌山平野清椒庵高級ブドウ山椒·LED 电动 grinder 现磨柑橘香**·国産二ホン鰻+京都老铺八代目儀兵衛米+高知室戸海洋深層水醤油タレ·collects 319·小红书「闭眼带过去不会出错」。",
+      "亮点": [
+        "老铺名物",
+        "2024.3 新开业",
+        "二条城 3 分",
+        "平野清椒庵山椒现磨",
+        "国産二ホン鰻"
+      ],
+      "招牌菜": [
+        "上 ちりめん山椒ひつまぶし ¥4,400",
+        "2 本ちりめん山椒ひつまぶし ¥7,000"
+      ],
+      "地址": "京都市中京区油小路通御池下る式阿弥町 137-3·二条城前駅徒步 3 分",
+      "营业": "昼+夜营业·席数限·要事前确认",
+      "预约": "推荐预约·公式 utechnologies / EPARK / ヒトサラ"
+    }
   }
 ]
