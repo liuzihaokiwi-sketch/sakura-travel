@@ -1,0 +1,614 @@
+[
+  {
+    "id": "kob_kitano_kitano_club",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 3
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "法餐"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          450,
+          700
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1100,
+          2100
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北野俱乐部（北野クラブ）",
+      "简介": "北野异人馆区的法餐老铺，位于明治时代洋馆内，Tabelog 口碑稳定。在北野这片「洋馆街区」吃法餐本身就是主题——石造暖炉、高天花板宴会厅，配法式料理，从食材到空间都在讲述神户港口开港以来的洋风历史。午市 Course 约 ¥5,000-8,000，是北野异人馆散步后最合理的午间落脚点。",
+      "亮点": [
+        "洋馆内法餐",
+        "北野异人馆步行 3 分",
+        "午市 Course 性价比",
+        "明治建筑暖炉厅"
+      ],
+      "招牌菜": [
+        "午餐 Course（¥5,000-8,000）",
+        "晚餐 Full Course（¥15,000+）"
+      ],
+      "地址": "神戸市中央区北野町 3-3-22（北野异人馆风见鸡馆旁）",
+      "营业": "昼 11:30-15:00 / 夜 17:30-22:00；不定休",
+      "预约": "推荐，电话 078-222-1403",
+      "到店提醒": "洋馆内氛围庄重，便装可入；北野坂步行上山约 10 分钟",
+      "Tabelog 分数": null
+    }
+  },
+  {
+    "id": "kob_kitano_yuki_setsugetsu",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          560,
+          840
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1400,
+          2800
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神户牛牛排 雪月风花 北野坂",
+      "简介": "北野坂上的神户牛鉄板烧，专注 A5 神户牛单品，走「让食材主角化」路线——厨师在客前鉄板现烤，按客人要求调整火候，菜单简洁只做牛。位置在北野异人馆散步动线正中，游完异人馆下坡即到，是北野半日动线天然的晚餐锚点。午市套餐约 ¥8,000-12,000 比晚市便宜近半。",
+      "亮点": [
+        "A5 神户牛专门",
+        "北野坂步行即到",
+        "鉄板前烤现切",
+        "午市性价比"
+      ],
+      "招牌菜": [
+        "神户牛里脊铁板烧午市（¥8,000-12,000）",
+        "神户牛サーロイン晚市（¥20,000+）"
+      ],
+      "地址": "神戸市中央区北野坂（三宮站步行约 12 分钟，北野异人馆步行 5 分钟）",
+      "营业": "昼 11:30-15:00 / 夜 17:30-22:00；不定休",
+      "预约": "推荐，官网预约",
+      "到店提醒": "北野坂上坡步行费力，建议先坐巴士上北野再步行下坡",
+      "Tabelog 分数": null
+    }
+  },
+  {
+    "id": "kob_motomachi_itogrill",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          280
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          280,
+          420
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "伊藤格里尔（伊藤グリル）",
+      "简介": "元町的洋食老铺，Tabelog 3.63 分。神户洋食发展史里常被提到的名字，1950 年代开业，主打牛舌料理（タン料理）在神户独树一帜——牛舌シチュー（炖牛舌）、牛舌ステーキ是这里特有的主菜，不是大阪通用洋食。元町商店街步行圈内，用完午餐可直接逛元町拱廊。",
+      "亮点": [
+        "牛舌シチュー神户名物",
+        "Tabelog 3.63 元町老铺",
+        "元町商店街步行圈",
+        "1950 年代开业"
+      ],
+      "招牌菜": [
+        "牛舌シチュー（炖牛舌，午市定食）",
+        "牛舌ステーキ",
+        "神户ポークカツレツ"
+      ],
+      "地址": "神戸市中央区元町通 1-7-2（元町商店街内，元町站步行 3 分钟）",
+      "营业": "昼 11:00-15:00 / 夜 17:00-21:00；水曜定休",
+      "预约": "可预约，推荐晚市电话预约",
+      "到店提醒": "元町商店街内，步行即到；午市高峰等候 15-20 分钟",
+      "Tabelog 分数": 3.63
+    }
+  },
+  {
+    "id": "kob_motomachi_rakukanki",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 7
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "楽関記（らくかんき）",
+      "简介": "元町小巷深处的居酒屋，Tabelog 3.72 分。以播磨・丹波・淡路岛的兵库地产食材为主，季节性下酒菜配兵库地酒（剣菱/琴引）。不是做给游客看的居酒屋——菜单小黑板每天换，常客多、外文菜单有限，但正因如此是神户在地饮食体验最真实的一个入口。",
+      "亮点": [
+        "兵库地产食材",
+        "剣菱/琴引地酒",
+        "每日换小黑板菜单",
+        "元町巷里在地氛围"
+      ],
+      "招牌菜": [
+        "旬の肴（时令下酒菜·小黑板市价）",
+        "播磨地酒套飲"
+      ],
+      "地址": "神戸市中央区元町通（元町站步行约 5 分钟）",
+      "营业": "夜 17:30-23:00（LO 22:30）；不定休",
+      "预约": "推荐，电话预约",
+      "到店提醒": "外文菜单有限，指着小黑板点菜可行；冬季有河豚料理",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kob_kitano_tempura_tensuke",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "天妇罗"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          400,
+          800
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "天ぷら 天介（てんぷら てんすけ）",
+      "简介": "Tabelog 3.64 分，北野异人馆街旁的天妇罗专门店，以芝麻油高温炸制，外皮轻薄、食材鲜甜。在神户西洋建筑群里吃一顿精致日本天妇罗，对比强烈，是北野动线最自然的午餐选择。",
+      "亮点": [
+        "Tabelog 3.64",
+        "北野异人馆旁天妇罗",
+        "芝麻油高温轻炸"
+      ],
+      "招牌菜": [
+        "天妇罗套餐（昼 ¥2,500 起）",
+        "海老天妇罗单点"
+      ],
+      "地址": "兵庫县神戸市中央区北野町周边，三宮站步行约 12 分钟",
+      "营业": "11:30-14:30 / 17:30-21:00，不定休",
+      "预约": "推荐预约，尤其晚市"
+    }
+  },
+  {
+    "id": "kob_kitano_steakland",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 10
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "铁板烧",
+      "神户牛"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          600
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ステーキランド 神戸館（すてーきらんど こうべかん）",
+      "简介": "Tabelog 3.61 分，三宮区最平价的神户牛铁板烧入门选项。和牛ランチ从 ¥1,380 起，神户牛 ¥3,500 起，目前前三宮站步行 1 分钟，性价比无出其右。铁板前的热闹氛围是旅行者打卡标配。",
+      "亮点": [
+        "Tabelog 3.61",
+        "三宮最平价神户牛铁板烧",
+        "三宮站步行 1 分钟"
+      ],
+      "招牌菜": [
+        "神户牛ランチ 150g（¥3,500）",
+        "和牛ステーキランチ 100g（¥1,380）"
+      ],
+      "地址": "兵庫县神戸市中央区北長狭通 1-9-17 三宮興業ビル 6F，三宮站步行约 1 分钟",
+      "营业": "午市 11:30-15:30（L.O. 14:00），晚市 17:00-23:00（L.O. 21:00），全年无休",
+      "预约": "不可预约，排队等候"
+    }
+  },
+  {
+    "id": "kob_kitano_mont_plus",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "甜品",
+      "法式点心"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "パティスリー モンプリュ 本店（Patisserie Mont Plus）",
+      "简介": "Tabelog 3.76 分，神户北野口碑极佳的法式甜品店，主厨在法国进修，以精致的塔派和慕斯著称。异人馆漫步后在这里喝杯茶吃一片塔，是北野动线最完美的收尾方式。",
+      "亮点": [
+        "Tabelog 3.76",
+        "北野异人馆旁法式甜品顶店",
+        "主厨法国经历"
+      ],
+      "招牌菜": [
+        "当季水果塔（约 ¥700）",
+        "巧克力慕斯（约 ¥650）"
+      ],
+      "地址": "兵庫县神戸市中央区北野町 4 丁目周边，三宮站步行约 12 分钟",
+      "营业": "10:00-19:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_kitano_caffarel",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 3
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "甜品",
+      "巧克力"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "カファレル 神戸北野本店（Caffarel 神戸北野本店）",
+      "简介": "Tabelog 3.74 分，1878 年创业意大利都灵老牌巧克力品牌的日本旗舰，神户北野本店。以榛子巧克力「ジャンドゥーヤ（Gianduiotto）」为招牌，配北野异人馆洋风建筑，氛围天然契合，是神户伴手礼首选之一。",
+      "亮点": [
+        "Tabelog 3.74",
+        "1878 年意大利巧克力品牌日本旗舰",
+        "北野异人馆街伴手礼首选"
+      ],
+      "招牌菜": [
+        "ジャンドゥーヤ巧克力（约 ¥600）",
+        "纪念礼盒"
+      ],
+      "地址": "兵庫县神戸市中央区山本通 3 丁目，三宮站步行约 12 分钟",
+      "营业": "10:00-18:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_kitano_motomachi_santos",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_nankinmachi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "喫茶店",
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元町サントス（もとまち さんとす）",
+      "简介": "Tabelog 3.68 分，元町昭和风情老喫茶店，木桌椅、咖啡香、价格不变几十年，是神户老城区最典型的昭和喫茶体验。和北野异人馆的精致洋风形成完美对比，是感受「神户日常」的微小入口。",
+      "亮点": [
+        "Tabelog 3.68",
+        "元町昭和风老喫茶",
+        "神户日常感代表"
+      ],
+      "招牌菜": [
+        "咖啡+厚切吐司早餐（约 ¥600）",
+        "ナポリタン（约 ¥800）"
+      ],
+      "地址": "兵庫县神戸市中央区元町周边，地铁旧居留地大丸前站步行约 5 分钟",
+      "营业": "09:00-18:00，周三不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_motomachi_modan_yaki",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 6
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          100
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          60,
+          130
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぼっかけ焼き 灘八（なだはち）",
+      "简介": "神户名物**ぼっかけ焼き**——牛筋+蒟蒻煮+大阪烧的合体·神户独有。元町站徒步 5 分·昭和老铺氛围。一份 ¥1,200·配啤酒。神户人午饭据点·游客难找因为没中文招牌。Walk-in·Tabelog 3.55+。",
+      "亮点": [
+        "神户名物ぼっかけ焼き",
+        "元町站徒步 5 分",
+        "昭和老铺氛围",
+        "神户人午饭据点",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ぼっかけモダン（¥1,200）",
+        "牛筋焼き（¥980）"
+      ],
+      "地址": "神戸市中央区元町通（JR 元町駅 徒步 5 分）",
+      "营业": "11:30-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中文菜单可问；中午排 15-20 分"
+    }
+  },
+  {
+    "id": "kob_motomachi_oka_curry",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神戸 元町 別館オリエンタル",
+      "简介": "1907 年创业·**神户咖喱饭发祥店**之一·欧式咖喱日式化的源头。深褐色酱汁+牛肉块·配白米饭·130 年没变的味道。元町站徒步 4 分·神戸開港时代洋食文化代表。一份咖喱饭 ¥1,200。Walk-in·Tabelog 3.55+。",
+      "亮点": [
+        "1907 年创业 100+ 年洋食老铺",
+        "神戸咖喱饭发祥店之一",
+        "Tabelog 3.55+",
+        "神戸開港洋食文化代表",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "ビーフカレー（¥1,200）",
+        "ハヤシライス（¥1,300）"
+      ],
+      "地址": "神戸市中央区元町通（JR 元町駅 徒步 4 分）",
+      "营业": "11:00-21:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "中午排 15-20 分；本店地址多次搬迁·查官网"
+    }
+  },
+  {
+    "id": "kob_motomachi_iruka_sushi",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          120,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 イルカ（いるか）元町",
+      "简介": "神户元町本地寿司隐家·12 席·店主独立前在大阪一星寿司店修业 10 年。**赤酢シャリ+濑户内魚介**·おまかせコース ¥6,800 性价比突出。Tabelog 3.65+·神户寿司 mid 档代表·游客极少·本地常客据点。",
+      "亮点": [
+        "神户元町寿司隐家",
+        "12 席·一星师承",
+        "赤酢+濑户内魚介",
+        "おまかせ ¥6,800",
+        "Tabelog 3.65+"
+      ],
+      "招牌菜": [
+        "ランチおまかせ（¥4,800）",
+        "ディナーおまかせ（¥6,800）"
+      ],
+      "地址": "神戸市中央区元町通 3（JR 元町駅 徒步 5 分）",
+      "营业": "ランチ 12:00-14:00 / ディナー 18:00-22:00；水曜定休",
+      "预约": "推荐预约·一休/食べログ",
+      "到店提醒": "12 席满场快·提前 1 周订；吧台最对"
+    }
+  }
+]

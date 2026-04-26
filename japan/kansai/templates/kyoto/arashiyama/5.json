@@ -81,7 +81,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "嵯峨野本地午餐——岚山乌冬店乌冬店 Ozuru（おづる）（庭院座位）、或 % ARABICA 渡月桥店二楼（看桥全景）——刻意避开顶流店节省时间"
         }
       ]
@@ -122,9 +122,6 @@
     }
   ],
   "variant_label": "晨光岚山·追光三站",
-  "pace_type": "fixed_early",
-  "time_sensitivity": "hard",
-  "time_sensitivity_note": "三机位晨光轮转按绝对时刻走，起晚了看 contingencies.late_start",
   "contingencies": {
     "rain_light": "渡月桥晨光取消只拍竹林/曹源池两机位；雨天水面涟漪也是拍法——但镜面反射窗口消失，黄昏第二次换成雨夜樱花 ISO3200 试拍",
     "rain_heavy": "全程三机位砍到只看曹源池 1 机位+下午奥嵯峨常寂光寺 1 机位；装备重点改为防水罩+手持防抖；出片版降级为氛围版（接受）",

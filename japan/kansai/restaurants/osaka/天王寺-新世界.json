@@ -1,0 +1,490 @@
+[
+  {
+    "id": "osk_dotonbori_yaekats",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_shinsekai",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 12
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          70,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          160
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      4
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "八重勝（やえかつ）",
+      "简介": "新世界串炸的最高标准之一，1947 年开业，排队已成仪式。细面包糠裹着刚炸好的猪肉、章鱼、莲藕，配酱料桶蘸酱——第一口汁水烫嘴的体验本身就是来大阪的理由。排队时看着铁锅里翻滚的油，等待反而变得有趣。",
+      "亮点": [
+        "新世界串炸标杆",
+        "1947 年老铺",
+        "排队即仪式"
+      ],
+      "招牌菜": [
+        "猪肉串炸",
+        "章鱼串炸",
+        "莲藕串炸（各约 ¥100-200 一串）"
+      ],
+      "地址": "大阪市浪速区恵美須東 3-4-13（地铁堺筋線「恵美須町」站 3 号出口徒步约 2 分）",
+      "营业": "10:30-21:00；木曜定休",
+      "预约": "不接受预约，散客现场排队",
+      "到店提醒": "午餐高峰 12:00-13:00 排队 30-60 分钟；开门前排队最快；酱料桶公用请勿二次蘸酱（大阪串炸铁则）",
+      "Tabelog 分数": 3.52
+    }
+  },
+  {
+    "id": "osk_tenoji_mansei",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "日本料理",
+      "鱼料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          400,
+          800
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1400
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "万正（まんせい）",
+      "简介": "Tabelog 3.78 分的天王寺高端日料店，以时令鱼获和精致套餐闻名。在通天阁/串炸氛围浓厚的新世界区域，是「想吃顿好的」旅行者的正确选择。套餐设计合理，不失新世界的大阪气质。",
+      "亮点": [
+        "Tabelog 3.78",
+        "天王寺区最高水准日料之一",
+        "时令鱼获套餐"
+      ],
+      "招牌菜": [
+        "时令鱼造り套餐（昼 ¥3,000 起）",
+        "晚间怀石（¥5,000 起）"
+      ],
+      "地址": "大阪市浪速区／天王寺区周边，地铁動物園前站步行约 8 分钟",
+      "营业": "11:30-14:00 / 17:30-22:00，周一不定休",
+      "预约": "推荐预约，尤其晚餐"
+    }
+  },
+  {
+    "id": "osk_tenoji_marumai",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_shinsekai",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "关东煮",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          800
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おでん まる米（おでん まるまい）",
+      "简介": "Tabelog 3.70 分，新世界旁的关东煮专门店，以大阪风味の「黄色いおでん」（加入咖喱风味）为招牌，跟关东的白色关东煮截然不同。新世界串炸太多游客，这里是本地熟客更多的夜食选择。",
+      "亮点": [
+        "Tabelog 3.70",
+        "大阪独特黄色咖喱おでん",
+        "新世界本地感"
+      ],
+      "招牌菜": [
+        "大阪风おでん盛合せ（约 ¥1,500）",
+        "土手煮"
+      ],
+      "地址": "大阪市浪速区恵美須東周边，地铁恵美須町站步行约 5 分钟",
+      "营业": "17:00-23:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_udon_ikki",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "釜揚うどん 一紀（かまあげうどん いちき）",
+      "简介": "Tabelog 3.76 分，天王寺周边釜揚乌冬专门店，讲究现煮直上、配独家出汁，面条弹牙。天王寺是大阪商务与观光的交叉点，这家店保持了质量的稳定性，不因地点吃人。",
+      "亮点": [
+        "Tabelog 3.76",
+        "现煮釜揚乌冬",
+        "天王寺稳定水准"
+      ],
+      "招牌菜": [
+        "釜揚乌冬（约 ¥700）",
+        "天妇罗套餐"
+      ],
+      "地址": "大阪市阿倍野区／天王寺区周边，JR 天王寺站步行约 8 分钟",
+      "营业": "11:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_nijinohotokeya",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_shinsekai",
+        "walk_min": 1
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "虹の仏（にじのほとけや）",
+      "简介": "Tabelog 3.71 分，新世界中颇具个性的小店，以大阪风柴魚出汁拉面见长，内装保留昭和氛围，食客多为本地熟客。在以串炸为主的新世界，这家拉面店是异类，也是亮点。",
+      "亮点": [
+        "Tabelog 3.71",
+        "昭和风内装",
+        "新世界里的拉面异类"
+      ],
+      "招牌菜": [
+        "大阪风出汁拉面（约 ¥800）"
+      ],
+      "地址": "大阪市浪速区恵美須東周边，地铁恵美須町站步行约 3 分钟",
+      "营业": "11:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_ah_men",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "極楽うどん Ah-麺（ごくらくうどん あーめん）",
+      "简介": "Tabelog 3.75 分的天王寺平价乌冬店，「极乐」二字就是对这碗价格不到 ¥800 的关西风乌冬的全部形容。份量足，出汁清澈，深受附近大学生和上班族喜爱。",
+      "亮点": [
+        "Tabelog 3.75",
+        "极亲民价位",
+        "关西风清汤乌冬"
+      ],
+      "招牌菜": [
+        "极乐乌冬（约 ¥600-750）"
+      ],
+      "地址": "大阪市天王寺区／浪速区周边，地铁動物園前站步行约 5 分钟",
+      "营业": "11:00-22:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsekai_daruma_main",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖串かつ だるま 新世界総本店",
+      "简介": "**1929 年（昭和 4）创业·新世界串炸发祥店·串炸だるま全国 10+ 家分店总本店**。「**ソース二度漬け禁止**」「细面包粉」这套大阪串炸标准从这家店开始。独自牛脂油炸·清爽不油腻。Tabelog 3.55+·百名店常驻·新世界觅食圣地·游客和本地人都来。Walk-in 排 30-60 分。",
+      "亮点": [
+        "1929 年新世界串炸发祥店",
+        "「ソース二度漬け禁止」始祖",
+        "独自牛脂油炸",
+        "Tabelog 3.55+ 百名店",
+        "新世界觅食圣地"
+      ],
+      "招牌菜": [
+        "元祖串かつセット 9 本（¥1,400）",
+        "牛串（¥150）",
+        "どて焼き（¥780）"
+      ],
+      "地址": "大阪市浪速区恵美須東 2-3-9（地铁动物園前駅 徒步 3 分；JR 新今宮駅 徒步 5 分）",
+      "营业": "10:30-22:30；无定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "排 30-60 分常态；想躲队 10:30 开门即到或 14:00-17:00；通天阁徒步 3 分"
+    }
+  },
+  {
+    "id": "osk_shinsekai_yaekatsu",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 2
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          130
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      4
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "八重勝（やえかつ）本店",
+      "简介": "じゃんじゃん横丁的串炸名店·开店前就排队。**铁锅炸**（不用 fryer·温度难控制但ふわふわ感更好）·2 种山芋藏在串炸里是看板技。タヌキ招牌是地标。Tabelog 3.6+·新世界排队第 1 名。Walk-in。",
+      "亮点": [
+        "じゃんじゃん横丁串炸名店",
+        "铁锅炸·2 种山芋藏串里",
+        "Tabelog 3.6+",
+        "新世界排队第 1",
+        "タヌキ招牌地标"
+      ],
+      "招牌菜": [
+        "串かつ盛合せ（¥1,500）",
+        "山芋串（¥180）"
+      ],
+      "地址": "大阪市浪速区恵美須東 3-4-13（地铁动物園前駅 徒步 2 分）",
+      "营业": "10:30-21:30；木曜定休",
+      "预约": "无需预约",
+      "到店提醒": "排队 30-90 分常态·开门前到队最稳；周四休"
+    }
+  },
+  {
+    "id": "osk_shinsekai_tengu",
+    "area": "天王寺-新世界",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tsutenkaku",
+        "walk_min": 2
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串かつ てんぐ",
+      "简介": "じゃんじゃん横丁八重勝隔壁·3 代目限知秘传衣·サクッ+ふんわり双层口感。大尺寸海老フライ等饱足感强·どて焼き白味噌牛筋煮也是名物。比八重勝排队稍短。37 席横长店内·Walk-in。Tabelog 3.55+。",
+      "亮点": [
+        "八重勝隔壁",
+        "3 代目秘传衣",
+        "大尺寸海老フライ",
+        "どて焼き白味噌牛筋",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "串かつ おまかせ 8 本（¥1,300）",
+        "海老フライ（¥250）",
+        "どて焼き（¥780）"
+      ],
+      "地址": "大阪市浪速区恵美須東 3-4-12（地铁动物園前駅 徒步 2 分）",
+      "营业": "10:30-21:30；无定休",
+      "预约": "无需预约",
+      "到店提醒": "比八重勝好进 5-10 分；どて焼き必点"
+    }
+  }
+]

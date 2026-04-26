@@ -6,7 +6,7 @@
 校验整个目录：
     python scripts/validate_template.py japan/kansai/templates/kyoto/arashiyama/
 
-校验规则对应 docs/03_数据契约/SCHEMA.md §4.4 + D40 新字段契约。违规 exit code != 0。
+校验规则对应 docs/03_数据契约/字段权威.md §4.4 + D40 新字段契约。违规 exit code != 0。
 """
 from __future__ import annotations
 
@@ -21,13 +21,17 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES_ROOT = REPO_ROOT / "japan/kansai/templates"
 ENTITIES_ROOT = REPO_ROOT / "japan/kansai/entities"
 
-# D40 新白名单：必填 4 个 + 可选 6 个
+# D42 白名单：必填 4 个 + 可选 2 个
 REQUIRED_TOP = {"template_id", "applicable_dates", "note", "slots"}
 OPTIONAL_TOP = {
-    "variant_label", "pace_type", "pace_type_sub",
-    "time_sensitivity", "time_sensitivity_note", "contingencies",
+    "variant_label", "contingencies",
 }
-# 已删字段 — 出现即报错
+# D42 弃用字段 — 出现不报错·仅 WARN 提示迁移到方案层白名单
+DEPRECATED_TOP = {
+    "pace_type", "pace_type_sub",
+    "time_sensitivity", "time_sensitivity_note",
+}
+# D40 已删字段 — 出现即报错
 BANNED_TOP = {
     "label", "description", "curators_notes", "hotel_area_note",
     "min_days", "selectable_tag", "day_type", "exclusive_with",
@@ -38,10 +42,6 @@ BANNED_TOP = {
 SLOT_TYPES = {"poi", "meal", "hotel", "transport", "free_time"}
 CONTINGENCIES_ALLOWED = {"rain_light", "rain_heavy", "crowd", "indoor_backup", "late_start"}
 CONTINGENCIES_BANNED = {"swap_candidates", "minimum_viable"}
-
-PACE_TYPE_VALUES = {"adaptive", "fixed_early", "deep_stay"}
-PACE_TYPE_SUB_VALUES = {"onsen", "deep_local"}
-TIME_SENSITIVITY_VALUES = {"flexible", "soft", "hard"}
 
 VARIANT_LABEL_BANNED_SUBSTRINGS = {"fixed_early", "adaptive", "deep_stay", "9 点档"}
 
@@ -70,7 +70,7 @@ def _parse_time(t: str):
         return None
 
 
-def validate_template(path: Path, entity_ids: set[str]) -> list[str]:
+def validate_template(path: Path, entity_ids: set[str], warnings: list[str] | None = None) -> list[str]:
     errors: list[str] = []
     rel = path.relative_to(REPO_ROOT).as_posix()
 
@@ -91,38 +91,20 @@ def validate_template(path: Path, entity_ids: set[str]) -> list[str]:
         if k in data:
             errors.append(f"{rel}: 顶层有已删字段 `{k}`（D40 已删，需移除）")
 
-    unknown = set(data.keys()) - REQUIRED_TOP - OPTIONAL_TOP - BANNED_TOP
+    # D42: 弃用字段 — WARN 不报错·提示迁移到 plans/写作规范.md §4.1/§4.2 白名单
+    for k in DEPRECATED_TOP:
+        if k in data and warnings is not None:
+            warnings.append(
+                f"{rel}: 顶层有弃用字段 `{k}`（D42 弃用·节奏归属由 plans/写作规范.md §4.1/§4.2 白名单决定·模板不自报）"
+            )
+
+    unknown = set(data.keys()) - REQUIRED_TOP - OPTIONAL_TOP - DEPRECATED_TOP - BANNED_TOP
     for k in unknown:
         errors.append(f"{rel}: 顶层有未知字段 `{k}`（已砍或应挪装配层）")
 
-    # D40: pace_type 枚举校验
-    pt = data.get("pace_type")
-    if pt is not None and pt not in PACE_TYPE_VALUES:
-        errors.append(f"{rel}: pace_type=`{pt}` 不合法，合法值 {PACE_TYPE_VALUES}")
-    pts = data.get("pace_type_sub")
-    if pts is not None:
-        if pt != "deep_stay":
-            errors.append(f"{rel}: pace_type_sub 只在 pace_type=deep_stay 时可写")
-        elif pts not in PACE_TYPE_SUB_VALUES:
-            errors.append(f"{rel}: pace_type_sub=`{pts}` 不合法，合法值 {PACE_TYPE_SUB_VALUES}")
-    if pt == "deep_stay" and not pts:
-        errors.append(f"{rel}: pace_type=deep_stay 必须有 pace_type_sub")
-
-    # D40: time_sensitivity 枚举校验 + time_sensitivity_note 必填
-    ts = data.get("time_sensitivity")
-    if ts is not None and ts not in TIME_SENSITIVITY_VALUES:
-        errors.append(f"{rel}: time_sensitivity=`{ts}` 不合法，合法值 {TIME_SENSITIVITY_VALUES}")
-    if ts in ("soft", "hard") and not data.get("time_sensitivity_note"):
-        errors.append(f"{rel}: time_sensitivity={ts} 时必须有 time_sensitivity_note")
-
-    # D40: fixed_early / time_sensitivity=hard 必须有 contingencies.late_start
-    needs_late_start = (pt == "fixed_early") or (ts == "hard")
     cg = data.get("contingencies")
-    if needs_late_start:
-        if not isinstance(cg, dict) or not cg.get("late_start"):
-            errors.append(f"{rel}: pace_type=fixed_early 或 time_sensitivity=hard 时 contingencies.late_start 必填")
 
-    # D40: variant_label 不含技术术语，长度 ≤ 20
+    # D42: variant_label 不含技术术语，长度 ≤ 20
     vl = data.get("variant_label")
     if vl is not None:
         if len(vl) > 20:
@@ -269,16 +251,17 @@ def main():
         print("[WARN] entities/ 未找到或为空，entity 引用校验跳过")
 
     all_errors: list[str] = []
+    all_warnings: list[str] = []
 
     if target.is_file():
-        all_errors.extend(validate_template(target, entity_ids))
+        all_errors.extend(validate_template(target, entity_ids, all_warnings))
     elif target.is_dir():
         for p in sorted(target.rglob("*.json")):
             if any(part.startswith("_") for part in p.parts):
                 continue
             if "entities" in p.parts or ("assembly" in p.parts and "data" in p.parts):
                 continue
-            all_errors.extend(validate_template(p, entity_ids))
+            all_errors.extend(validate_template(p, entity_ids, all_warnings))
 
         for sub in sorted(target.rglob("*")):
             if not sub.is_dir():
@@ -295,8 +278,14 @@ def main():
         print(f"[ERROR] 路径不存在: {target}")
         sys.exit(2)
 
+    if all_warnings:
+        print(f"[WARN] 发现 {len(all_warnings)} 处弃用字段（不阻塞提交·按需迁移）:\n")
+        for w in all_warnings:
+            print(f"  ~ {w}")
+        print()
+
     if all_errors:
-        print(f"\n[FAIL] 发现 {len(all_errors)} 处违规:\n")
+        print(f"[FAIL] 发现 {len(all_errors)} 处违规:\n")
         for e in all_errors:
             print(f"  - {e}")
         sys.exit(1)

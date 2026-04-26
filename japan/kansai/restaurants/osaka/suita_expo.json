@@ -1,0 +1,51 @@
+[
+  {
+    "id": "osk_suita_expocity_kitakyusei",
+    "area": "suita_expo",
+    "near_attractions": [
+      {
+        "entity_id": "osk_taiyo_no_to",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nifrel",
+        "walk_min": 3
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "洋食",
+      "蛋包饭"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グリルキャピタル東洋亭 エキスポシティ店（グリルキャピタル とうようてい）",
+      "简介": "明治 30 年创业的大阪老牌洋食「東洋亭」的 EXPOCITY 分店，以锡箔纸包住的「百年洋食ハンバーグ」为招牌，牛肉汁丰富，直接在铁板上打开香气冲天。NIFREL 参观完直接进来，无需出万博公园范围。",
+      "亮点": [
+        "明治 30 年洋食老铺分店",
+        "锡箔包百年ハンバーグ",
+        "NIFREL 旁步行 3 分钟"
+      ],
+      "招牌菜": [
+        "百年洋食ハンバーグ套餐（约 ¥2,500）",
+        "トマトサラダ（¥1,200，丸ごと 1 个）"
+      ],
+      "地址": "大阪府吹田市千里万博公园 2 EXPOCITY 3F，大阪单轨万博纪念公园站步行约 2 分钟",
+      "营业": "11:00-22:00，无定休",
+      "预约": "无需预约，节假日可能排队"
+    }
+  }
+]

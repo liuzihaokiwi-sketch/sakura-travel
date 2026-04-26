@@ -34,7 +34,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "kyoto_okazaki",
+          "meal_area": "okazaki_nanzenji",
           "note": "吉田神社周边或百万遍方向午餐——周边有学生食堂/咖啡馆，节分期间人流大，13:00 后稍好等位"
         }
       ]
@@ -65,7 +65,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
-          "meal_area": "kyoto_gion"
+          "meal_area": "gion_higashiyama"
         }
       ]
     }

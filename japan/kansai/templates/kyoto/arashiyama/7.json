@@ -63,7 +63,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "船着场上岸在渡月桥附近·直接走去午餐——岚山乌冬店乌冬店 Ozuru（おづる）、嵯峨豆腐森嘉（汤豆腐旺季预约）、或 % ARABICA 渡月桥店（咖啡简餐）"
         }
       ]
@@ -99,8 +99,6 @@
     }
   ],
   "variant_label": "上山坐火车·下山坐船",
-  "time_sensitivity": "soft",
-  "time_sensitivity_note": "嵯峨野小火车 1 小时一班，出门提前 20 分钟赶最近班次",
   "contingencies": {
     "rain_light": "小火车照常运行（5 号露天车厢雨中体验有顶棚但侧风大），漂流水位正常也照常（船上发雨披）·不改程",
     "rain_heavy": "小火车偶发运行中止（风速超限）·保津川漂流豪雨/水位超限停运（官网当日公告·已购票自动退款）·备选：JR 山阴本线龟冈→嵯峨岚山 10 分钟返程·下午照常走岚山主线下半场（小火车单段体验即可）",

@@ -1,0 +1,942 @@
+[
+  {
+    "id": "kob_sannomiya_ueshima",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1100,
+          1500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1400,
+          2800
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "料理屋 植むら（うえむら）",
+      "简介": "三宮隐于小巷的怀石名店，Tabelog 4.36 分，关西怀石圈少数神户本地口碑高过大阪的一家。以淡路岛、明石海峡食材为主轴——当天渔港直供的鱼，加神户灘区地酒配菜，风格比京都怀石更直接、海鲜气更重。午市套餐比晚市便宜近一半，是神户在地食客周末请客首选。",
+      "亮点": [
+        "Tabelog 4.36",
+        "明石海峡鲜鱼直供",
+        "神户灘区地酒搭配",
+        "午市性价比高"
+      ],
+      "招牌菜": [
+        "午怀石套餐（¥10,000-15,000）",
+        "晚怀石套餐（¥20,000-30,000）"
+      ],
+      "地址": "神戸市中央区（三宮站步行约 10 分钟）",
+      "营业": "昼 12:00-14:00 / 夜 18:00-21:00；月曜定休",
+      "预约": "必须，建议提前 2-4 周",
+      "到店提醒": "全席禁烟；外国客需用餐前日确认预约",
+      "Tabelog 分数": 4.36
+    }
+  },
+  {
+    "id": "kob_sannomiya_sushijosuke",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1100,
+          1500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1100,
+          2100
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "寿志 城助（じょうすけ）",
+      "简介": "北野山丘下的小型职人寿司台，Tabelog 4.25 分。师傅从大阪中央市场直购明石鲷、淡路甜虾、鳗鱼等关西海产，每贯握前现场调味不另备酱油碟——让食材本味说话。10 席柜台空间小，每服务期只排一轮客人，比京都相同价位的寿司更易约到。",
+      "亮点": [
+        "Tabelog 4.25",
+        "明石/淡路食材",
+        "10 席小柜台",
+        "比京都同级易约"
+      ],
+      "招牌菜": [
+        "おまかせ寿司（午 ¥8,000-12,000 / 夜 ¥15,000+）"
+      ],
+      "地址": "神戸市中央区北野町（三宮站步行约 15 分钟 / 北野异人馆步行 5 分钟）",
+      "营业": "昼 12:00-14:00 / 夜 18:00-21:00；定休日不定",
+      "预约": "必须，一休 / 电话预约；建议提前 1-2 周",
+      "到店提醒": "停车困难，建议公交或步行；10 席满即不再接",
+      "Tabelog 分数": 4.25
+    }
+  },
+  {
+    "id": "kob_sannomiya_moriya",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 3
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          560,
+          900
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1400,
+          2800
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "モーリヤ（Moriya）",
+      "简介": "神户牛铁板烧百年老铺，旧居留地内洋馆一楼，1885 年开业。全球最早把神户牛送上铁板的店之一，外国使馆、明星御用——能在神户本地喊出名字的铁板烧就是它。午市套餐含前菜+神户牛里脊/サーロイン（约 80-100g）+白饭+汤，比晚市便宜约 40%，是体验神户牛铁板「仪式感」的午市入口。",
+      "亮点": [
+        "1885年百年老铺",
+        "旧居留地洋馆内",
+        "神户牛铁板烧发源地之一",
+        "午市性价比"
+      ],
+      "招牌菜": [
+        "神户牛サーロインランチ（午 ¥8,000-12,000）",
+        "神户牛铁板烧晚市套餐（¥20,000+）"
+      ],
+      "地址": "神戸市中央区下山手通 1-1-2（旧居留地内，三宮站步行 7 分钟）",
+      "营业": "昼 11:30-15:00（LO 14:00）/ 夜 17:00-22:00（LO 21:00）；年末年始定休",
+      "预约": "推荐预约，电话 078-391-4603 / 官网 mouriya.co.jp",
+      "到店提醒": "午市套餐须含主菜，加配切换需另购；旧居留地内停车困难",
+      "Tabelog 分数": null
+    }
+  },
+  {
+    "id": "kob_sannomiya_ishidaya_hanare",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          840,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭焼肉 石田屋 Hanare",
+      "简介": "三宮的神户牛专门烧肉店，Tabelog 3.66 分，比铁板烧形式多了「自己烤」的参与感。只做神户牛，A5 等级按部位单点——上カルビ（肋排）、ヘレ（里脊）、シャトーブリアン（菲力心）可按食量自由搭配，不用吃整套套餐。晚餐为主，两人预算 ¥15,000-20,000 可以吃到精华部位+配菜全套。",
+      "亮点": [
+        "神户牛 A5 专门",
+        "炭火自烤参与感",
+        "按部位单点灵活",
+        "两人 1.5 万能吃精华"
+      ],
+      "招牌菜": [
+        "神户牛シャトーブリアン（菲力心，市价单点）",
+        "上カルビ 100g 时价"
+      ],
+      "地址": "神戸市中央区（三宮站步行约 8 分钟）",
+      "营业": "夜 17:30-23:00（LO 22:00）；定休日不定",
+      "预约": "推荐预约，食べログ / Retty",
+      "到店提醒": "仅晚市营业；神户牛时价，预算留余量",
+      "Tabelog 分数": 3.66
+    }
+  },
+  {
+    "id": "kob_sannomiya_mon",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 4
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          170
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          280,
+          420
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "欧风料理 もん（Mon）",
+      "简介": "旧居留地附近的昭和洋食老铺，Tabelog 3.69 分。神户因开港百余年积累了扎实的洋食文化，もん 是其中口碑最稳的一家——神户牛コロッケ（可乐饼）、神户牛メンチカツ（肉饼炸）、オムライス（蛋包饭），每道都是神户洋食经典单品。午市套餐 ¥1,500-2,500 是神户最实在的在地午餐之一。",
+      "亮点": [
+        "昭和洋食老铺",
+        "神户牛可乐饼名物",
+        "午市 ¥1,500 起实在",
+        "Tabelog 3.69"
+      ],
+      "招牌菜": [
+        "神户牛コロッケ定食",
+        "神户牛メンチカツ定食",
+        "オムライス"
+      ],
+      "地址": "神戸市中央区（旧居留地步行 5 分钟）",
+      "营业": "昼 11:30-15:00 / 夜 17:30-21:30；定休日不定",
+      "预约": "可预约（推荐晚市），电话预约",
+      "到店提醒": "午市现点现做，高峰期等候 20-30 分钟",
+      "Tabelog 分数": 3.69
+    }
+  },
+  {
+    "id": "kob_sannomiya_kitano_soba",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 6
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "荞麦"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          280
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          280,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北野坂 こばやし",
+      "简介": "北野坂上的手打荞麦老铺，Tabelog 3.70 分。在神户吃荞麦这件事本身就带有「知道本地人去哪」的感觉，こばやし 是连神户本地食客也会推给外地人的一家。手打二八蕎麦用当季信州产，出汁清澈，晚市有鴨南蛮（鸭肉南蛮汤荞麦）是冬季招牌。北野异人馆散步后下坡走 5 分钟即到，是理想的午餐收尾。",
+      "亮点": [
+        "手打二八荞麦",
+        "鴨南蛮冬季招牌",
+        "北野散步后步行即到",
+        "Tabelog 3.70"
+      ],
+      "招牌菜": [
+        "もりそば（凉荞麦）",
+        "鴨南蛮（冬季限定·含鸭肉出汁）",
+        "天せいろ（天妇罗配荞麦）"
+      ],
+      "地址": "神戸市中央区北野坂（三宮站步行约 10 分钟，北野异人馆步行 5 分钟）",
+      "营业": "昼 11:30-14:30 / 夜 17:30-20:30；定休日不定",
+      "预约": "可电话预约晚市",
+      "到店提醒": "荞麦卖完即止（尤其午市）；11:30 到最稳",
+      "Tabelog 分数": 3.7
+    }
+  },
+  {
+    "id": "kob_sannomiya_grillsuematsu",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 3
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グリル末松（Grill Suematsu）",
+      "简介": "三宮老牌洋食グリル，Tabelog 3.69 分。神户洋食文化的代名词之一，主打「鉄板洋食」——鉄板上现烤的神户牛ハンバーグ（汉堡肉）、サーロインステーキ（沙朗牛排），配上昭和风格的厚重酱汁和黄油米饭。午市套餐带饮料 ¥1,800-3,500，是本地上班族午餐常客。走进去像穿越回1960年代神户港町。",
+      "亮点": [
+        "昭和神户洋食",
+        "神户牛ハンバーグ名物",
+        "鉄板现烤",
+        "午市 ¥1,800 起"
+      ],
+      "招牌菜": [
+        "神户牛ハンバーグ定食",
+        "サーロインステーキ（小·午市）",
+        "神户ピラフ"
+      ],
+      "地址": "神戸市中央区（三宮站步行约 5 分钟）",
+      "营业": "昼 11:30-15:00 / 夜 17:00-21:00；不定休",
+      "预约": "无需（午市），晚市可预约",
+      "到店提醒": "午市 12:00-13:00 高峰等候 15-20 分钟",
+      "Tabelog 分数": 3.69
+    }
+  },
+  {
+    "id": "kob_sannomiya_enishi",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          84,
+          105
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          84,
+          140
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ENISHI 总本店",
+      "简介": "三宮最被本地人推的拉面店，Tabelog 3.69 分。熬制 18 小时的鸡白湯（水鸡清浊中间带），汤头层次清晰不腻，面条细滑弹牙。神户拉面不像大阪浓厚，这里是「让出汁说话」的清派，单点约 ¥900-1,000，简单、精准、排队说明一切。",
+      "亮点": [
+        "Tabelog 3.69 本地推荐",
+        "18 小时鸡白湯",
+        "神户清派拉面",
+        "¥1,000 以内"
+      ],
+      "招牌菜": [
+        "鶏白湯 塩ラーメン",
+        "鶏白湯 醤油ラーメン"
+      ],
+      "地址": "神戸市中央区（三宮站步行约 5 分钟）",
+      "营业": "11:00-21:00（面完即止）；不定休",
+      "预约": "无需，直接排队",
+      "到店提醒": "旺季午市 11:30-13:00 等候 30-40 分钟；早到或 14:00 后错峰",
+      "Tabelog 分数": 3.69
+    }
+  },
+  {
+    "id": "kob_sannomiya_misono",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "铁板烧",
+      "神户牛"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          700,
+          1500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2000,
+          5000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖 鉄板焼ステーキ みその 神戸本店（もとぐし てっぱんやき みその こうべほんてん）",
+      "简介": "1945 年创业，全世界铁板烧的发祥地。当年为招待进驻军而在鉄板上烧牛肉，由此开创了「铁板焼ステーキ」这一料理形式，并传遍全球。神户牛 A4/A5 在 7-8F 餐厅随现烤随享用，三宮站步行 2 分钟，夜景绝佳。必来一次的大阪神户餐饮文化原点。",
+      "亮点": [
+        "全球铁板烧发祥地 1945 年",
+        "神户牛 A4/A5",
+        "三宮站步行 2 分钟"
+      ],
+      "招牌菜": [
+        "特选神户牛ランチ（¥5,000 起）",
+        "晚间神户牛全套（¥15,000 起）"
+      ],
+      "地址": "兵庫县神戸市中央区下山手通 1-1-2，三宮站步行约 2 分钟",
+      "营业": "午市 11:30-14:30（L.O. 13:30），晚市 17:00-22:00（L.O. 21:00），全年无休（年末年始除外）",
+      "预约": "推荐预约，尤其晚市，电话 078-331-2890"
+    }
+  },
+  {
+    "id": "kob_sannomiya_mouriya",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "铁板烧",
+      "神户牛"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          800,
+          1800
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2500,
+          6000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神戸牛ステーキレストラン モーリヤ 本店（もーりや ほんてん）",
+      "简介": "1885 年创业（精肉店起源），神户最老牌神户牛专门店之一。红砖外墙百年建筑，只选顶级 A4/A5 神户牛，主厨在铁板前现烤。神户牛名店中历史最悠久，是「来神户必定要吃一顿神户牛」的最经典回答。",
+      "亮点": [
+        "1885 年创业",
+        "神户最老牌神户牛餐厅",
+        "红砖百年建筑"
+      ],
+      "招牌菜": [
+        "神户牛ランチ（¥5,000 起）",
+        "晚间おまかせ（¥20,000 起）"
+      ],
+      "地址": "兵庫县神戸市中央区下山手通 1-8-2，三宮站步行约 5 分钟",
+      "营业": "11:00-22:00（L.O. 21:00），不定休（建议提前确认）",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_yakiniku_zen",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉 ぜん（やきにく ぜん）",
+      "简介": "Tabelog 3.73 分，三宮烧肉店，以精选和牛为主，配日本酒或韩式汤底，不追 showcase 价格也能吃到高质量的神户烧肉体验。本地食客多，旅行者常因不知道而错过。",
+      "亮点": [
+        "Tabelog 3.73",
+        "神户三宮高质量烧肉",
+        "性价比和牛"
+      ],
+      "招牌菜": [
+        "和牛ロース（约 ¥2,500）",
+        "神户牛薄切り套餐"
+      ],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 5 分钟",
+      "营业": "17:00-24:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_sa_marche",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "面包",
+      "咖啡"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "サ・マーシュ（Sa·Marche）",
+      "简介": "Tabelog 3.76 分，神户口碑最高的天然酵母面包名店，以硬质欧包为招牌，法棍、田园面包、麦香浓郁。神户的面包文化随开港同步形成，这家是其中翘楚，开店前已排队。",
+      "亮点": [
+        "Tabelog 3.76",
+        "神户天然酵母欧包顶店",
+        "开店前即排队"
+      ],
+      "招牌菜": [
+        "天然酵母法棍（约 ¥300）",
+        "白神酵母田园面包（约 ¥500）"
+      ],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 8 分钟",
+      "营业": "09:00-18:00（售罄即止），周三不定休",
+      "预约": "无需预约，建议开店即到"
+    }
+  },
+  {
+    "id": "kob_sannomiya_com_chinois",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "中华料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "コム・シノワ（Comme Chinois）",
+      "简介": "Tabelog 3.76 分，神户三宮的亲民中华餐馆，以粤广系家常菜为主，价格实惠。在铁板烧/神户牛贵价区里，这家提供了让行程不那么「奢华疲劳」的中场休息选项，适合轻松一顿。",
+      "亮点": [
+        "Tabelog 3.76",
+        "亲民中华料理",
+        "三宮价格洼地"
+      ],
+      "招牌菜": [
+        "点心套餐（约 ¥1,000）",
+        "炒饭／叉烧"
+      ],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 5 分钟",
+      "营业": "11:30-14:30 / 17:30-22:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_tsukemen_handa",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "つけ麺 繁田（つけめん はんだ）",
+      "简介": "Tabelog 3.73 分，三宮人气蘸面专门店，以浓厚鱼介系汤头配粗直面，分量足，视觉冲击强。在神户吃顿拉面系，这家是本地食客最频繁推荐的选择，价格极其亲民。",
+      "亮点": [
+        "Tabelog 3.73",
+        "浓厚鱼介蘸面",
+        "神户拉面系代表"
+      ],
+      "招牌菜": [
+        "浓厚つけ麺（约 ¥900）",
+        "大盛 200g 选项"
+      ],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-21:00（售罄即止），不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_sone_jazz",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "爵士酒吧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [
+          150,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ジャズライブ＆レストラン ソネ（SONE）",
+      "简介": "1969 年在神户爵士发祥地创立，每晚三场现场演奏（18:30/19:50/21:10），女声爵士 + 钢琴三重奏为常规阵容，料理以日式居酒屋风格搭配，入场费含一杯。神户夜晚最有历史感的爵士体验。",
+      "亮点": [
+        "1969 年创立",
+        "神户爵士发祥地",
+        "每晚三场现场演奏",
+        "老牌传承"
+      ],
+      "招牌菜": [
+        "ソネセット（¥3300·含料理+飲み物）",
+        "阿拉卡特料理（¥750 起）"
+      ],
+      "地址": "兵庫県神戸市中央区中山手通 1-24-10（三宮站步行约 8 分；078-221-2055）",
+      "营业": "17:00-23:00；1st Stage 18:30 / 2nd Stage 19:50 / 3rd Stage 21:10",
+      "预约": "建议预约特别是周末与节假日；官网 kobe-sone.com 可约",
+      "到店提醒": "入场费通常 ¥1650 起；建议提前 15-20 分钟入场选好位置；着装建议整洁"
+    }
+  },
+  {
+    "id": "kob_sannomiya_gyoza_minami",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "中华"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          50,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぎょうざ専門店 みなみ（南京町本店）",
+      "简介": "神户南京町中华街饺子专门老铺·1951 年创业。**味噌タレ饺子**是神户特色——白味噌+赤味噌混蘸·和东京/大阪不同。一份 8 個 ¥600·配啤酒最对。立食+座席混合·南京町觅食线必到。Walk-in·中午排 20-30 分。Tabelog 3.55+。",
+      "亮点": [
+        "1951 年神户南京町老铺",
+        "神户特色味噌タレ饺子",
+        "8 個 ¥600 性价比",
+        "南京町觅食必到",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "焼饺子（8 個·¥600）",
+        "ニラレバ（¥800）"
+      ],
+      "地址": "神戸市中央区元町通 2（JR 三ノ宮駅 徒步 8 分；JR 元町駅 徒步 3 分）",
+      "营业": "11:30-21:00；水曜定休",
+      "预约": "无需预约",
+      "到店提醒": "中午 12-13 点排 20-30 分；下午 14-17 点空"
+    }
+  },
+  {
+    "id": "kob_sannomiya_kobe_beef_a5",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "神户牛",
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          450
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          900
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ステーキランド 神戸店（STEAKLAND）",
+      "简介": "神户三宮平价神户牛专门店·**铁板烧形式但比 mouriya/wakkoqu 便宜 1/3**——午市 ¥4,800 起就能吃 A5 神户牛。店主桌前现切现烤·主厨表演 + 神户牛风味两得。**神户牛入门最好的性价比选项**·游客和本地人混着坐。Tabelog 3.55+·三宮站徒步 3 分。",
+      "亮点": [
+        "神户牛性价比首选",
+        "午市 ¥4,800 起 A5 神户牛",
+        "铁板烧主厨表演",
+        "三宮站徒步 3 分",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ランチ神户牛コース（¥4,800）",
+        "ディナー神户牛コース（¥9,800）"
+      ],
+      "地址": "神戸市中央区北長狭通 1-8-2（JR 三ノ宮駅 徒步 3 分）",
+      "营业": "11:00-15:00 / 17:00-22:00；无定休",
+      "预约": "推荐预约·食べログ/一休",
+      "到店提醒": "午市性价比顶；铁板吧台席最对"
+    }
+  },
+  {
+    "id": "kob_sannomiya_modernark_pharm",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 4
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "咖啡",
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "breakfast",
+        "price_cny": [
+          60,
+          130
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          160
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Modernark Pharm Cafe（モーダンアーク）",
+      "简介": "神户三宮元町中间·有机蔬菜+药膳カフェ·绿色植物布满室内·女性局据点。**早餐 ¥1,200**（红米饭+味噌汁+季节小钵+有机蔬菜+鸡蛋）8:00 开门最对。Tabelog 3.55+·SNS 出片+健康+本地氛围三件套。",
+      "亮点": [
+        "有机蔬菜+药膳カフェ",
+        "8:00 开门早餐",
+        "绿色植物布满",
+        "SNS 出片+健康",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "Modernark 朝食（¥1,200）",
+        "野菜カレー（¥1,500）"
+      ],
+      "地址": "神戸市中央区北長狭通 3（JR 三ノ宮駅 徒步 4 分；JR 元町駅 徒步 5 分）",
+      "营业": "8:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "早餐 8-10 点最对；女性局首选"
+    }
+  }
+]

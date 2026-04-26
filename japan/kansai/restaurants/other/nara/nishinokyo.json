@@ -1,0 +1,47 @@
+[
+  {
+    "id": "kyo_nishinokyo_sansanoya_tearoom",
+    "area": "nishinokyo",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_sanzenin",
+        "walk_min": 30
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "甜品"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "cafe",
+        "price_cny": [
+          50,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "おしゃべりやかた・三五夜（西之京间隙茶屋）",
+      "简介": "唐招提寺·薬師寺の間·西之京エリアの地元茶屋。抹茶·甘味が中心。両寺院参拜の間の隙間に立ち寄る用途に最适。実際の営業情報は現地確認推奨。西之京动线の詳細は到店後に确认。",
+      "亮点": [
+        "唐招提寺·薬師寺の間の隙間茶屋",
+        "西之京観光の休憩补给ポイント",
+        "地元雰囲気·観光色少ない"
+      ],
+      "招牌菜": [
+        "抹茶セット",
+        "わらび餅"
+      ],
+      "地址": "奈良市西ノ京町周辺（近鉄西ノ京站付近·唐招提寺·薬師寺の间）",
+      "营业": "营业时段以现地确认为准",
+      "预约": "无需预约",
+      "到店提醒": "西之京エリアはcity=京都ではなくcity=奈良·area=nishinokyo；現地で確認推奨"
+    }
+  }
+]

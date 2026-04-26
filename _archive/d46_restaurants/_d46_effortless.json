@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "kyo_sta_masutani",
+    "area": "京都站",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kyoto_aquarium",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ますたに（増田屋）京都拉麺小路店",
+      "简介": "1948 年创业·京都拉面老铺。京都站直结伊势丹 10F 拉麺小路·走出 JR 中央口正面就到。鸡架+酱油底+猪背脂的传统京都拉面·味浓但意外清爽·中華そば ¥800 是创业以来不变的味道。Walk-in 不预约·全店刷卡/电子支付。游客都能走通·京都站候车线性价比首选。",
+      "亮点": [
+        "1948 年创业京都拉面老铺",
+        "京都站直结·中央口出来就到",
+        "中華そば ¥800 老味道",
+        "Walk-in·不预约",
+        "全店刷卡/电子支付"
+      ],
+      "招牌菜": [
+        "中華そば（¥800）",
+        "焼飯セット（¥1,200）"
+      ],
+      "地址": "京都市下京区東塩小路町（JR 京都駅 中央口 出来 ジェイアール京都伊勢丹 10F 拉麺小路）",
+      "营业": "11:00-22:00（LO 21:30）；不定休",
+      "预约": "无需预约·不接受预约",
+      "到店提醒": "中午 12-13 点排 15-30 分；想躲队 11:00 开门即到或 14:00 后"
+    }
+  },
+  {
+    "id": "kyo_sta_kyoramen_koji",
+    "area": "京都站",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kyoto_aquarium",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          90
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          90
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都拉麺小路（京都站直结·8 家拉面集合）",
+      "简介": "京都站伊势丹 10F 整层 8 家拉面店——ますたに 京都老铺 / たか松 つけ麺 / 一幸舎 博多 / 中村商店 大阪 / 虎鉄 味噌 / 京 鸡白汤 / UNO RAMEN 蔬食/ 凪 横滨家系——一日吃遍全国拉面的最强据点。**Walk-in 不预约·全店刷卡**·赶早晨/赶夜班的旅客都能用。每家 ¥800-1,200·孩子也方便。",
+      "亮点": [
+        "京都站直结伊势丹 10F",
+        "8 家全国拉面集合",
+        "Walk-in 不预约",
+        "全店刷卡/电子支付",
+        "11:00-22:00 营业"
+      ],
+      "招牌菜": [
+        "ますたに 中華そば（¥800·京都老铺）",
+        "たか松 つけ麺（¥990·鸡魚介）",
+        "中村商店 醤油拉麺（¥850·大阪代表）"
+      ],
+      "地址": "京都市下京区東塩小路町（JR 京都駅 中央口 出来 ジェイアール京都伊勢丹 10F）",
+      "营业": "11:00-22:00（LO 21:30）；伊势丹休日不定",
+      "预约": "无需预约·全店 walk-in",
+      "到店提醒": "12-13 点排 15-30 分钟；任挑一家进就好"
+    }
+  },
+  {
+    "id": "osk_kuromon_chinariya",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          120,
+          250
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千成屋（せんなりや）",
+      "简介": "黑门市场内 90 席海鲜丼最大店·市场内最宽敞的座位空间。海鲜丼 20+ 种·特撰海鲜丼 ¥3,500（视觉冲击+份量满分）。黑门市场早 9:00 开门最新鲜·避开 12-13 点高峰。Walk-in 全年无休。日本桥站徒步 2 分。",
+      "亮点": [
+        "黑门市场 90 席海鲜丼大店",
+        "海鲜丼 20+ 种选项",
+        "9:00 开门时段最新鲜",
+        "Walk-in 全年无休",
+        "日本桥站徒步 2 分"
+      ],
+      "招牌菜": [
+        "特撰海鲜丼（¥3,500）",
+        "本日海鲜丼（¥2,200）"
+      ],
+      "地址": "大阪市中央区日本橋 1-21-6（地铁日本橋駅 徒步 2 分）",
+      "营业": "9:00-19:00；全年无休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "9-10 点最新鲜也最少人；午饭 12-13 点高峰避开"
+    }
+  },
+  {
+    "id": "osk_kuromon_uoichi",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 9
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "海鲜",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          180
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "海鮮居酒屋 魚一（うおいち）",
+      "简介": "黑门市场看着像鱼店的居酒屋·店头的海鲜可以现场做成海鲜烧。浮世絵风墙画+吧台桌席 30 席·气氛是「市场+小酒屋」的混搭。海鲜丼 ¥1,800 / 松叶蟹/牡蛎/扇贝/海胆丼/鲑鱼卵丼都有。Walk-in 不预约·步入即坐。",
+      "亮点": [
+        "黑门市场内居酒屋",
+        "店头海鲜现场烧",
+        "浮世絵墙画氛围",
+        "海鲜丼 ¥1,800",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "海鲜丼（¥1,800）",
+        "ウニ丼（海胆丼·¥3,500）",
+        "扇贝奶油烧（¥980）"
+      ],
+      "地址": "大阪市中央区日本橋（地铁日本橋駅 徒步 2 分）",
+      "营业": "10:00-20:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "店头看食材现选最对；下午 14-17 点最空"
+    }
+  },
+  {
+    "id": "kyo_nishiki_daiyasu",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 1
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "錦・だいやす（生牡蠣）",
+      "简介": "1921 年大正时代创业鲜鱼店·90+ 年牡蠣料理名店·锦市场内座席+店头餐厅一体。看板「生牡蠣三种盛り合わせ」¥1,287——日替産地·从兵庫/石川/宮城/北海道/广岛轮换·配白葡萄酒。**Walk-in·下午就开始挤**。生牡蠣无敌·锦市场觅食线最有 DNA 的一站。Tabelog 3.55+。",
+      "亮点": [
+        "1921 年大正时代创业",
+        "锦市场牡蠣料理名店",
+        "生牡蠣三种盛 ¥1,287",
+        "全国产地日替",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "生牡蠣三种盛り合わせ（¥1,287）",
+        "牡蠣フライ（¥1,200）",
+        "カツオ造り（¥935）"
+      ],
+      "地址": "京都市中京区錦小路通柳馬場西入（阪急河原町駅 徒步 5 分；地铁烏丸駅 徒步 3 分）",
+      "营业": "10:30-19:00；不定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "中午 11-13 点+下午 15 点后是高峰；早 10:30 开门即到最稳；冬季牡蠣最好"
+    }
+  },
+  {
+    "id": "kyo_nishiki_hamohide",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 1
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          100
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          50,
+          130
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鱧秀（はもひで）錦市場",
+      "简介": "锦市场显眼的招牌海老雕塑·店头海老串/扇贝牛油酱油烧排队最长。「えび串」3 尾大海老 ¥500-700·盐烤·挤柠檬或蘸蛋黄酱都好。立食 walk-in·锦市场觅食最经典 1 串。烏丸駅徒步 4 分。Tabelog 3.5+。",
+      "亮点": [
+        "锦市场招牌打卡店",
+        "海老串 3 尾 ¥500-700",
+        "立食 walk-in",
+        "店头扇贝牛油烧",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "えび串（¥500-700·3 尾大海老）",
+        "ホタテバター醤油焼き（¥600）"
+      ],
+      "地址": "京都市中京区錦小路通（地铁烏丸駅 徒步 4 分）",
+      "营业": "10:00-18:00；不定休",
+      "预约": "无需预约·立食 walk-in",
+      "到店提醒": "排队 10-15 分常态；锦市场禁边走边吃·店前停下吃"
+    }
+  },
+  {
+    "id": "kyo_nishiki_kuwato",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 1
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "海鮮処 桒藤（くわとう）",
+      "简介": "锦市场立食海鲜串店·店头摆满烤好的串·一串 ¥500 起·海老/章鱼/鱿鱼/扇贝四季有。看板是扇贝牛油酱油烧。店内能站着喝啤酒/地酒。比鱧秀清净·价位类似。锦市场觅食 plan B 之选。",
+      "亮点": [
+        "锦市场立食海鲜串",
+        "一串 ¥500 起",
+        "扇贝牛油酱油焼き看板",
+        "可配啤酒/地酒",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "扇贝牛油酱油焼き（¥600）",
+        "海老串（¥500）",
+        "章鱼串（¥500）"
+      ],
+      "地址": "京都市中京区錦小路通（地铁烏丸駅 徒步 4 分）",
+      "营业": "10:00-18:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "排队 5-10 分；可坐可立"
+    }
+  },
+  {
+    "id": "kyo_sta_inoda_main",
+    "area": "京都站",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kyoto_aquarium",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "咖啡",
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "breakfast",
+        "price_cny": [
+          70,
+          130
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "INODA COFFEE 本店（イノダコーヒ）",
+      "简介": "1940 年创业·京都喫茶老铺第一名。本店在烏丸三条·京都老人晨昏据点·**京の朝食 ¥1,650**（火腿蛋+培根+蔬菜+面包+咖啡或茶）是京都早餐代名词。コロンビア咖啡是元祖招牌·店内深棕色木装+大理石桌·昭和氛围拉满。Walk-in 7:00 开门·赶早班动线友好。Tabelog 3.55+。",
+      "亮点": [
+        "1940 年创业京都喫茶老铺",
+        "京の朝食 ¥1,650 京都早餐代名词",
+        "コロンビア咖啡元祖",
+        "7:00 开门·赶早班线",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "京の朝食（¥1,650）",
+        "コロンビア咖啡（¥720）",
+        "アラビアの真珠（招牌·¥770）"
+      ],
+      "地址": "京都市中京区堺町通三条下る道祐町 140（地铁烏丸御池駅 徒步 6 分；京都站徒步 25 分或地铁 1 站）",
+      "营业": "7:00-18:00（朝食 LO 11:00）；不定休",
+      "预约": "无需预约",
+      "到店提醒": "7-8 点最像本地人；周末 11 点前订早食最稳；京都站徒步太远·建议地铁"
+    }
+  },
+  {
+    "id": "kyo_sta_shinpukusaikan",
+    "area": "京都站",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kyoto_aquarium",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "新福菜館 本店（しんぷくさいかん）",
+      "简介": "1938 年（昭和 13）创业·**京都ブラックラーメン**元祖代表。漆黑酱油汤·看着浓但实际盐分克制·深邃豆鼓+酱油醇厚。看板是中華そば+焼飯（炒饭）双套餐——京都本地人吃了 80+ 年。比第一旭排队短·京都站徒步 7 分。Tabelog ラーメン WEST 百名店掲載歴。",
+      "亮点": [
+        "1938 年京都ブラック元祖",
+        "Tabelog 拉面 WEST 百名店",
+        "中華そば+焼飯套餐名物",
+        "京都站徒步 7 分",
+        "比第一旭好排"
+      ],
+      "招牌菜": [
+        "中華そば（¥800）",
+        "焼飯セット（中華そば+焼饭·¥1,200）"
+      ],
+      "地址": "京都市下京区東塩小路向畑町 569（JR 京都駅 徒步 7 分）",
+      "营业": "9:00-20:00；水曜定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "9 点开门最稳；中午 12-13 点排 20-30 分；周三休"
+    }
+  },
+  {
+    "id": "kyo_sta_kaidashi_kitada",
+    "area": "京都站",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kyoto_aquarium",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          160
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "貝だし麺 きた田",
+      "简介": "京都站徒步 8 分·**贝出汁拉面专门店**·食べログ 100 名店。浅利+蛤+扇贝多种贝类熬出汤底·浓厚却清澈。和食割烹氛围的拉面店·店内安静·一人一桌。**贝だし麺 ¥1,000** 是看板·配白米饭最享受。Walk-in 但热门·中午排 30 分钟以上。Tabelog 3.6+。",
+      "亮点": [
+        "Tabelog 100 名店",
+        "贝出汁拉面专门",
+        "和食割烹氛围",
+        "京都站徒步 8 分",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "贝だし麺（¥1,000）",
+        "贝だし茶漬け飯（〆·¥600）"
+      ],
+      "地址": "京都市下京区東塩小路町（JR 京都駅 徒步 8 分）",
+      "营业": "11:30-15:00 / 18:00-21:30；水曜定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "11:30 开门即到最稳；中午高峰排 30-60 分"
+    }
+  },
+  {
+    "id": "osk_umeda_lucua_matsuba",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "松葉（まつば）LUCUA 大阪店",
+      "简介": "1949 年创业大阪串炸老铺·LUCUA 大阪 B2 立食店。**站着吃**·快·一串 ¥150-300·点几串吃几串·关西人下班据点。牛肉/莲藕/海老等 30+ 种·配生啤一杯最对。LUCUA 紧邻 JR 大阪站·赶车线最方便。Walk-in 不预约。Tabelog 3.55+。",
+      "亮点": [
+        "1949 年大阪串炸老铺",
+        "LUCUA 立食店",
+        "JR 大阪站直结",
+        "一串 ¥150-300",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "牛串（¥250）",
+        "莲藕串（¥180）",
+        "海老串（¥320）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 LUCUA 大阪 B2F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-23:00；不定休",
+      "预约": "无需预约·立食 walk-in",
+      "到店提醒": "下班 18-20 点最挤；中午 11:30 前最静"
+    }
+  },
+  {
+    "id": "osk_umeda_aiduya_radio",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "会津屋 梅田三小路店（ラヂオ焼）",
+      "简介": "1933 年大阪章鱼烧发祥店「会津屋」的梅田三小路分店——JR 大阪站樱橋口对面 1 分钟。**ラヂオ焼**（牛筋+蒟蒻·章鱼烧前身）+ 元祖たこ焼（不沾酱·无柴鱼片美乃滋）·米其林 Bib 认可。8 個 ¥800 起·赶车前快速吃一份最对。Walk-in。",
+      "亮点": [
+        "1933 年章鱼烧发祥店",
+        "梅三小路·大阪站徒步 1 分",
+        "元祖たこ焼+ラヂオ焼",
+        "米其林 Bib 认可",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "元祖たこ焼（8 個 ¥800）",
+        "ラヂオ焼（牛筋+蒟蒻·6 個 ¥700）"
+      ],
+      "地址": "大阪市北区梅田 3-1（JR 大阪駅 桜橋口 徒步 1 分）",
+      "营业": "10:00-22:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "立食/带走两选；早上 10-11 点最空"
+    }
+  },
+  {
+    "id": "osk_umeda_eki_marche",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "日本料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "breakfast",
+        "price_cny": [
+          40,
+          100
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          120
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "EKI MARCHE OSAKA（大阪站直结美食街）",
+      "简介": "JR 大阪站桜橋口直结的车站美食街——20+ 家小店集合·拉面/咖啡/牛舌/和食/汉堡都有。一幸舎博多拉面 ¥980·利久牛舌 ¥1,800·泡盛屋早酒等·8:00 开始的早班动线最稳。**Walk-in 不预约·全店刷卡**·赶新干线/特急最方便。",
+      "亮点": [
+        "JR 大阪站桜橋口直结",
+        "20+ 家小店集合",
+        "8:00 开始营业",
+        "拉面/牛舌/和食/咖啡都有",
+        "Walk-in·刷卡"
+      ],
+      "招牌菜": [
+        "一幸舎 博多拉面（¥980）",
+        "利久 牛舌定食（¥1,800）",
+        "泡盛屋 早酒（¥800）"
+      ],
+      "地址": "大阪市北区梅田 3-1-1 EKI MARCHE OSAKA（JR 大阪駅 桜橋口 徒步 1 分）",
+      "营业": "10:00-22:00（早部分店 8:00 开门）；不定休",
+      "预约": "无需预约",
+      "到店提醒": "赶车前 30 分钟入·8:00 早班店最静"
+    }
+  },
+  {
+    "id": "osk_namba_ajinoya",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          130
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          160
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "味乃家（あじのや）難波本店",
+      "简介": "1965 年（昭和 40）创业·难波 60 年大阪烧老铺。猪肉鸡蛋+小麦面糊精确比例·店员桌前现做现烤·氛围最大阪。**ミックス焼 ¥1,400** 是大阪烧入门最 representative。营业到深夜·游客和本地人混着坐。Walk-in·中午+晚饭排 30-40 分。Tabelog 3.55+。",
+      "亮点": [
+        "1965 年创业 60 年老铺",
+        "店员桌前现做现烤",
+        "ミックス焼 ¥1,400 看板",
+        "深夜营业",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ミックス焼（¥1,400）",
+        "豚玉（¥1,200）",
+        "そばモダン（¥1,500）"
+      ],
+      "地址": "大阪市中央区難波 1-7-16（地铁难波駅 徒步 4 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中午+晚饭排 30-40 分；想躲 14-17 点最空"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kani_genka",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "松叶蟹"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          700
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 かに源（カニゲン）道頓堀店",
+      "简介": "道頓堀的ずわい蟹食べ放題专门店·90 分钟自助。¥4,980（俄罗斯产）/ ¥5,980（加拿大产）/ ¥6,980（北海道产）/ ¥7,980（阿拉斯加产）四档蟹·套餐含蟹すき鍋·寿司·天妇罗·扇贝·章鱼烧·咖喱饭+饮料 buffet。**想吃饱蟹的最佳选项**·比かに道楽 ¥7,000+ 单点更划算。Walk-in 推荐预约高峰期。",
+      "亮点": [
+        "ずわい蟹 90 分钟食べ放題",
+        "¥4,980 起 4 档蟹",
+        "套餐含寿司+天妇罗+蟹すき",
+        "想吃饱蟹首选",
+        "Walk-in/推荐预约"
+      ],
+      "招牌菜": [
+        "ずわい蟹食べ放題 ロシア产（¥4,980）",
+        "ずわい蟹食べ放題 北海道产（¥6,980）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-7-25（地铁难波駅 徒步 4 分）",
+      "营业": "11:00-22:00（LO 21:00）；无定休",
+      "预约": "推荐预约·一休/电话",
+      "到店提醒": "蟹季 11-3 月最对；非蟹季也开但产地以冰冻为主"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kanidoraku_main",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 1
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "松叶蟹"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          600
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "かに道楽 道頓堀本店",
+      "简介": "1962 年开业·道顿堀**巨大动蟹招牌的发明者**·关西「来大阪要看蟹招牌」的 DNA 食物。1960 年代日本海+鄂霍茨克海活ズワイガニ严选·会席套餐 ¥4,000-7,000。**味道在蟹专门店里只算一般·但氛围+招牌+本店仪式感是关西旅游打卡核心**。蟹包子（かにまん）店头独立卖能边走边吃。诚实告诉用户：吃饱蟹去かに源·要打卡看招牌+体验老铺氛围来这家。Tabelog 3.21。",
+      "亮点": [
+        "1962 年开业·巨大动蟹招牌发明者",
+        "道顿堀地标·关西旅游 DNA",
+        "蟹包子（かにまん）店头独立卖",
+        "活ズワイ严选会席",
+        "诚实标注：味道一般·氛围/打卡为主"
+      ],
+      "招牌菜": [
+        "蟹包子（かにまん）¥600/個",
+        "活蟹会席 松（¥9,800）",
+        "焼蟹会席 竹（¥6,800）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-6-18（地铁难波駅 徒步 5 分）",
+      "营业": "11:00-22:00（LO 21:00）；无定休",
+      "预约": "推荐预约·一休·当日 walk-in 也常空",
+      "到店提醒": "**吃饱蟹首选かに源·这家来打卡看招牌+蟹包子**；店头蟹包子可不进店买"
+    }
+  },
+  {
+    "id": "kob_sannomiya_gyoza_minami",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "中华"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          50,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぎょうざ専門店 みなみ（南京町本店）",
+      "简介": "神户南京町中华街饺子专门老铺·1951 年创业。**味噌タレ饺子**是神户特色——白味噌+赤味噌混蘸·和东京/大阪不同。一份 8 個 ¥600·配啤酒最对。立食+座席混合·南京町觅食线必到。Walk-in·中午排 20-30 分。Tabelog 3.55+。",
+      "亮点": [
+        "1951 年神户南京町老铺",
+        "神户特色味噌タレ饺子",
+        "8 個 ¥600 性价比",
+        "南京町觅食必到",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "焼饺子（8 個·¥600）",
+        "ニラレバ（¥800）"
+      ],
+      "地址": "神戸市中央区元町通 2（JR 三ノ宮駅 徒步 8 分；JR 元町駅 徒步 3 分）",
+      "营业": "11:30-21:00；水曜定休",
+      "预约": "无需预约",
+      "到店提醒": "中午 12-13 点排 20-30 分；下午 14-17 点空"
+    }
+  },
+  {
+    "id": "kob_motomachi_modan_yaki",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 6
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          100
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          60,
+          130
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぼっかけ焼き 灘八（なだはち）",
+      "简介": "神户名物**ぼっかけ焼き**——牛筋+蒟蒻煮+大阪烧的合体·神户独有。元町站徒步 5 分·昭和老铺氛围。一份 ¥1,200·配啤酒。神户人午饭据点·游客难找因为没中文招牌。Walk-in·Tabelog 3.55+。",
+      "亮点": [
+        "神户名物ぼっかけ焼き",
+        "元町站徒步 5 分",
+        "昭和老铺氛围",
+        "神户人午饭据点",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ぼっかけモダン（¥1,200）",
+        "牛筋焼き（¥980）"
+      ],
+      "地址": "神戸市中央区元町通（JR 元町駅 徒步 5 分）",
+      "营业": "11:30-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中文菜单可问；中午排 15-20 分"
+    }
+  },
+  {
+    "id": "kob_motomachi_oka_curry",
+    "area": "神户北野-元町",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神戸 元町 別館オリエンタル",
+      "简介": "1907 年创业·**神户咖喱饭发祥店**之一·欧式咖喱日式化的源头。深褐色酱汁+牛肉块·配白米饭·130 年没变的味道。元町站徒步 4 分·神戸開港时代洋食文化代表。一份咖喱饭 ¥1,200。Walk-in·Tabelog 3.55+。",
+      "亮点": [
+        "1907 年创业 100+ 年洋食老铺",
+        "神戸咖喱饭发祥店之一",
+        "Tabelog 3.55+",
+        "神戸開港洋食文化代表",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "ビーフカレー（¥1,200）",
+        "ハヤシライス（¥1,300）"
+      ],
+      "地址": "神戸市中央区元町通（JR 元町駅 徒步 4 分）",
+      "营业": "11:00-21:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "中午排 15-20 分；本店地址多次搬迁·查官网"
+    }
+  },
+  {
+    "id": "kyo_higashi_okabe_ramen",
+    "area": "东山轴",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kiyomizudera",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都拉麺 おかべ（おかべラーメン）",
+      "简介": "清水寺往下走 8 分钟·东山轴拉面老铺。京都古典酱油拉面+鸡架汤底·一碗 ¥850。东山逛累后觅食最稳·走完清水寺/八坂走过来正好。Walk-in·下午 14:00-17:00 也开门·Tabelog 3.5+。",
+      "亮点": [
+        "清水寺徒步 8 分",
+        "东山轴觅食线",
+        "京都古典酱油拉面",
+        "下午也开门",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "醤油ラーメン（¥850）",
+        "焼餃子（5 個·¥500）"
+      ],
+      "地址": "京都市東山区清水（清水道巴士站 徒步 5 分）",
+      "营业": "11:00-21:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "下午 14-17 点也开·东山觅食线点空档去最稳"
+    }
+  }
+]

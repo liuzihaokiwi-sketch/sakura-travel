@@ -1,0 +1,772 @@
+[
+  {
+    "id": "osk_kitashinchi_minatsuki",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 12}],
+    "tier": "showcase",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [800, 1200]}, {"meal": "dinner", "price_cny": [1500, 2000]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 美菜月（みなづき）",
+      "简介": "北新地 6 席小店·米其林 1 星 2022-25 连续 4 年。三种米拼配赤酢醋饭·店主原本在堺市做寿司·又有割烹经验·下酒小品都精雕细琢·名物是卵黄酱油渍做的卵かけご飯细巻。完全预约制·提前 1-2 个月最稳。是北新地 showcase 寿司里位价比相对友好的入门首选。",
+      "亮点": [
+        "米其林 1 星 4 连星",
+        "Tabelog 3.85+",
+        "6 席完全预约",
+        "三种米拼配赤酢饭",
+        "卵黄醤油漬细巻名物"
+      ],
+      "招牌菜": [
+        "おまかせ コース（晚市·¥30,000+）",
+        "ランチコース（午市·¥18,000）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-5（JR 北新地駅 徒步 4 分）",
+      "营业": "昼 12:00-/ 夜 18:00- 一齐入座；日·月曜定休",
+      "预约": "必约·提前 1-2 个月；电话/一休/tablecheck",
+      "到店提醒": "正装；月初 10:00 打电话最稳；卵黄细巻必点"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_murakamijiro",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 13}],
+    "tier": "showcase",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [1300, 1700]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 村上二郎",
+      "简介": "「さえき」出身的店主独立·北新地 8 席完全预约·米其林星付 2023+ 寿司 WEST 百名店 2022。师承大阪 top 店技艺·握寿司朴素扎实不耍花活·常客多·新客难订。Tabelog 3.72。是北新地 showcase 寿司里口碑稳定的代表。",
+      "亮点": [
+        "米其林星付 2023",
+        "寿司 WEST 百名店 2022",
+        "Tabelog 3.72",
+        "「さえき」师承",
+        "8 席完全预约"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥27,500）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00 一齐入座；日·月曜定休",
+      "预约": "必约·提前 2 个月",
+      "到店提醒": "正装；月初订下月最稳；常客优先·新客建议熟人介绍"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_iwai_tempura",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 12}],
+    "tier": "showcase",
+    "cuisine": ["寿司", "天妇罗"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [1200, 1600]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北新地 鮨 天ぷら いわい",
+      "简介": "兵库芦屋米其林预约困难店「芦屋 いわい」2023 年 9 月在北新地新开分店·米其林 2 年连续。寿司+天妇罗双修·主厨同时握寿司炸天麸罗·节奏感强。个室完备适合小型商务局·北新地 showcase 里少见的 hybrid 体验。",
+      "亮点": [
+        "米其林 2 年连续",
+        "芦屋 いわい 北新地分店",
+        "寿司+天妇罗双修",
+        "个室完备",
+        "Tabelog 3.7+"
+      ],
+      "招牌菜": [
+        "おまかせコース（寿司+天妇罗·¥27,500）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-3（JR 北新地駅 徒步 3 分）",
+      "营业": "夜 18:00 一齐入座；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "可选个室；商务局首选"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yamashiro",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 12}],
+    "tier": "showcase",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [600, 1000]}, {"meal": "dinner", "price_cny": [1300, 1800]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北新地 鮨 栞庵 やましろ",
+      "简介": "东京银座米其林获星店「銀座 鮨 栞庵」北新地分店·米其林 3 年连续。本格江户前寿司+割烹·三种 course 价格阶梯·午市相对亲民。个室完备·北新地江户前寿司代表之一。Tabelog 3.7+。",
+      "亮点": [
+        "米其林 3 年连续",
+        "银座本店分店",
+        "本格江户前寿司",
+        "三种 course 价格阶梯",
+        "个室完备"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥27,500）",
+        "ランチコース（午·¥13,200）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-2（JR 北新地駅 徒步 2 分）",
+      "营业": "昼 12:00-14:00 / 夜 18:00- 一齐；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "午市性价比高·关西人请客首选"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_saeki",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 12}],
+    "tier": "showcase",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [1500, 2200]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 さえ喜（さえき）",
+      "简介": "北新地正中心·与「寿し芳」「原正」并称大阪 top3 寿司·店主佐伯さん师承北新地名店「のぐち」。米其林星付掲載一直拒绝·但口碑评分常年压顶·Tabelog 3.85+。预约 3 个月起·旺季半年。常客优先·新客建议熟人介绍·是北新地真正的预约困难顶级店。",
+      "亮点": [
+        "大阪 top3 寿司",
+        "Tabelog 3.85+",
+        "预约 3 个月起",
+        "「のぐち」师承",
+        "拒绝米其林掲載"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥38,500+）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 4 分）",
+      "营业": "夜 18:00- 一齐；日·月曜定休",
+      "预约": "必约·提前 3-6 个月·常客优先",
+      "到店提醒": "新客难订·熟人介绍最稳；正装；月初打电话"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_noguchi",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 13}],
+    "tier": "showcase",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [1500, 2000]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 のぐち",
+      "简介": "Tabelog 3.89·北新地寿司常年评分压顶。每贯握寿司都是工序极致·店主トーク魅力大·粉丝众多。日本寿司里少见的「评分+人气+预约难度」三重极限店·常客优先。装配建议跳过·留给真正想冲顶的客。",
+      "亮点": [
+        "Tabelog 3.89·关西寿司天花板",
+        "店主トーク魅力大",
+        "工序极致",
+        "预约困难",
+        "常客优先"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥38,500+）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00- 一齐；日·月曜定休",
+      "预约": "必约·提前 3-6 个月",
+      "到店提醒": "顶级店·新客几乎不可能直订·建议熟人或一休尝试"
+    }
+  },
+  {
+    "id": "osk_umeda_uoi_unagi",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 8}],
+    "tier": "high",
+    "cuisine": ["鳗鱼"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [200, 350]}, {"meal": "dinner", "price_cny": [300, 450]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "魚伊（うおい）本店",
+      "简介": "大阪老舗鳗鱼专门店·关西风「直焼き」代表·皮パリッと身ふっくら不蒸蒸直接炭烤·能吃出关西派蒲烧的本味。「うな玉丼」（鳗鱼+出汁卷玉子）是名物·梅田一带性价比最高的真鳗。Tabelog 3.65+。营业 11:00 开门 30 分钟前到最稳。",
+      "亮点": [
+        "关西风直焼鳗代表",
+        "Tabelog 3.65+",
+        "うな玉丼名物",
+        "性价比高真鳗",
+        "本地公司职员午饭据点"
+      ],
+      "招牌菜": [
+        "うな玉丼（出汁卷+鳗鱼·¥3,800）",
+        "上うな丼（¥4,500）"
+      ],
+      "地址": "大阪市生野区林寺 1-5-19（JR 桃谷站 徒步 5 分；梅田移动 20 分）",
+      "营业": "11:00-15:00 / 17:00-20:00；水曜定休",
+      "预约": "推荐预约；散席可现场",
+      "到店提醒": "11:00 开门前到最稳；现金/卡都可"
+    }
+  },
+  {
+    "id": "osk_umeda_chikuyotei",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["鳗鱼"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [250, 400]}, {"meal": "dinner", "price_cny": [350, 500]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 竹葉亭（ちくようてい）大阪ステーションシティ店",
+      "简介": "江户末期东京浅草河岸创业·昭和初期进军关西·百年江户前鳗鱼名店。江户流活鳗白烧后蒸·再多次刷秘传タレ烤·与关西派直焼形成鲜明对比。大阪站直结·商务接待性价比首选·Tabelog 3.6+。是「大阪也能吃到正宗江户前鳗」的代表。",
+      "亮点": [
+        "江户末期百年老铺",
+        "江户流蒸+烧工艺",
+        "大阪站直结便利",
+        "Tabelog 3.6+",
+        "商务接待友好"
+      ],
+      "招牌菜": [
+        "うな重 松（¥4,800）",
+        "ひつまぶし（¥5,500）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 大丸梅田店 14F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-22:00；不定休（百货休日）",
+      "预约": "推荐预约·一休",
+      "到店提醒": "百货闭店日（不定）需查；午市排队 15 分钟内"
+    }
+  },
+  {
+    "id": "osk_umeda_kikukawa_unagi",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 4}],
+    "tier": "high",
+    "cuisine": ["鳗鱼"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [200, 350]}, {"meal": "dinner", "price_cny": [300, 500]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "うなぎ四代目菊川（ヒルトンプラザウエスト店）",
+      "简介": "1932 年创业的名古屋鳗鱼老问屋第四代经营·90 多年鳗鱼批发功底·当面调理保鲜度。看板的「一本鳗」（整条鳗鱼一份）是体验担当·名古屋名物「ひつまぶし」（三吃法）也能完整呈现。梅田站徒步 5 分商务区·Tabelog 3.6+。",
+      "亮点": [
+        "1932 年名古屋老问屋",
+        "Tabelog 3.6+",
+        "一本鳗看板（整条鳗）",
+        "ひつまぶし三吃",
+        "梅田商务区便利"
+      ],
+      "招牌菜": [
+        "一本鳗（整条·¥6,800）",
+        "ひつまぶし（¥4,500）",
+        "白烧（¥5,500）"
+      ],
+      "地址": "大阪市北区梅田 2-2-2 ヒルトンプラザウエスト B2F（JR 大阪駅 徒步 4 分）",
+      "营业": "11:00-23:00；不定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "一本鳗需提前预约（仅当日鲜活）"
+    }
+  },
+  {
+    "id": "osk_umeda_tsuruya_unagi",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["鳗鱼"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [180, 320]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "つる家 大丸梅田店",
+      "简介": "明治 41 年（1908）创业·116 年江户焼鳗老铺。秘伝タレじっくり煮烤·身ふっくら皮パリッ·一品+うな丼+ひつまぶし+鳗会席+儿童便当线齐全。大丸梅田 14F 百货 floor·闲适开放氛围·适合家庭餐。Tabelog 3.5+。",
+      "亮点": [
+        "明治 41 年（1908）创业",
+        "百年江户焼鳗",
+        "秘伝タレ深煮",
+        "家庭餐+商务餐通吃",
+        "大丸梅田直结"
+      ],
+      "招牌菜": [
+        "うな丼（¥3,200）",
+        "鳗鱼会席（¥7,800）",
+        "ひつまぶし（¥4,200）"
+      ],
+      "地址": "大阪市北区梅田 3-1-1 大丸梅田店 14F（JR 大阪駅 徒步 2 分）",
+      "营业": "11:00-22:00；百货休日",
+      "预约": "无需预约·散席可现场",
+      "到店提醒": "百货闭店日不定·查官网；儿童套餐有"
+    }
+  },
+  {
+    "id": "osk_namba_okaru",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}, {"meal": "dinner", "price_cny": [100, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おかる",
+      "简介": "1946 年（昭和 21）创业·难波千日前 80 年大阪烧老铺·食べログ百名店。简单的「肉玉」（猪肉+鸡蛋）就是经典·关西大阪烧的本格基准点。最有特色是结尾在大阪烧上用蛋黄酱画通天阁/Glico 跑步君等图案——「マヨアート」是名物。营业到 22 点·夜里也能吃。Tabelog 3.55+。",
+      "亮点": [
+        "1946 年 80 年老铺",
+        "食べログ百名店",
+        "肉玉本格大阪烧",
+        "マヨアート画图名物",
+        "营业到 22:00"
+      ],
+      "招牌菜": [
+        "肉玉（¥1,200）",
+        "豚モダン焼（¥1,500）"
+      ],
+      "地址": "大阪市中央区千日前 1-9-19（地铁难波駅 徒步 4 分）",
+      "营业": "12:00-15:00 / 17:00-22:00；木曜定休",
+      "预约": "无需预约；旺季排 30 分钟",
+      "到店提醒": "提マヨアート画图要求要等 5 分钟；现金为主"
+    }
+  },
+  {
+    "id": "osk_namba_yokozuna",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 4}],
+    "tier": "economy",
+    "cuisine": ["串炸"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [80, 130]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "横綱 千日前店",
+      "简介": "千日前法善寺横丁的串炸老铺·细面包粉的衣油不腻·甘口酱汁「二度漬け禁止」是大阪串炸标志。「おまかせ 6 本」（招牌混 6 串）是入门首选。110 席个室全·全天接客·难波核心区性价比顶。Tabelog 3.5+。",
+      "亮点": [
+        "千日前法善寺老铺",
+        "细面包粉衣油不腻",
+        "おまかせ 6 本人气",
+        "「二度漬け禁止」本格大阪串炸",
+        "110 席个室全"
+      ],
+      "招牌菜": [
+        "おまかせ 6 本（¥980）",
+        "どて焼（¥780）"
+      ],
+      "地址": "大阪市中央区難波 3-2-19（地铁难波駅 徒步 5 分）",
+      "营业": "11:00-23:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "二度漬け禁止·一筷一串；现金/卡都可"
+    }
+  },
+  {
+    "id": "osk_namba_chitose",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [50, 100]}, {"meal": "dinner", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千とせ 本店（ちとせ）",
+      "简介": "难波千日前 50+ 年老铺·吉本兴业「なんばグランド花月」艺人据点。大阪名物「肉吸い」（无面的乌冬汤·和牛+葱+蛋黄）发祥店之一·搭配「小玉」（小份鸡蛋盖饭）是大阪平民最朴素的一餐。Tabelog 3.6+·百名店常驻。营业到下午就关门·要早。",
+      "亮点": [
+        "肉吸い发祥店之一",
+        "Tabelog 3.6+ 百名店",
+        "なんば花月艺人据点",
+        "大阪平民朴素味道",
+        "性价比高"
+      ],
+      "招牌菜": [
+        "肉吸い+小玉（¥850）",
+        "肉うどん（¥850）"
+      ],
+      "地址": "大阪市中央区難波千日前 8-1（地铁难波駅 徒步 5 分）",
+      "营业": "10:30-15:00；火曜定休",
+      "预约": "无需预约",
+      "到店提醒": "下午 3 点就关；早班动线最稳；现金为主"
+    }
+  },
+  {
+    "id": "osk_namba_fukutaro",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}, {"meal": "dinner", "price_cny": [100, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "福太郎 本店",
+      "简介": "难波千日前老铺大阪烧·食べログ百名店。**葱焼（ねぎ焼）**是名物·豚/虾/筋肉煮等多版本·薄面+大葱拌·和大阪烧形成对比。深夜营业到凌晨·关西人下班据点。Tabelog 3.6+·难波 mid 档大阪烧首选。",
+      "亮点": [
+        "食べログ百名店",
+        "Tabelog 3.6+",
+        "葱焼（ねぎ焼）名物",
+        "深夜营业·夜班据点",
+        "关西人本地味"
+      ],
+      "招牌菜": [
+        "葱焼 豚（¥1,400）",
+        "葱焼 すじこん（¥1,500）",
+        "肉玉お好み焼（¥1,300）"
+      ],
+      "地址": "大阪市中央区千日前 2-3-17（地铁难波駅 徒步 4 分）",
+      "营业": "12:00-翌 0:30；无定休",
+      "预约": "无需预约；旺季排 30-40 分",
+      "到店提醒": "葱焼是必点；深夜也能吃；现金优先"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_sumiyoshi",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 6}],
+    "tier": "high",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [300, 500]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おでん すみ吉",
+      "简介": "心斋桥地下层隐家关东煮·堺市名店「たこ吉」出汁继承·四季创作关东煮会席。和モダン洗练空间·暖帘掀开是另一个世界·都会喧嚣的反义词。预约制·适合两人或小型局·北新地之外的关东煮代表。Tabelog 3.6+。",
+      "亮点": [
+        "心斋桥地下隐家",
+        "「たこ吉」出汁继承",
+        "四季创作关东煮",
+        "和モダン洗练空间",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "おでん会席（¥8,800）",
+        "季节限定关东煮（タコ/トマト 等）"
+      ],
+      "地址": "大阪市中央区東心斎橋 1-7（地铁心斎橋駅 徒步 5 分）",
+      "营业": "夜 18:00-23:00；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "暖帘小不易找；地下层入口；正装"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_yokaro",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [120, 220]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "心斎橋 よかろ",
+      "简介": "屋台时代的味道继承下来的关东煮居酒屋·屋台种出汁+鸡白汤+昆布出汁继续煮成深味。**30+ 种关东煮种**·特别推荐タコ（章鱼）。大阪名物「どて焼」（牛筋味噌煮）也是必点。心斋桥本地人下班据点·价位友好。Tabelog 3.55+。",
+      "亮点": [
+        "屋台味道继承",
+        "30+ 种关东煮",
+        "どて焼名物",
+        "本地人据点",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "おでん盛合せ（¥1,800）",
+        "どて焼（¥780）",
+        "タコ（¥600）"
+      ],
+      "地址": "大阪市中央区南船場 4-12（地铁心斎橋駅 徒步 5 分；長堀橋駅 徒步 2 分）",
+      "营业": "夜 17:00-23:30；日曜定休",
+      "预约": "推荐预约·tabelog",
+      "到店提醒": "タコ最招牌；どて焼配米饭"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_odashi",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 6}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 260]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "居酒屋おだし",
+      "简介": "老铺「神楽」出汁基础上拼配的特制出汁·繊细深味烘托和食和关东煮。盐ピーマン（盐青椒）/饺子等一品料理也很有人气·女性客比例高。心斋桥都心据点·氛围比传统居酒屋干净。Tabelog 3.5+。",
+      "亮点": [
+        "「神楽」出汁拼配",
+        "繊细深味出汁",
+        "女性客比例高",
+        "盐ピーマン名物",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "おでん盛り（¥1,600）",
+        "盐ピーマン（¥480）",
+        "出汁巻玉子（¥780）"
+      ],
+      "地址": "大阪市中央区西心斎橋（地铁心斎橋駅 徒步 6 分）",
+      "营业": "夜 17:00-23:00；日曜定休",
+      "预约": "推荐预约",
+      "到店提醒": "饺子+盐ピーマン是必点；女性局友好"
+    }
+  },
+  {
+    "id": "osk_dotonbori_mizuno",
+    "area": "道顿堀",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 3}],
+    "tier": "mid",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 180]}, {"meal": "dinner", "price_cny": [120, 220]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "美津の（みづの）",
+      "简介": "道顿堀 1945 年战后创业老铺·食べログ百名店·大阪烧 ranking 上位。**山芋焼**（100% 山芋面糊+大块帆立贝柱+厚切豚バラ）是名物·绵软到入口即化。深夜营业·游客和本地人都来。Tabelog 3.6+·难波/道顿堀大阪烧首选之一。",
+      "亮点": [
+        "1945 年战后老铺",
+        "食べログ百名店",
+        "山芋焼名物（100% 山芋）",
+        "Tabelog 3.6+",
+        "深夜营业"
+      ],
+      "招牌菜": [
+        "山芋焼（¥1,800）",
+        "ミックスお好み焼（¥1,600）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-4-15（地铁难波駅 徒步 4 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约·旺季排 60+ 分",
+      "到店提醒": "山芋焼是必点；中午开门即排稳"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_uemori",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 12}],
+    "tier": "high",
+    "cuisine": ["怀石"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [600, 1000]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "上六 米増（こめます）",
+      "简介": "北新地高 tier 怀石·走价位友好高端路线·一席 ¥18,000-25,000 范围。出汁+季节食材的本格京风怀石北新地版·8 席小空间近距离观看料理过程。米其林 bib 级别·性价比北新地 high 档代表。Tabelog 3.6+。",
+      "亮点": [
+        "北新地 high 档怀石",
+        "8 席小空间",
+        "京风出汁怀石",
+        "Tabelog 3.6+",
+        "性价比 high 档代表"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥18,000-25,000）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00- 一齐；日曜定休",
+      "预约": "必约·一休",
+      "到店提醒": "正装；月初订下月最稳"
+    }
+  },
+  {
+    "id": "osk_umeda_kitanozaka",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [400, 700]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉 北野坂（きたのざか）梅田店",
+      "简介": "神户北野坂烧肉本店的梅田分店·神户牛 A5 等级专门·一头买入精细分割。烧肉+赤身寿司双线作业·店主在前精细分切。Tabelog 3.6+·梅田 high 档烧肉代表·商务餐+情侣餐双轨。",
+      "亮点": [
+        "神户牛 A5 一头买入",
+        "Tabelog 3.6+",
+        "烧肉+赤身寿司",
+        "梅田 high 档代表",
+        "情侣餐+商务餐"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥15,000）",
+        "上カルビ（¥4,800）",
+        "赤身ユッケ寿司（¥1,800）"
+      ],
+      "地址": "大阪市北区梅田 1-3-1（JR 大阪駅 徒步 4 分）",
+      "营业": "夜 17:00-23:00；不定休",
+      "预约": "必约·一休/食べログ",
+      "到店提醒": "赤身寿司必点；情侣局推荐 8 席小室"
+    }
+  },
+  {
+    "id": "osk_dotonbori_imai",
+    "area": "道顿堀",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 2}],
+    "tier": "mid",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 130]}, {"meal": "dinner", "price_cny": [80, 160]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "道頓堀 今井 本店",
+      "简介": "1946 年创业·道頓堀 80 年关西出汁乌冬代表·食べログ百名店。北海道罗臼昆布+九州脂目鯖節+うるめ节·48 小时熬出的关西出汁是金字招牌。「きつねうどん」（油扬乌冬）是大阪人日常面条·本店一份才能感受真传统的关西味。Tabelog 3.6+。",
+      "亮点": [
+        "1946 年 80 年老铺",
+        "食べログ百名店",
+        "罗臼昆布 48 小时出汁",
+        "きつねうどん名物",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "きつねうどん（¥920）",
+        "うどんすき（鍋·二人前·¥6,600）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-7-22（地铁难波駅 徒步 3 分）",
+      "营业": "11:00-22:00；水曜定休",
+      "预约": "无需预约·旺季排 30 分",
+      "到店提醒": "きつねうどん是入门；冬季うどんすき提前问"
+    }
+  },
+  {
+    "id": "osk_namba_551horai_main",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori_glico", "walk_min": 4}],
+    "tier": "economy",
+    "cuisine": ["中华"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [40, 80]}, {"meal": "dinner", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "551蓬莱 戎橋本店",
+      "简介": "1945 年创业·关西人最爱的「豚まん」（猪肉包）发祥店·大阪人去东京伴手礼第一选择就是 551。本店在戎橋是堂食+伴手礼+店内餐厅三合一·能吃到刚蒸好的豚まん+烧売+台湾拉面套餐。Tabelog 3.5·关西人 DNA 食物。",
+      "亮点": [
+        "1945 年创业关西国民食",
+        "豚まん发祥店",
+        "戎橋本店三合一",
+        "关西人最爱的伴手礼",
+        "Tabelog 3.5"
+      ],
+      "招牌菜": [
+        "豚まん（¥210/個）",
+        "焼売（¥980/8個）",
+        "豚まん+烧売套餐（¥1,500）"
+      ],
+      "地址": "大阪市中央区難波 3-6-3（南海难波駅 徒步 1 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约·伴手礼可现场买",
+      "到店提醒": "刚蒸好的豚まん最好吃；伴手礼袋装最热门"
+    }
+  },
+  {
+    "id": "osk_umeda_aijo_motsunabe",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 250]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭火炉端 ROBATAYA 梅田",
+      "简介": "梅田站附近本格炉端烧·围炉裏式厨台·大叔用长柄木铲递鱼。北海道海产+九州霜降肉+各地野菜按季节切·烤+吃形成戏剧节奏。本地公司职员带客必去之处·氛围+味道+性价比三件套·Tabelog 3.5+。",
+      "亮点": [
+        "围炉裏式厨台",
+        "北海道海产+九州肉",
+        "本地接待据点",
+        "Tabelog 3.5+",
+        "氛围+味道双修"
+      ],
+      "招牌菜": [
+        "炉端烧おまかせ（¥4,500/人）",
+        "ホタルイカ酢味噌（季节）"
+      ],
+      "地址": "大阪市北区曽根崎 2-3（JR 大阪駅 徒步 5 分）",
+      "营业": "夜 17:00-24:00；无定休",
+      "预约": "推荐预约",
+      "到店提醒": "围炉裏吧台是必坐；当日海产看黑板"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yakitori_ichigo",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 10}],
+    "tier": "high",
+    "cuisine": ["烧鸟"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [350, 550]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼鳥 市松（いちまつ）",
+      "简介": "北新地烧鸟代表·名古屋コーチン纯血鸡+一品ごとの炭火细工·一串五分钟工夫。13 席小店·完全预约·一席 ¥12,000 起。北新地烧鸟里 high 档性价比代表·情侣局/小型商务局首选。Tabelog 3.7+。",
+      "亮点": [
+        "北新地烧鸟代表",
+        "名古屋コーチン纯血",
+        "Tabelog 3.7+",
+        "13 席完全预约",
+        "情侣+商务双轨"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥12,000）",
+        "卵かけご飯（〆·¥800）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-7（JR 北新地駅 徒步 6 分）",
+      "营业": "夜 18:00-23:00；日曜定休",
+      "预约": "必约·一休",
+      "到店提醒": "正装；月初订下月最稳"
+    }
+  }
+]

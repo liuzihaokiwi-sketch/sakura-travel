@@ -1,0 +1,57 @@
+[
+  {
+    "id": "osk_abeno_kushino_bo",
+    "area": "abeno_tennoji",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          300,
+          600
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串の坊 あべのハルカス近鉄本店（くしのぼう）",
+      "简介": "1950 年创业大阪老牌串炸名店「串の坊」在晴空大厦 12F 的店铺。俯瞰天王寺园景，精致串炸风格有别于新世界粗犷路线——配菜细致、时令食材。登上 HARUKAS 展望台前后连动午饭，动线极顺。",
+      "亮点": [
+        "1950 年串炸老铺",
+        "HARUKAS 12F 俯瞰天王寺",
+        "精致路线串炸"
+      ],
+      "招牌菜": [
+        "串炸おまかせ套（昼约 ¥3,000）",
+        "季节食材单串"
+      ],
+      "地址": "大阪市阿倍野区阿倍野筋 1-1-43 あべのハルカス近鉄本店 12F，JR 天王寺站步行约 3 分钟",
+      "营业": "11:00-23:00（L.O. 22:30），无定休（百货休馆日休）",
+      "预约": "无需预约，节假日推荐"
+    }
+  }
+]

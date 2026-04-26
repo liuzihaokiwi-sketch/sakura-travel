@@ -8,717 +8,739 @@
       "entities__other.json"
     ]
   },
+  "kya_kongobuji": {
+    "entity_id": "kya_kongobuji",
+    "city": "koyasan",
+    "area": "koyasan",
+    "category": "寺社",
+    "depth": "skeleton",
+    "note": {
+      "店名": "金刚峯寺（金剛峯寺 / Kongobuji）",
+      "简介": "高野山真言宗総本山·空海开山的高野山中心寺院·UNESCO 世界文化遗产「纪伊山地的霊場と参詣道」。围绕金刚峯寺的高野山町就是日本宿坊代名词。",
+      "怎么去": "南海高野线极乐桥→ケーブル→巴士「千手院橋」步行 5 分"
+    },
+    "可信度": "single_source",
+    "数据来源": ["https://www.koyasan.or.jp/"],
+    "最后核实": "2026-04-26"
+  },
+  "kya_okunoin": {
+    "entity_id": "kya_okunoin",
+    "city": "koyasan",
+    "area": "koyasan",
+    "category": "寺社",
+    "depth": "skeleton",
+    "note": {
+      "店名": "奥之院（奥之院 / Okunoin）",
+      "简介": "空海入定地·两公里参道穿越 20 万座墓塔·夜间参拜（宿坊宿泊者限定）是高野山经典体验。",
+      "怎么去": "巴士「奥の院前」即到"
+    },
+    "可信度": "single_source",
+    "数据来源": ["https://www.koyasan.or.jp/"],
+    "最后核实": "2026-04-26"
+  },
+  "shr_shirahama_beach": {
+    "entity_id": "shr_shirahama_beach",
+    "city": "shirahama",
+    "area": "shirahama",
+    "category": "自然",
+    "depth": "skeleton",
+    "note": {
+      "店名": "白良浜（白良浜 / Shirarahama Beach）",
+      "简介": "和歌山白浜温泉地标·日本三古汤之一所在地。白沙海滩+温泉+海鲜的关西南端度假地。",
+      "怎么去": "JR 白浜站→明光巴士「白良浜」即到"
+    },
+    "可信度": "single_source",
+    "数据来源": ["https://www.nanki-shirahama.com/"],
+    "最后核实": "2026-04-26"
+  },
+  "shr_sakinoyu_onsen": {
+    "entity_id": "shr_sakinoyu_onsen",
+    "city": "shirahama",
+    "area": "shirahama",
+    "category": "温泉",
+    "depth": "skeleton",
+    "note": {
+      "店名": "崎之汤（崎の湯 / Sakinoyu Onsen）",
+      "简介": "白浜温泉公共露天风吕·临海岩礁汤池·日本最古温泉之一·万叶集有载。¥500 入浴。",
+      "怎么去": "JR 白浜站→明光巴士「湯崎」步行 3 分"
+    },
+    "可信度": "single_source",
+    "数据来源": ["https://www.nanki-shirahama.com/"],
+    "最后核实": "2026-04-26"
+  },
   "nar_todaiji": {
     "entity_id": "nar_todaiji",
-    "name_zh": "东大寺",
-    "name_ja": "東大寺",
-    "name_en": "Todai-ji Temple",
+    "city": "nara",
     "area": "nara_park",
-    "category": "temple",
-    "coordinates": {
-      "lat": 34.6868,
-      "lng": 135.8372
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "东大寺（東大寺 / Todai-ji Temple）",
+      "简介": "世界最大木造建筑大佛殿（高约49米），供奉高15米的毗卢遮那佛，为奈良时代（8世纪）建筑。UNESCO世界文化遗产。；禁三脚架",
+      "票价": "大佛殿成人¥800，小学生¥400；大佛殿+东大寺博物馆套票成人¥1,200，小学生¥600",
+      "营业": "大佛殿：4–10月 07:30–17:30；11–3月 08:00–17:00。法华堂/千手堂：08:30–16:00（全年），休：全年无固定休馆日，最终入场：闭馆前30分钟",
+      "怎么去": "从近铁「奈良」站步行约30分钟，或乘公交至「東大寺大佛殿」站步行5–10分钟。从JR「奈良」站步行约45分钟，或乘市内循环公交（¥210）约10分钟。"
     },
-    "official_url": "https://www.todaiji.or.jp/en/",
-    "access": "从近铁「奈良」站步行约30分钟，或乘公交至「東大寺大佛殿」站步行5–10分钟。从JR「奈良」站步行约45分钟，或乘市内循环公交（¥210）约10分钟。",
-    "short_desc": "世界最大木造建筑大佛殿（高约49米），供奉高15米的毗卢遮那佛，为奈良时代（8世纪）建筑。UNESCO世界文化遗产。",
-    "opening_hours": {
-      "regular": "大佛殿：4–10月 07:30–17:30；11–3月 08:00–17:00。法华堂/千手堂：08:30–16:00（全年）",
-      "closed": "全年无固定休馆日",
-      "last_entry": "闭馆前30分钟"
+    "templates_meta": {
+      "季节看点": "【春】3月下旬奈良公园樱花盛开，参道人流极旺\n【夏】8月15日五山送火\n【秋】11月红叶，奈良公园气氛最佳\n【冬】2月节分前后参道有传统活动"
     },
-    "admission": {
-      "adult": 800,
-      "child": 400,
-      "unit": "JPY",
-      "_note": "大佛殿成人¥800，小学生¥400；大佛殿+东大寺博物馆套票成人¥1,200，小学生¥600"
-    },
-    "reservation_required": false,
-    "unesco": true,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "spring": "3月下旬奈良公园樱花盛开，参道人流极旺",
-      "summer": "8月15日五山送火",
-      "autumn": "11月红叶，奈良公园气氛最佳",
-      "winter": "2月节分前后参道有传统活动"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.todaiji.or.jp/en/information/haikan/",
       "https://www.japan-guide.com/e/e4100.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 全年：大佛殿入场（¥600）基本 0-15 分钟等候；奈良公园鹿群免费无排队\n- 旺季（黄金周/春秋假/修学旅行期）：大佛殿 15-30 分钟\n- 大佛殿内柱洞钻洞体验：非排队，人流高峰时自然等候 5-10 分钟\n- 建议：8:30 或 9:00 开门即入最省时；奈良公园鹿群全天可遇\n- 数据来源：single_source（综合实况笔记估算，东大寺非极端排队景点）"
+    "最后核实": "2026-04-21"
   },
   "nar_nara_park": {
     "entity_id": "nar_nara_park",
-    "name_zh": "奈良公园",
-    "name_ja": "奈良公園",
-    "name_en": "Nara Park",
+    "city": "nara",
     "area": "nara_park",
-    "category": "park",
-    "coordinates": {
-      "lat": 34.6851,
-      "lng": 135.8388
+    "category": "自然",
+    "depth": "full",
+    "note": {
+      "店名": "奈良公园（奈良公園 / Nara Park）",
+      "简介": "占地约660公顷的城市公园，约1,400头自由漫步的鹿为国家天然纪念物。园内包含东大寺、春日大社、兴福寺、奈良国立博物馆等核心景点，全天免费开放。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "从近铁「奈良」站步行约5分钟；从JR「奈良」站东出口步行约20分钟，或乘市内循环公交（¥210）约10分钟。"
     },
-    "official_url": "https://www.japan.travel/en/destinations/kansai/nara/nara-park-and-around/",
-    "access": "从近铁「奈良」站步行约5分钟；从JR「奈良」站东出口步行约20分钟，或乘市内循环公交（¥210）约10分钟。",
-    "short_desc": "占地约660公顷的城市公园，约1,400头自由漫步的鹿为国家天然纪念物。园内包含东大寺、春日大社、兴福寺、奈良国立博物馆等核心景点，全天免费开放。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "seasonal_notes": {
-      "spring": "3月下旬–4月上旬樱花盛开，鹿与樱花共景为最佳拍摄时机",
-      "summer": "7–8月暑热，鹿会寻找阴凉处",
-      "autumn": "11月红叶，浮见堂周边枫景优美",
-      "winter": "1月若草山烧山祭（周六举行），烈焰点山极为壮观"
+    "templates_meta": {
+      "季节看点": "【春】3月下旬–4月上旬樱花盛开，鹿与樱花共景为最佳拍摄时机\n【夏】7–8月暑热，鹿会寻找阴凉处\n【秋】11月红叶，浮见堂周边枫景优美\n【冬】1月若草山烧山祭（周六举行），烈焰点山极为壮观"
     },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.japan-guide.com/e/e4103.html",
       "https://www.japan.travel/en/destinations/kansai/nara/nara-park-and-around/"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无门票无入场排队（免费开放公园）\n- 鹿饼（150日元）售卖点：旺季早上 9:00-10:00 初期有售卖点人多，但非排队问题\n- 数据来源：single_source"
+    "最后核实": "2026-04-21"
   },
   "nar_yoshino_yama": {
     "entity_id": "nar_yoshino_yama",
-    "name_zh": "吉野山",
-    "name_ja": "吉野山",
-    "name_en": "Yoshino-yama (Mount Yoshino)",
+    "city": "nara",
     "area": "nara_yoshino",
-    "category": "mountain",
-    "coordinates": {
-      "lat": 34.365,
-      "lng": 135.858
+    "category": "自然",
+    "depth": "full",
+    "note": {
+      "店名": "吉野山（Yoshino-yama (Mount Yoshino)）",
+      "简介": "日本三大樱花名所之一，约3万棵山樱分布在下/中/上/奥千本四区，海拔差异令花期前后延续近一个月。UNESCO世界遗产（纪伊山地灵场与参拜道）。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "近铁吉野线「吉野」站乘吉野ロープウェイ（成人¥500/小学生¥250）约3分钟至吉野山站。花期有奈良交通临时巴士（吉野站至竹林院¥500单程）及山上循环小巴（至奥千本¥400）。花期8:00–21:00禁止车辆进入下/中千本区域。"
     },
-    "official_url": "https://yoshinoyama-kankou.com/sakura/",
-    "access": "近铁吉野线「吉野」站乘吉野ロープウェイ（成人¥500/小学生¥250）约3分钟至吉野山站。花期有奈良交通临时巴士（吉野站至竹林院¥500单程）及山上循环小巴（至奥千本¥400）。花期8:00–21:00禁止车辆进入下/中千本区域。",
-    "short_desc": "日本三大樱花名所之一，约3万棵山樱分布在下/中/上/奥千本四区，海拔差异令花期前后延续近一个月。UNESCO世界遗产（纪伊山地灵场与参拜道）。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "seasonal_notes": {
-      "spring": "例年3月下旬–4月中旬；下千本→中千本→上千本→奥千本逐次开放，时间差约1周；花期8:00–21:00禁止私家车，建议公共交通",
-      "ropeway": "吉野ロープウェイ花期运营（约3月20日–5月6日），其他期间班次有限",
-      "world_heritage": "2004年列入UNESCO（纪伊山地灵场与参拜道）"
+    "templates_meta": {
+      "季节看点": "【春】例年3月下旬–4月中旬；下千本→中千本→上千本→奥千本逐次开放，时间差约1周；花期8:00–21:00禁止私家车，建议公共交通"
     },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://yoshinoyama-kankou.com/sakura/",
       "https://www.visitnara.jp/venues/E02027/"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 樱花盛期（3月下旬-4月上旬）：山上人流极大，索道/缆车 30-60 分钟；建议早去或平日\n- 平季：无显著排队"
+    "最后核实": "2026-04-21"
   },
   "nar_kasuga_taisha": {
     "entity_id": "nar_kasuga_taisha",
-    "_alias": [
-      "nar_kasugataisha"
-    ],
-    "name_zh": "春日大社",
-    "name_ja": "春日大社",
-    "name_en": "Kasuga Taisha Grand Shrine",
+    "city": "nara",
     "area": "nara_park",
-    "category": "shrine",
-    "coordinates": {
-      "lat": 34.6817,
-      "lng": 135.8483
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "春日大社（Kasuga Taisha Grand Shrine）",
+      "简介": "奈良最重要的神社，创建于768年，为藤原氏氏神所在。以3,000余个石灯笼和铜灯笼著称，2月节分和8月中元举办「万灯籠」全部点灯仪式。UNESCO世界文化遗产（古都奈良历史遗迹群）。；禁三脚架",
+      "票价": "初中生以下内院参拜免费；外苑免费参拜。博物馆¥700，植物园¥700。",
+      "营业": "3–10月 06:30–17:30；11–2月 07:00–17:00。内院特别参拜09:00–16:00（部分日期休止），休：内院参拜关闭日：3月8–13日、12月20日–1月7日、每月第2个周一等，最终入场：内院参拜16:00",
+      "怎么去": "从近铁「奈良」站步行约30分钟，或乘公交至「春日大社本殿」站（¥250）步行约3分钟。"
     },
-    "official_url": "https://www.kasugataisha.or.jp/en/",
-    "access": "从近铁「奈良」站步行约30分钟，或乘公交至「春日大社本殿」站（¥250）步行约3分钟。",
-    "short_desc": "奈良最重要的神社，创建于768年，为藤原氏氏神所在。以3,000余个石灯笼和铜灯笼著称，2月节分和8月中元举办「万灯籠」全部点灯仪式。UNESCO世界文化遗产（古都奈良历史遗迹群）。",
-    "opening_hours": {
-      "regular": "3–10月 06:30–17:30；11–2月 07:00–17:00。内院特别参拜09:00–16:00（部分日期休止）",
-      "closed": "内院参拜关闭日：3月8–13日、12月20日–1月7日、每月第2个周一等",
-      "last_entry": "内院参拜16:00"
+    "templates_meta": {
+      "季节看点": "【夏】8月14–15日中元万灯籠祭，全灯点亮\n【秋】11月红叶衬托朱漆社殿，为摄影热门时节"
     },
-    "admission": {
-      "adult": 700,
-      "child": 0,
-      "unit": "JPY",
-      "_note": "初中生以下内院参拜免费；外苑免费参拜。博物馆¥700，植物园¥700。"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "winter_spring": "2月节分万灯籠祭（约2月3日前后）：全部灯笼点亮，气氛神圣",
-      "summer": "8月14–15日中元万灯籠祭，全灯点亮",
-      "autumn": "11月红叶衬托朱漆社殿，为摄影热门时节"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.kasugataisha.or.jp/en/about_en/basic/",
       "https://www.japan-guide.com/e/e4102.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 旺季（春鹿角/秋鹿鸣）：本殿参拜 0-15 分钟；境内免费参观无排队\n- 万燈籠特别参拝（2月3日/8月15日）：排队 15-30 分钟"
+    "最后核实": "2026-04-21"
   },
   "nar_mizuya_chaya": {
     "entity_id": "nar_mizuya_chaya",
-    "name_zh": "水谷茶屋",
-    "name_ja": "水谷茶屋",
-    "name_en": "Mizuya Chaya Teahouse",
+    "city": "nara",
     "area": "nara_park",
-    "category": "experience",
-    "coordinates": {
-      "lat": 34.6845,
-      "lng": 135.8455
+    "category": "体验",
+    "depth": "full",
+    "note": {
+      "店名": "水谷茶屋（Mizuya Chaya Teahouse）",
+      "简介": "春日大社境内原茅葺屋顶式茶屋，周围环绕奈良公园及春日大社参道绿林，提供传统甜点・轻食（わらびもち・雑煮等）。奈良最具历史氛围的休息点之一。",
+      "票价": "入场免费；饮食单点（わらびもち约¥500–¥800，甘酒等）",
+      "营业": "10:00–16:30（LO 16:00），休：每周二（遇节假日翌日休），最终入场：16:00",
+      "怎么去": "春日大社本殿参道旁，从春日大社本殿步行约3分钟；从近铁「奈良」站步行约35分钟，或乘公交至「春日大社本殿」站步行约5分钟。"
     },
-    "official_url": "https://www.kasugataisha.or.jp/",
-    "access": "春日大社本殿参道旁，从春日大社本殿步行约3分钟；从近铁「奈良」站步行约35分钟，或乘公交至「春日大社本殿」站步行约5分钟。",
-    "short_desc": "春日大社境内原茅葺屋顶式茶屋，周围环绕奈良公园及春日大社参道绿林，提供传统甜点・轻食（わらびもち・雑煮等）。奈良最具历史氛围的休息点之一。",
-    "opening_hours": {
-      "regular": "10:00–16:30（LO 16:00）",
-      "closed": "每周二（遇节假日翌日休）",
-      "last_entry": "16:00"
+    "templates_meta": {
+      "季节看点": "【春】3月下旬–4月上旬桜花环绕茶屋，為奈良最有情调的春日休息点\n【秋】11月红叶，与春日大社参道构成绝景"
     },
-    "admission": {
-      "adult": 0,
-      "unit": "JPY",
-      "_note": "入场免费；饮食单点（わらびもち约¥500–¥800，甘酒等）"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "spring": "3月下旬–4月上旬桜花环绕茶屋，為奈良最有情调的春日休息点",
-      "autumn": "11月红叶，与春日大社参道构成绝景"
-    },
-    "data_confidence": "cross_checked",
-    "data_sources": [
+    "可信度": "cross_checked",
+    "数据来源": [
       "https://www.kasugataisha.or.jp/",
       "https://www.japan-guide.com/e/e4101.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无显著排队；小茶屋随时可入"
+    "最后核实": "2026-04-21"
   },
   "hyg_himejijo": {
     "entity_id": "hyg_himejijo",
-    "name_zh": "姬路城",
-    "name_ja": "姫路城",
-    "name_en": "Himeji Castle",
+    "city": "himeji",
     "area": "himeji",
-    "category": "castle",
-    "coordinates": {
-      "lat": 34.8394,
-      "lng": 134.6939
+    "category": "城",
+    "depth": "full",
+    "note": {
+      "店名": "姬路城（姫路城 / Himeji Castle）",
+      "简介": "日本最大・最完整的现存木造城郭（国宝），「白鷺城」之称因纯白灰泥外墙而来，1993年列入UNESCO世界文化遗产，日本第一号世界遗产之一。",
+      "票价": "⚠️ 2026年3月1日起成人票由¥1,000涨至¥2,500；小・中学生由¥300涨至¥1,250（姫路城+好古园套票成人¥2,910）",
+      "营业": "09:00–17:00（最终入场16:00）；夏季（4月27日–8月31日）09:00–18:00（最终入场17:00），休：12月29日–31日，最终入场：16:00（夏季17:00）",
+      "怎么去": "JR「姫路」站北口步行约15分钟，或乘神姫巴士至「大手門前」约5分钟；从新大阪乘新干线约30分钟（¥2,910）至姫路；从大阪・三宮乘JR新快速约60分钟（¥1,080–¥1,310）。"
     },
-    "official_url": "https://www.himejicastle.jp/en/",
-    "access": "JR「姫路」站北口步行约15分钟，或乘神姫巴士至「大手門前」约5分钟；从新大阪乘新干线约30分钟（¥2,910）至姫路；从大阪・三宮乘JR新快速约60分钟（¥1,080–¥1,310）。",
-    "short_desc": "日本最大・最完整的现存木造城郭（国宝），「白鷺城」之称因纯白灰泥外墙而来，1993年列入UNESCO世界文化遗产，日本第一号世界遗产之一。",
-    "opening_hours": {
-      "regular": "09:00–17:00（最终入场16:00）；夏季（4月27日–8月31日）09:00–18:00（最终入场17:00）",
-      "closed": "12月29日–31日",
-      "last_entry": "16:00（夏季17:00）"
+    "templates_meta": {
+      "季节看点": "【春】3月下旬–4月上旬西の丸庭园约1,000棵樱花，为日本最知名城×樱花景观\n【秋】11月天守阁与红叶构图"
     },
-    "admission": {
-      "adult": 2500,
-      "student_elementary_junior": 1250,
-      "unit": "JPY",
-      "_note": "⚠️ 2026年3月1日起成人票由¥1,000涨至¥2,500；小・中学生由¥300涨至¥1,250（姫路城+好古园套票成人¥2,910）"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "unesco": true,
-    "seasonal_notes": {
-      "spring": "3月下旬–4月上旬西の丸庭园约1,000棵樱花，为日本最知名城×樱花景观",
-      "autumn": "11月天守阁与红叶构图"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.himejicastle.jp/en/",
       "https://www.japan-guide.com/e/e3501.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 樱花期周末（3月下旬-4月上旬）：天守堂内部排队堪比迪士尼，30-60 分钟或以上\n- 普通旺季（周末）：入场 15-30 分钟；天守内 15-30 分钟\n- 平季工作日：0-15 分钟\n- 建议：开门（9:00）前排队，或下午 15:00 后人流减少\n- 数据来源：小红书「凯尔文」2026/3 collects=42（「周末天守堵成迪士尼」）；「竹bam」2025/4 collects=57（cross_checked）"
+    "最后核实": "2026-04-21"
   },
   "hyg_kokoen": {
     "entity_id": "hyg_kokoen",
-    "name_zh": "好古园",
-    "name_ja": "好古園",
-    "name_en": "Kokoen Garden",
+    "city": "himeji",
     "area": "himeji",
-    "category": "garden",
-    "coordinates": {
-      "lat": 34.8376,
-      "lng": 134.689
+    "category": "庭园",
+    "depth": "full",
+    "note": {
+      "店名": "好古园（好古園 / Kokoen Garden）",
+      "简介": "1992年开园，建于姬路城西御屋敷遗址，9个主题庭园（枯山水・茶庭・池泉回游等）组成约3.5公顷日本庭园，春秋特别夜间灯光最美。；禁三脚架",
+      "票价": "单独入园：成人¥310，小・中学生¥150；姬路城+好古园套票成人¥2,910（更划算）",
+      "营业": "09:00–17:00（8月中旬特别延长至18:00；夜间特别开放期至20:00），休：12月29日–31日，最终入场：16:30",
+      "怎么去": "JR「姫路」站步行约15分钟；与姬路城西御屋敷跡直接相邻，参观完姬路城后步行约3分钟即达。"
     },
-    "official_url": "https://www.himeji-machishin.jp/ryokka/kokoen/",
-    "access": "JR「姫路」站步行约15分钟；与姬路城西御屋敷跡直接相邻，参观完姬路城后步行约3分钟即达。",
-    "short_desc": "1992年开园，建于姬路城西御屋敷遗址，9个主题庭园（枯山水・茶庭・池泉回游等）组成约3.5公顷日本庭园，春秋特别夜间灯光最美。",
-    "opening_hours": {
-      "regular": "09:00–17:00（8月中旬特别延长至18:00；夜间特别开放期至20:00）",
-      "closed": "12月29日–31日",
-      "last_entry": "16:30"
+    "templates_meta": {
+      "季节看点": "【春】4月上旬约500棵樱花，与姬路城天守同景\n【秋】11月夜间灯光特别开放（约¥510，以官方为准）"
     },
-    "admission": {
-      "adult": 310,
-      "child": 150,
-      "unit": "JPY",
-      "_note": "单独入园：成人¥310，小・中学生¥150；姬路城+好古园套票成人¥2,910（更划算）"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "spring": "4月上旬约500棵樱花，与姬路城天守同景",
-      "autumn": "11月夜间灯光特别开放（约¥510，以官方为准）"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.himeji-machishin.jp/ryokka/kokoen/",
       "https://www.japan-guide.com/e/e3502.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 姬路城套票入园；0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "kob_maya_kikuseidai": {
     "entity_id": "kob_maya_kikuseidai",
-    "name_zh": "摩耶山掬星台",
-    "name_ja": "摩耶山掬星台",
-    "name_en": "Mt. Maya Kikuseidai Observation Deck",
+    "city": "kobe",
     "area": "kobe_rokko",
-    "category": "observation_deck",
-    "coordinates": {
-      "lat": 34.7342,
-      "lng": 135.2064
+    "category": "展望",
+    "depth": "full",
+    "note": {
+      "店名": "摩耶山掬星台（Mt. Maya Kikuseidai Observation Deck）",
+      "简介": "海拔702米的展望台，日文字意为「掬取星辰之台」，是日本三大夜景之一（与函馆山、稻佐山并称），神户与大阪夜景尽收眼底，获米其林绿色指南二星。",
+      "票价": "展望台本身免费；抵达需乘摩耶ViewLine，往返成人¥1,560，儿童¥780；单程成人¥900，儿童¥450",
+      "营业": "摩耶ViewLine（缆车+索道）平日约10:00–17:30，周末约10:00–20:50（随季节变化，以官方时刻表为准），休：每周二休息（遇节假日则改翌日休）；冬季（11月–3月中旬）部分时段缩短，最终入场：末班车前（需提前确认时刻表）",
+      "怎么去": "从三宫站乘神户市营巴士18路至「摩耶ケーブル下」（约30分钟），转摩耶ケーブル（索道）至「虹の駅」，再换乘摩耶ロープウェー至「星の駅」（掬星台旁）。"
     },
-    "official_url": "https://koberope.jp/en/maya/",
-    "access": "从三宫站乘神户市营巴士18路至「摩耶ケーブル下」（约30分钟），转摩耶ケーブル（索道）至「虹の駅」，再换乘摩耶ロープウェー至「星の駅」（掬星台旁）。",
-    "short_desc": "海拔702米的展望台，日文字意为「掬取星辰之台」，是日本三大夜景之一（与函馆山、稻佐山并称），神户与大阪夜景尽收眼底，获米其林绿色指南二星。",
-    "opening_hours": {
-      "regular": "摩耶ViewLine（缆车+索道）平日约10:00–17:30，周末约10:00–20:50（随季节变化，以官方时刻表为准）",
-      "closed": "每周二休息（遇节假日则改翌日休）；冬季（11月–3月中旬）部分时段缩短",
-      "last_entry": "末班车前（需提前确认时刻表）"
+    "templates_meta": {
+      "季节看点": "【夏】7–8月末班车至20:50，最适合夜景\n【冬】11月–3月平日末班车提前至17:30，注意错过末班车后需步行下山"
     },
-    "admission": {
-      "adult": 0,
-      "unit": "JPY",
-      "_note": "展望台本身免费；抵达需乘摩耶ViewLine，往返成人¥1,560，儿童¥780；单程成人¥900，儿童¥450"
-    },
-    "viewline_fare": {
-      "adult_roundtrip": 1560,
-      "child_roundtrip": 780,
-      "adult_oneway": 900,
-      "child_oneway": 450,
-      "unit": "JPY"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "seasonal_notes": {
-      "general": "建议日落前30–60分钟抵达，同时欣赏暮色与夜景",
-      "summer": "7–8月末班车至20:50，最适合夜景",
-      "winter": "11月–3月平日末班车提前至17:30，注意错过末班车后需步行下山"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://koberope.jp/en/maya/price",
       "https://www.feel-kobe.jp/en/attractions/detail_1064.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无显著排队；缆车旺季 15-30 分钟等候"
+    "最后核实": "2026-04-21"
   },
   "kob_rokko_forest_garden": {
     "entity_id": "kob_rokko_forest_garden",
-    "name_zh": "神户市立森林植物园",
-    "name_ja": "神戸市立森林植物園",
-    "name_en": "Kobe Municipal Forest Botanical Garden",
+    "city": "kobe",
     "area": "kobe_kita",
-    "category": "garden",
-    "coordinates": {
-      "lat": 34.7586,
-      "lng": 135.1739
+    "category": "庭园",
+    "depth": "full",
+    "note": {
+      "店名": "神户市立森林植物园（神戸市立森林植物園 / Kobe Municipal Forest Botanical Garden）",
+      "简介": "关西最大级绣球花园，142公顷森林中5万株25种350品种绣球花，包含六甲山稀有原生品种「七段花」。神户市花绣球花爱好者朝圣地。；禁三脚架",
+      "票价": "成人（15岁以上非中学生）¥300；小学/中学生¥150；神户市65岁以上居民凭证免费；神户市高中生凭学生证免费",
+      "营业": "09:00–17:00（最终入场16:30），最终入场：16:30",
+      "怎么去": "①全年：地铁「谷上」站换乘神户电铁至「北鈴蘭台」站，东出口乘免费接驳巴士约10分钟（每小时05分发车）。②周末节假日（4–11月）：JR「三ノ宮」站东口乘神户市バス25路「森林植物園前」站，约40分钟。驾车约25分钟，停车¥700/天。"
     },
-    "official_url": "https://www.kobe-park.or.jp/shinrin/",
-    "access": "①全年：地铁「谷上」站换乘神户电铁至「北鈴蘭台」站，东出口乘免费接驳巴士约10分钟（每小时05分发车）。②周末节假日（4–11月）：JR「三ノ宮」站东口乘神户市バス25路「森林植物園前」站，约40分钟。驾车约25分钟，停车¥700/天。",
-    "short_desc": "关西最大级绣球花园，142公顷森林中5万株25种350品种绣球花，包含六甲山稀有原生品种「七段花」。神户市花绣球花爱好者朝圣地。",
-    "opening_hours": {
-      "regular": "09:00–17:00（最终入场16:30）",
-      "closed": "每周三（遇节假日顺延至翌日）；12月29日–1月3日；绣球花·红叶特别活动期间无休",
-      "last_entry": "16:30"
-    },
-    "admission": {
-      "adult": 300,
-      "child": 150,
-      "unit": "JPY",
-      "_note": "成人（15岁以上非中学生）¥300；小学/中学生¥150；神户市65岁以上居民凭证免费；神户市高中生凭学生证免费"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "ajisai": "6月中旬–7月中旬，50,000株，350品种；「七段花」为六甲山原生极稀有品种；活动期间每日开园（含周三）",
-      "other_seasons": "春：樱花・杜鹃・石楠花；秋：红叶"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.kobe-park.or.jp/shinrin/guide_garden/summary/",
       "https://kobe-rokko.jp/en/events/1483/"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无显著排队；0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "kob_kitano_ijinkan": {
     "entity_id": "kob_kitano_ijinkan",
-    "name_zh": "北野异人馆",
-    "name_ja": "北野異人館街",
-    "name_en": "Kitano Ijinkan District",
+    "city": "kobe",
     "area": "kobe_kitano",
-    "category": "district",
-    "coordinates": {
-      "lat": 34.703,
-      "lng": 135.193
+    "category": "街区",
+    "depth": "full",
+    "note": {
+      "店名": "北野异人馆（北野異人館街 / Kitano Ijinkan District）",
+      "简介": "明治至大正时代神户外国商人聚居地，保存约30栋风貌完整的洋风建筑，16栋对外开放参观。石板小径与彩色玫瑰花圃构成独特氛围，即便不入内参观亦值得漫步。",
+      "票价": "外观及步行道免费；参观馆内需购票。建议官网或现场购买套票。",
+      "营业": "4–9月 09:30–18:00；10–3月 09:30–17:00。各馆开放时间略有差异，休：各馆各异：风见鸡馆（6月及2月第一个周二）；萌黄之馆（每月第三个周二），最终入场：各馆闭馆前15分钟",
+      "怎么去": "从三宫站（阪急/阪神/JR）或新神户站（新干线）步行约10–15分钟上山。亦可乘City Loop巴士至「北野異人館」站（约10分钟，¥260）。"
     },
-    "official_url": "https://kobe-ijinkan.net/md/en/",
-    "access": "从三宫站（阪急/阪神/JR）或新神户站（新干线）步行约10–15分钟上山。亦可乘City Loop巴士至「北野異人館」站（约10分钟，¥260）。",
-    "short_desc": "明治至大正时代神户外国商人聚居地，保存约30栋风貌完整的洋风建筑，16栋对外开放参观。石板小径与彩色玫瑰花圃构成独特氛围，即便不入内参观亦值得漫步。",
-    "opening_hours": {
-      "regular": "4–9月 09:30–18:00；10–3月 09:30–17:00。各馆开放时间略有差异",
-      "closed": "各馆各异：风见鸡馆（6月及2月第一个周二）；萌黄之馆（每月第三个周二）",
-      "last_entry": "各馆闭馆前15分钟"
+    "templates_meta": {
+      "季节看点": "【春】4–5月玫瑰花园盛开，风见鸡馆前庭最美\n【秋】11月红叶映衬洋馆外墙，为摄影热门时节\n【冬】12月圣诞灯饰装扮，浪漫氛围浓厚"
     },
-    "admission": {
-      "adult": "未核实（各馆单独收费，约¥550–¥1,050；3馆套票约¥1,540）",
-      "child": "未核实",
-      "unit": "JPY",
-      "_note": "外观及步行道免费；参观馆内需购票。建议官网或现场购买套票。"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "spring": "4–5月玫瑰花园盛开，风见鸡馆前庭最美",
-      "autumn": "11月红叶映衬洋馆外墙，为摄影热门时节",
-      "winter": "12月圣诞灯饰装扮，浪漫氛围浓厚"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://kobe-ijinkan.net/md/en/",
       "https://www.japan-guide.com/e/e3550.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无显著排队；各异人馆独立买票 0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "arm_arima_onsen": {
     "entity_id": "arm_arima_onsen",
-    "name_zh": "有马温泉",
-    "name_ja": "有馬温泉",
-    "name_en": "Arima Onsen",
+    "city": "arima",
     "area": "arima",
-    "category": "area",
-    "coordinates": {
-      "lat": 34.7986,
-      "lng": 135.2469
+    "category": "街区",
+    "depth": "full",
+    "note": {
+      "店名": "有马温泉（有馬温泉 / Arima Onsen）",
+      "简介": "日本最古老的温泉地之一（史书记载逾1,300年），以「金泉」（含铁质，棕红色，美肌效果）和「银泉」（含镭和碳酸，无色，关节舒缓）两种稀有泉质著称。全区可步行游览，曲径老街保留江户情调。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "从三宫站乘地铁至「谷上」站，转神铁有马线至「有马温泉」站（全程约30–40分钟，¥720）；从新神户站乘高速巴士直达（约30分钟）；从大阪梅田乘巴士约60分钟（¥1,400）。JR通票不可用。"
     },
-    "official_url": "https://visit.arima-onsen.com/",
-    "access": "从三宫站乘地铁至「谷上」站，转神铁有马线至「有马温泉」站（全程约30–40分钟，¥720）；从新神户站乘高速巴士直达（约30分钟）；从大阪梅田乘巴士约60分钟（¥1,400）。JR通票不可用。",
-    "short_desc": "日本最古老的温泉地之一（史书记载逾1,300年），以「金泉」（含铁质，棕红色，美肌效果）和「银泉」（含镭和碳酸，无色，关节舒缓）两种稀有泉质著称。全区可步行游览，曲径老街保留江户情调。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "seasonal_notes": {
-      "autumn": "11月红叶季为最旺时节，旅馆需提前预订",
-      "winter": "12–2月温泉气氛最为浓郁",
-      "spring": "3–4月新绿，人流相对适中",
-      "summer": "8月凉爽避暑泡汤需求增加"
+    "templates_meta": {
+      "季节看点": "【春】3–4月新绿，人流相对适中\n【夏】8月凉爽避暑泡汤需求增加\n【秋】11月红叶季为最旺时节，旅馆需提前预订\n【冬】12–2月温泉气氛最为浓郁"
     },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://visit.arima-onsen.com/",
       "https://www.japan-guide.com/e/e3558.html",
       "https://www.japan.travel/en/spot/1025/"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 金之汤/银之汤旺季（周末/黄金周）：入浴 15-30 分钟等候；平季 0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "arm_kin_no_yu": {
     "entity_id": "arm_kin_no_yu",
-    "_alias": [
-      "arm_kinnosyu"
-    ],
-    "name_zh": "金之汤",
-    "name_ja": "金の湯",
-    "name_en": "Kin no Yu (Gold Spring Public Bath)",
+    "city": "arima",
     "area": "arima",
-    "category": "onsen",
-    "coordinates": {
-      "lat": 34.7985,
-      "lng": 135.247
+    "category": "温泉",
+    "depth": "full",
+    "note": {
+      "店名": "金之汤（金の湯 / Kin no Yu (Gold Spring Public Bath)）",
+      "简介": "有马温泉最具代表性的公共浴场，「金泉」（富含铁质与盐分，呈红褐色）享誉日本。馆内设男女各两个浴槽，门外有免费足汤与金泉饮水台，是来有马必泡的体验。；禁止拍照",
+      "票价": "平日非旺季¥650（以官方公告为准）；金银双泉套票¥1,200",
+      "营业": "08:00–22:00，休：每月第2、4个周二（节假日顺延至翌日）；1月1日，最终入场：21:30",
+      "怎么去": "从神铁「有马温泉」站步行约5分钟，位于温泉街中心区。"
     },
-    "official_url": "https://visit.arima-onsen.com/directory/do/kin-no-yu/",
-    "access": "从神铁「有马温泉」站步行约5分钟，位于温泉街中心区。",
-    "short_desc": "有马温泉最具代表性的公共浴场，「金泉」（富含铁质与盐分，呈红褐色）享誉日本。馆内设男女各两个浴槽，门外有免费足汤与金泉饮水台，是来有马必泡的体验。",
-    "opening_hours": {
-      "regular": "08:00–22:00",
-      "closed": "每月第2、4个周二（节假日顺延至翌日）；1月1日",
-      "last_entry": "21:30"
+    "templates_meta": {
+      "季节看点": "【秋】11月红叶季为旺季，等待时间较长，建议清晨或平日前往"
     },
-    "admission": {
-      "adult_regular": 800,
-      "combination_ticket_both_baths": 1200,
-      "unit": "JPY",
-      "_note": "平日非旺季¥650（以官方公告为准）；金银双泉套票¥1,200"
-    },
-    "closed_days": "每月第2、4个周二（节假日顺延至翌日）；1月1日",
-    "reservation_required": false,
-    "photo_ok": false,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "autumn": "11月红叶季为旺季，等待时间较长，建议清晨或平日前往",
-      "general": "馆外免费足汤全天开放，无需入场费即可体验金泉"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://visit.arima-onsen.com/directory/do/kin-no-yu/",
       "https://www.japan-guide.com/e/e3558.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 旺季周末：入浴排队 15-30 分钟\n- 平季工作日：0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "arm_ginnosyu": {
     "entity_id": "arm_ginnosyu",
-    "name_zh": "银之汤",
-    "name_ja": "銀の湯",
-    "name_en": "Gin no Yu (Silver Spring Public Bath)",
+    "city": "arima",
     "area": "arima",
-    "category": "onsen",
-    "coordinates": {
-      "lat": 34.7987,
-      "lng": 135.2481
+    "category": "温泉",
+    "depth": "full",
+    "note": {
+      "店名": "银之汤（銀の湯 / Gin no Yu (Silver Spring Public Bath)）",
+      "简介": "有马温泉的「银泉」公共浴场，含碳酸与镭元素的清澈无色温泉，仿古石浴池风格，设振動浴・瀑布浴及蒸汽桑拿，规模较金之汤小而氛围更为幽静。；禁止拍照",
+      "票价": "平日非旺季¥550（以官方公告为准）；金银双泉套票¥1,200",
+      "营业": "09:00–21:00，休：每月第1、3个周二（节假日顺延至翌日）；1月1日，最终入场：20:30",
+      "怎么去": "从神铁「有马温泉」站步行约10分钟，位于温泉街稍深处，较金之汤僻静。"
     },
-    "official_url": "https://visit.arima-onsen.com/directory/do/gin-no-yu/",
-    "access": "从神铁「有马温泉」站步行约10分钟，位于温泉街稍深处，较金之汤僻静。",
-    "short_desc": "有马温泉的「银泉」公共浴场，含碳酸与镭元素的清澈无色温泉，仿古石浴池风格，设振動浴・瀑布浴及蒸汽桑拿，规模较金之汤小而氛围更为幽静。",
-    "opening_hours": {
-      "regular": "09:00–21:00",
-      "closed": "每月第1、3个周二（节假日顺延至翌日）；1月1日",
-      "last_entry": "20:30"
-    },
-    "admission": {
-      "adult_regular": 700,
-      "combination_ticket_both_baths": 1200,
-      "unit": "JPY",
-      "_note": "平日非旺季¥550（以官方公告为准）；金银双泉套票¥1,200"
-    },
-    "closed_days": "每月第1、3个周二（节假日顺延至翌日）；1月1日",
-    "reservation_required": false,
-    "photo_ok": false,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "general": "银泉为无色，与金之汤红褐色金泉形成对比，两者套票¥1,200可一日内体验双泉；银之汤客流量略少于金之汤，等待时间相对较短"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://visit.arima-onsen.com/directory/do/gin-no-yu/",
       "https://www.japan-guide.com/e/e3558.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 旺季周末：入浴排队 15-30 分钟\n- 平季：0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "kob_meriken_park": {
     "entity_id": "kob_meriken_park",
-    "name_zh": "美利坚公园",
-    "name_ja": "メリケンパーク",
-    "name_en": "Meriken Park",
+    "city": "kobe",
     "area": "kobe_waterfront",
-    "category": "park",
-    "coordinates": {
-      "lat": 34.6884,
-      "lng": 135.1912
+    "category": "自然",
+    "depth": "full",
+    "note": {
+      "店名": "美利坚公园（メリケンパーク / Meriken Park）",
+      "简介": "神户港旁的海滨公园，「BE KOBE」大型字母装置・神户海洋博物馆・川崎重工造船所等，是神户港夜景和阪神大地震遗构（震災メモリアルパーク）展示地。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "从三宫站乘市巴士（55路「波止場町」站）约15分钟；从新神户站乘地铁至「三宮」站换乘；步行约25分钟（宜徒步沿海滨）。"
     },
-    "official_url": "https://www.feel-kobe.jp/en/attractions/detail_1012.html",
-    "access": "从三宫站乘市巴士（55路「波止場町」站）约15分钟；从新神户站乘地铁至「三宮」站换乘；步行约25分钟（宜徒步沿海滨）。",
-    "short_desc": "神户港旁的海滨公园，「BE KOBE」大型字母装置・神户海洋博物馆・川崎重工造船所等，是神户港夜景和阪神大地震遗构（震災メモリアルパーク）展示地。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "seasonal_notes": {
-      "general": "「BE KOBE」文字装置夜间灯光最美（日落后）；4月ルミナリエ历史纪念区在此附近举行",
-      "winter": "12月神户ルミナリエ（震災追悼灯饰）每年举行，以官方公告为准"
+    "templates_meta": {
+      "季节看点": "【冬】12月神户ルミナリエ（震災追悼灯饰）每年举行，以官方公告为准"
     },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.feel-kobe.jp/en/attractions/detail_1012.html",
       "https://www.japan-guide.com/e/e3554.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无门票无排队（公共公园）"
+    "最后核实": "2026-04-21"
   },
   "kob_rokko_cable": {
     "entity_id": "kob_rokko_cable",
-    "name_zh": "六甲山缆车（六甲ケーブル）",
-    "name_ja": "六甲ケーブル",
-    "name_en": "Rokko Cable Car",
+    "city": "kobe",
     "area": "kobe_rokko",
-    "category": "transport",
-    "coordinates": {
-      "lat": 34.7423,
-      "lng": 135.2457
+    "category": "交通",
+    "depth": "full",
+    "note": {
+      "店名": "六甲山缆车（六甲ケーブル）（六甲ケーブル / Rokko Cable Car）",
+      "简介": "连接六甲山麓与山顶（标高737米）的登山缆车，1932年开业，抵达后可步行至六甲枝垂・六甲高山植物园・六甲ガーデンテラス等设施。",
+      "票价": "票价为停运前数据（往返成人¥1,300），恢复运营后以官方为准",
+      "营业": "⚠️ 2026年1月5日起停运大规模更新工事，恢复时间以官方公告为准，休：2026年运营暂停中",
+      "怎么去": "阪急神戸线「六甲」站换乗神户市バス16路至「六甲ケーブル下」站（约13分钟），乘六甲ケーブル约10分钟至「六甲山上」站。"
     },
-    "official_url": "https://www.rokkosan.com/cable_ropeway/",
-    "access": "阪急神戸线「六甲」站换乗神户市バス16路至「六甲ケーブル下」站（约13分钟），乘六甲ケーブル约10分钟至「六甲山上」站。",
-    "short_desc": "连接六甲山麓与山顶（标高737米）的登山缆车，1932年开业，抵达后可步行至六甲枝垂・六甲高山植物园・六甲ガーデンテラス等设施。",
-    "opening_hours": {
-      "regular": "⚠️ 2026年1月5日起停运大规模更新工事，恢复时间以官方公告为准",
-      "closed": "2026年运营暂停中",
-      "last_entry": null
-    },
-    "admission": {
-      "adult": 1300,
-      "child": 650,
-      "unit": "JPY",
-      "_note": "票价为停运前数据（往返成人¥1,300），恢复运营后以官方为准"
-    },
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "general": "⚠️ 2026年1月起停运更新工事中，前往六甲山上可改乘神户市バス16/116路直行（有代替巴士）"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.rokkosan.com/cable_ropeway/",
       "https://www.japan-guide.com/e/e3551.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 旺季（红叶/夜景期）：缆车 15-30 分钟等候；平季 0-15 分钟"
+    "最后核实": "2026-04-21"
   },
   "kob_kitano_kyoryuchi": {
     "entity_id": "kob_kitano_kyoryuchi",
-    "_alias": [
-      "kob_kyoryuchi"
-    ],
-    "name_zh": "旧居留地",
-    "name_ja": "旧居留地",
-    "name_en": "Old Foreign Settlement (Kyu-Kyoryuchi)",
+    "city": "kobe",
     "area": "kobe_central",
-    "category": "district",
-    "coordinates": {
-      "lat": 34.6916,
-      "lng": 135.1934
+    "category": "街区",
+    "depth": "full",
+    "note": {
+      "店名": "旧居留地（Old Foreign Settlement (Kyu-Kyoryuchi)）",
+      "简介": "明治时代外国商人居住区，现存约50栋欧风历史建筑群，内为高端时装品牌・咖啡馆・餐厅，与北野异人馆并为神户洋风建筑代表地区。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "地铁海岸线「旧居留地・大丸前」站下车即到；从三宫站步行约15分钟。"
     },
-    "official_url": "https://www.feel-kobe.jp/en/attractions/detail_1007.html",
-    "access": "地铁海岸线「旧居留地・大丸前」站下车即到；从三宫站步行约15分钟。",
-    "short_desc": "明治时代外国商人居住区，现存约50栋欧风历史建筑群，内为高端时装品牌・咖啡馆・餐厅，与北野异人馆并为神户洋风建筑代表地区。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": false,
-    "seasonal_notes": {
-      "general": "圣诞灯饰约12月举行；春季玫瑰（大丸神户店前）约5月盛开"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.feel-kobe.jp/en/attractions/detail_1007.html",
       "https://www.japan-guide.com/e/e3553.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 无显著排队"
+    "最后核实": "2026-04-21"
   },
   "shg_biwako": {
     "entity_id": "shg_biwako",
-    "name_zh": "琵琶湖",
-    "name_ja": "琵琶湖",
-    "name_en": "Lake Biwa",
+    "city": "other",
     "area": "shiga",
-    "category": "lake",
-    "coordinates": {
-      "lat": 35.2165,
-      "lng": 135.9993
+    "category": "自然",
+    "depth": "full",
+    "note": {
+      "店名": "琵琶湖（Lake Biwa）",
+      "简介": "日本最大淡水湖（670km²），约400万年以上历史的古代湖。湖岸235km散布神社・城下町・海水浴场，从京都・大阪均可日归。",
+      "票价": "免费",
+      "营业": "24h",
+      "怎么去": "从京都站乘JR琵琶湖线至「大津」站约10分钟（¥230）。彦根・长浜方向乘新快速约50–60分钟（¥1,170）。西岸（白须神社方向）乘JR湖西线至「近江高島」等站。"
     },
-    "official_url": "https://www.japan.travel/en/spot/1052/",
-    "access": "从京都站乘JR琵琶湖线至「大津」站约10分钟（¥230）。彦根・长浜方向乘新快速约50–60分钟（¥1,170）。西岸（白须神社方向）乘JR湖西线至「近江高島」等站。",
-    "short_desc": "日本最大淡水湖（670km²），约400万年以上历史的古代湖。湖岸235km散布神社・城下町・海水浴场，从京都・大阪均可日归。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "highlight_spots": [
-      {
-        "name": "白鬚神社（水上鸟居）",
-        "access": "JR湖西线「近江高島」站乘巴士或步行约30分钟"
-      },
-      {
-        "name": "彦根城",
-        "access": "JR「彦根」站步行15分钟",
-        "admission_note": "成人¥1,000"
-      },
-      {
-        "name": "びわ湖テラス（缆车）",
-        "access": "JR湖西线「志賀」站乘巴士约9分钟"
-      },
-      {
-        "name": "竹生島（船渡）",
-        "access": "长浜港・彦根港・今津港乘渡轮"
-      }
-    ],
-    "seasonal_notes": {
-      "summer": "近江舞子海水浴场7–8月为旺季；7月下旬琵琶湖花火大会（约30万人）",
-      "spring": "北岸樱花并木4月上旬盛开",
-      "autumn": "竹生岛・近江八幡历史地区秋季最美",
-      "winter": "びわ湖バレイ滑雪场（12–3月）；湖岸冬日静谧"
+    "templates_meta": {
+      "季节看点": "【春】北岸樱花并木4月上旬盛开\n【夏】近江舞子海水浴场7–8月为旺季；7月下旬琵琶湖花火大会（约30万人）\n【秋】竹生岛・近江八幡历史地区秋季最美\n【冬】びわ湖バレイ滑雪场（12–3月）；湖岸冬日静谧"
     },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.japan.travel/en/spot/1052/",
       "https://japancheapo.com/travel/kyoto-lake-biwa-day-trip/"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 游船/参观设施：0-15 分钟；大型活动日除外"
+    "最后核实": "2026-04-21"
   },
   "kns_kinosaki": {
     "entity_id": "kns_kinosaki",
-    "name_zh": "城崎温泉",
-    "name_ja": "城崎温泉",
-    "name_en": "Kinosaki Onsen",
+    "city": "kinosaki",
     "area": "kinosaki",
-    "category": "area",
-    "coordinates": {
-      "lat": 35.624,
-      "lng": 134.8128
+    "category": "街区",
+    "depth": "full",
+    "note": {
+      "店名": "城崎温泉（Kinosaki Onsen）",
+      "简介": "兵库县日本海侧温泉地，大溪川两岸柳树・木桥・浴衣巡游「外汤めぐり」文化完整，7座外汤公共浴场各有主题，以「一泊二外汤」为标准游法。志贺直哉小说《在城崎》舞台地。",
+      "票价": "免费；外汤めぐり1日券¥1,500（7汤自由游）；单座约¥800；部分旅馆住客含外汤券，确认入住旅馆政策",
+      "营业": "24h",
+      "怎么去": "JR山陰本线「城崎温泉」站（特急「こうのとり」号）：从新大阪约2.5小时（¥5,230–¥6,760）；从京都约2.5小时；从大阪城崎乘ICO约2小时40分。站前即进入温泉街，温泉旅馆多可步行到达。"
     },
-    "official_url": "https://www.kinosaki-spa.gr.jp/",
-    "access": "JR山陰本线「城崎温泉」站（特急「こうのとり」号）：从新大阪约2.5小时（¥5,230–¥6,760）；从京都约2.5小时；从大阪城崎乘ICO约2小时40分。站前即进入温泉街，温泉旅馆多可步行到达。",
-    "short_desc": "兵库县日本海侧温泉地，大溪川两岸柳树・木桥・浴衣巡游「外汤めぐり」文化完整，7座外汤公共浴场各有主题，以「一泊二外汤」为标准游法。志贺直哉小说《在城崎》舞台地。",
-    "is_public_path": true,
-    "admission": null,
-    "reservation_required": false,
-    "photo_ok": true,
-    "tripod_allowed": true,
-    "external_baths": {
-      "sotoyu_count": 7,
-      "day_pass": 1500,
-      "single_bath": 800,
-      "unit": "JPY",
-      "_note": "外汤めぐり1日券¥1,500（7汤自由游）；单座约¥800；部分旅馆住客含外汤券，确认入住旅馆政策"
+    "templates_meta": {
+      "季节看点": "【春】3–4月樱花沿大溪川盛开；游客数较冬季少，性价比高\n【夏】7–8月山陰海岸国立公园临近，海水浴客增加\n【冬】11–2月松葉ガニ（松叶蟹）旺季，旅馆套餐最贵（¥30,000+/泊）；泡汤赏雪为最人气体验"
     },
-    "seasonal_notes": {
-      "winter": "11–2月松葉ガニ（松叶蟹）旺季，旅馆套餐最贵（¥30,000+/泊）；泡汤赏雪为最人气体验",
-      "spring": "3–4月樱花沿大溪川盛开；游客数较冬季少，性价比高",
-      "summer": "7–8月山陰海岸国立公园临近，海水浴客增加",
-      "general": "浴衣外汤巡游（夕方-晩) 为核心体验，各旅馆提供借/租浴衣服务"
-    },
-    "data_confidence": "verified",
-    "data_sources": [
+    "可信度": "verified",
+    "数据来源": [
       "https://www.kinosaki-spa.gr.jp/",
       "https://www.japan-guide.com/e/e3567.html"
     ],
-    "last_verified": "2026-04-21",
-    "notes": "## 排队\n- 各外汤（旺季周末）：排队 15-30 分钟；7个外汤可轮换，高峰错开\n- 平季：0-15 分钟"
+    "最后核实": "2026-04-21"
+  },
+  "nar_toshodaiji": {
+    "entity_id": "nar_toshodaiji",
+    "city": "nara",
+    "area": "nishinokyo",
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "唐招提寺（唐招提寺 / Toshodaiji Temple）",
+      "简介": "759年由中国高僧鉴真主持建立，律宗总本山。金堂正面8根列柱的奈良时代建筑风格被誉为「日本建筑美的极致」，也是中日佛教文化交流的活化石。UNESCO世界文化遗产（古都奈良）。每年6月6日鉴真忌日特别展示木刻尊像。",
+      "票价": "成人¥1,000；高中生/中学生¥400；小学生¥200",
+      "营业": "08:30-17:00（售票至16:30），全年开放",
+      "怎么去": "近铁橿原线「西ノ京」站步行约10分钟；或JR/近铁奈良站乘公交约18分钟至「唐招提寺」站下车"
+    },
+    "templates_meta": {
+      "亮点": "鉴真开基·奈良时代建筑典范·金堂列柱是日本古建筑教科书级别的范本，中日佛教情感连结点",
+      "冷知识": "鉴真盲目六渡中日，历时12年五次失败方才抵达。寺内有鉴真墓，每年5月下旬琼花（ビョウヤナギ）盛开，相传是鉴真从中国带来的，以慰思乡之情。",
+      "衔接": "与药师寺相距约1.5公里步行，「西之京双寺」是奈良半日经典组合：唐招提寺→步行15分→薬師寺，从近铁西ノ京站可两寺都步行到达。",
+      "避坑": "非奈良公园方向，从近铁奈良站需换乘，易被跳过——但凡对盛唐文化/建筑史感兴趣都应专程；鉴真忌日6月6日展出木刻尊像，一年仅一天。"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://toshodaiji.jp/haikan.html",
+      "https://www.japan-guide.com/e/e4118.html"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "nar_yakushiji": {
+    "entity_id": "nar_yakushiji",
+    "city": "nara",
+    "area": "nishinokyo",
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "药师寺（薬師寺 / Yakushi-ji Temple）",
+      "简介": "白鳳时代（7世纪）创建，法相宗大本山。东塔（国宝）是唯一自创建以来幸存的建筑，「凍れる音楽」（凝固的音乐）——司马辽太郎对三重塔的著名比喻。UNESCO世界文化遗产，每年3月和10月下旬特别公开三大壁画（平山郁夫《大唐西域壁画》）。",
+      "票价": "白鳳伽蓝成人¥1,000，高中生/中学生¥600，小学生¥200；三大壁画特别公开期间另加¥1,000（成人）",
+      "营业": "09:00-17:00（售票至16:30），全年开放",
+      "怎么去": "近铁橿原线「西ノ京」站下车即到（步行约1分钟）"
+    },
+    "templates_meta": {
+      "亮点": "白鳳建筑东塔「凝固的音乐」·平山郁夫大唐西域壁画特别公开·与唐招提寺「西之京双寺」联游",
+      "冷知识": "「凍れる音楽」（冻结的音乐）来自司马辽太郎对东塔三重塔结构的描写——三层塔加三层裳阶合计六层外观，光线在屋檐间形成音乐般的韵律。东塔是白鳳伽蓝复兴前唯一幸存的古建筑。",
+      "季节看点": "【春】3月1日-15日：三大壁画特别公开（收费）；境内牡丹4月盛开\n【秋】10月下旬约2周：三大壁画特别公开（收费）；详细日期以官网为准"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://yakushiji.or.jp/forvisitors.html",
+      "https://yakushiji.or.jp/news/2023-11-00.html"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_kobe_maritime": {
+    "entity_id": "kob_kobe_maritime",
+    "city": "kobe",
+    "area": "kobe_waterfront",
+    "category": "博物馆",
+    "depth": "full",
+    "note": {
+      "店名": "神户海洋博物馆（神戸海洋博物館 / Kobe Maritime Museum）",
+      "简介": "1987年开馆，以「海·船·港」为主题，白色帆形网架结构建筑夜晚亮蓝灯成为神户港地标。馆内收录古今航海器具·船只模型·神户港沿革，同馆含「川崎世界」展区（可模拟驾驶火车、体验船舱）。与美利坚公园/神户港塔毗邻，港区citywalk必经点。",
+      "票价": "成人¥600；中学生/小学生¥250（含川崎世界展馆）",
+      "营业": "10:00-17:00（最终入场16:30），休：每周一（节假日顺延）；年末年始（12月29日-1月3日）",
+      "怎么去": "JR「元町」站东出口步行约15分钟；或乘市巴士至「波止場町」站步行约5分钟，美利坚公园内"
+    },
+    "templates_meta": {
+      "亮点": "神户港标志性白色帆形建筑，神户港历史+川崎工业技术双主题，与美利坚公园/港塔串联港区半日路线",
+      "拍照位置": "- 馆外正面（美利坚公园草坪侧）：白色帆形骨架 + 神户港塔红色对比，傍晚光线最美\n- 夜间蓝光亮灯：港区夜景标志之一，与港塔同框",
+      "衔接": "与美利坚公园「BE KOBE」装置步行2分钟，神户港塔步行3分钟；南京町步行约10分钟——「神户港区半日」路线：南京町→旧居留地→美利坚公园→海洋博物馆→港塔。"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://kobe-maritime-museum.com/",
+      "https://gs.ctrip.com/html5/you/sight/kobe57024/139027.html"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_suma_seaworld": {
+    "entity_id": "kob_suma_seaworld",
+    "city": "kobe",
+    "area": "kobe_suma",
+    "category": "水族动物",
+    "depth": "full",
+    "note": {
+      "店名": "神户须磨海洋世界（神戸須磨シーワールド / Kobe Suma Sea World）",
+      "简介": "2024年6月1日重开（前身须磨海滨水族园全面改装），西日本唯一有虎鲸表演的水族馆。透明玻璃池可全程观看虎鲸与饲养员互动，海豚馆表演+Aqua Live四层水族展区，配备西日本首家「虎鲸观景餐厅」（当地兵库县食材自助餐）。",
+      "票价": "高中生以上一日券¥3,100，二日券¥4,650；中小学生¥1,800；幼儿（4-6岁）¥1,800；长者（65岁以上）¥2,500；节假日价格调整以官网日历为准",
+      "营业": "10:00-18:00（最终入场17:00）",
+      "怎么去": "JR神户线「須磨海浜公園」站步行约8分钟；从大阪乘JR约39分钟（¥660）"
+    },
+    "templates_meta": {
+      "亮点": "西日本唯一虎鲸表演，2024年全面翻新开幕，儿童家庭向首选，从大阪半日可达",
+      "衔接": "须磨海浜公园站旁即是海滩，夏季可延伸至须磨海水浴场（泳季7-8月）；从三宫往西约20分钟可达，适合神户行程末段或亲子专程日。",
+      "避坑": "节假日虎鲸/海豚表演场次人满，建议开馆即进；表演时刻表以官网当日为准；¥3,100票价偏贵，亲子类专程值得，纯观光向可考虑大阪海游馆代替。"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.kobesuma-seaworld.jp/zh-cn/",
+      "https://www.kobesuma-seaworld.jp/zh-cn/guide/price_ticket/"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_chapel_of_wind": {
+    "entity_id": "kob_chapel_of_wind",
+    "city": "kobe",
+    "area": "kobe_rokko",
+    "category": "体验",
+    "depth": "skeleton",
+    "reservation": "hard",
+    "note": {
+      "店名": "风之教堂（風の教会 / Chapel on Mount Rokko）",
+      "简介": "安藤忠雄1986年设计，教堂三部曲之首作。「风之长廊」40米廊道形成风洞效应，以声音和触感体验「风的存在」，清水混凝土与玻璃天窗。属私人所有通常不对公众开放，每年秋天「六甲ミーツ·アート」艺术节（9-11月）设置会场于此是大众可进入的主要窗口；婚礼/摄影场地可官网申请租借。",
+      "营业": "通常不对外开放；年度开放窗口：「六甲ミーツ·アート」秋季艺术节（9月底-11月末）；最新状态查 kazenokyoukai.com",
+      "怎么去": "阪急「六甲」站换乘神户市バス16路，经六甲ケーブル下（缆车2026年停运中）至六甲山顶；或阪急「岡本」站换乘バス16路上山约35分钟"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.kazenokyoukai.com",
+      "https://koohiinekokazuya.blogspot.com/2023/05/blog-post_12.html"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_hyogo_museum_art": {
+    "entity_id": "kob_hyogo_museum_art",
+    "city": "kobe",
+    "area": "kobe_waterfront",
+    "category": "博物馆",
+    "depth": "full",
+    "note": {
+      "店名": "兵库县立美术馆（兵庫県立美術館 / Hyogo Prefectural Museum of Art）",
+      "简介": "安藤忠雄设计，2002年建成（阪神大地震文化复兴象征）。面向大海，三组平行玻璃箱体+石材基座构成，馆内「Ando Gallery」（免费）展示安藤建筑模型常设。西日本最大级美术馆，收藏小矶良平等约10,000件藏品，常设展免费入场。",
+      "票价": "常设展免费；特别展另购票（以官网为准）；Ando Gallery 免费",
+      "营业": "10:00-18:00（最终入场17:30）；特别展期间周五/六延长至20:00，休：每周一（节假日顺延）；年末年始",
+      "怎么去": "JR「灘」站步行约10分钟；地铁海岸线「岩屋（兵庫縣立美術館前）」站步行约3分钟"
+    },
+    "templates_meta": {
+      "亮点": "安藤忠雄设计·常设展免费·Ando Gallery免费看建筑模型·阪神震后文化复兴地标",
+      "拍照位置": "- 南侧户外露台：三组玻璃箱体+大阪湾海景，安藤建筑光影逻辑的最佳视角\n- Ando Gallery内模型区：光线透过格栅落在建筑缩比模型上",
+      "衔接": "与神户港区（美利坚公园·海洋博物馆）步行约20分钟；JR灘站与阪神「魚崎」站之间，白鹤酒造资料馆在东侧约10分钟步行，可组成「神户东线：安藤建筑+清酒文化」半日路线。"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.artm.pref.hyogo.jp/chn/access/",
+      "https://www.artm.pref.hyogo.jp/access/archtect/ando/"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_nankinmachi": {
+    "entity_id": "kob_nankinmachi",
+    "city": "kobe",
+    "area": "kobe_central",
+    "category": "街区",
+    "depth": "full",
+    "note": {
+      "店名": "南京町（神户中华街）（南京町 / Kobe Nankinmachi Chinatown）",
+      "简介": "日本三大中华街之一（神户·横滨·长崎），1868年神户开港后华侨聚居地形成，百余年历史。东西约270米、南北约110米十字形街区，100余家广东系餐馆+食摊+杂货铺，入口朱红牌楼与关帝庙共存。春节期间舞狮+元宵灯会热闹非凡。从美利坚公园步行5分钟，旧居留地旁，神户港区citywalk天然衔接点。",
+      "票价": "免费",
+      "营业": "街区24h；各店约10:00-20:00",
+      "怎么去": "地铁海岸线「旧居留地・大丸前」站步行约2分钟；阪神「元町」站步行约5分钟；三宫站步行约15分钟"
+    },
+    "templates_meta": {
+      "亮点": "日本三大中华街·神户华侨百年历史地标·与旧居留地/美利坚公园串联港区citywalk",
+      "冷知识": "神户华侨社区历史比横滨更早（1868年神户开港即形成），大部分为广东客家系移民，关帝庙年中无休供奉，是华侨信仰生活的真实延续而非表演性展示。",
+      "顺路小店": "- 中心广场（南京町広場）路边摊：肉包/炸点心/糖葫芦等，边走边吃主体验\n- 元町商店街（东侧延伸）：神户本地百年老铺+咖啡馆，氛围与南京町形成对比",
+      "季节看点": "【春节】农历新年期间舞狮表演+元宵灯会，南京町春节祭是神户最大年节活动之一\n【中秋】农历8月15日月饼/灯笼展示"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.japan-travel.cn/spot/1037/",
+      "https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E8%A1%97/13347950"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "nar_horyuji": {
+    "entity_id": "nar_horyuji",
+    "city": "nara",
+    "area": "horyuji",
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "法隆寺（法隆寺 / Horyu-ji Temple）",
+      "简介": "607年圣德太子创建，世界最古老木造建筑群（西院伽蓝·五重塔·金堂），1993年成为日本首批世界文化遗产。2025年3月起成人票涨至¥2,000，现金支付。建议2小时以上游览。距奈良市区约12km，可在奈良公园半日后专车或电车延伸。",
+      "票价": "高中生以上 ¥2,000；中学生 ¥1,700；小学生 ¥1,000；现金支付",
+      "营业": "08:00-17:00（2/22-11/3）；08:00-16:30（11/4-2/21）；入场截止闭门前30分钟",
+      "怎么去": "JR「法隆寺站」步行约20分钟，或站前巴士约5分钟；近铁「筒井站」转バス约20分钟"
+    },
+    "templates_meta": {
+      "亮点": "世界最古老木造建筑·日本首批世遗·圣德太子历史",
+      "拍照位置": "- 西院南大门入口：五重塔+金堂透过中门，正面中轴构图经典\n- 梦殿（八角堂）：东院单独建筑，外廊走廊俯拍八角轮廓",
+      "冷知识": "法隆寺五重塔部分木材距今超1300年。建筑用「柔软性卷形础石」工法让塔在历史上从未因地震倒塌。与欧洲同期石构建筑相比，木构反而更有韧性。",
+      "衔接": "法隆寺→JR嵯峨野线→「奈良站」约25分钟，可作奈良行程单独半日；与唐招提寺·药师寺方向相反，两者不同日",
+      "避坑": "现金专用，出发前备¥2,000零钱；与奈良公园距离约30分钟电车，同日全游需全天；法隆寺站周边餐饮极少"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.horyuji.or.jp/annai/",
+      "https://narakoji.jp/horyuji/fee/"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "nar_kofukuji": {
+    "entity_id": "nar_kofukuji",
+    "city": "nara",
+    "area": "奈良公园",
+    "category": "寺社",
+    "depth": "full",
+    "note": {
+      "店名": "兴福寺（興福寺 / Kofukuji Temple）",
+      "简介": "藤原氏氏寺，奈良世界遗产核心之一。国宝馆收藏阿修罗像（8世纪·三面六臂·少年之脸）是奈良最受人喜爱的国宝。东金堂+中金堂+国宝馆三处各别计费，共通券¥1,600（2025年4月起调价）。境内五重塔（奈良标志景观）修缮中（2028年竣工预定），部分角度被围网遮挡。",
+      "票价": "国宝馆 ¥900；东金堂 ¥500；中金堂 ¥500；三处共通 ¥1,600（2025年4月起）",
+      "营业": "09:00-17:00（国宝馆最终受付16:45），无定休",
+      "怎么去": "近铁「奈良站」东改札2番出口步行约5分钟；JR「奈良站」市内循环バス「县厅前」即至"
+    },
+    "templates_meta": {
+      "亮点": "阿修罗像国宝·三面六臂少年姿·奈良世遗核心",
+      "拍照位置": "- 国宝馆阿修罗像展示台：正面中轴+三面分别拍，每个面孔表情各不同\n- 猿沢池から五重塔：南向俯角，水面倒影+塔身经典构图（柳树季更美）",
+      "冷知识": "阿修罗原型是印度神话战神，传入佛教后降格为「修罗道」众生。奈良这尊的面孔是少年的忧郁神情——研究者认为这是8世纪工匠把悲剧性格化为人性化表情的最高水平创作，也是日本最早的「偶像文化」雏形之一。",
+      "衔接": "兴福寺→步行5分钟→东大寺南大门·奈良公园鹿群；→步行3分钟→猿沢池（夕阳倒影最佳）。是奈良公园标准动线的中心节点。",
+      "避坑": "五重塔修缮中2028年竣工，部分角度被围网遮挡；共通券比单买省¥300，推荐购买"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.kohfukuji.com/info/info-guide/",
+      "https://www.kohfukuji.com/news/2495/"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "nar_national_museum": {
+    "entity_id": "nar_national_museum",
+    "city": "nara",
+    "area": "奈良公园",
+    "category": "博物馆",
+    "depth": "verified",
+    "note": {
+      "店名": "奈良国立博物馆（奈良国立博物館 / Nara National Museum）",
+      "简介": "奈良佛教美术专门国立博物馆，1895年开馆。常设「なら仏像館」（旧本馆·重要文化财）佛像展示最集中。最重要年度活动是每秋「正仓院展」（10月下旬-11月上旬），展示天皇家1300年秘藏宝物，排队需2小时以上请早到。常设 ¥700，小中高生免费，周一休，金曜延长至20:00。",
+      "票价": "常设名品展 ¥700；大学生 ¥350；小中高生 免费；正仓院展别计（约¥2,200）",
+      "营业": "09:30-17:00（入馆16:30），周一休；金・土曜20:00延长（名品展·特别陈列）",
+      "怎么去": "近铁·JR「奈良站」巴士「氷室神社·国立博物馆前」即至；近铁「奈良站」步行约15分钟"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.narahaku.go.jp/info/fee/",
+      "https://narashikanko.or.jp/spot/detail_10043.html"
+    ],
+    "最后核实": "2026-04-25"
+  },
+  "kob_hakutsuru_sake": {
+    "entity_id": "kob_hakutsuru_sake",
+    "city": "kobe",
+    "area": "kobe_nada",
+    "category": "体验",
+    "depth": "full",
+    "note": {
+      "店名": "白鹤酒造资料馆（白鶴酒造資料館 / Hakutsuru Sake Brewery Museum）",
+      "简介": "灘五乡现存保存最完整的昭和时代酒窑改建，完全免费参观。等身大蜡像人偶复原昔日酿酒场景（精米→洗米→麹室→搾り），配视频解说（含中文），参观约1小时；出口处可免费品尝原酒，付费¥400起可试饮限定/高级酒款。是理解日本清酒文化最易入门的路线。",
+      "票价": "免费；付费试饮¥400起",
+      "营业": "09:30-16:30（最终入馆16:00），休：盂兰盆节（8月中旬）、年末年始（12月下旬-1月上旬）",
+      "怎么去": "阪神「住吉」站步行约5分钟；JR「住吉」站步行约15分钟"
+    },
+    "templates_meta": {
+      "亮点": "灘五乡清酒文化免费体验，昭和酒窑原物保存，免费品尝原酒，对清酒/日本传统工艺感兴趣是必去",
+      "冷知识": "灘五乡（灘五郷）是日本产酒量最大的清酒产区，白鹤（白鶴）是日本国内销量第一的清酒品牌。酿酒师叫「杜氏」，使用「灘の宮水」（宫水——来自六甲山的矿泉水）是灘五乡清酒风味特征的秘密。",
+      "衔接": "灘五乡沿阪神本线住吉→魚崎一带，菊正宗酒造记念館（魚崎站步行5分）可联游；兵库县立美术馆西侧约10分钟步行，组成「神户东线：安藤建筑+清酒文化」半日路线。",
+      "避坑": "盂兰盆节+年末年始休馆需提前确认；自驾来停车方便，公共交通阪神住吉站最近"
+    },
+    "可信度": "verified",
+    "数据来源": [
+      "https://www.hakutsuru.co.jp/chinese/culture/museum.html",
+      "https://livejapan.com/zh-tw/in-kansai/in-pref-hyogo/in-kobe_sannomiya_kitano/spot-lj0013222/"
+    ],
+    "最后核实": "2026-04-25"
   }
 }

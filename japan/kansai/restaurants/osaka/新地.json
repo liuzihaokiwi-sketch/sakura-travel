@@ -1,0 +1,676 @@
+[
+  {
+    "id": "osk_shinsaibashi_sushitada",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 8
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2200,
+          3500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨処 多田（すしどころ ただ）",
+      "简介": "北新地的寿司职人店，完全绍介制——不经熟客介绍无法预约。两部制运营（17:00 / 18:00 两场），每场约 10 席。江户前技法加大阪鱼货，节奏沉稳，没有表演感。能进到这家的用餐体验本身，就是北新地高端餐饮文化的缩影。",
+      "亮点": [
+        "完全绍介制入场",
+        "两部制 10 席",
+        "江户前×大阪鱼货"
+      ],
+      "招牌菜": [
+        "大将おまかせ（主厨发办·时价）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-5-26 永楽リンデンビル 4F（「北新地」站徒步约 3 分）",
+      "营业": "约 17:00-（第一部）/ 18:00-（第二部）；日曜定休",
+      "预约": "完全绍介制；需由熟客介绍方可预约",
+      "到店提醒": "无绍介人无法入店；建议通过高端日本旅行顾问协助安排",
+      "Tabelog 分数": 3.88
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_fujiya1935",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "法餐"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          900,
+          1500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2000,
+          3500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7,
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "フジヤ 1935（藤屋 1935）",
+      "简介": "大阪代表性的现代法餐，米其林二星，1935 年开业的「藤屋」第四代传承延续至今。主厨藤原哲也以大阪食材做法餐架构，菜单随季节完全更换。建筑是登录有形文化财——昭和初期的洋馆外观，进门有穿越感。预约窗口竞争激烈，是大阪能请到贵客的最高规格选项之一。",
+      "亮点": [
+        "米其林二星",
+        "1935 年创业·文化财建筑",
+        "大阪食材×现代法餐"
+      ],
+      "招牌菜": [
+        "主厨发办午间套餐（¥16,000 起）",
+        "晚间发办（¥30,000 起）"
+      ],
+      "地址": "大阪市中央区鎗屋町 2-4-14（地铁谷町線·中央線「谷町四丁目」站徒步约 5 分）",
+      "营业": "昼 11:30-13:00（LO，土祝のみ）/ 夜 18:00-21:00（LO）；日曜・第一月曜・元旦休",
+      "预约": "官网预约或电话；建议提前 1-2 个月",
+      "到店提醒": "午间仅土祝日开放；晚间两部制入场；商务接待或重要纪念日首选"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_minatsuki",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          800,
+          1200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1500,
+          2000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7,
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 美菜月（みなづき）",
+      "简介": "北新地 6 席小店·米其林 1 星 2022-25 连续 4 年。三种米拼配赤酢醋饭·店主原本在堺市做寿司·又有割烹经验·下酒小品都精雕细琢·名物是卵黄酱油渍做的卵かけご飯细巻。完全预约制·提前 1-2 个月最稳。是北新地 showcase 寿司里位价比相对友好的入门首选。",
+      "亮点": [
+        "米其林 1 星 4 连星",
+        "Tabelog 3.85+",
+        "6 席完全预约",
+        "三种米拼配赤酢饭",
+        "卵黄醤油漬细巻名物"
+      ],
+      "招牌菜": [
+        "おまかせ コース（晚市·¥30,000+）",
+        "ランチコース（午市·¥18,000）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-5（JR 北新地駅 徒步 4 分）",
+      "营业": "昼 12:00-/ 夜 18:00- 一齐入座；日·月曜定休",
+      "预约": "必约·提前 1-2 个月；电话/一休/tablecheck",
+      "到店提醒": "正装；月初 10:00 打电话最稳；卵黄细巻必点"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_murakamijiro",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 13
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1300,
+          1700
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7,
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 村上二郎",
+      "简介": "「さえき」出身的店主独立·北新地 8 席完全预约·米其林星付 2023+ 寿司 WEST 百名店 2022。师承大阪 top 店技艺·握寿司朴素扎实不耍花活·常客多·新客难订。Tabelog 3.72。是北新地 showcase 寿司里口碑稳定的代表。",
+      "亮点": [
+        "米其林星付 2023",
+        "寿司 WEST 百名店 2022",
+        "Tabelog 3.72",
+        "「さえき」师承",
+        "8 席完全预约"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥27,500）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00 一齐入座；日·月曜定休",
+      "预约": "必约·提前 2 个月",
+      "到店提醒": "正装；月初订下月最稳；常客优先·新客建议熟人介绍"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_iwai_tempura",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司",
+      "天妇罗"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1200,
+          1600
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北新地 鮨 天ぷら いわい",
+      "简介": "兵库芦屋米其林预约困难店「芦屋 いわい」2023 年 9 月在北新地新开分店·米其林 2 年连续。寿司+天妇罗双修·主厨同时握寿司炸天麸罗·节奏感强。个室完备适合小型商务局·北新地 showcase 里少见的 hybrid 体验。",
+      "亮点": [
+        "米其林 2 年连续",
+        "芦屋 いわい 北新地分店",
+        "寿司+天妇罗双修",
+        "个室完备",
+        "Tabelog 3.7+"
+      ],
+      "招牌菜": [
+        "おまかせコース（寿司+天妇罗·¥27,500）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-3（JR 北新地駅 徒步 3 分）",
+      "营业": "夜 18:00 一齐入座；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "可选个室；商务局首选"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yamashiro",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          600,
+          1000
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1300,
+          1800
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "北新地 鮨 栞庵 やましろ",
+      "简介": "东京银座米其林获星店「銀座 鮨 栞庵」北新地分店·米其林 3 年连续。本格江户前寿司+割烹·三种 course 价格阶梯·午市相对亲民。个室完备·北新地江户前寿司代表之一。Tabelog 3.7+。",
+      "亮点": [
+        "米其林 3 年连续",
+        "银座本店分店",
+        "本格江户前寿司",
+        "三种 course 价格阶梯",
+        "个室完备"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥27,500）",
+        "ランチコース（午·¥13,200）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-2（JR 北新地駅 徒步 2 分）",
+      "营业": "昼 12:00-14:00 / 夜 18:00- 一齐；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "午市性价比高·关西人请客首选"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_saeki",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1500,
+          2200
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7,
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 さえ喜（さえき）",
+      "简介": "北新地正中心·与「寿し芳」「原正」并称大阪 top3 寿司·店主佐伯さん师承北新地名店「のぐち」。米其林星付掲載一直拒绝·但口碑评分常年压顶·Tabelog 3.85+。预约 3 个月起·旺季半年。常客优先·新客建议熟人介绍·是北新地真正的预约困难顶级店。",
+      "亮点": [
+        "大阪 top3 寿司",
+        "Tabelog 3.85+",
+        "预约 3 个月起",
+        "「のぐち」师承",
+        "拒绝米其林掲載"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥38,500+）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 4 分）",
+      "营业": "夜 18:00- 一齐；日·月曜定休",
+      "预约": "必约·提前 3-6 个月·常客优先",
+      "到店提醒": "新客难订·熟人介绍最稳；正装；月初打电话"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_noguchi",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 13
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1500,
+          2000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7,
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 のぐち",
+      "简介": "Tabelog 3.89·北新地寿司常年评分压顶。每贯握寿司都是工序极致·店主トーク魅力大·粉丝众多。日本寿司里少见的「评分+人气+预约难度」三重极限店·常客优先。装配建议跳过·留给真正想冲顶的客。",
+      "亮点": [
+        "Tabelog 3.89·关西寿司天花板",
+        "店主トーク魅力大",
+        "工序极致",
+        "预约困难",
+        "常客优先"
+      ],
+      "招牌菜": [
+        "おまかせコース（夜·¥38,500+）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00- 一齐；日·月曜定休",
+      "预约": "必约·提前 3-6 个月",
+      "到店提醒": "顶级店·新客几乎不可能直订·建议熟人或一休尝试"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_uemori",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "上六 米増（こめます）",
+      "简介": "北新地高 tier 怀石·走价位友好高端路线·一席 ¥18,000-25,000 范围。出汁+季节食材的本格京风怀石北新地版·8 席小空间近距离观看料理过程。米其林 bib 级别·性价比北新地 high 档代表。Tabelog 3.6+。",
+      "亮点": [
+        "北新地 high 档怀石",
+        "8 席小空间",
+        "京风出汁怀石",
+        "Tabelog 3.6+",
+        "性价比 high 档代表"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥18,000-25,000）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00- 一齐；日曜定休",
+      "预约": "必约·一休",
+      "到店提醒": "正装；月初订下月最稳"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yakitori_ichigo",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧鸟"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          550
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼鳥 市松（いちまつ）",
+      "简介": "北新地烧鸟代表·名古屋コーチン纯血鸡+一品ごとの炭火细工·一串五分钟工夫。13 席小店·完全预约·一席 ¥12,000 起。北新地烧鸟里 high 档性价比代表·情侣局/小型商务局首选。Tabelog 3.7+。",
+      "亮点": [
+        "北新地烧鸟代表",
+        "名古屋コーチン纯血",
+        "Tabelog 3.7+",
+        "13 席完全预约",
+        "情侣+商务双轨"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥12,000）",
+        "卵かけご飯（〆·¥800）"
+      ],
+      "地址": "大阪市北区曽根崎新地 1-7（JR 北新地駅 徒步 6 分）",
+      "营业": "夜 18:00-23:00；日曜定休",
+      "预约": "必约·一休",
+      "到店提醒": "正装；月初订下月最稳"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_kani_genu",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 12
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "松叶蟹"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          900
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "かに源 北新地店（活蟹会席）",
+      "简介": "北新地的活松叶蟹会席专门·与道顿堀かに源食べ放題不同·**走 high 档活蟹会席路线**。1.1-3 月松叶蟹解禁期间·活ズワイガニ每日入荷·蟹刺身+蟹豆腐+蟹味噌甲罗烧+蟹すき鍋+蟹雑炊全套·¥15,000-22,000。北新地 high 档蟹料理代表·商务接待场景。",
+      "亮点": [
+        "北新地活松叶蟹会席专门",
+        "11-3 月解禁期",
+        "活ズワイガニ每日入荷",
+        "高档商务接待场景",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "活蟹会席 松（¥18,000）",
+        "活蟹会席 竹（¥15,000）"
+      ],
+      "地址": "大阪市北区曽根崎新地（JR 北新地駅 徒步 5 分）",
+      "营业": "夜 18:00-22:00；蟹季 11-3 月；日曜定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "蟹季外不开活蟹·12-2 月最佳；商务接待友好"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yugentei",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 13
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          400,
+          700
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          800,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "叙々苑 游玄亭 ホテルニューオータニ大阪店",
+      "简介": "叙々苑集团**最高档子品牌「游玄亭」**·大阪新大谷酒店 3F·**坐着听竖琴现场演奏吃焼肉**。A5 黑毛和牛精细分割·焼肉会席套餐 ¥18,000-30,000。米其林 Bib 推荐·商务接待+纪念日双轨·北新地之外的高档烧肉代表。Tabelog 3.7+·一休精选。**关西本地人接待外宾的标准选择**。",
+      "亮点": [
+        "叙々苑最高档子品牌",
+        "大阪新大谷 3F",
+        "坐听竖琴+焼肉会席",
+        "Tabelog 3.7+",
+        "商务接待+纪念日双轨"
+      ],
+      "招牌菜": [
+        "游玄亭コース 松（¥30,000）",
+        "游玄亭コース 竹（¥18,000）",
+        "上カルビ単点（¥4,800）"
+      ],
+      "地址": "大阪市中央区城見 1-4-1 ホテルニューオータニ大阪 3F（地铁京橋駅 徒步 3 分；JR 大阪城公园駅 徒步 5 分）",
+      "营业": "11:30-14:30 / 17:00-22:00；无定休",
+      "预约": "**必约**·一休/电话",
+      "到店提醒": "正装；月初订下月最稳；商务接待挑包房"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_sushi_sennarisu",
+    "area": "新地",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 11
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          120,
+          250
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          180,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨仙酢 本店 大阪駅前（しゃりせんす）",
+      "简介": "「寿司仙人」原田喜寿郎プロデュース·**10 年熟成赤酢シャリ**·硬めに仕上げた赤シャリ+严选ネタ的赤酢寿司·一贯 ¥300-380 起。大阪駅前·ランチおまかせ ¥3,800 性价比突出。Tabelog 3.6+·大阪駅徒步 1 分赶车线。",
+      "亮点": [
+        "「寿司仙人」プロデュース",
+        "10 年熟成赤酢シャリ",
+        "一贯 ¥300-380",
+        "Tabelog 3.6+",
+        "大阪駅徒步 1 分"
+      ],
+      "招牌菜": [
+        "ランチおまかせ 12 贯（¥3,800）",
+        "ディナーおまかせ 15 贯（¥6,800）"
+      ],
+      "地址": "大阪市北区梅田 1-3-1 大阪駅前第 1 ビル B2F（JR 大阪駅 徒步 1 分）",
+      "营业": "ランチ 11:30-14:30 / ディナー 17:00-22:00；日曜定休",
+      "预约": "推荐预约·一休·当日有空席",
+      "到店提醒": "大阪驿前ビル B2F·首次来不易找；赶车前 60 分钟入"
+    }
+  }
+]

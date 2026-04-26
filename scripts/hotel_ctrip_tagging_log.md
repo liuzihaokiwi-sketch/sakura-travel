@@ -1,0 +1,390 @@
+# 酒店携程打标日志（D41）
+
+> 2026-04-25 生成。记录每家酒店 budget_tier 变更和附加字段来源。
+- hotel_000 (丽思卡尔顿京都) ← ctrip 1848311 (京都丽思卡尔顿酒店)  [品牌白名单:ritz-carlton] score=0.914 details_fields=9
+- hotel_001 (翠岚豪华精选酒店·京都) ← ctrip 2510894 (京都翠岚豪华精选酒店)  [品牌白名单:suiran] score=0.83 details_fields=10
+- hotel_002 (THE THOUSAND KYOTO) ← ctrip 25658991 (The Thousand Kyoto(京都千年酒店))  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=9
+- hotel_003 (京都格兰维亚大酒店) ← ctrip 993497 (Hotel Granvia Kyoto(京都格兰比亚酒店))  [同义映射 mid→] score=0.748 details_fields=9
+- hotel_004 (京都大仓酒店) ← ctrip 1909815 (京都大仓酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_005 (Good Nature Hotel) ← ctrip 38451751 (GOOD NATURE HOTEL KYOTO(京都好自然酒店))  [同义映射 high→] score=0.921 details_fields=9
+- hotel_006 (Cross Hotel Kyoto) ← ctrip 21869296 (Cross Hotel Kyoto(京都十字酒店))  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_007 (Genji Kyoto) ← ctrip 92984781 (Genji Kyoto, a Member of Design Hotels(京都源氏，设计酒店成员))  [同义映射 high→] score=0.718 details_fields=8
+- hotel_008 (Dormy Inn Premium 京都站前) ← ctrip 705958 (多美迎PREMIUM京都站前（天然温泉 花萤之汤）)  [同义映射 economy→] score=0.744 details_fields=11
+- hotel_009 (Hotel 侑楽 京八坂) **UNVERIFIED** [同义映射 high→]
+- hotel_010 (凯悦摄政京都酒店) **UNVERIFIED** [价格门槛 low_jpy=80000 ≥60000]
+- hotel_011 (京都布莱顿酒店) ← ctrip 737141 (京都布莱顿酒店)  [同义映射 mid→] score=1.0 details_fields=11
+- hotel_012 (三井花园酒店京都四条) ← ctrip 1437724 (三井花园酒店 京都四条)  [品牌白名单:三井] score=1.0 details_fields=10
+- hotel_013 (三井花园酒店京都三条尊贵版) ← ctrip 1437724 (三井花园酒店 京都四条)  [品牌白名单:三井] score=0.765 details_fields=10
+- hotel_014 (皇家双子酒店京都八条口) **UNVERIFIED** [同义映射 mid→]
+- hotel_015 (都酒店京都八条) ← ctrip 737157 (京都八条 都酒店)  [同义映射 mid→] score=0.636 details_fields=10
+- hotel_016 (大和鲁伊内特酒店京都大厦八条东口) **UNVERIFIED** [同义映射 economy→]
+- hotel_017 (京都维斯奇奥酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_018 (大和鲁伊内特酒店京都站前) **UNVERIFIED** [同义映射 economy→]
+- hotel_019 (DoubleTree by Hilton 京都站) ← ctrip 15221605 (希尔顿逸林酒店-京都站)  [同义映射 mid→] score=0.743 details_fields=9
+- hotel_020 (MIMARU京都 STATION) ← ctrip 40694354 (MIMARU京都 STATION)  [同义映射 economy→] score=1.0 details_fields=7
+- hotel_021 (里士满酒店尊贵版京都四条) **UNVERIFIED** [同义映射 mid→]
+- hotel_022 (京都四条新町英特盖特酒店) ← ctrip 12093451 (京都四条新町 颖特饭店)  [同义映射 mid→] score=0.7 details_fields=9
+- hotel_023 (Hotel Village Kyoto) ← ctrip 704862 (Village京都酒店)  [同义映射 economy→] score=0.729 details_fields=10
+- hotel_024 (RIHGA皇家酒店京都四条乌丸) ← ctrip 21862281 (丽嘉PLACE京都四条乌丸)  [同义映射 mid→] score=0.545 details_fields=9
+- hotel_025 (利索尔酒店京都四条室町) ← ctrip 17514433 (京都四条室町Resol酒店)  [同义映射 economy→] score=0.589 details_fields=9
+- hotel_026 (京都古德维尤酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_027 (东急旅居京都新京极通) **UNVERIFIED** [同义映射 economy→]
+- hotel_028 (木屋町酒店京都) ← ctrip 83132705 (京都三条木屋町通ARU酒店)  [同义映射 economy→] score=0.554 details_fields=9
+- hotel_029 (ONE FIVE HOTEL 京都四条) ← ctrip 63339229 (京都四条一五酒店)  [同义映射 economy→] score=0.5 details_fields=7
+- hotel_030 (Vest Premier 京都和邸) **UNVERIFIED** [同义映射 mid→]
+- hotel_031 (凯悦嘉轩京都) ← ctrip 84012511 (京都凯悦嘉轩)  [同义映射 mid→] score=0.717 details_fields=9
+- hotel_032 (MIMARU美满如家京都新町三条) **UNVERIFIED** [同义映射 economy→]
+- hotel_033 (索拉里亚西铁酒店京都尊贵版) ← ctrip 7603652 (京都索拉利亚西铁尊贵酒店)  [同义映射 mid→] score=0.527 details_fields=9
+- hotel_034 (利索尔三一京都酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_035 (NOHGA HOTEL 京都清水) ← ctrip 80954893 (京都清水诺加酒店)  [同义映射 high→] score=0.533 details_fields=7
+- hotel_036 (京王普勒利亚酒店京都乌丸五条) **UNVERIFIED** [同义映射 mid→]
+- hotel_037 (ASAI Kyoto Shijo) ← ctrip 106978548 (ASAI Kyoto Shijo(ASAI 京都四條))  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_038 (Travelodge Kyoto Shijo Omiya) ← ctrip 70863911 (Travelodge Kyoto Shijo Omiya(京都四条大宫彩鸿酒店))  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_039 (PIECE HOSTEL 三条) ← ctrip 2852937 (三条PIECE青年旅馆)  [同义映射 economy→] score=0.683 details_fields=9
+- hotel_040 (The Millennials 京都) **UNVERIFIED** [同义映射 economy→]
+- hotel_041 (Hotel She Kyoto) ← ctrip 5634005 (Hotel She, Kyoto)  [同义映射 high→] score=1.0 details_fields=10
+- hotel_042 (希尔顿京都) ← ctrip 107955554 (希尔顿京都)  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=9
+- hotel_043 (9 Hours Capsule Hotel Kyoto) **UNVERIFIED** [同义映射 economy→]
+- hotel_044 (Guesthouse Tyoko Compass) ← ctrip 9437820 (Guesthouse Kyoto Compass(京都指南针旅馆))  [同义映射 economy→] score=0.786 details_fields=8
+- hotel_045 (威斯汀都酒店京都) ← ctrip 993500 (京都威斯汀都酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.787 details_fields=11
+- hotel_046 (南禅寺 八千代) ← ctrip 706415 (京都南禅寺旅馆 八千代酒店)  [同义映射 mid→] score=0.667 details_fields=9
+- hotel_047 (京小宿 室町 汤音) ← ctrip 7212022 (京小宿 五条雅)  [同义映射 mid→] score=0.532 details_fields=6
+- hotel_048 (料理旅馆 花乐) **UNVERIFIED** [同义映射 mid→]
+- hotel_049 (ALA HOTEL KYOTO) ← ctrip 104937999 (Ala Hotel Kyoto(京都阿拉酒店))  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_050 (TUNE STAY KYOTO) ← ctrip 48506666 (TUNE STAY KYOTO(京都TUNE STAY酒店公寓))  [同义映射 high→] score=1.0 details_fields=7
+- hotel_051 (相铁弗雷萨京都四条乌丸) **UNVERIFIED** [同义映射 economy→]
+- hotel_052 (insomnia KYOTO OIKE) ← ctrip 110172824 (Insomnia Kyoto Oike(京都乌丸御池站insomnia酒店))  [同义映射 high→] score=1.0 details_fields=7
+- hotel_053 (京都蒙特利酒店) ← ctrip 704880 (京都蒙特利酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_054 (STITCH HOTEL Kyoto) ← ctrip 126577270 (STITCH HOTEL KYOTO)  [同义映射 high→] score=1.0 details_fields=7
+- hotel_055 (万豪庭院酒店京都四条乌丸) **UNVERIFIED** [同义映射 mid→]
+- hotel_056 (HANARE by Tokyu Stay) ← ctrip 129035569 (HANARE by Tokyu Stay 京都三条)  [同义映射 economy→] score=0.942 details_fields=10
+- hotel_057 (先斗町依斯柏席昂酒店) **UNVERIFIED** [同义映射 high→]
+- hotel_058 (加纳酒店京都四条乌丸) **UNVERIFIED** [同义映射 mid→]
+- hotel_059 (京都五条假日酒店) ← ctrip 123042204 (京都五条假日酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_060 (SOWAKA) ← ctrip 25098093 (Sowaka(素和华))  [同义映射 high→] score=1.0 details_fields=8
+- hotel_061 (京都梅小路花传抄) ← ctrip 81430815 (京都梅小路花传抄)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_062 (京都鹰峰收获酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_063 (京阪京都站南飯店) ← ctrip 44406716 (京阪京都站南酒店)  [同义映射 economy→] score=0.856 details_fields=9
+- hotel_064 (DoubleTree by Hilton 京都东山) ← ctrip 70404607 (京都东山希尔顿逸林酒店)  [同义映射 mid→] score=0.755 details_fields=9
+- hotel_065 (京都花宿) ← ctrip 3105489 (京都花宿)  [同义映射 economy→] score=1.0 details_fields=7
+- hotel_066 (樱花台画廊饭店) ← ctrip 2074622 (樱花台画廊酒店)  [同义映射 high→] score=0.842 details_fields=9
+- hotel_067 (M's Plus 四条大宫酒店) ← ctrip 6597262 (M’s Plus 四条大宫酒店)  [同义映射 economy→] score=0.912 details_fields=7
+- hotel_068 (M's INN 东山宾馆) ← ctrip 57625373 (M’s INN 东山宾馆)  [同义映射 economy→] score=0.885 details_fields=7
+- hotel_069 (京都四条大宫旅客之家饭店) ← ctrip 114628060 (京都四条大宫霍普旅舍)  [同义映射 economy→] score=0.65 details_fields=7
+- hotel_070 (京都四条皇家花园酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_071 (sequence饭店-京都五条) ← ctrip 56695314 (sequence酒店 京都五条)  [同义映射 high→] score=0.832 details_fields=7
+- hotel_072 (京都清水五条相铁FRESA INN) ← ctrip 82208465 (京都清水五条相铁FRESA INN)  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_073 (普林斯智选京都四条大宫) **UNVERIFIED** [同义映射 economy→]
+- hotel_074 (OMO5京都三条 by 星野度假村) ← ctrip 76283694 (OMO5 京都三条 by 星野集团)  [同义映射 high→] score=0.845 details_fields=10
+- hotel_075 (OMO3京都东寺 by 星野度假村) ← ctrip 76284301 (星野集团 OMO3 京都东寺)  [同义映射 high→] score=0.636 details_fields=6
+- hotel_076 (京都格雷斯利酒店三条) **UNVERIFIED** [同义映射 mid→]
+- hotel_077 (酒店福尔萨京都四条河原町) **UNVERIFIED** [同义映射 economy→]
+- hotel_078 (京都格兰贝尔酒店) ← ctrip 9038019 (京都格兰贝尔酒店)  [同义映射 high→] score=1.0 details_fields=8
+- hotel_079 (皇家公园酒店京都四条) **UNVERIFIED** [同义映射 mid→]
+- hotel_080 (京阪京都大饭店) ← ctrip 44406716 (京阪京都站南酒店)  [同义映射 mid→] score=0.688 details_fields=9
+- hotel_081 (门酒店京都高濑川) **UNVERIFIED** [同义映射 high→]
+- hotel_082 (乌丸京都酒店) ← ctrip 737147 (乌丸京都酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_083 (爱尔英京都) **UNVERIFIED** [同义映射 economy→]
+- hotel_084 (Cuvee J2 Hotel Kyoto) **UNVERIFIED** [价格门槛 low_jpy=80000 ≥60000]
+- hotel_085 (京都塔酒店) ← ctrip 993512 (京都塔酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_086 (福朋喜来登弹性酒店京都御池) **UNVERIFIED** [同义映射 economy→]
+- hotel_087 (ROJIYU KYOTO) ← ctrip 123780843 (ROJIYU KYOTO(路地湯 京都))  [同义映射 high→] score=1.0 details_fields=9
+- hotel_088 (御室花传抄) ← ctrip 133792963 (京都御室 花传抄(共立度假村) - 仅限成人)  [同义映射 mid→] score=0.712 details_fields=9
+- hotel_089 (嘉佩乐京都) ← ctrip 133395073 (嘉佩乐京都)  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=7
+- hotel_090 (帝国酒店京都) ← ctrip 132715625 (京都帝国酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.717 details_fields=6
+- hotel_091 (皇家公园酒店京都梅小路) **UNVERIFIED** [同义映射 mid→]
+- hotel_092 (维拉吉京都) **UNVERIFIED** [同义映射 economy→]
+- hotel_093 (APA Hotel 京都站前) **UNVERIFIED** [同义映射 economy→]
+- hotel_094 (御宿野乃京都七条) ← ctrip 52661643 (天然温泉 莲花之汤 御宿野乃京都七条)  [同义映射 economy→] score=0.817 details_fields=9
+- hotel_095 (普林斯智选京都三条) **UNVERIFIED** [同义映射 economy→]
+- hotel_096 (旅之栖京都酒店) ← ctrip 73423284 (旅之棲京都酒店)  [同义映射 economy→] score=0.809 details_fields=7
+- hotel_097 (京都悠洛悦苑) ← ctrip 30729972 (京都悠洛悦苑)  [同义映射 high→] score=1.0 details_fields=9
+- hotel_098 (大阪瑞吉酒店) ← ctrip 992466 (大阪瑞吉酒店)  [品牌白名单:st. regis] score=1.0 details_fields=7
+- hotel_099 (大阪万豪都酒店) ← ctrip 1113592 (大阪万豪酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.829 details_fields=9
+- hotel_100 (帝国酒店大阪) ← ctrip 3265874 (大阪帝国酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.717 details_fields=6
+- hotel_101 (希尔顿大阪) ← ctrip 120734892 (希尔顿大阪梅田 Canopy)  [价格门槛 low_jpy=80000 ≥60000] score=0.756 details_fields=9
+- hotel_102 (大阪南海瑞士酒店) ← ctrip 976800 (大阪瑞士南海酒店)  [同义映射 mid→] score=0.775 details_fields=10
+- hotel_103 (大阪日航酒店) ← ctrip 688209 (大阪日航酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_104 (大阪新大谷酒店) ← ctrip 856906 (大阪新大谷酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_105 (嘉佩乐大阪酒店) **UNVERIFIED** [价格门槛 low_jpy=80000 ≥60000]
+- hotel_106 (丽嘉皇家大酒店大阪) ← ctrip 688103 (洲至奢选大阪丽嘉皇家酒店（洲际酒店集团旗下）)  [同义映射 mid→] score=0.511 details_fields=8
+- hotel_107 (大阪仙达拉格兰酒店) **UNVERIFIED** [价格门槛 low_jpy=80000 ≥60000]
+- hotel_108 (大阪阪急国际酒店) ← ctrip 736871 (阪急国际酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.891 details_fields=10
+- hotel_109 (Cross Hotel Osaka) ← ctrip 688204 (Cross Hotel Osaka(大阪十字酒店))  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_110 (大阪湾王子大酒店) ← ctrip 992449 (大阪湾格兰王子酒店)  [同义映射 high→] score=0.715 details_fields=9
+- hotel_111 (Zentis Osaka) ← ctrip 63006776 (Zentis Osaka(大阪曾提斯酒店))  [同义映射 high→] score=1.0 details_fields=9
+- hotel_112 (Candeo Hotels 大阪心斋桥) ← ctrip 109104712 (大阪心斋桥光芒酒店（CANDEO HOTELS）)  [同义映射 mid→] score=0.912 details_fields=10
+- hotel_113 (FIRST CABIN 大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_114 (相铁弗雷萨大阪难波站前) **UNVERIFIED** [同义映射 economy→]
+- hotel_115 (大阪难波奏酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_116 (大阪难波Hiyori酒店) ← ctrip 33552337 (大阪难波日和酒店)  [同义映射 mid→] score=0.58 details_fields=9
+- hotel_117 (唐草酒店大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_118 (VIA INN 心斋桥) ← ctrip 5622934 (VIA INN 心斋桥 - JR西日本集團)  [同义映射 economy→] score=0.846 details_fields=10
+- hotel_119 (贝塞尔酒店心斋桥) **UNVERIFIED** [同义映射 economy→]
+- hotel_120 (相铁弗雷萨大阪心斋桥) ← ctrip 21369036 (相铁FRESA INN-大阪心斋桥)  [同义映射 economy→] score=0.608 details_fields=9
+- hotel_121 (The Bridge Hotel 心斋桥) ← ctrip 5816633 (大阪心斋桥桥梁酒店)  [同义映射 mid→] score=0.561 details_fields=9
+- hotel_122 (Hotel Hillarys 心斋桥) ← ctrip 686222 (Hillarys酒店)  [同义映射 economy→] score=0.793 details_fields=9
+- hotel_123 (UNIZO酒店大阪梅田) **UNVERIFIED** [同义映射 economy→]
+- hotel_124 (大阪维斯奇奥格兰维亚酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_125 (大阪阿倍野信托酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_126 (大阪天王寺巴利塔酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_127 (环球港口酒店) **UNVERIFIED** [同义映射 high→]
+- hotel_128 (公园前沿酒店 USJ) **UNVERIFIED** [同义映射 high→]
+- hotel_129 (Candeo Hotels 大阪难波) ← ctrip 6666605 (大阪难波光芒酒店（CANDEO HOTELS）)  [同义映射 mid→] score=0.742 details_fields=9
+- hotel_130 (三井花园酒店大阪尊贵版) ← ctrip 1483463 (三井花园酒店大阪普米尔)  [品牌白名单:三井] score=0.768 details_fields=10
+- hotel_131 (御宿野乃大阪淀屋桥) ← ctrip 83786770 (御宿野乃淀屋桥天然温泉酒店)  [同义映射 economy→] score=0.633 details_fields=10
+- hotel_132 (大阪蒙特利格拉斯密尔酒店) ← ctrip 688216 (大阪蒙特利格拉斯米尔酒店)  [同义映射 mid→] score=0.854 details_fields=9
+- hotel_133 (&Here OSAKA NAMBA) ← ctrip 119961702 (大阪难波这里酒店)  [同义映射 high→] score=0.681 details_fields=7
+- hotel_134 (OMO7大阪 by 星野度假村) ← ctrip 84903681 (OMO7 大阪酒店 by 星野集团)  [同义映射 mid→] score=0.696 details_fields=8
+- hotel_135 (大阪威斯汀酒店) ← ctrip 688138 (大阪威斯汀酒店)  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=11
+- hotel_136 (御宿野乃难波) ← ctrip 5782369 (御宿 野乃 温泉酒店ー大阪难波)  [同义映射 economy→] score=0.697 details_fields=11
+- hotel_137 (大阪阪急乐境酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_138 (Fawn Hotel) ← ctrip 120251028 (Fawn Hotel(小鹿酒店))  [同义映射 high→] score=1.0 details_fields=7
+- hotel_139 (VIA INN 阿倍野天王寺) ← ctrip 12114407 (VIA INN 阿倍野天王寺 - JR西日本集團)  [同义映射 economy→] score=0.876 details_fields=9
+- hotel_140 (MIMARU大阪心斋桥NORTH) ← ctrip 101975475 (MIMARU大阪 心斎橋NORTH)  [同义映射 mid→] score=1.0 details_fields=7
+- hotel_141 (Vessel Inn Namba) ← ctrip 57397335 (Vessel Inn Namba(Vessel Inn难波酒店))  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_142 (大阪格兰维亚酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_143 (大阪华尔道夫酒店) ← ctrip 107956768 (大阪华尔道夫)  [价格门槛 low_jpy=80000 ≥60000] score=0.891 details_fields=9
+- hotel_144 (大阪梅田希尔顿格芮精选酒店) ← ctrip 1572682 (大阪希尔顿酒店)  [同义映射 mid→] score=0.604 details_fields=10
+- hotel_145 (难波格雷斯利酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_146 (大阪心斋桥舒适酒店) ← ctrip 992394 (大阪心斋桥舒适酒店)  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_147 (APA Hotel 难波心斋桥) ← ctrip 101212342 (兰帕德·心斋桥)  [同义映射 economy→] score=0.569 details_fields=7
+- hotel_148 (ibis Styles 大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_149 (普林斯智选大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_150 (贝塞尔坎帕纳大阪心斋桥) **UNVERIFIED** [同义映射 mid→]
+- hotel_151 (近铁大阪难波福兹酒店) ← ctrip 88588064 (大阪难波佛滋近铁酒店)  [同义映射 economy→] score=0.6 details_fields=6
+- hotel_152 (日航大阪别邸酒店) **UNVERIFIED** [价格门槛 low_jpy=80000 ≥60000]
+- hotel_153 (大和鲁伊内特酒店大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_154 (大和鲁伊内特酒店大阪心斋桥) **UNVERIFIED** [同义映射 economy→]
+- hotel_155 (相铁格兰弗雷萨大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_156 (多美迎心斋桥) **UNVERIFIED** [同义映射 economy→]
+- hotel_157 (多美迎PREMIUM大阪北滨) ← ctrip 21916108 (Dormy Inn PREMIUM大阪北滨天然温泉水都之汤)  [同义映射 economy→] score=0.681 details_fields=10
+- hotel_158 (WBF酒店难波元町) ← ctrip 11106027 (WBF难波元町酒店)  [同义映射 economy→] score=0.711 details_fields=9
+- hotel_159 (WBF酒店难波文乐) **UNVERIFIED** [同义映射 economy→]
+- hotel_160 (难波东方酒店) ← ctrip 13979135 (东方酒店)  [同义映射 mid→] score=0.86 details_fields=7
+- hotel_161 (大阪难波华盛顿广场酒店) ← ctrip 1458599 (新大阪华盛顿广场酒店)  [同义映射 economy→] score=0.812 details_fields=10
+- hotel_162 (大阪蒙特利酒店) ← ctrip 688197 (大阪蒙特利酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_163 (心斋桥哈顿酒店) ← ctrip 759843 (心斋桥哈顿酒店)  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_164 (京瓷酒店) ← ctrip 1587182 (京瓷酒店)  [同义映射 mid→] score=0.85 details_fields=9
+- hotel_165 (奇怪酒店大阪难波) **UNVERIFIED** [同义映射 economy→]
+- hotel_166 (奇怪酒店大阪心斋桥) ← ctrip 25207623 (海茵娜酒店大阪 心斋桥)  [同义映射 economy→] score=0.789 details_fields=9
+- hotel_167 (大阪城市酒店京桥) ← ctrip 686500 (大阪城市酒店京桥)  [同义映射 economy→] score=1.0 details_fields=6
+- hotel_168 (大阪本町维斯塔尊贵酒店) ← ctrip 688138 (大阪威斯汀酒店)  [同义映射 mid→] score=0.51 details_fields=11
+- hotel_169 (大阪新阪急酒店) ← ctrip 1573764 (大阪新阪急酒店分馆)  [同义映射 mid→] score=0.931 details_fields=10
+- hotel_170 (唐草酒店尊贵版大阪难波) **UNVERIFIED** [同义映射 mid→]
+- hotel_171 (利索尔三一大阪酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_172 (海鸥天保山大酒店) ← ctrip 704191 (大阪天保山海鸥酒店)  [同义映射 economy→] score=0.586 details_fields=7
+- hotel_173 (环球影城奇点酒店) ← ctrip 688230 (环球影城港湾酒店)  [同义映射 mid→] score=0.713 details_fields=9
+- hotel_174 (大阪蒙特利勒弗莱尔酒店) ← ctrip 688187 (大阪蒙特利拉苏瑞酒店)  [同义映射 mid→] score=0.653 details_fields=8
+- hotel_175 (三井花园酒店大阪淀屋桥) ← ctrip 1483463 (三井花园酒店大阪普米尔)  [品牌白名单:三井] score=0.768 details_fields=10
+- hotel_176 (大阪城希尔顿逸林酒店) ← ctrip 117492210 (大阪城希尔顿逸林酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_177 (凯悦嘉轩难波大阪) **UNVERIFIED** [同义映射 mid→]
+- hotel_178 (Candeo Hotels 大阪高塔) ← ctrip 117477710 (大阪塔楼光芒酒店（CANDEO HOTELS）)  [同义映射 mid→] score=0.742 details_fields=9
+- hotel_179 (大阪梅田福朋喜来登弹性酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_180 (大阪心斋桥福朋喜来登弹性酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_181 (大阪北滨福朋喜来登弹性酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_182 (大阪本町福朋喜来登弹性酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_183 (APA Hotel & Resort 大阪难波站前塔) **UNVERIFIED** [同义映射 economy→]
+- hotel_184 (TONES OSAKA) ← ctrip 125818983 (TONES OSAKA(TONES 大阪))  [同义映射 high→] score=1.0 details_fields=6
+- hotel_185 (大阪阪急宏乐境酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_186 (Garner Hotel 大阪本町站) **UNVERIFIED** [同义映射 economy→]
+- hotel_187 (远东村庄酒店大阪本町) **UNVERIFIED** [同义映射 economy→]
+- hotel_188 (KOKO HOTEL 大阪难波千日前) ← ctrip 127321684 (KOKO HOTEL 大阪难波 千日前)  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_189 (大阪万豪系列酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_190 (大阪站酒店 傲途格精选) ← ctrip 118526302 (大阪站傲途格精选酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.74 details_fields=9
+- hotel_191 (大阪堂岛雅乐轩) ← ctrip 76115459 (大阪堂岛雅乐轩酒店)  [同义映射 high→] score=0.931 details_fields=9
+- hotel_192 (THE BOLY OSAKA) **UNVERIFIED** [同义映射 high→]
+- hotel_193 (大阪本町莱弗利酒店) ← ctrip 39464065 (大阪本町利夫利酒店)  [同义映射 high→] score=0.711 details_fields=9
+- hotel_194 (星野度假村 Risonare 大阪) **UNVERIFIED** [同义映射 high→]
+- hotel_195 (大阪天王寺塔安达之森) ← ctrip 1715016 (安达之森大阪天王寺塔酒店（易前往难波）)  [同义映射 high→] score=0.574 details_fields=7
+- hotel_196 (MIMARU大阪 难波NORTH) ← ctrip 69272905 (MIMARU大阪 難波NORTH)  [同义映射 mid→] score=1.0 details_fields=7
+- hotel_197 (多美迎PREMIUM 难波) ← ctrip 686335 (天然温泉夕雾之汤 多美迎 PREMIUM 难波)  [同义映射 economy→] score=0.863 details_fields=10
+- hotel_198 (Hotel Sanrriott Shinsaibashi) ← ctrip 117200165 (Hotel Sanrriott Shinsaibashi(Sanrriott酒店 心斋桥))  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_199 (利伯麦克斯酒店梅田中央) **UNVERIFIED** [同义映射 economy→]
+- hotel_200 (大阪新阪神酒店别馆) ← ctrip 25098082 (大阪阪神酒店别馆)  [同义映射 economy→] score=0.868 details_fields=9
+- hotel_201 (voco大阪中央) ← ctrip 102653415 (voco 大阪中央酒店 by IHG)  [同义映射 mid→] score=0.833 details_fields=9
+- hotel_202 (神户拉斯维特海港酒店) **UNVERIFIED** [同义映射 luxury→]
+- hotel_203 (ORIENTAL HOTEL) **UNVERIFIED** [同义映射 mid→]
+- hotel_204 (神户大仓酒店) ← ctrip 704990 (神户大仓酒店)  [同义映射 mid→] score=1.0 details_fields=12
+- hotel_205 (神户美利坚公园东方酒店) ← ctrip 1465318 (神户美利坚公园东方大酒店)  [同义映射 mid→] score=0.922 details_fields=11
+- hotel_206 (神户港皮亚大酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_207 (神户湾喜来登大酒店) ← ctrip 704525 (神户湾喜来登酒店)  [同义映射 luxury→] score=0.868 details_fields=11
+- hotel_208 (remm plus Kobe Sannomiya) ← ctrip 70940299 (Remm Plus Kobe Sannomiya(雷姆普拉斯神户三宫酒店))  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_209 (大和鲁伊内特酒店神户三宫) ← ctrip 704924 (Daiwa Roynet Hotel Kobe Sannomiya(神户三宫大和 Roynet 酒店))  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_210 (神户全日空皇冠假日酒店) ← ctrip 2107678 (神户全日空皇冠假日酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_211 (Dormy Inn 神户元町) ← ctrip 56976008 (多米神户元町天然温泉酒店)  [同义映射 economy→] score=0.655 details_fields=9
+- hotel_212 (Candeo Hotels 神户) ← ctrip 15784332 (神户东亚之路光芒酒店（CANDEO HOTELS）)  [同义映射 economy→] score=0.774 details_fields=10
+- hotel_213 (雷姆神户三宫) ← ctrip 70940299 (雷姆普拉斯神户三宫酒店)  [同义映射 economy→] score=0.738 details_fields=9
+- hotel_214 (皇家公园帆布神户三宫) **UNVERIFIED** [同义映射 mid→]
+- hotel_215 (大和鲁伊内特酒店神户三宫尊贵版) **UNVERIFIED** [同义映射 mid→]
+- hotel_216 (雷姆加神户三宫) **UNVERIFIED** [同义映射 economy→]
+- hotel_217 (皇家公园帆布神户三宫) **UNVERIFIED** [同义映射 mid→]
+- hotel_218 (神户东方大酒店) ← ctrip 1465318 (神户美利坚公园东方大酒店)  [同义映射 mid→] score=0.77 details_fields=11
+- hotel_219 (神户海港拉斯维特酒店) **UNVERIFIED** [同义映射 luxury→]
+- hotel_220 (神户大仓大酒店) ← ctrip 704990 (神户大仓酒店)  [同义映射 mid→] score=0.829 details_fields=12
+- hotel_221 (神户美利坚公园东方酒店) ← ctrip 1465318 (神户美利坚公园东方大酒店)  [同义映射 mid→] score=0.922 details_fields=11
+- hotel_222 (神户广场酒店西馆) **UNVERIFIED** [同义映射 economy→]
+- hotel_223 (相铁弗雷萨神户三宫) ← ctrip 28471269 (神户三宫相铁馥蕾莎酒店)  [同义映射 economy→] score=0.503 details_fields=9
+- hotel_224 (维拉芳丹神户三宫) **UNVERIFIED** [同义映射 economy→]
+- hotel_225 (东横INN神户三宫站前) ← ctrip 704587 (东横INN神户三宫站东口)  [同义映射 economy→] score=0.901 details_fields=8
+- hotel_226 (神户三宫舒适酒店) ← ctrip 23202766 (神户三宫舒适酒店)  [同义映射 economy→] score=1.0 details_fields=9
+- hotel_227 (亮光酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_228 (Candeo Hotels 神户托亚路) ← ctrip 15784332 (神户东亚之路光芒酒店（CANDEO HOTELS）)  [同义映射 mid→] score=0.7 details_fields=10
+- hotel_229 (神户皇冠宫殿酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_230 (神户三宫东急REI酒店) ← ctrip 704997 (神户三宫东急REI酒店)  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_231 (神户蒙特利酒店) ← ctrip 55210543 (神户蒙特利酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_232 (the b 神户) ← ctrip 704919 (the b kobe)  [同义映射 economy→] score=0.664 details_fields=10
+- hotel_233 (神户皮艾娜酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_234 (神户北野酒店) ← ctrip 2507499 (神户北野酒店)  [同义映射 high→] score=1.0 details_fields=8
+- hotel_235 (神户须磨海洋世界酒店) ← ctrip 115422461 (神户须磨海洋世界酒店)  [同义映射 mid→] score=1.0 details_fields=9
+- hotel_236 (大和鲁伊内特酒店神户三宫尊贵版) **UNVERIFIED** [同义映射 mid→]
+- hotel_237 (元町东急REI) ← ctrip 1489148 (神户元町东急REI酒店)  [同义映射 economy→] score=0.878 details_fields=9
+- hotel_238 (Monte Hermana Amalie) ← ctrip 704939 (Hotel Monte Hermana Kobe Amalie(神户蒙特埃马纳酒店・艾美丽))  [同义映射 economy→] score=0.79 details_fields=9
+- hotel_239 (KOKO HOTEL 三宫) ← ctrip 93770348 (神户三宫科科酒店)  [同义映射 economy→] score=0.505 details_fields=8
+- hotel_240 (神户广场酒店) ← ctrip 704941 (神户广场酒店)  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_241 (APA Hotel 神户三宫站前) **UNVERIFIED** [同义映射 economy→]
+- hotel_242 (绿富丽酒店神户三宫) **UNVERIFIED** [同义映射 economy→]
+- hotel_243 (紫翠奢华精选酒店·奈良) **UNVERIFIED** [同义映射 luxury→]
+- hotel_244 (奈良酒店) ← ctrip 705006 (奈良酒店)  [同义映射 economy→] score=1.0 details_fields=10
+- hotel_245 (登大路奈良酒店) ← ctrip 2487886 (奈良登大路酒店)  [同义映射 high→] score=0.671 details_fields=7
+- hotel_246 (奈良街道塞托雷) **UNVERIFIED** [同义映射 high→]
+- hotel_247 (Hotel Tenpyo Naramachi) ← ctrip 73231202 (Hotel Tenpyo Naramachi(奈良町天平酒店))  [同义映射 economy→] score=1.0 details_fields=6
+- hotel_248 (MIROKU Nara by THE SHARE HOTELS) ← ctrip 78155419 (Miroku Nara by the Share Hotels(奈良美乐酒店‐共享酒店))  [同义映射 high→] score=1.0 details_fields=8
+- hotel_249 (奈良诺富特酒店) ← ctrip 114898645 (奈良诺富特酒店)  [同义映射 economy→] score=1.0 details_fields=11
+- hotel_250 (奈良日航酒店) ← ctrip 1458287 (奈良日航国际酒店)  [同义映射 economy→] score=0.821 details_fields=9
+- hotel_251 (天然温泉奈良若草之汤大和鲁伊内特) **UNVERIFIED** [同义映射 economy→]
+- hotel_252 (御宿野乃奈良) ← ctrip 9788198 (御宿野乃奈良天然温泉酒店)  [同义映射 economy→] score=0.817 details_fields=10
+- hotel_253 (奈良新若草酒店) **UNVERIFIED** [同义映射 economy→]
+- hotel_254 (Hoshinoya Kyoto) ← ctrip 2137357 (HOSHINOYA Kyoto(虹夕诺雅 京都))  [品牌白名单:hoshinoya] score=1.0 details_fields=6
+- hotel_255 (Fufu Kyoto) ← ctrip 71939709 (Fufu Kyoto(馥府 京都))  [同义映射 luxury→] score=1.0 details_fields=8
+- hotel_256 (柊家旅馆) ← ctrip 1636227 (柊家旅馆)  [同义映射 luxury→] score=1.0 details_fields=7
+- hotel_257 (金乃音西富家) ← ctrip 9104058 (Kanamean Nishitomiya Ryokan(要庵西富家))  [同义映射 luxury→] score=0.925 details_fields=6
+- hotel_258 (俵屋旅馆) ← ctrip 8076325 (俵屋旅馆)  [同义映射 luxury→] score=1.0 details_fields=6
+- hotel_259 (炭屋旅馆) ← ctrip 1652411 (炭屋旅馆（Sumiya Ryokan）)  [同义映射 luxury→] score=0.831 details_fields=7
+- hotel_260 (神户港温泉 莲) ← ctrip 4396489 (神户港温泉莲旅馆)  [同义映射 mid→] score=0.921 details_fields=9
+- hotel_261 (有马温泉 欽山) ← ctrip 704589 (有马温泉钦山酒店（仅限成人）)  [同义映射 luxury→] score=0.656 details_fields=12
+- hotel_262 (中之坊瑞苑) ← ctrip 1676987 (中之坊瑞苑)  [同义映射 luxury→] score=1.0 details_fields=7
+- hotel_263 (陶泉 御所坊) ← ctrip 1489165 (神户有马温泉 陶泉 御所坊)  [同义映射 luxury→] score=0.794 details_fields=10
+- hotel_264 (竹取亭圆山) ← ctrip 705879 (有马温泉 竹取亭円山温泉旅馆)  [同义映射 mid→] score=0.756 details_fields=10
+- hotel_265 (有马格兰大酒店) ← ctrip 1646996 (有马格兰酒店)  [同义映射 mid→] score=0.829 details_fields=10
+- hotel_266 (兵卫向阳阁) ← ctrip 704945 (有马温泉兵卫向阳阁)  [同义映射 mid→] score=0.843 details_fields=11
+- hotel_267 (花小宿酒店) ← ctrip 705877 (花小宿酒店)  [同义映射 high→] score=1.0 details_fields=9
+- hotel_268 (天地之宿 奥之细道) **UNVERIFIED** [同义映射 luxury→]
+- hotel_269 (四季之彩 旅篭) **UNVERIFIED** [品牌白名单:四季]
+- hotel_270 (有马温泉 月光园 鸿朧馆) ← ctrip 704992 (月光园鸿胧馆)  [同义映射 mid→] score=0.614 details_fields=9
+- hotel_271 (银水庄 兆乐) **UNVERIFIED** [同义映射 mid→]
+- hotel_272 (有马山丛 御所别墅) ← ctrip 1314543 (有马山丛 御所別墅-豪华温泉别墅)  [同义映射 luxury→] score=0.775 details_fields=9
+- hotel_273 (根岸屋旅凤阁) **UNVERIFIED** [同义映射 mid→]
+- hotel_274 (有马御苑) ← ctrip 2643165 (有马御苑)  [同义映射 mid→] score=1.0 details_fields=11
+- hotel_275 (西村屋酒店招月庭) ← ctrip 705576 (城崎温泉西村屋招月庭酒店)  [同义映射 luxury→] score=0.593 details_fields=12
+- hotel_276 (西村屋本馆) ← ctrip 703328 (城崎温泉西村屋本馆)  [同义映射 luxury→] score=0.843 details_fields=12
+- hotel_277 (三木屋) ← ctrip 106709496 (三木屋)  [同义映射 mid→] score=0.85 details_fields=8
+- hotel_278 (城崎温泉 喜乐) ← ctrip 17505232 (城崎温泉 喜乐旅店)  [同义映射 mid→] score=0.921 details_fields=11
+- hotel_279 (花小路 彩月) ← ctrip 12591770 (城崎温泉花小路岁月)  [同义映射 luxury→] score=0.644 details_fields=7
+- hotel_280 (大西屋水翔苑) ← ctrip 1489106 (城崎温泉大西屋水翔苑)  [同义映射 mid→] score=0.863 details_fields=10
+- hotel_281 (但马屋) ← ctrip 1489095 (城崎温泉但马屋)  [同义映射 mid→] score=0.78 details_fields=8
+- hotel_282 (城崎温泉 山本屋) ← ctrip 1489103 (城崎山本屋)  [同义映射 mid→] score=0.737 details_fields=10
+- hotel_283 (森津屋) ← ctrip 8394935 (森津屋)  [同义映射 mid→] score=1.0 details_fields=8
+- hotel_284 (蔦屋旅馆) ← ctrip 1489099 (茑屋旅馆)  [同义映射 mid→] score=0.787 details_fields=8
+- hotel_285 (Fufu Nara) ← ctrip 60062327 (Fufu Nara(馥府 奈良))  [同义映射 luxury→] score=1.0 details_fields=7
+- hotel_286 (Hotel Kawakyu) ← ctrip 704509 (Hotel Kawakyu(川久酒店))  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=8
+- hotel_287 (INFINITO Hotel & Spa Nanki Shirahama) ← ctrip 1647557 (Infinito Hotel and Spa(南纪白滨无限水疗酒店))  [同义映射 mid→] score=0.639 details_fields=12
+- hotel_288 (Shiraraso Grand Hotel) ← ctrip 705027 (Shiraraso Grand Hotel(白良庄大酒店))  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_289 (Shirahama Key Terrace Hotel Seamore) ← ctrip 705093 (Shirahama Key Terrace Hotel Seamore(白浜奇特莱斯希莫尔酒店))  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_290 (南禅寺参道 菊水) ← ctrip 17505005 (南禅寺参道菊水旅馆)  [同义映射 luxury→] score=0.931 details_fields=8
+- hotel_291 (四条河原町温泉 空庭露台京都) ← ctrip 2197022 (四条河原町超级酒店)  [同义映射 mid→] score=0.515 details_fields=8
+- hotel_292 (四条河原町温泉 空庭露台京都 别邸) **UNVERIFIED** [同义映射 luxury→]
+- hotel_293 (神户港温泉 莲) ← ctrip 4396489 (神户港温泉莲旅馆)  [同义映射 mid→] score=0.921 details_fields=9
+- hotel_294 (高山庄 华野) **UNVERIFIED** [同义映射 luxury→]
+- hotel_295 (花结) ← ctrip 2505469 (有马温泉花结旅馆)  [同义映射 mid→] score=0.67 details_fields=10
+- hotel_296 (元汤 古泉阁) **UNVERIFIED** [同义映射 mid→]
+- hotel_297 (月光园 游月山庄) ← ctrip 705489 (月光园游月山庄)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_298 (大阪LIBER酒店) **UNVERIFIED** [同义映射 high→]
+- hotel_299 (有马皇家酒店) ← ctrip 5633944 (有马皇家酒店)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_300 (陵枫阁) ← ctrip 1489160 (Negiya 陵枫阁)  [同义映射 mid→] score=0.725 details_fields=12
+- hotel_301 (银花) ← ctrip 6253880 (银花-城崎丸山川温泉)  [同义映射 luxury→] score=0.65 details_fields=12
+- hotel_302 (蟹宿六之屋) **UNVERIFIED** [同义映射 mid→]
+- hotel_303 (山代屋旅馆) ← ctrip 21829840 (山代屋旅馆)  [同义映射 mid→] score=0.85 details_fields=6
+- hotel_304 (月之舟) ← ctrip 91391452 (有马温泉之宿 奔月之舟)  [同义映射 mid→] score=0.704 details_fields=8
+- hotel_305 (京汤元 鸠屋瑞凤阁) ← ctrip 703934 (京汤元鸠屋瑞凤阁酒店)  [同义映射 mid→] score=0.939 details_fields=10
+- hotel_306 (汤乐) ← ctrip 4536386 (城崎温泉汤乐旅馆)  [同义映射 mid→] score=0.67 details_fields=11
+- hotel_307 (深山) ← ctrip 6128905 (深山山庄)  [同义映射 mid→] score=0.667 details_fields=10
+- hotel_308 (有马光彩) **UNVERIFIED** [同义映射 mid→]
+- hotel_309 (蟹庵) ← ctrip 3483179 (城崎蟹庵旅馆)  [同义映射 mid→] score=0.725 details_fields=6
+- hotel_310 (丸山) ← ctrip 17452226 (丸山荘)  [同义映射 mid→] score=0.89 details_fields=7
+- hotel_311 (新泉) **UNVERIFIED** [同义映射 mid→]
+- hotel_312 (月色) **UNVERIFIED** [同义映射 mid→]
+- hotel_313 (泉翠) **UNVERIFIED** [同义映射 mid→]
+- hotel_314 (艳乡) **UNVERIFIED** [同义映射 mid→]
+- hotel_315 (京都岚山温泉 花传抄) ← ctrip 1676363 (京都 岚山温泉 花传抄(共立度假区)【2026年新装修】)  [同义映射 mid→] score=0.75 details_fields=10
+- hotel_316 (三井京都酒店) ← ctrip 1437724 (三井花园酒店 京都四条)  [品牌白名单:mitsui] score=0.525 details_fields=10
+- hotel_317 (安缦京都) ← ctrip 58048525 (安缦京都)  [品牌白名单:aman ] score=1.0 details_fields=8
+- hotel_318 (The Shinmonzen) **UNVERIFIED** [同义映射 high→]
+- hotel_319 (艾斯酒店京都) ← ctrip 58071089 (艾斯酒店京都)  [同义映射 high→] score=1.0 details_fields=7
+- hotel_320 (悦榕庄京都东山) ← ctrip 119717116 (京都东山悦榕庄)  [品牌白名单:banyan tree] score=0.871 details_fields=10
+- hotel_321 (杜斯特塔尼京都) ← ctrip 107821952 (Dusit Thani Kyoto(京都都喜天丽酒店))  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=9
+- hotel_322 (四季酒店京都) ← ctrip 5708589 (京都四季酒店)  [品牌白名单:four seasons] score=0.9 details_fields=8
+- hotel_323 (京都清水圣龙酒店) ← ctrip 57349536 (The Hotel Seiryu Kyoto Kiyomizu - a Member of the Leading Hotels of the World-(京都清水青龙酒店))  [同义映射 high→] score=0.757 details_fields=9
+- hotel_324 (祇园天琴京都酒店) ← ctrip 7045649 (Hotel the Celestine Kyoto Gion(京都祗园塞莱斯廷酒店))  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_325 (MUNI KYOTO by Onko Chishin) ← ctrip 60051873 (京都MUNI酒店)  [同义映射 high→] score=0.524 details_fields=7
+- hotel_326 (柏悦京都) ← ctrip 42370779 (京都柏悦酒店)  [品牌白名单:park hyatt] score=0.85 details_fields=8
+- hotel_327 (京都六本木LXR酒店) ← ctrip 73129225 (ROKU KYOTO，LXR 酒店及度假村 - 日本京都豪华酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.85 details_fields=9
+- hotel_328 (六善酒店京都) ← ctrip 116935855 (京都六善酒店)  [品牌白名单:six senses] score=0.9 details_fields=7
+- hotel_329 (京都二条城嘉瑞亚) ← ctrip 64192979 (Garrya Nijo Castle Kyoto(京都二条城悦柳))  [同义映射 high→] score=1.0 details_fields=7
+- hotel_330 (大阪康莱德酒店) ← ctrip 8033133 (大阪康莱德酒店)  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=9
+- hotel_331 (大阪洲际酒店) ← ctrip 1836788 (大阪洲际酒店)  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=7
+- hotel_332 (大阪丽思卡尔顿酒店) ← ctrip 1280987 (大阪丽思卡尔顿酒店)  [品牌白名单:ritz-carlton] score=1.0 details_fields=8
+- hotel_333 (大阪W酒店) ← ctrip 68263395 (W大阪)  [价格门槛 low_jpy=80000 ≥60000] score=0.82 details_fields=9
+- hotel_334 (大阪帕提纳酒店) ← ctrip 124571431 (Patina Osaka(大阪柏典酒店))  [价格门槛 low_jpy=80000 ≥60000] score=1.0 details_fields=7
+- hotel_335 (大阪四季酒店) ← ctrip 120293503 (大阪四季酒店)  [品牌白名单:four seasons] score=1.0 details_fields=7
+- hotel_336 (奈良JW万豪酒店) ← ctrip 53088204 (奈良 JW 万豪酒店)  [同义映射 luxury→] score=1.0 details_fields=8
+- hotel_337 (大阪阿尔莫尼安布拉塞酒店) **UNVERIFIED** [同义映射 high→]
+- hotel_338 (丸福楼) **UNVERIFIED** [同义映射 high→]
+- hotel_339 (大阪皇家经典酒店) ← ctrip 49239788 (大阪皇家古典酒店)  [价格门槛 low_jpy=80000 ≥60000] score=0.781 details_fields=7
+- hotel_340 (NIPPONIA HOTEL 奈良街道) ← ctrip 25658995 (NIPPONIA HOTEL Nara Naramachi(奈良奈良町 NIPPONIA 旅店))  [同义映射 high→] score=1.0 details_fields=7
+- hotel_341 (Candeo Hotels 京都乌丸六角) ← ctrip 73245586 (京都乌丸六角光芒酒店（CANDEO HOTELS）)  [同义映射 mid→] score=0.68 details_fields=7
+- hotel_342 (町家住宅京都) **UNVERIFIED** [同义映射 mid→]
+- hotel_343 (季乐 京都 (Nazuna)) ← ctrip 23799312 (季乐京都本町)  [同义映射 mid→] score=0.545 details_fields=8
+- hotel_344 (葵 KYOTO STAY) ← ctrip 6248283 (葵 HOTEL KYOTO 南禅寺別邸)  [同义映射 mid→] score=0.554 details_fields=7
+- hotel_345 (藏屋) ← ctrip 10807493 (你的地藏屋)  [同义映射 mid→] score=0.764 details_fields=6
+- hotel_346 (祇园新桥 梅庵) **UNVERIFIED** [同义映射 mid→]
+- hotel_347 (Hotel Kanra Kyoto) ← ctrip 706115 (Hotel Kanra Kyoto(京都感洛酒店))  [同义映射 high→] score=1.0 details_fields=10
+- hotel_348 (Nazuna 京都东本愿寺) ← ctrip 122812217 (Nazuna京都东本愿寺)  [同义映射 mid→] score=1.0 details_fields=7
+- hotel_349 (惠光院) **UNVERIFIED** [同义映射 economy→]
+- hotel_350 (一乘院) ← ctrip 1678546 (一乘院)  [同义映射 economy→] score=0.85 details_fields=0
+- hotel_351 (莲华定院) **UNVERIFIED** [同义映射 economy→]
+- hotel_352 (金光院 萤庵) **UNVERIFIED** [同义映射 economy→]
+- hotel_353 (智积院会馆) ← ctrip 23194340 (宿坊 智积院会馆)  [同义映射 economy→] score=0.908 details_fields=6
+- hotel_354 (仁和寺 御室会馆) **UNVERIFIED** [同义映射 economy→]
+- hotel_355 (知恩院 和顺会馆) ← ctrip 706176 (知恩院和顺会馆)  [同义映射 economy→] score=1.0 details_fields=0
+- hotel_356 (妙心寺 东林院) **UNVERIFIED** [同义映射 economy→]
+- hotel_357 (鹿王院) **UNVERIFIED** [同义映射 economy→]
+- hotel_358 (药师院) **UNVERIFIED** [同义映射 economy→]
+- hotel_359 (福智院) **UNVERIFIED** [同义映射 economy→]
+- hotel_360 (西门院) ← ctrip 1677319 (西门院)  [同义映射 economy→] score=0.85 details_fields=6
+- hotel_361 (西南院) ← ctrip 23587558 (西南院)  [同义映射 economy→] score=0.85 details_fields=5
+- hotel_362 (清净心院) **UNVERIFIED** [同义映射 economy→]
+- hotel_363 (赤松院) **UNVERIFIED** [同义映射 economy→]
+- hotel_364 (不动院) **UNVERIFIED** [同义映射 economy→]
+- hotel_365 (常喜院) ← ctrip 6305851 (常喜院宾馆)  [同义映射 economy→] score=0.713 details_fields=7
+- hotel_366 (持明院) ← ctrip 106351880 (持明院)  [同义映射 economy→] score=0.85 details_fields=6
+- hotel_367 (龙泉院) **UNVERIFIED** [同义映射 economy→]
+- hotel_368 (春日酒店) ← ctrip 1489008 (春日酒店)  [同义映射 mid→] score=1.0 details_fields=0
+- hotel_369 (松井本馆) ← ctrip 703937 (松井本馆)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_370 (天妇罗吉川) **UNVERIFIED** [同义映射 mid→]
+- hotel_371 (柚子屋旅馆) ← ctrip 706228 (柚子屋旅馆)  [同义映射 mid→] score=1.0 details_fields=10
+- hotel_372 (红叶家本馆 高雄山庄) ← ctrip 5174981 (红叶家本馆-高雄山庄)  [同义映射 mid→] score=1.0 details_fields=8
+- hotel_373 (纯和风料理旅馆 季乃会) ← ctrip 704848 (纯和风料理旅馆-KINOE)  [同义映射 mid→] score=0.71 details_fields=7
+- hotel_374 (岚山温泉 花传抄) ← ctrip 1676363 (京都 岚山温泉 花传抄(共立度假区)【2026年新装修】)  [同义映射 mid→] score=0.698 details_fields=10
+- hotel_375 (古都之宿 武藏野) ← ctrip 1676784 (武藏野古都旅馆)  [同义映射 mid→] score=0.514 details_fields=9
+- hotel_376 (江户三) ← ctrip 23201751 (江户三酒店)  [同义映射 mid→] score=0.863 details_fields=8
+- hotel_377 (和鹿彩 别邸) ← ctrip 2139409 (奈良町家和鹿彩别邸)  [同义映射 mid→] score=0.843 details_fields=10
+- hotel_378 (游景之宿 平城) **UNVERIFIED** [同义映射 mid→]
+- hotel_379 (四季亭) ← ctrip 17504991 (四季亭)  [品牌白名单:四季] score=1.0 details_fields=6
+- hotel_380 (飞鸟庄) ← ctrip 705826 (飞鸟庄)  [同义映射 mid→] score=1.0 details_fields=0
+- hotel_381 (贵船 藤屋) **UNVERIFIED** [同义映射 mid→]
+- hotel_382 (料理旅馆 右源太) **UNVERIFIED** [同义映射 luxury→]
+- hotel_383 (渡月亭) ← ctrip 2198841 (渡月亭酒店)  [同义映射 mid→] score=0.863 details_fields=9
+- hotel_384 (红叶家别馆 川之庵) ← ctrip 49456235 (京都红叶家别馆川之庵)  [同义映射 mid→] score=0.939 details_fields=6
+- hotel_385 (普林斯京都宝池酒店) **UNVERIFIED** [同义映射 mid→]
+- hotel_386 (格兰西嵐山酒店) **UNVERIFIED** [同义映射 high→]

@@ -114,8 +114,6 @@
       ]
     }
   ],
-  "pace_type": "deep_stay",
-  "pace_type_sub": "onsen",
   "contingencies": {
     "rain_light": "温泉日雨天加分——金汤/银汤室内，旅馆内汤屋顶露天也好。雨天有马街道更安静",
     "rain_heavy": "全程基本室内——旅馆+金汤+银汤均室内。街道石段大雨湿滑注意",

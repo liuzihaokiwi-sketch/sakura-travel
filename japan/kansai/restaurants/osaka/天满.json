@@ -1,0 +1,522 @@
+[
+  {
+    "id": "osk_tenma_gojoya",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "日本料理",
+      "鱼料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          350,
+          700
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "五條家（ごじょうや）",
+      "简介": "Tabelog 3.66 分的天满日料店，擅长用大阪湾时令鱼获做割烹定食。天满居酒屋街里难得能好好坐下来吃顿精致日料的地方，本地食客占多数，少有游客。午市套餐价格亲民。",
+      "亮点": [
+        "Tabelog 3.66",
+        "大阪湾时令鱼获",
+        "天满本地食客为主"
+      ],
+      "招牌菜": [
+        "时令鱼割烹套餐（昼 ¥2,500 起）",
+        "造り盛合せ"
+      ],
+      "地址": "大阪市北区天神橋筋 4 丁目周边，地铁扇町站步行约 5 分钟",
+      "营业": "11:30-14:00 / 18:00-23:00，不定休",
+      "预约": "晚餐推荐预约，电话确认"
+    }
+  },
+  {
+    "id": "osk_tenma_nishiya",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 6
+      },
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "串炸",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串もん 西屋（くしもん にしや）",
+      "简介": "Tabelog 3.60 分，天满居酒屋街里口碑稳定的串炸店，食材新鲜、炸制水准高，与新世界的达磨路线不同——这里走的是精致居酒屋风，配大阪地酒体验更完整。本地上班族饭后必来。",
+      "亮点": [
+        "Tabelog 3.60",
+        "天满精致串炸",
+        "大阪地酒配对"
+      ],
+      "招牌菜": [
+        "单串点单（约 ¥130-300/串）",
+        "厨师推荐套串 10 本"
+      ],
+      "地址": "大阪市北区天満 3 丁目周边，地铁南森町站步行约 5 分钟",
+      "营业": "17:00-23:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenma_sato",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "らーめん颯人（らーめんさいと）",
+      "简介": "Tabelog 3.76 分，天满近年人气高涨的拉面店，以浓厚鸡白汤底见长，面条劲道，配料扎实。排队是常态，早去可减少等待。天满居酒屋氛围之外的拉面代表。",
+      "亮点": [
+        "Tabelog 3.76",
+        "浓厚鸡白汤",
+        "天满人气店"
+      ],
+      "招牌菜": [
+        "鸡白汤拉面（约 ¥900）",
+        "限定浓厚款"
+      ],
+      "地址": "大阪市北区天満周边，地铁南森町站步行约 8 分钟",
+      "营业": "11:30-14:30 / 18:00-22:00（售罄即止），周一不定休",
+      "预约": "无需预约，建议 11:30 开门即到"
+    }
+  },
+  {
+    "id": "osk_tenma_gomennejiro",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ゴメンネJIRO",
+      "简介": "Tabelog 3.76 分，天满独特风格拉面店，店名带点幽默。以浓厚豚骨系为基底，配大量蔬菜压顶，分量豪迈，吃完极满足。天满年轻食客聚集，氛围活跃。",
+      "亮点": [
+        "Tabelog 3.76",
+        "豪迈分量",
+        "天满年轻气氛"
+      ],
+      "招牌菜": [
+        "豚骨系拉面（约 ¥1,000）",
+        "蔬菜加量款"
+      ],
+      "地址": "大阪市北区天満周边，地铁南森町站步行约 8 分钟",
+      "营业": "11:00-15:00 / 18:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_takama_soba",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "荞麦"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "蕎麦 たかま",
+      "简介": "Tabelog 3.75 分，天满街区里的手打荞麦小店，用北海道产玄蕎麦现打，出汁讲究。在居酒屋密集的天满，一家安静的蕎麦屋反而成了本地文青的避世之所。午餐只供 2 小时，建议预留时间。",
+      "亮点": [
+        "Tabelog 3.75",
+        "手打北海道荞麦",
+        "天满少有的安静蕎麦屋"
+      ],
+      "招牌菜": [
+        "ざる蕎麦（约 ¥1,000）",
+        "鸭肉南蛮蕎麦（约 ¥1,500）"
+      ],
+      "地址": "大阪市北区天満 2 丁目周边，JR 天満站步行约 5 分钟",
+      "营业": "11:30-13:30 / 18:00-21:30，周二不定休",
+      "预约": "晚餐推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenma_gunjo",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "居酒屋",
+      "大阪料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "群青（ぐんじょう）",
+      "简介": "Tabelog 3.74 分，天满本地居酒屋，串物和小菜价格极亲民，是真正「大阪打工人收工后钻进来」的那种氛围。外地人少，本地感极强，适合想脱离游客线路的旅行者。",
+      "亮点": [
+        "Tabelog 3.74",
+        "极具本地感的居酒屋",
+        "价格亲民"
+      ],
+      "招牌菜": [
+        "大阪串物拼盘（约 ¥1,500）",
+        "当日小菜"
+      ],
+      "地址": "大阪市北区天満周边，地铁扇町站步行约 5 分钟",
+      "营业": "17:00-24:00，周日不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_rakunijin",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "居酒屋",
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "洛二神（らくにじん）",
+      "简介": "Tabelog 3.74 分，天满特色小吃居酒屋，菜单涵盖从大阪煮物到拉面的「洛食」混搭风，价格极低，氛围热闹随性。是天满最能代表「下町夜食」精神的店之一。",
+      "亮点": [
+        "Tabelog 3.74",
+        "大阪下町夜食氛围",
+        "极低价位"
+      ],
+      "招牌菜": [
+        "天满风煮物小菜",
+        "当日汤拉面"
+      ],
+      "地址": "大阪市北区天満周边，JR 天満站步行约 5 分钟",
+      "营业": "17:00-24:00，周日休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_iwashi_honke",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋",
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          220
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いわし家 本店（イワシヤ）天満",
+      "简介": "天满夜食街中段的鰯（沙丁鱼）专门居酒屋·**Tabelog 3.6+**·本地人下班据点。鰯刺身+鰯フライ+鰯天妇罗+鰯炊饭五吃法·一鱼到底。生啤+清酒任配。天满站徒步 5 分·游客很少·关西本地夜食 DNA 体验。",
+      "亮点": [
+        "天满鰯专门居酒屋",
+        "Tabelog 3.6+",
+        "鰯五吃法",
+        "本地人下班据点",
+        "游客极少"
+      ],
+      "招牌菜": [
+        "鰯刺身（¥780）",
+        "鰯フライ（¥980）",
+        "鰯炊込ご飯（¥780）"
+      ],
+      "地址": "大阪市北区天神橋 5（JR 天満駅 徒步 5 分）",
+      "营业": "夜 17:00-23:00；无定休",
+      "预约": "推荐预约·食べログ",
+      "到店提醒": "天满觅食线最有 DNA 的一站；生啤搭鰯刺身最对"
+    }
+  },
+  {
+    "id": "osk_tenma_haruko",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 4
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "春駒 本店（はるこま）天満",
+      "简介": "天满夜食街的回转寿司+大众寿司老铺·**桌上备纸笔自助下单·酱油用刷子自己刷**·独特的下单方式。看板「あさり赤だし」¥500 山堆蛤蜊·性价比寿司+下酒菜双修。Tabelog 3.55+·天满觅食 DNA·游客极少。",
+      "亮点": [
+        "天满夜食 DNA",
+        "桌上自助下单+刷酱油",
+        "看板あさり赤だし ¥500",
+        "Tabelog 3.55+",
+        "性价比寿司"
+      ],
+      "招牌菜": [
+        "あさり赤だし（¥500）",
+        "鉄火巻（¥350）",
+        "本日にぎり（10 贯·¥1,800）"
+      ],
+      "地址": "大阪市北区天神橋 5-5-2（JR 天満駅 徒步 4 分）",
+      "营业": "11:00-21:30；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中午 12-13 点排 30-40 分；下午 14-17 点空"
+    }
+  },
+  {
+    "id": "osk_tenma_iwashi_omakase",
+    "area": "天满",
+    "near_attractions": [
+      {
+        "entity_id": "osk_tenmangu",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          120,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          180,
+          350
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いわ志 本店（いわし）福島",
+      "简介": "JR 福島站徒步 7 分的预约制寿司·**¥2,750 / 20 贯午市套餐**·性价比寿司大阪天花板。完全预约制·平日好订（土曜难订）·吧台最对·テーブル要 5 贯一上不如吧台一贯一上。Tabelog 3.58·**关西 omakase 入门最佳选项**。",
+      "亮点": [
+        "**¥2,750 / 20 贯午市**",
+        "性价比寿司大阪天花板",
+        "完全预约制·平日好订",
+        "吧台一贯一上",
+        "Tabelog 3.58"
+      ],
+      "招牌菜": [
+        "ランチおまかせ 20 贯（¥2,750）",
+        "ディナーおまかせ 15 贯+赤出汁+茶碗蒸（¥4,500）"
+      ],
+      "地址": "大阪市福島区福島 6（JR 福島駅 徒步 7 分；阪神福島駅 徒步 5 分）",
+      "营业": "ランチ 11:30-13:30 / ディナー 17:30-21:00；不定休",
+      "预约": "**完全预约制**·一休/食べログ；土曜需 1 个月前订",
+      "到店提醒": "吧台席必选；平日好订；ビル 4F 楼梯 only"
+    }
+  }
+]

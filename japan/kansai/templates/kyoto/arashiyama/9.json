@@ -55,7 +55,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "旅馆怀石或精进料理（花筏/翠岚本地晚餐是住宿核心价值）·约 2 小时"
         }
       ]
@@ -113,7 +113,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "鸟居本方向午餐·平野屋（1641 年创业·茅葺屋顶·香鱼料理 ¥6000-15000 需预约）或蔦屋（茑屋（つたや）·老铺·年糕香鱼烤）"
         }
       ]
@@ -149,8 +149,6 @@
     }
   ],
   "variant_label": "岚山·夜枫与清晨",
-  "pace_type": "deep_stay",
-  "pace_type_sub": "deep_local",
   "contingencies": {
     "rain_light": "D1 夜宝严院雨中夜枫氛围更浓·D2 清晨竹林雨打竹叶沙沙声·不改程·伞+防水鞋必备",
     "rain_heavy": "D1 夜宝严院雨中仍开放但游客减半（体验升级）·D2 清晨竹林照走（有伞可）+奥嵯峨三寺石阶湿滑砍到只走常寂光寺 1 家·午餐改室内平野屋·渡月桥 peak-end 改在咖啡馆窗边",

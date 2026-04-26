@@ -116,8 +116,6 @@
     }
   ],
   "variant_label": "宿坊早朝·奥之院",
-  "pace_type": "deep_stay",
-  "pace_type_sub": "deep_local",
   "contingencies": {
     "rain_light": "奥之院苔藓雨后最深绿，小雨是高野山加分项，带伞继续",
     "rain_heavy": "宿坊室内（法事/精进料理/宿坊庭院）撑起主体，奥之院大雨可缩短",

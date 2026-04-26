@@ -44,7 +44,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "okazaki",
+          "meal_area": "okazaki_nanzenji",
           "note": "冈崎/南禅寺方向午餐——南禅寺汤豆腐老铺（順正等）或平安神宮方向定食。蹴上半日结束，下午接 okazaki_tetsugaku/3.json 哲学之道樱花日最佳"
         }
       ]

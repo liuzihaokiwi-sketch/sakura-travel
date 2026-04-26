@@ -1,0 +1,373 @@
+[
+  {
+    "id": "kyo_kawaramachi_bar_k6",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "kyo_kamo_river",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": ["鸡尾酒酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [100, 300]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Bar K6（ケーシックス）",
+      "简介": "京都酒吧圈公认头部，主理人 Kazunari Kato 手持 1200 种清酒 + 600 种威士忌，木屋町二条楼上安静角落，一杯烈酒能让整个夜晚回到原点。入选 World's 50 Best Discovery。",
+      "亮点": ["京都酒吧头部", "1200 种清酒", "Wood's 50 Best Discovery", "木屋町河景楼上"],
+      "招牌菜": ["本地威士忌精选调酒", "季节清酒比较飞"],
+      "地址": "京都市中京区二条通木屋町東入 東生洲町 481 ヴァルズビル 2F（地铁市役所前站步行 5 分）",
+      "营业": "18:00-03:00（周五六至 05:00）；周一二定休（Instagram 可能有调整）",
+      "预约": "无需预约，先到先得",
+      "到店提醒": "周五六极易满，20:00 前到更稳；营业时间以官网/Instagram 为准",
+      "Tabelog 分数": 3.43
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_lescamoteur",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "kyo_kamo_river",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["鸡尾酒酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [80, 200]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "L'Escamoteur Bar（レスカモトゥール）",
+      "简介": "2015 年开业，法国魔术师 Christophe Rossi 主理，町家改建仅 12 席，蒸汽朋克氛围，调酒时插入魔术小表演——点燃蓝色火焰、烟雾漫出杯口。木屋町最有个性的小酒馆之一。",
+      "亮点": ["调酒 × 魔术表演", "12 席私密町家", "法国主理人", "蒸汽朋克设计"],
+      "招牌菜": ["季节性魔术鸡尾酒（每期不同主题）", "京都本地食材特调"],
+      "地址": "京都市下京区斉藤町 138-9（阪急京都河原町站步行 5 分）",
+      "营业": "20:00-02:00（每日）；不定休",
+      "预约": "不接受预约，先到先得；高峰等候约 15-30 分钟",
+      "到店提醒": "平日人少体验更佳；建议 20:00 稍前排队"
+    }
+  },
+  {
+    "id": "kyo_karasuma_setsugekka",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": ["威士忌酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [120, 350]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "雪月花（セツゲッカ）",
+      "简介": "大正 4 年建造、国登录有形文化财 SACRA 大楼内，四室格局（雪·月·花·SALON）各有主题，国产限定威士忌为主力，另有干邑、阿马尼亚克与手作生巧克力。地铁烏丸御池步行 5 分，烈酒 × 历史建筑的少见组合。",
+      "亮点": ["国登录有形文化财建筑", "大正 4 年町家", "国产限定威士忌", "四主题房间"],
+      "招牌菜": ["限定国产单一麦芽威士忌", "生フルーツカクテル", "手作り生チョコ"],
+      "地址": "京都市中京区三条通富小路西入中之町 20 SACRA ビル 1F・B1F（地铁烏丸御池站步行 5 分）",
+      "营业": "19:00-02:00；不定休（075-231-0070 确认）",
+      "预约": "可预约，建议旺季提前；完全个室（10 名）/ SALON 贸切（30 名）需预约",
+      "到店提醒": "个室需单独预约；红叶季/新年等旺季提前确认"
+    }
+  },
+  {
+    "id": "kyo_karasuma_bozubar",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 12
+      },
+      {
+        "entity_id": "kyo_seimei_jinja",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [60, 150]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "none",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都坊主 BAR（サロン＆バー SAMGHA）",
+      "简介": "现役住职羽田高秀主理，百年町家改建，桌上置「磬」，卖各国威士忌、国产精酿与日本葡萄酒，还顺带接受人生相谈。店名已于 2021 年改为「salon＆bar SAMGHA」，氛围保持原样。四条烏丸隐入居民区，本地人下班后的奇特首选。",
+      "亮点": ["住职主理", "百年町家", "人生相谈受理", "威士忌 × 佛教美学"],
+      "招牌菜": ["「煩悩熾盛」鸡尾酒", "国产精酿生啤（3 种循环）", "限定国产威士忌"],
+      "地址": "京都市中京区油小路通蛸薬師下ル（地铁四条駅步行约 8 分；075-252-3160）",
+      "营业": "18:00-24:00（LO 23:30）；日曜定休；住职参拜日营业可能延迟",
+      "预约": "无需预约",
+      "到店提醒": "2021 年店名已改「SAMGHA」，坊主 BAR 的牌子依旧；来前致电确认"
+    }
+  },
+  {
+    "id": "kyo_karasuma_kyomode",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [50, 150]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "BAR 京もーど（バー キョウモード）",
+      "简介": "四条烏丸本地居民下班收工后的真实据点，平均消费 ¥2000-3000，不做旅行者生意，进去自然插入本地对话节奏。烏丸御池徒步圈，深夜还在开着灯。",
+      "亮点": ["本地真实下班酒吧", "四条烏丸核心", "价格平实"],
+      "招牌菜": ["本地精选鸡尾酒", "国产啤酒"],
+      "地址": "京都市中京区 四条烏丸·烏丸御池周边（待核实：请查 Tabelog tabelog.com/kyoto/.../26022349/）",
+      "营业": "营业时段以官网或 Tabelog 为准（待核实）",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kyo_karasuma_daichan_yakiniku",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [200, 450]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "深夜焼肉 だいちゃん",
+      "简介": "发现池历史数据 Tabelog 4.29 的深夜烧肉据点，22:00 后仍开灯迎客，烏丸御池收工族的深夜仪式感。价格落在 mid 区间，用料不将就，是本地人认可的「还好有这家」。",
+      "亮点": ["Tabelog 4.29", "深夜营业", "烏丸御池核心", "本地认可"],
+      "招牌菜": ["国产牛厚切焼肉", "深夜套餐（含主食）"],
+      "地址": "京都市中京区 烏丸御池周边（待核实：Tabelog 搜索「深夜焼肉 だいちゃん 京都」确认地址）",
+      "营业": "22:00 起深夜营业；具体时段待核实",
+      "预约": "建议预约",
+      "到店提醒": "深夜专门店，适合正餐后夜宵烧肉；22:00 后再去",
+      "Tabelog 分数": 4.29
+    }
+  },
+  {
+    "id": "osk_kitashinchi_suntory_whisky",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["威士忌酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [120, 350]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Suntory Whisky House・北新地 水響亭（サントリーバー＆ダイニング 北新地 水響亭）",
+      "简介": "三得利旗下北新地正式酒吧，格局比梅田 Grand Front 的 Whisky House 更沉稳私密，提供世界 Top 5 威士忌飲み放题特别方案与 100+ 瓶单一麦芽；个室完备，适合商务与收工后两人细饮。北新地 11-41 出口步行 1 分。",
+      "亮点": ["三得利官方酒吧", "北新地核心", "100+ 单一麦芽", "个室可用"],
+      "招牌菜": ["世界 Top 5 威士忌飲み放题方案", "山崎/响/白州年份表达"],
+      "地址": "大阪市北区堂島 北新地駅 11-41 出口徒步约 1 分",
+      "营业": "17:30-23:00（周五六延至 23:30）；以官网为准",
+      "预约": "建议提前预约；TableCheck/官网可约",
+      "到店提醒": "北新地周边还有 Bar K（bar-k.jp）等多家优质独立酒吧，水響亭更适合初访者"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_circus_osaka",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 6
+      }
+    ],
+    "tier": "economy",
+    "cuisine": ["酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [80, 200]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "CIRCUS Osaka（サーカス オーサカ）",
+      "简介": "美国村核心，200 人容量的 Underground Club，镜面球 + 全站立，以 Techno/House/Drum＆Bass 为主场，每周末引进国际 DJ。不做派对，只做音乐——大阪地下俱乐部代表场所，门票随场次变动，一般 ¥1500-3000。",
+      "亮点": ["大阪地下音乐代表", "美国村核心", "每周国际 DJ", "200 人亲密规模"],
+      "招牌菜": ["周五 CIRCUS FRIDAY（Drum＆Bass）", "周六大阪本地 DJ 精选"],
+      "地址": "大阪市中央区西心斎橋 1-8-16 中西ビル 2F（四ツ橋駅・心斎橋駅 步行 5 分）",
+      "营业": "按 Event 定，通常 22:00 或 23:00 开门；具体查 circus-osaka.com",
+      "预约": "无需预约，买票入场",
+      "到店提醒": "入场费按场次定；提前看官网 Event 页确认时间；着装无硬规但黑色系更融入"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_ribbon",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 7
+      },
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": ["酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [60, 180]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "RIBBON（心斎橋 若者クラブ・待核实）",
+      "简介": "心斋桥美国村圈年轻夜店代名词之一，以流行/EDM 为主场，入场费较低，吸引 20 代本地年轻群体。具体店名「RIBBON」待核实——心斋桥同名或近名夜店数家，建议搜「心斎橋 RIBBON クラブ」确认当前运营状态后再推荐。",
+      "亮点": ["美国村年轻夜店", "低门槛入场", "EDM/Pop 主场"],
+      "招牌菜": ["EDM 周末夜场"],
+      "地址": "大阪市中央区 心斎橋・美国村周边（待核实：搜索「心斎橋 RIBBON」确认地址）",
+      "营业": "待核实：以官网/SNS 为准",
+      "预约": "无需预约",
+      "到店提醒": "具体店名待核实·交付报告已标注·建议替代：CIRCUS OSAKA（同区·质量更稳定）"
+    }
+  },
+  {
+    "id": "kob_sannomiya_sone_jazz",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_ijinkan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": ["爵士酒吧"],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [150, 400]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ジャズライブ＆レストラン ソネ（SONE）",
+      "简介": "1969 年在神户爵士发祥地创立，每晚三场现场演奏（18:30/19:50/21:10），女声爵士 + 钢琴三重奏为常规阵容，料理以日式居酒屋风格搭配，入场费含一杯。神户夜晚最有历史感的爵士体验。",
+      "亮点": ["1969 年创立", "神户爵士发祥地", "每晚三场现场演奏", "老牌传承"],
+      "招牌菜": ["ソネセット（¥3300·含料理+飲み物）", "阿拉卡特料理（¥750 起）"],
+      "地址": "兵庫県神戸市中央区中山手通 1-24-10（三宮站步行约 8 分；078-221-2055）",
+      "营业": "17:00-23:00；1st Stage 18:30 / 2nd Stage 19:50 / 3rd Stage 21:10",
+      "预约": "建议预约特别是周末与节假日；官网 kobe-sone.com 可约",
+      "到店提醒": "入场费通常 ¥1650 起；建议提前 15-20 分钟入场选好位置；着装建议整洁"
+    }
+  }
+]

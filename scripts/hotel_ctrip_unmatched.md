@@ -1,0 +1,136 @@
+# 未匹配酒店清单（unverified）
+
+- hotel_003: 京都格兰维亚大酒店 | ホテルグランヴィア京都 (Hotel Granvia Kyoto) | city=kyoto area=kyoto_station | old_tier=mid→comfort
+- hotel_009: Hotel 侑楽 京八坂 | Hotel 侑楽 京八坂 | city=kyoto area=gion_higashiyama | old_tier=high→premier
+- hotel_010: 凯悦摄政京都酒店 | ハイアットリージェンシー京都 | city=kyoto area=gion_higashiyama | old_tier=luxury→ultra_luxury
+- hotel_014: 皇家双子酒店京都八条口 | ロイヤルツインホテル京都八条口 | city=kyoto area=kyoto_station | old_tier=mid→comfort
+- hotel_016: 大和鲁伊内特酒店京都大厦八条东口 | ダイワロイネットホテル京都テラス八条東口 | city=kyoto area=kyoto_station | old_tier=economy→economy
+- hotel_017: 京都维斯奇奥酒店 | ホテルヴィスキオ京都 | city=kyoto area=kyoto_station | old_tier=economy→economy
+- hotel_018: 大和鲁伊内特酒店京都站前 | ダイワロイネットホテル京都駅前 | city=kyoto area=kyoto_station | old_tier=economy→economy
+- hotel_021: 里士满酒店尊贵版京都四条 | リッチモンドホテルプレミア京都四条 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_025: 利索尔酒店京都四条室町 | ホテルリソル京都四条室町 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_026: 京都古德维尤酒店 | 京都グッドビューホテル | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_027: 东急旅居京都新京极通 | 東急ステイ京都新京極通 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_030: Vest Premier 京都和邸 | ヴェストプレミア京都和邸 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_032: MIMARU美满如家京都新町三条 | MIMARU美満如家京都新町三条 | city=kyoto area=nijo_central | old_tier=economy→economy
+- hotel_034: 利索尔三一京都酒店 | ホテルリソルトリニティ京都 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_036: 京王普勒利亚酒店京都乌丸五条 | 京王プレリアホテル京都烏丸五条 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_040: The Millennials 京都 | ザ・ミレニアルズ京都 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_043: 9 Hours Capsule Hotel Kyoto | 9 Hours Capsule Hotel Kyoto | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_048: 料理旅馆 花乐 | 料理旅館 花楽 | city=kyoto area=gion_higashiyama | old_tier=mid→comfort
+- hotel_051: 相铁弗雷萨京都四条乌丸 | 相鉄フレッサイン京都四条烏丸 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_055: 万豪庭院酒店京都四条乌丸 | コートヤード・バイ・マリオット京都四条烏丸 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_057: 先斗町依斯柏席昂酒店 | ホテルエスパシオン先斗町 | city=kyoto area=shijo_kawaramachi | old_tier=high→premier
+- hotel_058: 加纳酒店京都四条乌丸 | ガーナーホテル京都四条烏丸 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_062: 京都鹰峰收获酒店 | ホテルハーヴェスト京都鷹峯 | city=kyoto area=nijo_central | old_tier=mid→comfort
+- hotel_070: 京都四条皇家花园酒店 | 京都四条皇家花園酒店 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_073: 普林斯智选京都四条大宫 | プリンススマートイン京都四条大宮 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_076: 京都格雷斯利酒店三条 | ホテルグレイスリー京都三条 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_077: 酒店福尔萨京都四条河原町 | ホテルフォルツァ京都四条河原町 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_079: 皇家公园酒店京都四条 | ザ ロイヤルパーク ホテル 京都四条 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_081: 门酒店京都高濑川 | ザ・ゲートホテル京都高瀬川 | city=kyoto area=shijo_kawaramachi | old_tier=high→premier
+- hotel_083: 爱尔英京都 | エルイン京都 | city=kyoto area=kyoto_station | old_tier=economy→economy
+- hotel_084: Cuvee J2 Hotel Kyoto | Cuvee J2 Hotel Kyoto | city=kyoto area=shijo_kawaramachi | old_tier=luxury→ultra_luxury
+- hotel_086: 福朋喜来登弹性酒店京都御池 | フォーポイントフレックス by シェラトン京都御池 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_091: 皇家公园酒店京都梅小路 | ザ ロイヤルパークホテル 京都梅小路 | city=kyoto area=kyoto_station | old_tier=mid→comfort
+- hotel_092: 维拉吉京都 | ヴィラージュ京都 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_093: APA Hotel 京都站前 | APA Hotel京都駅前 | city=kyoto area=kyoto_station | old_tier=economy→economy
+- hotel_095: 普林斯智选京都三条 | プリンススマートイン京都三条 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_105: 嘉佩乐大阪酒店 | カペラホテル大阪 | city=osaka area=umeda_kita | old_tier=luxury→ultra_luxury
+- hotel_107: 大阪仙达拉格兰酒店 | センタラグランドホテル大阪 | city=osaka area=namba_dotonbori | old_tier=luxury→ultra_luxury
+- hotel_113: FIRST CABIN 大阪难波 | FIRST CABIN 大阪なんば | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_114: 相铁弗雷萨大阪难波站前 | 相鉄フレッサイン大阪なんば駅前 | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_115: 大阪难波奏酒店 | 大阪なんば奏ホテル | city=osaka area=namba_dotonbori | old_tier=mid→comfort
+- hotel_117: 唐草酒店大阪难波 | 唐草ホテル大阪なんば | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_119: 贝塞尔酒店心斋桥 | ベッセルホテル心斎橋 | city=osaka area=shinsaibashi | old_tier=economy→economy
+- hotel_123: UNIZO酒店大阪梅田 | UNIZO ホテル大阪梅田 | city=osaka area=umeda_kita | old_tier=economy→economy
+- hotel_124: 大阪维斯奇奥格兰维亚酒店 | ホテルヴィスキオ大阪グランヴィア | city=osaka area=umeda_kita | old_tier=mid→comfort
+- hotel_125: 大阪阿倍野信托酒店 | ホテルトラスティ大阪阿倍野 | city=osaka area=tennoji_shinsekai | old_tier=mid→comfort
+- hotel_126: 大阪天王寺巴利塔酒店 | 大阪天王寺バリタワーホテル | city=osaka area=tennoji_shinsekai | old_tier=mid→comfort
+- hotel_127: 环球港口酒店 | ホテル ユニバーサルポート | city=osaka area=bay_area | old_tier=high→premier
+- hotel_128: 公园前沿酒店 USJ | ザ パーク フロント ホテル USJ | city=osaka area=bay_area | old_tier=high→premier
+- hotel_137: 大阪阪急乐境酒店 | ホテル阪急レスパイア大阪 | city=osaka area=umeda_kita | old_tier=mid→comfort
+- hotel_142: 大阪格兰维亚酒店 | ホテルグランヴィア大阪 | city=osaka area=umeda_kita | old_tier=mid→comfort
+- hotel_145: 难波格雷斯利酒店 | ホテルグレイスリーなんば | city=osaka area=namba_dotonbori | old_tier=mid→comfort
+- hotel_148: ibis Styles 大阪难波 | ibis Styles Osaka Namba | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_149: 普林斯智选大阪难波 | プリンススマートイン大阪難波 | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_150: 贝塞尔坎帕纳大阪心斋桥 | ベッセルカンパーナ大阪心斎橋 | city=osaka area=shinsaibashi | old_tier=mid→comfort
+- hotel_152: 日航大阪别邸酒店 | ホテル日航大阪 別邸 | city=osaka area=shinsaibashi | old_tier=luxury→ultra_luxury
+- hotel_153: 大和鲁伊内特酒店大阪难波 | ダイワロイネットホテル大阪難波 | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_154: 大和鲁伊内特酒店大阪心斋桥 | ダイワロイネットホテル大阪心斎橋 | city=osaka area=shinsaibashi | old_tier=economy→economy
+- hotel_155: 相铁格兰弗雷萨大阪难波 | 相鉄グランドフレッサ大阪なんば | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_156: 多美迎心斋桥 | ドーミーイン心斎橋 | city=osaka area=shinsaibashi | old_tier=economy→economy
+- hotel_159: WBF酒店难波文乐 | ホテルWBFなんばBUNRAKU | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_165: 奇怪酒店大阪难波 | 変なホテル大阪なんば | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_170: 唐草酒店尊贵版大阪难波 | からくさホテルプレミア大阪なんば | city=osaka area=namba_dotonbori | old_tier=mid→comfort
+- hotel_171: 利索尔三一大阪酒店 | ホテルリソルトリニティ大阪 | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_177: 凯悦嘉轩难波大阪 | キャプション by Hyatt なんば大阪 | city=osaka area=namba_dotonbori | old_tier=mid→comfort
+- hotel_179: 大阪梅田福朋喜来登弹性酒店 | フォーポイントフレックス by シェラトン大阪梅田 | city=osaka area=umeda_kita | old_tier=economy→economy
+- hotel_180: 大阪心斋桥福朋喜来登弹性酒店 | フォーポイントフレックス by シェラトン大阪心斎橋 | city=osaka area=shinsaibashi | old_tier=economy→economy
+- hotel_181: 大阪北滨福朋喜来登弹性酒店 | フォーポイントフレックス by シェラトン大阪北浜 | city=osaka area=honmachi | old_tier=economy→economy
+- hotel_182: 大阪本町福朋喜来登弹性酒店 | フォーポイントフレックス by シェラトン大阪本町 | city=osaka area=honmachi | old_tier=economy→economy
+- hotel_183: APA Hotel & Resort 大阪难波站前塔 | アパホテル&リゾート大阪なんば駅前タワー | city=osaka area=namba_dotonbori | old_tier=economy→economy
+- hotel_185: 大阪阪急宏乐境酒店 | ホテル阪急グランレスパイア大阪 | city=osaka area=umeda_kita | old_tier=mid→comfort
+- hotel_186: Garner Hotel 大阪本町站 | Garner Hotel大阪本町駅 | city=osaka area=honmachi | old_tier=economy→economy
+- hotel_187: 远东村庄酒店大阪本町 | ファーイーストビレッジホテル大阪本町 | city=osaka area=honmachi | old_tier=economy→economy
+- hotel_189: 大阪万豪系列酒店 | Series by Marriott大阪 | city=osaka area=umeda_kita | old_tier=mid→comfort
+- hotel_192: THE BOLY OSAKA | THE BOLY OSAKA | city=osaka area=honmachi | old_tier=high→premier
+- hotel_194: 星野度假村 Risonare 大阪 | 星野リゾート リゾナーレ大阪 | city=osaka area=bay_area | old_tier=high→premier
+- hotel_199: 利伯麦克斯酒店梅田中央 | リブマックスホテル梅田中央 | city=osaka area=umeda_kita | old_tier=economy→economy
+- hotel_202: 神户拉斯维特海港酒店 | ホテル ラ・スイート神戸ハーバーランド | city=kobe area=harborland_meriken | old_tier=luxury→luxury
+- hotel_203: ORIENTAL HOTEL | ORIENTAL HOTEL | city=kobe area=motomachi_nankinmachi | old_tier=mid→comfort
+- hotel_206: 神户港皮亚大酒店 | 神戸ポートピアホテル | city=kobe area=bay_area | old_tier=mid→comfort
+- hotel_214: 皇家公园帆布神户三宫 | ザ ロイヤルパーク キャンバス 神戸三宮 | city=kobe area=sannomiya | old_tier=mid→comfort
+- hotel_215: 大和鲁伊内特酒店神户三宫尊贵版 | ダイワロイネットホテル神戸三宮プレミア | city=kobe area=sannomiya | old_tier=mid→comfort
+- hotel_216: 雷姆加神户三宫 | レムプラス神戸三宮 | city=kobe area=sannomiya | old_tier=economy→economy
+- hotel_217: 皇家公园帆布神户三宫 | ザロイヤルパークキャンバス神戸三宮 | city=kobe area=sannomiya | old_tier=mid→comfort
+- hotel_219: 神户海港拉斯维特酒店 | 神戸ハーバーランドラ・スイート | city=kobe area=harborland_meriken | old_tier=luxury→luxury
+- hotel_222: 神户广场酒店西馆 | 神戸プラザホテルウエスト | city=kobe area=motomachi_nankinmachi | old_tier=economy→economy
+- hotel_224: 维拉芳丹神户三宫 | ヴィラフォンテーヌ神戸三宮 | city=kobe area=sannomiya | old_tier=economy→economy
+- hotel_227: 亮光酒店 | ルミナスホテル | city=kobe area=sannomiya | old_tier=economy→economy
+- hotel_229: 神户皇冠宫殿酒店 | ホテルクラウンパレス神戸 | city=kobe area=harborland_meriken | old_tier=mid→comfort
+- hotel_233: 神户皮艾娜酒店 | ホテルピエナ神戸 | city=kobe area=sannomiya | old_tier=mid→comfort
+- hotel_236: 大和鲁伊内特酒店神户三宫尊贵版 | ダイワロイネットホテル神戸三宮プレミア (kuolife) | city=kobe area=sannomiya | old_tier=mid→comfort
+- hotel_241: APA Hotel 神户三宫站前 | APA Hotel 神戸三宮駅前 | city=kobe area=sannomiya | old_tier=economy→economy
+- hotel_242: 绿富丽酒店神户三宫 | グリーンリッチホテル神戸三宮 | city=kobe area=sannomiya | old_tier=economy→economy
+- hotel_243: 紫翠奢华精选酒店·奈良 | 紫翠 ラグジュアリーコレクションホテル 奈良 | city=nara area=nara_park_area | old_tier=luxury→luxury
+- hotel_246: 奈良街道塞托雷 | セトレならまち | city=nara area=nara_park_area | old_tier=high→premier
+- hotel_251: 天然温泉奈良若草之汤大和鲁伊内特 | 天然温泉 奈良若草の湯 ダイワロイネット | city=nara area=nara_park_area | old_tier=economy→economy
+- hotel_253: 奈良新若草酒店 | ホテルニューわかさ | city=nara area=nara_park_area | old_tier=economy→economy
+- hotel_268: 天地之宿 奥之细道 | 天地の宿 奥の細道 | city=arima area=arima_onsen | old_tier=luxury→luxury
+- hotel_269: 四季之彩 旅篭 | 四季の彩 旅篭 | city=arima area=arima_onsen | old_tier=mid→ultra_luxury
+- hotel_271: 银水庄 兆乐 | 銀水荘 兆楽 | city=arima area=arima_onsen | old_tier=mid→comfort
+- hotel_273: 根岸屋旅凤阁 | 根岸屋旅鳳閣 | city=arima area=arima_onsen | old_tier=mid→comfort
+- hotel_292: 四条河原町温泉 空庭露台京都 别邸 | 四条河原町温泉 空庭テラス京都 別邸 | city=kyoto area=shijo_kawaramachi | old_tier=luxury→luxury
+- hotel_294: 高山庄 华野 | 高山荘 華野 | city=arima area=arima_onsen | old_tier=luxury→luxury
+- hotel_296: 元汤 古泉阁 | 元湯 古泉閣 | city=arima area=arima_onsen | old_tier=mid→comfort
+- hotel_298: 大阪LIBER酒店 | 大阪LIBERホテル | city=osaka area=bay_area | old_tier=high→premier
+- hotel_302: 蟹宿六之屋 | 蟹宿むつの屋 | city=kinosaki area=kinosaki_onsen | old_tier=mid→comfort
+- hotel_308: 有马光彩 | 有馬きらり | city=arima area=arima_onsen | old_tier=mid→comfort
+- hotel_311: 新泉 | 新泉 | city=kinosaki area=kinosaki_onsen | old_tier=mid→comfort
+- hotel_312: 月色 | 月明かり | city=kinosaki area=kinosaki_onsen | old_tier=mid→comfort
+- hotel_313: 泉翠 | 泉翠 | city=kinosaki area=kinosaki_onsen | old_tier=mid→comfort
+- hotel_314: 艳乡 | 艷郷 | city=kinosaki area=kinosaki_onsen | old_tier=mid→comfort
+- hotel_318: The Shinmonzen | The Shinmonzen | city=kyoto area=gion_higashiyama | old_tier=high→premier
+- hotel_337: 大阪阿尔莫尼安布拉塞酒店 | アルモニーアンブラッセ大阪 | city=osaka area=umeda_kita | old_tier=high→premier
+- hotel_338: 丸福楼 | 丸福楼 | city=kyoto area=shijo_kawaramachi | old_tier=high→premier
+- hotel_342: 町家住宅京都 | 町家レジデンスイン京都 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_346: 祇园新桥 梅庵 | 祇園新橋 梅庵 | city=kyoto area=gion_higashiyama | old_tier=mid→comfort
+- hotel_349: 惠光院 | 恵光院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_351: 莲华定院 | 蓮華定院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_352: 金光院 萤庵 | 金光院 ほたる庵 | city=kyoto area=gion_higashiyama | old_tier=economy→economy
+- hotel_354: 仁和寺 御室会馆 | 仁和寺 御室会館 | city=kyoto area=gion_higashiyama | old_tier=economy→economy
+- hotel_356: 妙心寺 东林院 | 妙心寺 東林院 | city=kyoto area=gion_higashiyama | old_tier=economy→economy
+- hotel_357: 鹿王院 | 鹿王院 | city=kyoto area=arashiyama | old_tier=economy→economy
+- hotel_358: 药师院 | 薬師院 | city=kyoto area=shijo_kawaramachi | old_tier=economy→economy
+- hotel_359: 福智院 | 福智院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_362: 清净心院 | 清浄心院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_363: 赤松院 | 赤松院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_364: 不动院 | 不動院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_367: 龙泉院 | 龍泉院 | city=koyasan area=koyasan_temple | old_tier=economy→economy
+- hotel_370: 天妇罗吉川 | 天ぷら吉川 | city=kyoto area=shijo_kawaramachi | old_tier=mid→comfort
+- hotel_378: 游景之宿 平城 | 遊景の宿 平城 | city=nara area=nara_park_area | old_tier=mid→comfort
+- hotel_381: 贵船 藤屋 | 貴船 ふじや | city=kyoto area=arashiyama | old_tier=mid→comfort
+- hotel_382: 料理旅馆 右源太 | 料理旅館 右源太 | city=kyoto area=arashiyama | old_tier=luxury→luxury
+- hotel_385: 普林斯京都宝池酒店 | ザ・プリンス 京都宝ヶ池 | city=kyoto area=gion_higashiyama | old_tier=mid→comfort
+- hotel_386: 格兰西嵐山酒店 | ザ グランド ウェスト 嵐山 | city=kyoto area=arashiyama | old_tier=high→premier

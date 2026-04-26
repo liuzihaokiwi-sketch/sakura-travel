@@ -1,0 +1,680 @@
+[
+  {
+    "id": "osk_namba_hongetsu",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          3000,
+          8000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "本湖月（ほんこげつ）",
+      "简介": "Tabelog 4.58 分，难波最高评分怀石之一，在道顿堀嘈杂的大阪核心区开辟出一片绝对宁静的料理空间。以极其精准的食材选用和大阪风怀石见长，是大阪最值得一战的顶级料亭。需提前数月预约。",
+      "亮点": [
+        "Tabelog 4.58 难波最高分",
+        "大阪极致怀石",
+        "在道顿堀中心的宁静境地"
+      ],
+      "招牌菜": [
+        "怀石全套おまかせ（晚 ¥30,000 起）"
+      ],
+      "地址": "大阪市中央区難波周边，地铁難波站步行约 5 分钟",
+      "营业": "18:00-21:00，不定休",
+      "预约": "必须预约，提前 2-3 个月，Omakase"
+    }
+  },
+  {
+    "id": "osk_namba_aiduya",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      2
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖たこ焼き 会津屋 ナンバ店（あいづや なんばてん）",
+      "简介": "1933 年创业，章鱼烧的发祥店。原型「ラヂオ焼き」以牛筋コンニャク为馅，进化成章鱼烧后风靡大阪。出汁酱油风味、外脆内嫩，不加酱汁直接吃才是正宗吃法。大阪食文化活化石。Tabelog 3.44，但历史意义无可替代。",
+      "亮点": [
+        "1933 年发祥店",
+        "出汁章鱼烧无酱汁",
+        "大阪食文化原点"
+      ],
+      "招牌菜": [
+        "元祖章鱼烧 8 个（约 ¥620）",
+        "元祖ラヂオ焼き"
+      ],
+      "地址": "大阪市中央区難波 5 丁目 なんなんタウン内，地铁難波站直结",
+      "营业": "11:00-22:00，奇数月第 3 周四不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_namba_551_horai",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "中华",
+      "包子"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      2
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "551蓬莱 戎橋本店（ごーごーいち ほうらい えびすばしほんてん）",
+      "简介": "大阪最具象征性的「国民豚包」，1945 年创业。1F 外卖热气蒸腾，现包现卖。肉汁丰富的大颗豚まん（猪肉包）是大阪人伴手礼首选，机场必买，第1/3周二休息。排队是日常。",
+      "亮点": [
+        "1945 年大阪国民豚包",
+        "大阪机场伴手礼 No.1",
+        "现包现卖热气蒸腾"
+      ],
+      "招牌菜": [
+        "豚まん 2 个（约 ¥480）",
+        "エビシューマイ（烧麦）"
+      ],
+      "地址": "大阪市中央区難波 3-6-3，地铁難波站步行约 2 分钟",
+      "营业": "1F 外卖 11:00-22:00；2F 餐厅 11:00-21:00，第 1/3 周二休",
+      "预约": "无需预约（外卖）；餐厅可电话"
+    }
+  },
+  {
+    "id": "osk_namba_hariju_grill",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "洋食",
+      "牛排"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          300,
+          600
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [
+      2
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "はり重 グリル 道頓堀本店（はりじゅう ぐりる どうとんぼりほんてん）",
+      "简介": "1919 年创业，大阪洋食文化的柱石。以黑毛和牛为食材的「ビーフカツレツ」（牛肉炸排配自制德米酱）是不变招牌，已被 Tabelog 百名店认证（3.58 分）。在道顿堀吃一顿有历史分量的洋食，就来这里。周二定休。",
+      "亮点": [
+        "Tabelog 3.58 百名店",
+        "1919 年大阪洋食老铺",
+        "黑毛和牛ビーフカツレツ"
+      ],
+      "招牌菜": [
+        "黒毛和牛ビーフカツレツ（约 ¥3,850）",
+        "ハンバーグステーキ（约 ¥2,090）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-9-17 はり重本店内，地铁難波站步行约 5 分钟",
+      "营业": "11:30-21:00（L.O. 20:00），周二定休",
+      "预约": "无需预约，午市人多建议提前"
+    }
+  },
+  {
+    "id": "osk_namba_chitose_honten",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千とせ 本店（ちとせ ほんてん）",
+      "简介": "Tabelog 3.72 分，难波平价乌冬名店，肉うどん（肉乌冬）是招牌，以特制牛肉末熬出汁覆盖，配关西透明汤头，是难波最值得排一次队的B级美食代表。本地上班族和学生日常选择。",
+      "亮点": [
+        "Tabelog 3.72",
+        "难波肉乌冬代表",
+        "极亲民价格"
+      ],
+      "招牌菜": [
+        "肉うどん（约 ¥700）",
+        "卵とじうどん"
+      ],
+      "地址": "大阪市中央区難波千日前周边，地铁難波站步行约 5 分钟",
+      "营业": "10:30-15:00，周四不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_namba_mizuno",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "道頓堀 お好み焼き 美津の（みづの）",
+      "简介": "1945 年创业，三代传承的大阪烧名店，Tabelog 3.52 分，米其林比布古蒙 6 年连续认证，百名店。招牌「山芋焼」用 100% 山芋代替面粉，外脆内蓬松，素材甘甜，反传统却征服了所有人。道顿堀人气最高的大阪烧店，排队 30-60 分钟正常。",
+      "亮点": [
+        "Tabelog 3.52 米其林比布古蒙 6 年",
+        "百名店认证",
+        "山芋 100%「山芋焼」"
+      ],
+      "招牌菜": [
+        "山芋焼（¥1,650 起）",
+        "海鮮ミックス（¥2,200）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-4-15，地铁難波站步行约 5 分钟",
+      "营业": "11:00-22:00（L.O. 21:00），全年无休",
+      "预约": "无需预约，建议非高峰时间（14:00-17:00）前往"
+    }
+  },
+  {
+    "id": "osk_namba_okaru",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      4
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おかる",
+      "简介": "1946 年（昭和 21）创业·难波千日前 80 年大阪烧老铺·食べログ百名店。简单的「肉玉」（猪肉+鸡蛋）就是经典·关西大阪烧的本格基准点。最有特色是结尾在大阪烧上用蛋黄酱画通天阁/Glico 跑步君等图案——「マヨアート」是名物。营业到 22 点·夜里也能吃。Tabelog 3.55+。",
+      "亮点": [
+        "1946 年 80 年老铺",
+        "食べログ百名店",
+        "肉玉本格大阪烧",
+        "マヨアート画图名物",
+        "营业到 22:00"
+      ],
+      "招牌菜": [
+        "肉玉（¥1,200）",
+        "豚モダン焼（¥1,500）"
+      ],
+      "地址": "大阪市中央区千日前 1-9-19（地铁难波駅 徒步 4 分）",
+      "营业": "12:00-15:00 / 17:00-22:00；木曜定休",
+      "预约": "无需预约；旺季排 30 分钟",
+      "到店提醒": "提マヨアート画图要求要等 5 分钟；现金为主"
+    }
+  },
+  {
+    "id": "osk_namba_yokozuna",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          130
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "横綱 千日前店",
+      "简介": "千日前法善寺横丁的串炸老铺·细面包粉的衣油不腻·甘口酱汁「二度漬け禁止」是大阪串炸标志。「おまかせ 6 本」（招牌混 6 串）是入门首选。110 席个室全·全天接客·难波核心区性价比顶。Tabelog 3.5+。",
+      "亮点": [
+        "千日前法善寺老铺",
+        "细面包粉衣油不腻",
+        "おまかせ 6 本人气",
+        "「二度漬け禁止」本格大阪串炸",
+        "110 席个室全"
+      ],
+      "招牌菜": [
+        "おまかせ 6 本（¥980）",
+        "どて焼（¥780）"
+      ],
+      "地址": "大阪市中央区難波 3-2-19（地铁难波駅 徒步 5 分）",
+      "营业": "11:00-23:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "二度漬け禁止·一筷一串；现金/卡都可"
+    }
+  },
+  {
+    "id": "osk_namba_chitose",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          100
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          60,
+          120
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千とせ 本店（ちとせ）",
+      "简介": "难波千日前 50+ 年老铺·吉本兴业「なんばグランド花月」艺人据点。大阪名物「肉吸い」（无面的乌冬汤·和牛+葱+蛋黄）发祥店之一·搭配「小玉」（小份鸡蛋盖饭）是大阪平民最朴素的一餐。Tabelog 3.6+·百名店常驻。营业到下午就关门·要早。",
+      "亮点": [
+        "肉吸い发祥店之一",
+        "Tabelog 3.6+ 百名店",
+        "なんば花月艺人据点",
+        "大阪平民朴素味道",
+        "性价比高"
+      ],
+      "招牌菜": [
+        "肉吸い+小玉（¥850）",
+        "肉うどん（¥850）"
+      ],
+      "地址": "大阪市中央区難波千日前 8-1（地铁难波駅 徒步 5 分）",
+      "营业": "10:30-15:00；火曜定休",
+      "预约": "无需预约",
+      "到店提醒": "下午 3 点就关；早班动线最稳；现金为主"
+    }
+  },
+  {
+    "id": "osk_namba_fukutaro",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "福太郎 本店",
+      "简介": "难波千日前老铺大阪烧·食べログ百名店。**葱焼（ねぎ焼）**是名物·豚/虾/筋肉煮等多版本·薄面+大葱拌·和大阪烧形成对比。深夜营业到凌晨·关西人下班据点。Tabelog 3.6+·难波 mid 档大阪烧首选。",
+      "亮点": [
+        "食べログ百名店",
+        "Tabelog 3.6+",
+        "葱焼（ねぎ焼）名物",
+        "深夜营业·夜班据点",
+        "关西人本地味"
+      ],
+      "招牌菜": [
+        "葱焼 豚（¥1,400）",
+        "葱焼 すじこん（¥1,500）",
+        "肉玉お好み焼（¥1,300）"
+      ],
+      "地址": "大阪市中央区千日前 2-3-17（地铁难波駅 徒步 4 分）",
+      "营业": "12:00-翌 0:30；无定休",
+      "预约": "无需预约；旺季排 30-40 分",
+      "到店提醒": "葱焼是必点；深夜也能吃；现金优先"
+    }
+  },
+  {
+    "id": "osk_namba_551horai_main",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "中华"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          50,
+          100
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "551蓬莱 戎橋本店",
+      "简介": "1945 年创业·关西人最爱的「豚まん」（猪肉包）发祥店·大阪人去东京伴手礼第一选择就是 551。本店在戎橋是堂食+伴手礼+店内餐厅三合一·能吃到刚蒸好的豚まん+烧売+台湾拉面套餐。Tabelog 3.5·关西人 DNA 食物。",
+      "亮点": [
+        "1945 年创业关西国民食",
+        "豚まん发祥店",
+        "戎橋本店三合一",
+        "关西人最爱的伴手礼",
+        "Tabelog 3.5"
+      ],
+      "招牌菜": [
+        "豚まん（¥210/個）",
+        "焼売（¥980/8個）",
+        "豚まん+烧売套餐（¥1,500）"
+      ],
+      "地址": "大阪市中央区難波 3-6-3（南海难波駅 徒步 1 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约·伴手礼可现场买",
+      "到店提醒": "刚蒸好的豚まん最好吃；伴手礼袋装最热门"
+    }
+  },
+  {
+    "id": "osk_namba_ajinoya",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 4
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          130
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          160
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "味乃家（あじのや）難波本店",
+      "简介": "1965 年（昭和 40）创业·难波 60 年大阪烧老铺。猪肉鸡蛋+小麦面糊精确比例·店员桌前现做现烤·氛围最大阪。**ミックス焼 ¥1,400** 是大阪烧入门最 representative。营业到深夜·游客和本地人混着坐。Walk-in·中午+晚饭排 30-40 分。Tabelog 3.55+。",
+      "亮点": [
+        "1965 年创业 60 年老铺",
+        "店员桌前现做现烤",
+        "ミックス焼 ¥1,400 看板",
+        "深夜营业",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ミックス焼（¥1,400）",
+        "豚玉（¥1,200）",
+        "そばモダン（¥1,500）"
+      ],
+      "地址": "大阪市中央区難波 1-7-16（地铁难波駅 徒步 4 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中午+晚饭排 30-40 分；想躲 14-17 点最空"
+    }
+  },
+  {
+    "id": "osk_namba_horumon_yokoten",
+    "area": "难波",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 4
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "烧肉",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ホルモン横田 難波",
+      "简介": "**大阪 horumon（牛内脏）烧肉的代表**·难波千日前店。新鲜内脏每日入荷·按部位单点·店主桌前烤+解说。テッチャン（大肠）+ハチノス（蜂巢胃）等 30+ 种内脏部位·一个 ¥600-1,200。本地下班据点·氛围浓·Tabelog 3.6+。",
+      "亮点": [
+        "大阪 horumon 代表",
+        "新鲜内脏每日入荷",
+        "店主桌前烤+解说",
+        "30+ 种部位单点",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "テッチャン（大肠·¥1,200）",
+        "ハチノス（蜂巢胃·¥980）",
+        "おまかせ盛 5 部位（¥3,500）"
+      ],
+      "地址": "大阪市中央区千日前 1（地铁难波駅 徒步 4 分）",
+      "营业": "夜 17:00-翌 1:00；无定休",
+      "预约": "推荐预约·食べログ",
+      "到店提醒": "本地夜食氛围最浓；周末旺季排 30-60 分"
+    }
+  }
+]

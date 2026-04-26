@@ -1,0 +1,356 @@
+"""D48 skeleton -> verified 批量升级.
+
+每批跑前补 PATCHES dict (id -> 字段补丁)·dry-run 看 diff·--apply 落地.
+"""
+from __future__ import annotations
+import io, json, sys
+from datetime import datetime
+from pathlib import Path
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+DATA = Path("japan/kansai/hotels/data/hotels__kansai.json")
+TODAY = datetime.now().strftime("%Y-%m-%d")
+
+PATCHES: dict[str, dict] = {}
+
+def register(hid: str, *, brief: str, highlights: list[str] = None, address: str = None,
+             rooms: str = None, breakfast: str = None, price: str = None,
+             booking: str = None, sources: list[str] = None):
+    p = {"简介": brief}
+    if highlights: p["亮点"] = highlights
+    if address: p["地址"] = address
+    if rooms: p["房型"] = rooms
+    if breakfast: p["含早"] = breakfast
+    if price: p["价格"] = price
+    if booking: p["预约"] = booking
+    PATCHES[hid] = {"note": p, "sources": sources or []}
+
+# === 京都 第一批 ===
+register(
+    "kyo_shijo_kawaramachi_hotel_okura_kyoto",
+    brief="**京都唯一 17 层高城**·1888 年开业·Okura Nikko 集团·地铁京都市役所前站直连·320 间客房·顶层 Sky Restaurant Pittoresque 法餐俯瞰京都·屋顶花园观东山。",
+    highlights=["设计精品", "320 室大型城市酒店", "京都市役所前直连", "Pittoresque 法餐"],
+    address="京都市中京区·京都市役所前站直连·寺町通り",
+    rooms="Twin/Double/Suite·共 320 室·非吸烟",
+    breakfast="和洋朝食 buffet 可选",
+    price="素泊 2 人 ¥30,000-150,000（GDS $204-1,016）",
+    booking="公式 okura.com·一休·楽天",
+    sources=["https://okura.com/japan/kyoto/hotel-okura-kyoto/", "https://www.hotel.kyoto/okura/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_good_nature_hotel",
+    brief="**WELL 认证 sustainable 酒店**·阪急河原町站徒步 2 分·14 类客室主题（瞑想 MU/桑拿/阳台等）·内含米其林二星餐厅+10 间餐饮·全馆禁烟·快眠照明系统。",
+    highlights=["设计精品", "WELL 认证", "可持续主题", "米其林二星餐厅", "桑拿客室"],
+    address="京都市下京区河原町·阪急京都河原町站徒步 2 分",
+    rooms="28-90㎡·共约 141 室·瞑想/桑拿/阳台等多主题",
+    breakfast="可选·有机食材",
+    price="素泊 2 人 ¥35,000-80,000",
+    booking="公式 goodnaturehotel.jp·一休·じゃらん",
+    sources=["https://goodnaturehotel.jp/", "https://goodnaturehotels.com/rooms/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_cross_hotel_kyoto",
+    brief="ORIX HOTELS 旗下设计 lifestyle 酒店·**全 301 室**·三条龙马通沿·阪急河原町徒步 6 分·1 楼 KIHARU Brasserie 全天餐厅·「京感」「木气づかい」主题。",
+    highlights=["设计精品", "ORIX 系", "301 室大型", "三条龙马通", "KIHARU Brasserie"],
+    address="京都市中京区龙马通·阪急河原町徒步 6 分·三条/京都市役所前/三条京阪徒步 4 分",
+    rooms="Standard~Suite·共 301 室",
+    breakfast="可选 KIHARU Brasserie",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 ORIX HOTELS·一休·楽天",
+    sources=["https://cross-kyoto.orixhotelsandresorts.com/", "https://www.orixhotelsandresorts.com/worixp/concept/crosshotel_kyoto/"],
+)
+
+register(
+    "kyo_gion_higashiyama_genji_kyoto",
+    brief="**Design Hotels™ 加盟·Marriott Bonvoy 系**·全 19 室+町家别馆·五条河原町河畔·每室对应《源氏物语》一章·京都艺术家壁画·屋顶 Sky Forest Garden 早餐酒吧。",
+    highlights=["设计精品", "Design Hotels 加盟", "Marriott Bonvoy", "源氏物语主题", "屋顶森林花园"],
+    address="京都市下京区·五条河原町·鸭川河畔",
+    rooms="Garden/City/River 系列·27-51㎡·共 19 室+町家别馆",
+    breakfast="屋顶 Sky Forest Garden 含早可选",
+    price="素泊 2 人 ¥40,000-90,000",
+    booking="公式 genjikyoto.com·Marriott·Design Hotels",
+    sources=["https://genjikyoto.com/en/stay", "https://www.designhotels.com/hotels/japan/kyoto/genji-kyoto/"],
+)
+
+
+# === 京都 第二批 (5-8) ===
+register(
+    "kyo_gion_higashiyama_hotel",
+    brief="**2022 年 12 月开业**·全 13 室小规模温泉旅館·东山鹫尾町·**2024 年 11 月自家源泉「京都清水温泉」开汤**·阪急河原町徒步 15 分。",
+    highlights=["温泉旅馆", "2022 新开业", "全 13 室", "自家源泉", "东山立地"],
+    address="京都市東山区鷲尾町 528·阪急京都河原町站徒步 15 分",
+    rooms="全 13 室·部分露天/半露天/内汤",
+    breakfast="和朝食有料·要事前预约",
+    price="素泊 2 人 ¥40,000-90,000",
+    booking="公式 hotel-yuraku.com·一休·楽天",
+    sources=["https://www.hotel-yuraku.com/", "https://www.ikyu.com/en-us/00003034/"],
+)
+
+register(
+    "kyo_nijo_central_bu_lai_dun_hotel",
+    brief="**1988 年开业·京都老牌豪华城市酒店**·全 182 室·京都御所徒步 5 分·客室 36-42㎡ 京町家意象+全室抹茶セット·5 间餐厅+酒吧·乌丸御池站接驳 shuttle。",
+    highlights=["设计精品", "1988 老铺", "182 室", "京都御所徒步 5 分", "全室抹茶セット"],
+    address="京都市上京区新町通中立売·御所西·地铁今出川站徒步 8 分",
+    rooms="36-42㎡·共 182 室·部分大浴槽 bathroom",
+    breakfast="和洋朝食 buffet 含选项",
+    price="素泊 2 人 ¥35,000-80,000",
+    booking="公式 brightonhotels.co.jp·一休·楽天",
+    sources=["https://kyoto.brightonhotels.co.jp/", "https://www.ikyu.com/en-us/00000151/"],
+)
+
+register(
+    "kyo_kyoto_station_doubletree_by_hilton_kyoto_sta",
+    brief="**Hilton 系 DoubleTree·2023 年开业**·JR 京都站徒步 5 分·和洋朝食 buffet（Tripadvisor 2025 Travelers Choice Best）·小学生以下添寝+朝食无料。",
+    highlights=["设计精品", "Hilton 系", "京都站徒步 5 分", "和洋 buffet 朝食受赏"],
+    address="京都市南区東九条西岩本町 15·JR 京都站八条东口徒步 5 分",
+    rooms="Twin Premium / Executive·共约 220 室",
+    breakfast="和洋朝食 buffet 含·孩子无料",
+    price="素泊 2 人 ¥22,000-50,000·Hilton Honors 积分",
+    booking="公式 Hilton·一休·楽天",
+    sources=["https://doubletree-kyoto-station.hiltonjapan.co.jp/", "https://www.hilton.com/ja/hotels/itmksdi-doubletree-kyoto-station/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_shijo_xin_ting_ying_te_gai_te_hotel",
+    brief="**Granvista 系 Intergate ライン·2018 年开业**·全 153 室·阪急乌丸/地铁四条徒步 5 分·特色：免费茶时间+早朝瑜伽·中端商务旅人爱用。",
+    highlights=["设计精品", "Intergate 系", "153 室", "茶时间+瑜伽", "四条乌丸 5 分"],
+    address="京都市中京区新町通錦小路上る·阪急烏丸/地铁四条徒步 5 分",
+    rooms="Standard~Suite·共 153 室",
+    breakfast="和洋朝食 buffet 含选项",
+    price="素泊 2 人 ¥18,000-45,000",
+    booking="公式 intergatehotels.jp·一休·楽天",
+    sources=["https://www.intergatehotels.jp/kyoto-shijo/en/", "https://www.jalan.net/yad322810/"],
+)
+
+
+# === 京都 第三批 (9-16) ===
+register(
+    "kyo_gion_higashiyama_nohga_hotel",
+    brief="**2022 年开业·NOHGA HOTEL 系**·全 207 室·京阪「清水五条」站徒步 7 分·与京都创作者协业的设计酒店·共用「ATELIER」&「VOID」展示空间·屋顶 bar。",
+    highlights=["设计精品", "NOHGA 系", "207 室", "京都创作者协业", "屋顶 bar"],
+    address="京都市東山区五条橋東 4 丁目 450-1·京阪「清水五条」站徒步 7 分",
+    rooms="Standard~Suite·共 207 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-55,000",
+    booking="公式 nohgahotel.com·一休·楽天",
+    sources=["https://www.nohgahotel.com/kiyomizu/en/rooms/", "https://www.ikyu.com/en-us/00002925/"],
+)
+
+register(
+    "kyo_kyoto_station_tune_stay_kyoto",
+    brief="**2,500 册京都关连藏书+本屋併設**·JR 京都站徒步 5 分·全 140 室·夜间 short film 放映+大阶段·botanical craft gin bar·共用厨房+个室浴+硬币洗衣。",
+    highlights=["设计精品", "藏书本屋", "京都站徒步 5 分", "shortfilm + craft gin", "140 室"],
+    address="京都市下京区七条通新町西入夷之町 708·JR 京都站徒步 5 分",
+    rooms="Double 12㎡ / 2 段 ベッド Twin 11㎡·共 140 室",
+    breakfast="ベーグル 600 円",
+    price="素泊 2 人 ¥9,000-20,000",
+    booking="公式 tune-stay.com·一休·楽天",
+    sources=["https://www.tune-stay.com/", "https://www.jalan.net/yad315486/"],
+)
+
+register(
+    "kyo_gion_higashiyama_sowaka",
+    brief="**100 年数寄屋造名料亭再生·SLH 加盟·Forbes 4 星（築百年再生日本初）·LA LISTE 2026 World Top 1000**·全 23 室（本馆 10+离别 1+新馆 12）·館内餐厅「祇園 ろか」。",
+    highlights=["老铺旅馆", "SLH 加盟", "Forbes 4 星", "LA LISTE Top 1000", "100 年数寄屋"],
+    address="京都市東山区下河原通八坂鳥居前下ル清井町 480·京阪祇園四条徒步 10 分",
+    rooms="本馆 27-97㎡ + 离别 34㎡ + 新馆 35-70㎡·共 23 室",
+    breakfast="和洋朝食含",
+    price="素泊 2 人 ¥60,000-240,000",
+    booking="公式 sowaka.com·一休·SLH",
+    sources=["https://sowaka.com/", "https://www.ikyu.com/en-us/00002668/"],
+)
+
+register(
+    "kyo_gion_higashiyama_granbell_hotel",
+    brief="**2017 年开业·Belluna 系 designer's hotel·105 室含地下客室**·京阪祇園四条徒步 2 分·全 6 类客室含和洋·庭園眺望大浴场·祇园核心立地。",
+    highlights=["设计精品", "Belluna 系", "祇園四条 2 分", "105 室", "庭園大浴场"],
+    address="京都市東山区·京阪祇園四条徒步 2 分·阪急河原町徒步 7 分",
+    rooms="Double/Twin/和室·共 105 室·部分地下客室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 granbellhotel.jp·一休·楽天",
+    sources=["https://www.granbellhotel.jp/kyoto/", "https://en.granbellhotel.jp/kyoto/"],
+)
+
+register(
+    "kyo_kyoto_station_keihan_jing_dou_hotel",
+    brief="**京阪集团旗舰·京都站八条东口直结地下道徒步 1 分·320 室**·伊丹/关西空港 limousine bus 发着场·和洋朝食 buffet（おばんざい/老铺漬物）·高层 lounge·禅 50㎡ 套房带枯山水坪庭。",
+    highlights=["设计精品", "京阪系", "京都站 1 分直结", "320 室", "おばんざい 朝食"],
+    address="京都市南区·京都站八条东口徒步 1 分·地下道直结",
+    rooms="Single/Twin/Double/Family·共 320 室·禅 ZEN 50㎡ 套房",
+    breakfast="和洋朝食 buffet ¥2,750（2026.4 改）",
+    price="素泊 2 人 ¥18,000-45,000",
+    booking="公式 hotelkeihan.co.jp·一休·楽天",
+    sources=["https://www.hotelkeihan.co.jp/kyoto/", "https://www.ikyu.com/en-us/00002321/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_gate_hotel_jing_dou_gao_lai_chuan",
+    brief="**HULIC 系·2020 年开业·关西首家 GATE HOTEL**·全 184 室（旧立成小学校 Schoolhouse 棟 20 室 + 新馆 164 室）·京都市再开发·高瀬川沿·阪急河原町徒步 5 分。",
+    highlights=["设计精品", "HULIC 系", "关西首家 GATE", "184 室", "高瀬川沿", "旧校舍再生"],
+    address="京都市中京区蛸薬師通河原町東入備前島町 310-2·阪急河原町徒步 5 分",
+    rooms="Schoolhouse 20 + 新馆 164·共 184 室·12 类",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥30,000-70,000",
+    booking="公式 gate-hotel.jp·一休·楽天",
+    sources=["https://www.gate-hotel.jp/en/kyoto/", "https://www.ikyu.com/en-us/00002755/"],
+)
+
+register(
+    "kyo_gion_higashiyama_doubletree_by_hilton_kyoto_hig",
+    brief="**Hilton 系 DoubleTree·2022 年开业（前身 Senren Kyoto）**·京阪「清水五条」徒步 1 分·五条大桥旁·屋内大浴场·清水寺/三十三间堂徒步圈。",
+    highlights=["设计精品", "Hilton 系", "清水五条徒步 1 分", "屋内大浴场", "清水寺徒步圈"],
+    address="京都市東山区本町 1-45·京阪「清水五条」徒步 1 分",
+    rooms="King/Twin/Suite·全室禁烟",
+    breakfast="和洋朝食 buffet 可选",
+    price="素泊 2 人 ¥30,000-70,000·Hilton Honors 积分",
+    booking="公式 Hilton·一休·楽天",
+    sources=["https://www.hilton.com/en/hotels/itmhadi-doubletree-kyoto-higashiyama/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_sequence",
+    brief="**2020 年开业·LIFESTYLE HOTEL「sequence」系·全 208 室**·地铁「五条」徒步 3 分·**顔认证 self check-in/客室入室**·岩盘浴 + steam sauna·CI 17:00 / CO 14:00 长留型。",
+    highlights=["设计精品", "sequence 系", "顔认证", "208 室", "岩盘浴 + sauna", "CI 17/CO 14"],
+    address="京都市下京区五条烏丸町 409·地铁「五条」徒步 3 分",
+    rooms="Queen/Medium Queen/King/Twin/4Beds·共 208 室",
+    breakfast="含早 ¥9,350~",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 sequencehotels.com·一休·楽天",
+    sources=["https://www.sequencehotels.com/kyoto-gojo/", "https://www.jalan.net/yad377522/"],
+)
+
+
+# === 京都 第四批 (17-24) ===
+register(
+    "kyo_kyoto_station_sakura_terrace_the_gallery",
+    brief="**2015 年开业·SAKURA TERRACE 系第二棟**·JR 京都站八条口徒步 2 分·南北 2 栋·男女分浴大浴场（男 sauna / 女 salt sauna 至深夜 1 时）·成人向 design 酒店·13 岁以上限定。",
+    highlights=["设计精品", "京都站徒步 2 分", "男女分浴大浴场", "成人向 13+", "live music"],
+    address="京都市南区東九条上殿田町·JR 京都站八条口徒步 2 分",
+    rooms="Standard / Luxury 2 类",
+    breakfast="自助 buffet 含选项",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 sakuraterrace-gallery.jp·一休·楽天",
+    sources=["https://www.sakuraterrace-gallery.jp/", "https://www.ikyu.com/en-us/00081808/"],
+)
+
+register(
+    "kyo_kita_takagamine_shou_huo_hotel",
+    brief="**東急 Harvest Club 系会员制 resort·しょうざんリゾート京都内**·北区鷹峯麓·83 间正房 + VIALA annex 37 间 + 13 间·共 133 室·京都北郊森林立地·会员优先开放给非会员。",
+    highlights=["温泉度假", "東急 Harvest 系", "鷹峯リゾート", "133 室", "会员优先"],
+    address="京都市北区·鷹峯·しょうざんリゾート京都内",
+    rooms="本馆 83 + VIALA 37 + 別 13·共 133 室",
+    breakfast="和洋朝食含",
+    price="素泊 2 人 ¥30,000-80,000",
+    booking="公式 harvestclub.com·非会员限期开放",
+    sources=["https://www.harvestclub.com/Un/Hotel/Kg/", "https://www.resorthotels109.com/kyototakagamine/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_xian_dou_ting_espacion_hotel",
+    brief="**2025 年 10 月 14 日 grand open·全 21 室小規模 design hotel**·中京区先斗町·阪急河原町徒步 5 分·全 7 类客室+QR self check-in·館内无 restaurant 推 city dining 体验。",
+    highlights=["设计精品", "2025 新开业", "21 室小规模", "先斗町立地", "QR self check-in"],
+    address="京都市中京区下樵木町 196·阪急河原町徒步 5 分",
+    rooms="7 类·共 21 室",
+    breakfast="无館内 restaurant",
+    price="素泊 2 人 ¥25,000-60,000",
+    booking="公式 ht-espasionpontocho.com·一休·楽天",
+    sources=["https://ht-espasionpontocho.com/", "https://hotelbank.jp/new-hotels/kyoto-ht-espasionpontocho2510open/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_gojo_holiday_inn_hotel",
+    brief="**IHG 系 Holiday Inn·2025 年 1 月 29 日开业**·**日本初 Holiday Inn 50 周年回归原点京都**·全 183 室·下京区·13 阶最上层日本式大浴场·1F café / 2F restaurant / 高层京都 tower 一望。",
+    highlights=["设计精品", "IHG Holiday Inn", "50 周年回归", "183 室", "屋上日本式大浴场"],
+    address="京都市下京区東錺屋町 179·地铁五条徒步圈",
+    rooms="Cozy Single 14㎡ / Twin / King / Suite 47㎡·共 183 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥18,000-50,000·IHG One Rewards",
+    booking="公式 IHG·一休·楽天",
+    sources=["https://www.ihg.com/holidayinn/hotels/us/en/kyoto/ukygo/hoteldetail", "https://wbc-hr.com/news/551/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_rojiyu_kyoto",
+    brief="**Nazuna 系·2024 年 10 月开业**·全 4 室一栋整租·四条大宮/阪急大宮徒步 6 分·桜/竹/梅/楓 4 主题客室各异「湯」体验（内汤/露天）·2 階建客室含 kitchen+洗濯機 长留型。",
+    highlights=["町家", "Nazuna 系", "2024 新开业", "全 4 室主题汤", "长留 kitchen 完备"],
+    address="京都市中京区下川原町 588·四条大宮/阪急大宮徒步 6 分",
+    rooms="桜/竹/梅/楓·全 4 室·2 階建",
+    breakfast="无含早",
+    price="一栋 2-4 人 ¥40,000-100,000",
+    booking="公式 nazuna.co",
+    sources=["https://www.nazuna.co/property/rojiyu-kyoto/", "https://www.ikyu.com/en-us/00031199/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_yuraku_etsuen",
+    brief="**ダーワ・悠洛 京都 by バンヤン・グループ·5 星 boutique·123 室**·三条京阪徒步 1 分·鴨川河畔·大正 ロマン薫る·館内 GRILL 54TH 法餐+8LEMENTS SPA·祇園/先斗町/錦市場徒步 5 分。",
+    highlights=["设计精品", "Banyan Group 系 Dhawa", "三条京阪 1 分", "123 室", "8LEMENTS SPA"],
+    address="京都市中京区·三条京阪徒步 1 分·鴨川河畔",
+    rooms="Standard~Corner Suite·共 123 室",
+    breakfast="法餐 GRILL 54TH 含选项",
+    price="素泊 2 人 ¥35,000-90,000",
+    booking="公式 dhawayurakyoto.com·Accor·一休",
+    sources=["https://dhawayurakyoto.com/", "https://www.dhawa.com/japan/dhawa-yura-kyoto"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_insomnia_kyoto_oike",
+    brief="**Solare Hotels 新 brand insomnia·2023 年秋 rebrand·全 88 室**·烏丸御池站徒步 2 分·**24h lounge 无料 drink/12 类 bread/library**·都市探索者 lifestyle 酒店。",
+    highlights=["设计精品", "Solare 系新 brand", "烏丸御池 2 分", "88 室", "24h lounge"],
+    address="京都市中京区室町通押小路下る御池之町 314·烏丸御池徒步 2 分",
+    rooms="Standard~Suite·10 阶建·共 88 室",
+    breakfast="24h lounge 无料 bread + drink",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 inso-mnia.com·Solare·一休",
+    sources=["https://www.inso-mnia.com/kyoto/", "https://www.solarehotels.co.jp/pressrelease/2023/1615/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_candeohotels",
+    brief="**Candeo Hotels 系·京都登録有形文化財「旧伴家住宅」京町家保存改修 lounge**·烏丸御池徒步 3 分·全室シモンズベッド+一部露天风吕付·屋顶 sky spa（外汤+sauna）。",
+    highlights=["设计精品", "Candeo 系", "京都市登録文化財町家", "烏丸御池 3 分", "屋顶 sky spa"],
+    address="京都市中京区六角通烏丸西入骨屋町 149·烏丸御池徒步 3 分",
+    rooms="Standard~Private Spa King 28㎡·部分露天风吕付",
+    breakfast="折詰朝食 2F 町家 lounge 含选项",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 candeohotels.com·一休·楽天",
+    sources=["https://www.candeohotels.com/en/kyoto-rokkaku/", "https://www.jalan.net/yad357416/"],
+)
+
+
+def main() -> None:
+    apply = "--apply" in sys.argv
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    hit, miss = 0, []
+    for h in data:
+        hid = h["id"]
+        if hid not in PATCHES: continue
+        p = PATCHES[hid]
+        h["note"].update(p["note"])
+        if p["sources"]:
+            h["数据来源"] = p["sources"]
+        h["可信度"] = "cross_checked"
+        h["depth"] = "verified"
+        h["最后核实"] = TODAY
+        hit += 1
+    miss = [hid for hid in PATCHES if hid not in {h["id"] for h in data}]
+    print(f"patched: {hit}/{len(PATCHES)}")
+    if miss:
+        print(f"MISSING IDs: {miss}")
+    if apply:
+        DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("[APPLIED]")
+    else:
+        print("[DRY-RUN]")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+

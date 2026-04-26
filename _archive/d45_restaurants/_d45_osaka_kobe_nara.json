@@ -1,0 +1,1380 @@
+[
+  {
+    "id": "osk_osakajo_circo_doro",
+    "area": "大阪城",
+    "near_attractions": [{"entity_id": "osk_osaka_castle", "walk_min": 12}],
+    "tier": "mid",
+    "cuisine": ["意大利料理", "冰淇淋"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [150, 300]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ジェラテリア チルコドーロ（Gelateria Circo d'Oro）",
+      "简介": "大阪城公园内最受欢迎的意式冰淇淋小店，Tabelog 3.85 分。用本地食材制作的当季口味每次不同，是逛完大阪城后最自然的一站歇脚点。座位在公园内草坪边，夏天尤其清爽。",
+      "亮点": ["大阪城公园内", "Tabelog 3.85", "当季本地食材冰淇淋"],
+      "招牌菜": ["当季意式冰淇淋双球（约 ¥500）"],
+      "地址": "大阪市中央区大阪城公园内（大阪城 JO-TERRACE 内），JR 大阪城公园站步行约 5 分钟",
+      "营业": "11:00-19:00（季节调整，以现场为准），不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_ubara",
+    "area": "大阪城",
+    "near_attractions": [{"entity_id": "osk_osaka_castle", "walk_min": 10}],
+    "tier": "mid",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "うどん うばら",
+      "简介": "Tabelog 3.74 分的大阪城周边乌冬店，关西风出汁清甜，配料扎实。大阪城观光后步行即达，价格亲民，是景点区难得的本地水准乌冬。",
+      "亮点": ["Tabelog 3.74", "大阪城步行圈", "关西出汁乌冬"],
+      "招牌菜": ["きつね乌冬（约 ¥700）", "肉乌冬（约 ¥900）"],
+      "地址": "大阪市中央区大阪城公园周边（JO-TERRACE OSAKA 内），JR 大阪城公园站步行约 5 分钟",
+      "营业": "11:00-20:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_uemachi",
+    "area": "大阪城",
+    "near_attractions": [{"entity_id": "osk_osaka_castle", "walk_min": 15}, {"entity_id": "osk_osaka_museum_history", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["拉面"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "中華そば うえまち",
+      "简介": "Tabelog 3.76 分的大阪城周边老派中华拉面店，浓郁酱油汤头，是本地上班族的日常选择。大阪历史博物馆附近，观光疲劳后的实惠一顿。",
+      "亮点": ["Tabelog 3.76", "老派大阪酱油拉面", "价格实惠"],
+      "招牌菜": ["中华荞麦（约 ¥700-900）"],
+      "地址": "大阪市中央区上町台地周边，地铁谷町四丁目站步行约 5 分钟",
+      "营业": "11:30-14:00，周末不定休，建议出发前确认",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_guu_bakery",
+    "area": "大阪城",
+    "near_attractions": [{"entity_id": "osk_osaka_castle", "walk_min": 10}],
+    "tier": "economy",
+    "cuisine": ["面包", "咖啡"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ブーランジュリー&カフェ グウ",
+      "简介": "Tabelog 3.73 分的大阪城公园内面包咖啡店，用大阪城公园的景色配一杯咖啡和现烤面包，是逛完城堡后最放松的方式。种类丰富，明亮开阔。",
+      "亮点": ["Tabelog 3.73", "大阪城公园景观座位", "现烤面包"],
+      "招牌菜": ["日替焼面包（约 ¥200-400）", "早餐套餐"],
+      "地址": "大阪城 JO-TERRACE OSAKA 内，JR 大阪城公园站步行约 5 分钟",
+      "营业": "07:00-20:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tempozan_naniwa_yoko",
+    "area": "天保山",
+    "near_attractions": [{"entity_id": "osk_kaiyukan", "walk_min": 5}, {"entity_id": "osk_tempozan_ferris", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["章鱼烧", "大阪料理"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "なにわ食いしんぼ横丁（天保山マーケットプレース内）",
+      "简介": "天保山マーケットプレース 2F 昭和时代复原美食横丁，约 20 家大阪粉食摊位密集，章鱼烧、串炸、大阪烧、どて焼一次打包。海游馆参观完直接进来，不用再找餐厅。昭和布景、灯笼街道，连同小孩子也会被拍照氛围吸引。",
+      "亮点": ["海游馆旁免入场费", "大阪街食一条龙", "昭和复古布景"],
+      "招牌菜": ["章鱼烧（约 ¥500-700）", "どて焼（约 ¥550）", "串炸套餐"],
+      "地址": "大阪市港区海岸通 1-1-10 天保山マーケットプレース 2F，地铁大阪港站步行 5 分钟",
+      "营业": "11:00-20:00（店铺各异，以现场为准），不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_gojoya",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenmangu", "walk_min": 5}, {"entity_id": "osk_tenjinbashi", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["日本料理", "鱼料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [350, 700]},
+      {"meal": "dinner", "price_cny": [600, 1200]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "五條家（ごじょうや）",
+      "简介": "Tabelog 3.66 分的天满日料店，擅长用大阪湾时令鱼获做割烹定食。天满居酒屋街里难得能好好坐下来吃顿精致日料的地方，本地食客占多数，少有游客。午市套餐价格亲民。",
+      "亮点": ["Tabelog 3.66", "大阪湾时令鱼获", "天满本地食客为主"],
+      "招牌菜": ["时令鱼割烹套餐（昼 ¥2,500 起）", "造り盛合せ"],
+      "地址": "大阪市北区天神橋筋 4 丁目周边，地铁扇町站步行约 5 分钟",
+      "营业": "11:30-14:00 / 18:00-23:00，不定休",
+      "预约": "晚餐推荐预约，电话确认"
+    }
+  },
+  {
+    "id": "osk_tenma_nishiya",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenmangu", "walk_min": 6}, {"entity_id": "osk_tenjinbashi", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["串炸", "居酒屋"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [500, 1000]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串もん 西屋（くしもん にしや）",
+      "简介": "Tabelog 3.60 分，天满居酒屋街里口碑稳定的串炸店，食材新鲜、炸制水准高，与新世界的达磨路线不同——这里走的是精致居酒屋风，配大阪地酒体验更完整。本地上班族饭后必来。",
+      "亮点": ["Tabelog 3.60", "天满精致串炸", "大阪地酒配对"],
+      "招牌菜": ["单串点单（约 ¥130-300/串）", "厨师推荐套串 10 本"],
+      "地址": "大阪市北区天満 3 丁目周边，地铁南森町站步行约 5 分钟",
+      "营业": "17:00-23:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenma_sato",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenjinbashi", "walk_min": 5}, {"entity_id": "osk_tenmangu", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["拉面"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}, {"meal": "dinner", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "らーめん颯人（らーめんさいと）",
+      "简介": "Tabelog 3.76 分，天满近年人气高涨的拉面店，以浓厚鸡白汤底见长，面条劲道，配料扎实。排队是常态，早去可减少等待。天满居酒屋氛围之外的拉面代表。",
+      "亮点": ["Tabelog 3.76", "浓厚鸡白汤", "天满人气店"],
+      "招牌菜": ["鸡白汤拉面（约 ¥900）", "限定浓厚款"],
+      "地址": "大阪市北区天満周边，地铁南森町站步行约 8 分钟",
+      "营业": "11:30-14:30 / 18:00-22:00（售罄即止），周一不定休",
+      "预约": "无需预约，建议 11:30 开门即到"
+    }
+  },
+  {
+    "id": "osk_tenma_gomennejiro",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenjinbashi", "walk_min": 5}, {"entity_id": "osk_tenmangu", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["拉面"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}, {"meal": "dinner", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ゴメンネJIRO",
+      "简介": "Tabelog 3.76 分，天满独特风格拉面店，店名带点幽默。以浓厚豚骨系为基底，配大量蔬菜压顶，分量豪迈，吃完极满足。天满年轻食客聚集，氛围活跃。",
+      "亮点": ["Tabelog 3.76", "豪迈分量", "天满年轻气氛"],
+      "招牌菜": ["豚骨系拉面（约 ¥1,000）", "蔬菜加量款"],
+      "地址": "大阪市北区天満周边，地铁南森町站步行约 8 分钟",
+      "营业": "11:00-15:00 / 18:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_takama_soba",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenjinbashi", "walk_min": 3}, {"entity_id": "osk_tenmangu", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["荞麦"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [150, 300]}, {"meal": "dinner", "price_cny": [200, 400]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "蕎麦 たかま",
+      "简介": "Tabelog 3.75 分，天满街区里的手打荞麦小店，用北海道产玄蕎麦现打，出汁讲究。在居酒屋密集的天满，一家安静的蕎麦屋反而成了本地文青的避世之所。午餐只供 2 小时，建议预留时间。",
+      "亮点": ["Tabelog 3.75", "手打北海道荞麦", "天满少有的安静蕎麦屋"],
+      "招牌菜": ["ざる蕎麦（约 ¥1,000）", "鸭肉南蛮蕎麦（约 ¥1,500）"],
+      "地址": "大阪市北区天満 2 丁目周边，JR 天満站步行约 5 分钟",
+      "营业": "11:30-13:30 / 18:00-21:30，周二不定休",
+      "预约": "晚餐推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenma_gunjo",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenjinbashi", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["居酒屋", "大阪料理"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 300]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "群青（ぐんじょう）",
+      "简介": "Tabelog 3.74 分，天满本地居酒屋，串物和小菜价格极亲民，是真正「大阪打工人收工后钻进来」的那种氛围。外地人少，本地感极强，适合想脱离游客线路的旅行者。",
+      "亮点": ["Tabelog 3.74", "极具本地感的居酒屋", "价格亲民"],
+      "招牌菜": ["大阪串物拼盘（约 ¥1,500）", "当日小菜"],
+      "地址": "大阪市北区天満周边，地铁扇町站步行约 5 分钟",
+      "营业": "17:00-24:00，周日不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenma_rakunijin",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenjinbashi", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["居酒屋", "拉面"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 300]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "洛二神（らくにじん）",
+      "简介": "Tabelog 3.74 分，天满特色小吃居酒屋，菜单涵盖从大阪煮物到拉面的「洛食」混搭风，价格极低，氛围热闹随性。是天满最能代表「下町夜食」精神的店之一。",
+      "亮点": ["Tabelog 3.74", "大阪下町夜食氛围", "极低价位"],
+      "招牌菜": ["天满风煮物小菜", "当日汤拉面"],
+      "地址": "大阪市北区天満周边，JR 天満站步行约 5 分钟",
+      "营业": "17:00-24:00，周日休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_mansei",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 8}, {"entity_id": "osk_shitennoji", "walk_min": 10}],
+    "tier": "high",
+    "cuisine": ["日本料理", "鱼料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [400, 800]},
+      {"meal": "dinner", "price_cny": [700, 1400]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "万正（まんせい）",
+      "简介": "Tabelog 3.78 分的天王寺高端日料店，以时令鱼获和精致套餐闻名。在通天阁/串炸氛围浓厚的新世界区域，是「想吃顿好的」旅行者的正确选择。套餐设计合理，不失新世界的大阪气质。",
+      "亮点": ["Tabelog 3.78", "天王寺区最高水准日料之一", "时令鱼获套餐"],
+      "招牌菜": ["时令鱼造り套餐（昼 ¥3,000 起）", "晚间怀石（¥5,000 起）"],
+      "地址": "大阪市浪速区／天王寺区周边，地铁動物園前站步行约 8 分钟",
+      "营业": "11:30-14:00 / 17:30-22:00，周一不定休",
+      "预约": "推荐预约，尤其晚餐"
+    }
+  },
+  {
+    "id": "osk_tenoji_marumai",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 5}, {"entity_id": "osk_shinsekai", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["关东煮", "居酒屋"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [400, 800]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おでん まる米（おでん まるまい）",
+      "简介": "Tabelog 3.70 分，新世界旁的关东煮专门店，以大阪风味の「黄色いおでん」（加入咖喱风味）为招牌，跟关东的白色关东煮截然不同。新世界串炸太多游客，这里是本地熟客更多的夜食选择。",
+      "亮点": ["Tabelog 3.70", "大阪独特黄色咖喱おでん", "新世界本地感"],
+      "招牌菜": ["大阪风おでん盛合せ（约 ¥1,500）", "土手煮"],
+      "地址": "大阪市浪速区恵美須東周边，地铁恵美須町站步行约 5 分钟",
+      "营业": "17:00-23:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_udon_ikki",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 5}, {"entity_id": "osk_abeno_harukas", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "dinner", "price_cny": [100, 250]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "釜揚うどん 一紀（かまあげうどん いちき）",
+      "简介": "Tabelog 3.76 分，天王寺周边釜揚乌冬专门店，讲究现煮直上、配独家出汁，面条弹牙。天王寺是大阪商务与观光的交叉点，这家店保持了质量的稳定性，不因地点吃人。",
+      "亮点": ["Tabelog 3.76", "现煮釜揚乌冬", "天王寺稳定水准"],
+      "招牌菜": ["釜揚乌冬（约 ¥700）", "天妇罗套餐"],
+      "地址": "大阪市阿倍野区／天王寺区周边，JR 天王寺站步行约 8 分钟",
+      "营业": "11:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_nijinohotokeya",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 3}, {"entity_id": "osk_shinsekai", "walk_min": 1}],
+    "tier": "mid",
+    "cuisine": ["拉面", "居酒屋"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "dinner", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "虹の仏（にじのほとけや）",
+      "简介": "Tabelog 3.71 分，新世界中颇具个性的小店，以大阪风柴魚出汁拉面见长，内装保留昭和氛围，食客多为本地熟客。在以串炸为主的新世界，这家拉面店是异类，也是亮点。",
+      "亮点": ["Tabelog 3.71", "昭和风内装", "新世界里的拉面异类"],
+      "招牌菜": ["大阪风出汁拉面（约 ¥800）"],
+      "地址": "大阪市浪速区恵美須東周边，地铁恵美須町站步行约 3 分钟",
+      "营业": "11:00-21:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_tenoji_ah_men",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 5}, {"entity_id": "osk_shitennoji", "walk_min": 8}],
+    "tier": "economy",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "極楽うどん Ah-麺（ごくらくうどん あーめん）",
+      "简介": "Tabelog 3.75 分的天王寺平价乌冬店，「极乐」二字就是对这碗价格不到 ¥800 的关西风乌冬的全部形容。份量足，出汁清澈，深受附近大学生和上班族喜爱。",
+      "亮点": ["Tabelog 3.75", "极亲民价位", "关西风清汤乌冬"],
+      "招牌菜": ["极乐乌冬（约 ¥600-750）"],
+      "地址": "大阪市天王寺区／浪速区周边，地铁動物園前站步行约 5 分钟",
+      "营业": "11:00-22:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_jinsei",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 5}, {"entity_id": "osk_midosuji", "walk_min": 3}],
+    "tier": "showcase",
+    "cuisine": ["怀石", "日本料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [1200, 2000]},
+      {"meal": "dinner", "price_cny": [2500, 5000]}
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "尽誠（じんせい）",
+      "简介": "Tabelog 4.22 分，心斋桥最高分日料之一。主厨以精湛技术诠释关西传统割烹，食材出处清晰，器皿讲究，是大阪版「一顿不能错过的日料」代表。座位稀少，需提前数周预约。",
+      "亮点": ["Tabelog 4.22", "心斋桥顶级割烹", "器皿与食材双讲究"],
+      "招牌菜": ["时令割烹全套（昼 ¥15,000 起）", "晚间怀石（¥25,000 起）"],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "12:00-14:00 / 18:00-21:00，不定休",
+      "预约": "必须预约，提前 3-4 周，电话或 Omakase"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_pomuru",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 8}, {"entity_id": "osk_midosuji", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [500, 1000]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉ぽむる",
+      "简介": "Tabelog 3.74 分，心斋桥区域口碑稳定的烧肉店，食材质量远超价格所示，烧牛舌和特选和牛套餐是招牌。氛围适合情侣或闺蜜小聚，不过于正式，适合一顿好烧肉的晚餐。",
+      "亮点": ["Tabelog 3.74", "性价比高", "心斋桥稳定烧肉"],
+      "招牌菜": ["厚切り牛舌（约 ¥1,500）", "和牛カルビセット"],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 8 分钟",
+      "营业": "17:00-24:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_baranoki",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_midosuji", "walk_min": 3}, {"entity_id": "osk_dotonbori", "walk_min": 8}],
+    "tier": "high",
+    "cuisine": ["洋食"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [300, 600]},
+      {"meal": "dinner", "price_cny": [600, 1200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グリルばらの木（グリルばらのき）",
+      "简介": "Tabelog 3.67 分的心斋桥老派洋食店，炸牛排和汉堡排是招牌，用自制德米格拉斯酱汁。大阪洋食文化的缩影——厚重、不追时髦、扎扎实实做好一件事。本地老饕午饭常来。",
+      "亮点": ["Tabelog 3.67", "大阪老派洋食", "自制德米格拉斯酱"],
+      "招牌菜": ["牛肉炸排配德米酱（约 ¥1,500）", "汉堡排套餐"],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:30-14:30 / 17:30-21:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_lodge",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_midosuji", "walk_min": 2}, {"entity_id": "osk_dotonbori", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["洋食", "西餐"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [350, 700]},
+      {"meal": "dinner", "price_cny": [700, 1400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "御堂筋 ロッヂ（みどうすじ ろっじ）",
+      "简介": "Tabelog 3.66 分，御堂筋旁具有小木屋氛围的西餐馆，以熟成牛肉和精致配菜为招牌，价格处于心斋桥高档区域合理范围内。建筑本身保留昭和时代风格，被御堂筋银杏大道包围。",
+      "亮点": ["Tabelog 3.66", "御堂筋银杏道旁", "昭和建筑氛围"],
+      "招牌菜": ["熟成牛排（约 ¥3,000）", "洋食套餐（昼约 ¥1,500）"],
+      "地址": "大阪市中央区心斎橋筋周边，地铁心斎橋站步行约 3 分钟",
+      "营业": "11:30-22:00，不定休",
+      "预约": "无需预约，晚餐人多时推荐"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_teshima",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_midosuji", "walk_min": 5}, {"entity_id": "osk_dotonbori", "walk_min": 8}],
+    "tier": "high",
+    "cuisine": ["洋食"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [250, 500]},
+      {"meal": "dinner", "price_cny": [600, 1200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "洋食 手嶋（ようしょく てしま）",
+      "简介": "Tabelog 3.63 分，心斋桥传统洋食馆，炸猪排和哈姆蛋是招牌，价格实在。装潢简单，主厨专注一件事：把一份扎实的大阪洋食做好。本地回头客多，旅行者来这里吃到的是真实大阪日常。",
+      "亮点": ["Tabelog 3.63", "扎实大阪洋食", "炸猪排代表"],
+      "招牌菜": ["炸猪排定食（约 ¥1,500）", "哈姆蛋套餐（昼约 ¥1,000）"],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:30-14:00 / 17:30-21:00，周日不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_fishtons",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["拉面", "创意料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いかれたヌードル フィッシュトンズ（イカレタヌードル フィッシュトンズ）",
+      "简介": "Tabelog 3.74 分，名字「疯狂面条」就是招牌——以鱼骨高汤为底、叠加各种不按常理的配料，做出极具个性的创意拉面。在心斋桥这样寸土寸金的地方，这种走小众路线的拉面店能存活并排队，说明水准够格。",
+      "亮点": ["Tabelog 3.74", "创意鱼骨汤拉面", "心斋桥个性小众"],
+      "招牌菜": ["旗舰鱼骨汤拉面（约 ¥1,200）", "当季限定款"],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-21:00（售罄即止），周三不定休",
+      "预约": "无需预约，建议开门即到"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_mochisho_shizuku",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["和菓子"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "餅匠しづく 新町店（もちしょうしづく しんまちてん）",
+      "简介": "Tabelog 3.75 分，极具口碑的大阪草饼名店，用精选糯米现包，外软内甜。是道顿堀/心斋桥一带逛街间隙最值得一买的伴手礼兼零食，也是送礼首选。",
+      "亮点": ["Tabelog 3.75", "大阪草饼名店", "伴手礼/零食两用"],
+      "招牌菜": ["生どら焼き（约 ¥350）", "わらびもち（约 ¥500）"],
+      "地址": "大阪市西区新町 1 丁目周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:00-19:00（售罄即止），周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_umeda_numata",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 8}, {"entity_id": "osk_nakanoshima", "walk_min": 10}],
+    "tier": "showcase",
+    "cuisine": ["寿司", "日本料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [1500, 3000]},
+      {"meal": "dinner", "price_cny": [3000, 6000]}
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぬま田",
+      "简介": "Tabelog 4.41 分，梅田最高评分寿司店之一，以单品江户前握寿司见长，食材来自精挑细选的日本各地，师傅功力深厚。梅田区域 showcase 首选，大阪美食金字塔顶端之一。需提前数月预约，是「大阪旅行必吃一顿顶级寿司」的最佳答案。",
+      "亮点": ["Tabelog 4.41", "梅田最高评分寿司", "单品江户前握寿司"],
+      "招牌菜": ["おまかせ寿司全套（晚 ¥30,000 起）", "昼寿司套（¥15,000 起）"],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 10 分钟",
+      "营业": "12:00-14:00 / 18:00-21:30，不定休",
+      "预约": "必须预约，提前 2-3 个月，Omakase 或电话"
+    }
+  },
+  {
+    "id": "osk_umeda_sushi_osaka_organic",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 10}, {"entity_id": "osk_nakazakicho", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["寿司"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [500, 1000]},
+      {"meal": "dinner", "price_cny": [800, 1500]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "SUSHI OSAKA Organic（スシ オオサカ オーガニック）",
+      "简介": "Tabelog 3.83 分，梅田有机食材寿司店，以「无农药蔬菜+可持续渔业食材」为卖点，为寿司带来清爽的可持续理念。食材新鲜度高，午市性价比突出，是健康意识强的旅行者的理想选择。",
+      "亮点": ["Tabelog 3.83", "有机食材寿司", "可持续渔业理念"],
+      "招牌菜": ["有机主厨套餐（昼 ¥3,500）", "单品握寿司"],
+      "地址": "大阪市北区梅田周边，地铁梅田站步行约 10 分钟",
+      "营业": "11:30-14:30 / 18:00-22:00，周一不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_makino",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 10}],
+    "tier": "high",
+    "cuisine": ["烧鸟"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [500, 1000]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "まき埜（まきの）",
+      "简介": "Tabelog 3.74 分的梅田炭火烧鸟店，以炭火慢烤地鸡串为招牌，配地酒享用，是梅田夜食最舒服的选择之一。不过于正式，适合大阪最后一晚轻松的告别饭。",
+      "亮点": ["Tabelog 3.74", "炭火地鸡串", "梅田夜食轻松氛围"],
+      "招牌菜": ["炭火地鸡串盛合せ（约 ¥2,000）", "地酒配对"],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "17:30-24:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_kichizo",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 8}],
+    "tier": "high",
+    "cuisine": ["烧鸟"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [500, 1000]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭火焼鳥 きち蔵（たんびやきとり きちぞう）",
+      "简介": "Tabelog 3.74 分，梅田严选炭火烧鸟居酒屋，地鸡品质高，炭火控火精准，每串都精心呈现。梅田烧鸟选择多，这家胜在食材稳定+师傅用心。适合大阪夜晚细嚼慢品的那顿。",
+      "亮点": ["Tabelog 3.74", "严选地鸡炭火精烤", "梅田稳定口碑"],
+      "招牌菜": ["腿肉/颈肉/皮串各一（推荐组合约 ¥2,500）", "鸡白汤锅締め"],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "17:00-24:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_ramen_jet",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 10}],
+    "tier": "mid",
+    "cuisine": ["拉面"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "dinner", "price_cny": [100, 200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ラーメン人生JET（らーめんじんせいジェット）",
+      "简介": "Tabelog 3.77 分，梅田人气拉面店，以浓厚酱油系汤底配细直面，大阪旅行者中极有口碑。店名「人生JET」有点戏谑，但认真做每一碗面的态度没有玩笑。排队是常态。",
+      "亮点": ["Tabelog 3.77", "梅田人气浓厚酱油拉面", "食客口碑极稳"],
+      "招牌菜": ["特制酱油拉面（约 ¥900）", "浓厚限定款"],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-22:00（售罄即止），不定休",
+      "预约": "无需预约，建议 11:30 开门即到"
+    }
+  },
+  {
+    "id": "osk_umeda_boul_mich",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["面包", "咖啡"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ブーランジェリー ブルディガラ 大阪店（Boulangerie Burdigala）",
+      "简介": "Tabelog 3.77 分，法国老铺面包连锁大阪旗舰，以天然酵母法棍和可颂为核心，是梅田区域面包党必朝圣的选择。早市和午市面包最新鲜，节假日可能售罄。",
+      "亮点": ["Tabelog 3.77", "天然酵母法棍可颂", "梅田面包党首选"],
+      "招牌菜": ["天然酵母法棍（约 ¥300）", "可颂（约 ¥250）", "三明治午餐套（约 ¥800）"],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 5 分钟（大丸梅田店内）",
+      "营业": "10:00-20:00（百货店节假日延长），无定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_umeda_ikeda_yakiku",
+    "area": "池田",
+    "near_attractions": [{"entity_id": "osk_kyuanji", "walk_min": 20}],
+    "tier": "economy",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭火焼肉 キョロちゃん 池田店（たんびやきにく きょろちゃん いけだてん）",
+      "简介": "Tabelog 3.57 分，池田本地人气炭火烧肉，价格亲民，肉质新鲜，是周末来杯麺博物馆/久安寺旅行最随意的一顿餐。阪急池田站附近，适合行程末尾用餐。",
+      "亮点": ["Tabelog 3.57", "池田本地烧肉", "杯麺博物馆周边"],
+      "招牌菜": ["炭火牛カルビ套餐（约 ¥1,500）"],
+      "地址": "大阪府池田市周边，阪急宝塚线池田站步行约 5 分钟",
+      "营业": "11:30-14:00 / 17:00-22:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_umeda_ikeda_azuma",
+    "area": "池田",
+    "near_attractions": [{"entity_id": "osk_kyuanji", "walk_min": 15}],
+    "tier": "economy",
+    "cuisine": ["乌冬", "日本料理"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "吾妻（あづま）",
+      "简介": "Tabelog 3.57 分，池田传统食堂，拿手乌冬和定食，是本地人多年来的日常吃饭地。观光重点区之外，真实反映大阪郊区居民的饮食日常。",
+      "亮点": ["Tabelog 3.57", "池田传统食堂", "真实日常饮食"],
+      "招牌菜": ["乌冬定食（约 ¥700）"],
+      "地址": "大阪府池田市周边，阪急宝塚线池田站步行约 5 分钟",
+      "营业": "11:00-14:30，周日不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_namba_hongetsu",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_namba", "walk_min": 5}, {"entity_id": "osk_hozenji_yokocho", "walk_min": 5}],
+    "tier": "showcase",
+    "cuisine": ["怀石"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [3000, 8000]}
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "本湖月（ほんこげつ）",
+      "简介": "Tabelog 4.58 分，难波最高评分怀石之一，在道顿堀嘈杂的大阪核心区开辟出一片绝对宁静的料理空间。以极其精准的食材选用和大阪风怀石见长，是大阪最值得一战的顶级料亭。需提前数月预约。",
+      "亮点": ["Tabelog 4.58 难波最高分", "大阪极致怀石", "在道顿堀中心的宁静境地"],
+      "招牌菜": ["怀石全套おまかせ（晚 ¥30,000 起）"],
+      "地址": "大阪市中央区難波周边，地铁難波站步行约 5 分钟",
+      "营业": "18:00-21:00，不定休",
+      "预约": "必须预约，提前 2-3 个月，Omakase"
+    }
+  },
+  {
+    "id": "osk_namba_aiduya",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_namba", "walk_min": 3}, {"entity_id": "osk_kuromon", "walk_min": 8}],
+    "tier": "economy",
+    "cuisine": ["章鱼烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖たこ焼き 会津屋 ナンバ店（あいづや なんばてん）",
+      "简介": "1933 年创业，章鱼烧的发祥店。原型「ラヂオ焼き」以牛筋コンニャク为馅，进化成章鱼烧后风靡大阪。出汁酱油风味、外脆内嫩，不加酱汁直接吃才是正宗吃法。大阪食文化活化石。Tabelog 3.44，但历史意义无可替代。",
+      "亮点": ["1933 年发祥店", "出汁章鱼烧无酱汁", "大阪食文化原点"],
+      "招牌菜": ["元祖章鱼烧 8 个（约 ¥620）", "元祖ラヂオ焼き"],
+      "地址": "大阪市中央区難波 5 丁目 なんなんタウン内，地铁難波站直结",
+      "营业": "11:00-22:00，奇数月第 3 周四不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_namba_551_horai",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_namba", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["中华", "包子"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [50, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "551蓬莱 戎橋本店（ごーごーいち ほうらい えびすばしほんてん）",
+      "简介": "大阪最具象征性的「国民豚包」，1945 年创业。1F 外卖热气蒸腾，现包现卖。肉汁丰富的大颗豚まん（猪肉包）是大阪人伴手礼首选，机场必买，第1/3周二休息。排队是日常。",
+      "亮点": ["1945 年大阪国民豚包", "大阪机场伴手礼 No.1", "现包现卖热气蒸腾"],
+      "招牌菜": ["豚まん 2 个（约 ¥480）", "エビシューマイ（烧麦）"],
+      "地址": "大阪市中央区難波 3-6-3，地铁難波站步行约 2 分钟",
+      "营业": "1F 外卖 11:00-22:00；2F 餐厅 11:00-21:00，第 1/3 周二休",
+      "预约": "无需预约（外卖）；餐厅可电话"
+    }
+  },
+  {
+    "id": "osk_namba_hariju_grill",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 5}, {"entity_id": "osk_hozenji_yokocho", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["洋食", "牛排"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [300, 600]},
+      {"meal": "dinner", "price_cny": [700, 1500]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "はり重 グリル 道頓堀本店（はりじゅう ぐりる どうとんぼりほんてん）",
+      "简介": "1919 年创业，大阪洋食文化的柱石。以黑毛和牛为食材的「ビーフカツレツ」（牛肉炸排配自制德米酱）是不变招牌，已被 Tabelog 百名店认证（3.58 分）。在道顿堀吃一顿有历史分量的洋食，就来这里。周二定休。",
+      "亮点": ["Tabelog 3.58 百名店", "1919 年大阪洋食老铺", "黑毛和牛ビーフカツレツ"],
+      "招牌菜": ["黒毛和牛ビーフカツレツ（约 ¥3,850）", "ハンバーグステーキ（约 ¥2,090）"],
+      "地址": "大阪市中央区道頓堀 1-9-17 はり重本店内，地铁難波站步行约 5 分钟",
+      "营业": "11:30-21:00（L.O. 20:00），周二定休",
+      "预约": "无需预约，午市人多建议提前"
+    }
+  },
+  {
+    "id": "osk_namba_chitose_honten",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_namba", "walk_min": 5}, {"entity_id": "osk_kuromon", "walk_min": 8}],
+    "tier": "economy",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千とせ 本店（ちとせ ほんてん）",
+      "简介": "Tabelog 3.72 分，难波平价乌冬名店，肉うどん（肉乌冬）是招牌，以特制牛肉末熬出汁覆盖，配关西透明汤头，是难波最值得排一次队的B级美食代表。本地上班族和学生日常选择。",
+      "亮点": ["Tabelog 3.72", "难波肉乌冬代表", "极亲民价格"],
+      "招牌菜": ["肉うどん（约 ¥700）", "卵とじうどん"],
+      "地址": "大阪市中央区難波千日前周边，地铁難波站步行约 5 分钟",
+      "营业": "10:30-15:00，周四不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kukuru",
+    "area": "道顿堀",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 2}, {"entity_id": "osk_hozenji_yokocho", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["章鱼烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "たこ家道頓堀 くくる（たこやどうとんぼり くくる）",
+      "简介": "道顿堀最具代表性的章鱼烧店之一，外皮酥脆内流动，配特制酱汁和柴鱼片。红色霓虹招牌在道顿堀街道拍照极有辨识度。比会津屋口感更「现代」，更迎合中国游客口味，排队 20-40 分钟是常态。",
+      "亮点": ["道顿堀章鱼烧代表", "酥脆外皮流心内馅", "道顿堀打卡必吃"],
+      "招牌菜": ["章鱼烧 8 个（约 ¥700）", "明石风章鱼烧"],
+      "地址": "大阪市中央区道頓堀 1-10-5，地铁難波站步行约 3 分钟",
+      "营业": "10:00-22:00，全年无休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_dotonbori_daruma",
+    "area": "道顿堀",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 2}, {"entity_id": "osk_hozenji_yokocho", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["串炸"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [100, 200]}, {"meal": "dinner", "price_cny": [150, 300]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖串かつ だるま 道頓堀店（もとぐし くしかつ だるま どうとんぼりてん）",
+      "简介": "1929 年创业新世界发祥的串炸名店道顿堀分店。「二度づけ禁止」（酱汁不准蘸两次）是全日本知名的规矩。道顿堀本店位置最方便，适合观光动线中顺路来一顿。Tabelog 3.48，但作为大阪串炸文化代表，历史地位不可取代。",
+      "亮点": ["1929 年新世界发祥串炸", "二度づけ禁止文化规矩", "道顿堀最方便位置"],
+      "招牌菜": ["串炸单点（约 ¥100-200/串）", "套餐 10 串（约 ¥1,200）"],
+      "地址": "大阪市中央区道頓堀 1-6-8，地铁難波站步行约 3 分钟",
+      "营业": "平日 11:00-22:30，周末 10:30-22:30，全年无休",
+      "预约": "不可预约"
+    }
+  },
+  {
+    "id": "osk_namba_mizuno",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 3}, {"entity_id": "osk_hozenji_yokocho", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "道頓堀 お好み焼き 美津の（みづの）",
+      "简介": "1945 年创业，三代传承的大阪烧名店，Tabelog 3.52 分，米其林比布古蒙 6 年连续认证，百名店。招牌「山芋焼」用 100% 山芋代替面粉，外脆内蓬松，素材甘甜，反传统却征服了所有人。道顿堀人气最高的大阪烧店，排队 30-60 分钟正常。",
+      "亮点": ["Tabelog 3.52 米其林比布古蒙 6 年", "百名店认证", "山芋 100%「山芋焼」"],
+      "招牌菜": ["山芋焼（¥1,650 起）", "海鮮ミックス（¥2,200）"],
+      "地址": "大阪市中央区道頓堀 1-4-15，地铁難波站步行约 5 分钟",
+      "营业": "11:00-22:00（L.O. 21:00），全年无休",
+      "预约": "无需预约，建议非高峰时间（14:00-17:00）前往"
+    }
+  },
+  {
+    "id": "kob_sannomiya_misono",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 5}],
+    "tier": "showcase",
+    "cuisine": ["铁板烧", "神户牛"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [700, 1500]},
+      {"meal": "dinner", "price_cny": [2000, 5000]}
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖 鉄板焼ステーキ みその 神戸本店（もとぐし てっぱんやき みその こうべほんてん）",
+      "简介": "1945 年创业，全世界铁板烧的发祥地。当年为招待进驻军而在鉄板上烧牛肉，由此开创了「铁板焼ステーキ」这一料理形式，并传遍全球。神户牛 A4/A5 在 7-8F 餐厅随现烤随享用，三宮站步行 2 分钟，夜景绝佳。必来一次的大阪神户餐饮文化原点。",
+      "亮点": ["全球铁板烧发祥地 1945 年", "神户牛 A4/A5", "三宮站步行 2 分钟"],
+      "招牌菜": ["特选神户牛ランチ（¥5,000 起）", "晚间神户牛全套（¥15,000 起）"],
+      "地址": "兵庫县神戸市中央区下山手通 1-1-2，三宮站步行约 2 分钟",
+      "营业": "午市 11:30-14:30（L.O. 13:30），晚市 17:00-22:00（L.O. 21:00），全年无休（年末年始除外）",
+      "预约": "推荐预约，尤其晚市，电话 078-331-2890"
+    }
+  },
+  {
+    "id": "kob_sannomiya_mouriya",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 8}],
+    "tier": "showcase",
+    "cuisine": ["铁板烧", "神户牛"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [800, 1800]},
+      {"meal": "dinner", "price_cny": [2500, 6000]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神戸牛ステーキレストラン モーリヤ 本店（もーりや ほんてん）",
+      "简介": "1885 年创业（精肉店起源），神户最老牌神户牛专门店之一。红砖外墙百年建筑，只选顶级 A4/A5 神户牛，主厨在铁板前现烤。神户牛名店中历史最悠久，是「来神户必定要吃一顿神户牛」的最经典回答。",
+      "亮点": ["1885 年创业", "神户最老牌神户牛餐厅", "红砖百年建筑"],
+      "招牌菜": ["神户牛ランチ（¥5,000 起）", "晚间おまかせ（¥20,000 起）"],
+      "地址": "兵庫县神戸市中央区下山手通 1-8-2，三宮站步行约 5 分钟",
+      "营业": "11:00-22:00（L.O. 21:00），不定休（建议提前确认）",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_yakiniku_zen",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [
+      {"meal": "dinner", "price_cny": [600, 1200]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉 ぜん（やきにく ぜん）",
+      "简介": "Tabelog 3.73 分，三宮烧肉店，以精选和牛为主，配日本酒或韩式汤底，不追 showcase 价格也能吃到高质量的神户烧肉体验。本地食客多，旅行者常因不知道而错过。",
+      "亮点": ["Tabelog 3.73", "神户三宮高质量烧肉", "性价比和牛"],
+      "招牌菜": ["和牛ロース（约 ¥2,500）", "神户牛薄切り套餐"],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 5 分钟",
+      "营业": "17:00-24:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_sa_marche",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["面包", "咖啡"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "サ・マーシュ（Sa·Marche）",
+      "简介": "Tabelog 3.76 分，神户口碑最高的天然酵母面包名店，以硬质欧包为招牌，法棍、田园面包、麦香浓郁。神户的面包文化随开港同步形成，这家是其中翘楚，开店前已排队。",
+      "亮点": ["Tabelog 3.76", "神户天然酵母欧包顶店", "开店前即排队"],
+      "招牌菜": ["天然酵母法棍（约 ¥300）", "白神酵母田园面包（约 ¥500）"],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 8 分钟",
+      "营业": "09:00-18:00（售罄即止），周三不定休",
+      "预约": "无需预约，建议开店即到"
+    }
+  },
+  {
+    "id": "kob_sannomiya_com_chinois",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["中华料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "dinner", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "コム・シノワ（Comme Chinois）",
+      "简介": "Tabelog 3.76 分，神户三宮的亲民中华餐馆，以粤广系家常菜为主，价格实惠。在铁板烧/神户牛贵价区里，这家提供了让行程不那么「奢华疲劳」的中场休息选项，适合轻松一顿。",
+      "亮点": ["Tabelog 3.76", "亲民中华料理", "三宮价格洼地"],
+      "招牌菜": ["点心套餐（约 ¥1,000）", "炒饭／叉烧"],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 5 分钟",
+      "营业": "11:30-14:30 / 17:30-22:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_sannomiya_tsukemen_handa",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 8}],
+    "tier": "economy",
+    "cuisine": ["拉面"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "dinner", "price_cny": [100, 200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "つけ麺 繁田（つけめん はんだ）",
+      "简介": "Tabelog 3.73 分，三宮人气蘸面专门店，以浓厚鱼介系汤头配粗直面，分量足，视觉冲击强。在神户吃顿拉面系，这家是本地食客最频繁推荐的选择，价格极其亲民。",
+      "亮点": ["Tabelog 3.73", "浓厚鱼介蘸面", "神户拉面系代表"],
+      "招牌菜": ["浓厚つけ麺（约 ¥900）", "大盛 200g 选项"],
+      "地址": "兵庫县神戸市中央区三宮周边，三宮站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-21:00（售罄即止），不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_kitano_tempura_tensuke",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_kitano_ijinkan", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["天妇罗"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [400, 800]},
+      {"meal": "dinner", "price_cny": [700, 1500]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "天ぷら 天介（てんぷら てんすけ）",
+      "简介": "Tabelog 3.64 分，北野异人馆街旁的天妇罗专门店，以芝麻油高温炸制，外皮轻薄、食材鲜甜。在神户西洋建筑群里吃一顿精致日本天妇罗，对比强烈，是北野动线最自然的午餐选择。",
+      "亮点": ["Tabelog 3.64", "北野异人馆旁天妇罗", "芝麻油高温轻炸"],
+      "招牌菜": ["天妇罗套餐（昼 ¥2,500 起）", "海老天妇罗单点"],
+      "地址": "兵庫县神戸市中央区北野町周边，三宮站步行约 12 分钟",
+      "营业": "11:30-14:30 / 17:30-21:00，不定休",
+      "预约": "推荐预约，尤其晚市"
+    }
+  },
+  {
+    "id": "kob_kitano_steakland",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_kitano_ijinkan", "walk_min": 10}],
+    "tier": "high",
+    "cuisine": ["铁板烧", "神户牛"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [250, 600]},
+      {"meal": "dinner", "price_cny": [600, 1500]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ステーキランド 神戸館（すてーきらんど こうべかん）",
+      "简介": "Tabelog 3.61 分，三宮区最平价的神户牛铁板烧入门选项。和牛ランチ从 ¥1,380 起，神户牛 ¥3,500 起，目前前三宮站步行 1 分钟，性价比无出其右。铁板前的热闹氛围是旅行者打卡标配。",
+      "亮点": ["Tabelog 3.61", "三宮最平价神户牛铁板烧", "三宮站步行 1 分钟"],
+      "招牌菜": ["神户牛ランチ 150g（¥3,500）", "和牛ステーキランチ 100g（¥1,380）"],
+      "地址": "兵庫县神戸市中央区北長狭通 1-9-17 三宮興業ビル 6F，三宮站步行约 1 分钟",
+      "营业": "午市 11:30-15:30（L.O. 14:00），晚市 17:00-23:00（L.O. 21:00），全年无休",
+      "预约": "不可预约，排队等候"
+    }
+  },
+  {
+    "id": "kob_kitano_mont_plus",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_kitano_ijinkan", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["甜品", "法式点心"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "パティスリー モンプリュ 本店（Patisserie Mont Plus）",
+      "简介": "Tabelog 3.76 分，神户北野口碑极佳的法式甜品店，主厨在法国进修，以精致的塔派和慕斯著称。异人馆漫步后在这里喝杯茶吃一片塔，是北野动线最完美的收尾方式。",
+      "亮点": ["Tabelog 3.76", "北野异人馆旁法式甜品顶店", "主厨法国经历"],
+      "招牌菜": ["当季水果塔（约 ¥700）", "巧克力慕斯（约 ¥650）"],
+      "地址": "兵庫县神戸市中央区北野町 4 丁目周边，三宮站步行约 12 分钟",
+      "营业": "10:00-19:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_kitano_caffarel",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_kitano_ijinkan", "walk_min": 3}],
+    "tier": "mid",
+    "cuisine": ["甜品", "巧克力"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "カファレル 神戸北野本店（Caffarel 神戸北野本店）",
+      "简介": "Tabelog 3.74 分，1878 年创业意大利都灵老牌巧克力品牌的日本旗舰，神户北野本店。以榛子巧克力「ジャンドゥーヤ（Gianduiotto）」为招牌，配北野异人馆洋风建筑，氛围天然契合，是神户伴手礼首选之一。",
+      "亮点": ["Tabelog 3.74", "1878 年意大利巧克力品牌日本旗舰", "北野异人馆街伴手礼首选"],
+      "招牌菜": ["ジャンドゥーヤ巧克力（约 ¥600）", "纪念礼盒"],
+      "地址": "兵庫县神戸市中央区山本通 3 丁目，三宮站步行约 12 分钟",
+      "营业": "10:00-18:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "kob_kitano_motomachi_santos",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_nankinmachi", "walk_min": 5}],
+    "tier": "economy",
+    "cuisine": ["喫茶店", "洋食"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元町サントス（もとまち さんとす）",
+      "简介": "Tabelog 3.68 分，元町昭和风情老喫茶店，木桌椅、咖啡香、价格不变几十年，是神户老城区最典型的昭和喫茶体验。和北野异人馆的精致洋风形成完美对比，是感受「神户日常」的微小入口。",
+      "亮点": ["Tabelog 3.68", "元町昭和风老喫茶", "神户日常感代表"],
+      "招牌菜": ["咖啡+厚切吐司早餐（约 ¥600）", "ナポリタン（约 ¥800）"],
+      "地址": "兵庫县神戸市中央区元町周边，地铁旧居留地大丸前站步行约 5 分钟",
+      "营业": "09:00-18:00，周三不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_park_dandan_soba",
+    "area": "奈良公园",
+    "near_attractions": [{"entity_id": "nar_nara_park", "walk_min": 8}, {"entity_id": "nar_todaiji", "walk_min": 10}],
+    "tier": "high",
+    "cuisine": ["荞麦"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [200, 400]},
+      {"meal": "dinner", "price_cny": [700, 1200]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [1, 2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "出雲そば だんだん（いずもそば だんだん）",
+      "简介": "Tabelog 3.73 分，2025 年蕎麦 WEST 百名店认证，用岛根直送在来种玄蕎麦现打，浜田渔港直送鲜鱼烹调配菜。「だんだん」是岛根方言「谢谢」。午市割子荞麦 ¥1,890 一顿，是奈良公园周边最值得专程来的一餐。周一二定休。",
+      "亮点": ["Tabelog 3.73 百名店", "岛根在来种手打蕎麦", "浜田鲜鱼配菜"],
+      "招牌菜": ["天ぷら付き割子そば（¥1,890）", "季节おまかせ料理蕎麦（¥5,500）"],
+      "地址": "奈良县奈良市大宮町 2-2-34，JR 奈良站西口步行约 5 分钟",
+      "营业": "11:15-13:30（售罄即止），晚市 18:30-（预约制），周一二定休",
+      "预约": "昼市无需预约，建议开店即到；晚市必须预约"
+    }
+  },
+  {
+    "id": "nar_park_kashiya",
+    "area": "奈良公园",
+    "near_attractions": [{"entity_id": "nar_nara_park", "walk_min": 5}, {"entity_id": "nar_kofukuji", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["和菓子", "茶寮"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "萬御菓子誂處 樫舎（まんおかしあつらえどころ かしや）",
+      "简介": "Tabelog 3.75 分，奈良公园旁的高端和菓子茶席，以奈良大和茶和季节性生菓子著称。每个季节都有不同的和菓子主题，器皿和摆盘极讲究，是「把奈良公园漫步结束在茶香中」的最佳句号。",
+      "亮点": ["Tabelog 3.75", "奈良公园旁最精致和菓子茶席", "大和茶配季节生菓子"],
+      "招牌菜": ["季节生菓子茶席（约 ¥1,500）", "奈良漬け和菓子伴手礼"],
+      "地址": "奈良县奈良市橋本町 34-1，近铁奈良站步行约 5 分钟",
+      "营业": "10:00-17:00，周三不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_park_gateau_bois",
+    "area": "奈良公园",
+    "near_attractions": [{"entity_id": "nar_nara_park", "walk_min": 8}, {"entity_id": "nar_kasuga_taisha", "walk_min": 10}],
+    "tier": "mid",
+    "cuisine": ["法式点心", "咖啡"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ガトー・ド・ボワ À LA MAISON（ガトードボワ アラメゾン）",
+      "简介": "Tabelog 3.74 分，奈良公园周边的法式西点小店，以手工甜点和红茶组合闻名，是鹿群穿行的奈良街角意外冒出的一处精致法式下午茶空间。春日大社参拜后在这里喝杯茶是奈良慢行的加分动作。",
+      "亮点": ["Tabelog 3.74", "奈良公园周边法式甜点", "春日大社参道附近"],
+      "招牌菜": ["当季塔派（约 ¥700）", "下午茶套餐（约 ¥1,200）"],
+      "地址": "奈良县奈良市高畑町周边，近铁奈良站步行约 15 分钟（近春日大社）",
+      "营业": "11:00-18:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_park_kiyosumi_awa",
+    "area": "奈良公园",
+    "near_attractions": [{"entity_id": "nar_nara_park", "walk_min": 10}, {"entity_id": "nar_national_museum", "walk_min": 12}],
+    "tier": "economy",
+    "cuisine": ["日本料理", "素食"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "清澄の里 粟（きよすみのさと あわ）",
+      "简介": "Tabelog 3.64 分，以奈良本土「粟（あわ：黍）」为食材的素食定食店，用奈良山乡传统食材做出健康朴素的日式素食定食。价格亲民，适合奈良博物馆参观后调整节奏的一顿。",
+      "亮点": ["Tabelog 3.64", "奈良本土粟食材素食", "奈良博物馆附近"],
+      "招牌菜": ["粟定食（约 ¥900）", "粟ごはんセット"],
+      "地址": "奈良县奈良市高畑町周边，近铁奈良站步行约 12 分钟",
+      "营业": "11:00-16:00，周三不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_naramachi_hirasou",
+    "area": "ならまち",
+    "near_attractions": [{"entity_id": "nar_kofukuji", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["柿叶寿司", "奈良料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [300, 600]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "柿の葉ずし総本家 平宗 奈良店（かきのはずし そうほんけ ひらそう ならてん）",
+      "简介": "1861 年创业，柿叶寿司最权威的老铺。用柿树叶包裹鲭鱼/鲑鱼/海老等鱼介寿司，在低温自然熟成，是奈良最具代表性的郷土料理。猿沢池旁的奈良店位置绝佳，可吃堂食也可外带，是奈良旅行最标准的一顿。",
+      "亮点": ["1861 年老铺柿叶寿司权威", "奈良最具代表性郷土料理", "猿沢池旁黄金位置"],
+      "招牌菜": ["柿の葉寿司 5 个入（约 ¥1,300）", "茶粥+柿叶寿司套餐（约 ¥2,000）"],
+      "地址": "奈良县奈良市今御門町 30（猿沢池旁），近铁奈良站步行约 8 分钟",
+      "营业": "本館 11:30-20:00，不定休（以官网为准）",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_suita_expocity_kitakyusei",
+    "area": "suita_expo",
+    "near_attractions": [{"entity_id": "osk_taiyo_no_to", "walk_min": 10}, {"entity_id": "osk_nifrel", "walk_min": 3}],
+    "tier": "mid",
+    "cuisine": ["洋食", "蛋包饭"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グリルキャピタル東洋亭 エキスポシティ店（グリルキャピタル とうようてい）",
+      "简介": "明治 30 年创业的大阪老牌洋食「東洋亭」的 EXPOCITY 分店，以锡箔纸包住的「百年洋食ハンバーグ」为招牌，牛肉汁丰富，直接在铁板上打开香气冲天。NIFREL 参观完直接进来，无需出万博公园范围。",
+      "亮点": ["明治 30 年洋食老铺分店", "锡箔包百年ハンバーグ", "NIFREL 旁步行 3 分钟"],
+      "招牌菜": ["百年洋食ハンバーグ套餐（约 ¥2,500）", "トマトサラダ（¥1,200，丸ごと 1 个）"],
+      "地址": "大阪府吹田市千里万博公园 2 EXPOCITY 3F，大阪单轨万博纪念公园站步行约 2 分钟",
+      "营业": "11:00-22:00，无定休",
+      "预约": "无需预约，节假日可能排队"
+    }
+  },
+  {
+    "id": "osk_abeno_kushino_bo",
+    "area": "abeno_tennoji",
+    "near_attractions": [{"entity_id": "osk_abeno_harukas", "walk_min": 2}, {"entity_id": "osk_shitennoji", "walk_min": 10}],
+    "tier": "mid",
+    "cuisine": ["串炸"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [300, 600]},
+      {"meal": "dinner", "price_cny": [500, 1000]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串の坊 あべのハルカス近鉄本店（くしのぼう）",
+      "简介": "1950 年创业大阪老牌串炸名店「串の坊」在晴空大厦 12F 的店铺。俯瞰天王寺园景，精致串炸风格有别于新世界粗犷路线——配菜细致、时令食材。登上 HARUKAS 展望台前后连动午饭，动线极顺。",
+      "亮点": ["1950 年串炸老铺", "HARUKAS 12F 俯瞰天王寺", "精致路线串炸"],
+      "招牌菜": ["串炸おまかせ套（昼约 ¥3,000）", "季节食材单串"],
+      "地址": "大阪市阿倍野区阿倍野筋 1-1-43 あべのハルカス近鉄本店 12F，JR 天王寺站步行约 3 分钟",
+      "营业": "11:00-23:00（L.O. 22:30），无定休（百货休馆日休）",
+      "预约": "无需预约，节假日推荐"
+    }
+  }
+]

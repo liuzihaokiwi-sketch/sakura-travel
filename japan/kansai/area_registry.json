@@ -1,0 +1,542 @@
+[
+  {
+    "area": "东山轴",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "河原町-先斗町",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "烏丸御池",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "梅田",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "难波",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "心斋桥",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "道顿堀",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "京都站",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "岚山",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "北区",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "伏见",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "神户三宮-旧居留地",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "神户北野-元町",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "奈良公园",
+    "type": "日归动线",
+    "city": "奈良"
+  },
+  {
+    "area": "ならまち",
+    "type": "日归动线",
+    "city": "奈良"
+  },
+  {
+    "area": "姬路城周边",
+    "type": "日归动线",
+    "city": "姬路"
+  },
+  {
+    "area": "天王寺-新世界",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "天满",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "福岛",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "池田",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "有马温泉",
+    "type": "温泉宿坊",
+    "city": "神户"
+  },
+  {
+    "area": "城崎温泉",
+    "type": "温泉宿坊",
+    "city": "城崎"
+  },
+  {
+    "area": "高野山",
+    "type": "温泉宿坊",
+    "city": "高野山"
+  },
+  {
+    "area": "USJ",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "大阪城",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "天保山",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "新地",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "吉野山",
+    "type": "景点单日",
+    "city": "吉野"
+  },
+  {
+    "area": "熊野古道",
+    "type": "景点单日",
+    "city": "熊野"
+  },
+  {
+    "area": "天桥立-伊根",
+    "type": "景点单日",
+    "city": "天桥立"
+  },
+  {
+    "area": "中崎町",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "美国村",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "堀江",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "日本桥",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "kobe_suma",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "kobe_nada",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "nipponbashi",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "horyuji",
+    "type": "景点单日",
+    "city": "奈良"
+  },
+  {
+    "area": "nishinokyo",
+    "type": "日归动线",
+    "city": "奈良"
+  },
+  {
+    "area": "ohara",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "higashiyama",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "gion",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "kyoto_center",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "central_kyoto",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "nakagyo",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "okazaki",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "fushimi",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "higashiyama_north",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "kita",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "arashiyama",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "sagano",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "kinkaku_nishiyama",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "sakyo",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "south_kyoto",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "nishikyo",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "uji",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "takao",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "yase",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "kurama",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "kibune",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "daigo",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "nagaokakyo",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "yawata",
+    "type": "景点单日",
+    "city": "京都"
+  },
+  {
+    "area": "osaka_kita",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "namba",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "osaka_central",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "osaka_ikeda",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "tempozan",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "osaka_castle_park",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "osakajo",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "abeno_tennoji",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "tennoji",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "shinsekai",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "sumiyoshi",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "suita_expo",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "osaka_nagai",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "osaka_bay",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "nara_ikoma",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "kobe_rokko",
+    "type": "景点单日",
+    "city": "神户"
+  },
+  {
+    "area": "kobe_waterfront",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "kobe_central",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "kobe_kita",
+    "type": "景点单日",
+    "city": "神户"
+  },
+  {
+    "area": "kobe_kitano",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "arima",
+    "type": "温泉宿坊",
+    "city": "神户"
+  },
+  {
+    "area": "himeji",
+    "type": "景点单日",
+    "city": "姬路"
+  },
+  {
+    "area": "nara_park",
+    "type": "日归动线",
+    "city": "奈良"
+  },
+  {
+    "area": "nara_yoshino",
+    "type": "景点单日",
+    "city": "吉野"
+  },
+  {
+    "area": "shiga",
+    "type": "景点单日",
+    "city": "滋贺"
+  },
+  {
+    "area": "kinosaki",
+    "type": "温泉宿坊",
+    "city": "城崎"
+  },
+  {
+    "area": "arima_onsen",
+    "type": "温泉宿坊",
+    "city": "神户"
+  },
+  {
+    "area": "bay_area",
+    "type": "景点单日",
+    "city": "大阪"
+  },
+  {
+    "area": "gion_higashiyama",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "harborland_meriken",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "honmachi",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "kinosaki_onsen",
+    "type": "温泉宿坊",
+    "city": "城崎"
+  },
+  {
+    "area": "kitano_shinkobe",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "koyasan_temple",
+    "type": "温泉宿坊",
+    "city": "高野山"
+  },
+  {
+    "area": "kyoto_station",
+    "type": "日归动线",
+    "city": "京都"
+  },
+  {
+    "area": "motomachi_nankinmachi",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "namba_dotonbori",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "nara_park_area",
+    "type": "日归动线",
+    "city": "奈良"
+  },
+  {
+    "area": "nijo_central",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "sannomiya",
+    "type": "日归动线",
+    "city": "神户"
+  },
+  {
+    "area": "shijo_kawaramachi",
+    "type": "主场密集",
+    "city": "京都"
+  },
+  {
+    "area": "shinsaibashi",
+    "type": "主场密集",
+    "city": "大阪"
+  },
+  {
+    "area": "shirahama",
+    "type": "温泉宿坊",
+    "city": "白浜"
+  },
+  {
+    "area": "tennoji_shinsekai",
+    "type": "日归动线",
+    "city": "大阪"
+  },
+  {
+    "area": "umeda_kita",
+    "type": "主场密集",
+    "city": "大阪"
+  }
+]

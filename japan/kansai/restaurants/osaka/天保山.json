@@ -1,0 +1,52 @@
+[
+  {
+    "id": "osk_tempozan_naniwa_yoko",
+    "area": "天保山",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧",
+      "大阪料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "なにわ食いしんぼ横丁（天保山マーケットプレース内）",
+      "简介": "天保山マーケットプレース 2F 昭和时代复原美食横丁，约 20 家大阪粉食摊位密集，章鱼烧、串炸、大阪烧、どて焼一次打包。海游馆参观完直接进来，不用再找餐厅。昭和布景、灯笼街道，连同小孩子也会被拍照氛围吸引。",
+      "亮点": [
+        "海游馆旁免入场费",
+        "大阪街食一条龙",
+        "昭和复古布景"
+      ],
+      "招牌菜": [
+        "章鱼烧（约 ¥500-700）",
+        "どて焼（约 ¥550）",
+        "串炸套餐"
+      ],
+      "地址": "大阪市港区海岸通 1-1-10 天保山マーケットプレース 2F，地铁大阪港站步行 5 分钟",
+      "营业": "11:00-20:00（店铺各异，以现场为准），不定休",
+      "预约": "无需预约"
+    }
+  }
+]

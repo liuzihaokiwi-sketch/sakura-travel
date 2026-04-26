@@ -1,0 +1,973 @@
+[
+  {
+    "id": "kyo_kawaramachi_ippodo",
+    "area": "河原町-先斗町",
+    "near_attractions": [{"entity_id": "kyo_pontocho", "walk_min": 8}],
+    "tier": "mid",
+    "cuisine": ["甜品", "咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "一保堂茶舗 京都本店 喫茶室「嘉木」",
+      "简介": "**1717 年（享保 2）创业·300 年京都日本茶老铺**·宫家「山階宮」赐号「一保堂」。京都本店在寺町通·喫茶室「嘉木」可现场点抹茶/玉露/煎茶·店员桌前演示冲茶手法+附和菓子（¥1,500-2,500）。**真正的京都茶道入门**·游客和本地人混着坐。京都御所徒步 5 分·烏丸御池徒步 6 分。Tabelog 3.55+。",
+      "亮点": [
+        "1717 年 300 年茶舗",
+        "宫家「山階宮」赐号",
+        "现场点茶演示+和菓子",
+        "京都御所徒步 5 分",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "抹茶+和菓子（¥1,500）",
+        "玉露+和菓子（¥2,000）",
+        "煎茶喫茶セット（¥1,200）"
+      ],
+      "地址": "京都市中京区寺町通二条上ル常盤木町 52（地铁京都市役所前駅 徒步 5 分；阪急京都河原町駅 徒步 10 分）",
+      "营业": "10:00-17:00（LO 16:30）；不定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "下午 14-16 点排 20-30 分；想躲队 10:00 开门即到"
+    }
+  },
+  {
+    "id": "kyo_uji_nakamura_uji",
+    "area": "uji",
+    "near_attractions": [{"entity_id": "kyo_byodoin", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["甜品", "咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 200]}, {"meal": "lunch", "price_cny": [100, 250]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "中村藤吉本店 宇治本店",
+      "简介": "**1854 年（嘉永 7·安政元年）创业·170 年宇治茶老铺**·近代京都茶界的代表。宇治本店是大正/昭和町家改造·**生茶ゼリイ**（生茶果冻·¥1,200）是看板·抹茶蕎麥麺也很有人气。Tabelog 3.65+·宇治觅食线必到。平等院徒步 5 分·从京都站乘 JR 奈良线 17 分。Walk-in 但旺季排 1 小时。",
+      "亮点": [
+        "1854 年 170 年宇治茶老铺",
+        "町家改造氛围",
+        "**生茶ゼリイ看板**",
+        "平等院徒步 5 分",
+        "Tabelog 3.65+"
+      ],
+      "招牌菜": [
+        "生茶ゼリイ（¥1,200）",
+        "抹茶蕎麥セット（¥1,800）",
+        "抹茶パフェ（¥1,500）"
+      ],
+      "地址": "宇治市宇治壱番十番地（JR 宇治駅 徒步 1 分；京阪宇治駅 徒步 7 分）",
+      "营业": "10:00-17:30（カフェ LO 16:30）；不定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "周末旺季 11-15 点排 60-90 分；早 10 点开门即到最稳"
+    }
+  },
+  {
+    "id": "kyo_gion_tsujiri",
+    "area": "东山轴",
+    "near_attractions": [{"entity_id": "kyo_yasaka_shrine", "walk_min": 4}],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "茶寮都路里（さりょうつじり）祇園本店",
+      "简介": "祇园辻利经营的抹茶甜品老铺·1978 年开店·**京都浓抹茶帕菲发祥店**。看板「特选都路里パフェ」¥1,580——4 段抹茶冰淇淋+白玉+红豆+抹茶蛋糕+抹茶ゼリィ。**京都抹茶帕菲打卡天花板**·游客 90% 必到。八坂神社徒步 4 分。Tabelog 3.55+·排队 60-90 分常态。",
+      "亮点": [
+        "1978 年抹茶帕菲发祥店",
+        "**特选都路里パフェ看板**",
+        "Tabelog 3.55+",
+        "八坂神社徒步 4 分",
+        "京都抹茶帕菲打卡顶峰"
+      ],
+      "招牌菜": [
+        "特选都路里パフェ（¥1,580）",
+        "抹茶ぜんざい（¥1,300）"
+      ],
+      "地址": "京都市東山区祇園町南側 573-3（京阪祇園四条駅 徒步 4 分）",
+      "营业": "10:30-21:00（LO 20:00）；无定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "排队 60-90 分钟常态；想躲队 10:30 开门或 19:00 后；伊势丹店分流"
+    }
+  },
+  {
+    "id": "kyo_sta_tsujiri_isetan",
+    "area": "京都站",
+    "near_attractions": [{"entity_id": "kyo_kyoto_aquarium", "walk_min": 3}],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "茶寮都路里 京都伊勢丹店",
+      "简介": "茶寮都路里在京都站直结伊势丹 6F 的分店——**祇园本店分流的最佳替代**·味道完全一样·排队 15-30 分而非 60-90 分。赶车前/赶夜班吃帕菲性价比最优。Tabelog 3.5+·Walk-in。",
+      "亮点": [
+        "祇园本店味道完全一样",
+        "京都站直结伊势丹 6F",
+        "排队 15-30 分（替代）",
+        "赶车前最佳",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "特选都路里パフェ（¥1,580）",
+        "宇治金时（¥1,300）"
+      ],
+      "地址": "京都市下京区東塩小路町 901 ジェイアール京都伊勢丹 6F（JR 京都駅 中央口 直结）",
+      "营业": "10:00-21:00（LO 20:30）；伊势丹休日不定",
+      "预约": "无需预约",
+      "到店提醒": "比祇园本店排队短·味道一样；赶车前最对"
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_obanzai_kohaku",
+    "area": "河原町-先斗町",
+    "near_attractions": [{"entity_id": "kyo_pontocho", "walk_min": 4}],
+    "tier": "mid",
+    "cuisine": ["居酒屋", "日本料理"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [120, 250]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京町家おばんざい こはく",
+      "简介": "河原町三条町家改造おばんざい居酒屋·**おばんざい 3 种盛 / 5 种盛**日替选·万愿寺辣椒+九条葱等季节京野菜。利尻昆布+枕崎鲣节专属配比的高汤是看板。常客和游客混着坐·京都人下班据点。阪急京都河原町駅 3B 出口徒步 5 分。Tabelog 3.55+。",
+      "亮点": [
+        "河原町三条町家",
+        "おばんざい 3/5 种盛",
+        "万愿寺辣椒+九条葱季节京野菜",
+        "利尻昆布+枕崎鲣节高汤",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "おばんざい 3 种盛（¥1,200）",
+        "おばんざい 5 种盛（¥1,800）",
+        "九条葱卵焼き（¥780）"
+      ],
+      "地址": "京都市中京区河原町通三条下ル（阪急京都河原町駅 3B 出口 徒步 5 分；京阪三条駅 徒步 7 分）",
+      "营业": "夜 17:00-23:00；无定休",
+      "预约": "推荐预约·食べログ",
+      "到店提醒": "周末旺季排 30-40 分；本地人混游客氛围"
+    }
+  },
+  {
+    "id": "kyo_karasuma_obanzai_nanohana",
+    "area": "烏丸御池",
+    "near_attractions": [{"entity_id": "kyo_nijo_castle", "walk_min": 10}],
+    "tier": "mid",
+    "cuisine": ["居酒屋", "日本料理"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [120, 220]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おばんざい 菜の花（なのはな）",
+      "简介": "京都河原町站 5 分的おばんざい居酒屋·12 席小空间·店主京都女主厨自己做菜。京野菜+鸭川魚介+季节·一汤一饭一菜的本格おばんざい·¥3,800 全套。Tabelog 3.6+·京都人女性局据点·氛围安静。",
+      "亮点": [
+        "12 席小空间",
+        "京都女主厨亲手做",
+        "Tabelog 3.6+",
+        "京都女性局据点",
+        "本格おばんざい全套"
+      ],
+      "招牌菜": [
+        "おばんざい全套コース（¥3,800）",
+        "京野菜サラダ（¥980）"
+      ],
+      "地址": "京都市中京区柳馬場通御池下ル（阪急京都河原町駅 徒步 5 分；地铁烏丸御池駅 徒步 6 分）",
+      "营业": "夜 17:30-23:00；日曜定休",
+      "预约": "推荐预约·一休/食べログ",
+      "到店提醒": "12 席满场快·提前 1 周订；女性局首选"
+    }
+  },
+  {
+    "id": "osk_shinsekai_daruma_main",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["串炸"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 120]}, {"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖串かつ だるま 新世界総本店",
+      "简介": "**1929 年（昭和 4）创业·新世界串炸发祥店·串炸だるま全国 10+ 家分店总本店**。「**ソース二度漬け禁止**」「细面包粉」这套大阪串炸标准从这家店开始。独自牛脂油炸·清爽不油腻。Tabelog 3.55+·百名店常驻·新世界觅食圣地·游客和本地人都来。Walk-in 排 30-60 分。",
+      "亮点": [
+        "1929 年新世界串炸发祥店",
+        "「ソース二度漬け禁止」始祖",
+        "独自牛脂油炸",
+        "Tabelog 3.55+ 百名店",
+        "新世界觅食圣地"
+      ],
+      "招牌菜": [
+        "元祖串かつセット 9 本（¥1,400）",
+        "牛串（¥150）",
+        "どて焼き（¥780）"
+      ],
+      "地址": "大阪市浪速区恵美須東 2-3-9（地铁动物園前駅 徒步 3 分；JR 新今宮駅 徒步 5 分）",
+      "营业": "10:30-22:30；无定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "排 30-60 分常态；想躲队 10:30 开门即到或 14:00-17:00；通天阁徒步 3 分"
+    }
+  },
+  {
+    "id": "osk_shinsekai_yaekatsu",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 2}],
+    "tier": "economy",
+    "cuisine": ["串炸"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 130]}, {"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "八重勝（やえかつ）本店",
+      "简介": "じゃんじゃん横丁的串炸名店·开店前就排队。**铁锅炸**（不用 fryer·温度难控制但ふわふわ感更好）·2 种山芋藏在串炸里是看板技。タヌキ招牌是地标。Tabelog 3.6+·新世界排队第 1 名。Walk-in。",
+      "亮点": [
+        "じゃんじゃん横丁串炸名店",
+        "铁锅炸·2 种山芋藏串里",
+        "Tabelog 3.6+",
+        "新世界排队第 1",
+        "タヌキ招牌地标"
+      ],
+      "招牌菜": [
+        "串かつ盛合せ（¥1,500）",
+        "山芋串（¥180）"
+      ],
+      "地址": "大阪市浪速区恵美須東 3-4-13（地铁动物園前駅 徒步 2 分）",
+      "营业": "10:30-21:30；木曜定休",
+      "预约": "无需预约",
+      "到店提醒": "排队 30-90 分常态·开门前到队最稳；周四休"
+    }
+  },
+  {
+    "id": "osk_shinsekai_tengu",
+    "area": "天王寺-新世界",
+    "near_attractions": [{"entity_id": "osk_tsutenkaku", "walk_min": 2}],
+    "tier": "economy",
+    "cuisine": ["串炸"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 120]}, {"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串かつ てんぐ",
+      "简介": "じゃんじゃん横丁八重勝隔壁·3 代目限知秘传衣·サクッ+ふんわり双层口感。大尺寸海老フライ等饱足感强·どて焼き白味噌牛筋煮也是名物。比八重勝排队稍短。37 席横长店内·Walk-in。Tabelog 3.55+。",
+      "亮点": [
+        "八重勝隔壁",
+        "3 代目秘传衣",
+        "大尺寸海老フライ",
+        "どて焼き白味噌牛筋",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "串かつ おまかせ 8 本（¥1,300）",
+        "海老フライ（¥250）",
+        "どて焼き（¥780）"
+      ],
+      "地址": "大阪市浪速区恵美須東 3-4-12（地铁动物園前駅 徒步 2 分）",
+      "营业": "10:30-21:30；无定休",
+      "预约": "无需预约",
+      "到店提醒": "比八重勝好进 5-10 分；どて焼き必点"
+    }
+  },
+  {
+    "id": "kyo_fushimi_tojimaru_jizake",
+    "area": "伏见",
+    "near_attractions": [{"entity_id": "kyo_fushimi_inari", "walk_min": 18}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 280]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "藤丸（ふじまる）伏见桃山",
+      "简介": "桃山御陵駅徒步 10 分·伏见酒蔵改造的居酒屋。**京都地酒 30+ 种·伏见酒为主**。炭火桌前自烤鱼/肉/季节野菜·松茸釜饭等季节限定也有。本地酒蔵职员下班据点·游客极少·伏见地酒文化最直接体验。Tabelog 3.6+。",
+      "亮点": [
+        "伏见酒蔵改造居酒屋",
+        "京都地酒 30+ 种",
+        "桌前自烤",
+        "本地酒蔵职员据点",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "炭火盛合せ（¥3,500）",
+        "松茸釜饭（季节·¥2,800）",
+        "伏见地酒利き酒 5 种（¥1,500）"
+      ],
+      "地址": "京都市伏見区桃山町（京阪桃山御陵駅 徒步 10 分；近铁桃山御陵前駅 徒步 8 分）",
+      "营业": "夜 17:00-23:00；水曜定休",
+      "预约": "推荐预约·一休/食べログ",
+      "到店提醒": "桃山御陵风情区周边·散步 10 分钟可达"
+    }
+  },
+  {
+    "id": "kyo_fushimi_kushitail_sama",
+    "area": "伏见",
+    "near_attractions": [{"entity_id": "kyo_fushimi_inari", "walk_min": 16}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [120, 220]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串とテール煮 様様（さまさま）大手筋店",
+      "简介": "伏见大手筋商店街的串和牛尾煮居酒屋·**伝説のテール煮（牛尾炖煮 8 小时以上）¥1,580** 是看板。本地老板「おかえりや～す」迎宾·伏见 well-known 据点。营业到深夜 2:00·夜班动线友好。Tabelog 3.55+。",
+      "亮点": [
+        "大手筋商店街内",
+        "伝説 8 小时炖牛尾",
+        "深夜 2:00 营业",
+        "本地暖心氛围",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "伝説のテール煮（¥1,580）",
+        "串盛合せ（¥1,200）"
+      ],
+      "地址": "京都市伏見区大手筋商店街内（京阪伏見桃山駅 徒步 1 分）",
+      "营业": "夜 18:00-翌 2:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "晚班可吃；商店街内不易找·查导航"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_yugentei",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 13}],
+    "tier": "showcase",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [400, 700]}, {"meal": "dinner", "price_cny": [800, 1500]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "叙々苑 游玄亭 ホテルニューオータニ大阪店",
+      "简介": "叙々苑集团**最高档子品牌「游玄亭」**·大阪新大谷酒店 3F·**坐着听竖琴现场演奏吃焼肉**。A5 黑毛和牛精细分割·焼肉会席套餐 ¥18,000-30,000。米其林 Bib 推荐·商务接待+纪念日双轨·北新地之外的高档烧肉代表。Tabelog 3.7+·一休精选。**关西本地人接待外宾的标准选择**。",
+      "亮点": [
+        "叙々苑最高档子品牌",
+        "大阪新大谷 3F",
+        "坐听竖琴+焼肉会席",
+        "Tabelog 3.7+",
+        "商务接待+纪念日双轨"
+      ],
+      "招牌菜": [
+        "游玄亭コース 松（¥30,000）",
+        "游玄亭コース 竹（¥18,000）",
+        "上カルビ単点（¥4,800）"
+      ],
+      "地址": "大阪市中央区城見 1-4-1 ホテルニューオータニ大阪 3F（地铁京橋駅 徒步 3 分；JR 大阪城公园駅 徒步 5 分）",
+      "营业": "11:30-14:30 / 17:00-22:00；无定休",
+      "预约": "**必约**·一休/电话",
+      "到店提醒": "正装；月初订下月最稳；商务接待挑包房"
+    }
+  },
+  {
+    "id": "osk_umeda_jojoen",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["烧肉"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [200, 350]}, {"meal": "dinner", "price_cny": [400, 700]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "叙々苑 LUCUA 大阪店",
+      "简介": "叙々苑大阪 LUCUA 分店·梅田站直结·关西 high 档烧肉据点。**叙々苑サラダ+特撰カルビ+冷麺**经典套餐午市 ¥3,500 起·夜市 ¥7,500 起。Tabelog 3.5+·中国人也熟知的日本烧肉品牌·赶车前/购物中场休息正餐都对。Walk-in 但旺季排 20-30 分。",
+      "亮点": [
+        "梅田站直结 LUCUA",
+        "叙々苑经典套餐",
+        "Tabelog 3.5+",
+        "关西 high 档便利据点",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "叙々苑サラダ（¥1,200）",
+        "特撰カルビ（¥4,800）",
+        "冷麺（〆·¥1,200）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 LUCUA 大阪 10F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-23:00；无定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "中午+晚饭排 15-30 分；午市套餐限到 14:30"
+    }
+  },
+  {
+    "id": "kyo_higashi_omen_gion",
+    "area": "东山轴",
+    "near_attractions": [{"entity_id": "kyo_yasaka_shrine", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [80, 150]}, {"meal": "dinner", "price_cny": [100, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おめん 祇園店",
+      "简介": "1967 年创业银阁寺本店的祇园分店·**京都附け汁乌冬代表**。冷乌冬蘸热汤+京野菜+葱+姜+山药泥+黑芝麻拌着吃·一份 ¥1,400。Tabelog 3.55+·百名店掲載歴。八坂神社徒步 5 分·东山轴觅食线。Walk-in。",
+      "亮点": [
+        "1967 年银阁寺本店祇园分店",
+        "京都附け汁乌冬代表",
+        "Tabelog 3.55+ 百名店",
+        "八坂神社徒步 5 分",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "おめん（附け汁乌冬·¥1,400）",
+        "おめん+天妇罗セット（¥1,800）"
+      ],
+      "地址": "京都市東山区祇園町南側 570-119（京阪祇園四条駅 徒步 5 分）",
+      "营业": "11:00-22:00；木曜定休",
+      "预约": "无需预约",
+      "到店提醒": "中午排 15-30 分；午市最稳；银阁寺也有本店"
+    }
+  },
+  {
+    "id": "kyo_higashi_yudofu_okutan",
+    "area": "东山轴",
+    "near_attractions": [{"entity_id": "kyo_kiyomizudera", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["豆腐", "怀石"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [120, 250]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "総本家 ゆどうふ 奥丹 清水（おくたん）",
+      "简介": "**1635 年（宽永 12·江户初期）创业·近 400 年汤豆腐老铺·清水寺最近的料亭**。汤豆腐+古都汤豆腐怀石套餐 ¥3,500-5,500·全套豆腐料理（汤豆腐/胡麻豆腐/豆腐田乐/豆腐饭）。Tabelog 3.47·清水寺往南 5 分·东山轴怀石入门。Walk-in 但旺季排 30-60 分。",
+      "亮点": [
+        "1635 年近 400 年汤豆腐老铺",
+        "清水寺徒步 5 分",
+        "古都汤豆腐怀石 ¥3,500-5,500",
+        "全套豆腐料理",
+        "Tabelog 3.47"
+      ],
+      "招牌菜": [
+        "古都汤豆腐怀石（¥3,500）",
+        "贵船汤豆腐怀石（¥5,500）"
+      ],
+      "地址": "京都市東山区清水 3-340（清水寺往南 徒步 5 分；五条坂巴士站 徒步 3 分）",
+      "营业": "11:00-16:00（LO 15:30）；木曜定休",
+      "预约": "无需预约",
+      "到店提醒": "清水寺逛完顺路；午市才开·下午 16 点关；建议 11:30 前到"
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_kyoto_yamatoya",
+    "area": "河原町-先斗町",
+    "near_attractions": [{"entity_id": "kyo_pontocho", "walk_min": 3}],
+    "tier": "mid",
+    "cuisine": ["天妇罗"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [150, 280]}, {"meal": "dinner", "price_cny": [250, 450]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "天ぷら 圓堂（えんどう）河原町",
+      "简介": "1944 年京都怀石+天妇罗老铺圓堂的河原町分店·吧台 12 席·店主桌前现炸。京野菜+鸭川魚介天妇罗·**胡麻油+綿実油拼配**·清香+酥脆。午市套餐 ¥3,800 性价比突出·夜市 ¥8,800 全套コース。Tabelog 3.6+。",
+      "亮点": [
+        "1944 年京都圓堂河原町分店",
+        "吧台 12 席桌前现炸",
+        "胡麻油+綿実油拼配",
+        "Tabelog 3.6+",
+        "京野菜+鸭川魚介"
+      ],
+      "招牌菜": [
+        "ランチ天妇罗コース（¥3,800）",
+        "ディナー懐石天妇罗コース（¥8,800）"
+      ],
+      "地址": "京都市中京区八幡町（阪急京都河原町駅 徒步 3 分；京阪三条駅 徒步 5 分）",
+      "营业": "11:30-14:30 / 17:30-21:30；水曜定休",
+      "预约": "推荐预约·一休/电话",
+      "到店提醒": "吧台席最对·提前订时备注"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kuromon_kanizen",
+    "area": "心斋桥",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 7}],
+    "tier": "mid",
+    "cuisine": ["松叶蟹", "海鲜"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [150, 350]}, {"meal": "dinner", "price_cny": [200, 450]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": [11, 12, 1, 2, 3],
+    "depth": "full",
+    "note": {
+      "店名": "黒門 蟹善（かにぜん）",
+      "简介": "黑门市场内蟹专门店·**11-3 月活松叶蟹现场处理**·一只 ¥4,800-12,000 不等。蟹刺身/蟹焼き/蟹寿司/蟹饭都在店头看蟹挑选。比道顿堀かに源更接近「市场原始体验」。Walk-in·中午排 30-40 分。Tabelog 3.5+·黑门市场觅食蟹首选。",
+      "亮点": [
+        "黑门市场蟹专门店",
+        "11-3 月活松叶蟹现场处理",
+        "店头挑蟹·原始体验",
+        "蟹刺/焼/寿司/饭全套",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "活松叶蟹刺身（时价·¥4,800-）",
+        "蟹丼（¥3,200）",
+        "蟹焼き（¥3,800）"
+      ],
+      "地址": "大阪市中央区日本橋 1（地铁日本橋駅 徒步 3 分）",
+      "营业": "10:00-19:00；无定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "蟹季 12-2 月最对；非蟹季冷冻为主·体验差"
+    }
+  },
+  {
+    "id": "kob_sannomiya_kobe_beef_a5",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 3}],
+    "tier": "high",
+    "cuisine": ["神户牛", "烧肉"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [250, 450]}, {"meal": "dinner", "price_cny": [500, 900]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ステーキランド 神戸店（STEAKLAND）",
+      "简介": "神户三宮平价神户牛专门店·**铁板烧形式但比 mouriya/wakkoqu 便宜 1/3**——午市 ¥4,800 起就能吃 A5 神户牛。店主桌前现切现烤·主厨表演 + 神户牛风味两得。**神户牛入门最好的性价比选项**·游客和本地人混着坐。Tabelog 3.55+·三宮站徒步 3 分。",
+      "亮点": [
+        "神户牛性价比首选",
+        "午市 ¥4,800 起 A5 神户牛",
+        "铁板烧主厨表演",
+        "三宮站徒步 3 分",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "ランチ神户牛コース（¥4,800）",
+        "ディナー神户牛コース（¥9,800）"
+      ],
+      "地址": "神戸市中央区北長狭通 1-8-2（JR 三ノ宮駅 徒步 3 分）",
+      "营业": "11:00-15:00 / 17:00-22:00；无定休",
+      "预约": "推荐预约·食べログ/一休",
+      "到店提醒": "午市性价比顶；铁板吧台席最对"
+    }
+  },
+  {
+    "id": "kob_sannomiya_modernark_pharm",
+    "area": "神户三宮-旧居留地",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 4}],
+    "tier": "mid",
+    "cuisine": ["咖啡", "洋食"],
+    "recommended_meals": [{"meal": "breakfast", "price_cny": [60, 130]}, {"meal": "lunch", "price_cny": [80, 160]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Modernark Pharm Cafe（モーダンアーク）",
+      "简介": "神户三宮元町中间·有机蔬菜+药膳カフェ·绿色植物布满室内·女性局据点。**早餐 ¥1,200**（红米饭+味噌汁+季节小钵+有机蔬菜+鸡蛋）8:00 开门最对。Tabelog 3.55+·SNS 出片+健康+本地氛围三件套。",
+      "亮点": [
+        "有机蔬菜+药膳カフェ",
+        "8:00 开门早餐",
+        "绿色植物布满",
+        "SNS 出片+健康",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "Modernark 朝食（¥1,200）",
+        "野菜カレー（¥1,500）"
+      ],
+      "地址": "神戸市中央区北長狭通 3（JR 三ノ宮駅 徒步 4 分；JR 元町駅 徒步 5 分）",
+      "营业": "8:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "早餐 8-10 点最对；女性局首选"
+    }
+  },
+  {
+    "id": "osk_tenma_haruko",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenmangu", "walk_min": 4}],
+    "tier": "mid",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [40, 80]}, {"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "春駒 本店（はるこま）天満",
+      "简介": "天满夜食街的回转寿司+大众寿司老铺·**桌上备纸笔自助下单·酱油用刷子自己刷**·独特的下单方式。看板「あさり赤だし」¥500 山堆蛤蜊·性价比寿司+下酒菜双修。Tabelog 3.55+·天满觅食 DNA·游客极少。",
+      "亮点": [
+        "天满夜食 DNA",
+        "桌上自助下单+刷酱油",
+        "看板あさり赤だし ¥500",
+        "Tabelog 3.55+",
+        "性价比寿司"
+      ],
+      "招牌菜": [
+        "あさり赤だし（¥500）",
+        "鉄火巻（¥350）",
+        "本日にぎり（10 贯·¥1,800）"
+      ],
+      "地址": "大阪市北区天神橋 5-5-2（JR 天満駅 徒步 4 分）",
+      "营业": "11:00-21:30；无定休",
+      "预约": "无需预约",
+      "到店提醒": "中午 12-13 点排 30-40 分；下午 14-17 点空"
+    }
+  },
+  {
+    "id": "osk_tenma_iwashi_omakase",
+    "area": "天满",
+    "near_attractions": [{"entity_id": "osk_tenmangu", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [120, 200]}, {"meal": "dinner", "price_cny": [180, 350]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いわ志 本店（いわし）福島",
+      "简介": "JR 福島站徒步 7 分的预约制寿司·**¥2,750 / 20 贯午市套餐**·性价比寿司大阪天花板。完全预约制·平日好订（土曜难订）·吧台最对·テーブル要 5 贯一上不如吧台一贯一上。Tabelog 3.58·**关西 omakase 入门最佳选项**。",
+      "亮点": [
+        "**¥2,750 / 20 贯午市**",
+        "性价比寿司大阪天花板",
+        "完全预约制·平日好订",
+        "吧台一贯一上",
+        "Tabelog 3.58"
+      ],
+      "招牌菜": [
+        "ランチおまかせ 20 贯（¥2,750）",
+        "ディナーおまかせ 15 贯+赤出汁+茶碗蒸（¥4,500）"
+      ],
+      "地址": "大阪市福島区福島 6（JR 福島駅 徒步 7 分；阪神福島駅 徒步 5 分）",
+      "营业": "ランチ 11:30-13:30 / ディナー 17:30-21:00；不定休",
+      "预约": "**完全预约制**·一休/食べログ；土曜需 1 个月前订",
+      "到店提醒": "吧台席必选；平日好订；ビル 4F 楼梯 only"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_sushi_sennarisu",
+    "area": "新地",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 11}],
+    "tier": "mid",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [120, 250]}, {"meal": "dinner", "price_cny": [180, 400]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨仙酢 本店 大阪駅前（しゃりせんす）",
+      "简介": "「寿司仙人」原田喜寿郎プロデュース·**10 年熟成赤酢シャリ**·硬めに仕上げた赤シャリ+严选ネタ的赤酢寿司·一贯 ¥300-380 起。大阪駅前·ランチおまかせ ¥3,800 性价比突出。Tabelog 3.6+·大阪駅徒步 1 分赶车线。",
+      "亮点": [
+        "「寿司仙人」プロデュース",
+        "10 年熟成赤酢シャリ",
+        "一贯 ¥300-380",
+        "Tabelog 3.6+",
+        "大阪駅徒步 1 分"
+      ],
+      "招牌菜": [
+        "ランチおまかせ 12 贯（¥3,800）",
+        "ディナーおまかせ 15 贯（¥6,800）"
+      ],
+      "地址": "大阪市北区梅田 1-3-1 大阪駅前第 1 ビル B2F（JR 大阪駅 徒步 1 分）",
+      "营业": "ランチ 11:30-14:30 / ディナー 17:00-22:00；日曜定休",
+      "预约": "推荐预约·一休·当日有空席",
+      "到店提醒": "大阪驿前ビル B2F·首次来不易找；赶车前 60 分钟入"
+    }
+  },
+  {
+    "id": "kyo_arashiyama_yu_dofu_arashiyama",
+    "area": "岚山",
+    "near_attractions": [{"entity_id": "kyo_tenryuji", "walk_min": 5}],
+    "tier": "high",
+    "cuisine": ["豆腐", "怀石"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [200, 350]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "嵐山 湯豆腐 嵯峨野（さがの）",
+      "简介": "岚山天龙寺旁汤豆腐怀石老铺·**大正时代庭院町家+绵密手工木绵豆腐**。汤豆腐怀石 ¥3,800 含汤豆腐+胡麻豆腐+蔬菜天妇罗+小钵+米饭+渍物+甜品。岚山逛完天龙寺/竹林后吃这家最对。Tabelog 3.55+·岚山觅食 high 档代表。",
+      "亮点": [
+        "大正町家+庭院",
+        "天龙寺隔壁",
+        "汤豆腐怀石 ¥3,800",
+        "岚山逛后觅食最对",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "汤豆腐怀石（¥3,800）",
+        "湯葉怀石（¥4,500）"
+      ],
+      "地址": "京都市右京区嵯峨天龍寺芒ノ馬場町 45（京福嵐山駅 徒步 5 分；JR 嵯峨嵐山駅 徒步 8 分）",
+      "营业": "11:00-19:00（LO 17:30）；无定休",
+      "预约": "推荐预约·一休/食べログ",
+      "到店提醒": "庭院席最对·提前订时备注；秋红叶+春樱花季 2-3 周前订"
+    }
+  },
+  {
+    "id": "kyo_kita_satoyama_obanzai",
+    "area": "北区",
+    "near_attractions": [{"entity_id": "kyo_kinkakuji", "walk_min": 12}],
+    "tier": "mid",
+    "cuisine": ["居酒屋", "日本料理"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 280]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "里山おばんざい さとやま 北区店",
+      "简介": "北区平野神社近·京北丹波山间農家直送野菜+おばんざい·店主京都人女主厨经营。**京北野菜 8 种盛 ¥2,200**（朝采+酱油・味噌・盐・酢拌的多种小钵）。本地家族餐据点·游客极少。Tabelog 3.55+·京都 C 入口本地隐家代表。",
+      "亮点": [
+        "京北丹波野菜直送",
+        "女主厨经营",
+        "京北野菜 8 种盛 ¥2,200",
+        "本地家族餐据点",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "京北野菜 8 种盛（¥2,200）",
+        "鸡白汤鍋（¥3,500/二人前）"
+      ],
+      "地址": "京都市北区平野（市バス 衣笠校前 徒步 5 分；金閣寺 徒步 12 分）",
+      "营业": "夜 17:30-22:00；水曜定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "京野菜+地酒搭配；本地氛围最浓"
+    }
+  },
+  {
+    "id": "osk_umeda_motsunabe_yamana",
+    "area": "梅田",
+    "near_attractions": [{"entity_id": "osk_umeda_sky", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [150, 280]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": [11, 12, 1, 2, 3],
+    "depth": "full",
+    "note": {
+      "店名": "もつ鍋 山名（やまな）梅田",
+      "简介": "梅田站徒步 5 分博多もつ鍋专门·11-3 月解禁期最对。**白味噌+赤味噌+鸡白汤三种汤底**·鲜九州牛大肠+卷心菜+韭菜·〆是面或饭。Tabelog 3.6+·关西冬季夜食 DNA·游客和本地人混着坐。",
+      "亮点": [
+        "梅田站徒步 5 分",
+        "博多もつ鍋专门",
+        "三种汤底",
+        "Tabelog 3.6+",
+        "冬季 11-3 月最对"
+      ],
+      "招牌菜": [
+        "もつ鍋 白味噌（¥1,800/人）",
+        "もつ鍋 鸡白汤（¥2,000/人）"
+      ],
+      "地址": "大阪市北区曽根崎（JR 大阪駅 徒步 5 分）",
+      "营业": "夜 17:00-23:00；无定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "11-3 月最对；夏季也开但氛围差;〆面+米饭都试"
+    }
+  },
+  {
+    "id": "kyo_arashiyama_yatsuhashi",
+    "area": "岚山",
+    "near_attractions": [{"entity_id": "kyo_tenryuji", "walk_min": 3}],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [40, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "本家 西尾八ッ橋 嵐山店",
+      "简介": "1689 年（元禄 2）创业·**京都八ッ橋（京名菓）发祥老铺**·335 年京菓子代表。嵐山店是站徒步 3 分·店内试食+店头买伴手礼+喫茶座席。生八ッ橋（餡入り）¥800/包·抹茶套餐 ¥1,200·京都伴手礼+喫茶 DNA。Walk-in。",
+      "亮点": [
+        "1689 年 335 年京名菓",
+        "京都八ッ橋发祥老铺",
+        "嵐山站徒步 3 分",
+        "店内试食+伴手礼+喫茶",
+        "京都伴手礼 DNA"
+      ],
+      "招牌菜": [
+        "生八ッ橋 餡入り（¥800/盒）",
+        "抹茶+生八ッ橋セット（¥1,200）"
+      ],
+      "地址": "京都市右京区嵯峨天龍寺造路町 35（京福嵐山駅 徒步 3 分）",
+      "营业": "9:00-18:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "试食区可尝；伴手礼最热销·最好回程时买"
+    }
+  },
+  {
+    "id": "kyo_higashi_yamaboku_dengaku",
+    "area": "东山轴",
+    "near_attractions": [{"entity_id": "kyo_kiyomizudera", "walk_min": 7}],
+    "tier": "economy",
+    "cuisine": ["豆腐"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 130]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "山ぼく（やまぼく）田楽 清水",
+      "简介": "清水寺二年坂中段·田楽（味噌烤豆腐串）专门店·一串 ¥300-400。京都古老的田楽吃法·赤味噌+白味噌+柚子味噌三种交替·冬天最对。座席 12+ 立食 8·清水逛累后觅食轻食 plan。Walk-in。Tabelog 3.5+。",
+      "亮点": [
+        "清水二年坂田楽专门",
+        "三种味噌交替",
+        "一串 ¥300-400",
+        "清水觅食轻食",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "田楽 5 串（¥1,500）",
+        "汤豆腐+田楽セット（¥1,800）"
+      ],
+      "地址": "京都市東山区清水二年坂（清水道巴士站 徒步 5 分）",
+      "营业": "10:00-17:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "清水寺逛后顺路；冬季+秋红叶最对"
+    }
+  },
+  {
+    "id": "osk_namba_horumon_yokoten",
+    "area": "难波",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 4}],
+    "tier": "mid",
+    "cuisine": ["烧肉", "居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [120, 250]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ホルモン横田 難波",
+      "简介": "**大阪 horumon（牛内脏）烧肉的代表**·难波千日前店。新鲜内脏每日入荷·按部位单点·店主桌前烤+解说。テッチャン（大肠）+ハチノス（蜂巢胃）等 30+ 种内脏部位·一个 ¥600-1,200。本地下班据点·氛围浓·Tabelog 3.6+。",
+      "亮点": [
+        "大阪 horumon 代表",
+        "新鲜内脏每日入荷",
+        "店主桌前烤+解说",
+        "30+ 种部位单点",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "テッチャン（大肠·¥1,200）",
+        "ハチノス（蜂巢胃·¥980）",
+        "おまかせ盛 5 部位（¥3,500）"
+      ],
+      "地址": "大阪市中央区千日前 1（地铁难波駅 徒步 4 分）",
+      "营业": "夜 17:00-翌 1:00；无定休",
+      "预约": "推荐预约·食べログ",
+      "到店提醒": "本地夜食氛围最浓；周末旺季排 30-60 分"
+    }
+  },
+  {
+    "id": "kob_motomachi_iruka_sushi",
+    "area": "神户北野-元町",
+    "near_attractions": [{"entity_id": "kob_kitano_kyoryuchi", "walk_min": 5}],
+    "tier": "mid",
+    "cuisine": ["寿司"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [120, 200]}, {"meal": "dinner", "price_cny": [200, 400]}],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鮨 イルカ（いるか）元町",
+      "简介": "神户元町本地寿司隐家·12 席·店主独立前在大阪一星寿司店修业 10 年。**赤酢シャリ+濑户内魚介**·おまかせコース ¥6,800 性价比突出。Tabelog 3.65+·神户寿司 mid 档代表·游客极少·本地常客据点。",
+      "亮点": [
+        "神户元町寿司隐家",
+        "12 席·一星师承",
+        "赤酢+濑户内魚介",
+        "おまかせ ¥6,800",
+        "Tabelog 3.65+"
+      ],
+      "招牌菜": [
+        "ランチおまかせ（¥4,800）",
+        "ディナーおまかせ（¥6,800）"
+      ],
+      "地址": "神戸市中央区元町通 3（JR 元町駅 徒步 5 分）",
+      "营业": "ランチ 12:00-14:00 / ディナー 18:00-22:00；水曜定休",
+      "预约": "推荐预约·一休/食べログ",
+      "到店提醒": "12 席满场快·提前 1 周订；吧台最对"
+    }
+  },
+  {
+    "id": "osk_dotonbori_takoyaki_kukuru",
+    "area": "道顿堀",
+    "near_attractions": [{"entity_id": "osk_dotonbori", "walk_min": 1}],
+    "tier": "economy",
+    "cuisine": ["章鱼烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [40, 80]}, {"meal": "dinner", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "たこ家道頓堀くくる 本店",
+      "简介": "1990 年代道顿堀章鱼烧老牌·**「びっくりたこ」（巨大章鱼脚露出来的章鱼烧）**是看板。8 個 ¥780·店头立食+座席。Tabelog 3.4+·道顿堀觅食打卡线必到。Walk-in 排 15-30 分。",
+      "亮点": [
+        "「びっくりたこ」巨大章鱼脚",
+        "道顿堀觅食打卡",
+        "8 個 ¥780",
+        "店头立食/座席",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "びっくりたこ（8 個·¥780）",
+        "ねぎマヨたこ焼（¥850）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-10-5（地铁难波駅 徒步 3 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "店头排 15-30 分；带走立食都对"
+    }
+  }
+]

@@ -43,7 +43,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "kyoto_okazaki",
+          "meal_area": "okazaki_nanzenji",
           "note": "银阁寺门前或今出川方向午餐——银阁寺参道乌冬名店「乌冬面家（おめん）」（红叶季排队 20-40 分钟）、或出町双叶（ふたば）豆大福（出町ふたば·京都三大饼之一·带走当点心）"
         }
       ]
@@ -102,8 +102,6 @@
       ]
     }
   ],
-  "time_sensitivity": "soft",
-  "time_sensitivity_note": "瑠璃光院抽签全天多场次每 20 分钟一场，按指定时刻反推出发",
   "contingencies": {
     "rain_light": "瑠璃光院雨天桌面红叶反射更清澈（室内无干扰）·哲学之道石板路湿滑但红叶更红·不改程",
     "rain_heavy": "瑠璃光院照常（室内）·哲学之道段砍到只走南段（法然院→南禅寺·约 1km）·银閣寺砍到只看本堂不绕庭园·南禅寺水道桥红叶从屋檐下看",

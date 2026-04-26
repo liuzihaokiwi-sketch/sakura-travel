@@ -1,0 +1,481 @@
+[
+  {
+    "id": "nar_park_jikon",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1200,
+          1750
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1750,
+          3500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "奈良 而今（じこん）",
+      "简介": "奈良公园旁 Tabelog 4.24 分的怀石名店，奈良县内评分最高的料亭之一。食材走奈良本地特色——大和茶、大和野菜（大和芋/大和まな）、吉野葛，配奈良漬け和春鹿/篠峯等奈良地酒，形成和京都怀石完全不同的「大和风土」口吻。在奈良只吃一顿正式日料，这是最该订的一家。",
+      "亮点": [
+        "Tabelog 4.24 奈良最高分之一",
+        "大和野菜/吉野葛",
+        "奈良地酒搭配",
+        "奈良公园步行圈"
+      ],
+      "招牌菜": [
+        "大和怀石套餐（昼 ¥17,500 起）",
+        "晚怀石套餐（¥25,000+）"
+      ],
+      "地址": "奈良市登大路（近铁奈良站步行约 10 分钟）",
+      "营业": "昼 12:00-14:00 / 夜 18:00-21:00；不定休",
+      "预约": "必须，一休 / 电话预约；建议提前 2-4 周",
+      "到店提醒": "奈良日归动线建议午市；全席禁烟",
+      "Tabelog 分数": 4.24
+    }
+  },
+  {
+    "id": "nar_park_shiraha",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 5
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1750,
+          3500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          1750,
+          3500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "白（しら）",
+      "简介": "Tabelog 4.08 分，奈良公园内宁静小街上的怀石料亭。店名「白」呼应奈良鹿角颜色，风格极简——器皿留白、摆盘最低限度，让食材本身说话。大和野菜×吉野古法葛切×奈良漬け，配奈良地酒，完全不走京都路线的奈良本土怀石。",
+      "亮点": [
+        "Tabelog 4.08",
+        "极简「白」美学",
+        "大和食材×奈良漬け",
+        "吉野古法葛切"
+      ],
+      "招牌菜": [
+        "怀石套餐（昼夜同价·¥25,000+）"
+      ],
+      "地址": "奈良市（近铁奈良站步行约 12 分钟）",
+      "营业": "昼夜均需预约；不定休",
+      "预约": "必须，一休 / 电话；建议提前 2-4 周",
+      "到店提醒": "昼夜价格相同，日归选午市更合算",
+      "Tabelog 分数": 4.08
+    }
+  },
+  {
+    "id": "nar_park_yoshimurasoba",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "荞麦"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          210
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "蕎麦切 吉村（よしむら）",
+      "简介": "奈良公园内鹿群漫步的参道旁，Tabelog 3.48 分的荞麦老铺，渡月桥同名店（嵐山吉村）的奈良分店。手打二八荞麦，带着麦香弹牙，配的出汁以奈良吉野葛增稠，和京都的不同。东大寺/奈良公园散步完在这里坐下吃一碗，是奈良一日最顺路的午间选择。窗外就是鹿和古寺，¥1,000-1,500 之间。",
+      "亮点": [
+        "公园参道旁窗外见鹿",
+        "吉野葛増稠出汁",
+        "手打二八荞麦",
+        "¥1,000-1,500 实惠"
+      ],
+      "招牌菜": [
+        "もりそば（凉荞麦）",
+        "ざるそば（带笊篱）",
+        "天せいろ（天妇罗配荞麦）"
+      ],
+      "地址": "奈良市登大路 60（奈良公园・東大寺参道旁，近铁奈良站步行约 5 分钟）",
+      "营业": "11:00-18:00（LO 17:30，面完即止）；不定休",
+      "预约": "无需，到店排队",
+      "到店提醒": "旺季（4 月/11 月）午市 12:00-13:30 等候 30-50 分钟；11:00 开门即进最省时",
+      "Tabelog 分数": 3.48
+    }
+  },
+  {
+    "id": "nar_park_housekibako",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_kasuga_taisha",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "甜品"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "cafe",
+        "price_cny": [
+          100,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "宝石箱（ほうせき箱）",
+      "简介": "奈良名物「天川バインレー」刨冰的代名词店，Tabelog 3.68 分。把奈良吉野葛、大和茶、奈良漬け等当地食材做进刨冰里——不是普通的糖水冰，是「奈良食材全集」的甜品版本。夏季排队 1-2 小时是常态，但作为「奈良专有体验」没有替代品。冬季有限定热甘酒刨冰，全年营业。",
+      "亮点": [
+        "奈良刨冰名物",
+        "吉野葛/大和茶食材",
+        "Tabelog 3.68",
+        "夏季排队 1-2 小时"
+      ],
+      "招牌菜": [
+        "大和茶エスプーマ刨冰（夏季·约 ¥1,500）",
+        "吉野葛刨冰",
+        "冬季温甘酒刨冰"
+      ],
+      "地址": "奈良市餅飯殿町（ならまち北侧，近铁奈良站步行约 8 分钟）",
+      "营业": "10:00-18:00（LO 17:30）；不定休；夏季旺季等候 1-2 小时，建议 10:00 开门即排",
+      "预约": "无需，排队制",
+      "到店提醒": "夏季刨冰季（6-9 月）平日工作日等候 40-60 分钟，周末 1.5-2 小时；冬季 15-20 分钟；11 月红叶季同夏季",
+      "Tabelog 分数": 3.68
+    }
+  },
+  {
+    "id": "nar_park_mitsubamilani",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          70,
+          105
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          70,
+          105
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "拉面家 三叶（ラーメン家 みつ葉）",
+      "简介": "奈良公园近郊的本地拉面名店，Tabelog 3.74 分，鸡白湯+贝出汁双出汁体系，奈良少见的精致派拉面。本地食客午市常客，¥1,000 以内，游完公园散步南下约 10 分钟可到。不是网红拍照拉面，是真的好喝、本地人才知道去的一家。",
+      "亮点": [
+        "Tabelog 3.74 奈良本地好评",
+        "鸡白湯+贝出汁双出汁",
+        "¥1,000 以内",
+        "公园散步南下顺路"
+      ],
+      "招牌菜": [
+        "鸡白湯贝出汁 塩ラーメン",
+        "限定 まぜそば（干拌面）"
+      ],
+      "地址": "奈良市（近铁奈良站步行约 10 分钟）",
+      "营业": "11:30-14:30 / 17:30-21:00（面完即止）；不定休",
+      "预约": "无需，到店排队",
+      "到店提醒": "开门即满，等候 20-40 分钟；14:30 卖完后停业等晚市",
+      "Tabelog 分数": 3.74
+    }
+  },
+  {
+    "id": "nar_park_dandan_soba",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "荞麦"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [
+      1,
+      2
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "出雲そば だんだん（いずもそば だんだん）",
+      "简介": "Tabelog 3.73 分，2025 年蕎麦 WEST 百名店认证，用岛根直送在来种玄蕎麦现打，浜田渔港直送鲜鱼烹调配菜。「だんだん」是岛根方言「谢谢」。午市割子荞麦 ¥1,890 一顿，是奈良公园周边最值得专程来的一餐。周一二定休。",
+      "亮点": [
+        "Tabelog 3.73 百名店",
+        "岛根在来种手打蕎麦",
+        "浜田鲜鱼配菜"
+      ],
+      "招牌菜": [
+        "天ぷら付き割子そば（¥1,890）",
+        "季节おまかせ料理蕎麦（¥5,500）"
+      ],
+      "地址": "奈良县奈良市大宮町 2-2-34，JR 奈良站西口步行约 5 分钟",
+      "营业": "11:15-13:30（售罄即止），晚市 18:30-（预约制），周一二定休",
+      "预约": "昼市无需预约，建议开店即到；晚市必须预约"
+    }
+  },
+  {
+    "id": "nar_park_kashiya",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "nar_kofukuji",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "和菓子",
+      "茶寮"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "萬御菓子誂處 樫舎（まんおかしあつらえどころ かしや）",
+      "简介": "Tabelog 3.75 分，奈良公园旁的高端和菓子茶席，以奈良大和茶和季节性生菓子著称。每个季节都有不同的和菓子主题，器皿和摆盘极讲究，是「把奈良公园漫步结束在茶香中」的最佳句号。",
+      "亮点": [
+        "Tabelog 3.75",
+        "奈良公园旁最精致和菓子茶席",
+        "大和茶配季节生菓子"
+      ],
+      "招牌菜": [
+        "季节生菓子茶席（约 ¥1,500）",
+        "奈良漬け和菓子伴手礼"
+      ],
+      "地址": "奈良县奈良市橋本町 34-1，近铁奈良站步行约 5 分钟",
+      "营业": "10:00-17:00，周三不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_park_gateau_bois",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "nar_kasuga_taisha",
+        "walk_min": 10
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "法式点心",
+      "咖啡"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ガトー・ド・ボワ À LA MAISON（ガトードボワ アラメゾン）",
+      "简介": "Tabelog 3.74 分，奈良公园周边的法式西点小店，以手工甜点和红茶组合闻名，是鹿群穿行的奈良街角意外冒出的一处精致法式下午茶空间。春日大社参拜后在这里喝杯茶是奈良慢行的加分动作。",
+      "亮点": [
+        "Tabelog 3.74",
+        "奈良公园周边法式甜点",
+        "春日大社参道附近"
+      ],
+      "招牌菜": [
+        "当季塔派（约 ¥700）",
+        "下午茶套餐（约 ¥1,200）"
+      ],
+      "地址": "奈良县奈良市高畑町周边，近铁奈良站步行约 15 分钟（近春日大社）",
+      "营业": "11:00-18:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "nar_park_kiyosumi_awa",
+    "area": "奈良公园",
+    "near_attractions": [
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_national_museum",
+        "walk_min": 12
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "日本料理",
+      "素食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "清澄の里 粟（きよすみのさと あわ）",
+      "简介": "Tabelog 3.64 分，以奈良本土「粟（あわ：黍）」为食材的素食定食店，用奈良山乡传统食材做出健康朴素的日式素食定食。价格亲民，适合奈良博物馆参观后调整节奏的一顿。",
+      "亮点": [
+        "Tabelog 3.64",
+        "奈良本土粟食材素食",
+        "奈良博物馆附近"
+      ],
+      "招牌菜": [
+        "粟定食（约 ¥900）",
+        "粟ごはんセット"
+      ],
+      "地址": "奈良县奈良市高畑町周边，近铁奈良站步行约 12 分钟",
+      "营业": "11:00-16:00，周三不定休",
+      "预约": "无需预约"
+    }
+  }
+]

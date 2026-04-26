@@ -34,7 +34,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "kyoto_gion",
+          "meal_area": "gion_higashiyama",
           "note": "巡行结束后人流散开，13:00 后餐厅等位稍短。祇园祭名物：粽（粽子护符（ちまき），不是吃的，是护符）/鱿鱼/屋台。"
         }
       ]
@@ -55,7 +55,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
-          "meal_area": "kyoto_gion"
+          "meal_area": "gion_higashiyama"
         },
         {
           "type": "free_time",

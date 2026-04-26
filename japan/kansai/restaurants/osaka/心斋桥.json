@@ -1,0 +1,996 @@
+[
+  {
+    "id": "osk_shinsaibashi_guenpin",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_shinsaibashi_suji",
+        "walk_min": 3
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "河豚"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          220,
+          380
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          550
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "玄品ふぐ 心斎橋店",
+      "简介": "全国连锁河豚专门店，让河豚从「贵族食材」变成普通人可以吃到的选项。心斋桥店在酒店 B1，套餐含河豚刺身、河豚锅、杂炊，¥6,000-10,000 区间在大阪河豚店里算亲民。不是最高端的河豚体验，但「人生第一次吃河豚」选这里非常合适。",
+      "亮点": [
+        "河豚料理平价化",
+        "套餐含刺身+锅+杂炊",
+        "心斋桥站直结"
+      ],
+      "招牌菜": [
+        "河豚刺身（てっさ）",
+        "河豚火锅套餐（¥6,000 起）",
+        "河豚唐扬（炸河豚）"
+      ],
+      "地址": "大阪市中央区東心斎橋 1-15-15 コンフォートホテル大阪心斎橋 B1F（地铁御堂筋線「心斎橋」站徒步约 5 分）",
+      "营业": "平日 17:00-22:30 / 土日祝 12:00-15:00 及 17:00-22:30（料理 LO 21:30）",
+      "预约": "推荐预约，官网或一休；现场当日入座也通常可以"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_mizuno",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_shinsaibashi_suji",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "美津濃（みづの）",
+      "简介": "道顿堀大阪烧的另一家传奇老铺，与美津の（みづの）字形不同、是两家店。1945 年开业，Michelin Bib Gourmand 认定。山芋泥面糊起家，加料丰厚，海鲜烧是招牌。同一条街上两家名字相似的大阪烧老铺——这本身就是道顿堀只有在大阪才有的风景。",
+      "亮点": [
+        "米其林必比登推荐",
+        "1945 年老铺",
+        "山芋泥面糊配海鲜"
+      ],
+      "招牌菜": [
+        "海鮮烧（¥1,500 起）",
+        "豚玉（¥1,100 起）",
+        "ミックス烧"
+      ],
+      "地址": "大阪市中央区道頓堀 1-4-15（地铁御堂筋線「難波」站 14 号出口徒步约 3 分）",
+      "营业": "11:00-22:00（LO 21:00）；无休",
+      "预约": "不接受预约，散客排队",
+      "到店提醒": "与美津の（みづの）字形相似易混淆，认准「美津濃」汉字；周末排队 40-60 分钟"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_asatsuyu",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_horie",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          800
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "肉割烹 ASATSUYU（あさつゆ）",
+      "简介": "堀江的隐藏肉割烹，完全预约制，两部制运营。厨师出身的主人把和牛当成割烹食材来处理——不是常规烤肉，而是炭火+刀工+时令蔬菜的综合体验。价格不低，但在心斋桥-堀江区域这个档位里是真实感受「肉的可能性」的选择。",
+      "亮点": [
+        "完全预约·两部制",
+        "和牛割烹料理",
+        "堀江隐家氛围"
+      ],
+      "招牌菜": [
+        "主厨发办（おまかせ·¥15,000 起）"
+      ],
+      "地址": "大阪市西区北堀江 1-14-6 クレインコート北堀江 Ⅱ 2F（地铁長堀鶴見緑地線「西大橋」站徒步约 5 分）",
+      "营业": "第一部 18:00-20:30 / 第二部 21:00-23:30；水曜定休",
+      "预约": "完全预约制，官网或电话；建议提前 2-3 周"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_kogaryu",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_americamura",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_shinsaibashi_suji",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          30,
+          60
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          30,
+          60
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "甲賀流（こうがりゅう）",
+      "简介": "美国村的章鱼烧名店，外皮焦脆、内芯流动——大阪章鱼烧的标准样板之一。美国村三角公园旁边，逛古着店累了站在街边吃一份，是这个街区最自然的节奏。¥500 一份，外带为主，没有负担。",
+      "亮点": [
+        "美国村章鱼烧标杆",
+        "外脆内流心",
+        "¥500 外带即食"
+      ],
+      "招牌菜": [
+        "章鱼烧（8 个 ¥500）",
+        "芝士章鱼烧"
+      ],
+      "地址": "大阪市中央区西心斎橋 2 丁目（美国村三角公园そば·心斎橋站 7 号出口徒步约 5 分）",
+      "营业": "营业时段以店头为准；通常午间至晚间",
+      "预约": "无需预约，现场外带"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_jinsei",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 3
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "怀石",
+      "日本料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1200,
+          2000
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          2500,
+          5000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "尽誠（じんせい）",
+      "简介": "Tabelog 4.22 分，心斋桥最高分日料之一。主厨以精湛技术诠释关西传统割烹，食材出处清晰，器皿讲究，是大阪版「一顿不能错过的日料」代表。座位稀少，需提前数周预约。",
+      "亮点": [
+        "Tabelog 4.22",
+        "心斋桥顶级割烹",
+        "器皿与食材双讲究"
+      ],
+      "招牌菜": [
+        "时令割烹全套（昼 ¥15,000 起）",
+        "晚间怀石（¥25,000 起）"
+      ],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "12:00-14:00 / 18:00-21:00，不定休",
+      "预约": "必须预约，提前 3-4 周，电话或 Omakase"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_pomuru",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉ぽむる",
+      "简介": "Tabelog 3.74 分，心斋桥区域口碑稳定的烧肉店，食材质量远超价格所示，烧牛舌和特选和牛套餐是招牌。氛围适合情侣或闺蜜小聚，不过于正式，适合一顿好烧肉的晚餐。",
+      "亮点": [
+        "Tabelog 3.74",
+        "性价比高",
+        "心斋桥稳定烧肉"
+      ],
+      "招牌菜": [
+        "厚切り牛舌（约 ¥1,500）",
+        "和牛カルビセット"
+      ],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 8 分钟",
+      "营业": "17:00-24:00，不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_baranoki",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          300,
+          600
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グリルばらの木（グリルばらのき）",
+      "简介": "Tabelog 3.67 分的心斋桥老派洋食店，炸牛排和汉堡排是招牌，用自制德米格拉斯酱汁。大阪洋食文化的缩影——厚重、不追时髦、扎扎实实做好一件事。本地老饕午饭常来。",
+      "亮点": [
+        "Tabelog 3.67",
+        "大阪老派洋食",
+        "自制德米格拉斯酱"
+      ],
+      "招牌菜": [
+        "牛肉炸排配德米酱（约 ¥1,500）",
+        "汉堡排套餐"
+      ],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:30-14:30 / 17:30-21:00，周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_lodge",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "洋食",
+      "西餐"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          350,
+          700
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1400
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "御堂筋 ロッヂ（みどうすじ ろっじ）",
+      "简介": "Tabelog 3.66 分，御堂筋旁具有小木屋氛围的西餐馆，以熟成牛肉和精致配菜为招牌，价格处于心斋桥高档区域合理范围内。建筑本身保留昭和时代风格，被御堂筋银杏大道包围。",
+      "亮点": [
+        "Tabelog 3.66",
+        "御堂筋银杏道旁",
+        "昭和建筑氛围"
+      ],
+      "招牌菜": [
+        "熟成牛排（约 ¥3,000）",
+        "洋食套餐（昼约 ¥1,500）"
+      ],
+      "地址": "大阪市中央区心斎橋筋周边，地铁心斎橋站步行约 3 分钟",
+      "营业": "11:30-22:00，不定休",
+      "预约": "无需预约，晚餐人多时推荐"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_teshima",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "洋食"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          500
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          600,
+          1200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "洋食 手嶋（ようしょく てしま）",
+      "简介": "Tabelog 3.63 分，心斋桥传统洋食馆，炸猪排和哈姆蛋是招牌，价格实在。装潢简单，主厨专注一件事：把一份扎实的大阪洋食做好。本地回头客多，旅行者来这里吃到的是真实大阪日常。",
+      "亮点": [
+        "Tabelog 3.63",
+        "扎实大阪洋食",
+        "炸猪排代表"
+      ],
+      "招牌菜": [
+        "炸猪排定食（约 ¥1,500）",
+        "哈姆蛋套餐（昼约 ¥1,000）"
+      ],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:30-14:00 / 17:30-21:00，周日不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_fishtons",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面",
+      "创意料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いかれたヌードル フィッシュトンズ（イカレタヌードル フィッシュトンズ）",
+      "简介": "Tabelog 3.74 分，名字「疯狂面条」就是招牌——以鱼骨高汤为底、叠加各种不按常理的配料，做出极具个性的创意拉面。在心斋桥这样寸土寸金的地方，这种走小众路线的拉面店能存活并排队，说明水准够格。",
+      "亮点": [
+        "Tabelog 3.74",
+        "创意鱼骨汤拉面",
+        "心斋桥个性小众"
+      ],
+      "招牌菜": [
+        "旗舰鱼骨汤拉面（约 ¥1,200）",
+        "当季限定款"
+      ],
+      "地址": "大阪市中央区心斎橋周边，地铁心斎橋站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-21:00（售罄即止），周三不定休",
+      "预约": "无需预约，建议开门即到"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_mochisho_shizuku",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "和菓子"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "餅匠しづく 新町店（もちしょうしづく しんまちてん）",
+      "简介": "Tabelog 3.75 分，极具口碑的大阪草饼名店，用精选糯米现包，外软内甜。是道顿堀/心斋桥一带逛街间隙最值得一买的伴手礼兼零食，也是送礼首选。",
+      "亮点": [
+        "Tabelog 3.75",
+        "大阪草饼名店",
+        "伴手礼/零食两用"
+      ],
+      "招牌菜": [
+        "生どら焼き（约 ¥350）",
+        "わらびもち（约 ¥500）"
+      ],
+      "地址": "大阪市西区新町 1 丁目周边，地铁心斎橋站步行约 5 分钟",
+      "营业": "11:00-19:00（售罄即止），周一不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_circus_osaka",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 6
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "酒吧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [
+          80,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "CIRCUS Osaka（サーカス オーサカ）",
+      "简介": "美国村核心，200 人容量的 Underground Club，镜面球 + 全站立，以 Techno/House/Drum＆Bass 为主场，每周末引进国际 DJ。不做派对，只做音乐——大阪地下俱乐部代表场所，门票随场次变动，一般 ¥1500-3000。",
+      "亮点": [
+        "大阪地下音乐代表",
+        "美国村核心",
+        "每周国际 DJ",
+        "200 人亲密规模"
+      ],
+      "招牌菜": [
+        "周五 CIRCUS FRIDAY（Drum＆Bass）",
+        "周六大阪本地 DJ 精选"
+      ],
+      "地址": "大阪市中央区西心斎橋 1-8-16 中西ビル 2F（四ツ橋駅・心斎橋駅 步行 5 分）",
+      "营业": "按 Event 定，通常 22:00 或 23:00 开门；具体查 circus-osaka.com",
+      "预约": "无需预约，买票入场",
+      "到店提醒": "入场费按场次定；提前看官网 Event 页确认时间；着装无硬规但黑色系更融入"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_ribbon",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 7
+      },
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "酒吧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [
+          60,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "RIBBON（心斎橋 若者クラブ・待核实）",
+      "简介": "心斋桥美国村圈年轻夜店代名词之一，以流行/EDM 为主场，入场费较低，吸引 20 代本地年轻群体。具体店名「RIBBON」待核实——心斋桥同名或近名夜店数家，建议搜「心斎橋 RIBBON クラブ」确认当前运营状态后再推荐。",
+      "亮点": [
+        "美国村年轻夜店",
+        "低门槛入场",
+        "EDM/Pop 主场"
+      ],
+      "招牌菜": [
+        "EDM 周末夜场"
+      ],
+      "地址": "大阪市中央区 心斎橋・美国村周边（待核实：搜索「心斎橋 RIBBON」确认地址）",
+      "营业": "待核实：以官网/SNS 为准",
+      "预约": "无需预约",
+      "到店提醒": "具体店名待核实·交付报告已标注·建议替代：CIRCUS OSAKA（同区·质量更稳定）"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_sumiyoshi",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 6
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          300,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "おでん すみ吉",
+      "简介": "心斋桥地下层隐家关东煮·堺市名店「たこ吉」出汁继承·四季创作关东煮会席。和モダン洗练空间·暖帘掀开是另一个世界·都会喧嚣的反义词。预约制·适合两人或小型局·北新地之外的关东煮代表。Tabelog 3.6+。",
+      "亮点": [
+        "心斋桥地下隐家",
+        "「たこ吉」出汁继承",
+        "四季创作关东煮",
+        "和モダン洗练空间",
+        "Tabelog 3.6+"
+      ],
+      "招牌菜": [
+        "おでん会席（¥8,800）",
+        "季节限定关东煮（タコ/トマト 等）"
+      ],
+      "地址": "大阪市中央区東心斎橋 1-7（地铁心斎橋駅 徒步 5 分）",
+      "营业": "夜 18:00-23:00；日曜定休",
+      "预约": "必约·一休/电话",
+      "到店提醒": "暖帘小不易找；地下层入口；正装"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_yokaro",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          220
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "心斎橋 よかろ",
+      "简介": "屋台时代的味道继承下来的关东煮居酒屋·屋台种出汁+鸡白汤+昆布出汁继续煮成深味。**30+ 种关东煮种**·特别推荐タコ（章鱼）。大阪名物「どて焼」（牛筋味噌煮）也是必点。心斋桥本地人下班据点·价位友好。Tabelog 3.55+。",
+      "亮点": [
+        "屋台味道继承",
+        "30+ 种关东煮",
+        "どて焼名物",
+        "本地人据点",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "おでん盛合せ（¥1,800）",
+        "どて焼（¥780）",
+        "タコ（¥600）"
+      ],
+      "地址": "大阪市中央区南船場 4-12（地铁心斎橋駅 徒步 5 分；長堀橋駅 徒步 2 分）",
+      "营业": "夜 17:00-23:30；日曜定休",
+      "预约": "推荐预约·tabelog",
+      "到店提醒": "タコ最招牌；どて焼配米饭"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_odashi",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori_glico",
+        "walk_min": 6
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          260
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "居酒屋おだし",
+      "简介": "老铺「神楽」出汁基础上拼配的特制出汁·繊细深味烘托和食和关东煮。盐ピーマン（盐青椒）/饺子等一品料理也很有人气·女性客比例高。心斋桥都心据点·氛围比传统居酒屋干净。Tabelog 3.5+。",
+      "亮点": [
+        "「神楽」出汁拼配",
+        "繊细深味出汁",
+        "女性客比例高",
+        "盐ピーマン名物",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "おでん盛り（¥1,600）",
+        "盐ピーマン（¥480）",
+        "出汁巻玉子（¥780）"
+      ],
+      "地址": "大阪市中央区西心斎橋（地铁心斎橋駅 徒步 6 分）",
+      "营业": "夜 17:00-23:00；日曜定休",
+      "预约": "推荐预约",
+      "到店提醒": "饺子+盐ピーマン是必点；女性局友好"
+    }
+  },
+  {
+    "id": "osk_kuromon_chinariya",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          120,
+          250
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千成屋（せんなりや）",
+      "简介": "黑门市场内 90 席海鲜丼最大店·市场内最宽敞的座位空间。海鲜丼 20+ 种·特撰海鲜丼 ¥3,500（视觉冲击+份量满分）。黑门市场早 9:00 开门最新鲜·避开 12-13 点高峰。Walk-in 全年无休。日本桥站徒步 2 分。",
+      "亮点": [
+        "黑门市场 90 席海鲜丼大店",
+        "海鲜丼 20+ 种选项",
+        "9:00 开门时段最新鲜",
+        "Walk-in 全年无休",
+        "日本桥站徒步 2 分"
+      ],
+      "招牌菜": [
+        "特撰海鲜丼（¥3,500）",
+        "本日海鲜丼（¥2,200）"
+      ],
+      "地址": "大阪市中央区日本橋 1-21-6（地铁日本橋駅 徒步 2 分）",
+      "营业": "9:00-19:00；全年无休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "9-10 点最新鲜也最少人；午饭 12-13 点高峰避开"
+    }
+  },
+  {
+    "id": "osk_kuromon_uoichi",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 9
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "海鲜",
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          180
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          120,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "海鮮居酒屋 魚一（うおいち）",
+      "简介": "黑门市场看着像鱼店的居酒屋·店头的海鲜可以现场做成海鲜烧。浮世絵风墙画+吧台桌席 30 席·气氛是「市场+小酒屋」的混搭。海鲜丼 ¥1,800 / 松叶蟹/牡蛎/扇贝/海胆丼/鲑鱼卵丼都有。Walk-in 不预约·步入即坐。",
+      "亮点": [
+        "黑门市场内居酒屋",
+        "店头海鲜现场烧",
+        "浮世絵墙画氛围",
+        "海鲜丼 ¥1,800",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "海鲜丼（¥1,800）",
+        "ウニ丼（海胆丼·¥3,500）",
+        "扇贝奶油烧（¥980）"
+      ],
+      "地址": "大阪市中央区日本橋（地铁日本橋駅 徒步 2 分）",
+      "营业": "10:00-20:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "店头看食材现选最对；下午 14-17 点最空"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kuromon_kanizen",
+    "area": "心斋桥",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 7
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "松叶蟹",
+      "海鲜"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          200,
+          450
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "黒門 蟹善（かにぜん）",
+      "简介": "黑门市场内蟹专门店·**11-3 月活松叶蟹现场处理**·一只 ¥4,800-12,000 不等。蟹刺身/蟹焼き/蟹寿司/蟹饭都在店头看蟹挑选。比道顿堀かに源更接近「市场原始体验」。Walk-in·中午排 30-40 分。Tabelog 3.5+·黑门市场觅食蟹首选。",
+      "亮点": [
+        "黑门市场蟹专门店",
+        "11-3 月活松叶蟹现场处理",
+        "店头挑蟹·原始体验",
+        "蟹刺/焼/寿司/饭全套",
+        "Tabelog 3.5+"
+      ],
+      "招牌菜": [
+        "活松叶蟹刺身（时价·¥4,800-）",
+        "蟹丼（¥3,200）",
+        "蟹焼き（¥3,800）"
+      ],
+      "地址": "大阪市中央区日本橋 1（地铁日本橋駅 徒步 3 分）",
+      "营业": "10:00-19:00；无定休",
+      "预约": "无需预约·walk-in",
+      "到店提醒": "蟹季 12-2 月最对；非蟹季冷冻为主·体验差"
+    }
+  }
+]

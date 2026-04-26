@@ -1,0 +1,130 @@
+[
+  {
+    "id": "kyo_kita_kishin_french",
+    "area": "北区",
+    "near_attractions": [{"entity_id": "kyo_kinkakuji", "walk_min": 8}],
+    "tier": "showcase",
+    "cuisine": ["法餐", "怀石"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [500, 800]}, {"meal": "dinner", "price_cny": [800, 1500]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都 喜Shin（きしん）イノベーティブ・フレンチ",
+      "简介": "金阁寺附近·**100 年京町家本馆 + 历史日本家屋别邸改造**·京懐石+分子料理+法餐三体融合。和でもなくフレンチでもない「イノベーティブ」。客席能望京都坪庭+日本庭园·一道菜一幅画的艺术演出·年轻 fine-dining 主厨独立后开店。Tabelog 3.7+·SNS 收藏 5,000+。京都 fusion 法餐 showcase 代表之一·情侣纪念日/特别接待场景。",
+      "亮点": [
+        "100 年京町家+日本家屋",
+        "京懐石+分子料理+法餐三融合",
+        "和庭+坪庭客席景观",
+        "Tabelog 3.7+",
+        "SNS 收藏 5,000+"
+      ],
+      "招牌菜": [
+        "ランチ イノベーティブコース（¥12,000）",
+        "ディナー シェフおまかせ（¥22,000）"
+      ],
+      "地址": "京都市北区平野（市バス 衣笠校前 徒步 5 分；金阁寺 徒步 8 分）",
+      "营业": "12:00-14:00 / 18:00-21:30；水曜定休",
+      "预约": "**完全预约制**·官网/一休·提前 2-3 周",
+      "到店提醒": "正装；本馆+别邸两栋·订时选；京都坪庭席最美"
+    }
+  },
+  {
+    "id": "kyo_karasuma_synager",
+    "area": "烏丸御池",
+    "near_attractions": [{"entity_id": "kyo_nijo_castle", "walk_min": 8}],
+    "tier": "showcase",
+    "cuisine": ["法餐"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [350, 600]}, {"meal": "dinner", "price_cny": [800, 1300]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Synager（シナジェ）丸太町",
+      "简介": "丸太町站徒步 5 分·**完全预约制法餐 fusion**·开门进入是「ハーブの香り+音乐」非日常空间·店主修业巴黎+京都本地农家直接合作。京都地野菜+ハーブ+草花的「感性刺激 fusion」·一道菜配芳香水演出。**SNS 出片+艺术氛围+法餐 fusion 三件套**·Tabelog 3.65+。",
+      "亮点": [
+        "完全预约制 fusion 法餐",
+        "ハーブ+芳香水演出",
+        "京都地野菜+ハーブ",
+        "Tabelog 3.65+",
+        "SNS 出片+艺术氛围"
+      ],
+      "招牌菜": [
+        "ランチおまかせコース（¥8,800）",
+        "ディナーおまかせコース（¥18,000）"
+      ],
+      "地址": "京都市中京区丸太町（地铁丸太町駅 徒步 5 分；京都市役所前駅 徒步 6 分）",
+      "营业": "12:00-14:00 / 18:00-21:30；水曜定休",
+      "预约": "**完全预约制**·官网/一休·提前 2 周",
+      "到店提醒": "演出不允许中途录像；提前告知过敏/不吃食材"
+    }
+  },
+  {
+    "id": "kyo_omuro_sakon",
+    "area": "岚山",
+    "near_attractions": [{"entity_id": "kyo_tenryuji", "walk_min": 25}],
+    "tier": "showcase",
+    "cuisine": ["怀石", "法餐"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [500, 900]}, {"meal": "dinner", "price_cny": [900, 1500]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "御室 佐近（おむろ さこん）仁和寺門前",
+      "简介": "**世界遗产·御室仁和寺门前**·京都唯一的「京料理+法餐独立成皿+コース整合」店。雄大山门+仁和寺景观席·京料理一皿/法餐一皿交替·京料理配 wine·法餐配日本酒「自由组合」是看板。Tabelog 3.7+·关西 fusion 法餐顶级·**世界遗产景观+怀石+法餐三件套**·情侣/纪念日/特别接待天花板。",
+      "亮点": [
+        "世界遗产仁和寺门前",
+        "京料理一皿/法餐一皿交替",
+        "京料理 wine + 法餐日本酒自由组合",
+        "Tabelog 3.7+",
+        "世界遗产+ fusion 顶级"
+      ],
+      "招牌菜": [
+        "ランチおまかせコース（¥13,200）",
+        "ディナーおまかせコース（¥22,000）"
+      ],
+      "地址": "京都市右京区御室大内（嵐電 御室仁和寺駅 徒步 1 分；岚山方向 25 分）",
+      "营业": "12:00-14:00 / 17:30-21:00；水曜定休",
+      "预约": "**完全预约制**·官网/一休·提前 1 个月",
+      "到店提醒": "正装；门前山景席最美·订时备注"
+    }
+  },
+  {
+    "id": "kyo_sta_laparte",
+    "area": "京都站",
+    "near_attractions": [{"entity_id": "kyo_kyoto_aquarium", "walk_min": 6}],
+    "tier": "high",
+    "cuisine": ["法餐"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [250, 400]}, {"meal": "dinner", "price_cny": [450, 800]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "L'aparté（ラパルテ）",
+      "简介": "下京区·**和食器作キャンバス的现代法餐**。「Aparte」コース用「京地どり」（京都地鸡）等京都食材按季节作成「现代和法餐 fusion」。器物本身是艺术品·一皿一画。Tabelog 3.6+·京都站徒步 10 分。**性价比 fusion 法餐 high 档代表**·比 ryu no hige 安静·新发现的隐家。",
+      "亮点": [
+        "和食器作キャンバス",
+        "京地どり+季节京都食材",
+        "现代和法餐 fusion",
+        "Tabelog 3.6+",
+        "京都站徒步 10 分"
+      ],
+      "招牌菜": [
+        "Aparte ランチコース（¥6,800）",
+        "Aparte ディナーコース（¥13,200）"
+      ],
+      "地址": "京都市下京区（JR 京都駅 徒步 10 分；地铁五条駅 徒步 5 分）",
+      "营业": "12:00-13:30 / 18:00-21:00；水曜定休",
+      "预约": "**完全预约制**·一休/食べログ·提前 1 周",
+      "到店提醒": "器物拍照可·演出不可"
+    }
+  }
+]

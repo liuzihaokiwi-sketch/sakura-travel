@@ -34,7 +34,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "kyoto_okazaki",
+          "meal_area": "okazaki_nanzenji",
           "note": "岡崎/三条方向午餐——正月期间部分店关门（1/1 几乎全闭），确认当日营业。百货/商场餐厅正月营业率高于小店"
         }
       ]
@@ -75,7 +75,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
-          "meal_area": "kyoto_gion",
+          "meal_area": "gion_higashiyama",
           "note": "正月期间京都餐厅大量关门，晚餐预约或选百货/商场内餐厅更稳定"
         }
       ]

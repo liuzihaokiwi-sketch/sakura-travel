@@ -1,0 +1,1110 @@
+[
+  {
+    "id": "kyo_higashi_kagizen_yoshifusa",
+    "area": "东山轴",
+    "near_attractions": [
+      {"entity_id": "kyo_gion_hanamikoji", "walk_min": 3},
+      {"entity_id": "kyo_kenninji", "walk_min": 5}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "鍵善良房 四条本店（かぎぜんよしふさ）",
+      "简介": "享保年间创业的祇园老字号甘味处，大暖帘是地标。名物「くずきり」以吉野本葛粉手作，配波照间产黑糖黑蜜上桌，Q弹透明、香气独到。前半段是和菓子售卖区，后半是喫茶空间，坐下来慢慢等，节奏就是这家店的哲学。喫茶 10:00 开始，16:30 最后点单。",
+      "亮点": ["享保年间创业·祇园最老甘味处", "葛切是本葛粉标配黑蜜", "大暖帘是祇园打卡标志"],
+      "招牌菜": ["くずきり（葛切·黑蜜）", "季节生菓子"],
+      "地址": "京都市东山区祇园町北侧264（京阪祇园四条站步行约3分钟）",
+      "营业": "菓子贩卖9:30-18:00；喫茶10:00-18:00（L.O.17:30）；周一定休（祝日顺延）",
+      "预约": "无需预约·当场候席",
+      "到店提醒": "葛切卖完即止，午后旺季等候30分钟是常态；红叶·樱花季节全天满席建议早到",
+      "Tabelog 分数": 3.78
+    }
+  },
+  {
+    "id": "kyo_higashi_gion_tokuya",
+    "area": "东山轴",
+    "near_attractions": [
+      {"entity_id": "kyo_gion_hanamikoji", "walk_min": 2},
+      {"entity_id": "kyo_yasaka_shrine", "walk_min": 5}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 180]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぎおん徳屋（祇园德屋）",
+      "简介": "花见小路旁的本わらび餅专门店，用100%本わらび粉加和三盆糖手炼，颜色接近黑褐、口感滑弹，与超市わらび餅是两种东西。只在店内现吃，数分钟即开始溶化，绝不外带。售完即打烊，午后人潮大，建议午前或晚前来。不定休，出门前确认Instagram。",
+      "亮点": ["100%本わらび粉·和三盆糖", "花见小路正中位置", "现点现吃·不外带"],
+      "招牌菜": ["本わらび餅（原味）", "季节限定わらび餅"],
+      "地址": "京都市东山区祇园町南侧570-127（京阪祇园四条站步行约3分钟）",
+      "营业": "12:00-18:00（売切御免）；不定休",
+      "预约": "无需预约",
+      "到店提醒": "不定休·出门前看官方Instagram（@gion_tokuya）确认；旺季下午1小时以上等候",
+      "Tabelog 分数": 3.76
+    }
+  },
+  {
+    "id": "kyo_higashi_izuu_sabazushi",
+    "area": "东山轴",
+    "near_attractions": [
+      {"entity_id": "kyo_gion_hanamikoji", "walk_min": 5},
+      {"entity_id": "kyo_kenninji", "walk_min": 3}
+    ],
+    "tier": "high",
+    "cuisine": ["寿司"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [300, 600]},
+      {"meal": "dinner", "price_cny": [500, 900]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "いづう（祇园新地いづう）",
+      "简介": "天明元年（1781年）创业的京寿司老铺，鯖姿寿司发祥店之一。整条鲭鱼以昆布腌制后切割，酸咸平衡是祇园茶屋仕出文化的结晶。堂食有板前榻榻米席，外带亦可。祝日·祭事日营业，周二定休。寿司价格偏高但分量充足，可以用午市单品切入。",
+      "亮点": ["1781年创业·京寿司名门", "鯖姿寿司·祇园仕出文化", "昆布締め技法独门"],
+      "招牌菜": ["鯖姿寿司", "京野菜押し寿司", "鯖散らし"],
+      "地址": "京都市东山区八坂新地清本町367（京阪祇园四条站步行约5分钟）",
+      "营业": "11:00-22:00（周日祝日至21:00）；周二定休（祝日·祭事日营业）",
+      "预约": "电话预约：075-561-0751；外带提货可预约8:00木户口取",
+      "到店提醒": "午市单品价格较晚市亲民；外国客进门没问题，菜单有图片；告别旺季建议先电话确认是否满席",
+      "Tabelog 分数": 3.68
+    }
+  },
+  {
+    "id": "kyo_higashi_negiyaki_kana",
+    "area": "东山轴",
+    "near_attractions": [
+      {"entity_id": "kyo_yasaka_shrine", "walk_min": 5},
+      {"entity_id": "kyo_kenninji", "walk_min": 8}
+    ],
+    "tier": "economy",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "祇园ねぎ焼 かな 東店",
+      "简介": "八坂神社南侧小街的昭和铁板烧，葱焼き是看家菜——葱段炒至软糯铺开在铁板，薄面皮裹住猪肉和葱，比大阪烧更薄更香。人均约600-800日元，是祇园逛到傍晚最接地气的选择。周一定休，晚间可到凌晨。",
+      "亮点": ["祇园昭和铁板烧", "葱焼き·本地人口味", "价格亲民·饥饿最佳解法"],
+      "招牌菜": ["ねぎ焼き（葱焼）", "豚玉（猪肉玉子）"],
+      "地址": "京都市东山区东大路安井北门通月见町13（京阪祇园四条站步行约10分钟）",
+      "营业": "12:00-22:00（L.O.21:30）；周一定休",
+      "预约": "无需预约",
+      "到店提醒": "现金不可刷卡；周一定休注意；晚间人多约等10-15分钟",
+      "Tabelog 分数": 3.67
+    }
+  },
+  {
+    "id": "kyo_higashi_ujikintoki_ya",
+    "area": "东山轴",
+    "near_attractions": [
+      {"entity_id": "kyo_kiyomizudera", "walk_min": 8},
+      {"entity_id": "kyo_sanjusangendo", "walk_min": 5}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": [4, 5, 6, 7, 8, 9, 10],
+    "depth": "full",
+    "note": {
+      "店名": "京都宇治金時や",
+      "简介": "清水五条驿附近的古民家刨冰店，以八岳天然氷为基础，抹茶浓度分档选择，价格1,300日元起。店内保留了古民家的梁柱氛围，室内凉爽适合在清水参拜后入内歇息。基本年中无休，但营业时间因季节调整，旺季建议上午前往。",
+      "亮点": ["八岳天然氷刨冰", "抹茶浓度可选", "古民家空间"],
+      "招牌菜": ["宇治金時（宇治抹茶刨冰）", "黑糖刨冰"],
+      "地址": "京都市东山区白丝町569-10（京阪清水五条站步行约10分钟）",
+      "营业": "10:00-21:30（冬季可能缩短）；基本无休",
+      "预约": "无需预约",
+      "到店提醒": "夏季旺季30分钟以上等候；冬季部分日期缩短营业确认Instagram",
+      "Tabelog 分数": 3.66
+    }
+  },
+  {
+    "id": "kyo_sta_arata_okonomiyaki",
+    "area": "京都站",
+    "near_attractions": [
+      {"entity_id": "kyo_railway_museum", "walk_min": 12},
+      {"entity_id": "kyo_tofukuji", "walk_min": 15}
+    ],
+    "tier": "economy",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [7],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "あらた（お好み焼き）",
+      "简介": "京都站八条口步行6分钟的下町铁板烧，2019年食べログ百名店认证。名物「あらたお好み」是京都风べた焼き——比大阪烧更薄，猪肉葱段在铁板上摊开煎。店主人情味十足，芸能人常客，只做晚市。周日·祝日定休。",
+      "亮点": ["食べログ百名店2019", "京都べた焼き·有别大阪烧", "站周边地道下町味"],
+      "招牌菜": ["あらたお好み（べた焼き）", "豚玉"],
+      "地址": "京都市南区西九条院町24-4 山本ビル（京都站八条口步行约6分钟）",
+      "营业": "17:00-23:00；周日·祝日定休",
+      "预约": "无需预约·当场入座",
+      "到店提醒": "仅晚市无午市；现金为主；夜间人气高建议18:30前到",
+      "Tabelog 分数": 3.57
+    }
+  },
+  {
+    "id": "kyo_sta_kataguruma_ramen",
+    "area": "京都站",
+    "near_attractions": [
+      {"entity_id": "kyo_railway_museum", "walk_min": 10},
+      {"entity_id": "kyo_kyoto_aquarium", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["拉面"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "あいつのラーメン かたぐるま 本店",
+      "简介": "京都站西侧10分钟，名门あっぱれ屋直传の浓厚拉面。食券制，LINEで整理券を発行するシステムが有り。午前是定食兼拉面，晚间只做拉面。招牌是浓厚豚骨鱼介混合汤，全粒粉自制麺。不定休（主要周日·年末年始休）。",
+      "亮点": ["あっぱれ屋直传浓厚汤", "LINE整理券系统", "自制全粒粉麺"],
+      "招牌菜": ["浓厚豚骨鱼介拉面", "AB味噌拉面"],
+      "地址": "京都市下京区西七条八反田町77（地铁丹波口站步行约8分钟）",
+      "营业": "10:30-14:15/18:00-21:15；不定休（日曜·年末年始多休）",
+      "预约": "无需预约·LINE整理券",
+      "到店提醒": "食券制·现金；LINE整理券发售时间关注官方Instagram；不定休必须出发前确认",
+      "Tabelog 分数": 3.69
+    }
+  },
+  {
+    "id": "kyo_sta_manbo_teppan",
+    "area": "京都站",
+    "near_attractions": [
+      {"entity_id": "kyo_railway_museum", "walk_min": 8},
+      {"entity_id": "kyo_kyoto_aquarium", "walk_min": 10}
+    ],
+    "tier": "economy",
+    "cuisine": ["大阪烧"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3, 4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "山本まんぼ",
+      "简介": "1948年创业，食べログ百名店认证。名物「まんぼ焼き」是在京都べた焼き基础上夹入焼きそば的进化版，与大阪烧·广岛烧都不同。2020年因再开发搬迁至现址，烟火气不减。周三·第三周四定休。早中两档营业。",
+      "亮点": ["1948年创业·食べログ百名店", "まんぼ焼き独门夹焼きそば", "京都站徒步3分钟"],
+      "招牌菜": ["まんぼ焼き（名物）", "豚玉"],
+      "地址": "京都市下京区小稲荷町61-54（京都站正面口向东步行约3分钟）",
+      "营业": "10:00-22:00（L.O.21:30）；周三·第三周四定休",
+      "预约": "无需预约",
+      "到店提醒": "午前10点开门，午市人气高；周三+第三周四双定休注意日历",
+      "Tabelog 分数": 3.69
+    }
+  },
+  {
+    "id": "kyo_sta_henkotsu_motsu",
+    "area": "京都站",
+    "near_attractions": [
+      {"entity_id": "kyo_railway_museum", "walk_min": 10},
+      {"entity_id": "kyo_kyoto_aquarium", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["居酒屋"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "へんこつ（牛テール大鍋専門店）",
+      "简介": "京都站步行5分钟的60年老铺，「大鍋専門店」牛テール煮込みが名物。同じ出汁で煮るおでんも绝品。壁に「食べていただくお店」と貼り纸——长坐闲聊は禁止、潔い店风。周日·祝日定休。晚市のみ。",
+      "亮点": ["60年老铺·大鍋専門", "牛テール煮込み独门", "站周边稀缺居酒屋"],
+      "招牌菜": ["牛テール煮込み", "自制おでん"],
+      "地址": "京都市下京区木津屋橋通烏丸西入ル東塩小路町579 あすなろビル1F（京都站步行约5分钟）",
+      "营业": "17:00-23:00；周日·祝日定休",
+      "预约": "无需预约",
+      "到店提醒": "仅晚市；现金为主；禁止长坐闲聊，吃完请离席",
+      "Tabelog 分数": 3.63
+    }
+  },
+  {
+    "id": "kyo_fushimi_taiga_udon",
+    "area": "伏见",
+    "near_attractions": [
+      {"entity_id": "kyo_fushimi_inari", "walk_min": 12},
+      {"entity_id": "kyo_jonangu", "walk_min": 8}
+    ],
+    "tier": "mid",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "本格手打うどん 大河",
+      "简介": "讃岐名门池上製麺所で修業した店主が京都伏見で作る「京讃岐うどん」——香川仕込みのコシ·弾力を京都の上品さでまとめた一杯。平日も開店直後から満席，地元民の行列が絶えない人气店。火曜+月曜夜定休，昼夜二部制。",
+      "亮点": ["讃岐修業·京都の上品さ", "食べログ3.72·本地人排队", "伏见稻荷附近稀缺好うどん"],
+      "招牌菜": ["かけうどん（出汁素乌冬）", "肉うどん", "釜揚げうどん"],
+      "地址": "京都市伏见区深草西浦町7-45-1（京阪藤森站步行约7分钟）",
+      "营业": "平日11:00-14:30/18:00-21:00；土日祝11:00-15:00/18:00-21:00；火曜+月曜夜定休",
+      "预约": "无需预约",
+      "到店提醒": "开门即满·建议11:00前到；火曜全天+月曜晚间休息注意",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_fushimi_kendonya_udon",
+    "area": "伏见",
+    "near_attractions": [
+      {"entity_id": "kyo_fushimi_inari", "walk_min": 5},
+      {"entity_id": "kyo_gekkeikan_okura_museum", "walk_min": 15}
+    ],
+    "tier": "economy",
+    "cuisine": ["乌冬"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "手打うどん けんどん屋",
+      "简介": "伏见稻荷步行5分钟的手打乌冬小店，创业30年、独家混合小麦粉·压力锅煮麺。ランチ限定，料がなくなり次第终了が常态。稻荷参拜后顺路最接地气的乌冬·份量小价格低，也是本地学生便当店风格。周三+不定休。",
+      "亮点": ["伏见稻荷徒步5分钟", "自家配合小麦粉·手打30年", "稻荷参拜后顺路"],
+      "招牌菜": ["かけうどん", "月见うどん"],
+      "地址": "京都市伏见区深草一ノ坪町41 パールハイツ1F（京阪伏见稻荷站步行约5分钟）",
+      "营业": "11:00-15:00（料がなくなり次第终了）；周三+月1次不定休",
+      "预约": "无需预约",
+      "到店提醒": "现金のみ；料理售完即收摊·建议11:30前到",
+      "Tabelog 分数": 3.54
+    }
+  },
+  {
+    "id": "kyo_kita_saryo_housen",
+    "area": "北区",
+    "near_attractions": [
+      {"entity_id": "kyo_shimogamo", "walk_min": 12},
+      {"entity_id": "kyo_daitokuji_daisen_in", "walk_min": 18}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3, 4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "茶寮 宝泉（さりょう ほうせん）",
+      "简介": "下鸭附近高级住宅区内的数奇屋建筑甘味处，全席面对枯山水庭园。名物わらび餅是本わらび粉+少量砂糖纯手作，黑色是没有淀粉的证明。注文から作り始めるため約20分待ち，持ち帰り不可。周三·四定休。",
+      "亮点": ["本わらび粉·枯山水庭园席", "非京都中心区·宁静秘境感", "食べログ3.87·北区第一甘味"],
+      "招牌菜": ["本わらび餅", "ぜんざい（红豆汤）"],
+      "地址": "京都市左京区下鸭西本町 1（地铁松ヶ崎站步行约15分钟或bus洛北高校前）",
+      "营业": "10:00-17:00（L.O.16:30）；周三·四定休（祝日翌日休）",
+      "预约": "无需预约·当场入座",
+      "到店提醒": "わらび餅下单后约20分钟制作·不外带；无公共交通直达·建议搭bus；红叶·新緑季需早到",
+      "Tabelog 分数": 3.87
+    }
+  },
+  {
+    "id": "kyo_kita_tendresse_patisserie",
+    "area": "北区",
+    "near_attractions": [
+      {"entity_id": "kyo_ginkakuji", "walk_min": 15},
+      {"entity_id": "kyo_shimogamo", "walk_min": 20}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [2, 3, 4, 5],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "パティスリー タンドレス（Pâtisserie Tendresse）",
+      "简介": "一乗寺の週3日だけ开く小さなパティスリー，フランス夫婦が作るケーキは素材と技法が本場ゆずり。土日月の3日間のみ·开店前から行列ができ，好きなケーキが购えるか分からないのも旅のスパイスになる。不定休が多く，公式HPで今週のケーキを事前確認推奨。",
+      "亮点": ["週3日限定·フランス技法", "一乗寺の穴場パティスリー", "毎週ケーキが変わる一期一会"],
+      "招牌菜": ["季节タルト", "バタークリームケーキ"],
+      "地址": "京都市左京区一乗寺花ノ木町21-3（叡山电铁一乗寺站步行约7分钟）",
+      "营业": "土·日·月 11:30-19:00（イートイン13:00-17:30）；火-金定休",
+      "预约": "无需预约·当场入座（イートイン人気のため早めに）",
+      "到店提醒": "不定休多·出门前确认官网；开店前已排队；好的ケーキ类型早售完",
+      "Tabelog 分数": 3.84
+    }
+  },
+  {
+    "id": "kyo_kita_awamochi_sawaya",
+    "area": "北区",
+    "near_attractions": [
+      {"entity_id": "kyo_kitano_tenmangu", "walk_min": 2},
+      {"entity_id": "kyo_ninnaji", "walk_min": 18}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "粟餅所・澤屋（あわもちどころ・さわや）",
+      "简介": "天和2年（1682年）创业·340年来一直守在北野天満宮门前的粟餅老铺，现任13代目。粟餅有こしあん（红豆泥）和きなこ（黄豆粉）两种，賞味期限当日限り·绝不外邮。每月26日+周四定休，每月25日天神市营业。",
+      "亮点": ["1682年创业·13代目", "北野天满宫门前340年", "粟餅当日限定·不外邮"],
+      "招牌菜": ["粟餅こしあん", "粟餅きなこ", "粟餅氷（夏季限定）"],
+      "地址": "京都市上京区今小路通御前西入紙屋川町838-7（北野天满宫门前西入南侧）",
+      "营业": "9:00-17:00（16:30后售完止）；每周四+每月26日定休（25日天神市营业）",
+      "预约": "无需预约",
+      "到店提醒": "每月26日+周四双定休·注意日历；中午后粟餅可能售完；天神市（25日）人群众多",
+      "Tabelog 分数": 3.76
+    }
+  },
+  {
+    "id": "kyo_kita_artisanhalles_bread",
+    "area": "北区",
+    "near_attractions": [
+      {"entity_id": "kyo_shimogamo", "walk_min": 8},
+      {"entity_id": "kyo_rurikoin", "walk_min": 25}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3, 4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "アルチザナル（boulangerie Artisan'Halles）",
+      "简介": "出町柳附近的法式面包店，夫妇二人经营。法国产小麦·自家製酵母，哈德系到デニッシュ系一应俱全。店名「职人的市场」即品质宣言。外观时尚，常成为银阁寺·叡山一日游结束后的补给站。周三·四定休，8:00开门。",
+      "亮点": ["法国小麦·自家製酵母", "出町柳结束银阁寺游後补给", "哈德系パン·知识分子风"],
+      "招牌菜": ["パティシエール（自家製卡仕达可颂）", "天然酵母ハード系"],
+      "地址": "京都市上京区今出川通寺町東入一真町89（叡山电铁出町柳站步行约6分钟）",
+      "营业": "月·火·金·土·日 8:00-19:00；水·木定休",
+      "预约": "无需预约",
+      "到店提醒": "週3日定休·确认日历；热门パン早上午前售完",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_takatsujikasui",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {"entity_id": "kyo_kamo_river", "walk_min": 5},
+      {"entity_id": "kyo_pontocho", "walk_min": 5}
+    ],
+    "tier": "high",
+    "cuisine": ["日本料理"],
+    "recommended_meals": [{"meal": "dinner", "price_cny": [300, 600]}],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "たかつじ 佳粋（かすい）",
+      "简介": "高辻通御幸町角的小型隐秘割烹，14席。店主在南禅寺瓢亭·枝路枝路修行，「一汁二菜おまかせ」2,300日元起，之后移入单品的弹性套路让不同预算都能参与。日本地酒と料理配合は素晴らしい。基本预约制·不定休。",
+      "亮点": ["瓢亭修行店主·14席隐秘割烹", "一汁二菜2,300円起可单品追加", "地酒与料理配合"],
+      "招牌菜": ["おまかせ一汁二菜", "季节小鉢单品"],
+      "地址": "京都市下京区茶磨屋町233 アネックス2番館102（阪急京都河原町站步行约5分钟）",
+      "营业": "平日17:00-23:00；土日祝16:00-23:00；不定休",
+      "预约": "强烈推荐预约·一休.comレストラン或Instagram DM",
+      "到店提醒": "基本预约制·无预约偶尔有空席；14席小店旺季难入",
+      "Tabelog 分数": 3.68
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_francois_kissa",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {"entity_id": "kyo_kamo_river", "walk_min": 3},
+      {"entity_id": "kyo_pontocho", "walk_min": 3}
+    ],
+    "tier": "economy",
+    "cuisine": ["咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "フランソア喫茶室（Salon de the FRANCOIS）",
+      "简介": "1934年创业·日本首家被指定为国家登録有形文化财的喫茶店。イタリアバロック様式の内装は豪华客船ホールをイメージ，ドーム型天井·シャンデリア·ステンドグラスが圧倒的。コーヒー·ケーキは現在も同格の価格带，ホールで入ってただ座るだけで価値がある。年中无休（年末年始除く）。",
+      "亮点": ["1934年創業·国登録有形文化財", "イタリアバロック豪华客船内装", "食べログ3.71·喫茶百名店"],
+      "招牌菜": ["ブレンドコーヒー", "ホットケーキ", "クリームソーダ"],
+      "地址": "京都市下京区西木屋町通四条下ル船頭町184（阪急京都河原町站步行约3分钟）",
+      "营业": "11:00-22:00（ドリンク·ケーキ L.O.21:30）；年中无休（12/31·1/1·1/2休）",
+      "预约": "不可预约",
+      "到店提醒": "现金只限；大荷物·未就学児入店お断り；カフェ长留不鼓励",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_inoichi_ramen",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {"entity_id": "kyo_kamo_river", "walk_min": 3},
+      {"entity_id": "kyo_pontocho", "walk_min": 5}
+    ],
+    "tier": "mid",
+    "cuisine": ["拉面"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [80, 150]},
+      {"meal": "dinner", "price_cny": [100, 180]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "麺屋 猪一（イノイチ）",
+      "简介": "四条河原町步行3分钟，ミシュランビブグルマン复数获奖的魚介清湯系ラーメン专门店。100%魚介だし——鰹節·削り節多品种低温抽取，汤色清亮·鲜味突出。黑白两款可ビーカーで差し飲み对比。不定休。",
+      "亮点": ["ミシュランビブグルマン복数受賞", "100%魚介だし·汤色透明", "白と黒のスープ飲み比べ体験"],
+      "招牌菜": ["白ラーメン（鶏白湯魚介）", "黒ラーメン（醬油魚介）"],
+      "地址": "京都市下京区恵美须之町542（阪急京都河原町站步行约3分钟）",
+      "营业": "11:00-14:30/17:30-21:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "不定休·出门前确认官方SNS；ランチ時刻11:30-13:00最挤",
+      "Tabelog 分数": 3.71
+    }
+  },
+  {
+    "id": "kyo_karasuma_sorakubu",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 10},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 18}
+    ],
+    "tier": "high",
+    "cuisine": ["日本料理"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [200, 400]},
+      {"meal": "dinner", "price_cny": [350, 600]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": [3, 2],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "空蝉亭（からせみてい）",
+      "简介": "烏丸御池附近的熟成豚かつ专门店，独自发酵エキスに21日以上低温熟成した豚を150℃でゆっくり揚げる。「豚の哲学」と称される骨太なこだわりで，鮮度でなく熟成で甘みを引き出す。网络预约可·ランチ·ディナー二部制。水曜+第2·4火曜定休。",
+      "亮点": ["21日以上真空低温熟成豚", "150℃低温揚げ·独家工法", "熟成豚かつ烏丸御池唯一"],
+      "招牌菜": ["熟成豚ひれかつ定食", "熟成豚ロースかつ定食"],
+      "地址": "京都市上京区下立売通大宮西入ル浮田町600（地铁烏丸御池站步行约10分钟）",
+      "营业": "ランチ11:30-15:00/ディナー17:00-20:00（土日ディナー-21:00）；水曜+第2·4火曜定休",
+      "预约": "推荐预约·TableCheckから网络予約可",
+      "到店提醒": "定休日複雑·出门前确认官网；ランチ最後の入店13:30まで",
+      "Tabelog 分数": 3.75
+    }
+  },
+  {
+    "id": "kyo_karasuma_patisserie_s_salon",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 8},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3, 4],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "パティスリー エス サロン（Patisserie S Salon）",
+      "简介": "烏丸御池徒步10分钟的富小路六角，Patisserie Sの喫茶サロン。生菓子はほぼ全種類その日の限定，閉店時間に近づくと売り切れ。イートインは座席制45分，窓の外の通りを見ながら静かに過ごせる数席のみ。水·木定休。",
+      "亮点": ["食べログスイーツWEST百名店", "ショーウィンドウ全部当日限定", "45分イートイン·六角町の静かな角"],
+      "招牌菜": ["季节フレジエ", "エクレア", "タルト各種"],
+      "地址": "京都市中京区朝倉町546 ウェルスアーリ天保1F（地铁烏丸御池站步行约10分钟）",
+      "营业": "13:00-18:00（L.O.17:30）；水·木定休",
+      "预约": "无需预约",
+      "到店提醒": "生菓子がなくなり次第閉店·早い时间帯に来るのが吉；水·木定休注意",
+      "Tabelog 分数": 3.82
+    }
+  },
+  {
+    "id": "kyo_karasuma_grains_de_vanille",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 10},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 10}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [100, 200]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [7, 1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "グラン・ヴァニーユ（grains de vanille）",
+      "简介": "烏丸御池徒步4分钟的パティスリー兼カフェ，10席のみ（45分制）。スイーツWEST百名店常連。不定休が多いため，Instagram「ハイライト」の当週営業カレンダーを確認してから来るのが鉄则。日·月曜が定休の基本。",
+      "亮点": ["食べログスイーツWEST百名店", "10席·45分·要把握営業日", "フランス菓子の正統派"],
+      "招牌菜": ["季节タルト", "ガトーショコラ"],
+      "地址": "京都市中京区鍵屋町486（地铁烏丸御池站步行约4分钟）",
+      "营业": "10:30-18:00（カフェL.O.16:30）；日·月定休+不定休多",
+      "预约": "无需预约",
+      "到店提醒": "不定休多·出门前看Instagram ハイライト「今週の営業日」；10席小店満席快",
+      "Tabelog 分数": 3.78
+    }
+  },
+  {
+    "id": "kyo_karasuma_seabura_ramen",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 10},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 15}
+    ],
+    "tier": "economy",
+    "cuisine": ["拉面"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [60, 100]},
+      {"meal": "dinner", "price_cny": [60, 100]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "セアブラノ神 壬生本店（らーめん）",
+      "简介": "京都发祥の背脂煮干しそば·新潟燕三条系をアレンジした独门一品。背脂を大量に浮かせた濃厚スープに魚介の旨みが交差，太め麺との相性がいい。年中无休（元旦のみ休）でランチ·ディナー共に提供。16席，现金のみ。",
+      "亮点": ["背脂ラーメン京都発祥の店", "燕三条系アレンジ·個性的スープ", "ほぼ年中无休"],
+      "招牌菜": ["特製背脂煮干しそば", "背脂味噌ラーメン"],
+      "地址": "京都市中京区壬生相合町25-4 デイスターアベニュー1F（阪急大宮站步行约6分钟）",
+      "营业": "ランチ11:00-15:30/ディナー18:00-22:30；元旦のみ休",
+      "预约": "无需预约·当场入座",
+      "到店提醒": "16席·ランチ混雑时30分以上；现金のみ；壬生地区·地铁烏丸御池からバスか徒歩20分",
+      "Tabelog 分数": 3.73
+    }
+  },
+  {
+    "id": "kyo_karasuma_kissa_ashishima",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 8},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "喫茶葦島（きっさ あしじま）",
+      "简介": "烏丸御池附近的小型昭和喫茶，光が溢れる小窓とアンティーク家具が作り出す雰囲気は「京都の普通の昭和」そのもの。店主が淹れるコーヒーと手作りのケーキが中心，ランチプレートも地元常連に愛される。不定休。",
+      "亮点": ["昭和空間·本地常連向け", "手淹れコーヒー+手作りケーキ", "観光色が薄い隠れ家"],
+      "招牌菜": ["ブレンドコーヒー", "ランチプレート"],
+      "地址": "京都市中京区（烏丸御池周辺·詳細は地图で確認）",
+      "营业": "不定休·确认SNS",
+      "预约": "无需预约",
+      "到店提醒": "不定休·出门前确认SNS；小店易満席",
+      "Tabelog 分数": 3.73
+    }
+  },
+  {
+    "id": "kyo_karasuma_lavoiture_tartetatin",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_heian_jingu", "walk_min": 5},
+      {"entity_id": "kyo_okazaki_canal", "walk_min": 3}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "LA VOITURE（ラ ヴァチュール）",
+      "简介": "平安神宫徒步5分钟·岡崎エリアの伝説的なパティスリーカフェ。メニューはケーキ3種のみ，その看板「タルトタタン」はフランスのタルトタタン協会公認·本場の味。店内で食べるとヨーグルトのソース温かくかけてもらえる体験付き。月曜·不定休。",
+      "亮点": ["フランスタルトタタン協会公認", "ケーキ3種·一本勝負の名店", "平安神宫参拜後に最高"],
+      "招牌菜": ["タルトタタン（看板）", "ショコラケーキ"],
+      "地址": "京都市左京区聖護院円頓美町47（地铁神宮丸太町站步行约3分钟·平安神宮徒步5分钟）",
+      "营业": "11:00-18:00；月曜+不定休",
+      "预约": "无需预约",
+      "到店提醒": "月曜+不定休·出门前确认；下午早售完；平安神宮·岡崎美术馆动线完美衔接",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_karasuma_smart_coffee",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 8},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 10}
+    ],
+    "tier": "economy",
+    "cuisine": ["咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "スマート珈琲店（Smart Coffee）",
+      "简介": "1932年创业の三条寺町角の老舗喫茶，地下铁烏丸御池から徒步3分。1·2階で内容が違い，1階喫茶は朝8:00からモーニング可能（元旦·2日除き无休），2階ランチは火曜定休。定番のホットケーキは三代受け継ぐレシピ。喫茶百名店受賞。",
+      "亮点": ["1932年創業·92年継続", "喫茶百名店受賞", "8:00开门·三条观光前の朝食"],
+      "招牌菜": ["ホットケーキ（名物）", "ブレンドコーヒー", "2階ランチセット"],
+      "地址": "京都市中京区寺町通三条上ル天性寺前町537（地铁烏丸御池站步行约3分钟）",
+      "营业": "1階喫茶8:00-19:00（元旦·2日休）；2階ランチ11:00-14:30（火曜定休）",
+      "预约": "无需预约",
+      "到店提醒": "1階と2階メニュー·定休日異なる；三条観光のモーニング起点に最適",
+      "Tabelog 分数": 3.71
+    }
+  },
+  {
+    "id": "kyo_karasuma_suehiro_kyozushi",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 5},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "mid",
+    "cuisine": ["寿司"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [250, 450]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "末廣（すえひろ·京寿司）",
+      "简介": "天保年间（1830-44年）创业·现9代目的京寿司专门店。ちらし寿司·鯖寿司·蒸し寿司是三本柱，特に蒸し寿司は冬の京都名物——温かい酢飯に上品な具材が乗る。地元の慶弔事に欠かせない老舗。水曜定休。",
+      "亮点": ["天保年间创业·9代目老铺", "蒸し寿司·京都冬名物", "京寿司三本柱"],
+      "招牌菜": ["蒸し寿司（冬·12-3月）", "ばら寿司（ちらし）", "鯖寿司"],
+      "地址": "京都市中京区小川通四条上（地铁烏丸御池周辺·四条烏丸徒步圏）",
+      "营业": "营业时段以店铺实际为准；水曜定休",
+      "预约": "电话推荐",
+      "到店提醒": "蒸し寿司は冬季限定12-3月；天保创业老铺·本地慶弔用途多·观光客少",
+      "Tabelog 分数": 3.68
+    }
+  },
+  {
+    "id": "kyo_karasuma_roujina_soba",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 6},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "mid",
+    "cuisine": ["荞麦"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [80, 150]},
+      {"meal": "dinner", "price_cny": [100, 200]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [1],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "蕎麦 ろうじな（Soba Rojina）",
+      "简介": "食べログそば百名店·ミシュランビブグルマン受賞（2025年）の手打ち蕎麦店。烏丸御池から徒步6分·町家路地の奥にひっそりと构える。昼·夜二部制，夜は予約可。素材と出汁の組み合わせが精巧で，京都でも稀な上質な一杯。月曜定休。",
+      "亮点": ["食べログそば百名店+ミシュランビブグルマン2025", "町家路地の隐れ家蕎麦", "夜は予約制·ランチ行列必至"],
+      "招牌菜": ["せいろ（二八蕎麦·ざる）", "鴨南蛮", "そばがき"],
+      "地址": "京都市中京区丸屋町691（地铁烏丸御池站步行约6分钟）",
+      "营业": "11:30-14:30/17:30-20:30；月曜定休",
+      "预约": "夜は预约可·電話075-286-9242",
+      "到店提醒": "ランチ行列15-30分は常態·早めに到着；夜は要预约·空席少ない",
+      "Tabelog 分数": 3.65
+    }
+  },
+  {
+    "id": "kyo_karasuma_hitsuji_donut",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 10},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 15}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [7, 1, 2, 3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ひつじ（天然酵母ドーナツ）",
+      "简介": "丸太町エリアの天然酵母ドーナツ专门小店，毎週木·金·土のみ営業。本わらび粉+きび砂糖のプレーンドーナツが定番，ふわっふわで重くない食感。週3日限定·Instagram で営業情報の확인要。本地女性客に圧倒的に支持されている隐れ家店。",
+      "亮点": ["天然酵母ドーナツ週3日限定", "ふわもち系·軽い食感", "丸太町の隠れ家·本地女性人気"],
+      "招牌菜": ["プレーンドーナツ（きなこ·きび砂糖）", "チョコドーナツ"],
+      "地址": "京都市中京区大炊町355-1（地铁丸太町站步行约7分钟）",
+      "营业": "木·金·土 11:00-18:00；日·月·火·水定休",
+      "预约": "无需预约",
+      "到店提醒": "週3日营业·日程要提前看Instagram；开门后好口味快售完",
+      "Tabelog 分数": 3.84
+    }
+  },
+  {
+    "id": "kyo_karasuma_daikokuden_seien",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 8},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大極殿本舗 六角店 甘味処「栖園」",
+      "简介": "明治18年（1885年）创业の和菓子老铺，六角店は築150年の京都市指定景観重要建造物。甘味処「栖園」では坪庭を眺めながら月替わりの蜜で楽しむ「琥珀流し」が名物——寒天を极限まで软らかく仕上げ，季节の味が月变わりで楽しめる。水曜定休。",
+      "亮点": ["1885年創業·明治老铺", "月替わり琥珀流し·季節感满点", "築150年·京都市指定景観建造物"],
+      "招牌菜": ["琥珀流し（月替わり）", "わらび餅", "おぜんざい"],
+      "地址": "京都市中京区六角通高倉東入ル南側堀之上町120（地铁烏丸御池站步行约8分钟）",
+      "营业": "和菓子9:30-18:00；甘味処10:00-17:00；水曜定休",
+      "预约": "无需预约",
+      "到店提醒": "水曜定休注意；琥珀流し月替わり·月末变换·ファンはInstagram确认当月蜜",
+      "Tabelog 分数": 3.77
+    }
+  },
+  {
+    "id": "kyo_karasuma_fiveran_bread",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 5},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [40, 80]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [2, 3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "fiveran（ファイブラン）",
+      "简介": "烏丸御池徒步3分钟の室町通角，フレンチシェフ考案のパンが並ぶ都心型パン屋。看板は「パティシエール」——タヒチ産とマダガスカル産バニラビーンズ使用の自家製カスタードを貝殻型クリームパンに。9:00開店，インバウンドにも认知される烏丸御池代表パン屋。火·水定休。",
+      "亮点": ["フレンチシェフ考案·烏丸御池代表パン屋", "バニラビーンズ2産地使用カスタードパン", "9:00开门·散策前に立ち寄り可能"],
+      "招牌菜": ["パティシエール（看板クリームパン）", "バゲット", "デニッシュ各種"],
+      "地址": "京都市中京区室町通三条上る役行者町377（地铁烏丸御池站步行约3分钟）",
+      "营业": "9:00-18:00；火·水定休",
+      "预约": "无需预约",
+      "到店提醒": "人気パンは早めに売れる·10時半前に来るのが吉；火·水定休确认日历",
+      "Tabelog 分数": 3.75
+    }
+  },
+  {
+    "id": "kyo_karasuma_takakura_nijo_ramen",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 8},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 15}
+    ],
+    "tier": "economy",
+    "cuisine": ["拉面"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [60, 100]},
+      {"meal": "dinner", "price_cny": [60, 100]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "麺や 高倉二条",
+      "简介": "烏丸御池から徒步5分の京都和風な内装つけ麺店。15时间煮込んだ豚骨スープに煮干し·鰹節など魚介を合わせた濃厚ダレ，自家製全粒粉入り中太麺は蕎麦のような色合い。年中无休（年末年始のみ休），昼·夜二部制，現金のみ。",
+      "亮点": ["15h煮込み豚骨魚介ダブルスープ", "全粒粉入り自家製麺", "ほぼ年中無休·烏丸御池近接"],
+      "招牌菜": ["つけ麺（看板）", "醬油ラーメン"],
+      "地址": "京都市中京区観音町64-1（地铁烏丸御池站步行约5分钟）",
+      "营业": "平日11:00-15:00/18:00-22:00；土日祝11:00-15:00/18:00-21:00；年末年始のみ休",
+      "预约": "无需预约·当場入座",
+      "到店提醒": "現金のみ；ランチ混雑時は30分程度の待ち；年末年始のみ休·ほぼ年中無休",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_kita_capital_toyotei",
+    "area": "北区",
+    "near_attractions": [
+      {"entity_id": "kyo_kitano_tenmangu", "walk_min": 12},
+      {"entity_id": "kyo_kamigamo_jinja", "walk_min": 15}
+    ],
+    "tier": "mid",
+    "cuisine": ["洋食"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [150, 300]},
+      {"meal": "dinner", "price_cny": [200, 400]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "キャピタル東洋亭 本店（百年洋食）",
+      "简介": "明治30年（1897年）创业·北山植物园前的「百年洋食」老铺。ハンバーグをはじめとした正統派洋食は，明治から変わらぬレシピを守り続ける。本店は北山エリア·地下鉄北山站前，年中无休。京都に来たら「百年洋食」を試してみる価値がある。",
+      "亮点": ["1897年创业·明治洋食", "百年不変のハンバーグレシピ", "北山植物园前·落ち着いた店環境"],
+      "招牌菜": ["ハンバーグ（百年洋食）", "オムライス", "コロッケ"],
+      "地址": "京都市北区上賀茂岩ヶ垣内町28-3（地铁北山站步行约3分钟）",
+      "营业": "ランチ11:00-17:00；ディナー17:00-22:00（L.O.21:00）；年中无休（12/25-1/1休）",
+      "预约": "无需预约·可团体预约",
+      "到店提醒": "年末12/25-1/1休み注意；本店は北山エリア·四条からバスか地下鉄",
+      "Tabelog 分数": 3.57
+    }
+  },
+  {
+    "id": "kyo_kawaramachi_rokuyosha_coffee",
+    "area": "河原町-先斗町",
+    "near_attractions": [
+      {"entity_id": "kyo_kamo_river", "walk_min": 3},
+      {"entity_id": "kyo_pontocho", "walk_min": 5}
+    ],
+    "tier": "economy",
+    "cuisine": ["咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "六曜社珈琲店",
+      "简介": "1950年创业，河原町三条角の二層構造老舗喫茶。1階は朝8:30からモーニング，地下は喫茶·夕方からバータイム。満州から京都に戻った先代が始めた歴史がある。自家焙煎コーヒーとドーナツが定番，地下のバーは18:00から。水曜定休。",
+      "亮点": ["1950年創業·河原町三条の二層喫茶", "地下バー18:00-·コーヒーマニアの聖地", "自家焙煎+ドーナツ"],
+      "招牌菜": ["自家焙煎ブレンドコーヒー", "ドーナツ（定番）"],
+      "地址": "京都市中京区河原町三条下ル大黒町36（地铁京都市役所前站步行约3分钟）",
+      "营业": "1階喫茶8:30-22:30；地下喫茶12:00-18:00/バー18:00-23:00；水曜定休",
+      "预约": "无需预约",
+      "到店提醒": "1階と地下でメニュー·雰囲気が異なる；深夜まで営业·木屋町帰りにも使える",
+      "Tabelog 分数": 3.72
+    }
+  },
+  {
+    "id": "kyo_karasuma_maedacoffee_meirin",
+    "area": "烏丸御池",
+    "near_attractions": [
+      {"entity_id": "kyo_nijo_castle", "walk_min": 10},
+      {"entity_id": "kyo_kyocera_museum", "walk_min": 12}
+    ],
+    "tier": "economy",
+    "cuisine": ["咖啡"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "前田珈琲 明倫店（京都芸術センター内）",
+      "简介": "1993年閉校の旧明倫小学校を京都芸術センターに転用した1階教室のカフェ。スペイン風装飾と築80年の建物が独特の空間を作る。烏丸四条から徒步2分，ランチ（11:00-）も提供，芸術センターの展示や公演と組み合わせやすい。定休日は芸術センター休館日に準ずる。",
+      "亮点": ["旧明倫小学校教室转用カフェ", "築80年·スペイン装飾と鉾町の歴史", "四条烏丸徒步2分·ランチ·カフェ両方"],
+      "招牌菜": ["ブレンドコーヒー", "日替わりランチプレート"],
+      "地址": "京都市中京区占出山町307（阪急烏丸站·地铁四条站步行约2分钟）",
+      "营业": "11:00-18:00（L.O.17:30）；芸術センター休館日に準ずる",
+      "预约": "无需预约",
+      "到店提醒": "芸術センター休館日=定休日·祝日后日は休む場合あり；学校の廊下を歩く体験は必見",
+      "Tabelog 分数": 3.71
+    }
+  },
+  {
+    "id": "kyo_ohara_shino_shoumon",
+    "area": "ohara",
+    "near_attractions": [
+      {"entity_id": "kyo_sanzenin", "walk_min": 3},
+      {"entity_id": "kyo_jikkoin", "walk_min": 5}
+    ],
+    "tier": "mid",
+    "cuisine": ["日本料理"],
+    "recommended_meals": [{"meal": "lunch", "price_cny": [150, 300]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "志野 松門（しの しょうもん）",
+      "简介": "三千院参道沿いの築150年の古民家レストラン，旧大原郷土資料館を改装。大原野菜を使った「八菜らんち」（一汁八菜）が看板，季节の地元食材をメインに。大原三千院·実光院参拜後にそのまま歩いて入れる立地。年中無休。小红书爆款·中国游客认知度高。",
+      "亮点": ["三千院参道徒步3分·古民家ランチ", "大原野菜一汁八菜·季節感抜群", "小红书爆款·中国游客人気"],
+      "招牌菜": ["八菜らんち（一汁八菜）", "うなぎ定食（季节）"],
+      "地址": "京都市左京区大原勝林院町109（京都バス「大原」步行约5分钟）",
+      "营业": "10:30-17:00（食事·カフェL.O.16:30）；年中無休",
+      "预约": "无需预约",
+      "到店提醒": "大原は京都市中心から1小时·半日ツアー推奨；红叶シーズン激混·昼前に着くのが吉",
+      "Tabelog 分数": 3.75
+    }
+  },
+  {
+    "id": "kyo_uji_nakamura_tokichi_byodoin",
+    "area": "uji",
+    "near_attractions": [
+      {"entity_id": "kyo_byodoin", "walk_min": 3},
+      {"entity_id": "kyo_ujigami_jinja", "walk_min": 8}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [100, 200]},
+      {"meal": "cafe", "price_cny": [80, 150]}
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [3],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "中村藤吉本店 平等院店",
+      "简介": "宇治抹茶の名门·中村藤吉が平等院参道に构える直营店，平等院南門から徒步2分。平等院店限定「まるとパフェ（みどりの世界）」は宇治川の景色をモチーフにした抹茶づくしのパフェ。カフェ席は予約不可·当場入座制，旺季は混雑要注意。水曜定休。",
+      "亮点": ["中村藤吉本店·宇治抹茶名门直営", "平等院店限定パフェ「みどりの世界」", "平等院参道步行3分钟"],
+      "招牌菜": ["まるとパフェ（平等院店限定）", "抹茶パフェ", "抹茶そば"],
+      "地址": "京都府宇治市宇治蓮華5-1（京阪宇治站步行约5分钟）",
+      "营业": "銘茶10:30-17:00；カフェ10:30-17:00（L.O.16:30）；水曜定休",
+      "预约": "无需预约·当場入座",
+      "到店提醒": "旺季1時間以上の待ち有り；水曜定休注意；平等院参拜後すぐ右折",
+      "Tabelog 分数": 3.75
+    }
+  },
+  {
+    "id": "kyo_uji_tsuen_chaya",
+    "area": "uji",
+    "near_attractions": [
+      {"entity_id": "kyo_byodoin", "walk_min": 5},
+      {"entity_id": "kyo_ujigami_jinja", "walk_min": 10}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [60, 120]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "通圓（つうえん）茶屋",
+      "简介": "平治2年（1160年）创业，日本现存企業の中で10番目に古い老铺。宇治橋東詰のたもとに860年間守り続けている茶屋，建物は1672年建造。足利義政·豊臣秀吉·徳川家康が通ったと記録に残る。玉露·煎茶を上品に淹れてもらいながら和菓子とセットで頂く体験は宇治の「核心」。年中無休。",
+      "亮点": ["1160年創業·日本10番目に古い企業", "豊臣秀吉·徳川家康もここで茶を飲んだ", "宇治橋東詰·宇治の象徴風景"],
+      "招牌菜": ["玉露セット（茶葉·茶菓子付）", "煎茶セット", "わらび餅"],
+      "地址": "京都府宇治市宇治東内1（京阪宇治站步行约2分钟）",
+      "营业": "9:30-17:30（喫茶10:30-）；年中無休",
+      "预约": "无需预约",
+      "到店提醒": "宇治橋の完璧な撮影スポット·橋を背景に茶屋外观は必撮；喫茶是10:30开始",
+      "Tabelog 分数": 3.6
+    }
+  },
+  {
+    "id": "kyo_uji_fukujuen_koubou",
+    "area": "uji",
+    "near_attractions": [
+      {"entity_id": "kyo_byodoin", "walk_min": 5},
+      {"entity_id": "kyo_ujigami_jinja", "walk_min": 8}
+    ],
+    "tier": "mid",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [80, 150]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "福寿園 宇治茶工房（ふくじゅえん）",
+      "简介": "宇治川のほとり·朝霧橋たもとの体験型お茶工房，石臼でお抹茶を自分で挽いてその場で飲める（1,650円·所要40分）。Tea Room「二十帖」では源氏物語宇治十帖の部屋で一服も。单品喫茶は玉露1,100円·煎茶990円。不定休·公式サイト要確認。",
+      "亮点": ["朝霧橋たもと·宇治川眺望", "石臼挽き抹茶体験·自分で挽いた抹茶を飲む", "源氏物語宇治十帖テーマの茶室"],
+      "招牌菜": ["石臼挽き抹茶体験（1,650円）", "玉露セット", "ほうじ茶づくり体験"],
+      "地址": "京都府宇治市宇治山田10（朝霧橋たもと·京阪宇治站步行约5分钟）",
+      "营业": "10:00-17:00；不定休",
+      "预约": "体験は公式サイトから予約推奨·当日受付も可",
+      "到店提醒": "不定休·事前に公式HP要確認；石臼体験は最終受付15:30·早めに来るのが吉",
+      "Tabelog 分数": 3.5
+    }
+  },
+  {
+    "id": "kyo_takao_momijiya_kawadoko",
+    "area": "takao",
+    "near_attractions": [
+      {"entity_id": "kyo_jingoji", "walk_min": 5},
+      {"entity_id": "kyo_saimyoji", "walk_min": 10}
+    ],
+    "tier": "high",
+    "cuisine": ["川床"],
+    "recommended_meals": [
+      {"meal": "lunch", "price_cny": [300, 600]},
+      {"meal": "dinner", "price_cny": [400, 800]}
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": [4, 5, 6, 7, 8, 9],
+    "depth": "full",
+    "note": {
+      "店名": "もみぢ家（京都高雄）川床",
+      "简介": "高雄山荘·神護寺参道脇の料亭，4月-9月限定の川床は市内より3-5度凉しい渓谷の風が流れる隠れた川床名所。贵船の人気に比べ人が少なく本物の静寂がある。夏季は川床夕食に舞妓さん同席プランもあり。年中無休，川床期间（4-9月）昼·夜共に提供。",
+      "亮点": ["高雄の秘境川床·贵船より圧倒的に静か", "市内より3-5度凉しい渓谷の風", "神護寺参拜後そのまま川床ランチ"],
+      "招牌菜": ["川床懐石（季節コース）", "松茸料理（秋）", "鮎料理（夏）"],
+      "地址": "京都市右京区梅ヶ畑高雄町（JRバス·市バス「高雄」バス停すぐ）",
+      "营业": "ランチ11:00-15:00；ディナー18:00-20:30；年中無休",
+      "预约": "旺季推荐预约·电话075-871-1005",
+      "到店提醒": "川床は4-9月限定；高雄は京都市中心からバス約1時間·ハイキングコースも併用可；红叶シーズン（11月）は川床なし",
+      "Tabelog 分数": 3.7
+    }
+  },
+  {
+    "id": "kyo_nishinokyo_sansanoya_tearoom",
+    "area": "nishinokyo",
+    "near_attractions": [
+      {"entity_id": "kyo_sanzenin", "walk_min": 30}
+    ],
+    "tier": "economy",
+    "cuisine": ["甜品"],
+    "recommended_meals": [{"meal": "cafe", "price_cny": [50, 100]}],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "おしゃべりやかた・三五夜（西之京间隙茶屋）",
+      "简介": "唐招提寺·薬師寺の間·西之京エリアの地元茶屋。抹茶·甘味が中心。両寺院参拜の間の隙間に立ち寄る用途に最适。実際の営業情報は現地確認推奨。西之京动线の詳細は到店後に确认。",
+      "亮点": ["唐招提寺·薬師寺の間の隙間茶屋", "西之京観光の休憩补给ポイント", "地元雰囲気·観光色少ない"],
+      "招牌菜": ["抹茶セット", "わらび餅"],
+      "地址": "奈良市西ノ京町周辺（近鉄西ノ京站付近·唐招提寺·薬師寺の间）",
+      "营业": "营业时段以现地确认为准",
+      "预约": "无需预约",
+      "到店提醒": "西之京エリアはcity=京都ではなくcity=奈良·area=nishinokyo；現地で確認推奨"
+    }
+  }
+]

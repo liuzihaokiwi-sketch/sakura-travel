@@ -65,8 +65,6 @@
       ]
     }
   ],
-  "pace_type": "deep_stay",
-  "pace_type_sub": "onsen",
   "contingencies": {
     "rain_light": "雨天有马街道红叶+温泉烟雾更有意境，继续执行",
     "rain_heavy": "室内为主，旅馆+金汤+银汤均室内",

@@ -55,7 +55,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "旅馆怀石料理·D1 夜樱后较晚回旅馆·90 分钟"
         }
       ]
@@ -115,7 +115,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "鸟居本方向午餐·平野屋（1641 年创业·茅葺屋顶）香鱼料理 ¥6000-15000·需预约；或 % ARABICA 渡月桥店樱花季排 40-60 分钟"
         }
       ]
@@ -163,8 +163,6 @@
     }
   ],
   "variant_label": "岚山·夜樱与清晨",
-  "pace_type": "deep_stay",
-  "pace_type_sub": "deep_local",
   "contingencies": {
     "rain_light": "D1 夜樱雨中天龙寺/宝严院氛围更安静·D2 清晨竹林雨打竹叶+曹源池雨中樱花反射更柔·不改程·伞必备",
     "rain_heavy": "D1 夜樱活动可能取消（官网公告）·D2 清晨竹林照走（有伞）·曹源池从廊下看（雨天水面有涟漪反而少反射）·奥嵯峨三寺砍到只走常寂光寺 1 家·午餐改室内平野屋",

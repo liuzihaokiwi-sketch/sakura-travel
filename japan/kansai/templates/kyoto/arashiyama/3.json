@@ -78,7 +78,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "午餐选嵯峨站附近（避开渡月桥本地顶流排队）——岚山乌冬店乌冬店 Ozuru（おづる）、Mamezen 豆乳拉面、或走路 15 分钟到岚山吉兆（¥35000+ 怀石需预约）"
         }
       ]
@@ -125,8 +125,6 @@
       ]
     }
   ],
-  "time_sensitivity": "soft",
-  "time_sensitivity_note": "樱花季 10:00 后人满，早到抢空景",
   "contingencies": {
     "rain_light": "曹源池雨中倒影反而更安静；竹林湿润青苔浓——不改程",
     "rain_heavy": "曹源池从廊下看+法堂云龙图重点看；奥嵯峨三寺石阶湿滑砍到只走常寂光寺；渡月桥段缩短到桥北侧 15 分钟",

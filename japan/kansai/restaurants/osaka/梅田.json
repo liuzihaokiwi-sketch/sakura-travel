@@ -1,0 +1,1117 @@
+[
+  {
+    "id": "osk_umeda_kamatake",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 8
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          110
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "釜たけうどん 新梅田食道街店",
+      "简介": "梅田高架下新梅田食道街里的乌冬名店，面快卖完就关门。关西风清汤出汁浓而不咸，手揉乌冬筋道有嚼劲——这碗的质量不输专门老铺。午间排队 20-40 分钟是常态，带着「这家值得等」的心态来，不会失望。",
+      "亮点": [
+        "高架下隐藏名店",
+        "手揉乌冬筋道",
+        "卖完即关·限量感"
+      ],
+      "招牌菜": [
+        "ぶっかけうどん（凉拌乌冬·¥700 起）",
+        "温玉ぶっかけ（温泉蛋拌乌冬·¥800 起）"
+      ],
+      "地址": "大阪市北区角田町 9-25 JR 大阪駅高架下 新梅田食道街 1F（大阪站徒步约 3 分）",
+      "营业": "11:00-20:30（LO 20:00）；面售完即关；无固定定休",
+      "预约": "不接受预约，散客现场",
+      "到店提醒": "11:00 开门最稳；旺季 14:00 前后可能已售完；周末高峰等 30-40 分钟"
+    }
+  },
+  {
+    "id": "osk_umeda_mixjuice",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "咖啡"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "cafe",
+        "price_cny": [
+          15,
+          30
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖大阪梅田ミックスジュース 本店",
+      "简介": "阪神梅田站内的大阪混合果汁传奇，¥300 一杯，香蕉+橘子+牛奶+奶油现打，稠到要用吸管戳几下才能喝动。大阪人从小喝到大的味道，外地游客来了总要喝一杯才算到过梅田。7 点开门，赶新干线前买一杯上路，完美。",
+      "亮点": [
+        "大阪混合果汁鼻祖",
+        "¥300 阪神名物",
+        "7:00 开门·赶车族首选"
+      ],
+      "招牌菜": [
+        "ミックスジュース（混合果汁·¥300）"
+      ],
+      "地址": "大阪市北区梅田 1-1 阪神大阪梅田駅構内（梅田站·阪神百货地下·即到）",
+      "营业": "7:00-22:00；无休",
+      "预约": "无需预约，站食",
+      "到店提醒": "出发当天早晨来一杯是大阪旅行的正确收尾方式"
+    }
+  },
+  {
+    "id": "osk_umeda_udonyutaro",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_midosuji",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "breakfast",
+        "price_cny": [
+          50,
+          90
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          110
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [
+      7
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Udon Kyutaro",
+      "简介": "早上 7 点开门的乌冬店，在本町办公区，是上班族的晨食据点。关西风出汁清澈见底，面条现煮筋道，¥700-900 就能吃好一顿。旅行者不常来这个区域，但如果你住在心斋桥附近，早起来这里吃一顿比酒店早餐有趣得多。",
+      "亮点": [
+        "7:00 开门早食",
+        "上班族本地据点",
+        "关西出汁出色"
+      ],
+      "招牌菜": [
+        "温玉釜玉（温泉蛋釜玉乌冬·¥800）",
+        "ぶっかけ（凉拌乌冬·¥750）"
+      ],
+      "地址": "大阪市中央区久太郎町 3-1-16 丼池繊維会館 102 南（地铁中央線·四つ橋線「本町」站 5 号出口徒步约 3 分）",
+      "营业": "7:00-10:00（朝食）/ 11:00-15:00（昼食）；日曜定休",
+      "预约": "不接受预约",
+      "到店提醒": "仅早市+午市，下午不营业；本町而非梅田，步行或乘地铁约 10 分钟",
+      "Tabelog 分数": 3.8
+    }
+  },
+  {
+    "id": "osk_umeda_irizubashi",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "甜品"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "cafe",
+        "price_cny": [
+          30,
+          60
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "出入橋金鍔屋（でいりばしきんつばや）",
+      "简介": "梅田最古老的和菓子店之一，金鍔（きんつば）是招牌——薄薄面皮裹着整块红豆馅，铁板现烤，表皮微脆内馅绵密。旁边是出入橋，大阪人随手买一两个坐在桥边吃，是最日常的梅田风景。游客来了往往一次买半打。",
+      "亮点": [
+        "梅田老铺和菓子",
+        "铁板现烤金鍔",
+        "外带桥边吃·本地日常"
+      ],
+      "招牌菜": [
+        "金鍔（きんつば·约 ¥200 一个）",
+        "季节和菓子"
+      ],
+      "地址": "大阪市北区梅田 1 丁目（出入橋交差点そば·大阪站徒步约 8 分）",
+      "营业": "营业时段以官网为准",
+      "预约": "无需预约",
+      "Tabelog 分数": 3.71
+    }
+  },
+  {
+    "id": "osk_umeda_numata",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "寿司",
+      "日本料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          1500,
+          3000
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          3000,
+          6000
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ぬま田",
+      "简介": "Tabelog 4.41 分，梅田最高评分寿司店之一，以单品江户前握寿司见长，食材来自精挑细选的日本各地，师傅功力深厚。梅田区域 showcase 首选，大阪美食金字塔顶端之一。需提前数月预约，是「大阪旅行必吃一顿顶级寿司」的最佳答案。",
+      "亮点": [
+        "Tabelog 4.41",
+        "梅田最高评分寿司",
+        "单品江户前握寿司"
+      ],
+      "招牌菜": [
+        "おまかせ寿司全套（晚 ¥30,000 起）",
+        "昼寿司套（¥15,000 起）"
+      ],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 10 分钟",
+      "营业": "12:00-14:00 / 18:00-21:30，不定休",
+      "预约": "必须预约，提前 2-3 个月，Omakase 或电话"
+    }
+  },
+  {
+    "id": "osk_umeda_sushi_osaka_organic",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "寿司"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          500,
+          1000
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          800,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "SUSHI OSAKA Organic（スシ オオサカ オーガニック）",
+      "简介": "Tabelog 3.83 分，梅田有机食材寿司店，以「无农药蔬菜+可持续渔业食材」为卖点，为寿司带来清爽的可持续理念。食材新鲜度高，午市性价比突出，是健康意识强的旅行者的理想选择。",
+      "亮点": [
+        "Tabelog 3.83",
+        "有机食材寿司",
+        "可持续渔业理念"
+      ],
+      "招牌菜": [
+        "有机主厨套餐（昼 ¥3,500）",
+        "单品握寿司"
+      ],
+      "地址": "大阪市北区梅田周边，地铁梅田站步行约 10 分钟",
+      "营业": "11:30-14:30 / 18:00-22:00，周一不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_makino",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧鸟"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "まき埜（まきの）",
+      "简介": "Tabelog 3.74 分的梅田炭火烧鸟店，以炭火慢烤地鸡串为招牌，配地酒享用，是梅田夜食最舒服的选择之一。不过于正式，适合大阪最后一晚轻松的告别饭。",
+      "亮点": [
+        "Tabelog 3.74",
+        "炭火地鸡串",
+        "梅田夜食轻松氛围"
+      ],
+      "招牌菜": [
+        "炭火地鸡串盛合せ（约 ¥2,000）",
+        "地酒配对"
+      ],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "17:30-24:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_kichizo",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧鸟"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          500,
+          1000
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭火焼鳥 きち蔵（たんびやきとり きちぞう）",
+      "简介": "Tabelog 3.74 分，梅田严选炭火烧鸟居酒屋，地鸡品质高，炭火控火精准，每串都精心呈现。梅田烧鸟选择多，这家胜在食材稳定+师傅用心。适合大阪夜晚细嚼慢品的那顿。",
+      "亮点": [
+        "Tabelog 3.74",
+        "严选地鸡炭火精烤",
+        "梅田稳定口碑"
+      ],
+      "招牌菜": [
+        "腿肉/颈肉/皮串各一（推荐组合约 ¥2,500）",
+        "鸡白汤锅締め"
+      ],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "17:00-24:00，周日不定休",
+      "预约": "推荐预约"
+    }
+  },
+  {
+    "id": "osk_umeda_ramen_jet",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ラーメン人生JET（らーめんじんせいジェット）",
+      "简介": "Tabelog 3.77 分，梅田人气拉面店，以浓厚酱油系汤底配细直面，大阪旅行者中极有口碑。店名「人生JET」有点戏谑，但认真做每一碗面的态度没有玩笑。排队是常态。",
+      "亮点": [
+        "Tabelog 3.77",
+        "梅田人气浓厚酱油拉面",
+        "食客口碑极稳"
+      ],
+      "招牌菜": [
+        "特制酱油拉面（约 ¥900）",
+        "浓厚限定款"
+      ],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 8 分钟",
+      "营业": "11:30-15:00 / 18:00-22:00（售罄即止），不定休",
+      "预约": "无需预约，建议 11:30 开门即到"
+    }
+  },
+  {
+    "id": "osk_umeda_boul_mich",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "面包",
+      "咖啡"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ブーランジェリー ブルディガラ 大阪店（Boulangerie Burdigala）",
+      "简介": "Tabelog 3.77 分，法国老铺面包连锁大阪旗舰，以天然酵母法棍和可颂为核心，是梅田区域面包党必朝圣的选择。早市和午市面包最新鲜，节假日可能售罄。",
+      "亮点": [
+        "Tabelog 3.77",
+        "天然酵母法棍可颂",
+        "梅田面包党首选"
+      ],
+      "招牌菜": [
+        "天然酵母法棍（约 ¥300）",
+        "可颂（约 ¥250）",
+        "三明治午餐套（约 ¥800）"
+      ],
+      "地址": "大阪市北区梅田周边，JR 大阪站步行约 5 分钟（大丸梅田店内）",
+      "营业": "10:00-20:00（百货店节假日延长），无定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_kitashinchi_suntory_whisky",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tenjinbashi",
+        "walk_min": 8
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "威士忌酒吧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "bar",
+        "price_cny": [
+          120,
+          350
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Suntory Whisky House・北新地 水響亭（サントリーバー＆ダイニング 北新地 水響亭）",
+      "简介": "三得利旗下北新地正式酒吧，格局比梅田 Grand Front 的 Whisky House 更沉稳私密，提供世界 Top 5 威士忌飲み放题特别方案与 100+ 瓶单一麦芽；个室完备，适合商务与收工后两人细饮。北新地 11-41 出口步行 1 分。",
+      "亮点": [
+        "三得利官方酒吧",
+        "北新地核心",
+        "100+ 单一麦芽",
+        "个室可用"
+      ],
+      "招牌菜": [
+        "世界 Top 5 威士忌飲み放题方案",
+        "山崎/响/白州年份表达"
+      ],
+      "地址": "大阪市北区堂島 北新地駅 11-41 出口徒步约 1 分",
+      "营业": "17:30-23:00（周五六延至 23:30）；以官网为准",
+      "预约": "建议提前预约；TableCheck/官网可约",
+      "到店提醒": "北新地周边还有 Bar K（bar-k.jp）等多家优质独立酒吧，水響亭更适合初访者"
+    }
+  },
+  {
+    "id": "osk_umeda_uoi_unagi",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 8
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "鳗鱼"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          300,
+          450
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "魚伊（うおい）本店",
+      "简介": "大阪老舗鳗鱼专门店·关西风「直焼き」代表·皮パリッと身ふっくら不蒸蒸直接炭烤·能吃出关西派蒲烧的本味。「うな玉丼」（鳗鱼+出汁卷玉子）是名物·梅田一带性价比最高的真鳗。Tabelog 3.65+。营业 11:00 开门 30 分钟前到最稳。",
+      "亮点": [
+        "关西风直焼鳗代表",
+        "Tabelog 3.65+",
+        "うな玉丼名物",
+        "性价比高真鳗",
+        "本地公司职员午饭据点"
+      ],
+      "招牌菜": [
+        "うな玉丼（出汁卷+鳗鱼·¥3,800）",
+        "上うな丼（¥4,500）"
+      ],
+      "地址": "大阪市生野区林寺 1-5-19（JR 桃谷站 徒步 5 分；梅田移动 20 分）",
+      "营业": "11:00-15:00 / 17:00-20:00；水曜定休",
+      "预约": "推荐预约；散席可现场",
+      "到店提醒": "11:00 开门前到最稳；现金/卡都可"
+    }
+  },
+  {
+    "id": "osk_umeda_chikuyotei",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "鳗鱼"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 竹葉亭（ちくようてい）大阪ステーションシティ店",
+      "简介": "江户末期东京浅草河岸创业·昭和初期进军关西·百年江户前鳗鱼名店。江户流活鳗白烧后蒸·再多次刷秘传タレ烤·与关西派直焼形成鲜明对比。大阪站直结·商务接待性价比首选·Tabelog 3.6+。是「大阪也能吃到正宗江户前鳗」的代表。",
+      "亮点": [
+        "江户末期百年老铺",
+        "江户流蒸+烧工艺",
+        "大阪站直结便利",
+        "Tabelog 3.6+",
+        "商务接待友好"
+      ],
+      "招牌菜": [
+        "うな重 松（¥4,800）",
+        "ひつまぶし（¥5,500）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 大丸梅田店 14F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-22:00；不定休（百货休日）",
+      "预约": "推荐预约·一休",
+      "到店提醒": "百货闭店日（不定）需查；午市排队 15 分钟内"
+    }
+  },
+  {
+    "id": "osk_umeda_kikukawa_unagi",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 4
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "鳗鱼"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          300,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "うなぎ四代目菊川（ヒルトンプラザウエスト店）",
+      "简介": "1932 年创业的名古屋鳗鱼老问屋第四代经营·90 多年鳗鱼批发功底·当面调理保鲜度。看板的「一本鳗」（整条鳗鱼一份）是体验担当·名古屋名物「ひつまぶし」（三吃法）也能完整呈现。梅田站徒步 5 分商务区·Tabelog 3.6+。",
+      "亮点": [
+        "1932 年名古屋老问屋",
+        "Tabelog 3.6+",
+        "一本鳗看板（整条鳗）",
+        "ひつまぶし三吃",
+        "梅田商务区便利"
+      ],
+      "招牌菜": [
+        "一本鳗（整条·¥6,800）",
+        "ひつまぶし（¥4,500）",
+        "白烧（¥5,500）"
+      ],
+      "地址": "大阪市北区梅田 2-2-2 ヒルトンプラザウエスト B2F（JR 大阪駅 徒步 4 分）",
+      "营业": "11:00-23:00；不定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "一本鳗需提前预约（仅当日鲜活）"
+    }
+  },
+  {
+    "id": "osk_umeda_tsuruya_unagi",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "鳗鱼"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          180,
+          320
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "つる家 大丸梅田店",
+      "简介": "明治 41 年（1908）创业·116 年江户焼鳗老铺。秘伝タレじっくり煮烤·身ふっくら皮パリッ·一品+うな丼+ひつまぶし+鳗会席+儿童便当线齐全。大丸梅田 14F 百货 floor·闲适开放氛围·适合家庭餐。Tabelog 3.5+。",
+      "亮点": [
+        "明治 41 年（1908）创业",
+        "百年江户焼鳗",
+        "秘伝タレ深煮",
+        "家庭餐+商务餐通吃",
+        "大丸梅田直结"
+      ],
+      "招牌菜": [
+        "うな丼（¥3,200）",
+        "鳗鱼会席（¥7,800）",
+        "ひつまぶし（¥4,200）"
+      ],
+      "地址": "大阪市北区梅田 3-1-1 大丸梅田店 14F（JR 大阪駅 徒步 2 分）",
+      "营业": "11:00-22:00；百货休日",
+      "预约": "无需预约·散席可现场",
+      "到店提醒": "百货闭店日不定·查官网；儿童套餐有"
+    }
+  },
+  {
+    "id": "osk_umeda_kitanozaka",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          700
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "焼肉 北野坂（きたのざか）梅田店",
+      "简介": "神户北野坂烧肉本店的梅田分店·神户牛 A5 等级专门·一头买入精细分割。烧肉+赤身寿司双线作业·店主在前精细分切。Tabelog 3.6+·梅田 high 档烧肉代表·商务餐+情侣餐双轨。",
+      "亮点": [
+        "神户牛 A5 一头买入",
+        "Tabelog 3.6+",
+        "烧肉+赤身寿司",
+        "梅田 high 档代表",
+        "情侣餐+商务餐"
+      ],
+      "招牌菜": [
+        "おまかせコース（¥15,000）",
+        "上カルビ（¥4,800）",
+        "赤身ユッケ寿司（¥1,800）"
+      ],
+      "地址": "大阪市北区梅田 1-3-1（JR 大阪駅 徒步 4 分）",
+      "营业": "夜 17:00-23:00；不定休",
+      "预约": "必约·一休/食べログ",
+      "到店提醒": "赤身寿司必点；情侣局推荐 8 席小室"
+    }
+  },
+  {
+    "id": "osk_umeda_aijo_motsunabe",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          250
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "炭火炉端 ROBATAYA 梅田",
+      "简介": "梅田站附近本格炉端烧·围炉裏式厨台·大叔用长柄木铲递鱼。北海道海产+九州霜降肉+各地野菜按季节切·烤+吃形成戏剧节奏。本地公司职员带客必去之处·氛围+味道+性价比三件套·Tabelog 3.5+。",
+      "亮点": [
+        "围炉裏式厨台",
+        "北海道海产+九州肉",
+        "本地接待据点",
+        "Tabelog 3.5+",
+        "氛围+味道双修"
+      ],
+      "招牌菜": [
+        "炉端烧おまかせ（¥4,500/人）",
+        "ホタルイカ酢味噌（季节）"
+      ],
+      "地址": "大阪市北区曽根崎 2-3（JR 大阪駅 徒步 5 分）",
+      "营业": "夜 17:00-24:00；无定休",
+      "预约": "推荐预约",
+      "到店提醒": "围炉裏吧台是必坐；当日海产看黑板"
+    }
+  },
+  {
+    "id": "osk_umeda_lucua_matsuba",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "松葉（まつば）LUCUA 大阪店",
+      "简介": "1949 年创业大阪串炸老铺·LUCUA 大阪 B2 立食店。**站着吃**·快·一串 ¥150-300·点几串吃几串·关西人下班据点。牛肉/莲藕/海老等 30+ 种·配生啤一杯最对。LUCUA 紧邻 JR 大阪站·赶车线最方便。Walk-in 不预约。Tabelog 3.55+。",
+      "亮点": [
+        "1949 年大阪串炸老铺",
+        "LUCUA 立食店",
+        "JR 大阪站直结",
+        "一串 ¥150-300",
+        "Tabelog 3.55+"
+      ],
+      "招牌菜": [
+        "牛串（¥250）",
+        "莲藕串（¥180）",
+        "海老串（¥320）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 LUCUA 大阪 B2F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-23:00；不定休",
+      "预约": "无需预约·立食 walk-in",
+      "到店提醒": "下班 18-20 点最挤；中午 11:30 前最静"
+    }
+  },
+  {
+    "id": "osk_umeda_aiduya_radio",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "会津屋 梅田三小路店（ラヂオ焼）",
+      "简介": "1933 年大阪章鱼烧发祥店「会津屋」的梅田三小路分店——JR 大阪站樱橋口对面 1 分钟。**ラヂオ焼**（牛筋+蒟蒻·章鱼烧前身）+ 元祖たこ焼（不沾酱·无柴鱼片美乃滋）·米其林 Bib 认可。8 個 ¥800 起·赶车前快速吃一份最对。Walk-in。",
+      "亮点": [
+        "1933 年章鱼烧发祥店",
+        "梅三小路·大阪站徒步 1 分",
+        "元祖たこ焼+ラヂオ焼",
+        "米其林 Bib 认可",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "元祖たこ焼（8 個 ¥800）",
+        "ラヂオ焼（牛筋+蒟蒻·6 個 ¥700）"
+      ],
+      "地址": "大阪市北区梅田 3-1（JR 大阪駅 桜橋口 徒步 1 分）",
+      "营业": "10:00-22:00；不定休",
+      "预约": "无需预约",
+      "到店提醒": "立食/带走两选；早上 10-11 点最空"
+    }
+  },
+  {
+    "id": "osk_umeda_eki_marche",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "日本料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "breakfast",
+        "price_cny": [
+          40,
+          100
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          120
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "EKI MARCHE OSAKA（大阪站直结美食街）",
+      "简介": "JR 大阪站桜橋口直结的车站美食街——20+ 家小店集合·拉面/咖啡/牛舌/和食/汉堡都有。一幸舎博多拉面 ¥980·利久牛舌 ¥1,800·泡盛屋早酒等·8:00 开始的早班动线最稳。**Walk-in 不预约·全店刷卡**·赶新干线/特急最方便。",
+      "亮点": [
+        "JR 大阪站桜橋口直结",
+        "20+ 家小店集合",
+        "8:00 开始营业",
+        "拉面/牛舌/和食/咖啡都有",
+        "Walk-in·刷卡"
+      ],
+      "招牌菜": [
+        "一幸舎 博多拉面（¥980）",
+        "利久 牛舌定食（¥1,800）",
+        "泡盛屋 早酒（¥800）"
+      ],
+      "地址": "大阪市北区梅田 3-1-1 EKI MARCHE OSAKA（JR 大阪駅 桜橋口 徒步 1 分）",
+      "营业": "10:00-22:00（早部分店 8:00 开门）；不定休",
+      "预约": "无需预约",
+      "到店提醒": "赶车前 30 分钟入·8:00 早班店最静"
+    }
+  },
+  {
+    "id": "osk_umeda_jojoen",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "烧肉"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          700
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "叙々苑 LUCUA 大阪店",
+      "简介": "叙々苑大阪 LUCUA 分店·梅田站直结·关西 high 档烧肉据点。**叙々苑サラダ+特撰カルビ+冷麺**经典套餐午市 ¥3,500 起·夜市 ¥7,500 起。Tabelog 3.5+·中国人也熟知的日本烧肉品牌·赶车前/购物中场休息正餐都对。Walk-in 但旺季排 20-30 分。",
+      "亮点": [
+        "梅田站直结 LUCUA",
+        "叙々苑经典套餐",
+        "Tabelog 3.5+",
+        "关西 high 档便利据点",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "叙々苑サラダ（¥1,200）",
+        "特撰カルビ（¥4,800）",
+        "冷麺（〆·¥1,200）"
+      ],
+      "地址": "大阪市北区梅田 3-1-3 LUCUA 大阪 10F（JR 大阪駅 徒步 1 分）",
+      "营业": "11:00-23:00；无定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "中午+晚饭排 15-30 分；午市套餐限到 14:30"
+    }
+  },
+  {
+    "id": "osk_umeda_motsunabe_yamana",
+    "area": "梅田",
+    "near_attractions": [
+      {
+        "entity_id": "osk_umeda_sky",
+        "walk_min": 5
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "居酒屋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          280
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "もつ鍋 山名（やまな）梅田",
+      "简介": "梅田站徒步 5 分博多もつ鍋专门·11-3 月解禁期最对。**白味噌+赤味噌+鸡白汤三种汤底**·鲜九州牛大肠+卷心菜+韭菜·〆是面或饭。Tabelog 3.6+·关西冬季夜食 DNA·游客和本地人混着坐。",
+      "亮点": [
+        "梅田站徒步 5 分",
+        "博多もつ鍋专门",
+        "三种汤底",
+        "Tabelog 3.6+",
+        "冬季 11-3 月最对"
+      ],
+      "招牌菜": [
+        "もつ鍋 白味噌（¥1,800/人）",
+        "もつ鍋 鸡白汤（¥2,000/人）"
+      ],
+      "地址": "大阪市北区曽根崎（JR 大阪駅 徒步 5 分）",
+      "营业": "夜 17:00-23:00；无定休",
+      "预约": "推荐预约·一休",
+      "到店提醒": "11-3 月最对；夏季也开但氛围差;〆面+米饭都试"
+    }
+  }
+]

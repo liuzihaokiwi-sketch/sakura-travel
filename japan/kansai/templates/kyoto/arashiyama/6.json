@@ -90,7 +90,7 @@
         {
           "type": "meal",
           "meal_type": "lunch",
-          "meal_area": "arashiyama_sagano",
+          "meal_area": "arashiyama",
           "note": "奥嵯峨返程方向午餐（避开渡月桥周边红叶季排队 60+ 分钟）——岚山乌冬店乌冬店 Ozuru（おづる）、嵯峨豆腐森嘉（10:00 开门·汤豆腐红叶季提前预约）"
         }
       ]
@@ -125,8 +125,6 @@
       ]
     }
   ],
-  "time_sensitivity": "soft",
-  "time_sensitivity_note": "红叶季早到抢空景",
   "contingencies": {
     "rain_light": "红叶+雨水是高级画面·竹林青苔浓+红叶更红·不改程但伞+防滑鞋必备",
     "rain_heavy": "曹源池从廊下看+法堂云龙图重点·奥嵯峨三寺石阶湿滑砍到只走常寂光寺·宝严院室内改为重点",

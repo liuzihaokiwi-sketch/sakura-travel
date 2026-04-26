@@ -1,0 +1,546 @@
+[
+  {
+    "id": "osk_dotonbori_imai",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 3
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [
+      3
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "道頓堀今井（どうとんぼり いまい）",
+      "简介": "1946 年开业的道顿堀乌冬老铺，用昆布和柴鱼熬制的关西风出汁是核心——清澈、甘甜、绝不咸。老铺装潢、榻榻米包间、端庄的服务，是道顿堀吃货街里最不「游客」的一家。本地人来这里吃的是老铺气韵，不是猎奇。",
+      "亮点": [
+        "1946 年老铺",
+        "关西风清汤出汁",
+        "道顿堀最有格调的乌冬"
+      ],
+      "招牌菜": [
+        "きつねうどん（狐乌冬·¥950）",
+        "海老天ぷらうどん（虾天妇罗乌冬·¥1,700）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-7-22（地铁御堂筋線「難波」站 14 号出口徒步约 3 分）",
+      "营业": "11:30-20:30（LO 20:00）；水曜定休",
+      "预约": "不接受预约，散客现场；平日午间等候约 10-20 分钟",
+      "到店提醒": "11:30 开门即到几乎不排队；包间需人数满足方可入座；近法善寺横丁适合饭后散步"
+    }
+  },
+  {
+    "id": "osk_dotonbori_mizuno",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          100,
+          180
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "美津の（みづの）",
+      "简介": "道顿堀大阪烧的老铺教科书，1945 年开业。山芋泥打底的面糊蓬松绵软，配料随季节变化，但定番的豚玉和海鲜烧永远是核心。铁板前坐下、看师傅翻面、出炉时刷酱撒粉——这个过程比吃本身更治愈。",
+      "亮点": [
+        "1945 年老铺",
+        "山芋泥面糊蓬松",
+        "道顿堀大阪烧标杆"
+      ],
+      "招牌菜": [
+        "豚玉（猪肉鸡蛋·¥1,000 起）",
+        "海鮮烧（¥1,300 起）",
+        "ミックス烧（混合·¥1,400 起）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-4-15（地铁御堂筋線「難波」站 14 号出口徒步约 3 分）",
+      "营业": "11:00-22:00（LO 21:00）；无休",
+      "预约": "不接受预约，散客现场排队",
+      "到店提醒": "周末午餐排队 40-60 分钟；平日 15:00-17:00 空档进店最快；外国客可用英文菜单",
+      "Tabelog 分数": 3.56
+    }
+  },
+  {
+    "id": "osk_dotonbori_kinryu",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 1
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          50,
+          80
+        ]
+      },
+      {
+        "meal": "lunch",
+        "price_cny": [
+          50,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "金龍ラーメン 道頓堀店",
+      "简介": "24 小时营业，道顿堀的深夜拉面据点。猪骨清汤、细面、泡菜免费自取——不是最精致的一碗，但凌晨 2 点逛完道顿堀饿了走进来，那碗面会是这趟旅行里最有记忆点的一顿。格力高跑者招牌就在斜对面，吃完出来拍照，完美收尾。",
+      "亮点": [
+        "24 小时营业",
+        "泡菜免费自取",
+        "道顿堀格力高前最佳深夜食堂"
+      ],
+      "招牌菜": [
+        "金龍ラーメン（猪骨清汤·¥750）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-7-26（道顿堀·格力高招牌前即到）",
+      "营业": "24 小时；年中无休",
+      "预约": "无需预约",
+      "到店提醒": "深夜 22:00 后人少最舒适；泡菜桶自助；站食吧台为主，翻台快",
+      "Tabelog 分数": 3.49
+    }
+  },
+  {
+    "id": "osk_dotonbori_chibo",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 2
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "大阪烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          180
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          130,
+          230
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "千房 道頓堀ビル店（ちぼ）",
+      "简介": "1973 年创业的大阪烧连锁旗舰，道顿堀本店占据独栋 6 层。比美津の贵一档，但有包间、服务更体面，适合不想排队站食的用餐场景。面糊配方经过十余次改良，加入山芋和高汤，口感绵实不散。",
+      "亮点": [
+        "1973 年创业旗舰店",
+        "6 层独栋·包间可选",
+        "山芋高汤面糊"
+      ],
+      "招牌菜": [
+        "豚玉（¥1,200 起）",
+        "千房特制大阪烧（¥1,600 起）",
+        "道顿堀混合烧"
+      ],
+      "地址": "大阪市中央区道頓堀 1-5-5 千房道頓堀ビル 1-6F（難波站 14 号出口徒步约 3 分）",
+      "营业": "11:00-23:00（LO 22:00）；不定休",
+      "预约": "推荐预约，官网或 HotPepper；周末晚间建议提前 1 天",
+      "Tabelog 分数": 3.16
+    }
+  },
+  {
+    "id": "osk_dotonbori_kushikatsu_daruma",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_namba",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          60,
+          120
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "串炸达摩 法善寺店（くしかつ だるま）",
+      "简介": "连锁串炸达摩在道顿堀区有多家门店，法善寺横丁店位置最有氛围感。串炸单串 ¥120-300，站食或坐食均可。「二度漬け禁止」（酱料桶不许蘸两次）的大阪串炸铁则在这里执行最严——服务员会温柔地提醒你。",
+      "亮点": [
+        "串炸连锁标杆",
+        "法善寺横丁氛围加分",
+        "「二度漬け禁止」铁则体验"
+      ],
+      "招牌菜": [
+        "黑毛和牛串（¥300）",
+        "蔬菜拼盘（¥200 起）",
+        "拼盘套餐（午间 ¥1,000 起）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-6-4（法善寺横丁入口·難波站徒步约 5 分）",
+      "营业": "营业时段以官网为准；各门店时段略有差异",
+      "预约": "部分门店可预约，法善寺店建议现场",
+      "到店提醒": "法善寺横丁本身值得饭后散步 10 分钟；旺季排队 20-30 分钟"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kukuru",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "たこ家道頓堀 くくる（たこやどうとんぼり くくる）",
+      "简介": "道顿堀最具代表性的章鱼烧店之一，外皮酥脆内流动，配特制酱汁和柴鱼片。红色霓虹招牌在道顿堀街道拍照极有辨识度。比会津屋口感更「现代」，更迎合中国游客口味，排队 20-40 分钟是常态。",
+      "亮点": [
+        "道顿堀章鱼烧代表",
+        "酥脆外皮流心内馅",
+        "道顿堀打卡必吃"
+      ],
+      "招牌菜": [
+        "章鱼烧 8 个（约 ¥700）",
+        "明石风章鱼烧"
+      ],
+      "地址": "大阪市中央区道頓堀 1-10-5，地铁難波站步行约 3 分钟",
+      "营业": "10:00-22:00，全年无休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_dotonbori_daruma",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "osk_hozenji_yokocho",
+        "walk_min": 3
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "串炸"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "元祖串かつ だるま 道頓堀店（もとぐし くしかつ だるま どうとんぼりてん）",
+      "简介": "1929 年创业新世界发祥的串炸名店道顿堀分店。「二度づけ禁止」（酱汁不准蘸两次）是全日本知名的规矩。道顿堀本店位置最方便，适合观光动线中顺路来一顿。Tabelog 3.48，但作为大阪串炸文化代表，历史地位不可取代。",
+      "亮点": [
+        "1929 年新世界发祥串炸",
+        "二度づけ禁止文化规矩",
+        "道顿堀最方便位置"
+      ],
+      "招牌菜": [
+        "串炸单点（约 ¥100-200/串）",
+        "套餐 10 串（约 ¥1,200）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-6-8，地铁難波站步行约 3 分钟",
+      "营业": "平日 11:00-22:30，周末 10:30-22:30，全年无休",
+      "预约": "不可预约"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kani_genka",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 3
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "松叶蟹"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          250,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          700
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 かに源（カニゲン）道頓堀店",
+      "简介": "道頓堀的ずわい蟹食べ放題专门店·90 分钟自助。¥4,980（俄罗斯产）/ ¥5,980（加拿大产）/ ¥6,980（北海道产）/ ¥7,980（阿拉斯加产）四档蟹·套餐含蟹すき鍋·寿司·天妇罗·扇贝·章鱼烧·咖喱饭+饮料 buffet。**想吃饱蟹的最佳选项**·比かに道楽 ¥7,000+ 单点更划算。Walk-in 推荐预约高峰期。",
+      "亮点": [
+        "ずわい蟹 90 分钟食べ放題",
+        "¥4,980 起 4 档蟹",
+        "套餐含寿司+天妇罗+蟹すき",
+        "想吃饱蟹首选",
+        "Walk-in/推荐预约"
+      ],
+      "招牌菜": [
+        "ずわい蟹食べ放題 ロシア产（¥4,980）",
+        "ずわい蟹食べ放題 北海道产（¥6,980）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-7-25（地铁难波駅 徒步 4 分）",
+      "营业": "11:00-22:00（LO 21:00）；无定休",
+      "预约": "推荐预约·一休/电话",
+      "到店提醒": "蟹季 11-3 月最对；非蟹季也开但产地以冰冻为主"
+    }
+  },
+  {
+    "id": "osk_dotonbori_kanidoraku_main",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 1
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "松叶蟹"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          350
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          350,
+          600
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "かに道楽 道頓堀本店",
+      "简介": "1962 年开业·道顿堀**巨大动蟹招牌的发明者**·关西「来大阪要看蟹招牌」的 DNA 食物。1960 年代日本海+鄂霍茨克海活ズワイガニ严选·会席套餐 ¥4,000-7,000。**味道在蟹专门店里只算一般·但氛围+招牌+本店仪式感是关西旅游打卡核心**。蟹包子（かにまん）店头独立卖能边走边吃。诚实告诉用户：吃饱蟹去かに源·要打卡看招牌+体验老铺氛围来这家。Tabelog 3.21。",
+      "亮点": [
+        "1962 年开业·巨大动蟹招牌发明者",
+        "道顿堀地标·关西旅游 DNA",
+        "蟹包子（かにまん）店头独立卖",
+        "活ズワイ严选会席",
+        "诚实标注：味道一般·氛围/打卡为主"
+      ],
+      "招牌菜": [
+        "蟹包子（かにまん）¥600/個",
+        "活蟹会席 松（¥9,800）",
+        "焼蟹会席 竹（¥6,800）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-6-18（地铁难波駅 徒步 5 分）",
+      "营业": "11:00-22:00（LO 21:00）；无定休",
+      "预约": "推荐预约·一休·当日 walk-in 也常空",
+      "到店提醒": "**吃饱蟹首选かに源·这家来打卡看招牌+蟹包子**；店头蟹包子可不进店买"
+    }
+  },
+  {
+    "id": "osk_dotonbori_takoyaki_kukuru",
+    "area": "道顿堀",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 1
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "章鱼烧"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          40,
+          80
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          40,
+          80
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "high",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "たこ家道頓堀くくる 本店",
+      "简介": "1990 年代道顿堀章鱼烧老牌·**「びっくりたこ」（巨大章鱼脚露出来的章鱼烧）**是看板。8 個 ¥780·店头立食+座席。Tabelog 3.4+·道顿堀觅食打卡线必到。Walk-in 排 15-30 分。",
+      "亮点": [
+        "「びっくりたこ」巨大章鱼脚",
+        "道顿堀觅食打卡",
+        "8 個 ¥780",
+        "店头立食/座席",
+        "Walk-in"
+      ],
+      "招牌菜": [
+        "びっくりたこ（8 個·¥780）",
+        "ねぎマヨたこ焼（¥850）"
+      ],
+      "地址": "大阪市中央区道頓堀 1-10-5（地铁难波駅 徒步 3 分）",
+      "营业": "11:00-22:00；无定休",
+      "预约": "无需预约",
+      "到店提醒": "店头排 15-30 分；带走立食都对"
+    }
+  }
+]

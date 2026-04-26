@@ -1,0 +1,239 @@
+[
+  {
+    "id": "osk_osakajo_circo_doro",
+    "area": "大阪城",
+    "near_attractions": [
+      {
+        "entity_id": "osk_osaka_castle",
+        "walk_min": 12
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "意大利料理",
+      "冰淇淋"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          150,
+          300
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ジェラテリア チルコドーロ（Gelateria Circo d'Oro）",
+      "简介": "大阪城公园内最受欢迎的意式冰淇淋小店，Tabelog 3.85 分。用本地食材制作的当季口味每次不同，是逛完大阪城后最自然的一站歇脚点。座位在公园内草坪边，夏天尤其清爽。",
+      "亮点": [
+        "大阪城公园内",
+        "Tabelog 3.85",
+        "当季本地食材冰淇淋"
+      ],
+      "招牌菜": [
+        "当季意式冰淇淋双球（约 ¥500）"
+      ],
+      "地址": "大阪市中央区大阪城公园内（大阪城 JO-TERRACE 内），JR 大阪城公园站步行约 5 分钟",
+      "营业": "11:00-19:00（季节调整，以现场为准），不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_ubara",
+    "area": "大阪城",
+    "near_attractions": [
+      {
+        "entity_id": "osk_osaka_castle",
+        "walk_min": 10
+      }
+    ],
+    "tier": "mid",
+    "cuisine": [
+      "乌冬"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          100,
+          200
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "うどん うばら",
+      "简介": "Tabelog 3.74 分的大阪城周边乌冬店，关西风出汁清甜，配料扎实。大阪城观光后步行即达，价格亲民，是景点区难得的本地水准乌冬。",
+      "亮点": [
+        "Tabelog 3.74",
+        "大阪城步行圈",
+        "关西出汁乌冬"
+      ],
+      "招牌菜": [
+        "きつね乌冬（约 ¥700）",
+        "肉乌冬（约 ¥900）"
+      ],
+      "地址": "大阪市中央区大阪城公园周边（JO-TERRACE OSAKA 内），JR 大阪城公园站步行约 5 分钟",
+      "营业": "11:00-20:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_uemachi",
+    "area": "大阪城",
+    "near_attractions": [
+      {
+        "entity_id": "osk_osaka_castle",
+        "walk_min": 15
+      },
+      {
+        "entity_id": "osk_osaka_museum_history",
+        "walk_min": 5
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "拉面"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "mild",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "中華そば うえまち",
+      "简介": "Tabelog 3.76 分的大阪城周边老派中华拉面店，浓郁酱油汤头，是本地上班族的日常选择。大阪历史博物馆附近，观光疲劳后的实惠一顿。",
+      "亮点": [
+        "Tabelog 3.76",
+        "老派大阪酱油拉面",
+        "价格实惠"
+      ],
+      "招牌菜": [
+        "中华荞麦（约 ¥700-900）"
+      ],
+      "地址": "大阪市中央区上町台地周边，地铁谷町四丁目站步行约 5 分钟",
+      "营业": "11:30-14:00，周末不定休，建议出发前确认",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_guu_bakery",
+    "area": "大阪城",
+    "near_attractions": [
+      {
+        "entity_id": "osk_osaka_castle",
+        "walk_min": 10
+      }
+    ],
+    "tier": "economy",
+    "cuisine": [
+      "面包",
+      "咖啡"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          80,
+          150
+        ]
+      }
+    ],
+    "reservation_difficulty": "none",
+    "queue_level": "none",
+    "closed_days": null,
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "ブーランジュリー&カフェ グウ",
+      "简介": "Tabelog 3.73 分的大阪城公园内面包咖啡店，用大阪城公园的景色配一杯咖啡和现烤面包，是逛完城堡后最放松的方式。种类丰富，明亮开阔。",
+      "亮点": [
+        "Tabelog 3.73",
+        "大阪城公园景观座位",
+        "现烤面包"
+      ],
+      "招牌菜": [
+        "日替焼面包（约 ¥200-400）",
+        "早餐套餐"
+      ],
+      "地址": "大阪城 JO-TERRACE OSAKA 内，JR 大阪城公园站步行约 5 分钟",
+      "营业": "07:00-20:00，不定休",
+      "预约": "无需预约"
+    }
+  },
+  {
+    "id": "osk_osakajo_nadaman_imperial",
+    "area": "大阪城",
+    "near_attractions": [
+      {
+        "entity_id": "osk_osaka_castle",
+        "walk_min": 15
+      },
+      {
+        "entity_id": "osk_nishinomaru_garden",
+        "walk_min": 12
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "怀石"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          400,
+          800
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          700,
+          1500
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "none",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 なだ万（帝国ホテル大阪 24F）",
+      "简介": "なだ万大阪店坐落帝国ホテル大阪最高层 24 楼，窗外大川碧水与远处生驹山同框，晴日可见大阪城绿意。1830 年代创业老字号在此呈现「楽膳」——自选主菜 + 时令前菜的轻怀石形式。红叶季/樱花季景观加成显著，签约接受非住客预约。",
+      "亮点": [
+        "なだ万 195 年老字号",
+        "帝国ホテル 24F 大川眺望",
+        "楽膳轻怀石",
+        "签名菜黑毛和牛釜炊御饭"
+      ],
+      "招牌菜": [
+        "楽膳（选主菜 + 時令前菜·¥6000 起）",
+        "黒毛和牛の釜炊き御飯（可改茶漬け二吃）"
+      ],
+      "地址": "大阪市都島区長柄東 1-2-3 帝国ホテル大阪 24F（JR 環状線桜ノ宮站步行 5 分；無料シャトルバス大阪駅発）",
+      "营业": "朝食 7:00-10:30 / 昼 11:30-15:30（LO 14:30）/ 夜 17:30-21:30（LO 21:00）；土日祝通し营业；无休",
+      "预约": "建议提前预约；TableCheck / 一休 可约；旺季（红叶/樱花）1 个月前",
+      "到店提醒": "大阪城直视景观依天气而异；建议 11 月红叶/3-4 月樱花季午市；免费梭车从大阪駅桜橋口发车（20 分间隔·10:20 起）"
+    }
+  }
+]

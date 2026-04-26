@@ -115,8 +115,6 @@
       ]
     }
   ],
-  "pace_type": "deep_stay",
-  "pace_type_sub": "onsen",
   "contingencies": {
     "rain_light": "外湯巡り室内，温泉街雨中有蓑笠出租——雨天城崎更有「秘汤」感",
     "rain_heavy": "完全不影响——旅馆+外湯全室内，城崎雨天正是体验核心",

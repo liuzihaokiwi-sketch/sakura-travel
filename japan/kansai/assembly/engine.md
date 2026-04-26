@@ -1,8 +1,8 @@
-# 装配引擎行为规范（D40·2026-04-24）
+# 装配引擎行为规范（D42·2026-04-25）
 
 > 装配引擎（脚本+Opus）读这份 md 决定「模板 JSON + 用户参数 → 实际时间表」怎么算。
 > 消费方：`scripts/assemble_schedule.py`（时间平移）+ 装配 Opus（餐厅/酒店挑选）。
-> 关联：[plans/写作规范.md](../plans/写作规范.md)（方案作者）+ [SCHEMA.md §1.3](../../../docs/03_数据契约/SCHEMA.md)（字段定义）。
+> 关联：[plans/写作规范.md §4.1/§4.2](../plans/写作规范.md)（节奏白名单唯一权威源）+ [字段权威.md §1.3](../../../docs/03_数据契约/字段权威.md)（字段定义）。
 
 ---
 
@@ -10,29 +10,51 @@
 
 1. **匹配预制方案**：用户输入 → `plans/{天数}日_{主题}.md` 挑一套
 2. **解读方案**：按方案骨架执行·方案写死 template_id 直接装·方案给候选列表按规则挑
-3. **时间平移**：`assemble_schedule.py` 按 `pace_type` + `time_sensitivity` + 用户出门档 → 实际时刻
+3. **时间平移**：`assemble_schedule.py` 按**三信号推断**节奏类型 + 用户出门档 → 实际时刻（见 §二）
 4. **餐厅/酒店挑选**（Opus）：按 slot 的 `meal_area` / `hotel_area` 读 `assembly/restaurants/` + `assembly/hotels/` 挑
 
 **装配引擎不做**的事：
 - 不从全关西模板池里打分挑最优（那是方案作者手工排的优先级）
 - 不检查跨日互斥（由方案作者写方案时保证）
 - 不判 fixed_early/deep_stay 数量限制（方案作者自律）
+- **不读模板 JSON 顶层的 `pace_type` / `time_sensitivity` 字段**（D42 弃用·装配引擎忽略）
 
 ---
 
-## 二、pace_type 三档装配行为
+## 二、三信号推断节奏类型（D42 取代模板自报）
 
-模板 JSON 顶层字段 `pace_type`·决定时间平移逻辑。
+装配引擎按下列优先级**推断**模板的节奏类型·模板 JSON **不自报**：
 
-| pace_type | 定义 | 装配行为 |
-|---|---|---|
-| `adaptive`（默认） | 用户主导节奏 | slots 按 9 点档基准写·按用户出门档（8/9/10）自动平移·午晚餐锚点另算（见 §三） |
-| `fixed_early` | 体验主导节奏·晨光轨迹 | **绝对时间不平移**·用户必须勾选「愿意为出片早起一次」才入候选·起晚了读 contingencies.late_start |
-| `deep_stay` | 两日连住 | **D1/D2 slots 不平移**·子类 `onsen` / `deep_local` |
+### 信号 1：方案层白名单（最高优先级·唯一权威源）
 
-**写作约定**：
-- `adaptive` 是默认·可省略字段
-- `fixed_early` / `deep_stay` 必写
+读 [plans/写作规范.md §4.1](../plans/写作规范.md)·5 个 `fixed_early` 模板：
+
+- `kyoto_arashiyama_5`
+- `kyoto_higashiyama_X` 清水独享·樱花版 / 红叶版 / 常年版（待建）
+- `kyoto_fushimi_X` 伏见稻荷无人鸟居（待建）
+
+读 [plans/写作规范.md §4.2](../plans/写作规范.md)·7 个 `deep_stay` 模板（附子类）：
+
+- onsen：`kyoto_arashiyama_8` / `arima_1` / `arima_3` / `kinosaki_1`
+- deep_local：`kyoto_arashiyama_9` / `kyoto_arashiyama_10` / `koyasan_1`
+
+**装配引擎读此两表匹配 `template_id`**·命中即按对应节奏处理。**模板 JSON 里任何 `pace_type` / `pace_type_sub` 字段都忽略**。
+
+### 信号 2：目录位置 + slots 第一段时间
+
+白名单未命中时·按目录位置 + 时间推断：
+
+| 目录 / 特征 | 推断 |
+|---|---|
+| `special_dates/` / `special_events/` 下 | 按 slots 绝对时间装配·不平移 |
+| `niche_spots/` 下 | 按 slots 绝对时间装配·不平移 |
+| 动线文件夹下 `night.json` | 夜晚模块·按 slots 绝对时间·不平移 |
+| slots 第一段 start 早于 08:00（如 06:30 / 07:00）| 晨光轨迹型·不整体平移·用户档兼容性装配层判 |
+| 两日变体（日期跨 D1/D2）| D1/D2 都不平移 |
+
+### 信号 3：其他全部 → adaptive 默认
+
+以上两个信号都不触发 → `adaptive`·按用户出门档（8/9/10）平移 slots（见 §三）。
 
 ---
 
@@ -54,37 +76,35 @@ adaptive 模板 slots 以 **9 点档为基准**·装配按用户档位平移：
 
 ---
 
-## 四、time_sensitivity 三档装配行为
+## 四、时间约束由 slot.note 自然语言驱动
 
-模板 JSON 顶层字段 `time_sensitivity`·回答「时间约束有多硬」。
+D42 弃用顶层 `time_sensitivity` 字段·改由 slot.note 自然语言表达时间约束·装配引擎读 note 判硬度：
 
-| time_sensitivity | 定义 | 装配行为 |
+| 约束类型 | slot.note 写法 | 装配引擎行为 |
 |---|---|---|
-| `flexible`（默认） | 早去晚去都无所谓 | 不提醒·按 pace 平移·可省略字段 |
-| `soft` | 晚去光线差 / 定期班次可对齐 | 装配侧小提醒·引擎可 ±20 分钟微调 start 匹配光线/班次/场次（lunch/dinner 不动）|
-| `hard` | 固定时刻·错过 = 产品崩 | 装配层按约束时刻判用户档兼容性·不兼容换模板·手账本重点提醒·必须写 `contingencies.late_start` Plan B |
+| **硬时刻**（错过 = 崩） | 明写「9:00 准时巡行」「20:00 准时点火」「一天一场预约」 | 按约束时刻判用户档兼容性·不兼容换模板·手账本重点提醒 |
+| **光线/人流型** | 明写「10 点后人流激增」「黄昏光线最美」「17:00 关门」 | 装配侧小提醒·可 ±20 分钟微调 start 匹配光线窗口 |
+| **定期班次型** | 明写「小火车 1 小时一班·出门提前 20 分钟赶最近班次」「抽签每 20 分钟一场」 | 可 ±20 分钟微调 start·匹配最近班次·lunch/dinner 不动 |
+| **无约束** | 不写时间约束相关语句即可 | 默认按 §三 平移 |
 
 **举例**：
-- `flexible`：锦市场/商店街/鸭川散步
-- `soft 光线型`：金阁寺/伏见稻荷/岚山竹林/日出日落机位
-- `soft 班次型`：嵯峨野小火车 1 小时一班·抽签每 20 分钟一场
-- `hard`：祇园祭巡行 9:00 / 五山送火 20:00 / USJ 快速券 / 一天一场预约餐厅
+
+- `flexible`（不写）：锦市场/商店街/鸭川散步
+- 光线型（写 note）：金阁寺/伏见稻荷/岚山竹林/日出日落机位
+- 定期班次（写 note）：嵯峨野小火车/抽签
+- 硬时刻（写 note·起晚了兜底写 `contingencies.late_start`）：祇园祭巡行 9:00 / 五山送火 20:00 / USJ 快速券 / 预约餐厅
 
 ---
 
-## 五、pace_type × time_sensitivity 组合
+## 五、起晚了的兜底（contingencies.late_start）
 
-| pace_type | time_sensitivity | 写作要求 |
-|---|---|---|
-| adaptive | flexible | 默认组合·两个字段可省 |
-| adaptive | soft | time_sensitivity_note 必写·引擎 ±20 分钟弹性匹配 |
-| adaptive | hard | time_sensitivity_note 必写·contingencies.late_start 必写 |
-| fixed_early | hard | 标配·contingencies.late_start 必写（错过晨光窗口怎么办）|
-| deep_stay | flexible | 标配·D1/D2 不平移 |
+`contingencies.late_start` 保留·装配引擎在以下情况读此字段作为 Plan B：
 
-**错配禁止**：
-- ❌ `fixed_early + flexible`（fixed_early 本质就是 hard）
-- ❌ `deep_stay + hard`（两日连住节奏不应有硬时刻·jingji 夜樱那种写在 D1 slot 的 note 里即可）
+- `fixed_early` 模板（信号 1 或 2 命中）触发失败·用户起晚
+- slot.note 含硬时刻约束·用户档位不兼容
+- slot.note 含定期班次约束·用户 ±20 分钟微调仍赶不上
+
+模板作者按需写 `contingencies.late_start` 一段自然语言·说明「起晚了怎么办」（退到哪个标准日 / 改哪个白天动线）。
 
 ---
 
@@ -124,14 +144,19 @@ python scripts/assemble_schedule.py <template.json> <user_pace> [start_shift_min
 ```
 
 - `user_pace`：`08:00` / `09:00` / `10:00`
-- `start_shift_min`：可选·±20 范围内·仅 soft/hard 模板可用（默认 0）
+- `start_shift_min`：可选·±20 范围内·slot.note 含光线/班次约束时可用（默认 0）
 
-输出：每个 slot 的实际时刻 + pace_type / time_sensitivity 说明 + 锚点状态。
+输出：每个 slot 的实际时刻 + 推断的节奏类型 + 锚点状态。
 
 引擎内部处理：
-- `adaptive` 模板：按 user_pace 就近归锚点平移
-- `fixed_early` 模板：绝对时间不平移（user_pace 参数被忽略）
-- `deep_stay` 模板：D1/D2 slots 不平移（user_pace 参数被忽略）
+- 读方案层白名单（`plans/写作规范.md §4.1/§4.2`）匹配 `template_id`
+- 读模板目录位置（`special_dates/` / `special_events/` / `niche_spots/` / `night.json`）
+- 读 slots 第一段时间（start < 08:00 不平移）
+- 命中上述 → 绝对时间装配·不平移
+- 以上不命中 → `adaptive`·按 user_pace 就近归锚点平移
+
+**引擎忽略的事**：
+- 模板 JSON 顶层 `pace_type` / `pace_type_sub` / `time_sensitivity` / `time_sensitivity_note` 字段（D42 弃用·向后兼容期容许出现·引擎不读）
 
 **引擎不处理**：
 - 模板挑选（方案层决定）
