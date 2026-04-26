@@ -750,5 +750,33 @@
       "https://livejapan.com/zh-tw/in-kansai/in-pref-hyogo/in-kobe_sannomiya_kitano/spot-lj0013222/"
     ],
     "最后核实": "2026-04-25"
+  },
+  "kob_maiko_park_akashi_bridge": {
+    "entity_id": "kob_maiko_park_akashi_bridge",
+    "city": "kobe",
+    "area": "kobe_maiko",
+    "category": "展望",
+    "depth": "full",
+    "note": {
+      "店名": "舞子公園·明石海峡大橋·孫文記念館（Maiko Park·Akashi Kaikyo Bridge·Sun Yat-sen Museum）",
+      "简介": "**世界最长吊桥明石海峡大橋（1991m·1998 开通）·舞子公园海上 promenade**·**毎日日没-23 时 light up（土日祝 24 时）·31 模式 RGB·每小时整点彩虹 5 分钟**·**孫文記念館「移情閣」**（大正 4 年神戸貿易商呉錦堂别庄·六角堂·孫文展示）·甜甜圈视角是孫文記念館旁露台·collects 3716 神户日游攻略压轴。",
+      "票价": "舞子海上 promenade ¥250·孫文記念館 ¥300·公园本身免费",
+      "营业": "舞子海上 promenade 9-18·孫文記念館 10-17（火曜定休）·**明石大橋 light up 日没-23 时（土日祝 24 时）**",
+      "怎么去": "JR 神戸線「舞子」駅徒步 5 分·山陽電鐵「舞子公園」駅徒步 5 分·三宫到 20-25 分钟"
+    },
+    "templates_meta": {
+      "拍照位置": "- 孫文記念館旁露台「甜甜圈视角」拍夕阳穿大橋·**collects 3716 攻略指定机位**\n- 海上 promenade 47m 高玻璃地板下海·震撼俯瞰\n- light up 整点彩虹时刻·1 小时 5 分钟特殊机位",
+      "冷知识": "明石海峡大橋曾是世界最长吊桥（1991m）·2022 年才被土耳其 Çanakkale 1915 大橋（2023m）超越·目前**世界第二**·但 light up 系统**31 模式 RGB** 仍是世界最豪华吊桥之一。开通日（4/5）+ GW + 夏休日特殊点灯模式。",
+      "顺路小店": "- 須磨海洋世界（kob_suma_seaworld）：徒步圈外·JR 一站\n- 北野异人館街：JR 三宮回·神戸 day 早段",
+      "衔接": "- **神户 day 完美收尾**：早 北野→中午中華街→下午舞子→日落 light up→晚饭三宮回\n- 日落时间因季节差大·夏季 19:00 / 冬季 17:00·**提前 30 分到拍 golden hour**",
+      "避坑": "- 海风大冷·**外套+围巾必备**\n- light up 不是 24 小时·**深夜 23 时（平日）/24 时（土日祝）熄**\n- 孫文記念館火曜定休\n- light up 整点彩虹 5 分钟时刻**正点前 1 分到位机位**",
+      "季节看点": "- 春（4 月开通日）·开通記念点灯特殊模式\n- 夏（GW + 7-8 月）·24 时 sky blue 模式\n- 秋·夕陽染大橋·日落最美\n- 冬·12/31 跨年点灯+元日日出·新年特典"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.jb-honshi.co.jp/customer_index/kanko_event/lightup/lightup-akashi.html",
+      "https://www.feel-kobe.jp/kobe-yakei/spots/akashi-kaikyo-bridge/"
+    ],
+    "最后核实": "2026-04-26"
   }
 }

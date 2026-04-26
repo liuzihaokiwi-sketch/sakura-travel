@@ -463,5 +463,10 @@
     "area": "nakanoshima",
     "type": "主场密集",
     "city": "osaka"
+  },
+  {
+    "area": "kobe_maiko",
+    "type": "日归动线",
+    "city": "kobe"
   }
 ]
