@@ -1602,5 +1602,61 @@
       "营业": "11:00-21:30（LO 20:00）·不定休",
       "预约": "昼推荐预约·夜必约·电话 075-761-2311"
     }
+  },
+  {
+    "id": "kyo_higashi_gion_uokeya_u",
+    "area": "higashiyama_axis",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_gion_hanamikoji",
+        "walk_min": 3
+      }
+    ],
+    "tier": "showcase",
+    "cuisine": [
+      "鰻"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          250,
+          500
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "mild",
+    "closed_days": [
+      1
+    ],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "祇をん う桶や う（Gion Uokeya U）",
+      "简介": "**やげんぼり集团 1904 年創業·築 100 年京町家**·**MICHELIN Bib Gourmand 2020·一星过去**·西花見小路通·**看板「う桶」（杉桶人間国宝中川清司作·3-5 人前）·江戸風蒸し+備長炭烤**·店开业前先掘西花見小路手堀井·天然水鰻打清め+蒸+饭炊き·孤独的美食家五郎错过的名店·collects 1314 米其林 600 元三家京都之一。",
+      "亮点": [
+        "老铺名物",
+        "やげんぼり 1904 创业",
+        "MICHELIN Bib Gourmand",
+        "築 100 年京町家",
+        "人間国宝中川清司桶",
+        "手堀井天然水"
+      ],
+      "招牌菜": [
+        "う桶 3-5 人前 杉桶蒲焼",
+        "関西风备長炭"
+      ],
+      "地址": "京都市東山区祇園町南侧 570-120·西花見小路通",
+      "营业": "昼+夜·月曜定休",
+      "预约": "必须·电话 075-551-9966（翌月末分まで日本語のみ）·公式 yagenbori.co.jp / autoreserve"
+    }
   }
 ]

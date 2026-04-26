@@ -902,5 +902,54 @@
       "预约": "**完全预约制**·官网/一休·提前 2-3 周",
       "到店提醒": "正装；本馆+别邸两栋·订时选；京都坪庭席最美"
     }
+  },
+  {
+    "id": "kyo_kita_shinme_izakaya",
+    "area": "kita",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kitano_tenmangu",
+        "walk_min": 12
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "居酒屋",
+      "日本料理"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          700
+        ]
+      }
+    ],
+    "reservation_difficulty": "must",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神馬·しんめ（Shinme Izakaya）",
+      "简介": "**1934 年昭和 9 年创业·京都一歴史居酒屋·Tabelog 居酒屋百名店**·**酒蔵模した coの字 counter+一枚板 table 昭和 retro**·三代继承·**作家太田和彦+吉田类爱店**·夏アユ/ハモ·冬ノドグロ/マツバガニ·自家製ローストビーフ+黒毛和牛ビフカツ·**看板酒「神馬」灘 6 种 ブレンド熱燗**·料理水准料亭级。",
+      "亮点": [
+        "老铺名物",
+        "1934 创业 京都一歴史居酒屋",
+        "Tabelog 居酒屋百名店",
+        "昭和酒蔵 retro 内装",
+        "太田和彦/吉田类爱店",
+        "神馬熱燗灘 6 种 ブレンド"
+      ],
+      "招牌菜": [
+        "神馬熱燗（灘 6 种 ブレンド）",
+        "冬カニ + 自家製ローストビーフ",
+        "日替わり天然鲜魚"
+      ],
+      "地址": "京都市上京区·千本中立売·北野白梅町徒步圈",
+      "营业": "夜営业·要事前确认",
+      "预约": "必须·公式 shinme-kyoto.jp / autoreserve"
+    }
   }
 ]

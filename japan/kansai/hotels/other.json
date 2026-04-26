@@ -2648,5 +2648,47 @@
       "https://travel.kakaku.com/yad/10050069/"
     ],
     "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_ando_hotel_wakakusayama",
+    "city": "nara",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_kasuga_taisha",
+        "walk_min": 25
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1500,
+      3000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://andohotelnara.com/",
+      "https://andohotelnara.com/room/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "ANDO HOTEL 奈良若草山（DLIGHT LIFE & HOTELS）",
+      "简介": "**若草山中腹·新日本三大夜景认定·屋上贷切展望露天风吕**·眺望东大寺+五重塔+奈良盆地大全景·**Pool Side Suite·テラススイート专用露天风吕**·近铁奈良/JR 奈良駅无料送迎 8 分（要预约）·小红书爆款「藏在鹿群中的绝美春日酒店」。",
+      "亮点": [
+        "温泉度假",
+        "新日本三大夜景认定",
+        "若草山中腹眺望",
+        "屋上贷切展望露天",
+        "专用露天风吕"
+      ],
+      "地址": "奈良市·若草山中腹·近铁奈良/JR 奈良无料送迎 8 分",
+      "房型": "Comfort Twin / Pool Side Suite / テラススイート A,B / 客室露天付",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥31,600+",
+      "预约": "公式 andohotelnara.com·一休·楽天·じゃらん",
+      "到店提醒": "无料送迎要事前预约·屋上展望露天 reservation 制"
+    }
   }
 ]
