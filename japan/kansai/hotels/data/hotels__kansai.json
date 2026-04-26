@@ -1214,9 +1214,9 @@
     "最后核实": "2026-04-26"
   },
   {
-    "id": "kyo_nijo_central_takagamine_shou_huo_hotel",
+    "id": "kyo_kita_takagamine_shou_huo_hotel",
     "city": "京都",
-    "area": "nijo_central",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1406,9 +1406,9 @@
     "最后核实": "2026-04-26"
   },
   {
-    "id": "kyo_shijo_kawaramachi_granbell_hotel",
+    "id": "kyo_gion_higashiyama_granbell_hotel",
     "city": "京都",
-    "area": "shijo_kawaramachi",
+    "area": "gion_higashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -7536,9 +7536,9 @@
     "最后核实": "2026-04-26"
   },
   {
-    "id": "kyo_arashiyama_hong_ye_jia_honkan_takao_sanso",
+    "id": "kyo_takao_hong_ye_jia_honkan_takao_sanso",
     "city": "京都",
-    "area": "arashiyama",
+    "area": "takao",
     "near_attractions": [
       {
         "entity_id": "kyo_togetsukyo",
@@ -7816,9 +7816,9 @@
     "最后核实": "2026-04-26"
   },
   {
-    "id": "kyo_arashiyama_kibune_teng_wu",
+    "id": "kyo_kibune_kibune_teng_wu",
     "city": "京都",
-    "area": "arashiyama",
+    "area": "kibune",
     "near_attractions": [
       {
         "entity_id": "kyo_togetsukyo",
