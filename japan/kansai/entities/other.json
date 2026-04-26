@@ -11,7 +11,7 @@
   "kya_kongobuji": {
     "entity_id": "kya_kongobuji",
     "city": "koyasan",
-    "area": "koyasan",
+    "area": "koyasan_temple",
     "category": "寺社",
     "depth": "skeleton",
     "note": {
@@ -20,13 +20,15 @@
       "怎么去": "南海高野线极乐桥→ケーブル→巴士「千手院橋」步行 5 分"
     },
     "可信度": "single_source",
-    "数据来源": ["https://www.koyasan.or.jp/"],
+    "数据来源": [
+      "https://www.koyasan.or.jp/"
+    ],
     "最后核实": "2026-04-26"
   },
   "kya_okunoin": {
     "entity_id": "kya_okunoin",
     "city": "koyasan",
-    "area": "koyasan",
+    "area": "koyasan_temple",
     "category": "寺社",
     "depth": "skeleton",
     "note": {
@@ -35,7 +37,9 @@
       "怎么去": "巴士「奥の院前」即到"
     },
     "可信度": "single_source",
-    "数据来源": ["https://www.koyasan.or.jp/"],
+    "数据来源": [
+      "https://www.koyasan.or.jp/"
+    ],
     "最后核实": "2026-04-26"
   },
   "shr_shirahama_beach": {
@@ -50,7 +54,9 @@
       "怎么去": "JR 白浜站→明光巴士「白良浜」即到"
     },
     "可信度": "single_source",
-    "数据来源": ["https://www.nanki-shirahama.com/"],
+    "数据来源": [
+      "https://www.nanki-shirahama.com/"
+    ],
     "最后核实": "2026-04-26"
   },
   "shr_sakinoyu_onsen": {
@@ -65,7 +71,9 @@
       "怎么去": "JR 白浜站→明光巴士「湯崎」步行 3 分"
     },
     "可信度": "single_source",
-    "数据来源": ["https://www.nanki-shirahama.com/"],
+    "数据来源": [
+      "https://www.nanki-shirahama.com/"
+    ],
     "最后核实": "2026-04-26"
   },
   "nar_todaiji": {
