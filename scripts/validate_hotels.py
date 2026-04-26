@@ -1,9 +1,10 @@
-"""酒店池字段校验脚本（D46 重写）。
+"""酒店池字段校验脚本（D46 重写·D49 通用化）。
 
 用法：
     python scripts/validate_hotels.py japan/kansai/hotels/
     python scripts/validate_hotels.py japan/kansai/hotels/{city}/{area}.json
 
+通用化：脚本根据输入路径向上找区圈 area_registry.json·任意城市圈复用。
 校验规则参考：
     docs/项目核心/字段权威.md §2.4 hotels
     docs/操作SOP/上线前/数据池构建/酒店规范.md
@@ -20,6 +21,8 @@ import json
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
@@ -284,13 +287,12 @@ def load_entity_ids(circle_root: Path) -> set[str] | None:
 
 
 def find_circle_root(file: Path) -> Path | None:
-    """从 hotels json 路径反推圈根目录（含 area_registry.json 的目录）。"""
-    cur = file.parent
-    while cur != cur.parent:
-        if (cur / "area_registry.json").exists():
-            return cur
-        cur = cur.parent
-    return None
+    """从 hotels json 路径反推圈根目录·失败返回 None（保持原签名兼容现有调用方）。"""
+    try:
+        from _circle_resolver import find_circle_root as _find
+        return _find(file)
+    except Exception:
+        return None
 
 
 def validate_file(file: Path) -> tuple[int, int, list[str]]:

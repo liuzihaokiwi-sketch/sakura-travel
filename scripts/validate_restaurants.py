@@ -1,11 +1,12 @@
-"""正餐池 + 停留池字段校验脚本（全量数据层）。
+"""正餐池 + 停留池字段校验脚本（全量数据层·D49 通用化）。
 
 校验 restaurants/{city}/*.json + stops/{city}/*.json：
     python scripts/validate_restaurants.py japan/kansai/restaurants/
     python scripts/validate_restaurants.py japan/kansai/stops/
     python scripts/validate_restaurants.py japan/kansai/   # 同时校验两个目录
 
-校验规则：japan/餐厅规范.md §三（字段定稿）。违规 exit code != 0。
+通用化：脚本根据输入路径向上找 area_registry.json·任意城市圈复用。
+校验规则：docs/操作SOP/上线前/数据池构建/餐厅规范.md。违规 exit code != 0。
 
 设计原则：
 - 字段白名单 + 必填 + 枚举三层校验
@@ -20,19 +21,13 @@ import sys
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _circle_resolver import find_circle_root, load_area_set
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-# ---------- area 白名单（从 area_registry.json 读） ----------
-
-def load_area_registry() -> set[str]:
-    reg_path = REPO_ROOT / "japan/kansai/area_registry.json"
-    if not reg_path.exists():
-        return set()
-    data = json.loads(reg_path.read_text(encoding="utf-8"))
-    return {entry["area"] for entry in data if isinstance(entry, dict) and "area" in entry}
-
-AREA_REGISTRY: set[str] = load_area_registry()
+# 在 main() 里从输入路径推断·此处置空
+AREA_REGISTRY: set[str] = set()
 
 # ---------- 正餐池字段（restaurants/）按 §3.1 ----------
 
@@ -258,6 +253,16 @@ def main(argv: list[str]) -> int:
     files = collect_files(target)
     if not files:
         print(f"未找到 JSON 文件: {target}")
+        return 2
+
+    # 通用化：从输入路径向上找区圈 area_registry.json
+    global AREA_REGISTRY
+    try:
+        circle_root = find_circle_root(target)
+        AREA_REGISTRY = load_area_set(circle_root)
+        print(f"区圈：{circle_root.relative_to(REPO_ROOT)}·area 白名单 {len(AREA_REGISTRY)} 条")
+    except FileNotFoundError as e:
+        print(str(e))
         return 2
 
     total = 0

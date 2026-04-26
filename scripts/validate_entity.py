@@ -1,4 +1,4 @@
-"""entity 字段校验脚本（D43 新版）。
+"""entity 字段校验脚本（D43 新版·D49 通用化）。
 
 每次改造 entity 数据后跑一次：
     python scripts/validate_entity.py japan/kansai/entities/kyoto.json
@@ -6,7 +6,8 @@
 校验整个目录：
     python scripts/validate_entity.py japan/kansai/entities/
 
-校验规则对应 docs/03_数据契约/字段权威.md §2.1（D43）。违规 exit code != 0。
+通用化：脚本根据输入路径**向上找** area_registry.json·任意城市圈复用。
+校验规则对应 docs/项目核心/字段权威.md §2.1（D43）。违规 exit code != 0。
 
 设计原则：
 - 字段白名单 + 必填 + 枚举三层校验
@@ -20,6 +21,8 @@ import sys
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _circle_resolver import find_circle_root, load_area_set
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -28,12 +31,8 @@ REQUIRED_TOP = {"entity_id", "city", "area", "category", "depth", "可信度"}
 OPTIONAL_TOP = {"season_months", "reservation"}
 RESERVATION_ENUM = {"none", "recommended", "required", "hard"}
 
-# area_registry 白名单（D44 加固·此前 validator 漏校验）
-_REGISTRY_PATH = REPO_ROOT / "japan/kansai/area_registry.json"
-try:
-    AREA_REGISTRY = {r["area"] for r in json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))}
-except Exception:
-    AREA_REGISTRY = set()
+# area_registry 在 main() 里从输入路径推断·此处置空·validate_*() 内引用 _AREA_REGISTRY
+_AREA_REGISTRY: set[str] = set()
 # SCHEMA §2.1.4 元数据
 META_TOP = {"数据来源", "最后核实"}
 # note 块
@@ -106,7 +105,7 @@ def validate_entity(eid: str, data: dict, file: Path) -> list[str]:
         )
 
     # 7c. area 必须在 area_registry（D44 加固）
-    if "area" in data and AREA_REGISTRY and data["area"] not in AREA_REGISTRY:
+    if "area" in data and _AREA_REGISTRY and data["area"] not in _AREA_REGISTRY:
         errors.append(
             f"{file.name}::{eid} area='{data['area']}' 不在 area_registry.json·"
             f"按 entity 规范铁律 4：不许自创·停下报告"
@@ -203,6 +202,7 @@ def collect_files(target: Path) -> list[Path]:
 
 
 def main(argv: list[str]) -> int:
+    global _AREA_REGISTRY
     if len(argv) < 2:
         print("用法: python scripts/validate_entity.py <file_or_dir>")
         return 2
@@ -211,6 +211,15 @@ def main(argv: list[str]) -> int:
     files = collect_files(target)
     if not files:
         print(f"未找到 JSON 文件: {target}")
+        return 2
+
+    # 通用化：从输入路径向上找区圈 area_registry.json
+    try:
+        circle_root = find_circle_root(target)
+        _AREA_REGISTRY = load_area_set(circle_root)
+        print(f"区圈：{circle_root.relative_to(REPO_ROOT)}·area 白名单 {len(_AREA_REGISTRY)} 条")
+    except FileNotFoundError as e:
+        print(str(e))
         return 2
 
     total_entities = 0

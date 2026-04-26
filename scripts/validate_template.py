@@ -1,4 +1,4 @@
-"""D40 模板字段校验脚本。
+"""D40 模板字段校验脚本（D49 通用化）。
 
 每次改造模板后跑一次：
     python scripts/validate_template.py japan/kansai/templates/kyoto/arashiyama/1.json
@@ -6,7 +6,9 @@
 校验整个目录：
     python scripts/validate_template.py japan/kansai/templates/kyoto/arashiyama/
 
-校验规则对应 docs/03_数据契约/字段权威.md §4.4 + D40 新字段契约。违规 exit code != 0。
+通用化：脚本根据输入路径**向上找** area_registry.json·任意城市圈复用。
+约定：`{circle_root}/templates/` 与 `{circle_root}/entities/` 同级。
+校验规则对应 docs/项目核心/字段权威.md §1 + D40 新字段契约。违规 exit code != 0。
 """
 from __future__ import annotations
 
@@ -16,10 +18,13 @@ import sys
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _circle_resolver import find_circle_root
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-TEMPLATES_ROOT = REPO_ROOT / "japan/kansai/templates"
-ENTITIES_ROOT = REPO_ROOT / "japan/kansai/entities"
+# main() 里从输入路径推断·此处置空
+TEMPLATES_ROOT: Path = REPO_ROOT
+ENTITIES_ROOT: Path = REPO_ROOT
 
 # D42 白名单：必填 4 个 + 可选 2 个
 REQUIRED_TOP = {"template_id", "applicable_dates", "note", "slots"}
@@ -91,11 +96,11 @@ def validate_template(path: Path, entity_ids: set[str], warnings: list[str] | No
         if k in data:
             errors.append(f"{rel}: 顶层有已删字段 `{k}`（D40 已删，需移除）")
 
-    # D42: 弃用字段 — WARN 不报错·提示迁移到 plans/写作规范.md §4.1/§4.2 白名单
+    # D42: 弃用字段 — WARN 不报错·提示迁移到 docs/写作规范.md §4.1/§4.2 白名单
     for k in DEPRECATED_TOP:
         if k in data and warnings is not None:
             warnings.append(
-                f"{rel}: 顶层有弃用字段 `{k}`（D42 弃用·节奏归属由 plans/写作规范.md §4.1/§4.2 白名单决定·模板不自报）"
+                f"{rel}: 顶层有弃用字段 `{k}`（D42 弃用·节奏归属由 docs/写作规范.md §4.1/§4.2 白名单决定·模板不自报）"
             )
 
     unknown = set(data.keys()) - REQUIRED_TOP - OPTIONAL_TOP - DEPRECATED_TOP - BANNED_TOP
@@ -241,10 +246,24 @@ def validate_route_folder(folder: Path) -> list[str]:
 
 
 def main():
+    global TEMPLATES_ROOT, ENTITIES_ROOT
     args = sys.argv[1:]
-    target = Path(args[0]) if args else TEMPLATES_ROOT
+    if not args:
+        print("用法: python scripts/validate_template.py <templates_dir_or_file>")
+        sys.exit(2)
+    target = Path(args[0])
     if not target.is_absolute():
         target = REPO_ROOT / target
+
+    # 通用化：从输入路径向上找区圈根·定位 templates/ 和 entities/
+    try:
+        circle_root = find_circle_root(target)
+    except FileNotFoundError as e:
+        print(str(e))
+        sys.exit(2)
+    TEMPLATES_ROOT = circle_root / "templates"
+    ENTITIES_ROOT = circle_root / "entities"
+    print(f"区圈：{circle_root.relative_to(REPO_ROOT)}·templates/ + entities/")
 
     entity_ids = load_entity_ids()
     if not entity_ids:

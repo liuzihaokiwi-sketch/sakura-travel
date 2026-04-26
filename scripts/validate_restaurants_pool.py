@@ -1,10 +1,10 @@
 """餐厅池字段校验脚本。
 
 每次改造餐厅数据后跑一次：
-    python scripts/validate_restaurants.py japan/kansai/assembly/restaurants/data/restaurants__kyoto.json
+    python scripts/validate_restaurants.py japan/kansai/restaurants/restaurants__kyoto.json
 
 校验整个目录：
-    python scripts/validate_restaurants.py japan/kansai/assembly/restaurants/data/
+    python scripts/validate_restaurants.py japan/kansai/restaurants/
 
 校验规则参考 docs/03_数据契约/字段权威.md §2.2 + japan/餐厅规范.md。违规 exit code != 0。
 
