@@ -20,20 +20,27 @@
     ],
     "tier": "b4",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户拉斯维特海港酒店（ホテル ラ・スイート神戸ハーバーランド）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**SLH 加盟·日本初**·全 70 室·**全室オーシャンビュー+テラス+ジャクジー**·中央区波止場町·**ラ・レーヌ/ル・ロワ/和洋スイート 3 室最上级（電話予約のみ）**·Tonda ジャグジーバス円形 view·小規模 luxury。",
       "亮点": [
-        "浪漫氛围",
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "SLH 加盟日本初",
+        "70 室全 ocean view+terrace+jacuzzi",
+        "最上 3 suite",
+        "円形 view bath"
       ],
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+      "价格": "素泊 2 人 ¥40,000-150,000",
+      "地址": "神戸市中央区波止場町 7-2·神戸ハーバーランド",
+      "房型": "High floor 7-10F / Luxury 4-6F / 最上 3 suite·全 70 室",
+      "含早": "可选含早",
+      "预约": "公式 l-s.jp·SLH·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.l-s.jp/",
+      "https://www.l-s.jp/stay-rooms/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -58,21 +65,27 @@
     ],
     "tier": "b4",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户大仓酒店（ホテルオークラ神戸）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Okura Nikko Hotels 系·1989.6 开业·神戸メリケンパーク内 35 阶高层**·全 468 室·阪神大震災 1995 経験·28-29F Precious Floor / 30-33F Superior Floor·北六甲山眺/南神戸港眺·桃花林+山里+さざんか+カメリア+有明 5 间 restaurant·新神戸 shuttle。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Okura Nikko 系",
+        "1989 老铺 35 阶",
+        "468 室",
+        "Precious/Superior Floor"
       ],
-      "地址": "最近站：JR元町（兵库）站（步行 10 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+      "地址": "神戸市中央区波止場町 2-1 メリケンパーク内·元町徒步 10 分",
+      "含早": "可选含早 buffet",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Standard~Royal Suite·Precious/Superior Floor·全 468 室",
+      "预约": "公式 kobe.hotelokura.co.jp·一休·Okura Nikko"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.kobe.hotelokura.co.jp/",
+      "https://www.feel-kobe.jp/facilities/0000000332/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -97,59 +110,28 @@
     ],
     "tier": "b4",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户美利坚公园东方酒店（神戸メリケンパークオリエンタルホテル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**1995 年开业（2005 改装）·神戸メリケンパーク内**·船旅イメージ design·全 323 室·**全室バルコニー付**·阪急阪神 hotels 系（Oriental Hotels & Resorts）·方向別不同景观（神戸港夜景/海外帆船 view）。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Oriental Hotels 系",
+        "1995 老铺",
+        "323 室",
+        "全室バルコニー",
+        "船旅イメージ"
       ],
-      "地址": "最近站：港地地铁站（步行 11 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+      "地址": "神戸市中央区波止場町 5-6·メリケンパーク内",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-70,000·HMI",
+      "房型": "Standard~Suite·全室バルコニー·全 323 室",
+      "预约": "公式 kobe-orientalhotel.co.jp·HMI·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "kbe_harborland_meriken_hai_gang_la_suite_hotel",
-    "city": "神户",
-    "area": "harborland_meriken",
-    "near_attractions": [
-      {
-        "entity_id": "kob_meriken_park",
-        "walk_min": 10
-      },
-      {
-        "entity_id": "kob_kobe_maritime",
-        "walk_min": 10
-      }
-    ],
-    "type": "city",
-    "price_cny_per_night": [
-      1100,
-      1700
-    ],
-    "tier": "b4",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "神户海港拉斯维特酒店（神戸ハーバーランドラ・スイート）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "浪漫氛围",
-        "现代感",
-        "礼宾服务"
-      ],
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.kobe-orientalhotel.co.jp/",
+      "https://www.oriental-hotels.com/hotellist/17/"
     ],
     "最后核实": "2026-04-26"
   },

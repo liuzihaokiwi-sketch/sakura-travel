@@ -16,21 +16,27 @@
     ],
     "tier": "b4",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户全日空皇冠假日酒店（ANA Crowne Plaza Kobe）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**IHG ANA Crowne Plaza 系**·**新神戸駅直结·三宮地铁 1 站 2 分**·全 592 室·14 阶以上 Twin 主体·**30-32F・37F Club Room+ラウンジ**·15-125㎡·東客室大阪湾/西客室神戸市街+淡路島眺·23 间宴会场。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "IHG Crowne Plaza 系",
+        "新神戸直结",
+        "592 室",
+        "Club Lounge 30-32+37F"
       ],
-      "地址": "最近站：新神户地铁站（步行 6 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+      "地址": "神戸市中央区·新神戸駅直结·三宮地铁 1 站 2 分",
+      "含早": "可选含早 buffet",
+      "价格": "素泊 2 人 ¥25,000-70,000·IHG One Rewards",
+      "房型": "Single 15㎡~Club Suite 125㎡·全 592 室",
+      "预约": "公式 anacrowneplaza-kobe.jp·IHG·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.anacrowneplaza-kobe.jp/",
+      "https://www.ihg.com/crowneplaza/hotels/us/en/hyogo/osakb/hoteldetail"
     ],
     "最后核实": "2026-04-26"
   },
@@ -51,21 +57,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户北野酒店（神戸北野ホテル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**全 30 室英国 antique 家具 オーベルジュ**·三宮駅徒步 15 分·北野山本通·**ベルナール・ロワゾー「世界一の朝食」フランス国外初紹介 hotel**·President Twin 等多类型·气品 inside。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "含早"
+        "オーベルジュ",
+        "30 室·英国 antique",
+        "ロワゾー世界一朝食",
+        "北野立地"
       ],
-      "地址": "最近站：县厅前地铁站（步行 11 分钟左右）",
-      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+      "地址": "神戸市中央区山本通 3-3-20·三宮駅徒步 15 分",
+      "价格": "素泊 2 人 ¥45,000-110,000",
+      "房型": "President Twin~多类型·全 30 室",
+      "含早": "ベルナール・ロワゾー世界一朝食",
+      "预约": "公式 kobe-kitanohotel.co.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.kobe-kitanohotel.co.jp/?men=4&cat=8",
+      "https://www.ikyu.com/en-us/00000254/"
     ],
     "最后核实": "2026-04-26"
   }

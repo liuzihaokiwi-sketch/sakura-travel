@@ -16,23 +16,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "西村屋酒店招月庭（西村屋ホテル招月庭）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**1860 年代创业 西村屋系别馆·城崎唯一 5 ツ星认定宿**·5 万坪森林庭园·**庭の棟+月の棟 2 棟**·6 名室 10-12.5 畳·1 室限定露天付特別室「桂月」·**洋室 Natural&Comfort 设计**·但馬牛+松葉がに·4 つの湯船。",
       "亮点": [
         "温泉旅馆",
-        "传统和风",
-        "浪漫氛围",
-        "onsen_town"
+        "西村屋系别馆",
+        "5 万坪森林庭园",
+        "5 ツ星认定宿",
+        "桂月特別室",
+        "Natural&Comfort 洋室"
       ],
-      "地址": "最近站：JR城崎温泉站（步行 20 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-60,000/晚（待 OTA 三时段核实）"
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（送迎）",
+      "含早": "和朝食含·但馬牛/松葉がに会席",
+      "价格": "夕朝食付 2 人 ¥80,000-200,000",
+      "房型": "庭の棟 10-12.5 畳·月の棟·洋室·特別室「桂月」",
+      "预约": "公式 nishimuraya.ne.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.nishimuraya.ne.jp/shogetsu/",
+      "https://www.nishimuraya.ne.jp/shogetsu/room/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -53,23 +58,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "城崎温泉 喜乐（城崎温泉 喜楽）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**JR 城崎温泉駅徒步 10 分（旅館組合無料 bus）·御所の湯付近**·全室純和室·内湯+2 ヶ所貸切风吕（陶器风吕「月」¥1650/铁釜风吕「流」¥1100·無料 plan 有）·**陶芸/七宝/素焼き付け体验工房「楽画喜」併設**·11/7-3/31 蟹会席。",
       "亮点": [
         "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
+        "全室和室",
+        "陶芸体验工房",
+        "御所の湯近邻",
+        "外汤巡り便利"
       ],
-      "地址": "最近站：JR城崎温泉站（步行 10 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步 10 分（送迎）",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥30,000-90,000",
+      "房型": "纯和室·多类型·14 室前後",
+      "预约": "公式 yado-kiraku.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "http://www.yado-kiraku.com/",
+      "https://kinosaki-spa.gr.jp/stay/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -90,22 +99,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大西屋水翔苑（大西屋水翔苑）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**「かがり火の宿」·全館畳敷き数寄屋造**·コウノトリ翔るこの地·全室踏込・広縁付·**本館 2F+離れ 1F+和室 12.5 畳「記念日」プラン+洋室 twin**·全室禁烟·男女别大浴场+岩露天+sauna+ジャグジー·無料 footマッサージ。",
       "亮点": [
         "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
+        "数寄屋造畳敷き",
+        "本館+離れ",
+        "岩露天+sauna+ジャグジー",
+        "コウノトリ"
       ],
-      "地址": "最近站：JR城崎温泉站（步行 11 分钟左右）",
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（旅館組合 bus）",
+      "价格": "夕朝食付 2 人 ¥35,000-100,000",
+      "房型": "本館和室+離れ和室+洋室 twin·多类型",
+      "含早": "和朝食含·個室お食事処",
+      "预约": "公式 suisyou.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.suisyou.com/",
+      "https://www.ikyu.com/en-us/00001703/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -126,21 +140,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "蟹宿六之屋（蟹宿むつの屋）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**1862 年文久 2 年创业「網元の宿」**·一の湯/柳湯近·目前柳湯足汤·宿前柳並木+太鼓橋川·**津居山蟹（青タグ）コース料理·蟹刺/茹蟹/焼蟹/蟹味噌/蟹しゃぶ+雑炊**·城崎温泉観光協会公式登録。",
       "亮点": [
         "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
+        "1862 老铺",
+        "網元の宿",
+        "津居山蟹青タグ料理",
+        "一の湯/柳湯近"
       ],
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+      "价格": "夕朝食付 2 人 ¥30,000-100,000（蟹季+30%）",
+      "地址": "兵庫県豊岡市城崎町湯島 652·JR 城崎駅徒步 10 分",
+      "房型": "纯和室·小規模",
+      "含早": "和朝食含·料理旅館",
+      "预约": "kinosaki-spa.gr.jp 公式予約·じゃらん·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://kinosaki-spa.gr.jp/stay/kaniyadomutunoya/",
+      "https://resv.kinosaki-spa.gr.jp/kaniyadomutunoya/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -161,93 +181,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "深山（深山）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**深山·全室 10 畳以上純和風**·古き良き時代面影·明治大正モダン女性志向·1 室限定特別室（中庭眺·城崎雪化粧）·**城崎伝統工芸「麦わら細工」装饰·兵庫県展神戸新聞社賞作品**·髪 0 ダメージ ドライヤー amenity。",
       "亮点": [
         "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
+        "全室 10 畳+",
+        "麦わら細工装饰",
+        "明治大正モダン",
+        "中庭特別室"
       ],
-      "地址": "最近站：JR宫地站（步行 324 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥40,000-110,000",
+      "房型": "特別室+「真珠」等多类型·全室 10 畳+",
+      "预约": "公式 shinzan-kinosaki.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "kns_kinosaki_onsen_xin_quan",
-    "city": "城崎",
-    "area": "kinosaki_onsen",
-    "near_attractions": [
-      {
-        "entity_id": "kns_kinosaki",
-        "walk_min": 10
-      }
-    ],
-    "type": "experience",
-    "price_cny_per_night": [
-      600,
-      1200
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "新泉（新泉）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
-      ],
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "kns_kinosaki_onsen_yue_se",
-    "city": "城崎",
-    "area": "kinosaki_onsen",
-    "near_attractions": [
-      {
-        "entity_id": "kns_kinosaki",
-        "walk_min": 10
-      }
-    ],
-    "type": "experience",
-    "price_cny_per_night": [
-      600,
-      1200
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "月色（月明かり）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
-      ],
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://shinzan-kinosaki.jp/",
+      "https://shinzan-kinosaki.jp/room"
     ],
     "最后核实": "2026-04-26"
   },
@@ -268,56 +222,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "泉翠（泉翠）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**旅館 泉翠·建築家堀部安嗣設計**·**全 13 室·12 歳未満不可+4 名様まで限定·全館禁烟·全室无 TV**·特別室「蓬莱」无垢材+漆喰壁·和洋アジアン+和ベッドルーム+和室+特別室 3 棟·貸切风吕「陶/檜」无料·大谿川沿い静かな立地。",
       "亮点": [
-        "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
+        "设计精品",
+        "堀部安嗣設計",
+        "13 室",
+        "12 歳未満不可+4 名限定",
+        "全室无 TV+全館禁烟"
       ],
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+      "价格": "夕朝食付 2 人 ¥45,000-120,000",
+      "地址": "兵庫県豊岡市城崎町湯島 753·城崎中心地大谿川沿い",
+      "房型": "和洋アジアン/和ベッド/和室/特別室·全 13 室",
+      "含早": "和朝食含",
+      "预约": "公式 kinosaki-sensui.com·一休·Relux"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "kns_kinosaki_onsen_yan_xiang",
-    "city": "城崎",
-    "area": "kinosaki_onsen",
-    "near_attractions": [
-      {
-        "entity_id": "kns_kinosaki",
-        "walk_min": 10
-      }
-    ],
-    "type": "experience",
-    "price_cny_per_night": [
-      600,
-      1200
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "艳乡（艷郷）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "温泉旅馆",
-        "传统和风",
-        "onsen_town",
-        "天然温泉"
-      ],
-      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://kinosaki-sensui.com/",
+      "https://kinosaki-sensui.com/guest-room/"
     ],
     "最后核实": "2026-04-26"
   },

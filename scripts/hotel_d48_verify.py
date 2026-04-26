@@ -836,6 +836,548 @@ register(
 )
 
 
+
+# === 神户/有马 第一批 (66-73) ===
+register(
+    "arm_arima_onsen_tao_quan_gosho_fang",
+    brief="**1191 年创业·有馬最古老温泉旅館·登録有形文化財**·有馬最古·谷崎潤一郎陰翳礼讃 lighting·全 16 室·部分客室含金泉源泉掛流·書院造和洋多类型·吉川英治+与謝野晶子文人由来命名「翠巒/雲山/聴泉御坊」3 棟。",
+    highlights=["老铺旅馆", "1191 年最古", "登録有形文化財", "16 室", "谷崎潤一郎 inspire", "金泉源泉掛流"],
+    address="神戸市北区有馬町·神戸電鉄有馬温泉駅徒步圈",
+    rooms="3 棟·全 16 室·和/和洋·部分金泉源泉风吕付",
+    breakfast="和朝食 含·料理旅館",
+    price="夕朝食付 2 人 ¥80,000-200,000",
+    booking="公式 goshoboh.com·一休·楽天",
+    sources=["https://goshoboh.com/rooms/", "https://www.ikyu.com/en-us/00001453/"],
+)
+
+register(
+    "arm_arima_onsen_zhu_qu_ting_yuan_shan",
+    brief="**有馬高台立地·全室金泉/銀泉貸切风吕 8 ヶ所**·茶褐色金泉+透明銀泉·神戸電鉄有馬温泉駅徒步 15 分（无料送迎）·和洋 suite 含温泉付 8 类·森林浴。",
+    highlights=["温泉旅馆", "高台立地", "全 8 ヶ所貸切风吕", "金泉+銀泉两种", "森林浴"],
+    address="神戸市北区有馬町 1364-1·神鉄有馬温泉駅徒步 15 分（无料送迎）",
+    rooms="温泉付 suite 8 类·禁烟",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥45,000-110,000",
+    booking="公式 taketoritei.com·一休·楽天",
+    sources=["https://www.taketoritei.com/", "https://www.ikyu.com/en-us/00001695/"],
+)
+
+register(
+    "arm_arima_onsen_grand_hotel",
+    brief="**有馬最大級·全 237 室高台立地**·展望大浴苑「雲海」金泉+丹波山眺望·**2019.7 新館「別墅 結楽」金泉/銀泉露天付 club floor**·梅田高速 bus 60 分·有馬温泉駅 5 分送迎。",
+    highlights=["温泉度假", "237 室·有馬最大级", "別墅 結楽 club floor", "金/銀泉露天付", "展望大浴苑雲海"],
+    address="神戸市北区·有馬温泉高台·梅田 60 分·新神戸 30 分",
+    rooms="本馆+別墅 結楽 71-184㎡·全 237 室",
+    breakfast="和洋朝食含",
+    price="夕朝食付 2 人 ¥45,000-150,000",
+    booking="公式 arima-gh.jp·一休·楽天·KNT 高级",
+    sources=["https://www.arima-gh.jp/en/", "https://yado.knt.co.jp/st/S280042/"],
+)
+
+register(
+    "arm_arima_onsen_hua_xiao_su_hotel",
+    brief="**御所坊系姉妹宿·有馬最小宿全 9 室**·神戸開港期外国人専用 hotel イメージ·和室（畳+ベッド）+洋室+suite·**2 ヶ所貸切风吕（金泉「楓呂」+「蔦葉子」无料）+「Premium Twin with Hot Spring」新 2 室**·神鉄有馬温泉駅徒步 10 分。",
+    highlights=["老铺旅馆", "御所坊系", "9 室·有馬最小", "外国人 hotel イメージ", "貸切金泉无料"],
+    address="神戸市北区有馬町·神鉄有馬温泉駅徒步 10 分",
+    rooms="和/洋/suite/Premium Twin·全 9 室",
+    breakfast="和朝食含·御所坊大浴场无料利用",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 hanakoyado.com·一休·楽天",
+    sources=["https://hanakoyado.com/en/", "https://www.ikyu.com/00001964/"],
+)
+
+register(
+    "arm_arima_onsen_tian_di_zhi_su_ao_zhi_xi_dao",
+    brief="**有馬奥座敷·料理旅館**·**全室マウンテンビュー和洋室+全室客室露天风吕（金泉/自家源泉）**·六甲山眺望·本馆+別馆「太閤」suite·特別室 140㎡（金泉足汤付）·料理パフォーマンス +¥15,000。",
+    highlights=["温泉旅馆", "全室客室露天风吕", "料理旅館", "金泉/自家源泉", "140㎡ 特別室+金泉足汤"],
+    address="神戸市北区有馬町·有馬奥座敷·有馬三山囲",
+    rooms="本馆 全室和洋·別馆 suite「太閤」3 间·全 露天付",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥50,000-150,000",
+    booking="公式 arima-okunohosomichi.com·一休·楽天",
+    sources=["https://arima-okunohosomichi.com/", "https://arima-okunohosomichi.com/room/"],
+)
+
+register(
+    "arm_arima_onsen_si_ji_zhi_cai_lv_long",
+    brief="**2002 年创業·2023.3 リニューアル·全 6 室金泉露天付**·料理旅館·**割烹 counter 客前料理·料理鉄人 大田忠道館主**·部屋 60-90㎡·名物雲海鍋（綿菓子+神戸牛）·客前出汁巻 live 朝食。",
+    highlights=["老铺旅馆", "2023 全面 renew", "全 6 室金泉露天付", "客前料理 counter", "鉄人 大田忠道"],
+    address="神戸市北区有馬町·三宮 30 分·箕谷 ramp 经由",
+    rooms="60-90㎡·全 6 室金泉露天付",
+    breakfast="和朝食含·客前 live 出汁巻玉子",
+    price="夕朝食付 2 人 ¥80,000-180,000",
+    booking="公式 arima-hatago.com·一休·楽天",
+    sources=["https://arima-hatago.com/", "https://arima-hatago.com/rooms/"],
+)
+
+register(
+    "arm_arima_onsen_wen_quan_yue_guang_yuan_hong_long_guan",
+    brief="**月光園グループ・本館鴻朧館**·有馬数少ない自家源泉宿·落葉山+滝川眺望·**2015.12 最上 1 室貴賓 suite open**·大浴場「金波の湯」全面 ガラス眺望·会席「弓張月」+麺処「一心亭」深夜営业·茶室「拈華庵」。",
+    highlights=["温泉旅馆", "月光園系", "自家源泉", "貴賓 suite 1 室 2015 open", "金波の湯眺望"],
+    address="神戸市北区有馬町·神鉄有馬温泉駅徒步圈",
+    rooms="本館鴻朧館·貴賓 suite + 露天付客室 4 类",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 gekkoen.co.jp·一休·楽天",
+    sources=["https://www.gekkoen.co.jp/kourokan/room/", "https://kouroukan.com/"],
+)
+
+register(
+    "arm_arima_onsen_yin_shui_zhuang_zhao_le",
+    brief="**自家泉源金泉+ラジウム銀泉两种·有馬唯一**·六甲山見晴し高台·貸切露天 ¥5,500/50 分·神戸牛+丹波野菜+瀬戸内魚介客室食·新神戸/三宮无料送迎 40 分·別邸紫貴有る。",
+    highlights=["温泉旅馆", "自家泉源金泉+ラジウム銀泉", "有馬唯一 2 泉", "貸切露天", "客室食"],
+    address="神戸市北区有馬町 654-1·新神戸/三宮无料送迎",
+    rooms="多类型·部分露天付·別邸紫貴",
+    breakfast="客室食·和朝食",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 choraku.com·一休·楽天",
+    sources=["https://choraku.com/", "https://www.ikyu.com/en-us/00001744/"],
+)
+
+
+
+# === 神户/有马 第二批 (75-90) ===
+register(
+    "arm_arima_onsen_shan_cong_gosho_bie_shu",
+    brief="**御所坊系姉妹·1400 坪敷地·全 10 室サーマルスイート 100㎡+**·6 甲山懐·御所泉源+妬泉源 2 種引湯·**全室客室温泉·世界初ツリーハウス型露天**·サーマルルーム（37 度低温岩盤浴）·Villa+Maisonette 3 类·有馬清水寺起源。",
+    highlights=["温泉旅馆", "御所坊系", "全 10 室 100㎡+", "ツリーハウス露天", "サーマルルーム（低温岩盤浴）"],
+    address="神戸市北区有馬町·有馬温泉駅送迎車",
+    rooms="Villa/Maisonette/Tree House·全 10 室·100㎡+",
+    breakfast="和朝食含·料理旅館",
+    price="夕朝食付 2 人 ¥120,000-300,000",
+    booking="公式 goshobessho.com·一休·楽天",
+    sources=["https://goshobessho.com/en/", "https://goshobessho.com/en/rooms/"],
+)
+
+register(
+    "arm_arima_onsen_you_ma_yu_yuan",
+    brief="**1946 年创业老铺·全 50 室**·神戸電鉄有馬温泉駅徒步 2-3 分·有馬川親水広場目前·**有馬一番神戸牛取扱指定店**·金泉+銀泉两种·檜露天风吕銀泉·CI15 / CO10 简洁。",
+    highlights=["温泉旅馆", "1946 老铺", "50 室", "神戸牛 1 番取扱", "金+銀泉两种"],
+    address="神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 2-3 分",
+    rooms="多类型·共 50 室",
+    breakfast="和朝食·神戸牛朝食",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 arima-gyoen.co.jp·一休·楽天",
+    sources=["https://en.arima-gyoen.co.jp/", "https://www.hankyu-travel.com/kokunai/facility/detail/htl980.php"],
+)
+
+register(
+    "arm_arima_onsen_gao_sanso_hua_ye",
+    brief="**有馬高台閑静·全 17 室「大人の宿」12 歲以下不可入館**·館内野花+古美術+アート（美術館的）·2018.7 リニューアル金泉+銀泉两种·2025.1 温泉付 suite 诞生·梅田阪急 bus 55 分。",
+    highlights=["老铺旅馆", "17 室·大人の宿", "12 岁以下不可入馆", "美术馆的氛围", "金+銀两种"],
+    address="神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 10 分",
+    rooms="和室/和洋·全 17 室·部分露天付",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥50,000-130,000",
+    booking="公式 arima-hanano.jp·一休·楽天",
+    sources=["https://www.arima-hanano.com/en/", "https://arima-hanano.jp/hotspring"],
+)
+
+register(
+    "arm_arima_onsen_hua_jie",
+    brief="**御幸荘 花結び·有馬山+街景眺望**·**金泉+銀泉内湯+外湯+展望貸切露天**·全客室花の名前·マッサージチェア完备·POLA aamenity·神戸電鉄有馬温泉駅徒步 10 分（送迎无料）·和洋 suite 12.5 畳金泉露天付。",
+    highlights=["温泉旅馆", "御幸荘系", "金+銀泉两种", "POLA amenity", "全室花名+マッサージチェア"],
+    address="神戸市北区有馬町 351·神戸電鉄有馬温泉駅徒步 10 分",
+    rooms="和室/和洋 suite·部分金泉露天付",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 hanamusubi.co.jp·一休·楽天",
+    sources=["https://www.hanamusubi.co.jp/rooms/", "https://www.ikyu.com/en-us/00030104/"],
+)
+
+register(
+    "arm_arima_onsen_yuan_tang_gu_quan_ge",
+    brief="**1955 年开业·純和風旅館 55 室+The Lodge 11 棟（计 66 室）·定員 224 名**·有馬温泉駅徒步圈·本馆+別馆+東馆 3 棟·4 阶以上純和風客室見晴し·全室バス トイレ付·2020.4 全室禁烟·純和風 8 畳和室。",
+    highlights=["温泉旅馆", "1955 老铺", "和風 55 室+Lodge 11 棟", "本馆+別馆+東馆", "見晴し 4 阶以上"],
+    address="神戸市北区有馬町 1455-1·有馬温泉駅·送迎",
+    rooms="本馆+別馆+東馆+The Lodge 11 棟·共 66 室",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥35,000-90,000",
+    booking="公式 kosenkaku.com·一休·楽天",
+    sources=["https://www.kosenkaku.com/", "https://kosenkaku.com/room.html"],
+)
+
+register(
+    "arm_arima_onsen_yue_guang_yuan_you_yue_sanso",
+    brief="**月光園游月山荘·昭和初期純和風木造 3 阶建·懐かしい温かさ**·六甲山系落葉山麓·目前滝川（蛍/かじか/沢蟹）·8/10/12 帖和室+踏込+広縁付·有馬最古「自家源泉」·川沿露天·游月亭特別室·没有エレベータ。",
+    highlights=["温泉旅馆", "月光園系", "昭和初期木造 3 阶", "自家源泉", "川沿露天·蛍/かじか"],
+    address="神戸市北区有馬町 318·神鉄有馬温泉駅徒步圈",
+    rooms="一般和室 8/10/12 帖+游月亭特別室",
+    breakfast="和朝食 buffet 兵庫食材·部分客室食",
+    price="夕朝食付 2 人 ¥35,000-90,000",
+    booking="公式 gekkoen.co.jp·一休·楽天",
+    sources=["https://www.gekkoen.co.jp/yuugetu/", "https://www.gekkoen.co.jp/yuugetu/room/"],
+)
+
+register(
+    "arm_arima_onsen_ling_feng_ge",
+    brief="**ねぎや陵楓閣·千坪敷地·全 36 室（JTB 33 室）·中心街徒步 5 分·落葉山中腹**·楓自生·**料理自慢「いやし宿」+ 露天风吕付客室+和洋室多类型**·「世界一の朝食」（JTB 表記とは別）·無料送迎。",
+    highlights=["温泉旅馆", "ねぎや系", "千坪敷地", "全 36 室", "落葉山中腹·楓自生", "1 人宿可"],
+    address="神戸市北区有馬町·有馬温泉駅徒步 5 分（无料送迎）",
+    rooms="和室 8-10 畳/和洋室/露天付·全 36 室",
+    breakfast="和朝食含·料理自慢",
+    price="夕朝食付 2 人 ¥40,000-100,000",
+    booking="公式 negiya.jp·一休·楽天",
+    sources=["https://en.negiya.jp/room", "https://en.negiya.jp/"],
+)
+
+register(
+    "arm_arima_onsen_yue_zhi_zhou",
+    brief="**月への舟·有馬街道自家源泉宿**·森/山/宙 3 源泉エリア·**7 ヶ所源泉露天风吕付浴室+14 浴槽·金色泉満たし月の舟一艘**·檜素材+黒赤·**月の離宮「美濃」85㎡/「信濃」100㎡（ペット OK+プライベートテラス）**·新「蒼天/蒼翠/蒼禅」金色泉露天 suite 45㎡。",
+    highlights=["温泉旅馆", "自家源泉 3 エリア", "7 露天浴室+14 浴槽+月の舟", "離宮 85-100㎡（ペット OK）", "Premium Suite 45㎡"],
+    address="神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 9 分（送迎）",
+    rooms="本馆 + 月の離宮 suite 2 棟（美濃 85㎡/信濃 100㎡）+ 蒼天/蒼翠/蒼禅 suite",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥60,000-200,000·suite up",
+    booking="公式 tsukienofune.com·一休·楽天",
+    sources=["https://tsukienofune.com/", "https://tsukienofune.com/room/"],
+)
+
+register(
+    "arm_arima_onsen_you_ma_guang_cai",
+    brief="**有馬きらり·全 54 室·阪急阪神 hotels 系**·神戸電鉄有馬温泉駅徒步 7 分·**併設「有馬温泉太閤の湯」関西最大級温泉テーマパーク 26 種風呂+岩盤浴 2 日無料**·411 年復元太閤秀吉の金泉蒸し風呂·新和食+50 種以上和洋朝食 buffet。",
+    highlights=["温泉旅馆", "阪急阪神系", "54 室", "「太閤の湯」テーマパーク 26 風呂無料", "411 年復元金泉蒸"],
+    address="神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 7 分",
+    rooms="和室 8 畳中心·全 54 室",
+    breakfast="和洋 buffet 50 種以上",
+    price="夕朝食付 2 人 ¥35,000-80,000",
+    booking="公式 arima-view.com·HMI·一休",
+    sources=["https://www.arima-view.com/", "https://www.hankyu-hotel.com/en/hotel/ch/arima"],
+)
+
+register(
+    "kbe_bay_area_wan_sheraton_hotel",
+    brief="**Marriott Bonvoy Sheraton 系·六甲アイランド中心**·22 阶层·客室 6-20 阶·**全 267 室（公式）/268 室（onlineshop）**·6 种特徴 floor·Family Friendly Hotel·神戸湾 view。",
+    highlights=["设计精品", "Marriott Bonvoy Sheraton", "267 室", "六甲アイランド中心", "6 类 floor"],
+    address="神戸市東灘区·六甲アイランド·六甲ライナー Island Center 駅",
+    rooms="Standard~Suite·6 类·全 267 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-65,000·Marriott Bonvoy",
+    booking="公式 sheraton-kobe.co.jp·Marriott·一休",
+    sources=["https://www.sheraton-kobe.co.jp/rooms/", "https://www.sheraton-kobe.co.jp/stay/"],
+)
+
+register(
+    "kbe_harborland_meriken_la_suite_hai_gang_hotel",
+    brief="**SLH 加盟·日本初**·全 70 室·**全室オーシャンビュー+テラス+ジャクジー**·中央区波止場町·**ラ・レーヌ/ル・ロワ/和洋スイート 3 室最上级（電話予約のみ）**·Tonda ジャグジーバス円形 view·小規模 luxury。",
+    highlights=["设计精品", "SLH 加盟日本初", "70 室全 ocean view+terrace+jacuzzi", "最上 3 suite", "円形 view bath"],
+    address="神戸市中央区波止場町 7-2·神戸ハーバーランド",
+    rooms="High floor 7-10F / Luxury 4-6F / 最上 3 suite·全 70 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥40,000-150,000",
+    booking="公式 l-s.jp·SLH·一休",
+    sources=["https://www.l-s.jp/", "https://www.l-s.jp/stay-rooms/"],
+)
+
+register(
+    "kbe_harborland_meriken_da_cang_hotel",
+    brief="**Okura Nikko Hotels 系·1989.6 开业·神戸メリケンパーク内 35 阶高层**·全 468 室·阪神大震災 1995 経験·28-29F Precious Floor / 30-33F Superior Floor·北六甲山眺/南神戸港眺·桃花林+山里+さざんか+カメリア+有明 5 间 restaurant·新神戸 shuttle。",
+    highlights=["设计精品", "Okura Nikko 系", "1989 老铺 35 阶", "468 室", "Precious/Superior Floor"],
+    address="神戸市中央区波止場町 2-1 メリケンパーク内·元町徒步 10 分",
+    rooms="Standard~Royal Suite·Precious/Superior Floor·全 468 室",
+    breakfast="可选含早 buffet",
+    price="素泊 2 人 ¥30,000-100,000",
+    booking="公式 kobe.hotelokura.co.jp·一休·Okura Nikko",
+    sources=["https://www.kobe.hotelokura.co.jp/", "https://www.feel-kobe.jp/facilities/0000000332/"],
+)
+
+register(
+    "kbe_harborland_meriken_mei_li_jian_gong_yuan_dong_fang_hotel",
+    brief="**1995 年开业（2005 改装）·神戸メリケンパーク内**·船旅イメージ design·全 323 室·**全室バルコニー付**·阪急阪神 hotels 系（Oriental Hotels & Resorts）·方向別不同景观（神戸港夜景/海外帆船 view）。",
+    highlights=["设计精品", "Oriental Hotels 系", "1995 老铺", "323 室", "全室バルコニー", "船旅イメージ"],
+    address="神戸市中央区波止場町 5-6·メリケンパーク内",
+    rooms="Standard~Suite·全室バルコニー·全 323 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥22,000-70,000·HMI",
+    booking="公式 kobe-orientalhotel.co.jp·HMI·一休",
+    sources=["https://www.kobe-orientalhotel.co.jp/", "https://www.oriental-hotels.com/hotellist/17/"],
+)
+
+register(
+    "kbe_kitano_shinkobe_ana_crowne_plaza_kobe",
+    brief="**IHG ANA Crowne Plaza 系**·**新神戸駅直结·三宮地铁 1 站 2 分**·全 592 室·14 阶以上 Twin 主体·**30-32F・37F Club Room+ラウンジ**·15-125㎡·東客室大阪湾/西客室神戸市街+淡路島眺·23 间宴会场。",
+    highlights=["设计精品", "IHG Crowne Plaza 系", "新神戸直结", "592 室", "Club Lounge 30-32+37F"],
+    address="神戸市中央区·新神戸駅直结·三宮地铁 1 站 2 分",
+    rooms="Single 15㎡~Club Suite 125㎡·全 592 室",
+    breakfast="可选含早 buffet",
+    price="素泊 2 人 ¥25,000-70,000·IHG One Rewards",
+    booking="公式 anacrowneplaza-kobe.jp·IHG·一休",
+    sources=["https://www.anacrowneplaza-kobe.jp/", "https://www.ihg.com/crowneplaza/hotels/us/en/hyogo/osakb/hoteldetail"],
+)
+
+register(
+    "kbe_kitano_shinkobe_kitano_hotel",
+    brief="**全 30 室英国 antique 家具 オーベルジュ**·三宮駅徒步 15 分·北野山本通·**ベルナール・ロワゾー「世界一の朝食」フランス国外初紹介 hotel**·President Twin 等多类型·气品 inside。",
+    highlights=["设计精品", "オーベルジュ", "30 室·英国 antique", "ロワゾー世界一朝食", "北野立地"],
+    address="神戸市中央区山本通 3-3-20·三宮駅徒步 15 分",
+    rooms="President Twin~多类型·全 30 室",
+    breakfast="ベルナール・ロワゾー世界一朝食",
+    price="素泊 2 人 ¥45,000-110,000",
+    booking="公式 kobe-kitanohotel.co.jp·一休·楽天",
+    sources=["https://www.kobe-kitanohotel.co.jp/?men=4&cat=8", "https://www.ikyu.com/en-us/00000254/"],
+)
+
+register(
+    "kbe_motomachi_nankinmach_oriental_hotel_kobe",
+    brief="**THE ORIENT（旧 ORIENTAL HOTEL）·神戸旧居留地 25 番地 1870 年创业·150 年以上历史**·**最上 17 阶 lobby/front**·Suite 113㎡+Junior Suite 77㎡（大理石ジェットバス+rain shower）·**Salon THE ORIENT クラブラウンジ 50 種酒**·OmniSens Paris amenity 日本初。",
+    highlights=["老铺旅馆", "1870 老铺·150 年历史", "PDS Hotels 系", "17F lobby+ Suite 113㎡", "Salon クラブラウンジ"],
+    address="神戸市中央区·旧居留地·旧居留地・大丸前駅徒步 5 分",
+    rooms="Deluxe~Suite 113㎡·Junior Suite 77㎡·Club Floor",
+    breakfast="DAIKILY's CROISSANT クロワッサン Club Lounge",
+    price="素泊 2 人 ¥35,000-100,000",
+    booking="公式 orientalhotel.jp·一休·Relux",
+    sources=["https://www.orientalhotel.jp/", "https://www.orientalhotel.jp/room/"],
+)
+
+
+
+# === 城崎温泉 (91-96) ===
+register(
+    "kns_kinosaki_onsen_xi_cun_wu_hotel_zhao_yue_ting",
+    brief="**1860 年代创业 西村屋系别馆·城崎唯一 5 ツ星认定宿**·5 万坪森林庭园·**庭の棟+月の棟 2 棟**·6 名室 10-12.5 畳·1 室限定露天付特別室「桂月」·**洋室 Natural&Comfort 设计**·但馬牛+松葉がに·4 つの湯船。",
+    highlights=["温泉旅馆", "西村屋系别馆", "5 万坪森林庭园", "5 ツ星认定宿", "桂月特別室", "Natural&Comfort 洋室"],
+    address="兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（送迎）",
+    rooms="庭の棟 10-12.5 畳·月の棟·洋室·特別室「桂月」",
+    breakfast="和朝食含·但馬牛/松葉がに会席",
+    price="夕朝食付 2 人 ¥80,000-200,000",
+    booking="公式 nishimuraya.ne.jp·一休·楽天",
+    sources=["https://www.nishimuraya.ne.jp/shogetsu/", "https://www.nishimuraya.ne.jp/shogetsu/room/"],
+)
+
+register(
+    "kns_kinosaki_onsen_wen_quan_xi_le",
+    brief="**JR 城崎温泉駅徒步 10 分（旅館組合無料 bus）·御所の湯付近**·全室純和室·内湯+2 ヶ所貸切风吕（陶器风吕「月」¥1650/铁釜风吕「流」¥1100·無料 plan 有）·**陶芸/七宝/素焼き付け体验工房「楽画喜」併設**·11/7-3/31 蟹会席。",
+    highlights=["温泉旅馆", "全室和室", "陶芸体验工房", "御所の湯近邻", "外汤巡り便利"],
+    address="兵庫県豊岡市城崎町·JR 城崎温泉駅徒步 10 分（送迎）",
+    rooms="纯和室·多类型·14 室前後",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥30,000-90,000",
+    booking="公式 yado-kiraku.com·一休·楽天",
+    sources=["http://www.yado-kiraku.com/", "https://kinosaki-spa.gr.jp/stay/"],
+)
+
+register(
+    "kns_kinosaki_onsen_da_xi_wu_shui_xiang_yuan",
+    brief="**「かがり火の宿」·全館畳敷き数寄屋造**·コウノトリ翔るこの地·全室踏込・広縁付·**本館 2F+離れ 1F+和室 12.5 畳「記念日」プラン+洋室 twin**·全室禁烟·男女别大浴场+岩露天+sauna+ジャグジー·無料 footマッサージ。",
+    highlights=["温泉旅馆", "数寄屋造畳敷き", "本館+離れ", "岩露天+sauna+ジャグジー", "コウノトリ"],
+    address="兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（旅館組合 bus）",
+    rooms="本館和室+離れ和室+洋室 twin·多类型",
+    breakfast="和朝食含·個室お食事処",
+    price="夕朝食付 2 人 ¥35,000-100,000",
+    booking="公式 suisyou.com·一休·楽天",
+    sources=["https://www.suisyou.com/", "https://www.ikyu.com/en-us/00001703/"],
+)
+
+register(
+    "kns_kinosaki_onsen_xie_su_liu_zhi_wu",
+    brief="**1862 年文久 2 年创业「網元の宿」**·一の湯/柳湯近·目前柳湯足汤·宿前柳並木+太鼓橋川·**津居山蟹（青タグ）コース料理·蟹刺/茹蟹/焼蟹/蟹味噌/蟹しゃぶ+雑炊**·城崎温泉観光協会公式登録。",
+    highlights=["温泉旅馆", "1862 老铺", "網元の宿", "津居山蟹青タグ料理", "一の湯/柳湯近"],
+    address="兵庫県豊岡市城崎町湯島 652·JR 城崎駅徒步 10 分",
+    rooms="纯和室·小規模",
+    breakfast="和朝食含·料理旅館",
+    price="夕朝食付 2 人 ¥30,000-100,000（蟹季+30%）",
+    booking="kinosaki-spa.gr.jp 公式予約·じゃらん·楽天",
+    sources=["https://kinosaki-spa.gr.jp/stay/kaniyadomutunoya/", "https://resv.kinosaki-spa.gr.jp/kaniyadomutunoya/"],
+)
+
+register(
+    "kns_kinosaki_onsen_shen_shan",
+    brief="**深山·全室 10 畳以上純和風**·古き良き時代面影·明治大正モダン女性志向·1 室限定特別室（中庭眺·城崎雪化粧）·**城崎伝統工芸「麦わら細工」装饰·兵庫県展神戸新聞社賞作品**·髪 0 ダメージ ドライヤー amenity。",
+    highlights=["温泉旅馆", "全室 10 畳+", "麦わら細工装饰", "明治大正モダン", "中庭特別室"],
+    address="兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈",
+    rooms="特別室+「真珠」等多类型·全室 10 畳+",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥40,000-110,000",
+    booking="公式 shinzan-kinosaki.jp·一休·楽天",
+    sources=["https://shinzan-kinosaki.jp/", "https://shinzan-kinosaki.jp/room"],
+)
+
+register(
+    "kns_kinosaki_onsen_quan_cui",
+    brief="**旅館 泉翠·建築家堀部安嗣設計**·**全 13 室·12 歳未満不可+4 名様まで限定·全館禁烟·全室无 TV**·特別室「蓬莱」无垢材+漆喰壁·和洋アジアン+和ベッドルーム+和室+特別室 3 棟·貸切风吕「陶/檜」无料·大谿川沿い静かな立地。",
+    highlights=["设计精品", "堀部安嗣設計", "13 室", "12 歳未満不可+4 名限定", "全室无 TV+全館禁烟"],
+    address="兵庫県豊岡市城崎町湯島 753·城崎中心地大谿川沿い",
+    rooms="和洋アジアン/和ベッド/和室/特別室·全 13 室",
+    breakfast="和朝食含",
+    price="夕朝食付 2 人 ¥45,000-120,000",
+    booking="公式 kinosaki-sensui.com·一休·Relux",
+    sources=["https://kinosaki-sensui.com/", "https://kinosaki-sensui.com/guest-room/"],
+)
+
+
+
+# === 高野山宿坊 (97-106) ===
+register(
+    "kya_koyasan_temple_hui_guang_yuan",
+    brief="**高野山宿坊·全 5 类客室·2022.3 高野山最大級宿坊 suite open（100㎡·半露天风吕+庭園）**·**毎日 16:30 阿字観瞑想 40 分宿泊者无料**·毎朝护摩祈祷+写经无料·奥之院徒步 2 分·英语对应 staff·精进料理夕朝部屋出。",
+    highlights=["宿坊", "高野山最大级 suite 100㎡", "阿字観无料毎日", "毎朝护摩祈祷", "奥之院徒步 2 分"],
+    address="和歌山県伊都郡高野町高野山·奥之院徒步 2 分",
+    rooms="和室基本 5 类·100㎡ Suite·部分ベッドタイプ",
+    breakfast="精进料理朝食含·部屋出",
+    price="夕朝食付 2 人 ¥30,000-100,000",
+    booking="公式 ekoin.jp·tabichat·楽天",
+    sources=["https://www.ekoin.jp/en/", "https://www.ekoin.jp/en/shukubo/"],
+)
+
+register(
+    "kya_koyasan_temple_yi_cheng_yuan",
+    brief="**九条家菩提寺·开基 1100 年以上**·昭和 10 年代建造 2 阶建 10 部屋→4 部屋改装·**全 4 室+檜浴槽浴室付**·写经 ¥1,000・阿字観 ¥3,000・写仏 ¥1,000 体验有料·真言密教瞑想前段「数息観/阿息観」。",
+    highlights=["宿坊", "九条家菩提寺", "1100 年以上", "全 4 室 リニューアル", "檜浴槽浴室付"],
+    address="和歌山県伊都郡高野町高野山 606",
+    rooms="リニューアル和ベッドルーム 4 室·檜浴槽付",
+    breakfast="精进料理朝食含",
+    price="夕朝食付 2 人 ¥45,000-110,000",
+    booking="公式 itijyoin.or.jp·一休·楽天",
+    sources=["https://www.itijyoin.or.jp/shukubou/honkan/index.html", "https://www.itijyoin.or.jp/shukubou/rooms.html"],
+)
+
+register(
+    "kya_koyasan_temple_lian_hua_ding_yuan",
+    brief="**鎌倉初期 1190-99 创建·真田家高野山菩提寺「真田坊」**·关原后真田昌幸+幸村亲子滞在·**境内裏真田信之墓所**·15 时 CI+「上段の間」見学·17 时阿息観瞑想 40 分·池泉観賞式庭园·六文銭家紋·门限 21 时·高野山ケーブル駅近邻。",
+    highlights=["宿坊", "鎌倉初期创建·真田家菩提寺", "上段の間見学", "六文銭家紋", "ケーブル駅近邻"],
+    address="和歌山県伊都郡高野町高野山 49·金剛峯寺前徒步 10 分",
+    rooms="和室·客室數限定·掛軸+襖絵+調度品",
+    breakfast="精进料理朝食含",
+    price="夕朝食付 2 人 ¥30,000-90,000",
+    booking="公式 rengejoin.jp·tabichat·一休",
+    sources=["https://www.rengejoin.jp/", "https://www.shukubo.net/contents/stay/rengejoin.html"],
+)
+
+register(
+    "kya_koyasan_temple_fu_zhi_yuan",
+    brief="**1816 弘法大师空海开創·800 余年·别格本山**·**高野山唯一天然温泉（单純アルカリ泉大浴场+露天）**·**重森三玲三庭园**·愛染明王本尊·桜田門外井伊大老遗品+奈良时代古美術品納·写経/写仏/腕輪念珠体验有料。",
+    highlights=["宿坊", "1816 老铺·别格本山", "唯一天然温泉", "重森三玲三庭园", "愛染明王本尊"],
+    address="和歌山県伊都郡高野町高野山·金剛峯寺近邻",
+    rooms="和室·多类型",
+    breakfast="精进料理朝食含·無料朝勤行 6:00",
+    price="夕朝食付 2 人 ¥35,000-90,000",
+    booking="公式 fukuchiin.com·一休·楽天",
+    sources=["https://www.fukuchiin.com/", "https://www.fukuchiin.com/shukubo"],
+)
+
+register(
+    "kya_koyasan_temple_xi_nan_yuan",
+    brief="**别格本山·約 1100 年历史**·弘法大師高弟真然大徳開基·**本尊太元師明王（弘法大師御真筆）**·鳥羽法皇勅願寺·**江戸时期中川/岡山/淡路/埼玉諸大名参詣**·境内経蔵当時面影遺·数寄屋造客室+庭の正面 1 階/2 階·**バイタル ミネラル温泉**（活性石）。",
+    highlights=["宿坊", "别格本山·1100 年", "鳥羽法皇勅願寺", "数寄屋造", "バイタル ミネラル温泉"],
+    address="和歌山県伊都郡高野町高野山 249·大門 300m",
+    rooms="数寄屋造和室·庭園正面 1 階/2 階",
+    breakfast="精进料理朝食含",
+    price="夕朝食付 2 人 ¥25,000-80,000",
+    booking="公式 sainanin.com·楽天·じゃらん",
+    sources=["https://sainanin.com/", "https://sainanin.com/syukubo"],
+)
+
+register(
+    "kya_koyasan_temple_qing_jing_xin_yuan",
+    brief="**真言宗别格本山·天長 824-34 年弘法大師草創**·東部位置·奥の院最近**·**毎日 13 时鳳凰奏殿護摩行**·**ミシュラン星「味吉兆」監修精进料理**·豊臣秀吉花見「傘桜」+運慶作阿弥陀如来立像（重文）+上杉謙信霊屋（重文）+**第十八代相承住持恵観法主**·御祈願（先祖供养 ¥2,000）。",
+    highlights=["宿坊", "真言宗别格本山", "天長弘法大师草創", "13 时护摩行", "味吉兆精进料理", "上杉謙信霊屋（重文）"],
+    address="和歌山県伊都郡高野町高野山 566·奥の院隣接",
+    rooms="多类型·広大寺院（金剛峯寺次广）",
+    breakfast="精进料理朝食含·味吉兆監修",
+    price="夕朝食付 2 人 ¥35,000-100,000",
+    booking="公式 shojoshinin.jp·koyasan-shukubo·一休",
+    sources=["https://shojoshinin.jp/", "https://shojoshinin.jp/engi/"],
+)
+
+register(
+    "kya_koyasan_temple_chi_song_yuan",
+    brief="**923 年延長元年聖快阿闍梨創立**·赤松円心入道·**赤松/細川/有馬家菩提所**·本尊十一面観世音菩薩·**2,000 余坪山内第一庭園+1500 坪回遊式**·**高野山唯一仁王像有る朱塗山門**·阿字観瞑想体验·日/英/中文 staff·奥の院入口便利。",
+    highlights=["宿坊", "923 老铺", "赤松/細川/有馬家菩提所", "山内第一庭園 2000 余坪", "唯一仁王像朱塗山門"],
+    address="和歌山県伊都郡高野町高野山 571·奥の院入口",
+    rooms="本院和室+新館一般旅館设备",
+    breakfast="精进料理朝食含·胡麻豆腐",
+    price="夕朝食付 2 人 ¥18,000-60,000",
+    booking="公式 sekishoin.jp·shukubo.net·一休",
+    sources=["https://www.sekishoin.jp/lg_en/", "https://www.shukubo.net/contents/stay/sekishoin.html"],
+)
+
+register(
+    "kya_koyasan_temple_bu_dong_yuan",
+    brief="**延喜 906 年済高大僧正開基·西谷 12 ヶ院之一·山階宮家菩提寺·全 9 室·**離れ「檜風呂付き特別室」金松の間 16 畳 1 日 1 室限定+専用家族風呂（亀の湯/鶴の湯）**·阿字観瞑想 20 分朝务后无料·**高野山内唯一大般若転読会**·**お食事処书院和歌山県指定文化財**。",
+    highlights=["宿坊", "延喜 906 創建·山階宮家菩提寺", "9 室·檜風呂付特別室 1 日 1 室", "唯一大般若転読会", "書院県文化財"],
+    address="和歌山県伊都郡高野町高野山·南海りんかんバス蓮花谷徒步 3 分",
+    rooms="和室+離れ「檜風呂付特別室」金松の間",
+    breakfast="精进料理朝食含·県文化財書院",
+    price="夕朝食付 2 人 ¥40,000-150,000",
+    booking="公式 fudouin.or.jp·tabichat·一休",
+    sources=["https://www.fudouin.or.jp/", "https://koyasan-shukubo.net/provider/detail?providerId=49"],
+)
+
+register(
+    "kya_koyasan_temple_chang_xi_yuan",
+    brief="**金剛峯寺すぐそば·伽藍隣接**·**子安延命地蔵菩薩重要文化財**·境内和歌山県指定文化財校倉·身丈 4m お地蔵様·毎年 4-12 月第一木曜～日曜定例修行体验会（写经/瞑想/掃除/読経/法話）·9/24 前後地蔵祭。",
+    highlights=["宿坊", "金剛峯寺隣接", "子安延命地蔵菩薩重文", "校倉県文化財", "定例修行会"],
+    address="和歌山県伊都郡高野町高野山·金剛峯寺すぐそば",
+    rooms="和室·バス共用",
+    breakfast="精进料理朝食含",
+    price="夕朝食付 2 人 ¥25,000-70,000",
+    booking="公式 jokiin.jp·tabichat·一休",
+    sources=["https://jokiin.jp/", "https://www.shukubo.net/contents/stay/jokiin.html"],
+)
+
+register(
+    "kya_koyasan_temple_long_quan_yuan",
+    brief="**西国四十九薬師霊場第 10 番·重文薬師如来本尊**·**弘法大師雨請祈願寺**·150 名収容宿坊（要予約）·金剛峯寺/壇上伽藍近·南海りんかんバス「金剛峯寺前」徒步 5 分·無料拝観 9-17 时。",
+    highlights=["宿坊", "西国薬師 10 番", "重文薬師如来本尊", "弘法大師雨請祈願寺", "150 名収容"],
+    address="和歌山県伊都郡高野町高野山 647·南海バス金剛峯寺前徒步 5 分",
+    rooms="和室·150 名収容",
+    breakfast="精进料理朝食含",
+    price="夕朝食付 2 人 ¥22,000-60,000",
+    booking="高野山宿坊協会公式·shukubo.net·一休",
+    sources=["https://www.shukubo.net/contents/stay/ryusenin.html", "https://yakushi49.jp/10ryusenin/"],
+)
+
+
+# === 奈良 (107-110) ===
+register(
+    "nra_nara_park_area_zi_cui_she_hua_jing_xuan_hotel_nai_liang",
+    brief="**Marriott Luxury Collection·SUI HOTELS 系**·**大正期建築「奈良県知事公舎」改修メイン棟+古倉「正倉」鮨バー**·吉城園周辺·若草山ふもと·**全 43 室（うち 23 室客室温泉风吕/露天付）**·**隈研吾「シカ」シリーズチェア**·メインダイニング「翠葉」ガストロノミー。",
+    highlights=["设计精品", "Marriott Luxury Collection", "知事公舎改修", "全 43 室·23 室温泉付", "隈研吾设计", "正倉鮨"],
+    address="奈良市·吉城園周辺·若草山ふもと·近鉄奈良駅 タクシー 5 分",
+    rooms="Standard~Junior Suite·全 43 室·23 室客室温泉",
+    breakfast="翠葉 法日 fusion 含选项",
+    price="夕朝食付 2 人 ¥80,000-250,000",
+    booking="公式 suihotels.com·Marriott·一休",
+    sources=["https://www.suihotels.com/shisui/", "https://www.marriott.com/en-us/hotels/osanl-shisui-a-luxury-collection-hotel-nara/rooms/"],
+)
+
+register(
+    "nra_nara_park_area_jie_dao_sai_tuo_lei",
+    brief="**SETRE 系·2018.12 开业「ならまちの隠れ宿」**·猿沢池東畔·興福寺五重塔近·**奈良吉野杉/檜+月ヶ瀬の土素材+伝統技法+吉野木オリジナル家具**·全 32 室·25/30/34㎡·五重塔目前星宙テラス+本のソムリエ堀部氏 library。",
+    highlights=["设计精品", "SETRE 系", "2018.12 新开业", "32 室", "猿沢池畔·五重塔近", "吉野杉素材"],
+    address="奈良市·猿沢池東畔·近鉄奈良駅徒步圈",
+    rooms="蘇芳 34㎡和洋·青丹 25/30㎡ハリウッドツイン·全 32 室",
+    breakfast="大和野菜·大和赤牛 grouptotal 監修",
+    price="夕朝食付 2 人 ¥50,000-130,000",
+    booking="公式 hotelsetre.com·一休·楽天",
+    sources=["https://www.hotelsetre.com/naramachi/stay/", "https://hotelsetre.com/naramachi/"],
+)
+
+register(
+    "nra_nara_park_area_miroku_nara_by_the_share_hotel",
+    brief="**THE SHARE HOTELS 9 店目·2021.9 开业**·荒池畔·興福寺五重塔+春日山原始林+若草山一望·**1990 年地下 1 阶+地上 4 阶ビル リノベ**·**芦沢啓治+佐野文彦 2 designer**·**地下「The Roots of Nara」吉野杉丸太大胆使用**·全 7 类 44 室·NEW LIGHT POTTERY 照明+sonihouse スピーカー+宇陀和紙·100% organic bath amenity。",
+    highlights=["设计精品", "THE SHARE 系 9 店目", "2021.9 新开业", "44 室·7 类", "芦沢+佐野 2 designer", "100% organic amenity"],
+    address="奈良市高畑町 1116-6·近鉄奈良駅徒步 10 分",
+    rooms="Junior Suite/Roots of Nara/Superior 等·全 7 类 44 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥24,000-65,000",
+    booking="公式 thesharehotels.com·一休·楽天",
+    sources=["https://www.thesharehotels.com/miroku/rooms/", "https://wellwood.jp/info/4031235"],
+)
+
+register(
+    "nra_nara_park_area_jw_marriott_hotel_nara",
+    brief="**JW Marriott·奈良初国际 luxury hotel·2020.7.22 开业**·**Marriott 集团最高 rank 日本初上陸**·全 158 室含 16 套房（含 Presidential Suite）·**640m²+ Function Room·373m² Main Ballroom「吉野」（300 名立食/240 名着席）**+4 间小宴会场·森トラスト开发。",
+    highlights=["设计精品", "JW Marriott 日本初", "2020.7 新开业", "158 室·16 suite", "640m² function room"],
+    address="奈良市·近鉄奈良駅徒步 7 分·奈良公园近邻",
+    rooms="Standard~Presidential Suite·全 158 室·16 suite",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥80,000-250,000·Marriott Bonvoy",
+    booking="公式 marriott.com·Marriott·一休",
+    sources=["https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/overview/", "https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/rooms/"],
+)
+
+
 def main() -> None:
     apply = "--apply" in sys.argv
     files = [f for f in ROOT.rglob("*.json") if "_archive" not in f.parts]

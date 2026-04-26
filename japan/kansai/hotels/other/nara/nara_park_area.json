@@ -20,20 +20,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "紫翠奢华精选酒店·奈良（紫翠 ラグジュアリーコレクションホテル 奈良）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Marriott Luxury Collection·SUI HOTELS 系**·**大正期建築「奈良県知事公舎」改修メイン棟+古倉「正倉」鮨バー**·吉城園周辺·若草山ふもと·**全 43 室（うち 23 室客室温泉风吕/露天付）**·**隈研吾「シカ」シリーズチェア**·メインダイニング「翠葉」ガストロノミー。",
       "亮点": [
-        "浪漫氛围",
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Marriott Luxury Collection",
+        "知事公舎改修",
+        "全 43 室·23 室温泉付",
+        "隈研吾设计",
+        "正倉鮨"
       ],
-      "价格": "日元区间 ¥25,000-60,000/晚（待 OTA 三时段核实）"
+      "价格": "夕朝食付 2 人 ¥80,000-250,000",
+      "地址": "奈良市·吉城園周辺·若草山ふもと·近鉄奈良駅 タクシー 5 分",
+      "房型": "Standard~Junior Suite·全 43 室·23 室客室温泉",
+      "含早": "翠葉 法日 fusion 含选项",
+      "预约": "公式 suihotels.com·Marriott·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.suihotels.com/shisui/",
+      "https://www.marriott.com/en-us/hotels/osanl-shisui-a-luxury-collection-hotel-nara/rooms/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -58,20 +66,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "奈良街道塞托雷（セトレならまち）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**SETRE 系·2018.12 开业「ならまちの隠れ宿」**·猿沢池東畔·興福寺五重塔近·**奈良吉野杉/檜+月ヶ瀬の土素材+伝統技法+吉野木オリジナル家具**·全 32 室·25/30/34㎡·五重塔目前星宙テラス+本のソムリエ堀部氏 library。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "SETRE 系",
+        "2018.12 新开业",
+        "32 室",
+        "猿沢池畔·五重塔近",
+        "吉野杉素材"
       ],
-      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+      "价格": "夕朝食付 2 人 ¥50,000-130,000",
+      "地址": "奈良市·猿沢池東畔·近鉄奈良駅徒步圈",
+      "房型": "蘇芳 34㎡和洋·青丹 25/30㎡ハリウッドツイン·全 32 室",
+      "含早": "大和野菜·大和赤牛 grouptotal 監修",
+      "预约": "公式 hotelsetre.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.hotelsetre.com/naramachi/stay/",
+      "https://hotelsetre.com/naramachi/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -96,22 +112,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "MIROKU Nara by THE SHARE HOTELS（MIROKU Nara by THE SHARE HOTELS）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**THE SHARE HOTELS 9 店目·2021.9 开业**·荒池畔·興福寺五重塔+春日山原始林+若草山一望·**1990 年地下 1 阶+地上 4 阶ビル リノベ**·**芦沢啓治+佐野文彦 2 designer**·**地下「The Roots of Nara」吉野杉丸太大胆使用**·全 7 类 44 室·NEW LIGHT POTTERY 照明+sonihouse スピーカー+宇陀和紙·100% organic bath amenity。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "THE SHARE 系 9 店目",
+        "2021.9 新开业",
+        "44 室·7 类",
+        "芦沢+佐野 2 designer",
+        "100% organic amenity"
       ],
-      "地址": "最近站：近铁奈良站（步行 10 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+      "地址": "奈良市高畑町 1116-6·近鉄奈良駅徒步 10 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥24,000-65,000",
+      "房型": "Junior Suite/Roots of Nara/Superior 等·全 7 类 44 室",
+      "预约": "公式 thesharehotels.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.thesharehotels.com/miroku/rooms/",
+      "https://wellwood.jp/info/4031235"
     ],
     "最后核实": "2026-04-26"
   },
@@ -182,21 +204,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "奈良JW万豪酒店（JW Marriott Hotel Nara）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**JW Marriott·奈良初国际 luxury hotel·2020.7.22 开业**·**Marriott 集团最高 rank 日本初上陸**·全 158 室含 16 套房（含 Presidential Suite）·**640m²+ Function Room·373m² Main Ballroom「吉野」（300 名立食/240 名着席）**+4 间小宴会场·森トラスト开发。",
       "亮点": [
-        "浪漫氛围",
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "JW Marriott 日本初",
+        "2020.7 新开业",
+        "158 室·16 suite",
+        "640m² function room"
       ],
-      "地址": "最近站：新大宫（步行 9 分钟左右）",
-      "价格": "日元区间 ¥25,000-60,000/晚（待 OTA 三时段核实）"
+      "地址": "奈良市·近鉄奈良駅徒步 7 分·奈良公园近邻",
+      "价格": "素泊 2 人 ¥80,000-250,000·Marriott Bonvoy",
+      "房型": "Standard~Presidential Suite·全 158 室·16 suite",
+      "含早": "可选含早",
+      "预约": "公式 marriott.com·Marriott·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/overview/",
+      "https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/rooms/"
     ],
     "最后核实": "2026-04-26"
   },

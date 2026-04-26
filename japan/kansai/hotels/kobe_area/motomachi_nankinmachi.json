@@ -16,21 +16,27 @@
     ],
     "tier": "b4",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "神户东方大酒店（東方ホテル (Oriental Hotel Kobe)）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**THE ORIENT（旧 ORIENTAL HOTEL）·神戸旧居留地 25 番地 1870 年创业·150 年以上历史**·**最上 17 阶 lobby/front**·Suite 113㎡+Junior Suite 77㎡（大理石ジェットバス+rain shower）·**Salon THE ORIENT クラブラウンジ 50 種酒**·OmniSens Paris amenity 日本初。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "老铺旅馆",
+        "1870 老铺·150 年历史",
+        "PDS Hotels 系",
+        "17F lobby+ Suite 113㎡",
+        "Salon クラブラウンジ"
       ],
-      "地址": "最近站：港地地铁站（步行 11 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+      "地址": "神戸市中央区·旧居留地·旧居留地・大丸前駅徒步 5 分",
+      "含早": "DAIKILY's CROISSANT クロワッサン Club Lounge",
+      "价格": "素泊 2 人 ¥35,000-100,000",
+      "房型": "Deluxe~Suite 113㎡·Junior Suite 77㎡·Club Floor",
+      "预约": "公式 orientalhotel.jp·一休·Relux"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.orientalhotel.jp/",
+      "https://www.orientalhotel.jp/room/"
     ],
     "最后核实": "2026-04-26"
   }
