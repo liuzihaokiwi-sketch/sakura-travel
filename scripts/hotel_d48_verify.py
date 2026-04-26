@@ -371,6 +371,128 @@ register(
 )
 
 
+# === 京都 第六批 (29-38) ===
+register(
+    "kyo_gion_higashiyama_ninnaji_omuro_hui_guan",
+    brief="**世界遗产 仁和寺 境内宿坊·全 12 室和室**·宿泊者特典：国宝「金堂」朝のお勤め参拝（4-9 月 6 时 / 10-3 月 6:30 时）+ 御殿无料拝観券·館内和食处「梵」·夕食京料理含湯葉/天麩羅。",
+    highlights=["宿坊", "世界遗产仁和寺", "金堂朝のお勤め", "12 室和室", "梵和食"],
+    address="京都市右京区御室大内 33·バス御室仁和寺·境内东门旁",
+    rooms="全室和室个室·共 12 室·浴衣/タオル完备",
+    breakfast="和朝食含·京湯豆腐+焼魚",
+    price="夕朝食付 2 人 ¥40,000-90,000",
+    booking="公式 omurokaikan.jp / ninnaji.or.jp·一休·楽天",
+    sources=["https://omurokaikan.jp/", "http://www.ninnaji.or.jp/syukubou/stay.html"],
+)
+
+register(
+    "kyo_gion_higashiyama_chion_in_wajun_hui_guan",
+    brief="**总本山知恩院三门前·2011 开館 2026.2 满 15 周年**·「凛としてあたたか お念仏にふれる宿」·洋室/和室/和洋室·館内和食处「花水庵」蒸料理+精進料理·**365 日朝法要+写経体验**。",
+    highlights=["宿坊", "知恩院三门前", "2011 开館", "365 日朝法要+写経", "花水庵"],
+    address="京都市東山区·知恩院三门前·京阪祇園四条徒步圈",
+    rooms="洋室/和室/和洋室·多类型",
+    breakfast="和朝食含",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 wajun-kaikan.jp·一休·楽天",
+    sources=["https://www.wajun-kaikan.jp/", "https://www.ikyu.com/en-us/00081020/"],
+)
+
+register(
+    "kyo_gion_higashiyama_myoshinji_dong_lin_yuan",
+    brief="**妙心寺塔頭·1531 年建·「沙羅雙樹の寺」别名**·6 月「沙羅の花を愛でる会」·正式宿坊体验有限·季节限定花供养会+精進料理·予約宿泊+座禅+写経。",
+    highlights=["宿坊", "妙心寺塔頭", "沙羅雙樹の寺", "1531 年建", "6 月沙羅の花会"],
+    address="京都市右京区花園·妙心寺塔頭·JR 花園站徒步 5 分",
+    rooms="客室数限定·要事前问合せ",
+    breakfast="精進朝食含",
+    price="夕朝食付 2 人 ¥30,000-60,000",
+    booking="电话予约·要早期 contact",
+    sources=["https://shukuken.com/torinin", "https://souda-kyoto.jp/event/detail/tourinin-sara.html"],
+)
+
+register(
+    "kyo_arashiyama_rokuoin",
+    brief="**1379 年足利義満建立·京都十刹第五·女性专用宿坊**·京都市指定名勝庭日本最初平庭式枯山水·1 泊朝食付 ¥5,000+ 宿泊税·**朝のお勤め座禅+法話現休止**。",
+    highlights=["宿坊", "1379 年建", "京都十刹第五", "女性专用", "枯山水庭"],
+    address="京都市右京区嵯峨北堀町·嵯峨嵐山駅徒步 5 分",
+    rooms="女性专用·客室数限定",
+    breakfast="朝食含",
+    price="1 泊朝食付 ¥5,000+",
+    booking="公式 rokuouin.com·和空·要事前问合せ",
+    sources=["https://rokuouin.com/en/temple-lodging/", "https://shukuken.com/rokuoin"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_yao_shi_yuan",
+    brief="**「こぬか薬師」**别名宿坊·五条立地·**精進・普茶料理（中華精進）特色**·素朴的寺院宿泊体验·朝の法要参拝。",
+    highlights=["宿坊", "こぬか薬師", "普茶料理", "五条立地"],
+    address="京都市下京区·五条·徒步寺町通り圈",
+    rooms="和室·客室数限定",
+    breakfast="和朝食含",
+    price="2 人含早 ¥15,800+",
+    booking="电话予约",
+    sources=["https://souda-kyoto.jp/blog/00700.html"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_ting_jia_zhu_zhai_jing_dou",
+    brief="**町家レジデンスイン京都·京都市内 64 棟点在·1 日 1 組限定一棟整租**·町家リノベ·**全棟京都市旅館業許可**·嶋原/中堂寺/三坊猪熊町等多区分散·小集团到大型 group 都可。",
+    highlights=["町家", "町家レジデンスイン系", "64 棟点在", "1 日 1 組整租", "旅館业許可"],
+    address="京都市内多区分散·下京/中京区为主",
+    rooms="一棟整租·定员 4-9 名·64 棟选择",
+    breakfast="无含早·部分有外送选项",
+    price="一棟 2-9 人 ¥40,000-200,000",
+    booking="公式 kyoto-machiya-inn.com·machiya-inn-japan.com·楽天",
+    sources=["https://www.kyoto-machiya-inn.com/jp/", "https://www.machiya-inn-japan.com/ja/"],
+)
+
+register(
+    "kyo_shijo_kawaramachi_kuraya",
+    brief="**藏や·京町家一棟貸し·京都市内 7 棟·築約 100 年京町家フルリノベ**·1 日 1 組整租·**约 70-100㎡ 大空间**·全棟京都市旅館业許可·清水五条/上五条町/南聖町等。",
+    highlights=["町家", "藏や系 7 棟", "築 100 年京町家", "70-100㎡", "1 日 1 組"],
+    address="京都市内 7 棟分散·清水五条/南聖町等",
+    rooms="一棟整租·70-100㎡·定员 4-8 名",
+    breakfast="无含早",
+    price="一棟 2-8 人 ¥30,000-150,000",
+    booking="公式 kuraya.net / machiya-stay.co.jp·Booking",
+    sources=["https://www.kuraya.net/index.php", "https://www.machiya-stay.co.jp/"],
+)
+
+register(
+    "kyo_gion_higashiyama_gion_xin_qiao_mei_an",
+    brief="**京都 白梅别馆 梅庵**·**祇园新桥伝統的建造物群保存地区**·**元 ochaya（茶屋）改造·1 日 2 組限定一棟貸し**·山本工业改造·有名祇园芸妓 owner·料理旅館 白梅本馆联动。",
+    highlights=["町家", "祇园新桥伝建群保存地区", "元 ochaya 改造", "1 日 2 組限定", "白梅别馆"],
+    address="京都市東山区·祇园新桥伝建群·阪急河原町徒步 7 分",
+    rooms="一棟整租·1 日 2 組限定",
+    breakfast="可选含早·料理旅館 白梅本馆 contact",
+    price="一棟 2-4 人 ¥80,000-150,000",
+    booking="公式 baian.kyoto·shiraume-kyoto 联动",
+    sources=["https://baian.kyoto/", "https://www.shiraume-kyoto.jp/"],
+)
+
+register(
+    "kyo_gion_higashiyama_jin_guang_yuan_ying_an",
+    brief="**金戒光明寺塔頭金光院·2025 年 3 月开业·京都岡崎「ほたる寺」·1 日 1 組限定 43㎡ 和モダン**·組子格子戸·5-6 月庭園蛍見·出張シェフ完全 private dining·1 部屋 2 人 ¥28,000+。",
+    highlights=["宿坊", "金戒光明寺塔頭", "2025.3 新开业", "ほたる寺", "1 日 1 組 43㎡", "出張 chef"],
+    address="京都市左京区岡崎·地铁蹴上 1.2km·市バス岡崎神社前徒步 5 分",
+    rooms="43㎡ 和モダン·1 日 1 組·定員 5 名（推奨 3 名）",
+    breakfast="出張シェフ可选",
+    price="1 部屋 ¥28,000-150,000（鉄板焼コース別途）",
+    booking="公式 konkoin.net·一休·Vacation Stay",
+    sources=["https://www.konkoin.net/konkoin/", "https://konkoin.com/syukubou/"],
+)
+
+register(
+    "kyo_arashiyama_grand_xi_lan_shan_hotel",
+    brief="**The GrandWest Arashiyama·2017.9 开业**·阪急嵐山駅徒步 5 分·渡月桥徒步 10 分·**全 10 室全 suite 53㎡+**·部分 kitchen 付·屋上テラス嵐山眺望テント·カフェ併設·無料 rental cycle。",
+    highlights=["设计精品", "全 10 室 suite 53㎡+", "嵐山立地", "屋上テント眺望", "无料 rental cycle"],
+    address="京都市西京区·阪急嵐山駅徒步 5 分·渡月桥徒步 10 分",
+    rooms="4 类·全 10 室 suite 53㎡+·部分 kitchen 付",
+    breakfast="café 自家製ワッフル",
+    price="素泊 2 人 ¥30,000-80,000",
+    booking="公式 grandwest.kyoto·一休·Relux",
+    sources=["https://www.grandwest.kyoto/", "https://rlx.jp/22425/"],
+)
+
+
 def main() -> None:
     apply = "--apply" in sys.argv
     files = [f for f in ROOT.rglob("*.json") if "_archive" not in f.parts]
@@ -409,6 +531,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
