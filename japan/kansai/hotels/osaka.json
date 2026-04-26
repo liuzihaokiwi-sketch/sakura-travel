@@ -2159,5 +2159,174 @@
       "https://www.tgn.co.jp/hotel/osaka/harmonie/stay/"
     ],
     "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_nakanoshima_welina_hotel_premier_nakanoshima_west",
+    "city": "osaka",
+    "area": "nakanoshima",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dojima",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      200,
+      500
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://welina-premier-nakanoshima-west.allosakahotels.com/en/",
+      "https://www.jalan.net/yad320395/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "Welina Hotel Premier 中之島 West（ウェリナホテル Premier 中之島West）",
+      "简介": "**2023.5 开业·全 297 室**·大阪メトロ四つ橋線「肥後橋」駅 2 番出口徒步 2 分·**14 阶大浴场+sauna+露天（15:00-24:00·6:00-9:00）**·全室 Simmons マットレス·1F LAWSON 併設·小红书爆款（collects 878）¥200/晚 平价之王。",
+      "亮点": [
+        "设计精品",
+        "2023.5 新开业",
+        "297 室",
+        "14F 大浴场+sauna+露天",
+        "Simmons",
+        "1F LAWSON"
+      ],
+      "地址": "大阪市北区中之島·四つ橋線「肥後橋」駅 2 番出口徒步 2 分·梅田 1km",
+      "房型": "Semi-Double 1 名·Twin 100cm×2·Superior 97cm×4+1·全 297 室",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥7,800-30,000（小红书 ¥200/晚 起）",
+      "预约": "公式 welina-premier·Booking·一休·じゃらん",
+      "到店提醒": "CI 15:00-24:00·朝大浴场不开·連泊清扫不送（要付费）"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_holiday_inn_express_osaka_midosuji",
+    "city": "osaka",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_shinsaibashi_shopping",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      350,
+      750
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ihg.com/holidayinnexpress/hotels/us/en/osaka/osams/hoteldetail/rooms",
+      "https://www.holidayinnexpress.com/hotels/jp/ja/reservation"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "ホリデイ・イン エクスプレス大阪シティセンター御堂筋 by IHG（Holiday Inn Express Osaka City Centre Midosuji）",
+      "简介": "**IHG 系 Holiday Inn Express·心斎橋出口 3 徒步 6 分·本町出口 13 徒步 3 分**·御堂筋·**朝食无料 + Express Start Breakfast Bar**·薄型 TV+免费 Wi-Fi+Express 寝具·IHG One Rewards 积分。",
+      "亮点": [
+        "设计精品",
+        "IHG Express 系",
+        "心斎橋 6 分",
+        "朝食无料",
+        "IHG 积分"
+      ],
+      "地址": "大阪市中央区·心斎橋出口 3 徒步 6 分·本町出口 13 徒步 3 分",
+      "房型": "Standard Single/Double/Twin·一律 Express 寝具",
+      "含早": "无料·Express Breakfast Bar",
+      "价格": "素泊 2 人 ¥9,000-22,000",
+      "预约": "公式 IHG·Holiday Inn Express·一休"
+    }
+  },
+  {
+    "id": "osk_namba_dotonbori_sotetsu_fresa_inn_namba",
+    "city": "osaka",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      300,
+      700
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://en.sotetsu-hotels.com/fresa-inn/namba-ekimae/",
+      "https://www.jalan.net/yad335175/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "相鉄フレッサイン 大阪なんば駅前（Sotetsu Fresa Inn Osaka-Namba Ekimae）",
+      "简介": "**相鉄系 Fresa Inn·全 276 室**·**南海なんば/近鉄日本橋徒步 1-2 分**·**全室 Simmons ベッド+空気清浄機+加湿+净水**·**cashless 酒店（仅信用卡/QR）**·公式予约最便宜·Sotetsu Hotels Club 会员 ¥1,000 coupon。",
+      "亮点": [
+        "设计精品",
+        "相鉄系",
+        "276 室",
+        "なんば 1-2 分",
+        "全室 Simmons",
+        "cashless"
+      ],
+      "地址": "大阪市中央区·南海なんば駅徒步 1-2 分·近鉄日本橋·OsakaMetro 御堂筋線",
+      "房型": "Compact Double/Twin/Universal·全 276 室",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥8,000-22,000",
+      "预约": "公式 sotetsu-hotels.com（最便宜）·一休",
+      "到店提醒": "**仅 cashless·准备信用卡或 QR Pay**"
+    }
+  },
+  {
+    "id": "osk_shinsaibashi_sotetsu_fresa_inn_shinsaibashi",
+    "city": "osaka",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_shinsaibashi_shopping",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      300,
+      700
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://en.sotetsu-hotels.com/fresa-inn/shinsaibashi/",
+      "https://en.sotetsu-hotels.com/fresa-inn/shinsaibashi/rooms/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "相鉄フレッサイン 大阪心斎橋（Sotetsu Fresa Inn Osaka-Shinsaibashi）",
+      "简介": "**相鉄系 Fresa Inn·心斎橋商圈**·全室 Serta マットレス·空気清浄機+加湿+净水·**cashless 酒店**·Last Minute Discount + 60 日早期优惠·商务/leisure 兼用。",
+      "亮点": [
+        "设计精品",
+        "相鉄系",
+        "心斎橋商圈",
+        "全室 Serta",
+        "cashless"
+      ],
+      "地址": "大阪市中央区·心斎橋駅徒步圈",
+      "房型": "Compact Double/Twin/Universal",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥7,000-20,000",
+      "预约": "公式 sotetsu-hotels.com·一休",
+      "到店提醒": "**仅 cashless·准备信用卡或 QR Pay**"
+    }
   }
 ]

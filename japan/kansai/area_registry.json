@@ -458,5 +458,10 @@
     "area": "kobe_bay_area",
     "type": "主场密集",
     "city": "kobe"
+  },
+  {
+    "area": "nakanoshima",
+    "type": "主场密集",
+    "city": "osaka"
   }
 ]

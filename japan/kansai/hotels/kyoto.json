@@ -4150,5 +4150,170 @@
       "https://www.ikyu.com/00002117/"
     ],
     "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_karasuma_oike_four_points_flex_kyoto_oike",
+    "city": "kyoto",
+    "area": "karasuma_oike",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 12
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      400,
+      800
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osayu-four-points-flex-kyoto-oike/overview/",
+      "https://www.marriott.com/en-us/hotels/osayu-four-points-flex-kyoto-oike/rooms/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "フォーポイント フレックス by シェラトン 京都御池（Four Points Flex by Sheraton Kyoto Oike）",
+      "简介": "**Marriott 系日本国内初「Four Points Flex」brand·2024 开业**·全 317 室·烏丸御池駅徒步 4 分·**Marriott Bonvoy 会员特典 0.5 elite night·1 美元 5 积分·Gold+ 仅 welcome point**·館内餐厅 ファストフード「松屋」朝食 7-10:30·小红书爆款（collects 2012）¥300+ 经济档万豪。",
+      "亮点": [
+        "设计精品",
+        "Marriott Bonvoy 系",
+        "Flex brand 日本初",
+        "317 室",
+        "烏丸御池 4 分",
+        "0.5 night Bonvoy"
+      ],
+      "地址": "京都市中京区堺町通押小路下る扇屋町 661·烏丸御池駅徒步 4 分·京都市役所前徒步 7 分",
+      "房型": "Single/Double/Twin·全室禁烟·全 317 室·非客室升級",
+      "含早": "松屋朝定食 ¥0 选项·和洋",
+      "价格": "素泊 2 人 ¥9,000-22,000（小红书爆款 ¥300-700/晚）",
+      "预约": "公式 marriott.com·一休·Booking·楽天",
+      "到店提醒": "Bonvoy 半 elite night·会员 welcome 仅 point·館内餐厅是 tenant 不计 Bonvoy"
+    }
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_keio_prelia_karasuma_gojo",
+    "city": "kyoto",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 12
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      400,
+      900
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.keioprelia.co.jp/kyoto/",
+      "https://www.ikyu.com/en-us/00081618/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "京王プレリアホテル京都烏丸五条（Keio Prelia Hotel Kyoto Karasuma Gojo）",
+      "简介": "**京王集团·2018 年秋开业·全 305 室**·麻の葉文様モチーフ和风设计·**Sealy マットレス+Tempur 枕 全室**·**雪見障子坪庭眺望大浴场+女性専用湯上りラウンジ**·朝食 IKARIYA365（人気イカリヤ食堂运营）·公式预约 5% off。",
+      "亮点": [
+        "设计精品",
+        "京王系",
+        "305 室·2018 新",
+        "Sealy+Tempur 寝具",
+        "坪庭大浴场+女性 lounge"
+      ],
+      "地址": "京都市下京区烏丸通松原下る五条烏丸町 396·五条駅徒步 4 分·四条駅 5 分·阪急烏丸 7 分",
+      "房型": "Smart Double 16㎡（一人 shower）/Standard Twin 19㎡/Comfort Twin/Fourth·全 305 室",
+      "含早": "IKARIYA365 京都和洋朝食 含选项",
+      "价格": "素泊 2 人 ¥10,000-25,000",
+      "预约": "公式 keioprelia.co.jp（5% off）·一休·楽天·じゃらん"
+    }
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_mitsui_garden_kyoto_shijo",
+    "city": "kyoto",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      450,
+      950
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gardenhotels.co.jp/kyoto-shijo/",
+      "https://www.gardenhotels.co.jp/kyoto-shijo/room/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "三井ガーデンホテル京都四条（Mitsui Garden Hotel Kyoto Shijo）",
+      "简介": "**三井不动产系·全 347 室**·地铁烏丸線四条駅 2 番出口徒步 6 分·**大浴场 + 大堂庭園**·新客活动价 ¥495/晚（小红书爆款）·京都站接驳·四条河原町商圈圈内。",
+      "亮点": [
+        "设计精品",
+        "三井不动产系",
+        "347 室",
+        "大浴场",
+        "四条 6 分"
+      ],
+      "地址": "京都市下京区西洞院通四条下ル妙伝寺町 707-1·地铁四条駅 2 番出口徒步 6 分",
+      "房型": "Single/Double/Twin·全 347 室",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥10,000-28,000",
+      "预约": "公式 gardenhotels.co.jp·一休·楽天"
+    }
+  },
+  {
+    "id": "kyo_gion_higashiyama_hotel_sui_kyoto_kiyomizu",
+    "city": "kyoto",
+    "area": "gion_higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kiyomizudera",
+        "walk_min": 14
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      400,
+      850
+    ],
+    "tier": "b1",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelabest-kyoto.com/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "Hotel SUI 京都清水（Hotel SUI Kyoto Kiyomizu·旧 Hotel Abest Kyoto）",
+      "简介": "**旧アベスト→2024 rebrand 为 SUI brand·江户「粋/Sui」美学**·京阪「清水五条」站徒步 1 分·清水寺徒步圈·**館内 Snack Bar 「YOASOBI」夜食和菓子无限**·小红书爆款 ¥303/晚（pola amenity）。",
+      "亮点": [
+        "设计精品",
+        "SUI brand 2024 rebrand",
+        "清水五条 1 分",
+        "YOASOBI 夜食无限",
+        "POLA amenity"
+      ],
+      "地址": "京都市東山区·京阪清水五条駅徒步 1 分·清水寺徒步 14 分·四条河原町徒步 14 分",
+      "房型": "Single/Double·简洁功能型",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥9,000-25,000（小红书 ¥303 起）",
+      "预约": "公式 hotelabest-kyoto.com·一休·楽天"
+    }
   }
 ]
