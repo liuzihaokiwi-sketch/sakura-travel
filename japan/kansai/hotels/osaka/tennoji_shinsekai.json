@@ -1,0 +1,159 @@
+[
+  {
+    "id": "osk_tennoji_marriott_miyako",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 1
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2200,
+      4500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪万豪都酒店（Osaka Marriott Miyako Hotel / 大阪マリオット都ホテル）",
+      "简介": "天王寺阿倍野 HARUKAS 高层 38-55 楼·全大阪最高酒店景观房。HARUKAS 关西机场直达 35 分·特别适合住末晚赶飞机。商务+亲子（动物园近）双向。",
+      "亮点": [
+        "HARUKAS 高层",
+        "全大阪最高景观",
+        "关空直达",
+        "末晚住宿首选"
+      ],
+      "地址": "大阪市阿倍野区阿倍野筋 1-1-43（JR/地铁天王寺站直结）",
+      "房型": "豪华 / 行政 / 套房·全部 38 楼以上",
+      "含早": "可选",
+      "价格": "淡季 ¥1,600 / 平季 ¥2,200-2,800 / 旺季 ¥3,800-4,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·HARUKAS 展望台住客优惠"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/osamc-osaka-marriott-miyako-hotel/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_shinsekai_omo7_by",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "OMO7大阪 by 星野度假村（OMO7大阪 by 星野リゾート）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：JR新今宫站（步行 1 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_shinsekai_kyocera_hotel",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "京瓷酒店（ホテル京セラ）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：JR隼人站（步行 12 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_shinsekai_tennoji_ta_an_da_zhi_sen",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "大阪天王寺塔安达之森（アンダの森 大阪天王寺タワー）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "地址": "最近站：JR天王寺站（步行 4 分钟左右）",
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

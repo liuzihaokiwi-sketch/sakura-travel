@@ -1,0 +1,42 @@
+[
+  {
+    "id": "kbe_sannomiya_kobe_monterey",
+    "city": "神户",
+    "area": "sannomiya",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1300
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神户蒙特利酒店（Kobe Monterey Hotel / ホテルモントレ神戸）",
+      "简介": "神户三宮·步行 3 分到旧居留地·欧式古典风格契合神户洋馆气氛。160 间客房+和洋大浴场。三宫站方便·神户主住宿首选中端。",
+      "亮点": [
+        "蒙特利连锁",
+        "三宮 3 分",
+        "旧居留地步行可达",
+        "和洋大浴场"
+      ],
+      "地址": "神戸市中央区下山手通 2-11-13（JR/阪神三宮站步行 5 分）",
+      "房型": "标准 / 豪华",
+      "含早": "可选",
+      "价格": "淡季 ¥400 / 平季 ¥600-900 / 旺季 ¥1,100-1,300",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/kobe/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

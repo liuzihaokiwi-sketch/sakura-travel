@@ -2,7 +2,7 @@
 
 用法：
     python scripts/validate_hotels.py japan/kansai/hotels/
-    python scripts/validate_hotels.py japan/kansai/hotels/data/hotels__kansai.json
+    python scripts/validate_hotels.py japan/kansai/hotels/{city}/{area}.json
 
 校验规则参考：
     docs/项目核心/字段权威.md §2.4 hotels
@@ -323,7 +323,9 @@ def collect_files(target: Path) -> list[Path]:
     if target.is_file():
         return [target] if target.suffix == ".json" else []
     if target.is_dir():
-        return sorted(target.rglob("hotels__*.json"))
+        # D48 拆分后：按 city/area.json 多文件结构·允许任意 json
+        files = sorted(target.rglob("*.json"))
+        return [f for f in files if "_archive" not in f.parts]
     return []
 
 

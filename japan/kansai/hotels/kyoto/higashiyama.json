@@ -1,0 +1,381 @@
+[
+  {
+    "id": "kyo_higashiyama_hyatt_regency_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_sanjusangendo",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "kyo_national_museum",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1800,
+      3500
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "凯悦摄政京都（Hyatt Regency Kyoto / ハイアットリージェンシー京都）",
+      "简介": "东山七条·三十三间堂对面·187 间客房+东山京风设计。位置安静但去清水寺/祇园都方便·性价比高于柏悦/丽思。MICHELIN One Key。家庭客最爱。",
+      "亮点": [
+        "MICHELIN One Key",
+        "东山七条",
+        "三十三间堂对面",
+        "京风设计",
+        "家庭友好"
+      ],
+      "地址": "京都市東山区三十三間堂廻り 644-2（京阪七条站步行 3 分）",
+      "房型": "豪华 / 庭院 / 套房",
+      "含早": "可选·京风自助 ¥4,800/人",
+      "价格": "淡季 ¥1,400 / 平季 ¥1,800-2,200 / 旺季 ¥3,000-3,500",
+      "预约": "官网 / 携程 / Hyatt World",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hyatt.com/hyatt-regency/itmrk-hyatt-regency-kyoto",
+      "https://hotels.ctrip.com/hotels/737133.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_westin_miyako_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nanzenji",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1800,
+      3500
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "威斯汀都酒店京都（The Westin Miyako Kyoto / ウェスティン都ホテル京都）",
+      "简介": "1890 年创业的「都ホテル京都八坂」改建·东山山腰·全京都唯一带森林泳池的国际五星。500 间客房·和洋融合。东山深处的安静感+全季节都美的庭园是签名。",
+      "亮点": [
+        "1890 年老牌",
+        "东山森林位置",
+        "森林泳池",
+        "和洋融合"
+      ],
+      "地址": "京都市東山区粟田口華頂町 1（地铁東山站步行 2 分）",
+      "房型": "都馆 / 葵殿 / 离れ",
+      "含早": "可选",
+      "价格": "淡季 ¥1,400 / 平季 ¥1,800-2,400 / 旺季 ¥3,000-3,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·部分老式房型不带浴缸需选 renovated"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/kyownw-the-westin-miyako-kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_capella_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kenninji",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      4000,
+      7000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "嘉佩乐京都（Capella Kyoto / カペラ京都）",
+      "简介": "2025 年 3 月开业·京都最新顶奢·建仁寺南侧。52 间客房+京町家融合设计·楼下「Yashin」是 Auberge 级日餐。MICHELIN Two Keys 预期。安静但近祇园·新派京都顶奢代表。",
+      "亮点": [
+        "2025 新开业",
+        "MICHELIN 期待",
+        "Auberge 体验",
+        "町家融合"
+      ],
+      "地址": "京都市東山区五条橋東 6 丁目 539-2（京阪清水五条站步行 5 分）",
+      "房型": "豪华 / 套房",
+      "含早": "含·京风自助",
+      "价格": "平季 ¥4,000-5,000 / 旺季 ¥6,000-7,000+",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://capellahotels.com/en/capella-kyoto"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_imperial_hotel_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_yasaka_shrine",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      3500,
+      6500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "帝国酒店京都（Imperial Hotel Kyoto / 帝国ホテル京都）",
+      "简介": "2026 年春开业·帝国酒店首次进入京都·祇园甲部歌舞练场旁。55 间客房+顶级和洋融合。日本国宾级品牌·喜欢「正统日式款待」客群必住。新开业但已是关西定制级目的地。",
+      "亮点": [
+        "2026 新开业",
+        "帝国酒店品牌",
+        "祇园核心",
+        "正统款待"
+      ],
+      "地址": "京都市東山区八坂鳥居前下ル下河原町 451-1（京阪祇园四条站步行 8 分）",
+      "房型": "豪华 / 套房",
+      "含早": "含",
+      "价格": "平季 ¥3,500-4,500 / 旺季 ¥5,500-6,500+",
+      "预约": "官网·提前 60 天",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.imperialhotel.co.jp/kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_gion_higashiyama_fufu_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_yasaka_shrine",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_kenninji",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      2200,
+      3500
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "FUFU 京都（ふふ 京都）",
+      "简介": "2021 年开业·南禅寺旁琵琶湖疏水沿·40 间客房·全 6 种房型从 45㎡（Comfort Twin Suite）到 91㎡（Luxury Premium Suite·望大文字山）。所有客室含天然源泉·檜風呂泡汤·设计 by Saiun Design 东京。FUFU Japan 系列（含热海·日光·奈良 by 隈研吾）·小型奢华度假村。Tripadvisor 部分点评提到 hospitality 经验偏年轻·但料理和庭园评价稳定。",
+      "亮点": [
+        "温泉度假",
+        "南禅寺立地",
+        "全室天然温泉檜風呂",
+        "FUFU 系列小型奢华",
+        "大文字山景"
+      ],
+      "地址": "京都市左京区·琵琶湖疏水沿·南禅寺徒步 5 分·京都市役所前站徒步 15 分",
+      "房型": "Comfort Twin Suite 45㎡ ~ Luxury Premium Suite 91㎡（共 6 种）",
+      "含早": "和食朝食含",
+      "价格": "夕朝食付 2 人 ¥80,000～¥150,000（人均 ¥1,800-3,500）·樱花红叶季 +30%",
+      "预约": "公式 fufujapan.jp / 一休 / 楽天·提前 60 天最优",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·全室温泉建议樱花红叶季·疏水歩道散步推荐"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fufujapan.jp/",
+      "https://www.tripadvisor.com/Hotel_Review-g298564-d23218091-Reviews-FUFU_KYOTO-Kyoto_Kyoto_Prefecture_Kinki.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_banyan_tree_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kenninji",
+        "walk_min": 5
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      4500,
+      9000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "悦榕庄京都东山（Banyan Tree Higashiyama Kyoto / バンヤンツリー東山京都）",
+      "简介": "2024 年 4 月开业·东山高台寺南侧·52 间全套房·Banyan Tree SPA 强项。京町家融合现代设计·全部带露台/部分带半露天风吕。MICHELIN Two Keys。",
+      "亮点": [
+        "设计精品",
+        "MICHELIN Two Keys",
+        "Banyan Tree SPA",
+        "高台寺位置"
+      ],
+      "地址": "京都市東山区高台寺三丁目 50（京阪祇园四条站步行 12 分）",
+      "房型": "全套房·部分带半露天风吕",
+      "含早": "含",
+      "价格": "平季 ¥4,500-6,000 / 旺季 ¥7,500-9,000+",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.banyantree.com/japan/higashiyama-kyoto"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_park_hyatt_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_yasaka_shrine",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      4500,
+      9000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "柏悦京都（Park Hyatt Kyoto / パーク ハイアット 京都）",
+      "简介": "2019 年开业·东山产宁坂·70 间客房·全京都最有「京都味」的国际五星。客房可俯瞰八坂塔/法观寺·MICHELIN Three Keys。蜜月/纪念日顶级·小红书爆款顶奢。",
+      "亮点": [
+        "MICHELIN Three Keys",
+        "八坂塔景观",
+        "产宁坂位置",
+        "京都味顶级"
+      ],
+      "地址": "京都市東山区高台寺桝屋町 360（京阪祇园四条站步行 15 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥3,500 / 平季 ¥4,500-6,000 / 旺季 ¥7,500-9,000+",
+      "预约": "官网 / 携程 / Hyatt World",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·部分房型可定向八坂塔景观"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hyatt.com/park-hyatt/itmph-park-hyatt-kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_six_senses_kyoto",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_sanjusangendo",
+        "walk_min": 6
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      4500,
+      9000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "六善酒店京都（Six Senses Kyoto / シックスセンシズ京都）",
+      "简介": "2024 年 4 月开业·东山三十三间堂西侧·81 间客房+全关西最大酒店 SPA。Six Senses 健康度假理念·京町家融合设计·适合「Wellness 旅行」客群。MICHELIN Two Keys。",
+      "亮点": [
+        "设计精品",
+        "MICHELIN Two Keys",
+        "Six Senses Wellness",
+        "顶级 SPA"
+      ],
+      "地址": "京都市東山区妙法院前側町 431（京阪七条站步行 8 分）",
+      "房型": "豪华 / 套房",
+      "含早": "含",
+      "价格": "平季 ¥4,500-6,000 / 旺季 ¥7,500-9,000+",
+      "预约": "官网",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·SPA 含住客无限次"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.sixsenses.com/en/resorts/kyoto"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_higashiyama_chishakuin_kaikan",
+    "city": "京都",
+    "area": "higashiyama",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_sanjusangendo",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "kyo_national_museum",
+        "walk_min": 6
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      800
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "智積院会館（智積院会館 / Chishakuin Kaikan）",
+      "简介": "京都唯一可住进国宝障壁画寺院的宿坊。佛教文化+国宝艺术爱好者必去——长谷川等伯《楓図/桜図》国宝障壁画就在隔壁宝物馆，房间外就是利休好庭园。早晨 6 点僧侣朝のお勤め参拝免费，结束后住客限定庭园貸切案内。和洋室+大浴场+京懐石/精进料理可选——比一般温泉旅馆便宜一半，又是真寺院体验。",
+      "亮点": [
+        "宿坊",
+        "国宝障壁画",
+        "利休好庭园",
+        "早朝勤行",
+        "精进料理"
+      ],
+      "地址": "京都市東山区東瓦町 964（JR 京都站→市バス 208 系統 京都駅前→東山七条下車步行 5 分）",
+      "房型": "和室 / 和洋室 / 洋室·全房型大浴场 15:00-23:00",
+      "含早": "可选·朝食付プラン 2 名 ¥24,390 起（含和食/精进料理选）",
+      "价格": "素泊 ¥8,650 起 / 一泊朝食 ¥12,195 起 / 一泊二食 ¥14,480 起（京懐石+¥3,300-11,000）·樱花/红叶季略涨",
+      "预约": "官网 / 楽天トラベル / JTB / じゃらん / Yahoo·京懐石需提前 3 日预约",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·門限 23:00·京都市宿泊税另付（¥200-500/晚）"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://chisan.or.jp/lodging/",
+      "https://travel.rakuten.co.jp/hotel/Japan-Kyoto_Prefecture-Kyoto-Shukubo_Chishakuin_Kaikan/18377/",
+      "https://www.jalan.net/yad320757/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

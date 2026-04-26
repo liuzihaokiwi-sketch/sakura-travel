@@ -1,0 +1,364 @@
+[
+  {
+    "id": "kns_kinosaki_onsen_xi_cun_wu_hotel_zhao_yue_ting",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "西村屋酒店招月庭（西村屋ホテル招月庭）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "浪漫氛围",
+        "onsen_town"
+      ],
+      "地址": "最近站：JR城崎温泉站（步行 20 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥30,000-60,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_wen_quan_xi_le",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "城崎温泉 喜乐（城崎温泉 喜楽）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "地址": "最近站：JR城崎温泉站（步行 10 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_da_xi_wu_shui_xiang_yuan",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "大西屋水翔苑（大西屋水翔苑）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "地址": "最近站：JR城崎温泉站（步行 11 分钟左右）",
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_xie_su_liu_zhi_wu",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "蟹宿六之屋（蟹宿むつの屋）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_shen_shan",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "深山（深山）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "地址": "最近站：JR宫地站（步行 324 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_xin_quan",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "新泉（新泉）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_yue_se",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "月色（月明かり）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_quan_cui",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "泉翠（泉翠）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_yan_xiang",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "艳乡（艷郷）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "温泉旅馆",
+        "传统和风",
+        "onsen_town",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥10,000-25,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_kai_kinosaki",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki_onsen",
+        "walk_min": 5
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1700,
+      3200
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hoshinoresorts.com/ja/hotels/kaikinosaki/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "界 城崎 by Hoshino Resorts（Hoshino Resorts KAI Kinosaki）",
+      "简介": "星野リゾート「界」系·城崎温泉外汤巡り·全 47 室·**全国温泉宿名片** of KAI 系·部分客房露天风吕·会席料理含蟹冬季。",
+      "亮点": [
+        "温泉旅馆",
+        "星野 KAI 系",
+        "城崎外汤巡り",
+        "蟹会席（冬）"
+      ],
+      "地址": "兵庫県豊岡市城崎温泉·JR城崎温泉駅徒步 10 分",
+      "房型": "全 47 室·部分含露天风吕",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥48,000-95,000",
+      "预约": "公式 / 一休·蟹季 11-3 月加成大",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·外汤共 7 处·浴衣巡り推荐"
+    }
+  }
+]

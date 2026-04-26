@@ -1,0 +1,50 @@
+[
+  {
+    "id": "kns_kinosaki_nishimuraya_honkan",
+    "city": "城崎",
+    "area": "kinosaki",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 3
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      3500,
+      7000
+    ],
+    "tier": "b6",
+    "season_months": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "西村屋本馆（西村屋本館 / Nishimuraya Honkan）",
+      "简介": "城崎温泉创业 160 年的老铺·34 间客房·全部一泊二食。冬季松叶蟹会席（11月-3月）是城崎最有名的·MICHELIN Two Keys。城崎温泉外汤巡也是这家附属体验。",
+      "亮点": [
+        "温泉旅馆",
+        "MICHELIN Two Keys",
+        "松叶蟹会席",
+        "160 年老铺",
+        "城崎代表"
+      ],
+      "地址": "兵庫県豊岡市城崎町湯島 469（JR 城崎温泉站步行 5 分）",
+      "房型": "本馆和室 / 平田館·全部一泊二食",
+      "含早": "含",
+      "价格": "一泊二食冬蟹季 ¥80,000-¥150,000/人（约 ¥4,000-¥7,500 RMB）·非蟹季 ¥45,000-",
+      "预约": "官网 / 一休·蟹季提前 6 个月",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·浴衣外汤巡含·蟹季限活蟹"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nishimuraya.ne.jp/honkan/",
+      "https://www.relais-chateaux.com/us/japan/nishimuraya-kinosaki"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

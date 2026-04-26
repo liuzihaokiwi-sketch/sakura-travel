@@ -1,0 +1,241 @@
+[
+  {
+    "id": "osk_bay_area_wan_wang_zi_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "大阪湾王子大酒店（グランドプリンスホテル大阪ベイ）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "地址": "最近站：贸易中心前（步行 9 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_universal_port_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "环球港口酒店（ホテル ユニバーサルポート）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_usj",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "公园前沿酒店 USJ（ザ パーク フロント ホテル USJ）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_universal_qi_dian_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "环球影城奇点酒店（ユニバーサルスタジオ シンギュラリホテル）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：JR环球城站（步行 3 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_risonare",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "星野度假村 Risonare 大阪（星野リゾート リゾナーレ大阪）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_liber",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "リーベルホテル大阪（LIBER HOTEL OSAKA）",
+      "简介": "USJ 徒步 13 分·JR桜島駅徒步 1 分·**大阪最大级 ホテル**·大阪湾 panorama terrace·天然温泉大浴场+露天风吕+ドライサウナ。女湯水深 1m+炭酸风吕。MUJI room（无印良品）特别 12 室。",
+      "亮点": [
+        "温泉度假",
+        "USJ 徒步 13 分",
+        "大阪湾 terrace",
+        "MUJI room 12 室"
+      ],
+      "地址": "大阪市此花区·JR桜島駅徒步 1 分·USJ 13 分",
+      "房型": "deluxe·suite·MUJI room 12 室",
+      "含早": "和洋 buffet 含",
+      "价格": "素泊 2 人 ¥30,000-50,000·朝食付 +¥3,000",
+      "预约": "公式 / 一休 / 楽天·USJ 套票预订有",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·USJ 套票 + park-side suite"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hotel-liber.jp/",
+      "https://www.ikyu.com/00002636/review/",
+      "https://travel.kakaku.com/yad/11766916/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

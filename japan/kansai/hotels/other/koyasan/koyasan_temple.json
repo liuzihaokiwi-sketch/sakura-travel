@@ -1,0 +1,394 @@
+[
+  {
+    "id": "kya_koyasan_temple_hui_guang_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "惠光院（恵光院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "天然温泉"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_yi_cheng_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "一乘院（一乗院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_lian_hua_ding_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "莲华定院（蓮華定院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_fu_zhi_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "福智院（福智院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_xi_nan_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "西南院（西南院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "地址": "最近站：纪伊神谷（步行 94 分钟左右）",
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_qing_jing_xin_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "清净心院（清浄心院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_chi_song_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "赤松院（赤松院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_bu_dong_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "不动院（不動院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_chang_xi_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "常喜院（常喜院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "地址": "最近站：纪伊神谷（步行 85 分钟左右）",
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_long_quan_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "龙泉院（龍泉院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

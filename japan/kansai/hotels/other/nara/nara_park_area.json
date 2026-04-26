@@ -1,0 +1,457 @@
+[
+  {
+    "id": "nra_nara_park_area_zi_cui_she_hua_jing_xuan_hotel_nai_liang",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1600,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "紫翠奢华精选酒店·奈良（紫翠 ラグジュアリーコレクションホテル 奈良）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "浪漫氛围",
+        "现代感",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥25,000-60,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_jie_dao_sai_tuo_lei",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "奈良街道塞托雷（セトレならまち）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_miroku_nara_by_the_share_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "MIROKU Nara by THE SHARE HOTELS（MIROKU Nara by THE SHARE HOTELS）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "地址": "最近站：近铁奈良站（步行 10 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_fufu_nara",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1700,
+      2800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "FUFU 奈良（ふふ 奈良）",
+      "简介": "隈研吾设计·30 间套房全室竹林包围露天风吕·近铁奈良駅徒步 20 分（高畑町）。东大寺/兴福寺/春日大社 walking distance·奈良公园近邻。地下源泉直达 42°C 恒温·「和漢の湯」含日本当归・艾草・生姜等十余种和漢植物。设计极重隐私·Utility Box 让 staff 静默更换·几乎不与他客遭遇。一休回头客评：「这是我真正喜欢的住宿」。",
+      "亮点": [
+        "温泉度假",
+        "全室竹林露天风吕",
+        "隈研吾设计",
+        "和漢源泉",
+        "极致隐私"
+      ],
+      "地址": "奈良市高畑町 1184-1·近铁奈良駅徒步 20 分·东大寺徒步 8 分",
+      "房型": "30 间套房·全室带露天风吕·部分含半露天",
+      "含早": "和食朝食含·屋内 OR 个室",
+      "价格": "夕朝食付 2 人 ¥60,000～¥120,000（人均 ¥1,500-3,000）·樱花/红叶旺季 +30%",
+      "预约": "公式 / 一休·提前 90 天樱花季",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·全室温泉·近铁/JR 奈良站有送迎"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fufujapan.jp/",
+      "https://www.ikyu.com/en-us/00002739/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_jw_marriott_hotel_nara",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1600,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "奈良JW万豪酒店（JW Marriott Hotel Nara）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "浪漫氛围",
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：新大宫（步行 9 分钟左右）",
+      "价格": "日元区间 ¥25,000-60,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_chun_ri_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "春日ホテル（Kasuga Hotel）",
+      "简介": "近铁奈良站徒步 1 分·奈良观光名宿·奈良公园徒步 5 分·東大寺/興福寺/春日大社全域 walking distance。中端家族向温泉旅馆。",
+      "亮点": [
+        "温泉旅馆",
+        "近铁奈良站徒步 1 分",
+        "奈良公园近邻",
+        "中端家族向"
+      ],
+      "地址": "奈良市·近铁奈良站徒步 1 分",
+      "价格": "素泊 2 人 ¥18,000-30,000·夕朝食付 ¥25,000-40,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://travel.yahoo.co.jp/00002012/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_gu_dou_zhi_su_wu_cang_ye",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "古都の宿 むさし野（Kotonoyado Musashino）",
+      "简介": "**奈良最古のお宿**·江戸時代から·若草山のぞむ深緑·純和風旅館。**谷崎潤一郎・山岡鉄舟ら文人墨客御用達**·奈良公園内立地·四季京懐石部屋食。Tripadvisor 奈良 38 ホテル 4 位（98 评价）。",
+      "亮点": [
+        "老铺旅馆",
+        "奈良最古",
+        "若草山眺望",
+        "文人墨客御用达"
+      ],
+      "地址": "奈良市春日野町·奈良公園内·近鉄奈良站徒步 25 分（送迎可）",
+      "房型": "和室·部分若草山景",
+      "含早": "京懐石部屋食",
+      "价格": "夕朝食付 2 人 ¥40,000-80,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nara-musashino.com/",
+      "https://www.tripadvisor.com/Hotel_Review-g298198-d1087681-Reviews-Kotonoyado_Musashino-Nara_Nara_Prefecture_Kinki.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_you_jing_zhi_su_ping_cheng",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "遊景の宿 平城（Yukei no Yado Heijo）",
+      "简介": "奈良市内·料亭旅館·奈良の四季的部屋食·中端体验。",
+      "亮点": [
+        "老铺旅馆",
+        "奈良市内",
+        "料亭旅馆"
+      ],
+      "地址": "奈良市·近鉄奈良站近邻",
+      "价格": "夕朝食付 2 人 ¥30,000-50,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://yukei.jp/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_si_ji_ting",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "四季亭（Shikitei）",
+      "简介": "**百余年の歴史と近代美**·奈良公园周边·和の落ち着き·中等規模料理旅館。",
+      "亮点": [
+        "老铺旅馆",
+        "百余年",
+        "奈良公园周边"
+      ],
+      "地址": "奈良市·奈良公园近邻",
+      "价格": "素泊 2 人 ¥46,200～·夕朝食付 ¥66,000～",
+      "预约": "公式 / 一休 / 楽天",
+      "房型": "和室·部分庭園眺望"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://shikitei.com/",
+      "https://www.ikyu.com/00002012/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_fei_niao_zhuang",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "古都奈良の宿 飛鳥荘（Asukaso）",
+      "简介": "**興福寺五重塔目前·屋上展望露天风吕**（炭酸カルシウム人工温泉水）·近鉄奈良站徒步 8 分·興福寺/奈良公园/ならまち walking distance。**Yahoo!トラベル 4.71**（奈良评价 TOP3）·料亭旅館·黒毛和牛+月替会席。",
+      "亮点": [
+        "温泉旅馆",
+        "興福寺五重塔目前",
+        "屋上展望风吕",
+        "Yahoo 4.71"
+      ],
+      "地址": "奈良市高畑町·近鉄奈良站徒步 8 分",
+      "房型": "和室+リニューアルレジデンス（ベッド+リビング分离）+バリアフリー",
+      "含早": "京懐石朝食",
+      "价格": "夕朝食付 2 人 ¥25,740～（じゃらん）",
+      "预约": "公式 / 一休 / 楽天·興福寺正面客房早预约",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·屋上展望风吕看興福寺五重塔"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.asukasou.com/",
+      "https://www.ikyu.com/00002162/",
+      "https://www.jalan.net/yad333870/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_nara_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nra_kasuga_taisha",
+        "walk_min": 12
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1500,
+      2800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.narahotel.co.jp/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "奈良ホテル（Nara Hotel）",
+      "简介": "**1909 年开业·日本クラシックホテル**·辰野金吾设计·奈良公园内·爱因斯坦·达赖喇嘛·歴代天皇曾宿·**奈良名片级老铺**。维多利亚式木造建筑+日本传统装饰。",
+      "亮点": [
+        "老铺旅馆",
+        "1909 年开业",
+        "辰野金吾设计",
+        "クラシックホテル名片",
+        "奈良公园内"
+      ],
+      "地址": "奈良市高畑町·奈良公园内·近铁奈良站徒步 15 分（送迎可）",
+      "房型": "本馆クラシック+新馆·共 132 室",
+      "含早": "和洋朝食 buffet",
+      "价格": "素泊 2 人 ¥30,000-60,000·夕朝食付 ¥40,000-80,000",
+      "预约": "公式·一休·楽天·樱花季提前 90 天",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·历史建筑·送迎需电话"
+    }
+  }
+]

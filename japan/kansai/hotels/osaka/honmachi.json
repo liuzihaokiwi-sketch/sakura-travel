@@ -1,0 +1,217 @@
+[
+  {
+    "id": "osk_honmachi_st_regis_osaka",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 12
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2800,
+      5500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪瑞吉酒店（The St. Regis Osaka / セントレジスホテル大阪）",
+      "简介": "本町·160 间客房·瑞吉品牌特征「Butler 服务」全程英文。位置在心斋桥/梅田之间·去哪都方便。MICHELIN One Key。性价比高于丽思/W·商务客最爱。",
+      "亮点": [
+        "MICHELIN One Key",
+        "Butler 服务",
+        "本町核心",
+        "商务友好"
+      ],
+      "地址": "大阪市中央区本町 3-6-12（地铁本町站步行 3 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Marriott 白金会员含",
+      "价格": "淡季 ¥2,000 / 平季 ¥2,800-3,500 / 旺季 ¥4,500-5,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osaxr-the-st-regis-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_honmachi_vista_premio_hotel",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "大阪本町维斯塔尊贵酒店（ホテルビスタプレミオ大阪本町）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：中津（阪急）（步行 10 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_mitsui_garden_hotel_da_ban_dian_wu_qiao",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "三井花园酒店大阪淀屋桥（三井ガーデンホテル大阪淀屋橋）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：渡边桥（步行 2 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_the_boly_osaka",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "THE BOLY OSAKA（THE BOLY OSAKA）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_honmachi_lively_hotel",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "大阪本町莱弗利酒店（ザ・ライブリー大阪本町）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "礼宾服务"
+      ],
+      "地址": "最近站：谷町四丁目（步行 12 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_voco",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "voco大阪中央（voco大阪セントラル）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：肥后桥地铁站（步行 4 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

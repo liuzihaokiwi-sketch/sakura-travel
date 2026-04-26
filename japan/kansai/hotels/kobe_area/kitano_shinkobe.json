@@ -1,0 +1,72 @@
+[
+  {
+    "id": "kbe_kitano_shinkobe_ana_crowne_plaza_kobe",
+    "city": "神户",
+    "area": "kitano_shinkobe",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "神户全日空皇冠假日酒店（ANA Crowne Plaza Kobe）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "现代感",
+        "礼宾服务"
+      ],
+      "地址": "最近站：新神户地铁站（步行 6 分钟左右）",
+      "含早": "含",
+      "价格": "日元区间 ¥18,000-35,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_kitano_shinkobe_kitano_hotel",
+    "city": "神户",
+    "area": "kitano_shinkobe",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "神户北野酒店（神戸北野ホテル）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "设计精品",
+        "浪漫氛围",
+        "含早"
+      ],
+      "地址": "最近站：县厅前地铁站（步行 11 分钟左右）",
+      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

@@ -1,0 +1,1244 @@
+[
+  {
+    "id": "kyo_shijo_kawaramachi_ritz_carlton_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 12
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      4500,
+      9000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "丽思卡尔顿京都（The Ritz-Carlton Kyoto / ザ・リッツ・カールトン京都）",
+      "简介": "京都顶奢标杆·鸭川东岸 134 间客房·部分房型可俯瞰东山。日本传统庭园+和洋融合餐饮·礼宾级服务·MICHELIN Three Keys（2024）。家庭/蜜月/纪念日都顶级·缺点是不便宜。",
+      "亮点": [
+        "MICHELIN Three Keys",
+        "鸭川景观",
+        "礼宾服务",
+        "家庭友好",
+        "Spa"
+      ],
+      "地址": "京都市中京区鴨川二条大橋畔（地铁京都市役所前站直结·京阪三条 5 分钟）",
+      "房型": "豪华 / 鸭川景观 / 套房 / 总统套房",
+      "含早": "可选·和洋自助 ¥7,500/人",
+      "价格": "淡季 ¥3,500（1月平日素泊）/ 平季中位 ¥4,500-5,500 / 旺季 ¥7,500-9,000+（樱花/红叶提前 90 天约）",
+      "预约": "官网 / 携程 / Marriott Bonvoy 会员价最优",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·礼宾可代订京都料亭/茶道"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ritzcarlton.com/en/hotels/japan/kyoto",
+      "https://hotels.ctrip.com/hotels/2199704.html",
+      "https://www.michelinkeyhotels.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_hotel_okura_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京都大仓酒店（Hotel Okura Kyoto）",
+      "简介": "**京都唯一 17 层高城**·1888 年开业·Okura Nikko 集团·地铁京都市役所前站直连·320 间客房·顶层 Sky Restaurant Pittoresque 法餐俯瞰京都·屋顶花园观东山。",
+      "亮点": [
+        "设计精品",
+        "320 室大型城市酒店",
+        "京都市役所前直连",
+        "Pittoresque 法餐"
+      ],
+      "地址": "京都市中京区·京都市役所前站直连·寺町通り",
+      "含早": "和洋朝食 buffet 可选",
+      "价格": "素泊 2 人 ¥30,000-150,000（GDS $204-1,016）",
+      "房型": "Twin/Double/Suite·共 320 室·非吸烟",
+      "预约": "公式 okura.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://okura.com/japan/kyoto/hotel-okura-kyoto/",
+      "https://www.hotel.kyoto/okura/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_good_nature_hotel",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Good Nature Hotel（Good Nature Hotel）",
+      "简介": "**WELL 认证 sustainable 酒店**·阪急河原町站徒步 2 分·14 类客室主题（瞑想 MU/桑拿/阳台等）·内含米其林二星餐厅+10 间餐饮·全馆禁烟·快眠照明系统。",
+      "亮点": [
+        "设计精品",
+        "WELL 认证",
+        "可持续主题",
+        "米其林二星餐厅",
+        "桑拿客室"
+      ],
+      "地址": "京都市下京区河原町·阪急京都河原町站徒步 2 分",
+      "含早": "可选·有机食材",
+      "价格": "素泊 2 人 ¥35,000-80,000",
+      "房型": "28-90㎡·共约 141 室·瞑想/桑拿/阳台等多主题",
+      "预约": "公式 goodnaturehotel.jp·一休·じゃらん"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://goodnaturehotel.jp/",
+      "https://goodnaturehotels.com/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_cross_hotel_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Cross Hotel Kyoto（Cross Hotel Kyoto）",
+      "简介": "ORIX HOTELS 旗下设计 lifestyle 酒店·**全 301 室**·三条龙马通沿·阪急河原町徒步 6 分·1 楼 KIHARU Brasserie 全天餐厅·「京感」「木气づかい」主题。",
+      "亮点": [
+        "设计精品",
+        "ORIX 系",
+        "301 室大型",
+        "三条龙马通",
+        "KIHARU Brasserie"
+      ],
+      "地址": "京都市中京区龙马通·阪急河原町徒步 6 分·三条/京都市役所前/三条京阪徒步 4 分",
+      "含早": "可选 KIHARU Brasserie",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "Standard~Suite·共 301 室",
+      "预约": "公式 ORIX HOTELS·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://cross-kyoto.orixhotelsandresorts.com/",
+      "https://www.orixhotelsandresorts.com/worixp/concept/crosshotel_kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_mitsui_garden_shijo",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      700,
+      1500
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "三井花园酒店京都四条（Mitsui Garden Hotel Kyoto Shijo / 三井ガーデンホテル京都四条）",
+      "简介": "四条乌丸核心·三井花园连锁日系老牌·楼下大浴场是签名（住客免费）。性价比+地点+大浴场三位一体·中国客最爱的中端。",
+      "亮点": [
+        "大浴场",
+        "三井花园连锁",
+        "四条核心",
+        "性价比"
+      ],
+      "地址": "京都市下京区室町通仏光寺下ル白楽天町 526-7（地铁四条站步行 4 分）",
+      "房型": "标准 / 豪华",
+      "含早": "可选·和洋自助",
+      "价格": "淡季 ¥500 / 平季 ¥700-1,000 / 旺季 ¥1,200-1,500",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·大浴场住客免费"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gardenhotels.co.jp/kyoto-shijo/",
+      "https://hotels.ctrip.com/hotels/693993.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_mitsui_garden_sanjo_premier",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 3
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      900,
+      1700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "三井花园酒店京都三条尊贵版（Mitsui Garden Hotel Kyoto Sanjo Premier / 三井ガーデンホテル京都三条プレミア）",
+      "简介": "三条河原町·三井花园 Premier 京都旗舰·193 间客房+顶层鸭川景观大浴场。先斗町步行 3 分·中端 Premier 性价比之王。",
+      "亮点": [
+        "大浴场",
+        "鸭川景观",
+        "三条核心",
+        "Premier 系列"
+      ],
+      "地址": "京都市中京区河原町通三条上ル恵比須町 434-1（地铁京都市役所前步行 3 分）",
+      "房型": "豪华 / 行政",
+      "含早": "可选",
+      "价格": "淡季 ¥600 / 平季 ¥900-1,300 / 旺季 ¥1,400-1,700",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gardenhotels.co.jp/kyoto-sanjo-premier/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_shijo_xin_ting_ying_te_gai_te_hotel",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京都四条新町英特盖特酒店（ホテルインターゲート京都四条新町）",
+      "简介": "**Granvista 系 Intergate ライン·2018 年开业**·全 153 室·阪急乌丸/地铁四条徒步 5 分·特色：免费茶时间+早朝瑜伽·中端商务旅人爱用。",
+      "亮点": [
+        "设计精品",
+        "Intergate 系",
+        "153 室",
+        "茶时间+瑜伽",
+        "四条乌丸 5 分"
+      ],
+      "地址": "京都市中京区新町通錦小路上る·阪急烏丸/地铁四条徒步 5 分",
+      "含早": "和洋朝食 buffet 含选项",
+      "价格": "素泊 2 人 ¥18,000-45,000",
+      "房型": "Standard~Suite·共 153 室",
+      "预约": "公式 intergatehotels.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.intergatehotels.jp/kyoto-shijo/en/",
+      "https://www.jalan.net/yad322810/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_hyatt_place_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 4
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      800,
+      1700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "凯悦嘉轩京都（Hyatt Place Kyoto / ハイアットプレイス京都）",
+      "简介": "2024 年开业·凯悦嘉轩品牌入京都·239 间客房+全日早餐厅。Hyatt 全球会员积分友好·商务客+多城联游客户最稳。",
+      "亮点": [
+        "2024 新开业",
+        "Hyatt 品牌",
+        "积分友好",
+        "全日早餐"
+      ],
+      "地址": "京都市下京区高倉通仏光寺下ル新開町 393（地铁四条站步行 5 分）",
+      "房型": "标准 / 套房",
+      "含早": "含·全日早餐",
+      "价格": "淡季 ¥600 / 平季 ¥800-1,200 / 旺季 ¥1,400-1,700",
+      "预约": "官网 / 携程 / Hyatt World",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hyatt.com/hyatt-place/itmkz-hyatt-place-kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_hilton_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 3
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1500,
+      3000
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "希尔顿京都（Hilton Kyoto / ヒルトン京都）",
+      "简介": "2024 年 9 月开业·京都四条乌丸最新国际五星·313 间客房。希尔顿首次进入京都市内·楼下含寺町商店街·步行 5 分到锦市场/河原町。Hilton Honors 会员升舱+早餐+休息室是亮点。",
+      "亮点": [
+        "2024 新开业",
+        "希尔顿首入京都",
+        "四条核心",
+        "Honors 会员福利"
+      ],
+      "地址": "京都市中京区柳馬場通三条下る槌屋町 91（地铁烏丸御池站步行 4 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Honors 会员含",
+      "价格": "淡季 ¥1,200 / 平季 ¥1,500-2,000 / 旺季 ¥2,500-3,000",
+      "预约": "官网 / 携程 / Hilton Honors",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/en/hotels/ukykyhi-hilton-kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_jing_xiao_su_shi_ting_tang_yin",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京小宿 室町 ゆとね（Kogosi Muromachi Yutone）",
+      "简介": "京都室町地区·町家小宿·一棟貸切·全 4 室·烏丸御池站徒步 5 分。京都市中心立地+町家氛围·适合追求京都生活感的客人。",
+      "亮点": [
+        "町家",
+        "一棟貸切",
+        "市中心",
+        "全 4 室小宿"
+      ],
+      "地址": "京都市中京区室町通·烏丸御池站徒步 5 分",
+      "价格": "平季 2 人 ¥30,000-40,000 素泊（人均 ¥1,500-2,000·京都 b3 中端）",
+      "预约": "公式 / 一休·小宿需提前预约"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.kogosi.com/yutone/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_insomnia_kyoto_oike",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "insomnia KYOTO OIKE（insomnia KYOTO OIKE）",
+      "简介": "**Solare Hotels 新 brand insomnia·2023 年秋 rebrand·全 88 室**·烏丸御池站徒步 2 分·**24h lounge 无料 drink/12 类 bread/library**·都市探索者 lifestyle 酒店。",
+      "亮点": [
+        "设计精品",
+        "Solare 系新 brand",
+        "烏丸御池 2 分",
+        "88 室",
+        "24h lounge"
+      ],
+      "地址": "京都市中京区室町通押小路下る御池之町 314·烏丸御池徒步 2 分",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "Standard~Suite·10 阶建·共 88 室",
+      "含早": "24h lounge 无料 bread + drink",
+      "预约": "公式 inso-mnia.com·Solare·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.inso-mnia.com/kyoto/",
+      "https://www.solarehotels.co.jp/pressrelease/2023/1615/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_kyoto_monterey",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      700,
+      1500
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都蒙特利酒店（Kyoto Monterey Hotel / 京都モントレホテル）",
+      "简介": "四条乌丸·蒙特利日系连锁·230 间客房欧式古典风+和洋大浴场。中端最稳·价格友好·中国客覆盖深·小红书爆款常客。",
+      "亮点": [
+        "蒙特利连锁",
+        "和洋大浴场",
+        "性价比",
+        "小红书爆款"
+      ],
+      "地址": "京都市中京区柳馬場通御池下ル弁慶石町 56（地铁烏丸御池站步行 4 分）",
+      "房型": "标准 / 豪华",
+      "含早": "可选",
+      "价格": "淡季 ¥500 / 平季 ¥700-1,000 / 旺季 ¥1,200-1,500",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00·大浴场住客免费"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/kyoto/",
+      "https://hotels.ctrip.com/hotels/672632.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_xian_dou_ting_espacion_hotel",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "先斗町依斯柏席昂酒店（ホテルエスパシオン先斗町）",
+      "简介": "**2025 年 10 月 14 日 grand open·全 21 室小規模 design hotel**·中京区先斗町·阪急河原町徒步 5 分·全 7 类客室+QR self check-in·館内无 restaurant 推 city dining 体验。",
+      "亮点": [
+        "设计精品",
+        "2025 新开业",
+        "21 室小规模",
+        "先斗町立地",
+        "QR self check-in"
+      ],
+      "价格": "素泊 2 人 ¥25,000-60,000",
+      "地址": "京都市中京区下樵木町 196·阪急河原町徒步 5 分",
+      "房型": "7 类·共 21 室",
+      "含早": "无館内 restaurant",
+      "预约": "公式 ht-espasionpontocho.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://ht-espasionpontocho.com/",
+      "https://hotelbank.jp/new-hotels/kyoto-ht-espasionpontocho2510open/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_gojo_holiday_inn_hotel",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京都五条假日酒店（ホリデイ・イン京都五条）",
+      "简介": "**IHG 系 Holiday Inn·2025 年 1 月 29 日开业**·**日本初 Holiday Inn 50 周年回归原点京都**·全 183 室·下京区·13 阶最上层日本式大浴场·1F café / 2F restaurant / 高层京都 tower 一望。",
+      "亮点": [
+        "设计精品",
+        "IHG Holiday Inn",
+        "50 周年回归",
+        "183 室",
+        "屋上日本式大浴场"
+      ],
+      "地址": "京都市下京区東錺屋町 179·地铁五条徒步圈",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥18,000-50,000·IHG One Rewards",
+      "房型": "Cozy Single 14㎡ / Twin / King / Suite 47㎡·共 183 室",
+      "预约": "公式 IHG·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ihg.com/holidayinn/hotels/us/en/kyoto/ukygo/hoteldetail",
+      "https://wbc-hr.com/news/551/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_sequence",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "sequence饭店-京都五条（sequence飯店-京都五条）",
+      "简介": "**2020 年开业·LIFESTYLE HOTEL「sequence」系·全 208 室**·地铁「五条」徒步 3 分·**顔认证 self check-in/客室入室**·岩盘浴 + steam sauna·CI 17:00 / CO 14:00 长留型。",
+      "亮点": [
+        "设计精品",
+        "sequence 系",
+        "顔认证",
+        "208 室",
+        "岩盘浴 + sauna",
+        "CI 17/CO 14"
+      ],
+      "地址": "京都市下京区五条烏丸町 409·地铁「五条」徒步 3 分",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "Queen/Medium Queen/King/Twin/4Beds·共 208 室",
+      "含早": "含早 ¥9,350~",
+      "预约": "公式 sequencehotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.sequencehotels.com/kyoto-gojo/",
+      "https://www.jalan.net/yad377522/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_gate_hotel_jing_dou_gao_lai_chuan",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "门酒店京都高濑川（ザ・ゲートホテル京都高瀬川）",
+      "简介": "**HULIC 系·2020 年开业·关西首家 GATE HOTEL**·全 184 室（旧立成小学校 Schoolhouse 棟 20 室 + 新馆 164 室）·京都市再开发·高瀬川沿·阪急河原町徒步 5 分。",
+      "亮点": [
+        "设计精品",
+        "HULIC 系",
+        "关西首家 GATE",
+        "184 室",
+        "高瀬川沿",
+        "旧校舍再生"
+      ],
+      "价格": "素泊 2 人 ¥30,000-70,000",
+      "地址": "京都市中京区蛸薬師通河原町東入備前島町 310-2·阪急河原町徒步 5 分",
+      "房型": "Schoolhouse 20 + 新馆 164·共 184 室·12 类",
+      "含早": "可选含早",
+      "预约": "公式 gate-hotel.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gate-hotel.jp/en/kyoto/",
+      "https://www.ikyu.com/en-us/00002755/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_cuvee_j2",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 4
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1800,
+      3500
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Cuvee J2 Hotel Kyoto",
+      "简介": "2022 年开业·四条河原町高级精品酒店·76 间客房日法融合设计。地下楼下是日本最大威士忌酒吧。设计酒店爱好者·情侣度假首选。",
+      "亮点": [
+        "设计精品",
+        "四条核心",
+        "威士忌酒吧",
+        "日法融合"
+      ],
+      "地址": "京都市中京区柳水町 75-1（地铁烏丸御池站步行 5 分）",
+      "房型": "豪华 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥1,200 / 平季 ¥1,800-2,400 / 旺季 ¥3,000-3,500",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.cuveej2.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_rojiyu_kyoto",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "ROJIYU KYOTO（ROJIYU KYOTO）",
+      "简介": "**Nazuna 系·2024 年 10 月开业**·全 4 室一栋整租·四条大宮/阪急大宮徒步 6 分·桜/竹/梅/楓 4 主题客室各异「湯」体验（内汤/露天）·2 階建客室含 kitchen+洗濯機 长留型。",
+      "亮点": [
+        "町家",
+        "Nazuna 系",
+        "2024 新开业",
+        "全 4 室主题汤",
+        "长留 kitchen 完备"
+      ],
+      "地址": "京都市中京区下川原町 588·四条大宮/阪急大宮徒步 6 分",
+      "含早": "无含早",
+      "价格": "一栋 2-4 人 ¥40,000-100,000",
+      "房型": "桜/竹/梅/楓·全 4 室·2 階建",
+      "预约": "公式 nazuna.co"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nazuna.co/property/rojiyu-kyoto/",
+      "https://www.ikyu.com/en-us/00031199/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_yuraku_etsuen",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京都悠洛悦苑（京都悠洛悦苑）",
+      "简介": "**ダーワ・悠洛 京都 by バンヤン・グループ·5 星 boutique·123 室**·三条京阪徒步 1 分·鴨川河畔·大正 ロマン薫る·館内 GRILL 54TH 法餐+8LEMENTS SPA·祇園/先斗町/錦市場徒步 5 分。",
+      "亮点": [
+        "设计精品",
+        "Banyan Group 系 Dhawa",
+        "三条京阪 1 分",
+        "123 室",
+        "8LEMENTS SPA"
+      ],
+      "地址": "京都市中京区·三条京阪徒步 1 分·鴨川河畔",
+      "含早": "法餐 GRILL 54TH 含选项",
+      "价格": "素泊 2 人 ¥35,000-90,000",
+      "房型": "Standard~Corner Suite·共 123 室",
+      "预约": "公式 dhawayurakyoto.com·Accor·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://dhawayurakyoto.com/",
+      "https://www.dhawa.com/japan/dhawa-yura-kyoto"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_shijo_kawaramachi_wen_quan_kong_ting_lu_tai_jing_dou",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1100,
+      1800
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "四条河原町温泉 空庭テラス京都（Sora Niwa Terrace Kyoto）",
+      "简介": "2022 年 6 月开业·京都市中心罕见的自家源泉温泉酒店·101 间客房。最上層大浴場「八坂の湯」「庭の湯」男女日替·屋上「空庭テラス」可俯瞰鸭川・八坂塔・清水寺・東山三十六峰·黄昏 16:00-18:30 免费 welcome drink 服务。注意点：trip.com 部分点评提到接待外国客时态度有差·但风吕和景观是关西市内独特卖点。",
+      "亮点": [
+        "温泉度假",
+        "市内自家源泉",
+        "屋上展望テラス",
+        "东山景观",
+        "立地优秀"
+      ],
+      "地址": "京都市下京区稲荷町324·阪急京都河原町站徒步 4 分（220m）",
+      "房型": "Moderate Double / Superior Double / Universal Twin（共 3 类·全 101 间）",
+      "含早": "和食 ¥4,000/人·儿童同价·屋上 OR 在房享用",
+      "价格": "淡季最低 ¥1,000（1月平日素泊）/ 平季中位 ¥1,100 / 旺季 ¥1,800（樱花/红叶提前 60 天约）",
+      "预约": "trip.com / 一休 / 楽天 / 官网·trip 9.4/10 = 994 评论",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·屋上 Bar 22:00 关·男女汤每日切换"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://jp.trip.com/hotels/kyoto-hotel-detail-88815812/shijo-kawaramachi-onsen-soraniwa-terrace-kyoto/",
+      "https://soraniwa-hotel.jp/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_shijo_kawaramachi_wen_quan_kong_ting_lu_tai_jing_dou_bettei",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3200
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "四条河原町温泉 空庭テラス京都 別邸（Soraniwa Terrace Kyoto Bettei）",
+      "简介": "2022 年 6 月开业·全 32 室客房均含露天风吕（自家源泉地下 1100m 镁含量丰富）·阪急京都河原町站徒步 1 分。专用数寄屋门设在裏通り·別邸専用フロント+冷蔵庫フリードリンク·部分客房面东山有专用 terrace。京懐石「東山」夕食 1 人也可在豪華個室+和服女性配膳。1 階大浴場「八坂の湯」「庭の湯」每日男女互换·水深 1m20cm 立位入浴·屋上「空庭テラス」无料 happy hour 16:00-18:30。",
+      "亮点": [
+        "温泉旅馆",
+        "全室露天風呂",
+        "自家源泉镁泉",
+        "別邸専用門",
+        "京懐石「東山」"
+      ],
+      "地址": "京都市下京区稲荷町·阪急京都河原町站徒步 1 分（150m）",
+      "房型": "全 32 室全室露天风吕·东山景观房 / 数寄屋造 / 一般客室",
+      "含早": "京懐石朝食",
+      "价格": "素泊 2 人 ¥51,681～（人均 ¥25,840）/ 朝食付 ¥57,763～ / 夕朝食付 110,000～（旺季加成）",
+      "预约": "公式·一休·楽天·trip.com·樱花/红叶季提前 60 天",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·別邸 16:00-18:30 happy hour 免费饮品·全室露天风吕推荐选东山景观房"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://shijo-bettei.jp/",
+      "https://www.ikyu.com/00002981/",
+      "https://www.tripadvisor.com/Hotel_Review-g298564-d25283735-Reviews-Soraniwa_Terrace_Kyoto-Kyoto_Kyoto_Prefecture_Kinki.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_candeohotels",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Candeo Hotels 京都乌丸六角（カンデオホテルズ京都烏丸六角）",
+      "简介": "**Candeo Hotels 系·京都登録有形文化財「旧伴家住宅」京町家保存改修 lounge**·烏丸御池徒步 3 分·全室シモンズベッド+一部露天风吕付·屋顶 sky spa（外汤+sauna）。",
+      "亮点": [
+        "设计精品",
+        "Candeo 系",
+        "京都市登録文化財町家",
+        "烏丸御池 3 分",
+        "屋顶 sky spa"
+      ],
+      "地址": "京都市中京区六角通烏丸西入骨屋町 149·烏丸御池徒步 3 分",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard~Private Spa King 28㎡·部分露天风吕付",
+      "含早": "折詰朝食 2F 町家 lounge 含选项",
+      "预约": "公式 candeohotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.candeohotels.com/en/kyoto-rokkaku/",
+      "https://www.jalan.net/yad357416/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_ting_jia_zhu_zhai_jing_dou",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      750,
+      1400
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "町家住宅京都（町家レジデンスイン京都）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "町家",
+        "传统和风",
+        "浪漫氛围",
+        "带厨房"
+      ],
+      "价格": "日元区间 ¥12,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_kuraya",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      750,
+      1400
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "藏屋（藏や (Kuraya)）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "町家",
+        "传统和风",
+        "浪漫氛围",
+        "带厨房"
+      ],
+      "地址": "最近站：七条（步行 5 分钟左右）",
+      "价格": "日元区间 ¥12,000-30,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_yao_shi_yuan",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "skeleton",
+    "note": {
+      "店名": "药师院（薬師院）",
+      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "亮点": [
+        "宿坊",
+        "传统和风",
+        "性价比",
+        "含早"
+      ],
+      "价格": "日元区间 ¥9,000-15,000/晚（待 OTA 三时段核实）"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://hotels.ctrip.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_song_jing_honkan",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "松井本館（Matsui Honkan）",
+      "简介": "阪急四条烏丸/地下铁四条站徒步 8 分·**数寄屋門+川島織物+伝統木工**·大浴场看坪庭瀑布。京懐石夕食+老铺豆腐店湯豆腐朝食。畳+ベッド和洋室·和柄 デュベ.",
+      "亮点": [
+        "老铺旅馆",
+        "数寄屋門",
+        "坪庭大浴场",
+        "京懐石"
+      ],
+      "地址": "京都市下京区·阪急四条烏丸/地铁四条站徒步 8 分",
+      "房型": "和室+和洋室·部分坪庭付",
+      "价格": "夕朝食付 2 人 ¥35,000-60,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://travel.kakaku.com/yad/10049543/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_tian_fu_luo_ji_chuan",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "天ぷら吉川（Yoshikawa Tempura Ryokan）",
+      "简介": "京都 富小路·天ぷら名店併設の老铺料亭旅館·小規模奥座敷型·一品天ぷら+京料理。料理重視の客人定番。",
+      "亮点": [
+        "老铺旅馆",
+        "天ぷら老店",
+        "小规模奥座敷"
+      ],
+      "地址": "京都市中京区富小路·烏丸御池徒步 10 分",
+      "价格": "夕朝食付 2 人 ¥40,000-80,000",
+      "预约": "公式·小規模需早预约"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.yoshikawa-inn.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_daiwa_roynet_shijo_karasuma",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.daiwaroynet.jp/kyoto-shijokarasuma/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "Daiwa Roynet Hotel KYOTO-SHIJYOKARASUMA（京都四条乌丸大和ROYNET酒店）",
+      "简介": "**2026 年 3 月 14 日重新开业**·阪急乌丸站徒步 1 分·四条河原町商圈核心·Daiwa 系中端商务连锁·新装修后设施现代+公共浴场。",
+      "亮点": [
+        "设计精品",
+        "2026 新开业",
+        "阪急乌丸 1 分",
+        "四条河原町商圈"
+      ],
+      "地址": "京都市下京区·阪急烏丸站徒步 1 分·四条乌丸交叉点",
+      "房型": "Standard Twin/Double·共 280+ 室·新装修",
+      "价格": "素泊 2 人 ¥12,000-25,000",
+      "预约": "公式 / 一休 / 楽天"
+    }
+  },
+  {
+    "id": "kyo_shijo_kawaramachi_nazuna_kyoto_tsubaki",
+    "city": "京都",
+    "area": "shijo_kawaramachi",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_pontocho",
+        "walk_min": 12
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      2200,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nazuna.co/property/nazuna-kyoto-tsubaki-st/",
+      "https://www.ikyu.com/00002780/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "Nazuna 京都 椿通（Nazuna Kyoto Tsubaki Street）",
+      "简介": "**築 110 年以上的町家路地一体改造**·约 1,400㎡ L 字型 23 间客房·京都自然テーマ「TAKE/MIZU/IWA/HANA/HA」5 类。Nazuna 集团旗舰物业·MICHELIN 3 Pavilions。",
+      "亮点": [
+        "町家",
+        "町家路地一体",
+        "23 室+5 主题",
+        "MICHELIN 3 Pavilions"
+      ],
+      "地址": "京都市下京区·阪急乌丸站徒步 8 分·椿通り",
+      "房型": "TAKE/MIZU/IWA/HANA/HA 5 类·共 23 室",
+      "含早": "可选含早",
+      "价格": "夕朝食付 2 人 ¥45,000-80,000",
+      "预约": "公式 / 一休 / 楽天"
+    }
+  }
+]

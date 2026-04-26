@@ -1,0 +1,125 @@
+[
+  {
+    "id": "kyo_kita_takagamine_shou_huo_hotel",
+    "city": "京都",
+    "area": "kita",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nijo_castle",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1200,
+      1900
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "京都鹰峰收获酒店（ホテルハーヴェスト京都鷹峯）",
+      "简介": "**東急 Harvest Club 系会员制 resort·しょうざんリゾート京都内**·北区鷹峯麓·83 间正房 + VIALA annex 37 间 + 13 间·共 133 室·京都北郊森林立地·会员优先开放给非会员。",
+      "亮点": [
+        "温泉度假",
+        "東急 Harvest 系",
+        "鷹峯リゾート",
+        "133 室",
+        "会员优先"
+      ],
+      "价格": "素泊 2 人 ¥30,000-80,000",
+      "地址": "京都市北区·鷹峯·しょうざんリゾート京都内",
+      "房型": "本馆 83 + VIALA 37 + 別 13·共 133 室",
+      "含早": "和洋朝食含",
+      "预约": "公式 harvestclub.com·非会员限期开放"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.harvestclub.com/Un/Hotel/Kg/",
+      "https://www.resorthotels109.com/kyototakagamine/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_kita_roku_kyoto_lxr",
+    "city": "京都",
+    "area": "kita",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kinkakuji",
+        "walk_min": 15
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      4000,
+      8000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "京都六（ROKU KYOTO, LXR Hotels & Resorts / ロク京都）",
+      "简介": "2021 年开业·北区鷹峯·京都市北郊森林包围·114 间客房+天然温泉。Hilton 旗下 LXR 顶奢品牌·走山间度假风。喜欢「京都但非市中心」客群最爱。",
+      "亮点": [
+        "温泉度假",
+        "鷹峯森林",
+        "LXR 顶奢",
+        "京都郊外度假"
+      ],
+      "地址": "京都市北区衣笠鏡石町 44-1（地铁北大路站打车 15 分）",
+      "房型": "豪华 / 套房",
+      "含早": "含",
+      "价格": "平季 ¥4,000-5,500 / 旺季 ¥6,500-8,000+",
+      "预约": "官网 / 携程 / Hilton Honors",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·有酒店穿梭班车到京都站"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/en/hotels/ukyrkol-roku-kyoto/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kyo_takagamine_aman_kyoto",
+    "city": "京都",
+    "area": "kita",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_kinkakuji",
+        "walk_min": 25
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      4500,
+      8000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Aman Kyoto（アマン京都 / Aman Kyoto）",
+      "简介": "2019 年开业·京都鹰峰森林深处·24 间客房+18 间套房·原织锦商家庭园改造·KIBA Studio 设计·**Aman 集团首入京都**。森林包围+水景庭园+SPA·入住即闭关。MICHELIN Two Keys。",
+      "亮点": [
+        "温泉度假",
+        "Aman 京都首入",
+        "鹰峰森林包围",
+        "庭园改造",
+        "MICHELIN Two Keys"
+      ],
+      "地址": "京都市北区大北山·鹰峰森林深处·有 shuttle",
+      "房型": "Pavilion Suite 71㎡ ~ Aman Suite 137㎡（共 24+18 间）",
+      "含早": "和洋朝食 buffet 含·套房可选",
+      "价格": "素泊 1 间 ¥250,000～¥600,000+（人均 ¥4,500-8,000+）·樱花/红叶 +50%",
+      "预约": "公式 aman.com·提前 6+ 个月·樱花季预订率极高",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·京都站 shuttle 30 分钟·森林散步路线推荐黄昏"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.aman.com/resorts/aman-kyoto",
+      "https://www.michelinkeyhotels.com/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

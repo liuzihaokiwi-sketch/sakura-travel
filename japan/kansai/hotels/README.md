@@ -109,12 +109,26 @@ japan/kansai/hotels/
 ├── _seed_table.md                    ← 6 类种子穷举（D47）
 ├── _d47_audit.md                     ← D47 重构 audit log
 ├── _d47_audit_table.md               ← 现池 audit dump
-└── data/
-    └── hotels__kansai.json           ← 214 家酒店主数据
+├── kyoto/                            ← 京都 10 个 area json（D48 拆分）
+│   ├── arashiyama.json / gion_higashiyama.json / higashiyama.json
+│   ├── kibune.json / kita.json / kyoto_station.json / nakagyo.json
+│   └── nijo_central.json / shijo_kawaramachi.json / takao.json
+├── osaka/                            ← 大阪 6 个 area json
+│   └── bay_area / honmachi / namba_dotonbori / shinsaibashi / tennoji_shinsekai / umeda_kita
+├── kobe_area/                        ← 神户/有马/姬路（与餐厅 kobe_area 对齐）
+│   └── arima / arima_onsen / bay_area / harborland_meriken / kitano_shinkobe / motomachi_nankinmachi / sannomiya
+└── other/                            ← 关西其他城市
+    ├── nara/nara_park_area.json
+    ├── kinosaki/kinosaki_onsen.json + kinosaki.json
+    ├── koyasan/koyasan_temple.json
+    └── shirahama/shirahama.json
 ```
+
+D48（2026-04-26）：从单一 `data/hotels__kansai.json` 拆为 28 个按 area 切的 json·与 `japan/kansai/restaurants/`、`japan/kansai/stops/` 结构对齐。
 
 ## 历史
 
+- 2026-04-26 **D48 拆分**：单 json → 28 个 city/area.json·对齐餐厅/stops 结构
 - 2026-04-26 **D47 重构**：tier 4 档→6 档·trip.com 阈值对齐·套话逐家重写·补收 15 家宝藏·总 214 家·validate 0 errors
 - 2026-04-26 D46 首轮迁移：D40 旧池 387 家 → 三道筛 201 家 → 转 D46 schema → 0 errors → 54 家精修 full
 - 2026-04-22 D40 ~ D43：旧 5 档 budget_tier·旧池 387 家·已归档到 `_archive/assembly_hotels_legacy_d46/`

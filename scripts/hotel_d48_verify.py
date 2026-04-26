@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-DATA = Path("japan/kansai/hotels/data/hotels__kansai.json")
+ROOT = Path("japan/kansai/hotels")
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
 PATCHES: dict[str, dict] = {}
@@ -321,33 +321,96 @@ register(
 )
 
 
+# === 京都 第五批 (25-28) ===
+register(
+    "kyo_gion_higashiyama_the_shinmonzen",
+    brief="**安藤忠雄设计·全 9 室小规模顶奢**·祇园白川河畔·hotelier Paddy McKillen 10 年打磨·Jean-Georges 京都首店·館内 Damien Hirst / Louise Bourgeois / 杉本博司艺术藏品。",
+    highlights=["设计精品", "安藤忠雄设计", "9 室 super luxury", "Jean-Georges 京都", "顶级艺术藏品"],
+    address="京都市東山区新門前通西之町 235·祇园白川河畔",
+    rooms="全 9 套房·hinoki 浴/大理石浴室/Pedersoli 500 织数 organic linen",
+    breakfast="含·Jean-Georges 餐厅",
+    price="素泊 2 人 ¥260,000+（约 USD 1,916/夜起）",
+    booking="公式 theshinmonzen.com·Mr & Mrs Smith·Leading Hotels",
+    sources=["https://theshinmonzen.com/", "https://www.mrandmrssmith.com/luxury-hotels/the-shinmonzen/rooms"],
+)
+
+register(
+    "kyo_gion_higashiyama_hotel_seiryu_kyoto_kiyomizu",
+    brief="**1933 年元清水小学校改造·NTT 都市開発+Prince Hotels 共营·2020 年开业**·全 48 室（既存棟 34+增築棟 14·平均 50㎡）·**Leading Hotels 日本第 8 家**·屋顶 BAR K36 八坂塔眺望·Benoit Kyoto 法餐别馆。",
+    highlights=["设计精品", "Leading Hotels", "150 年校舎再生", "48 室", "屋顶 BAR K36"],
+    address="京都市東山区清水二丁目 204-2·八坂塔旁",
+    rooms="既存棟 34 + 增築棟 14·平均 50㎡·共 48 室",
+    breakfast="朝食 restaurant 含选项",
+    price="素泊 2 人 ¥80,000-200,000",
+    booking="公式 seiryukiyomizu.com·Prince Hotels·Leading Hotels",
+    sources=["https://www.seiryukiyomizu.com/", "https://www.princehotels.co.jp/seiryu-kiyomizu/"],
+)
+
+register(
+    "kyo_arashiyama_muni_kyoto_by_onko_chishin",
+    brief="**温故知新系·2020 年 8 月开业·渡月桥旁全 21 室小規模 luxury**·客室 50-70㎡·窗高 2.9m×3.5m 桂川/渡月桥眺望·**馆内 MUNI ALAIN DUCASSE 法餐**+ MUNI LA TERRASSE+原创 spa（北山杉/水尾柚子）·福田美术馆 free。",
+    highlights=["设计精品", "温故知新系", "渡月桥旁", "21 室 50-70㎡", "Alain Ducasse 法餐"],
+    address="京都市右京区嵯峨天龍寺芒ノ馬場町 3·渡月桥旁",
+    rooms="全 21 室·50-70㎡·部分 sofa bed 3 人",
+    breakfast="法餐 Alain Ducasse 含选项",
+    price="素泊 2 人 ¥80,000-200,000",
+    booking="公式 munihotels.com·一休·Mr & Mrs Smith",
+    sources=["https://munihotels.com/en/", "https://muni.by-onko-chishin.com/stay/"],
+)
+
+register(
+    "kyo_nijo_central_garrya_nijo_castle_kyoto",
+    brief="**Banyan Group 系 Garrya 日本一号馆·2022 年开业**·二条城世遗 200m·二条城前站徒步 2 分·全 25 室含 1 套房·書院造样·館内法餐 Singular+lounge bar·minibar 无料·Accor 加盟。",
+    highlights=["设计精品", "Banyan Group 系", "Garrya 日本一号", "二条城旁", "25 室·1 套房", "書院造"],
+    address="京都市中京区·二条城前站徒步 2 分·二条城世遗 200m",
+    rooms="Standard~Suite·全 25 室·tatami+balcony+garden view",
+    breakfast="法餐 Singular 可选含早",
+    price="素泊 2 人 ¥40,000-90,000",
+    booking="公式 garrya.com·Accor·一休",
+    sources=["https://www.garrya.com/en/destinations/kyoto", "https://all.accor.com/hotel/C016/index.en.shtml"],
+)
+
+
 def main() -> None:
     apply = "--apply" in sys.argv
-    data = json.loads(DATA.read_text(encoding="utf-8"))
-    hit, miss = 0, []
-    for h in data:
-        hid = h["id"]
-        if hid not in PATCHES: continue
-        p = PATCHES[hid]
-        h["note"].update(p["note"])
-        if p["sources"]:
-            h["数据来源"] = p["sources"]
-        h["可信度"] = "cross_checked"
-        h["depth"] = "verified"
-        h["最后核实"] = TODAY
-        hit += 1
-    miss = [hid for hid in PATCHES if hid not in {h["id"] for h in data}]
+    files = [f for f in ROOT.rglob("*.json") if "_archive" not in f.parts]
+    hit = 0
+    file_changed: dict[Path, list[dict]] = {}
+    found_ids: set[str] = set()
+    for f in files:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        changed = False
+        for h in data:
+            found_ids.add(h["id"])
+            hid = h["id"]
+            if hid not in PATCHES: continue
+            p = PATCHES[hid]
+            h["note"].update(p["note"])
+            if p["sources"]:
+                h["数据来源"] = p["sources"]
+            h["可信度"] = "cross_checked"
+            h["depth"] = "verified"
+            h["最后核实"] = TODAY
+            hit += 1
+            changed = True
+        if changed:
+            file_changed[f] = data
+
+    miss = [hid for hid in PATCHES if hid not in found_ids]
     print(f"patched: {hit}/{len(PATCHES)}")
     if miss:
         print(f"MISSING IDs: {miss}")
     if apply:
-        DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        print("[APPLIED]")
+        for f, data in file_changed.items():
+            f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[APPLIED] {len(file_changed)} files written")
     else:
         print("[DRY-RUN]")
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
