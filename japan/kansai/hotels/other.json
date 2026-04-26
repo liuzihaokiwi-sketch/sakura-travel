@@ -1,0 +1,2652 @@
+[
+  {
+    "id": "arm_arima_hyoe_koyokaku",
+    "city": "神户",
+    "area": "arima",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 2
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 5
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1500,
+      3500
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "兵卫向阳阁（兵衛向陽閣 / Hyoe Koyokaku）",
+      "简介": "有马温泉历史最久的旅馆之一·700 年历史·丰臣秀吉曾住。150 间客房·全部一泊二食·金泉露天风吕是有马温泉地标。有马的「住宿即体验」代表。家庭/老人客群最爱（无障碍设施完善）。",
+      "亮点": [
+        "温泉旅馆",
+        "700 年历史",
+        "金泉露天",
+        "有马代表",
+        "丰臣秀吉宿"
+      ],
+      "地址": "神戸市北区有馬町 1904（神鉄有馬温泉站步行 7 分·神户三宫站电铁 30 分）",
+      "房型": "和室 / 和洋室·全部一泊二食",
+      "含早": "含·会席朝食",
+      "价格": "一泊二食 ¥30,000-¥70,000/人（约 ¥1,500-¥3,500 RMB·新年/盆 ¥100,000+）",
+      "预约": "官网 / 一休 / 楽天·提前 2 个月",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00·门口接神户三宫站班车（预约制）"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hyoe.co.jp/",
+      "https://hotels.ctrip.com/hotels/675125.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_tao_quan_gosho_fang",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "陶泉 御所坊（陶泉 御所坊）",
+      "简介": "**1191 年创业·有馬最古老温泉旅館·登録有形文化財**·有馬最古·谷崎潤一郎陰翳礼讃 lighting·全 16 室·部分客室含金泉源泉掛流·書院造和洋多类型·吉川英治+与謝野晶子文人由来命名「翠巒/雲山/聴泉御坊」3 棟。",
+      "亮点": [
+        "老铺旅馆",
+        "1191 年最古",
+        "登録有形文化財",
+        "16 室",
+        "谷崎潤一郎 inspire",
+        "金泉源泉掛流"
+      ],
+      "地址": "神戸市北区有馬町·神戸電鉄有馬温泉駅徒步圈",
+      "价格": "夕朝食付 2 人 ¥80,000-200,000",
+      "房型": "3 棟·全 16 室·和/和洋·部分金泉源泉风吕付",
+      "含早": "和朝食 含·料理旅館",
+      "预约": "公式 goshoboh.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://goshoboh.com/rooms/",
+      "https://www.ikyu.com/en-us/00001453/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_zhu_qu_ting_yuan_shan",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "竹取亭圆山（竹取亭円山）",
+      "简介": "**有馬高台立地·全室金泉/銀泉貸切风吕 8 ヶ所**·茶褐色金泉+透明銀泉·神戸電鉄有馬温泉駅徒步 15 分（无料送迎）·和洋 suite 含温泉付 8 类·森林浴。",
+      "亮点": [
+        "温泉旅馆",
+        "高台立地",
+        "全 8 ヶ所貸切风吕",
+        "金泉+銀泉两种",
+        "森林浴"
+      ],
+      "地址": "神戸市北区有馬町 1364-1·神鉄有馬温泉駅徒步 15 分（无料送迎）",
+      "价格": "夕朝食付 2 人 ¥45,000-110,000",
+      "房型": "温泉付 suite 8 类·禁烟",
+      "含早": "和朝食含",
+      "预约": "公式 taketoritei.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.taketoritei.com/",
+      "https://www.ikyu.com/en-us/00001695/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_grand_hotel",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      950
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "有马格兰大酒店（有馬グランドホテル）",
+      "简介": "**有馬最大級·全 237 室高台立地**·展望大浴苑「雲海」金泉+丹波山眺望·**2019.7 新館「別墅 結楽」金泉/銀泉露天付 club floor**·梅田高速 bus 60 分·有馬温泉駅 5 分送迎。",
+      "亮点": [
+        "温泉度假",
+        "237 室·有馬最大级",
+        "別墅 結楽 club floor",
+        "金/銀泉露天付",
+        "展望大浴苑雲海"
+      ],
+      "地址": "神戸市北区·有馬温泉高台·梅田 60 分·新神戸 30 分",
+      "价格": "夕朝食付 2 人 ¥45,000-150,000",
+      "房型": "本馆+別墅 結楽 71-184㎡·全 237 室",
+      "含早": "和洋朝食含",
+      "预约": "公式 arima-gh.jp·一休·楽天·KNT 高级"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.arima-gh.jp/en/",
+      "https://yado.knt.co.jp/st/S280042/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_hua_xiao_su_hotel",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "花小宿酒店（ホテル花小宿）",
+      "简介": "**御所坊系姉妹宿·有馬最小宿全 9 室**·神戸開港期外国人専用 hotel イメージ·和室（畳+ベッド）+洋室+suite·**2 ヶ所貸切风吕（金泉「楓呂」+「蔦葉子」无料）+「Premium Twin with Hot Spring」新 2 室**·神鉄有馬温泉駅徒步 10 分。",
+      "亮点": [
+        "老铺旅馆",
+        "御所坊系",
+        "9 室·有馬最小",
+        "外国人 hotel イメージ",
+        "貸切金泉无料"
+      ],
+      "地址": "神戸市北区有馬町·神鉄有馬温泉駅徒步 10 分",
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "房型": "和/洋/suite/Premium Twin·全 9 室",
+      "含早": "和朝食含·御所坊大浴场无料利用",
+      "预约": "公式 hanakoyado.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hanakoyado.com/en/",
+      "https://www.ikyu.com/00001964/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_tian_di_zhi_su_ao_zhi_xi_dao",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "天地之宿 奥之细道（天地の宿 奥の細道）",
+      "简介": "**有馬奥座敷·料理旅館**·**全室マウンテンビュー和洋室+全室客室露天风吕（金泉/自家源泉）**·六甲山眺望·本馆+別馆「太閤」suite·特別室 140㎡（金泉足汤付）·料理パフォーマンス +¥15,000。",
+      "亮点": [
+        "温泉旅馆",
+        "全室客室露天风吕",
+        "料理旅館",
+        "金泉/自家源泉",
+        "140㎡ 特別室+金泉足汤"
+      ],
+      "价格": "夕朝食付 2 人 ¥50,000-150,000",
+      "地址": "神戸市北区有馬町·有馬奥座敷·有馬三山囲",
+      "房型": "本馆 全室和洋·別馆 suite「太閤」3 间·全 露天付",
+      "含早": "和朝食含",
+      "预约": "公式 arima-okunohosomichi.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://arima-okunohosomichi.com/",
+      "https://arima-okunohosomichi.com/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_si_ji_zhi_cai_lv_long",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "四季之彩 旅篭（四季の彩 旅篭）",
+      "简介": "**2002 年创業·2023.3 リニューアル·全 6 室金泉露天付**·料理旅館·**割烹 counter 客前料理·料理鉄人 大田忠道館主**·部屋 60-90㎡·名物雲海鍋（綿菓子+神戸牛）·客前出汁巻 live 朝食。",
+      "亮点": [
+        "老铺旅馆",
+        "2023 全面 renew",
+        "全 6 室金泉露天付",
+        "客前料理 counter",
+        "鉄人 大田忠道"
+      ],
+      "价格": "夕朝食付 2 人 ¥80,000-180,000",
+      "地址": "神戸市北区有馬町·三宮 30 分·箕谷 ramp 经由",
+      "房型": "60-90㎡·全 6 室金泉露天付",
+      "含早": "和朝食含·客前 live 出汁巻玉子",
+      "预约": "公式 arima-hatago.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://arima-hatago.com/",
+      "https://arima-hatago.com/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_wen_quan_yue_guang_yuan_hong_long_guan",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "有马温泉 月光园 鸿朧馆（有馬温泉 月光園 鴻朧館）",
+      "简介": "**月光園グループ・本館鴻朧館**·有馬数少ない自家源泉宿·落葉山+滝川眺望·**2015.12 最上 1 室貴賓 suite open**·大浴場「金波の湯」全面 ガラス眺望·会席「弓張月」+麺処「一心亭」深夜営业·茶室「拈華庵」。",
+      "亮点": [
+        "温泉旅馆",
+        "月光園系",
+        "自家源泉",
+        "貴賓 suite 1 室 2015 open",
+        "金波の湯眺望"
+      ],
+      "地址": "神戸市北区有馬町·神鉄有馬温泉駅徒步圈",
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "房型": "本館鴻朧館·貴賓 suite + 露天付客室 4 类",
+      "含早": "和朝食含",
+      "预约": "公式 gekkoen.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gekkoen.co.jp/kourokan/room/",
+      "https://kouroukan.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_yin_shui_zhuang_zhao_le",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "银水庄 兆乐（銀水荘 兆楽）",
+      "简介": "**自家泉源金泉+ラジウム銀泉两种·有馬唯一**·六甲山見晴し高台·貸切露天 ¥5,500/50 分·神戸牛+丹波野菜+瀬戸内魚介客室食·新神戸/三宮无料送迎 40 分·別邸紫貴有る。",
+      "亮点": [
+        "温泉旅馆",
+        "自家泉源金泉+ラジウム銀泉",
+        "有馬唯一 2 泉",
+        "貸切露天",
+        "客室食"
+      ],
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "地址": "神戸市北区有馬町 654-1·新神戸/三宮无料送迎",
+      "房型": "多类型·部分露天付·別邸紫貴",
+      "含早": "客室食·和朝食",
+      "预约": "公式 choraku.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://choraku.com/",
+      "https://www.ikyu.com/en-us/00001744/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_shan_cong_gosho_bie_shu",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "有马山丛 御所别墅（有馬山叢 御所別墅）",
+      "简介": "**御所坊系姉妹·1400 坪敷地·全 10 室サーマルスイート 100㎡+**·6 甲山懐·御所泉源+妬泉源 2 種引湯·**全室客室温泉·世界初ツリーハウス型露天**·サーマルルーム（37 度低温岩盤浴）·Villa+Maisonette 3 类·有馬清水寺起源。",
+      "亮点": [
+        "温泉旅馆",
+        "御所坊系",
+        "全 10 室 100㎡+",
+        "ツリーハウス露天",
+        "サーマルルーム（低温岩盤浴）"
+      ],
+      "地址": "神戸市北区有馬町·有馬温泉駅送迎車",
+      "价格": "夕朝食付 2 人 ¥120,000-300,000",
+      "房型": "Villa/Maisonette/Tree House·全 10 室·100㎡+",
+      "含早": "和朝食含·料理旅館",
+      "预约": "公式 goshobessho.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://goshobessho.com/en/",
+      "https://goshobessho.com/en/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_you_ma_yu_yuan",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "有马御苑（有馬御苑）",
+      "简介": "**1946 年创业老铺·全 50 室**·神戸電鉄有馬温泉駅徒步 2-3 分·有馬川親水広場目前·**有馬一番神戸牛取扱指定店**·金泉+銀泉两种·檜露天风吕銀泉·CI15 / CO10 简洁。",
+      "亮点": [
+        "温泉旅馆",
+        "1946 老铺",
+        "50 室",
+        "神戸牛 1 番取扱",
+        "金+銀泉两种"
+      ],
+      "地址": "神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 2-3 分",
+      "含早": "和朝食·神戸牛朝食",
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "房型": "多类型·共 50 室",
+      "预约": "公式 arima-gyoen.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://en.arima-gyoen.co.jp/",
+      "https://www.hankyu-travel.com/kokunai/facility/detail/htl980.php"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_gao_sanso_hua_ye",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "高山庄 华野（高山荘 華野）",
+      "简介": "**有馬高台閑静·全 17 室「大人の宿」12 歲以下不可入館**·館内野花+古美術+アート（美術館的）·2018.7 リニューアル金泉+銀泉两种·2025.1 温泉付 suite 诞生·梅田阪急 bus 55 分。",
+      "亮点": [
+        "老铺旅馆",
+        "17 室·大人の宿",
+        "12 岁以下不可入馆",
+        "美术馆的氛围",
+        "金+銀两种"
+      ],
+      "价格": "夕朝食付 2 人 ¥50,000-130,000",
+      "地址": "神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 10 分",
+      "房型": "和室/和洋·全 17 室·部分露天付",
+      "含早": "和朝食含",
+      "预约": "公式 arima-hanano.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.arima-hanano.com/en/",
+      "https://arima-hanano.jp/hotspring"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_hua_jie",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "花结（花結び）",
+      "简介": "**御幸荘 花結び·有馬山+街景眺望**·**金泉+銀泉内湯+外湯+展望貸切露天**·全客室花の名前·マッサージチェア完备·POLA aamenity·神戸電鉄有馬温泉駅徒步 10 分（送迎无料）·和洋 suite 12.5 畳金泉露天付。",
+      "亮点": [
+        "温泉旅馆",
+        "御幸荘系",
+        "金+銀泉两种",
+        "POLA amenity",
+        "全室花名+マッサージチェア"
+      ],
+      "地址": "神戸市北区有馬町 351·神戸電鉄有馬温泉駅徒步 10 分",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "房型": "和室/和洋 suite·部分金泉露天付",
+      "预约": "公式 hanamusubi.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hanamusubi.co.jp/rooms/",
+      "https://www.ikyu.com/en-us/00030104/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_yuan_tang_gu_quan_ge",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "元汤 古泉阁（元湯 古泉閣）",
+      "简介": "**1955 年开业·純和風旅館 55 室+The Lodge 11 棟（计 66 室）·定員 224 名**·有馬温泉駅徒步圈·本馆+別馆+東馆 3 棟·4 阶以上純和風客室見晴し·全室バス トイレ付·2020.4 全室禁烟·純和風 8 畳和室。",
+      "亮点": [
+        "温泉旅馆",
+        "1955 老铺",
+        "和風 55 室+Lodge 11 棟",
+        "本馆+別馆+東馆",
+        "見晴し 4 阶以上"
+      ],
+      "价格": "夕朝食付 2 人 ¥35,000-90,000",
+      "地址": "神戸市北区有馬町 1455-1·有馬温泉駅·送迎",
+      "房型": "本馆+別馆+東馆+The Lodge 11 棟·共 66 室",
+      "含早": "和朝食含",
+      "预约": "公式 kosenkaku.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.kosenkaku.com/",
+      "https://kosenkaku.com/room.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_yue_guang_yuan_you_yue_sanso",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "月光园 游月山庄（月光園 游月山荘）",
+      "简介": "**月光園游月山荘·昭和初期純和風木造 3 阶建·懐かしい温かさ**·六甲山系落葉山麓·目前滝川（蛍/かじか/沢蟹）·8/10/12 帖和室+踏込+広縁付·有馬最古「自家源泉」·川沿露天·游月亭特別室·没有エレベータ。",
+      "亮点": [
+        "温泉旅馆",
+        "月光園系",
+        "昭和初期木造 3 阶",
+        "自家源泉",
+        "川沿露天·蛍/かじか"
+      ],
+      "地址": "神戸市北区有馬町 318·神鉄有馬温泉駅徒步圈",
+      "价格": "夕朝食付 2 人 ¥35,000-90,000",
+      "房型": "一般和室 8/10/12 帖+游月亭特別室",
+      "含早": "和朝食 buffet 兵庫食材·部分客室食",
+      "预约": "公式 gekkoen.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gekkoen.co.jp/yuugetu/",
+      "https://www.gekkoen.co.jp/yuugetu/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_ling_feng_ge",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "陵枫阁（陵楓閣）",
+      "简介": "**ねぎや陵楓閣·千坪敷地·全 36 室（JTB 33 室）·中心街徒步 5 分·落葉山中腹**·楓自生·**料理自慢「いやし宿」+ 露天风吕付客室+和洋室多类型**·「世界一の朝食」（JTB 表記とは別）·無料送迎。",
+      "亮点": [
+        "温泉旅馆",
+        "ねぎや系",
+        "千坪敷地",
+        "全 36 室",
+        "落葉山中腹·楓自生",
+        "1 人宿可"
+      ],
+      "地址": "神戸市北区有馬町·有馬温泉駅徒步 5 分（无料送迎）",
+      "含早": "和朝食含·料理自慢",
+      "价格": "夕朝食付 2 人 ¥40,000-100,000",
+      "房型": "和室 8-10 畳/和洋室/露天付·全 36 室",
+      "预约": "公式 negiya.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://en.negiya.jp/room",
+      "https://en.negiya.jp/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_yue_zhi_zhou",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "月之舟（月への舟）",
+      "简介": "**月への舟·有馬街道自家源泉宿**·森/山/宙 3 源泉エリア·**7 ヶ所源泉露天风吕付浴室+14 浴槽·金色泉満たし月の舟一艘**·檜素材+黒赤·**月の離宮「美濃」85㎡/「信濃」100㎡（ペット OK+プライベートテラス）**·新「蒼天/蒼翠/蒼禅」金色泉露天 suite 45㎡。",
+      "亮点": [
+        "温泉旅馆",
+        "自家源泉 3 エリア",
+        "7 露天浴室+14 浴槽+月の舟",
+        "離宮 85-100㎡（ペット OK）",
+        "Premium Suite 45㎡"
+      ],
+      "地址": "神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 9 分（送迎）",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥60,000-200,000·suite up",
+      "房型": "本馆 + 月の離宮 suite 2 棟（美濃 85㎡/信濃 100㎡）+ 蒼天/蒼翠/蒼禅 suite",
+      "预约": "公式 tsukienofune.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://tsukienofune.com/",
+      "https://tsukienofune.com/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_you_ma_guang_cai",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "arm_arima_onsen",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "arm_kin_no_yu",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      950
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "有马光彩（有馬きらり）",
+      "简介": "**有馬きらり·全 54 室·阪急阪神 hotels 系**·神戸電鉄有馬温泉駅徒步 7 分·**併設「有馬温泉太閤の湯」関西最大級温泉テーマパーク 26 種風呂+岩盤浴 2 日無料**·411 年復元太閤秀吉の金泉蒸し風呂·新和食+50 種以上和洋朝食 buffet。",
+      "亮点": [
+        "温泉旅馆",
+        "阪急阪神系",
+        "54 室",
+        "「太閤の湯」テーマパーク 26 風呂無料",
+        "411 年復元金泉蒸"
+      ],
+      "价格": "夕朝食付 2 人 ¥35,000-80,000",
+      "地址": "神戸市北区有馬町·神戸電鉄有馬温泉駅徒步 7 分",
+      "房型": "和室 8 畳中心·全 54 室",
+      "含早": "和洋 buffet 50 種以上",
+      "预约": "公式 arima-view.com·HMI·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.arima-view.com/",
+      "https://www.hankyu-hotel.com/en/hotel/ch/arima"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "arm_arima_onsen_kai_arima",
+    "city": "神户",
+    "area": "arima_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kbe_arima_onsen",
+        "walk_min": 5
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1600,
+      3000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hoshinoresorts.com/ja/hotels/kaiarima/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "界 有馬 by Hoshino Resorts（Hoshino Resorts KAI Arima）",
+      "简介": "星野リゾート「界」系·有馬温泉**金泉源泉·6 室小規模旅館**·KAI 全系最小規模·和的 sophistication+怀石。",
+      "亮点": [
+        "温泉旅馆",
+        "星野 KAI 系",
+        "有馬金泉",
+        "全 6 室小規模"
+      ],
+      "地址": "神户市北区有馬町·有馬温泉駅徒步 5 分",
+      "房型": "全 6 室·部分露天风吕",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥45,000-90,000",
+      "预约": "公式 / 一休·小规模常満室",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·金泉露天推荐黄昏"
+    }
+  },
+  {
+    "id": "kbe_bay_area_wan_sheraton_hotel",
+    "city": "神户",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户湾喜来登大酒店（神戸ベイシェラトン）",
+      "简介": "**Marriott Bonvoy Sheraton 系·六甲アイランド中心**·22 阶层·客室 6-20 阶·**全 267 室（公式）/268 室（onlineshop）**·6 种特徴 floor·Family Friendly Hotel·神戸湾 view。",
+      "亮点": [
+        "设计精品",
+        "Marriott Bonvoy Sheraton",
+        "267 室",
+        "六甲アイランド中心",
+        "6 类 floor"
+      ],
+      "地址": "神戸市東灘区·六甲アイランド·六甲ライナー Island Center 駅",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥25,000-65,000·Marriott Bonvoy",
+      "房型": "Standard~Suite·6 类·全 267 室",
+      "预约": "公式 sheraton-kobe.co.jp·Marriott·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.sheraton-kobe.co.jp/rooms/",
+      "https://www.sheraton-kobe.co.jp/stay/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_harborland_meriken_la_suite_hai_gang_hotel",
+    "city": "神户",
+    "area": "harborland_meriken",
+    "near_attractions": [
+      {
+        "entity_id": "kob_meriken_park",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kobe_maritime",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户拉斯维特海港酒店（ホテル ラ・スイート神戸ハーバーランド）",
+      "简介": "**SLH 加盟·日本初**·全 70 室·**全室オーシャンビュー+テラス+ジャクジー**·中央区波止場町·**ラ・レーヌ/ル・ロワ/和洋スイート 3 室最上级（電話予約のみ）**·Tonda ジャグジーバス円形 view·小規模 luxury。",
+      "亮点": [
+        "设计精品",
+        "SLH 加盟日本初",
+        "70 室全 ocean view+terrace+jacuzzi",
+        "最上 3 suite",
+        "円形 view bath"
+      ],
+      "价格": "素泊 2 人 ¥40,000-150,000",
+      "地址": "神戸市中央区波止場町 7-2·神戸ハーバーランド",
+      "房型": "High floor 7-10F / Luxury 4-6F / 最上 3 suite·全 70 室",
+      "含早": "可选含早",
+      "预约": "公式 l-s.jp·SLH·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.l-s.jp/",
+      "https://www.l-s.jp/stay-rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_harborland_meriken_da_cang_hotel",
+    "city": "神户",
+    "area": "harborland_meriken",
+    "near_attractions": [
+      {
+        "entity_id": "kob_meriken_park",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kobe_maritime",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户大仓酒店（ホテルオークラ神戸）",
+      "简介": "**Okura Nikko Hotels 系·1989.6 开业·神戸メリケンパーク内 35 阶高层**·全 468 室·阪神大震災 1995 経験·28-29F Precious Floor / 30-33F Superior Floor·北六甲山眺/南神戸港眺·桃花林+山里+さざんか+カメリア+有明 5 间 restaurant·新神戸 shuttle。",
+      "亮点": [
+        "设计精品",
+        "Okura Nikko 系",
+        "1989 老铺 35 阶",
+        "468 室",
+        "Precious/Superior Floor"
+      ],
+      "地址": "神戸市中央区波止場町 2-1 メリケンパーク内·元町徒步 10 分",
+      "含早": "可选含早 buffet",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Standard~Royal Suite·Precious/Superior Floor·全 468 室",
+      "预约": "公式 kobe.hotelokura.co.jp·一休·Okura Nikko"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.kobe.hotelokura.co.jp/",
+      "https://www.feel-kobe.jp/facilities/0000000332/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_harborland_meriken_mei_li_jian_gong_yuan_dong_fang_hotel",
+    "city": "神户",
+    "area": "harborland_meriken",
+    "near_attractions": [
+      {
+        "entity_id": "kob_meriken_park",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kobe_maritime",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户美利坚公园东方酒店（神戸メリケンパークオリエンタルホテル）",
+      "简介": "**1995 年开业（2005 改装）·神戸メリケンパーク内**·船旅イメージ design·全 323 室·**全室バルコニー付**·阪急阪神 hotels 系（Oriental Hotels & Resorts）·方向別不同景观（神戸港夜景/海外帆船 view）。",
+      "亮点": [
+        "设计精品",
+        "Oriental Hotels 系",
+        "1995 老铺",
+        "323 室",
+        "全室バルコニー",
+        "船旅イメージ"
+      ],
+      "地址": "神戸市中央区波止場町 5-6·メリケンパーク内",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-70,000·HMI",
+      "房型": "Standard~Suite·全室バルコニー·全 323 室",
+      "预约": "公式 kobe-orientalhotel.co.jp·HMI·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.kobe-orientalhotel.co.jp/",
+      "https://www.oriental-hotels.com/hotellist/17/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_harborland_meriken_gang_wen_quan_lian",
+    "city": "神户",
+    "area": "harborland_meriken",
+    "near_attractions": [
+      {
+        "entity_id": "kob_meriken_park",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kob_kobe_maritime",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      950
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神户みなと温泉 蓮（Kobe Minato Onsen Ren）",
+      "简介": "「温泉宿・ホテル総選挙 2025」**4 年连续全国 1 位**。地下 1,150m 自家天然温泉·三宫站专用无料 shuttle 5 分。**全 50 室以上+全室 terrace 海景 270°**·部分海侧スイート可看神户港夜景。厚生労働大臣認定「温泉利用型健康増進施設」+「運動型」西日本首例。",
+      "亮点": [
+        "温泉度假",
+        "全国 1 位 4 连冠",
+        "270°海景全室terrace",
+        "三宫无料 shuttle"
+      ],
+      "地址": "神户市中央区·三宫站无料 shuttle 5 分·新港埠头",
+      "房型": "全 50 室以上·标准 50㎡+·海景 deluxe·港 suite",
+      "含早": "和洋 buffet 含",
+      "价格": "素泊 2 人 ¥32,560～·朝食付 ¥37,180～·夕朝食付 ¥44,000～·VIP券 ¥88,300-236,150",
+      "预约": "公式 / 一休 / 楽天 / 价格.com·樱花季预订爆满",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·shuttle 三宫北口·健康增进施設积分使用可"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://ren-onsen.jp/",
+      "https://www.ikyu.com/en-us/00002179/",
+      "https://travel.kakaku.com/yad/11382410/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_kitano_shinkobe_ana_crowne_plaza_kobe",
+    "city": "神户",
+    "area": "kitano_shinkobe",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户全日空皇冠假日酒店（ANA Crowne Plaza Kobe）",
+      "简介": "**IHG ANA Crowne Plaza 系**·**新神戸駅直结·三宮地铁 1 站 2 分**·全 592 室·14 阶以上 Twin 主体·**30-32F・37F Club Room+ラウンジ**·15-125㎡·東客室大阪湾/西客室神戸市街+淡路島眺·23 间宴会场。",
+      "亮点": [
+        "设计精品",
+        "IHG Crowne Plaza 系",
+        "新神戸直结",
+        "592 室",
+        "Club Lounge 30-32+37F"
+      ],
+      "地址": "神戸市中央区·新神戸駅直结·三宮地铁 1 站 2 分",
+      "含早": "可选含早 buffet",
+      "价格": "素泊 2 人 ¥25,000-70,000·IHG One Rewards",
+      "房型": "Single 15㎡~Club Suite 125㎡·全 592 室",
+      "预约": "公式 anacrowneplaza-kobe.jp·IHG·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.anacrowneplaza-kobe.jp/",
+      "https://www.ihg.com/crowneplaza/hotels/us/en/hyogo/osakb/hoteldetail"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_kitano_shinkobe_kitano_hotel",
+    "city": "神户",
+    "area": "kitano_shinkobe",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户北野酒店（神戸北野ホテル）",
+      "简介": "**全 30 室英国 antique 家具 オーベルジュ**·三宮駅徒步 15 分·北野山本通·**ベルナール・ロワゾー「世界一の朝食」フランス国外初紹介 hotel**·President Twin 等多类型·气品 inside。",
+      "亮点": [
+        "设计精品",
+        "オーベルジュ",
+        "30 室·英国 antique",
+        "ロワゾー世界一朝食",
+        "北野立地"
+      ],
+      "地址": "神戸市中央区山本通 3-3-20·三宮駅徒步 15 分",
+      "价格": "素泊 2 人 ¥45,000-110,000",
+      "房型": "President Twin~多类型·全 30 室",
+      "含早": "ベルナール・ロワゾー世界一朝食",
+      "预约": "公式 kobe-kitanohotel.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.kobe-kitanohotel.co.jp/?men=4&cat=8",
+      "https://www.ikyu.com/en-us/00000254/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_motomachi_nankinmach_oriental_hotel_kobe",
+    "city": "神户",
+    "area": "motomachi_nankinmachi",
+    "near_attractions": [
+      {
+        "entity_id": "kob_nankinmachi",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1100,
+      1700
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "神户东方大酒店（東方ホテル (Oriental Hotel Kobe)）",
+      "简介": "**THE ORIENT（旧 ORIENTAL HOTEL）·神戸旧居留地 25 番地 1870 年创业·150 年以上历史**·**最上 17 阶 lobby/front**·Suite 113㎡+Junior Suite 77㎡（大理石ジェットバス+rain shower）·**Salon THE ORIENT クラブラウンジ 50 種酒**·OmniSens Paris amenity 日本初。",
+      "亮点": [
+        "老铺旅馆",
+        "1870 老铺·150 年历史",
+        "PDS Hotels 系",
+        "17F lobby+ Suite 113㎡",
+        "Salon クラブラウンジ"
+      ],
+      "地址": "神戸市中央区·旧居留地·旧居留地・大丸前駅徒步 5 分",
+      "含早": "DAIKILY's CROISSANT クロワッサン Club Lounge",
+      "价格": "素泊 2 人 ¥35,000-100,000",
+      "房型": "Deluxe~Suite 113㎡·Junior Suite 77㎡·Club Floor",
+      "预约": "公式 orientalhotel.jp·一休·Relux"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.orientalhotel.jp/",
+      "https://www.orientalhotel.jp/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kbe_sannomiya_kobe_monterey",
+    "city": "神户",
+    "area": "sannomiya",
+    "near_attractions": [
+      {
+        "entity_id": "kob_kitano_kyoryuchi",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1300
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "神户蒙特利酒店（Kobe Monterey Hotel / ホテルモントレ神戸）",
+      "简介": "神户三宮·步行 3 分到旧居留地·欧式古典风格契合神户洋馆气氛。160 间客房+和洋大浴场。三宫站方便·神户主住宿首选中端。",
+      "亮点": [
+        "蒙特利连锁",
+        "三宮 3 分",
+        "旧居留地步行可达",
+        "和洋大浴场"
+      ],
+      "地址": "神戸市中央区下山手通 2-11-13（JR/阪神三宮站步行 5 分）",
+      "房型": "标准 / 豪华",
+      "含早": "可选",
+      "价格": "淡季 ¥400 / 平季 ¥600-900 / 旺季 ¥1,100-1,300",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/kobe/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_nishimuraya_honkan",
+    "city": "城崎",
+    "area": "kinosaki",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 3
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      3500,
+      7000
+    ],
+    "tier": "b6",
+    "season_months": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "depth": "full",
+    "note": {
+      "店名": "西村屋本馆（西村屋本館 / Nishimuraya Honkan）",
+      "简介": "城崎温泉创业 160 年的老铺·34 间客房·全部一泊二食。冬季松叶蟹会席（11月-3月）是城崎最有名的·MICHELIN Two Keys。城崎温泉外汤巡也是这家附属体验。",
+      "亮点": [
+        "温泉旅馆",
+        "MICHELIN Two Keys",
+        "松叶蟹会席",
+        "160 年老铺",
+        "城崎代表"
+      ],
+      "地址": "兵庫県豊岡市城崎町湯島 469（JR 城崎温泉站步行 5 分）",
+      "房型": "本馆和室 / 平田館·全部一泊二食",
+      "含早": "含",
+      "价格": "一泊二食冬蟹季 ¥80,000-¥150,000/人（约 ¥4,000-¥7,500 RMB）·非蟹季 ¥45,000-",
+      "预约": "官网 / 一休·蟹季提前 6 个月",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·浴衣外汤巡含·蟹季限活蟹"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nishimuraya.ne.jp/honkan/",
+      "https://www.relais-chateaux.com/us/japan/nishimuraya-kinosaki"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_xi_cun_wu_hotel_zhao_yue_ting",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "西村屋酒店招月庭（西村屋ホテル招月庭）",
+      "简介": "**1860 年代创业 西村屋系别馆·城崎唯一 5 ツ星认定宿**·5 万坪森林庭园·**庭の棟+月の棟 2 棟**·6 名室 10-12.5 畳·1 室限定露天付特別室「桂月」·**洋室 Natural&Comfort 设计**·但馬牛+松葉がに·4 つの湯船。",
+      "亮点": [
+        "温泉旅馆",
+        "西村屋系别馆",
+        "5 万坪森林庭园",
+        "5 ツ星认定宿",
+        "桂月特別室",
+        "Natural&Comfort 洋室"
+      ],
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（送迎）",
+      "含早": "和朝食含·但馬牛/松葉がに会席",
+      "价格": "夕朝食付 2 人 ¥80,000-200,000",
+      "房型": "庭の棟 10-12.5 畳·月の棟·洋室·特別室「桂月」",
+      "预约": "公式 nishimuraya.ne.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nishimuraya.ne.jp/shogetsu/",
+      "https://www.nishimuraya.ne.jp/shogetsu/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_wen_quan_xi_le",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "城崎温泉 喜乐（城崎温泉 喜楽）",
+      "简介": "**JR 城崎温泉駅徒步 10 分（旅館組合無料 bus）·御所の湯付近**·全室純和室·内湯+2 ヶ所貸切风吕（陶器风吕「月」¥1650/铁釜风吕「流」¥1100·無料 plan 有）·**陶芸/七宝/素焼き付け体验工房「楽画喜」併設**·11/7-3/31 蟹会席。",
+      "亮点": [
+        "温泉旅馆",
+        "全室和室",
+        "陶芸体验工房",
+        "御所の湯近邻",
+        "外汤巡り便利"
+      ],
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步 10 分（送迎）",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥30,000-90,000",
+      "房型": "纯和室·多类型·14 室前後",
+      "预约": "公式 yado-kiraku.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "http://www.yado-kiraku.com/",
+      "https://kinosaki-spa.gr.jp/stay/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_da_xi_wu_shui_xiang_yuan",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大西屋水翔苑（大西屋水翔苑）",
+      "简介": "**「かがり火の宿」·全館畳敷き数寄屋造**·コウノトリ翔るこの地·全室踏込・広縁付·**本館 2F+離れ 1F+和室 12.5 畳「記念日」プラン+洋室 twin**·全室禁烟·男女别大浴场+岩露天+sauna+ジャグジー·無料 footマッサージ。",
+      "亮点": [
+        "温泉旅馆",
+        "数寄屋造畳敷き",
+        "本館+離れ",
+        "岩露天+sauna+ジャグジー",
+        "コウノトリ"
+      ],
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈（旅館組合 bus）",
+      "价格": "夕朝食付 2 人 ¥35,000-100,000",
+      "房型": "本館和室+離れ和室+洋室 twin·多类型",
+      "含早": "和朝食含·個室お食事処",
+      "预约": "公式 suisyou.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.suisyou.com/",
+      "https://www.ikyu.com/en-us/00001703/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_xie_su_liu_zhi_wu",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "蟹宿六之屋（蟹宿むつの屋）",
+      "简介": "**1862 年文久 2 年创业「網元の宿」**·一の湯/柳湯近·目前柳湯足汤·宿前柳並木+太鼓橋川·**津居山蟹（青タグ）コース料理·蟹刺/茹蟹/焼蟹/蟹味噌/蟹しゃぶ+雑炊**·城崎温泉観光協会公式登録。",
+      "亮点": [
+        "温泉旅馆",
+        "1862 老铺",
+        "網元の宿",
+        "津居山蟹青タグ料理",
+        "一の湯/柳湯近"
+      ],
+      "价格": "夕朝食付 2 人 ¥30,000-100,000（蟹季+30%）",
+      "地址": "兵庫県豊岡市城崎町湯島 652·JR 城崎駅徒步 10 分",
+      "房型": "纯和室·小規模",
+      "含早": "和朝食含·料理旅館",
+      "预约": "kinosaki-spa.gr.jp 公式予約·じゃらん·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://kinosaki-spa.gr.jp/stay/kaniyadomutunoya/",
+      "https://resv.kinosaki-spa.gr.jp/kaniyadomutunoya/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_shen_shan",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "深山（深山）",
+      "简介": "**深山·全室 10 畳以上純和風**·古き良き時代面影·明治大正モダン女性志向·1 室限定特別室（中庭眺·城崎雪化粧）·**城崎伝統工芸「麦わら細工」装饰·兵庫県展神戸新聞社賞作品**·髪 0 ダメージ ドライヤー amenity。",
+      "亮点": [
+        "温泉旅馆",
+        "全室 10 畳+",
+        "麦わら細工装饰",
+        "明治大正モダン",
+        "中庭特別室"
+      ],
+      "地址": "兵庫県豊岡市城崎町·JR 城崎温泉駅徒步圈",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥40,000-110,000",
+      "房型": "特別室+「真珠」等多类型·全室 10 畳+",
+      "预约": "公式 shinzan-kinosaki.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://shinzan-kinosaki.jp/",
+      "https://shinzan-kinosaki.jp/room"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_quan_cui",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "泉翠（泉翠）",
+      "简介": "**旅館 泉翠·建築家堀部安嗣設計**·**全 13 室·12 歳未満不可+4 名様まで限定·全館禁烟·全室无 TV**·特別室「蓬莱」无垢材+漆喰壁·和洋アジアン+和ベッドルーム+和室+特別室 3 棟·貸切风吕「陶/檜」无料·大谿川沿い静かな立地。",
+      "亮点": [
+        "设计精品",
+        "堀部安嗣設計",
+        "13 室",
+        "12 歳未満不可+4 名限定",
+        "全室无 TV+全館禁烟"
+      ],
+      "价格": "夕朝食付 2 人 ¥45,000-120,000",
+      "地址": "兵庫県豊岡市城崎町湯島 753·城崎中心地大谿川沿い",
+      "房型": "和洋アジアン/和ベッド/和室/特別室·全 13 室",
+      "含早": "和朝食含",
+      "预约": "公式 kinosaki-sensui.com·一休·Relux"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://kinosaki-sensui.com/",
+      "https://kinosaki-sensui.com/guest-room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kns_kinosaki_onsen_kai_kinosaki",
+    "city": "城崎",
+    "area": "kinosaki_onsen",
+    "near_attractions": [
+      {
+        "entity_id": "kns_kinosaki_onsen",
+        "walk_min": 5
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1700,
+      3200
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hoshinoresorts.com/ja/hotels/kaikinosaki/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "界 城崎 by Hoshino Resorts（Hoshino Resorts KAI Kinosaki）",
+      "简介": "星野リゾート「界」系·城崎温泉外汤巡り·全 47 室·**全国温泉宿名片** of KAI 系·部分客房露天风吕·会席料理含蟹冬季。",
+      "亮点": [
+        "温泉旅馆",
+        "星野 KAI 系",
+        "城崎外汤巡り",
+        "蟹会席（冬）"
+      ],
+      "地址": "兵庫県豊岡市城崎温泉·JR城崎温泉駅徒步 10 分",
+      "房型": "全 47 室·部分含露天风吕",
+      "含早": "和朝食含",
+      "价格": "夕朝食付 2 人 ¥48,000-95,000",
+      "预约": "公式 / 一休·蟹季 11-3 月加成大",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·外汤共 7 处·浴衣巡り推荐"
+    }
+  },
+  {
+    "id": "kya_koyasan_temple_hui_guang_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "惠光院（恵光院）",
+      "简介": "**高野山宿坊·全 5 类客室·2022.3 高野山最大級宿坊 suite open（100㎡·半露天风吕+庭園）**·**毎日 16:30 阿字観瞑想 40 分宿泊者无料**·毎朝护摩祈祷+写经无料·奥之院徒步 2 分·英语对应 staff·精进料理夕朝部屋出。",
+      "亮点": [
+        "宿坊",
+        "高野山最大级 suite 100㎡",
+        "阿字観无料毎日",
+        "毎朝护摩祈祷",
+        "奥之院徒步 2 分"
+      ],
+      "价格": "夕朝食付 2 人 ¥30,000-100,000",
+      "地址": "和歌山県伊都郡高野町高野山·奥之院徒步 2 分",
+      "房型": "和室基本 5 类·100㎡ Suite·部分ベッドタイプ",
+      "含早": "精进料理朝食含·部屋出",
+      "预约": "公式 ekoin.jp·tabichat·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ekoin.jp/en/",
+      "https://www.ekoin.jp/en/shukubo/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_yi_cheng_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "一乘院（一乗院）",
+      "简介": "**九条家菩提寺·开基 1100 年以上**·昭和 10 年代建造 2 阶建 10 部屋→4 部屋改装·**全 4 室+檜浴槽浴室付**·写经 ¥1,000・阿字観 ¥3,000・写仏 ¥1,000 体验有料·真言密教瞑想前段「数息観/阿息観」。",
+      "亮点": [
+        "宿坊",
+        "九条家菩提寺",
+        "1100 年以上",
+        "全 4 室 リニューアル",
+        "檜浴槽浴室付"
+      ],
+      "价格": "夕朝食付 2 人 ¥45,000-110,000",
+      "地址": "和歌山県伊都郡高野町高野山 606",
+      "房型": "リニューアル和ベッドルーム 4 室·檜浴槽付",
+      "含早": "精进料理朝食含",
+      "预约": "公式 itijyoin.or.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.itijyoin.or.jp/shukubou/honkan/index.html",
+      "https://www.itijyoin.or.jp/shukubou/rooms.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_lian_hua_ding_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "莲华定院（蓮華定院）",
+      "简介": "**鎌倉初期 1190-99 创建·真田家高野山菩提寺「真田坊」**·关原后真田昌幸+幸村亲子滞在·**境内裏真田信之墓所**·15 时 CI+「上段の間」見学·17 时阿息観瞑想 40 分·池泉観賞式庭园·六文銭家紋·门限 21 时·高野山ケーブル駅近邻。",
+      "亮点": [
+        "宿坊",
+        "鎌倉初期创建·真田家菩提寺",
+        "上段の間見学",
+        "六文銭家紋",
+        "ケーブル駅近邻"
+      ],
+      "价格": "夕朝食付 2 人 ¥30,000-90,000",
+      "地址": "和歌山県伊都郡高野町高野山 49·金剛峯寺前徒步 10 分",
+      "房型": "和室·客室數限定·掛軸+襖絵+調度品",
+      "含早": "精进料理朝食含",
+      "预约": "公式 rengejoin.jp·tabichat·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.rengejoin.jp/",
+      "https://www.shukubo.net/contents/stay/rengejoin.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_fu_zhi_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "福智院（福智院）",
+      "简介": "**1816 弘法大师空海开創·800 余年·别格本山**·**高野山唯一天然温泉（单純アルカリ泉大浴场+露天）**·**重森三玲三庭园**·愛染明王本尊·桜田門外井伊大老遗品+奈良时代古美術品納·写経/写仏/腕輪念珠体验有料。",
+      "亮点": [
+        "宿坊",
+        "1816 老铺·别格本山",
+        "唯一天然温泉",
+        "重森三玲三庭园",
+        "愛染明王本尊"
+      ],
+      "价格": "夕朝食付 2 人 ¥35,000-90,000",
+      "地址": "和歌山県伊都郡高野町高野山·金剛峯寺近邻",
+      "房型": "和室·多类型",
+      "含早": "精进料理朝食含·無料朝勤行 6:00",
+      "预约": "公式 fukuchiin.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fukuchiin.com/",
+      "https://www.fukuchiin.com/shukubo"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_xi_nan_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "西南院（西南院）",
+      "简介": "**别格本山·約 1100 年历史**·弘法大師高弟真然大徳開基·**本尊太元師明王（弘法大師御真筆）**·鳥羽法皇勅願寺·**江戸时期中川/岡山/淡路/埼玉諸大名参詣**·境内経蔵当時面影遺·数寄屋造客室+庭の正面 1 階/2 階·**バイタル ミネラル温泉**（活性石）。",
+      "亮点": [
+        "宿坊",
+        "别格本山·1100 年",
+        "鳥羽法皇勅願寺",
+        "数寄屋造",
+        "バイタル ミネラル温泉"
+      ],
+      "地址": "和歌山県伊都郡高野町高野山 249·大門 300m",
+      "价格": "夕朝食付 2 人 ¥25,000-80,000",
+      "房型": "数寄屋造和室·庭園正面 1 階/2 階",
+      "含早": "精进料理朝食含",
+      "预约": "公式 sainanin.com·楽天·じゃらん"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://sainanin.com/",
+      "https://sainanin.com/syukubo"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_qing_jing_xin_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "清净心院（清浄心院）",
+      "简介": "**真言宗别格本山·天長 824-34 年弘法大師草創**·東部位置·奥の院最近**·**毎日 13 时鳳凰奏殿護摩行**·**ミシュラン星「味吉兆」監修精进料理**·豊臣秀吉花見「傘桜」+運慶作阿弥陀如来立像（重文）+上杉謙信霊屋（重文）+**第十八代相承住持恵観法主**·御祈願（先祖供养 ¥2,000）。",
+      "亮点": [
+        "宿坊",
+        "真言宗别格本山",
+        "天長弘法大师草創",
+        "13 时护摩行",
+        "味吉兆精进料理",
+        "上杉謙信霊屋（重文）"
+      ],
+      "价格": "夕朝食付 2 人 ¥35,000-100,000",
+      "地址": "和歌山県伊都郡高野町高野山 566·奥の院隣接",
+      "房型": "多类型·広大寺院（金剛峯寺次广）",
+      "含早": "精进料理朝食含·味吉兆監修",
+      "预约": "公式 shojoshinin.jp·koyasan-shukubo·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://shojoshinin.jp/",
+      "https://shojoshinin.jp/engi/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_chi_song_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "赤松院（赤松院）",
+      "简介": "**923 年延長元年聖快阿闍梨創立**·赤松円心入道·**赤松/細川/有馬家菩提所**·本尊十一面観世音菩薩·**2,000 余坪山内第一庭園+1500 坪回遊式**·**高野山唯一仁王像有る朱塗山門**·阿字観瞑想体验·日/英/中文 staff·奥の院入口便利。",
+      "亮点": [
+        "宿坊",
+        "923 老铺",
+        "赤松/細川/有馬家菩提所",
+        "山内第一庭園 2000 余坪",
+        "唯一仁王像朱塗山門"
+      ],
+      "价格": "夕朝食付 2 人 ¥18,000-60,000",
+      "地址": "和歌山県伊都郡高野町高野山 571·奥の院入口",
+      "房型": "本院和室+新館一般旅館设备",
+      "含早": "精进料理朝食含·胡麻豆腐",
+      "预约": "公式 sekishoin.jp·shukubo.net·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.sekishoin.jp/lg_en/",
+      "https://www.shukubo.net/contents/stay/sekishoin.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_bu_dong_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "不动院（不動院）",
+      "简介": "**延喜 906 年済高大僧正開基·西谷 12 ヶ院之一·山階宮家菩提寺·全 9 室·**離れ「檜風呂付き特別室」金松の間 16 畳 1 日 1 室限定+専用家族風呂（亀の湯/鶴の湯）**·阿字観瞑想 20 分朝务后无料·**高野山内唯一大般若転読会**·**お食事処书院和歌山県指定文化財**。",
+      "亮点": [
+        "宿坊",
+        "延喜 906 創建·山階宮家菩提寺",
+        "9 室·檜風呂付特別室 1 日 1 室",
+        "唯一大般若転読会",
+        "書院県文化財"
+      ],
+      "价格": "夕朝食付 2 人 ¥40,000-150,000",
+      "地址": "和歌山県伊都郡高野町高野山·南海りんかんバス蓮花谷徒步 3 分",
+      "房型": "和室+離れ「檜風呂付特別室」金松の間",
+      "含早": "精进料理朝食含·県文化財書院",
+      "预约": "公式 fudouin.or.jp·tabichat·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fudouin.or.jp/",
+      "https://koyasan-shukubo.net/provider/detail?providerId=49"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_chang_xi_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "常喜院（常喜院）",
+      "简介": "**金剛峯寺すぐそば·伽藍隣接**·**子安延命地蔵菩薩重要文化財**·境内和歌山県指定文化財校倉·身丈 4m お地蔵様·毎年 4-12 月第一木曜～日曜定例修行体验会（写经/瞑想/掃除/読経/法話）·9/24 前後地蔵祭。",
+      "亮点": [
+        "宿坊",
+        "金剛峯寺隣接",
+        "子安延命地蔵菩薩重文",
+        "校倉県文化財",
+        "定例修行会"
+      ],
+      "地址": "和歌山県伊都郡高野町高野山·金剛峯寺すぐそば",
+      "价格": "夕朝食付 2 人 ¥25,000-70,000",
+      "房型": "和室·バス共用",
+      "含早": "精进料理朝食含",
+      "预约": "公式 jokiin.jp·tabichat·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://jokiin.jp/",
+      "https://www.shukubo.net/contents/stay/jokiin.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "kya_koyasan_temple_long_quan_yuan",
+    "city": "高野山",
+    "area": "koyasan_temple",
+    "near_attractions": [
+      {
+        "entity_id": "kya_kongobuji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "kya_okunoin",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      550,
+      700
+    ],
+    "tier": "b2",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "龙泉院（龍泉院）",
+      "简介": "**西国四十九薬師霊場第 10 番·重文薬師如来本尊**·**弘法大師雨請祈願寺**·150 名収容宿坊（要予約）·金剛峯寺/壇上伽藍近·南海りんかんバス「金剛峯寺前」徒步 5 分·無料拝観 9-17 时。",
+      "亮点": [
+        "宿坊",
+        "西国薬師 10 番",
+        "重文薬師如来本尊",
+        "弘法大師雨請祈願寺",
+        "150 名収容"
+      ],
+      "价格": "夕朝食付 2 人 ¥22,000-60,000",
+      "地址": "和歌山県伊都郡高野町高野山 647·南海バス金剛峯寺前徒步 5 分",
+      "房型": "和室·150 名収容",
+      "含早": "精进料理朝食含",
+      "预约": "高野山宿坊協会公式·shukubo.net·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.shukubo.net/contents/stay/ryusenin.html",
+      "https://yakushi49.jp/10ryusenin/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_zi_cui_she_hua_jing_xuan_hotel_nai_liang",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1600,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "紫翠奢华精选酒店·奈良（紫翠 ラグジュアリーコレクションホテル 奈良）",
+      "简介": "**Marriott Luxury Collection·SUI HOTELS 系**·**大正期建築「奈良県知事公舎」改修メイン棟+古倉「正倉」鮨バー**·吉城園周辺·若草山ふもと·**全 43 室（うち 23 室客室温泉风吕/露天付）**·**隈研吾「シカ」シリーズチェア**·メインダイニング「翠葉」ガストロノミー。",
+      "亮点": [
+        "设计精品",
+        "Marriott Luxury Collection",
+        "知事公舎改修",
+        "全 43 室·23 室温泉付",
+        "隈研吾设计",
+        "正倉鮨"
+      ],
+      "价格": "夕朝食付 2 人 ¥80,000-250,000",
+      "地址": "奈良市·吉城園周辺·若草山ふもと·近鉄奈良駅 タクシー 5 分",
+      "房型": "Standard~Junior Suite·全 43 室·23 室客室温泉",
+      "含早": "翠葉 法日 fusion 含选项",
+      "预约": "公式 suihotels.com·Marriott·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.suihotels.com/shisui/",
+      "https://www.marriott.com/en-us/hotels/osanl-shisui-a-luxury-collection-hotel-nara/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_jie_dao_sai_tuo_lei",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "奈良街道塞托雷（セトレならまち）",
+      "简介": "**SETRE 系·2018.12 开业「ならまちの隠れ宿」**·猿沢池東畔·興福寺五重塔近·**奈良吉野杉/檜+月ヶ瀬の土素材+伝統技法+吉野木オリジナル家具**·全 32 室·25/30/34㎡·五重塔目前星宙テラス+本のソムリエ堀部氏 library。",
+      "亮点": [
+        "设计精品",
+        "SETRE 系",
+        "2018.12 新开业",
+        "32 室",
+        "猿沢池畔·五重塔近",
+        "吉野杉素材"
+      ],
+      "价格": "夕朝食付 2 人 ¥50,000-130,000",
+      "地址": "奈良市·猿沢池東畔·近鉄奈良駅徒步圈",
+      "房型": "蘇芳 34㎡和洋·青丹 25/30㎡ハリウッドツイン·全 32 室",
+      "含早": "大和野菜·大和赤牛 grouptotal 監修",
+      "预约": "公式 hotelsetre.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelsetre.com/naramachi/stay/",
+      "https://hotelsetre.com/naramachi/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_miroku_nara_by_the_share_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "MIROKU Nara by THE SHARE HOTELS（MIROKU Nara by THE SHARE HOTELS）",
+      "简介": "**THE SHARE HOTELS 9 店目·2021.9 开业**·荒池畔·興福寺五重塔+春日山原始林+若草山一望·**1990 年地下 1 阶+地上 4 阶ビル リノベ**·**芦沢啓治+佐野文彦 2 designer**·**地下「The Roots of Nara」吉野杉丸太大胆使用**·全 7 类 44 室·NEW LIGHT POTTERY 照明+sonihouse スピーカー+宇陀和紙·100% organic bath amenity。",
+      "亮点": [
+        "设计精品",
+        "THE SHARE 系 9 店目",
+        "2021.9 新开业",
+        "44 室·7 类",
+        "芦沢+佐野 2 designer",
+        "100% organic amenity"
+      ],
+      "地址": "奈良市高畑町 1116-6·近鉄奈良駅徒步 10 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥24,000-65,000",
+      "房型": "Junior Suite/Roots of Nara/Superior 等·全 7 类 44 室",
+      "预约": "公式 thesharehotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.thesharehotels.com/miroku/rooms/",
+      "https://wellwood.jp/info/4031235"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_fufu_nara",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1700,
+      2800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "FUFU 奈良（ふふ 奈良）",
+      "简介": "隈研吾设计·30 间套房全室竹林包围露天风吕·近铁奈良駅徒步 20 分（高畑町）。东大寺/兴福寺/春日大社 walking distance·奈良公园近邻。地下源泉直达 42°C 恒温·「和漢の湯」含日本当归・艾草・生姜等十余种和漢植物。设计极重隐私·Utility Box 让 staff 静默更换·几乎不与他客遭遇。一休回头客评：「这是我真正喜欢的住宿」。",
+      "亮点": [
+        "温泉度假",
+        "全室竹林露天风吕",
+        "隈研吾设计",
+        "和漢源泉",
+        "极致隐私"
+      ],
+      "地址": "奈良市高畑町 1184-1·近铁奈良駅徒步 20 分·东大寺徒步 8 分",
+      "房型": "30 间套房·全室带露天风吕·部分含半露天",
+      "含早": "和食朝食含·屋内 OR 个室",
+      "价格": "夕朝食付 2 人 ¥60,000～¥120,000（人均 ¥1,500-3,000）·樱花/红叶旺季 +30%",
+      "预约": "公式 / 一休·提前 90 天樱花季",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·全室温泉·近铁/JR 奈良站有送迎"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fufujapan.jp/",
+      "https://www.ikyu.com/en-us/00002739/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_jw_marriott_hotel_nara",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1600,
+      2900
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "奈良JW万豪酒店（JW Marriott Hotel Nara）",
+      "简介": "**JW Marriott·奈良初国际 luxury hotel·2020.7.22 开业**·**Marriott 集团最高 rank 日本初上陸**·全 158 室含 16 套房（含 Presidential Suite）·**640m²+ Function Room·373m² Main Ballroom「吉野」（300 名立食/240 名着席）**+4 间小宴会场·森トラスト开发。",
+      "亮点": [
+        "设计精品",
+        "JW Marriott 日本初",
+        "2020.7 新开业",
+        "158 室·16 suite",
+        "640m² function room"
+      ],
+      "地址": "奈良市·近鉄奈良駅徒步 7 分·奈良公园近邻",
+      "价格": "素泊 2 人 ¥80,000-250,000·Marriott Bonvoy",
+      "房型": "Standard~Presidential Suite·全 158 室·16 suite",
+      "含早": "可选含早",
+      "预约": "公式 marriott.com·Marriott·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/overview/",
+      "https://www.marriott.com/en-us/hotels/osajw-jw-marriott-hotel-nara/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_chun_ri_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "春日ホテル（Kasuga Hotel）",
+      "简介": "近铁奈良站徒步 1 分·奈良观光名宿·奈良公园徒步 5 分·東大寺/興福寺/春日大社全域 walking distance。中端家族向温泉旅馆。",
+      "亮点": [
+        "温泉旅馆",
+        "近铁奈良站徒步 1 分",
+        "奈良公园近邻",
+        "中端家族向"
+      ],
+      "地址": "奈良市·近铁奈良站徒步 1 分",
+      "价格": "素泊 2 人 ¥18,000-30,000·夕朝食付 ¥25,000-40,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://travel.yahoo.co.jp/00002012/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_gu_dou_zhi_su_wu_cang_ye",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "古都の宿 むさし野（Kotonoyado Musashino）",
+      "简介": "**奈良最古のお宿**·江戸時代から·若草山のぞむ深緑·純和風旅館。**谷崎潤一郎・山岡鉄舟ら文人墨客御用達**·奈良公園内立地·四季京懐石部屋食。Tripadvisor 奈良 38 ホテル 4 位（98 评价）。",
+      "亮点": [
+        "老铺旅馆",
+        "奈良最古",
+        "若草山眺望",
+        "文人墨客御用达"
+      ],
+      "地址": "奈良市春日野町·奈良公園内·近鉄奈良站徒步 25 分（送迎可）",
+      "房型": "和室·部分若草山景",
+      "含早": "京懐石部屋食",
+      "价格": "夕朝食付 2 人 ¥40,000-80,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.nara-musashino.com/",
+      "https://www.tripadvisor.com/Hotel_Review-g298198-d1087681-Reviews-Kotonoyado_Musashino-Nara_Nara_Prefecture_Kinki.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_you_jing_zhi_su_ping_cheng",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "遊景の宿 平城（Yukei no Yado Heijo）",
+      "简介": "奈良市内·料亭旅館·奈良の四季的部屋食·中端体验。",
+      "亮点": [
+        "老铺旅馆",
+        "奈良市内",
+        "料亭旅馆"
+      ],
+      "地址": "奈良市·近鉄奈良站近邻",
+      "价格": "夕朝食付 2 人 ¥30,000-50,000",
+      "预约": "公式 / 一休 / 楽天"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://yukei.jp/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_si_ji_ting",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "四季亭（Shikitei）",
+      "简介": "**百余年の歴史と近代美**·奈良公园周边·和の落ち着き·中等規模料理旅館。",
+      "亮点": [
+        "老铺旅馆",
+        "百余年",
+        "奈良公园周边"
+      ],
+      "地址": "奈良市·奈良公园近邻",
+      "价格": "素泊 2 人 ¥46,200～·夕朝食付 ¥66,000～",
+      "预约": "公式 / 一休 / 楽天",
+      "房型": "和室·部分庭園眺望"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://shikitei.com/",
+      "https://www.ikyu.com/00002012/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_fei_niao_zhuang",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nar_todaiji",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "nar_nara_park",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      1200
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "古都奈良の宿 飛鳥荘（Asukaso）",
+      "简介": "**興福寺五重塔目前·屋上展望露天风吕**（炭酸カルシウム人工温泉水）·近鉄奈良站徒步 8 分·興福寺/奈良公园/ならまち walking distance。**Yahoo!トラベル 4.71**（奈良评价 TOP3）·料亭旅館·黒毛和牛+月替会席。",
+      "亮点": [
+        "温泉旅馆",
+        "興福寺五重塔目前",
+        "屋上展望风吕",
+        "Yahoo 4.71"
+      ],
+      "地址": "奈良市高畑町·近鉄奈良站徒步 8 分",
+      "房型": "和室+リニューアルレジデンス（ベッド+リビング分离）+バリアフリー",
+      "含早": "京懐石朝食",
+      "价格": "夕朝食付 2 人 ¥25,740～（じゃらん）",
+      "预约": "公式 / 一休 / 楽天·興福寺正面客房早预约",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·屋上展望风吕看興福寺五重塔"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.asukasou.com/",
+      "https://www.ikyu.com/00002162/",
+      "https://www.jalan.net/yad333870/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "nra_nara_park_area_nara_hotel",
+    "city": "奈良",
+    "area": "nara_park_area",
+    "near_attractions": [
+      {
+        "entity_id": "nra_kasuga_taisha",
+        "walk_min": 12
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1500,
+      2800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.narahotel.co.jp/"
+    ],
+    "最后核实": "2026-04-26",
+    "note": {
+      "店名": "奈良ホテル（Nara Hotel）",
+      "简介": "**1909 年开业·日本クラシックホテル**·辰野金吾设计·奈良公园内·爱因斯坦·达赖喇嘛·歴代天皇曾宿·**奈良名片级老铺**。维多利亚式木造建筑+日本传统装饰。",
+      "亮点": [
+        "老铺旅馆",
+        "1909 年开业",
+        "辰野金吾设计",
+        "クラシックホテル名片",
+        "奈良公园内"
+      ],
+      "地址": "奈良市高畑町·奈良公园内·近铁奈良站徒步 15 分（送迎可）",
+      "房型": "本馆クラシック+新馆·共 132 室",
+      "含早": "和洋朝食 buffet",
+      "价格": "素泊 2 人 ¥30,000-60,000·夕朝食付 ¥40,000-80,000",
+      "预约": "公式·一休·楽天·樱花季提前 90 天",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·历史建筑·送迎需电话"
+    }
+  },
+  {
+    "id": "shr_shirahama_infinito_hotel_spa_nanki_shira",
+    "city": "白浜",
+    "area": "shirahama",
+    "near_attractions": [
+      {
+        "entity_id": "shr_shirahama_beach",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "shr_sakinoyu_onsen",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1200,
+      1900
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "INFINITO HOTEL & SPA 南紀白浜（Infinito Hotel & Spa）",
+      "简介": "2017 年 4 月 rebrand·太平洋一望高台立地·**1400 余年历史源泉「行幸の湯」掛け流し**·BVLGARI amenity·海侧客房 panorama 海岸线。意大利「ジョヴァンニ」+ 和食「凪」·インフィニティ視野是签名。",
+      "亮点": [
+        "温泉度假",
+        "1400 年源泉掛け流し",
+        "panorama 海景",
+        "BVLGARI amenity"
+      ],
+      "地址": "和歌山県白浜町·南紀白浜駅 shuttle·白良浜 5 分",
+      "房型": "海侧/山侧 deluxe·suite",
+      "含早": "和洋 buffet 含",
+      "价格": "素泊 2 人 ¥46,200～·朝食付 ¥46,000～·夕朝食付 ¥56,100～",
+      "预约": "公式 / 一休 / JTB·BVLGARI amenity 整体 brand 統一",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·南紀白浜駅 shuttle 預约·インフィニティ视野推荐黄昏"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hotel-infinito.co.jp/",
+      "https://www.ikyu.com/en-us/00002384/",
+      "https://travel.kakaku.com/yad/10050072/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "shr_shirahama_shiraraso_grand_hotel",
+    "city": "白浜",
+    "area": "shirahama",
+    "near_attractions": [
+      {
+        "entity_id": "shr_shirahama_beach",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "shr_sakinoyu_onsen",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      950
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "白良荘グランドホテル（Shiraraso Grand Hotel）",
+      "简介": "**白良浜真ん前**·全 100 室海景+浴衣·屋内温泉+开放露天风吕·咖啡厅+酒吧。Tripadvisor 白浜 22 ホテル 中 2 位·Booking 9.2 高评（カップル评）。日本三古湯白浜温泉。",
+      "亮点": [
+        "温泉旅馆",
+        "白良浜真ん前",
+        "海景全室",
+        "日本三古湯"
+      ],
+      "地址": "和歌山県白浜町·白良浜徒步 30 秒",
+      "房型": "和室+和洋室·全 100 室·海景客房",
+      "含早": "和食 buffet 含",
+      "价格": "素泊 2 人 ¥18,000-30,000·夕朝食付 ¥30,000-50,000",
+      "预约": "公式 / Trip.com / 楽天 / Booking",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·夏季白良浜爆满建议提前预约"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.shiraraso.co.jp/",
+      "https://jp.trip.com/hotels/shirahama-hotel-detail-705027/shiraraso-grand-hotel/",
+      "https://www.tripadvisor.com/Hotel_Review-g1121351-d1165617-Reviews-Shiraraso_Grand_Hotel-Shirahama_cho_Nishimuro_gun_Wakayama_Prefecture_Kinki.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "shr_shirahama_shirahama_key_terrace_hotel_se",
+    "city": "白浜",
+    "area": "shirahama",
+    "near_attractions": [
+      {
+        "entity_id": "shr_shirahama_beach",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "shr_sakinoyu_onsen",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      600,
+      950
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "SHIRAHAMA KEY TERRACE HOTEL SEAMORE（ホテルシーモア）",
+      "简介": "2018 年 3 月大规模 renewal·**全 160 室海景**·绝景温泉+波の音露天风吕+くえ会席·开放 terrace+ベーカリー+泳池。じゃらん风吕/夕食/接客/朝食/清潔感全项高评。",
+      "亮点": [
+        "温泉度假",
+        "2018 renewal",
+        "全 160 室海景",
+        "波音露天风吕",
+        "くえ会席"
+      ],
+      "地址": "和歌山県白浜町·南紀白浜駅 shuttle",
+      "房型": "全 160 室·海景客房·和室+和洋室",
+      "含早": "buffet 含",
+      "价格": "素泊 2 人 ¥8,360～·朝食付 ¥12,400～·夕朝食付 ¥18,700～",
+      "预约": "公式 / じゃらん / 楽天",
+      "到店提醒": "Check-in 15:00 / Check-out 10:00·shuttle 南紀白浜駅·泳池夏季"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.keyterrace.co.jp/",
+      "https://travel.kakaku.com/yad/10050069/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]

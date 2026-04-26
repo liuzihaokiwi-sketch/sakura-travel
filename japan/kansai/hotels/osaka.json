@@ -1,0 +1,2163 @@
+[
+  {
+    "id": "osk_bay_area_wan_wang_zi_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪湾王子大酒店（グランドプリンスホテル大阪ベイ）",
+      "简介": "**Prince Hotels 系·2023 年 7 月 rebrand**·大阪南港·28 阶 urban resort·全 480 室（rebrand 后部分 432 室运营）·JR 大阪站 shuttle 25 分·USJ 圈外低密 resort 选项。",
+      "亮点": [
+        "设计精品",
+        "Prince Hotels 系",
+        "2023 rebrand",
+        "28 阶大型",
+        "南港 urban resort"
+      ],
+      "地址": "大阪市住之江区南港北 1-13-11·JR 大阪站 shuttle 25 分",
+      "含早": "可选 buffet 含早",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard~Suite·全 480 室",
+      "预约": "公式 princehotels.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.princehotels.co.jp/osakabay/",
+      "https://osaka-info.jp/spot/GrandPrinceHotelOsakaBay/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_universal_port_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "环球港口酒店（ホテル ユニバーサルポート）",
+      "简介": "**USJ オフィシャルホテル·ORIX 不動産运营·2005.7 开业**·USJ 徒步 4 分·全 600 室·**Minion Room** 等多 collab room·大恐竜「REX CAFE」+ Lounge R·バリアフリー対応。",
+      "亮点": [
+        "设计精品",
+        "USJ 公式 ホテル",
+        "ORIX 系",
+        "600 室",
+        "Minion Room collab"
+      ],
+      "价格": "素泊 2 人 ¥18,000-60,000",
+      "地址": "大阪市此花区·JR ユニバーサルシティ駅徒步 3 分·USJ 徒步 4 分",
+      "房型": "18 类·全 600 室·バリアフリー有",
+      "含早": "可选含早",
+      "预约": "公式 ORIX HOTELS·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://universalport.orixhotelsandresorts.com/",
+      "https://www.usj.co.jp/web/ja/jp/tour-hotel/partner-hotel"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_usj",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "公园前沿酒店 USJ（ザ パーク フロント ホテル USJ）",
+      "简介": "**USJ 最近接公式 ホテル·USJ メインゲート徒步 1 分**·全 598 室·客室 4-28 阶·**全室 30㎡+ + バス トイレ別**·10 类客室·Trip to the U.S.A. 主题·EV エレベーター time machine 设计。",
+      "亮点": [
+        "设计精品",
+        "USJ 最近接 1 分",
+        "598 室",
+        "全室 30㎡+",
+        "Trip to USA 主题"
+      ],
+      "价格": "素泊 2 人 ¥25,000-80,000",
+      "地址": "大阪市此花区·USJ メインゲート徒步 1 分",
+      "房型": "10 类·全 598 室·全 30㎡+·バス トイレ別",
+      "含早": "可选含早",
+      "预约": "公式 parkfront-hotel.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://parkfront-hotel.com/",
+      "https://www.jalan.net/yad345931/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_universal_qi_dian_hotel",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "环球影城奇点酒店（ユニバーサルスタジオ シンギュラリホテル）",
+      "简介": "**The Singulari Hotel & SkySpa·USJ 公式·Candeo 系**·ユニバーサルシティ駅徒步 1 分·全 390 室·17 阶·**14 阶屋上展望露天「SkySpa」宿泊客无料**·Simmons ベッド·朝食 buffet 60 品+。",
+      "亮点": [
+        "设计精品",
+        "USJ 公式 ホテル",
+        "Candeo 系",
+        "390 室",
+        "屋上 SkySpa 露天",
+        "シングル 16㎡ 露天付 KING"
+      ],
+      "地址": "大阪市此花区·ユニバーサルシティ駅徒步 1 分",
+      "含早": "60 品+ 健康 buffet 含选项",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Twin/King/Suite·全 390 室·部分 KING 露天付",
+      "预约": "公式 candeohotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.candeohotels.com/en/singulari/",
+      "https://www.candeohotels.com/en/singulari/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_risonare",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "星野度假村 Risonare 大阪（星野リゾート リゾナーレ大阪）",
+      "简介": "**星野リゾート リゾナーレ·2022.12 开业**·**Hyatt Regency 大阪内一部改装·全 64 室+28 阶屋顶 470㎡ アトリエ**·**レッジョ・エミリア教育**創造力主题·小孩家族特化·アトリエ 80㎡ delux room 网絡云床。",
+      "亮点": [
+        "温泉度假",
+        "星野リゾート 系",
+        "2022 新开业",
+        "64 室",
+        "レッジョ・エミリア 教育",
+        "アトリエ 470㎡"
+      ],
+      "价格": "夕朝食付 2 人 ¥80,000-180,000",
+      "地址": "大阪市住之江区·南港中央·Hyatt Regency 大阪内",
+      "房型": "アトリエ Room 3 类 + Family·全 64 室·部分 80㎡",
+      "含早": "可选含早",
+      "预约": "公式 hoshinoresorts.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hoshinoresorts.com/en/hotels/risonareosaka/",
+      "https://www.ikyu.com/en-us/00003247/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_bay_area_liber",
+    "city": "大阪",
+    "area": "bay_area",
+    "near_attractions": [
+      {
+        "entity_id": "osk_kaiyukan",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_tempozan_ferris",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "リーベルホテル大阪（LIBER HOTEL OSAKA）",
+      "简介": "USJ 徒步 13 分·JR桜島駅徒步 1 分·**大阪最大级 ホテル**·大阪湾 panorama terrace·天然温泉大浴场+露天风吕+ドライサウナ。女湯水深 1m+炭酸风吕。MUJI room（无印良品）特别 12 室。",
+      "亮点": [
+        "温泉度假",
+        "USJ 徒步 13 分",
+        "大阪湾 terrace",
+        "MUJI room 12 室"
+      ],
+      "地址": "大阪市此花区·JR桜島駅徒步 1 分·USJ 13 分",
+      "房型": "deluxe·suite·MUJI room 12 室",
+      "含早": "和洋 buffet 含",
+      "价格": "素泊 2 人 ¥30,000-50,000·朝食付 +¥3,000",
+      "预约": "公式 / 一休 / 楽天·USJ 套票预订有",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·USJ 套票 + park-side suite"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hotel-liber.jp/",
+      "https://www.ikyu.com/00002636/review/",
+      "https://travel.kakaku.com/yad/11766916/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_st_regis_osaka",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 12
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2800,
+      5500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪瑞吉酒店（The St. Regis Osaka / セントレジスホテル大阪）",
+      "简介": "本町·160 间客房·瑞吉品牌特征「Butler 服务」全程英文。位置在心斋桥/梅田之间·去哪都方便。MICHELIN One Key。性价比高于丽思/W·商务客最爱。",
+      "亮点": [
+        "MICHELIN One Key",
+        "Butler 服务",
+        "本町核心",
+        "商务友好"
+      ],
+      "地址": "大阪市中央区本町 3-6-12（地铁本町站步行 3 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Marriott 白金会员含",
+      "价格": "淡季 ¥2,000 / 平季 ¥2,800-3,500 / 旺季 ¥4,500-5,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osaxr-the-st-regis-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_the_boly_osaka",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "THE BOLY OSAKA（THE BOLY OSAKA）",
+      "简介": "**2019 年开业·北浜古旧 building リノベ**·中之岛 riverside·大阪メトロ淀屋桥徒步 10 分/堺筋本町徒步 5 分·**Riverside 系客室+キタハマアトリエコンパクト**·Bluetooth 音響 shower room·BOLY 原创 amenity。",
+      "亮点": [
+        "设计精品",
+        "2019 北浜旧 building 再生",
+        "中之岛 riverside",
+        "Bluetooth shower room",
+        "BOLY 原创 amenity"
+      ],
+      "价格": "素泊 2 人 ¥25,000-60,000",
+      "地址": "大阪市中央区北浜 2-1-16·堺筋線 北浜徒步 5 分·御堂筋線 淀屋桥徒步 10 分",
+      "房型": "Riverside / キタハマアトリエ·小規模 boutique",
+      "含早": "可选含早",
+      "预约": "公式 theboly.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://theboly.com/",
+      "https://akogare.jp/hotels/recTiiWYFF4z8H5Zr"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_honmachi_lively_hotel",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪本町莱弗利酒店（ザ・ライブリー大阪本町）",
+      "简介": "**2019 年 8 月开业·全 174 室·LIVELY HOTELS 系 lifestyle**·堺筋本町徒步 1 分·5 类客室·**シアター機能完備客室 50 室**·Serta マットレス·Global Agents 运营。",
+      "亮点": [
+        "设计精品",
+        "LIVELY 系",
+        "2019 新开业",
+        "174 室",
+        "シアター機能 50 室",
+        "Serta マットレス"
+      ],
+      "地址": "大阪市中央区·堺筋本町徒步 1 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "シアター/Standard 5 类·全 174 室",
+      "预约": "公式 livelyhotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.livelyhotels.com/ja/thelivelyosaka/",
+      "https://www.livelyhotels.com/ja/posts/lvo211001/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_honmachi_voco",
+    "city": "大阪",
+    "area": "honmachi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "voco大阪中央（voco大阪セントラル）",
+      "简介": "**IHG voco 系日本一号·2023 年 5 月 30 日开业**·NTT 都市開発·肥後橋/本町站间·**1926 年旧京町ビル跡地再生**·30㎡ 中心全 191 室·再生素材ベッド+木製カードキー·環境配慮 brand。",
+      "亮点": [
+        "设计精品",
+        "IHG voco 日本一号",
+        "2023.5 新开业",
+        "京町ビル跡再生",
+        "191 室·環境配慮"
+      ],
+      "地址": "大阪市西区·肥後橋/本町站间",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-55,000·IHG One Rewards",
+      "房型": "30㎡ 中心·全 191 室",
+      "预约": "公式 IHG voco·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ihg.com/voco/hotels/us/en/osaka/osakn/hoteldetail",
+      "https://www.nttud.co.jp/news/detail/id/n26570.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_swissotel_nankai_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪南海瑞士酒店（Swissotel Nankai Osaka）",
+      "简介": "**Accor 系 Swissotel·5 星 premium·南海难波站直上·南海サウスタワービル内 36 阶 147m**·全 546 室·**Swiss Executive Lounge**·6 间餐厅+18 间宴会场·髙島屋大阪 5 阶直结·KIX 直通。",
+      "亮点": [
+        "设计精品",
+        "Accor Swissotel 系",
+        "5 星 premium",
+        "南海难波直上",
+        "546 室·36 阶"
+      ],
+      "地址": "大阪市中央区難波 5-1-60·南海难波站直上·髙島屋直结",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥35,000-100,000·Accor Live Limitless",
+      "房型": "Standard~Swiss Executive·全 546 室",
+      "预约": "公式 swissotelnankaiosaka.com·Accor·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://swissotelnankaiosaka.com/",
+      "https://swissotelnankaiosaka.com/rooms-and-suites/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_hotel_new_otani_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪新大谷酒店（Hotel New Otani Osaka）",
+      "简介": "**Forbes 2026 Recommended·Relux 2025 シティ 9 位**·JR 大阪城公园站徒步 3 分·**大阪城正面**·全 540 室·吹抜けアトリウムロビ·13 间餐厅·18 阶 SAKURA 大阪城ライトアップビュー·VIP 多数迎接。",
+      "亮点": [
+        "设计精品",
+        "Forbes 2026 Recommended",
+        "大阪城正面",
+        "540 室",
+        "アトリウムロビ",
+        "VIP 接待"
+      ],
+      "地址": "大阪市中央区·JR 大阪城公园駅徒步 3 分·大阪城正面",
+      "含早": "13 间餐厅·可选含早",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Junior Suite 60㎡·Deluxe Connecting 60+30㎡·全 540 室",
+      "预约": "公式 newotani.co.jp·Relux·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.newotani.co.jp/osaka/",
+      "https://rlx.jp/21047/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_centara_grand_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1800,
+      3500
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪仙达拉格兰酒店（Centara Grand Hotel Osaka / センタラグランドホテル大阪）",
+      "简介": "2023 年开业·泰国 Centara 集团首入日本·难波站直结。515 间客房泰式服务+大阪美食区位·USJ/关空都方便。",
+      "亮点": [
+        "2023 新开业",
+        "难波直结",
+        "泰式服务",
+        "USJ 友好"
+      ],
+      "地址": "大阪市浪速区難波中 2-2-78（地铁难波站直结）",
+      "房型": "豪华 / 行政",
+      "含早": "可选",
+      "价格": "淡季 ¥1,200 / 平季 ¥1,800-2,400 / 旺季 ¥3,000-3,500",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.centarahotelsresorts.com/centaragrand/cgo/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_cross_hotel_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Cross Hotel Osaka（Cross Hotel Osaka）",
+      "简介": "**ORIX HOTELS Cross Hotel 系**·OsakaMetro なんば駅 14 出口徒步 3 分·心斎橋筋 2 丁目·道頓堀徒步 1 分·全室バス トイレ別·**3F TERRACE & DINING ZERO 朝食 buffet+meetlounge 无料**·ドンネブリVIEWツイン。",
+      "亮点": [
+        "设计精品",
+        "ORIX Cross 系",
+        "なんば 3 分",
+        "道頓堀 1 分",
+        "meetlounge 无料 軽食"
+      ],
+      "地址": "大阪市中央区心斎橋筋 2-5-15·OsakaMetro なんば徒步 3 分",
+      "含早": "3F ZERO buffet 含选项·大阪名物どて焼き",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard~SUITE Jr. 48㎡·多类型",
+      "预约": "公式 ORIX HOTELS·一休·楽天·**注意：2026.2-7 大規模改修部分休业**"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://cross-osaka.orixhotelsandresorts.com/",
+      "https://www.ikyu.com/en-us/00001355/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_hiyori",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪难波Hiyori酒店（大阪なんばHiyoriホテル）",
+      "简介": "**サンフロンティアホテルズ「日和ホテル」関西初**·南海なんば駅徒步 1 分·SAKURA 棟+MOMIJI 棟·全 224 室·琉球畳調床材+**Simmons ベッド+和 Modern**·KIX ラピート 38 分·1F La biyori 朝食。",
+      "亮点": [
+        "设计精品",
+        "日和系关西初",
+        "南海なんば 1 分",
+        "224 室·2 棟构成",
+        "琉球畳調床材+Simmons"
+      ],
+      "地址": "大阪市中央区·南海なんば駅改札徒步 1 分",
+      "含早": "1F La biyori 有料",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "22㎡ 中心·全 224 室·バス トイレ独立",
+      "预约": "公式 namba.hiyori-hotel.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://namba.hiyori-hotel.jp/",
+      "https://www.jalan.net/yad311599/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_monterey_ge_la_si_mi_er_hotel",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪蒙特利格拉斯密尔酒店（ホテルモントレ グラスミア大阪）",
+      "简介": "**ホテルモントレ系·31 阶高层·なんば駅徒步 1 分**·全 348 室·24-31 阶 manor house イメージ·31 阶大阪市街地夜景眺望·**最上阶 59㎡ Grasmere Suite**·英国イングランド主题。",
+      "亮点": [
+        "设计精品",
+        "ホテルモントレ系",
+        "なんば 1 分",
+        "348 室·31 阶高层",
+        "59㎡ Grasmere Suite"
+      ],
+      "地址": "大阪市浪速区湊町 1-2-3·なんば駅徒步 1 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-55,000",
+      "房型": "24-31 阶 manor house·全 348 室",
+      "预约": "公式 hotelmonterey.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/grasmere_osaka/",
+      "https://www.j-hotel.or.jp/hotel/298/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_here_osaka_namba",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "&Here OSAKA NAMBA（&Here OSAKA NAMBA）",
+      "简介": "**andHere OSAKA NAMBA·全 89 室「ウラなんば」隐密 boutique**·南海なんば徒步 3 分·9 类客室·**special concept room kitchen+洗濯機·6 人 family OK·NAMbar 大阪 drink/snack·屋上 terrace 大阪夜景+通天閣 view**。",
+      "亮点": [
+        "设计精品",
+        "andHere 系",
+        "ウラ難波 hidden",
+        "89 室·9 类",
+        "Special Concept Room kitchen+洗濯機",
+        "屋上 terrace"
+      ],
+      "地址": "大阪市中央区難波千日前 7-9·南海なんば徒步 3 分",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "9 类·全 89 室·部分 family/kitchen·6 人收容",
+      "含早": "可选含早",
+      "预约": "公式 andherehotels.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://andherehotels-osakanamba.com/en/",
+      "https://andherehotels.jp/en/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_namba_dong_fang_hotel",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "难波东方酒店（ナンバオリエンタルホテル）",
+      "简介": "**なんばオリエンタルホテル·なんば駅徒步 1 分（B21 出口直进 30 秒）**·全室 23㎡+·**3F 新设 Residential Floor 9 室 47-52㎡ 含洗濯機+IH+冷凍冷蔵庫+全室 terrace**·family/長期向。",
+      "亮点": [
+        "设计精品",
+        "なんば 1 分（地下街直结）",
+        "Residential Floor 9 室",
+        "全 terrace+洗濯機+IH"
+      ],
+      "地址": "大阪市中央区千日前 2-8-17·なんば駅徒步 5 分（B21 直进 30 秒）",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard 23㎡+ / Residential 47-52㎡·共多类",
+      "含早": "和洋朝食 buffet 含选项",
+      "预约": "公式 nambaorientalhotel.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://nambaorientalhotel.co.jp/",
+      "https://nambaorientalhotel.co.jp/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_cheng_hilton_doubletree_hotel",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪城希尔顿逸林酒店（ダブルツリーbyヒルトン大阪城）",
+      "简介": "**Hilton 系 DoubleTree·大阪城正面**·所在大手前 1-1-1·**屋内 pool+fitness center**·大阪城/天满桥/大手门徒步 5 分·阪急/京阪 access·全室禁烟·family room 多。",
+      "亮点": [
+        "设计精品",
+        "Hilton 系",
+        "大阪城正面",
+        "屋内 pool+fitness",
+        "Castle View"
+      ],
+      "地址": "大阪市中央区大手前 1-1-1·大阪城徒步圈",
+      "含早": "可选含早·和洋 buffet",
+      "价格": "素泊 2 人 ¥30,000-80,000·Hilton Honors",
+      "房型": "King/Twin/Castle Executive View/Deluxe Suite·全室禁烟",
+      "预约": "公式 Hilton·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/ja/hotels/osaocdi-doubletree-osaka-castle/",
+      "https://doubletree-osaka-castle.hiltonjapan.co.jp/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_patina_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      3000,
+      6000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪帕提纳酒店（Patina Osaka / パティーナ大阪）",
+      "简介": "2026 年开业·心斋桥/难波之间·Capella Hotel Group 旗下高端品牌。Patina 走「文化沉浸」路线·新开业但定位明确。",
+      "亮点": [
+        "2026 新开业",
+        "Capella 集团",
+        "文化沉浸"
+      ],
+      "地址": "大阪市中央区東心斎橋（地铁心斋桥站步行 5 分）",
+      "房型": "豪华 / 套房",
+      "含早": "含",
+      "价格": "平季 ¥3,000-4,000 / 旺季 ¥5,000-6,000",
+      "预约": "官网",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·开业未久·建议确认状态"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://patinahotels.com/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_four_seasons_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      3500,
+      7000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪四季酒店（Four Seasons Hotel Osaka / フォーシーズンズホテル大阪）",
+      "简介": "2024 年 8 月开业·大阪最新顶奢·堂岛川畔。175 间客房+24 套套房·Gensler 设计·楼下「Spa du Pacifique」是关西最大酒店 SPA。开业不到 1 年但已 MICHELIN Two Keys。",
+      "亮点": [
+        "MICHELIN Two Keys",
+        "2024 新开业",
+        "堂岛川景观",
+        "顶级 SPA",
+        "四季品牌"
+      ],
+      "地址": "大阪市北区堂島浜 1-4-26（地铁西梅田站步行 8 分·JR 北新地站步行 5 分）",
+      "房型": "Premier / Riverview / Suite·部分房型 60+ 平米",
+      "含早": "可选·和洋自助 ¥7,500/人",
+      "价格": "淡季 ¥2,800（开业 1 年内淡季少）/ 平季 ¥3,500-4,800 / 旺季 ¥6,000-7,000+",
+      "预约": "官网 / 携程 / Four Seasons 会员",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·SPA 含住客 / 外客 ¥8,000"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.fourseasons.com/osaka/",
+      "https://hotels.ctrip.com/hotels/106557148.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_royal_classic_osaka",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1500,
+      3000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪皇家经典酒店（Royal Classic Hotel Osaka / ホテルロイヤルクラシック大阪）",
+      "简介": "2019 年开业·难波旧大阪松竹座戏院重建·150 间客房+古典欧式风格。Marriott Tribute Portfolio·走「文化保留」路线·难波核心位置。",
+      "亮点": [
+        "2019 改建开业",
+        "古典欧式",
+        "难波核心",
+        "Tribute Portfolio"
+      ],
+      "地址": "大阪市中央区難波 4-3-3（地铁难波站直结）",
+      "房型": "豪华 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥1,000 / 平季 ¥1,500-2,000 / 旺季 ¥2,500-3,000",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/osaqi-hotel-royal-classic-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_namba_dotonbori_caption_by_hyatt_namba",
+    "city": "大阪",
+    "area": "namba_dotonbori",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 5
+      },
+      {
+        "entity_id": "osk_kuromon_market",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      800,
+      1500
+    ],
+    "tier": "b4",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "Caption by Hyatt Namba Osaka（凯悦凯逸难波大阪）",
+      "简介": "**2025 年开业·日本首家 Caption by Hyatt**（继美国孟菲斯·中国上海后全球第三家）·难波千日前商店街+黑门市场旁·凯悦集团生活方式酒店·设计向年轻人。",
+      "亮点": [
+        "设计精品",
+        "Caption 日本首家",
+        "黑门市场旁",
+        "千日前立地",
+        "2025 新开业"
+      ],
+      "地址": "大阪市中央区难波·千日前商店街·黑门市场徒步 5 分",
+      "房型": "Standard~Suite·共 140+ 室",
+      "含早": "Café 享用·可选含早 plan",
+      "价格": "素泊 2 人 ¥16,000-30,000",
+      "预约": "Hyatt 公式 / 一休 / 楽天·World of Hyatt 会员积分",
+      "到店提醒": "Check-in 15:00 / Check-out 11:00·难波 walking life 友好"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hyatt.com/caption-by-hyatt",
+      "https://en.itravelblog.net/caption-by-hyatt-namba-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_hotel_nikko_osaka",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪日航酒店（Hotel Nikko Osaka）",
+      "简介": "**Okura Nikko Hotels 系 deluxe·御堂筋面**·**心斎橋駅 8 号出口直结**·西心斎橋 1-3-3·5 间餐厅+4 间 bar lounge·Simmons ベッド+デュベ羽毛布团·USJ 1 日 studio pass front 购入·道頓堀徒步 9 分。",
+      "亮点": [
+        "设计精品",
+        "Okura Nikko 系",
+        "心斎橋直结",
+        "御堂筋面立地",
+        "5 间 restaurant+4 间 bar"
+      ],
+      "地址": "大阪市中央区西心斎橋 1-3-3·心斎橋駅 8 号出口直结",
+      "含早": "セリーナ café 含选项",
+      "价格": "素泊 2 人 ¥25,000-70,000",
+      "房型": "Single~Deluxe Family·Nikko Premium Floor",
+      "预约": "公式 okura.com·Okura Nikko·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://okura.com/japan/osaka/hotel-nikko-osaka/",
+      "https://osaka-info.jp/spot/hotel-nikko-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_candeo_hotels_osaka_shinsaibas",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Candeo Hotels 大阪心斋桥（Candeo Hotels Osaka Shinsaibashi）",
+      "简介": "**Candeo Hotels 系·2023 年 11 月 26 日开业**·御堂筋面·心斎橋/なんば徒步 5 分·**江戸建筑三津寺境内通过 entrance·寺院一体型 hotel**·**最上阶屋外露天 sky spa+ロウリュサウナ**·南站夜景眺望。",
+      "亮点": [
+        "设计精品",
+        "Candeo 系",
+        "2023.11 新开业",
+        "三津寺一体型",
+        "屋上 SkySpa 露天 + ロウリュ"
+      ],
+      "地址": "大阪市中央区·心斎橋/なんば徒步 5 分·三津寺境内·御堂筋面",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥30,000-80,000",
+      "房型": "Standard~Suite·部分露天风吕付",
+      "预约": "公式 candeohotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.candeohotels.com/en/osaka-shinsaibashi/",
+      "https://www.candeohotels.com/en/osaka-shinsaibashi/rooms/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_the_bridge_hotel",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "The Bridge Hotel 心斋桥（The Bridge Hotel 心斎橋）",
+      "简介": "**道頓堀 Hotel 第二棟**·**全 381 室含 4 ベッドルーム·女性 group/family 人気**·御堂筋線心斎橋徒步 3 分·**15-22 时 20 种 drink 飲み放題**·添寝 12 岁以下 2 人无料·全室 Simmons+SHARP イオン空清。",
+      "亮点": [
+        "设计精品",
+        "道頓堀系",
+        "381 室·含 4 ベッド",
+        "女性/family 友好",
+        "drink 饮放题"
+      ],
+      "地址": "大阪市中央区·御堂筋線心斎橋徒步 3 分·四ツ橋徒步 3 分",
+      "含早": "和洋朝食 buffet 含选项",
+      "价格": "素泊 2 人 ¥18,000-45,000·公式无料延 12:00 CO",
+      "房型": "Single/Double/Twin/Triple/Deluxe Twin/Quad·全 381 室·全室禁烟",
+      "预约": "公式 bridge-h.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://bridge-h.co.jp/en/",
+      "https://bridge-group.net/en/bridge/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_nikko_bettei_osaka",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1500,
+      3000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "日航大阪别邸酒店（Hotel Nikko Osaka Bettei / ホテル日航大阪 別邸）",
+      "简介": "心斋桥日航的高端版·全套房 50+ 平米·和风现代设计。日系老牌偏好客最爱·价格比国际五星友好。",
+      "亮点": [
+        "全套房",
+        "心斋桥核心",
+        "日系款待",
+        "和风现代"
+      ],
+      "地址": "大阪市中央区西心斎橋 1-3-3（地铁心斋桥站步行 1 分）",
+      "房型": "全套房",
+      "含早": "含",
+      "价格": "淡季 ¥1,000 / 平季 ¥1,500-2,000 / 旺季 ¥2,500-3,000",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.hno.co.jp/bettei/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_monterey_lei_fu_lai_er_hotel",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_kuromon",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪蒙特利勒弗莱尔酒店（ホテルモントレ ル・フレール大阪）",
+      "简介": "**ホテルモントレ系·2018 年 8 月开业**·JR 大阪駅徒步 5 分·17 阶·全 345 室·**全室ミラブルシャワーヘッド**·セキュリティ扉客室 floor·**宿泊者専用 sauna 付温浴施設**·日本伝統「文様 と あかり」テーマ。",
+      "亮点": [
+        "设计精品",
+        "モントレ系",
+        "2018 新开业",
+        "345 室",
+        "全室ミラブル",
+        "宿泊者 sauna 温浴"
+      ],
+      "地址": "大阪市北区·JR 大阪駅徒步 5 分",
+      "价格": "素泊 2 人 ¥22,000-50,000",
+      "房型": "Standard~Suite·全 345 室",
+      "含早": "可选含早",
+      "预约": "公式 hotelmonterey.co.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/lefrere_osaka/",
+      "https://www.ikyu.com/en-us/00002549/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_shinsaibashi_w_osaka",
+    "city": "大阪",
+    "area": "shinsaibashi",
+    "near_attractions": [
+      {
+        "entity_id": "osk_dotonbori",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2500,
+      5000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪 W 酒店（W Osaka / Wホテル大阪）",
+      "简介": "2021 年开业·安藤忠雄设计·大阪首家 W 酒店。337 间客房色彩鲜艳潮酷·心斋桥步行 8 分钟到道顿堀。设计酒店爱好者+蜜月+情侣首选——出片机位密集·MIXup 楼下大堂酒吧是大阪潮流地标。",
+      "亮点": [
+        "设计精品",
+        "安藤忠雄",
+        "心斋桥核心",
+        "出片机位",
+        "潮酷酒吧"
+      ],
+      "地址": "大阪市中央区南船場 4-1-3（地铁心斋桥站步行 5 分·御堂筋线本町站步行 5 分）",
+      "房型": "Wonderful / Spectacular / Marvelous / E-WOW Suite",
+      "含早": "可选·OH.LALA…自助 ¥5,800/人",
+      "价格": "淡季 ¥1,900（1月平日）/ 平季 ¥2,500-3,200 / 旺季 ¥4,000-5,000+",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·MIXup 大堂酒吧不住客也可去"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/osakw-w-osaka",
+      "https://hotels.ctrip.com/hotels/45617502.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_marriott_miyako",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 1
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2200,
+      4500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪万豪都酒店（Osaka Marriott Miyako Hotel / 大阪マリオット都ホテル）",
+      "简介": "天王寺阿倍野 HARUKAS 高层 38-55 楼·全大阪最高酒店景观房。HARUKAS 关西机场直达 35 分·特别适合住末晚赶飞机。商务+亲子（动物园近）双向。",
+      "亮点": [
+        "HARUKAS 高层",
+        "全大阪最高景观",
+        "关空直达",
+        "末晚住宿首选"
+      ],
+      "地址": "大阪市阿倍野区阿倍野筋 1-1-43（JR/地铁天王寺站直结）",
+      "房型": "豪华 / 行政 / 套房·全部 38 楼以上",
+      "含早": "可选",
+      "价格": "淡季 ¥1,600 / 平季 ¥2,200-2,800 / 旺季 ¥3,800-4,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·HARUKAS 展望台住客优惠"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/osamc-osaka-marriott-miyako-hotel/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_shinsekai_omo7_by",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "OMO7大阪 by 星野度假村（OMO7大阪 by 星野リゾート）",
+      "简介": "**OMO ブランド最上级 OMO7·2022.4 开业**·新今宫駅目前·14 阶建·8 类全 436 室·**「なにわラグジュアリー」+「笑い」+「おせっかい」コンセプト**·OMO Ranger ガイド·夜の散步推荐。",
+      "亮点": [
+        "设计精品",
+        "OMO7 最上级",
+        "2022.4 新开业",
+        "436 室",
+        "なにわラグジュアリー",
+        "OMO Ranger"
+      ],
+      "地址": "大阪市浪速区恵美須西 3-16-30·JR 新今宫駅目前",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥25,000-60,000",
+      "房型": "8 类·全 436 室·14 阶建",
+      "预约": "公式 hoshinoresorts.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://hoshinoresorts.com/ja/hotels/omo7osaka/",
+      "https://www.jalan.net/yad311704/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_tennoji_shinsekai_tennoji_ta_an_da_zhi_sen",
+    "city": "大阪",
+    "area": "tennoji_shinsekai",
+    "near_attractions": [
+      {
+        "entity_id": "osk_abeno_harukas",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_shitennoji",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪天王寺塔安达之森（アンダの森 大阪天王寺タワー）",
+      "简介": "**アンダの森 大阪天王寺タワー·2025 年 4 月 10 日 grand open·国内 3 馆目**·天王寺駅徒步 3 分·**1 泊 3 食 all-inclusive ホテル**·10 类全 8 名收容·**部分岩盤浴付**·4F 岩盤浴+ボールプール+漫画+gym+ジップライン·1F 木育广场。",
+      "亮点": [
+        "温泉度假",
+        "アンダ系",
+        "2025.4 新开业",
+        "1 泊 3 食 all-inclusive",
+        "10 类客室",
+        "ジップライン"
+      ],
+      "地址": "大阪市天王寺区·天王寺駅徒步 3 分",
+      "价格": "一泊 3 食 2 人 ¥40,000-150,000",
+      "房型": "10 类·40㎡+ 岩盤浴付 3 类·8 类 family·4 类 compact",
+      "含早": "all-inclusive 1 泊 3 食含·夕/夜/朝食 飲み放題",
+      "预约": "公式 andanomori.jp·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.andanomori.jp/tennoji/",
+      "https://www.andanomori.jp/tennoji/room/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_imperial_hotel_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2200,
+      4500
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "帝国酒店大阪（Imperial Hotel Osaka / 帝国ホテル大阪）",
+      "简介": "1996 年开业·桜之宫公园河畔·381 间客房欧式古典风。日本帝国酒店品牌的大阪旗舰·正统日式服务+西餐厅强项。商务/亲子/老一辈客群最稳。",
+      "亮点": [
+        "帝国酒店品牌",
+        "桜之宫景观",
+        "正统款待",
+        "西餐传统"
+      ],
+      "地址": "大阪市北区天満橋 1-8-50（JR 桜ノ宮站步行 5 分·地铁南森町站步行 10 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥1,600 / 平季 ¥2,200-2,800 / 旺季 ¥3,800-4,500",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.imperialhotel.co.jp/osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_hilton_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1500,
+      3200
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "希尔顿大阪（Hilton Osaka / ヒルトン大阪）",
+      "简介": "梅田核心·JR 大阪站樱花桥口对面·525 间客房希尔顿大型旗舰。中国客覆盖深·Honors 会员套房升舱+休息室。性价比高于丽思/康莱德。",
+      "亮点": [
+        "梅田核心",
+        "希尔顿旗舰",
+        "Honors 福利",
+        "中国客信任"
+      ],
+      "地址": "大阪市北区梅田 1-8-8（JR 大阪站樱桥口步行 1 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Honors 会员含",
+      "价格": "淡季 ¥1,000 / 平季 ¥1,500-2,000 / 旺季 ¥2,500-3,200",
+      "预约": "官网 / 携程 / Hilton Honors",
+      "到店提醒": "Check-in 14:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/en/hotels/osakahi-hilton-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_capella_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 4
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      4000,
+      8000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "嘉佩乐大阪（Capella Osaka / カペラホテル大阪）",
+      "简介": "2026 年开业·北滨堂岛川畔·新加坡嘉佩乐集团首入大阪。86 间客房高端套房居多·Auberge 级餐饮。新开业·宝藏期发现。",
+      "亮点": [
+        "2026 新开业",
+        "嘉佩乐品牌",
+        "堂岛川景观",
+        "Auberge 餐饮"
+      ],
+      "地址": "大阪市北区中之島 5（地铁中之島站步行 4 分）",
+      "房型": "套房为主",
+      "含早": "含",
+      "价格": "平季 ¥4,000-5,500 / 旺季 ¥6,500-8,000+",
+      "预约": "官网",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://capellahotels.com/en/capella-osaka"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_rihga_royal_hotel_da_ban",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "丽嘉皇家大酒店大阪（リーガロイヤルホテル大阪）",
+      "简介": "**2025 年 4 月 rebrand 为 Vignette Collection by IHG·1935 年系**·全 1001 室（rebrand 前 1042）·17-109㎡·中之島·**62 室クラブフロア**·**21 间餐厅**·130 億円改装（2025 EXPO 前）·关西最大老铺。",
+      "亮点": [
+        "设计精品",
+        "Vignette by IHG 系",
+        "1001 室·1935 老铺",
+        "62 室 club floor",
+        "21 间餐厅",
+        "2025 EXPO rebrand"
+      ],
+      "地址": "大阪市北区中之島 5-3-68·新福島駅徒步 3 分",
+      "价格": "素泊 2 人 ¥30,000-80,000·IHG One Rewards",
+      "房型": "17-109㎡·全 1001 室·クラブフロア 62 室",
+      "含早": "可选含早",
+      "预约": "公式 rihga.co.jp·IHG·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.rihga.co.jp/osaka/",
+      "https://www.rihga.co.jp/osaka/about/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_hankyu_international",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 3
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1500,
+      3000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪阪急国际酒店（Hotel Hankyu International / ホテル阪急インターナショナル）",
+      "简介": "梅田阪急百货顶层·171 间宽敞客房（最小 50 平米）。日系老牌+大空间·亲子家庭友好·百货层即到购物。",
+      "亮点": [
+        "梅田阪急直结",
+        "全房 50+ 平米",
+        "亲子友好",
+        "购物便利"
+      ],
+      "地址": "大阪市北区茶屋町 19-19（阪急梅田站步行 5 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥1,000 / 平季 ¥1,500-2,000 / 旺季 ¥2,500-3,000",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.hankyu-hotel.com/hotel/hhinternational/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_zentis_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "Zentis Osaka（Zentis Osaka）",
+      "简介": "**Palace Hotel 系新 brand·2020.7.15 开业**·堂島浜 1-4-26·北新地駅徒步 4 分·全 212 室（King 168/Twin 41/Suite 2/Accessible 1）·25-57㎡·**Tara Bernerd 设计**·UPSTAIRZ 米其林餐厅·24h fitness。",
+      "亮点": [
+        "设计精品",
+        "Palace Hotel 系",
+        "2020.7 新 brand",
+        "212 室",
+        "Tara Bernerd 设计",
+        "UPSTAIRZ 米其林"
+      ],
+      "地址": "大阪市北区堂島浜 1-4-26·北新地駅徒步 4 分·梅田駅徒步 9-15 分",
+      "含早": "UPSTAIRZ 含选项",
+      "价格": "素泊 2 人 ¥45,000-120,000",
+      "房型": "King 168 / Twin 41 / Suite 2·全 212 室·25-57㎡",
+      "预约": "公式 zentishotels.com·Palace Hotel·一休"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://zentishotels.com/ja/osaka/",
+      "https://www.palacehoteltokyo.com/newsroom/latest-news/zentis_osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_mitsui_garden_premier",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      800,
+      1700
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "三井花园酒店大阪尊贵版（Mitsui Garden Hotel Osaka Premier / 三井ガーデンホテル大阪プレミア）",
+      "简介": "梅田/淀屋桥之间·堂岛川河畔·三井花园 Premier 系列·366 间客房+顶层观景大浴场。性价比+商务+大浴场三优·中端首选。",
+      "亮点": [
+        "大浴场",
+        "三井花园 Premier",
+        "堂岛川景观",
+        "商务友好"
+      ],
+      "地址": "大阪市北区堂島浜 1-3-5（地铁西梅田站步行 5 分·JR 北新地步行 5 分）",
+      "房型": "豪华 / 行政",
+      "含早": "可选·和洋自助",
+      "价格": "淡季 ¥500 / 平季 ¥800-1,200 / 旺季 ¥1,400-1,700",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00·顶层大浴场住客免费"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.gardenhotels.co.jp/osaka-premier/",
+      "https://hotels.ctrip.com/hotels/2199704.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_westin_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 8
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      1800,
+      3500
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪威斯汀酒店（The Westin Osaka / ウェスティンホテル大阪）",
+      "简介": "梅田北侧新地·304 间客房·威斯汀的 Heavenly Bed 标志。商务/家庭都好·梅田到大阪站步行 10 分。",
+      "亮点": [
+        "Heavenly Bed",
+        "梅田新地",
+        "Marriott 福利",
+        "宽敞房型"
+      ],
+      "地址": "大阪市北区大淀中 1-1-20（JR 大阪站步行 10 分）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Marriott 白金含",
+      "价格": "淡季 ¥1,200 / 平季 ¥1,800-2,400 / 旺季 ¥3,000-3,500",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/hotels/travel/osakwi-the-westin-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_waldorf_astoria_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      4000,
+      8000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪华尔道夫酒店（Waldorf Astoria Osaka / ウォルドーフ・アストリア大阪）",
+      "简介": "2025 年开业·梅田 Grand Green Osaka 摩天楼内·全大阪最新顶奢。Hilton 旗下顶奢品牌华尔道夫首入日本·定价对标丽思/四季。",
+      "亮点": [
+        "2025 新开业",
+        "华尔道夫首入日本",
+        "Grand Green 摩天楼",
+        "顶奢服务"
+      ],
+      "地址": "大阪市北区大深町（梅田 Grand Green Osaka 北馆顶层）",
+      "房型": "豪华 / 套房",
+      "含早": "含",
+      "价格": "平季 ¥4,000-5,500 / 旺季 ¥6,500-8,000+",
+      "预约": "官网 / Hilton Honors",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "single_source",
+    "数据来源": [
+      "https://www.hilton.com/en/brands/waldorf-astoria-hotels/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_umeda_hilton_canopy_hotel",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1400
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪梅田希尔顿格芮精选酒店（キャノピーbyヒルトン大阪梅田）",
+      "简介": "**Hilton Canopy 系·2024.9 开业·グラングリーン大阪 ノースタワー内**·大阪市北区大深町 6-38·全 308 室·**Canopy by Hilton 日本初**·**rooftop bar+无料 Canopy 自行车 rental**·grand front 大阪徒步 2 分·ペット OK 套餐。",
+      "亮点": [
+        "设计精品",
+        "Hilton Canopy 日本初",
+        "2024.9 新开业",
+        "308 室",
+        "グラングリーン内",
+        "rooftop bar+rental cycle"
+      ],
+      "地址": "大阪市北区大深町 6-38·グラングリーン大阪 ノースタワー内·大阪駅 800m",
+      "含早": "CC: CARBON COPY 含选项",
+      "价格": "素泊 2 人 ¥35,000-90,000·Hilton Honors",
+      "房型": "King/Suite/Corner Suite/Panorama Suite·全 308 室",
+      "预约": "公式 Hilton·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/en/hotels/osapypy-canopy-osaka-umeda/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_osaka_monterey",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 7
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      600,
+      1300
+    ],
+    "tier": "b3",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪蒙特利酒店（Osaka Monterey Hotel / ホテルモントレ大阪）",
+      "简介": "梅田·蒙特利大阪旗舰·362 间客房+顶层 SPA。性价比+设施齐+商务友好·中国客最爱的大阪中端代表。",
+      "亮点": [
+        "蒙特利连锁",
+        "顶层 SPA",
+        "梅田核心",
+        "性价比"
+      ],
+      "地址": "大阪市北区中崎西 2-3-2（JR 大阪站步行 7 分）",
+      "房型": "标准 / 豪华",
+      "含早": "可选",
+      "价格": "淡季 ¥400 / 平季 ¥600-900 / 旺季 ¥1,100-1,300",
+      "预约": "官网 / 携程",
+      "到店提醒": "Check-in 14:00 / Check-out 11:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hotelmonterey.co.jp/osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_tones_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "TONES OSAKA（TONES OSAKA）",
+      "简介": "**TONES OSAKA·2025.2.14 grand open**·**世界建築家アルド・ロッシ意匠継承外装**·大阪市北区堂山町 7-13·东梅田徒步 7 分·全 67 室·**全室バス トイレ別+洗い場**·3F TONES LOUNGE 无料朝食（5 类 bread）+特別「TONES SALON」音響个室·9 阶建。",
+      "亮点": [
+        "设计精品",
+        "Vamos 系",
+        "2025.2 新开业",
+        "アルド・ロッシ意匠",
+        "67 室·9 阶",
+        "TONES SALON 音響个室"
+      ],
+      "地址": "大阪市北区堂山町 7-13·东梅田徒步 7 分",
+      "价格": "素泊 2 人 ¥18,000-45,000",
+      "房型": "Standard~SALON·全 67 室·バス トイレ独立",
+      "含早": "3F LOUNGE 无料 6:30-9:30·5 类 bread+drink",
+      "预约": "公式 tones-hotels.com·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://tones-hotels.com/osaka/",
+      "https://prtimes.jp/main/html/rd/p/000000001.000153326.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_osaka_station_hotel",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 6
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2000,
+      4000
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪站酒店 傲途格精选（Osaka Station Hotel, Autograph Collection / 大阪ステーションホテル）",
+      "简介": "2024 年 7 月开业·JR 大阪站直结·418 间客房 Autograph Collection 设计酒店。早班新干线/赶飞机首选·家庭+商务客最爱。",
+      "亮点": [
+        "2024 新开业",
+        "JR 大阪站直结",
+        "Autograph Collection",
+        "新干线友好"
+      ],
+      "地址": "大阪市北区梅田 3-1-3（JR 大阪站桜橋口直结）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选",
+      "价格": "淡季 ¥1,400 / 平季 ¥2,000-2,800 / 旺季 ¥3,200-4,000",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osmak-osaka-station-hotel-autograph-collection/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_dojima_aloft",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      3800
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪堂岛雅乐轩（アロフト大阪堂島）",
+      "简介": "**Marriott Bonvoy Aloft 系·关西初**·堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分·**全 305 室含 6 室 Loft Suite + 8 室 Corner Loft Queen**·**ロフトイメージデザイン**·堂島地图グラフィック壁纸·55 吋 TV·Simmons ベッド·特注 drybar amenity。",
+      "亮点": [
+        "设计精品",
+        "Marriott Bonvoy Aloft",
+        "关西初",
+        "305 室",
+        "Loft Suite 6 室",
+        "堂島グラフィック"
+      ],
+      "地址": "大阪市北区堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥25,000-65,000·Marriott Bonvoy",
+      "房型": "King/Twin/Suite/Universal·全 305 室",
+      "预约": "公式 Marriott·一休·楽天"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.marriott.com/en-us/hotels/osaal-aloft-osaka-dojima/overview/",
+      "https://www.ikyu.com/en-us/00002895/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_conrad_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 3
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      3000,
+      6000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪康莱德酒店（Conrad Osaka / コンラッド大阪）",
+      "简介": "中之岛 Festival Tower West 高层 33-40 楼·164 间客房+Conrad Concierge 服务。希尔顿顶奢品牌·全房带堂岛川/淀川景观。MICHELIN One Key。",
+      "亮点": [
+        "MICHELIN One Key",
+        "中之岛高层",
+        "全房景观",
+        "Hilton 顶奢"
+      ],
+      "地址": "大阪市北区中之島 3-2-4（地铁渡辺橋站直结）",
+      "房型": "豪华 / 行政 / 套房",
+      "含早": "可选·或 Hilton 钻石含",
+      "价格": "淡季 ¥2,200 / 平季 ¥3,000-4,200 / 旺季 ¥5,000-6,000+",
+      "预约": "官网 / 携程 / Hilton Honors",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.hilton.com/en/hotels/osakaci-conrad-osaka/"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_intercontinental_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 5
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      2500,
+      5000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪洲际酒店（InterContinental Osaka / インターコンチネンタルホテル大阪）",
+      "简介": "梅田 Grand Front Osaka 摩天楼 14-32 楼·272 间客房·摩天轮景观房是亮点。商务客最稳·IHG One 会员福利。",
+      "亮点": [
+        "梅田摩天楼",
+        "摩天轮景观",
+        "IHG 旗舰",
+        "商务友好"
+      ],
+      "地址": "大阪市北区大深町 3-60（JR 大阪站步行 5 分·地铁御堂筋线大阪站直结）",
+      "房型": "豪华 / 行政 / 套房 / Club Floor",
+      "含早": "可选·或 IHG 白金含",
+      "价格": "淡季 ¥1,800 / 平季 ¥2,500-3,200 / 旺季 ¥4,000-5,000+",
+      "预约": "官网 / 携程 / IHG One",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ihg.com/intercontinental/hotels/us/en/osaka/osaha/hoteldetail"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_ritz_carlton_osaka",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 8
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "city",
+    "price_cny_per_night": [
+      3000,
+      6000
+    ],
+    "tier": "b6",
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "大阪丽思卡尔顿酒店（The Ritz-Carlton Osaka / ザ・リッツ・カールトン大阪）",
+      "简介": "梅田 1996 年开业的大阪首家国际顶奢酒店·291 间客房欧式古典风·跟京都丽思的和风形成对照。位置极佳——JR 大阪站步行 7 分·梅田商圈核心。商务/家庭都顶级·中国客覆盖最深的大阪顶奢。",
+      "亮点": [
+        "大阪老牌顶奢",
+        "梅田核心",
+        "国际五星",
+        "礼宾服务",
+        "中国客信任"
+      ],
+      "地址": "大阪市北区梅田 2-5-25（JR 大阪站樱桥口步行 7 分）",
+      "房型": "豪华 / 行政 / 套房 / Club Floor",
+      "含早": "可选·Splendido 自助 ¥6,500/人",
+      "价格": "淡季 ¥2,200（1月平日）/ 平季 ¥3,000-4,200 / 旺季 ¥5,000-6,000+",
+      "预约": "官网 / 携程 / Marriott Bonvoy",
+      "到店提醒": "Check-in 15:00 / Check-out 12:00·梅田地下街可直通无雨步行"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.ritzcarlton.com/en/hotels/japan/osaka",
+      "https://hotels.ctrip.com/hotels/319093.html"
+    ],
+    "最后核实": "2026-04-26"
+  },
+  {
+    "id": "osk_umeda_kita_a_er_mo_ni_an_bu_la_sai_hotel",
+    "city": "大阪",
+    "area": "umeda_kita",
+    "near_attractions": [
+      {
+        "entity_id": "osk_nakanoshima",
+        "walk_min": 10
+      },
+      {
+        "entity_id": "osk_nakazakicho",
+        "walk_min": 10
+      }
+    ],
+    "type": "experience",
+    "price_cny_per_night": [
+      1900,
+      2400
+    ],
+    "tier": "b5",
+    "season_months": null,
+    "depth": "verified",
+    "note": {
+      "店名": "大阪阿尔莫尼安布拉塞酒店（アルモニーアンブラッセ大阪）",
+      "简介": "**HARMONIE EMBRASSEE OSAKA·安藤忠雄设计**·チャスカ茶屋町 10-22 阶·阪急梅田徒步 3 分·**Small Luxury 40 室·4 类 design concept 各室独立**·**最上 23 阶天空のチャペル**·三角构造特徴 building·法餐 restaurant 併設。",
+      "亮点": [
+        "设计精品",
+        "安藤忠雄设计",
+        "Small Luxury 40 室",
+        "4 类 design concept",
+        "23F 天空のチャペル"
+      ],
+      "价格": "素泊 2 人 ¥40,000-100,000",
+      "地址": "大阪市北区茶屋町 7-20·阪急梅田徒步 3 分",
+      "房型": "4 类·共 40 室·三角形构造",
+      "含早": "法餐含选项",
+      "预约": "公式 tgn.co.jp·一休·Relux"
+    },
+    "可信度": "cross_checked",
+    "数据来源": [
+      "https://www.tgn.co.jp/hotel/osaka/harmonie/",
+      "https://www.tgn.co.jp/hotel/osaka/harmonie/stay/"
+    ],
+    "最后核实": "2026-04-26"
+  }
+]
