@@ -493,6 +493,349 @@ register(
 )
 
 
+# === 大阪 第一批 (39-46) ===
+register(
+    "osk_bay_area_wan_wang_zi_hotel",
+    brief="**Prince Hotels 系·2023 年 7 月 rebrand**·大阪南港·28 阶 urban resort·全 480 室（rebrand 后部分 432 室运营）·JR 大阪站 shuttle 25 分·USJ 圈外低密 resort 选项。",
+    highlights=["设计精品", "Prince Hotels 系", "2023 rebrand", "28 阶大型", "南港 urban resort"],
+    address="大阪市住之江区南港北 1-13-11·JR 大阪站 shuttle 25 分",
+    rooms="Standard~Suite·全 480 室",
+    breakfast="可选 buffet 含早",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 princehotels.co.jp·一休·楽天",
+    sources=["https://www.princehotels.co.jp/osakabay/", "https://osaka-info.jp/spot/GrandPrinceHotelOsakaBay/"],
+)
+
+register(
+    "osk_bay_area_universal_port_hotel",
+    brief="**USJ オフィシャルホテル·ORIX 不動産运营·2005.7 开业**·USJ 徒步 4 分·全 600 室·**Minion Room** 等多 collab room·大恐竜「REX CAFE」+ Lounge R·バリアフリー対応。",
+    highlights=["设计精品", "USJ 公式 ホテル", "ORIX 系", "600 室", "Minion Room collab"],
+    address="大阪市此花区·JR ユニバーサルシティ駅徒步 3 分·USJ 徒步 4 分",
+    rooms="18 类·全 600 室·バリアフリー有",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥18,000-60,000",
+    booking="公式 ORIX HOTELS·一休·楽天",
+    sources=["https://universalport.orixhotelsandresorts.com/", "https://www.usj.co.jp/web/ja/jp/tour-hotel/partner-hotel"],
+)
+
+register(
+    "osk_bay_area_usj",
+    brief="**USJ 最近接公式 ホテル·USJ メインゲート徒步 1 分**·全 598 室·客室 4-28 阶·**全室 30㎡+ + バス トイレ別**·10 类客室·Trip to the U.S.A. 主题·EV エレベーター time machine 设计。",
+    highlights=["设计精品", "USJ 最近接 1 分", "598 室", "全室 30㎡+", "Trip to USA 主题"],
+    address="大阪市此花区·USJ メインゲート徒步 1 分",
+    rooms="10 类·全 598 室·全 30㎡+·バス トイレ別",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-80,000",
+    booking="公式 parkfront-hotel.com·一休·楽天",
+    sources=["https://parkfront-hotel.com/", "https://www.jalan.net/yad345931/"],
+)
+
+register(
+    "osk_bay_area_universal_qi_dian_hotel",
+    brief="**The Singulari Hotel & SkySpa·USJ 公式·Candeo 系**·ユニバーサルシティ駅徒步 1 分·全 390 室·17 阶·**14 阶屋上展望露天「SkySpa」宿泊客无料**·Simmons ベッド·朝食 buffet 60 品+。",
+    highlights=["设计精品", "USJ 公式 ホテル", "Candeo 系", "390 室", "屋上 SkySpa 露天", "シングル 16㎡ 露天付 KING"],
+    address="大阪市此花区·ユニバーサルシティ駅徒步 1 分",
+    rooms="Twin/King/Suite·全 390 室·部分 KING 露天付",
+    breakfast="60 品+ 健康 buffet 含选项",
+    price="素泊 2 人 ¥30,000-100,000",
+    booking="公式 candeohotels.com·一休·楽天",
+    sources=["https://www.candeohotels.com/en/singulari/", "https://www.candeohotels.com/en/singulari/rooms/"],
+)
+
+register(
+    "osk_bay_area_risonare",
+    brief="**星野リゾート リゾナーレ·2022.12 开业**·**Hyatt Regency 大阪内一部改装·全 64 室+28 阶屋顶 470㎡ アトリエ**·**レッジョ・エミリア教育**創造力主题·小孩家族特化·アトリエ 80㎡ delux room 网絡云床。",
+    highlights=["温泉度假", "星野リゾート 系", "2022 新开业", "64 室", "レッジョ・エミリア 教育", "アトリエ 470㎡"],
+    address="大阪市住之江区·南港中央·Hyatt Regency 大阪内",
+    rooms="アトリエ Room 3 类 + Family·全 64 室·部分 80㎡",
+    breakfast="可选含早",
+    price="夕朝食付 2 人 ¥80,000-180,000",
+    booking="公式 hoshinoresorts.com·一休·楽天",
+    sources=["https://hoshinoresorts.com/en/hotels/risonareosaka/", "https://www.ikyu.com/en-us/00003247/"],
+)
+
+register(
+    "osk_honmachi_voco",
+    brief="**IHG voco 系日本一号·2023 年 5 月 30 日开业**·NTT 都市開発·肥後橋/本町站间·**1926 年旧京町ビル跡地再生**·30㎡ 中心全 191 室·再生素材ベッド+木製カードキー·環境配慮 brand。",
+    highlights=["设计精品", "IHG voco 日本一号", "2023.5 新开业", "京町ビル跡再生", "191 室·環境配慮"],
+    address="大阪市西区·肥後橋/本町站间",
+    rooms="30㎡ 中心·全 191 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥22,000-55,000·IHG One Rewards",
+    booking="公式 IHG voco·一休·楽天",
+    sources=["https://www.ihg.com/voco/hotels/us/en/osaka/osakn/hoteldetail", "https://www.nttud.co.jp/news/detail/id/n26570.html"],
+)
+
+register(
+    "osk_namba_dotonbori_swissotel_nankai_osaka",
+    brief="**Accor 系 Swissotel·5 星 premium·南海难波站直上·南海サウスタワービル内 36 阶 147m**·全 546 室·**Swiss Executive Lounge**·6 间餐厅+18 间宴会场·髙島屋大阪 5 阶直结·KIX 直通。",
+    highlights=["设计精品", "Accor Swissotel 系", "5 星 premium", "南海难波直上", "546 室·36 阶"],
+    address="大阪市中央区難波 5-1-60·南海难波站直上·髙島屋直结",
+    rooms="Standard~Swiss Executive·全 546 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥35,000-100,000·Accor Live Limitless",
+    booking="公式 swissotelnankaiosaka.com·Accor·一休",
+    sources=["https://swissotelnankaiosaka.com/", "https://swissotelnankaiosaka.com/rooms-and-suites/"],
+)
+
+register(
+    "osk_namba_dotonbori_hotel_new_otani_osaka",
+    brief="**Forbes 2026 Recommended·Relux 2025 シティ 9 位**·JR 大阪城公园站徒步 3 分·**大阪城正面**·全 540 室·吹抜けアトリウムロビ·13 间餐厅·18 阶 SAKURA 大阪城ライトアップビュー·VIP 多数迎接。",
+    highlights=["设计精品", "Forbes 2026 Recommended", "大阪城正面", "540 室", "アトリウムロビ", "VIP 接待"],
+    address="大阪市中央区·JR 大阪城公园駅徒步 3 分·大阪城正面",
+    rooms="Junior Suite 60㎡·Deluxe Connecting 60+30㎡·全 540 室",
+    breakfast="13 间餐厅·可选含早",
+    price="素泊 2 人 ¥30,000-100,000",
+    booking="公式 newotani.co.jp·Relux·一休",
+    sources=["https://www.newotani.co.jp/osaka/", "https://rlx.jp/21047/"],
+)
+
+
+# === 大阪 第二批 (47-54) ===
+register(
+    "osk_honmachi_the_boly_osaka",
+    brief="**2019 年开业·北浜古旧 building リノベ**·中之岛 riverside·大阪メトロ淀屋桥徒步 10 分/堺筋本町徒步 5 分·**Riverside 系客室+キタハマアトリエコンパクト**·Bluetooth 音響 shower room·BOLY 原创 amenity。",
+    highlights=["设计精品", "2019 北浜旧 building 再生", "中之岛 riverside", "Bluetooth shower room", "BOLY 原创 amenity"],
+    address="大阪市中央区北浜 2-1-16·堺筋線 北浜徒步 5 分·御堂筋線 淀屋桥徒步 10 分",
+    rooms="Riverside / キタハマアトリエ·小規模 boutique",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-60,000",
+    booking="公式 theboly.com·一休·楽天",
+    sources=["https://theboly.com/", "https://akogare.jp/hotels/recTiiWYFF4z8H5Zr"],
+)
+
+register(
+    "osk_honmachi_honmachi_lively_hotel",
+    brief="**2019 年 8 月开业·全 174 室·LIVELY HOTELS 系 lifestyle**·堺筋本町徒步 1 分·5 类客室·**シアター機能完備客室 50 室**·Serta マットレス·Global Agents 运营。",
+    highlights=["设计精品", "LIVELY 系", "2019 新开业", "174 室", "シアター機能 50 室", "Serta マットレス"],
+    address="大阪市中央区·堺筋本町徒步 1 分",
+    rooms="シアター/Standard 5 类·全 174 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 livelyhotels.com·一休·楽天",
+    sources=["https://www.livelyhotels.com/ja/thelivelyosaka/", "https://www.livelyhotels.com/ja/posts/lvo211001/"],
+)
+
+register(
+    "osk_namba_dotonbori_cross_hotel_osaka",
+    brief="**ORIX HOTELS Cross Hotel 系**·OsakaMetro なんば駅 14 出口徒步 3 分·心斎橋筋 2 丁目·道頓堀徒步 1 分·全室バス トイレ別·**3F TERRACE & DINING ZERO 朝食 buffet+meetlounge 无料**·ドンネブリVIEWツイン。",
+    highlights=["设计精品", "ORIX Cross 系", "なんば 3 分", "道頓堀 1 分", "meetlounge 无料 軽食"],
+    address="大阪市中央区心斎橋筋 2-5-15·OsakaMetro なんば徒步 3 分",
+    rooms="Standard~SUITE Jr. 48㎡·多类型",
+    breakfast="3F ZERO buffet 含选项·大阪名物どて焼き",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 ORIX HOTELS·一休·楽天·**注意：2026.2-7 大規模改修部分休业**",
+    sources=["https://cross-osaka.orixhotelsandresorts.com/", "https://www.ikyu.com/en-us/00001355/"],
+)
+
+register(
+    "osk_namba_dotonbori_hiyori",
+    brief="**サンフロンティアホテルズ「日和ホテル」関西初**·南海なんば駅徒步 1 分·SAKURA 棟+MOMIJI 棟·全 224 室·琉球畳調床材+**Simmons ベッド+和 Modern**·KIX ラピート 38 分·1F La biyori 朝食。",
+    highlights=["设计精品", "日和系关西初", "南海なんば 1 分", "224 室·2 棟构成", "琉球畳調床材+Simmons"],
+    address="大阪市中央区·南海なんば駅改札徒步 1 分",
+    rooms="22㎡ 中心·全 224 室·バス トイレ独立",
+    breakfast="1F La biyori 有料",
+    price="素泊 2 人 ¥18,000-40,000",
+    booking="公式 namba.hiyori-hotel.jp·一休·楽天",
+    sources=["https://namba.hiyori-hotel.jp/", "https://www.jalan.net/yad311599/"],
+)
+
+register(
+    "osk_namba_dotonbori_monterey_ge_la_si_mi_er_hotel",
+    brief="**ホテルモントレ系·31 阶高层·なんば駅徒步 1 分**·全 348 室·24-31 阶 manor house イメージ·31 阶大阪市街地夜景眺望·**最上阶 59㎡ Grasmere Suite**·英国イングランド主题。",
+    highlights=["设计精品", "ホテルモントレ系", "なんば 1 分", "348 室·31 阶高层", "59㎡ Grasmere Suite"],
+    address="大阪市浪速区湊町 1-2-3·なんば駅徒步 1 分",
+    rooms="24-31 阶 manor house·全 348 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥22,000-55,000",
+    booking="公式 hotelmonterey.co.jp·一休·楽天",
+    sources=["https://www.hotelmonterey.co.jp/grasmere_osaka/", "https://www.j-hotel.or.jp/hotel/298/"],
+)
+
+register(
+    "osk_shinsaibashi_hotel_nikko_osaka",
+    brief="**Okura Nikko Hotels 系 deluxe·御堂筋面**·**心斎橋駅 8 号出口直结**·西心斎橋 1-3-3·5 间餐厅+4 间 bar lounge·Simmons ベッド+デュベ羽毛布团·USJ 1 日 studio pass front 购入·道頓堀徒步 9 分。",
+    highlights=["设计精品", "Okura Nikko 系", "心斎橋直结", "御堂筋面立地", "5 间 restaurant+4 间 bar"],
+    address="大阪市中央区西心斎橋 1-3-3·心斎橋駅 8 号出口直结",
+    rooms="Single~Deluxe Family·Nikko Premium Floor",
+    breakfast="セリーナ café 含选项",
+    price="素泊 2 人 ¥25,000-70,000",
+    booking="公式 okura.com·Okura Nikko·一休",
+    sources=["https://okura.com/japan/osaka/hotel-nikko-osaka/", "https://osaka-info.jp/spot/hotel-nikko-osaka/"],
+)
+
+register(
+    "osk_shinsaibashi_candeo_hotels_osaka_shinsaibas",
+    brief="**Candeo Hotels 系·2023 年 11 月 26 日开业**·御堂筋面·心斎橋/なんば徒步 5 分·**江戸建筑三津寺境内通过 entrance·寺院一体型 hotel**·**最上阶屋外露天 sky spa+ロウリュサウナ**·南站夜景眺望。",
+    highlights=["设计精品", "Candeo 系", "2023.11 新开业", "三津寺一体型", "屋上 SkySpa 露天 + ロウリュ"],
+    address="大阪市中央区·心斎橋/なんば徒步 5 分·三津寺境内·御堂筋面",
+    rooms="Standard~Suite·部分露天风吕付",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥30,000-80,000",
+    booking="公式 candeohotels.com·一休·楽天",
+    sources=["https://www.candeohotels.com/en/osaka-shinsaibashi/", "https://www.candeohotels.com/en/osaka-shinsaibashi/rooms/"],
+)
+
+register(
+    "osk_shinsaibashi_the_bridge_hotel",
+    brief="**道頓堀 Hotel 第二棟**·**全 381 室含 4 ベッドルーム·女性 group/family 人気**·御堂筋線心斎橋徒步 3 分·**15-22 时 20 种 drink 飲み放題**·添寝 12 岁以下 2 人无料·全室 Simmons+SHARP イオン空清。",
+    highlights=["设计精品", "道頓堀系", "381 室·含 4 ベッド", "女性/family 友好", "drink 饮放题"],
+    address="大阪市中央区·御堂筋線心斎橋徒步 3 分·四ツ橋徒步 3 分",
+    rooms="Single/Double/Twin/Triple/Deluxe Twin/Quad·全 381 室·全室禁烟",
+    breakfast="和洋朝食 buffet 含选项",
+    price="素泊 2 人 ¥18,000-45,000·公式无料延 12:00 CO",
+    booking="公式 bridge-h.co.jp·一休·楽天",
+    sources=["https://bridge-h.co.jp/en/", "https://bridge-group.net/en/bridge/"],
+)
+
+
+
+# === 大阪 第三批 (55-65) ===
+register(
+    "osk_namba_dotonbori_here_osaka_namba",
+    brief="**andHere OSAKA NAMBA·全 89 室「ウラなんば」隐密 boutique**·南海なんば徒步 3 分·9 类客室·**special concept room kitchen+洗濯機·6 人 family OK·NAMbar 大阪 drink/snack·屋上 terrace 大阪夜景+通天閣 view**。",
+    highlights=["设计精品", "andHere 系", "ウラ難波 hidden", "89 室·9 类", "Special Concept Room kitchen+洗濯機", "屋上 terrace"],
+    address="大阪市中央区難波千日前 7-9·南海なんば徒步 3 分",
+    rooms="9 类·全 89 室·部分 family/kitchen·6 人收容",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 andherehotels.jp·一休·楽天",
+    sources=["https://andherehotels-osakanamba.com/en/", "https://andherehotels.jp/en/"],
+)
+
+register(
+    "osk_namba_dotonbori_namba_dong_fang_hotel",
+    brief="**なんばオリエンタルホテル·なんば駅徒步 1 分（B21 出口直进 30 秒）**·全室 23㎡+·**3F 新设 Residential Floor 9 室 47-52㎡ 含洗濯機+IH+冷凍冷蔵庫+全室 terrace**·family/長期向。",
+    highlights=["设计精品", "なんば 1 分（地下街直结）", "Residential Floor 9 室", "全 terrace+洗濯機+IH"],
+    address="大阪市中央区千日前 2-8-17·なんば駅徒步 5 分（B21 直进 30 秒）",
+    rooms="Standard 23㎡+ / Residential 47-52㎡·共多类",
+    breakfast="和洋朝食 buffet 含选项",
+    price="素泊 2 人 ¥18,000-50,000",
+    booking="公式 nambaorientalhotel.co.jp·一休·楽天",
+    sources=["https://nambaorientalhotel.co.jp/", "https://nambaorientalhotel.co.jp/rooms/"],
+)
+
+register(
+    "osk_namba_dotonbori_cheng_hilton_doubletree_hotel",
+    brief="**Hilton 系 DoubleTree·大阪城正面**·所在大手前 1-1-1·**屋内 pool+fitness center**·大阪城/天满桥/大手门徒步 5 分·阪急/京阪 access·全室禁烟·family room 多。",
+    highlights=["设计精品", "Hilton 系", "大阪城正面", "屋内 pool+fitness", "Castle View"],
+    address="大阪市中央区大手前 1-1-1·大阪城徒步圈",
+    rooms="King/Twin/Castle Executive View/Deluxe Suite·全室禁烟",
+    breakfast="可选含早·和洋 buffet",
+    price="素泊 2 人 ¥30,000-80,000·Hilton Honors",
+    booking="公式 Hilton·一休·楽天",
+    sources=["https://www.hilton.com/ja/hotels/osaocdi-doubletree-osaka-castle/", "https://doubletree-osaka-castle.hiltonjapan.co.jp/"],
+)
+
+register(
+    "osk_shinsaibashi_monterey_lei_fu_lai_er_hotel",
+    brief="**ホテルモントレ系·2018 年 8 月开业**·JR 大阪駅徒步 5 分·17 阶·全 345 室·**全室ミラブルシャワーヘッド**·セキュリティ扉客室 floor·**宿泊者専用 sauna 付温浴施設**·日本伝統「文様 と あかり」テーマ。",
+    highlights=["设计精品", "モントレ系", "2018 新开业", "345 室", "全室ミラブル", "宿泊者 sauna 温浴"],
+    address="大阪市北区·JR 大阪駅徒步 5 分",
+    rooms="Standard~Suite·全 345 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥22,000-50,000",
+    booking="公式 hotelmonterey.co.jp·一休·楽天",
+    sources=["https://www.hotelmonterey.co.jp/lefrere_osaka/", "https://www.ikyu.com/en-us/00002549/"],
+)
+
+register(
+    "osk_tennoji_shinsekai_omo7_by",
+    brief="**OMO ブランド最上级 OMO7·2022.4 开业**·新今宫駅目前·14 阶建·8 类全 436 室·**「なにわラグジュアリー」+「笑い」+「おせっかい」コンセプト**·OMO Ranger ガイド·夜の散步推荐。",
+    highlights=["设计精品", "OMO7 最上级", "2022.4 新开业", "436 室", "なにわラグジュアリー", "OMO Ranger"],
+    address="大阪市浪速区恵美須西 3-16-30·JR 新今宫駅目前",
+    rooms="8 类·全 436 室·14 阶建",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-60,000",
+    booking="公式 hoshinoresorts.com·一休·楽天",
+    sources=["https://hoshinoresorts.com/ja/hotels/omo7osaka/", "https://www.jalan.net/yad311704/"],
+)
+
+register(
+    "osk_tennoji_shinsekai_tennoji_ta_an_da_zhi_sen",
+    brief="**アンダの森 大阪天王寺タワー·2025 年 4 月 10 日 grand open·国内 3 馆目**·天王寺駅徒步 3 分·**1 泊 3 食 all-inclusive ホテル**·10 类全 8 名收容·**部分岩盤浴付**·4F 岩盤浴+ボールプール+漫画+gym+ジップライン·1F 木育广场。",
+    highlights=["温泉度假", "アンダ系", "2025.4 新开业", "1 泊 3 食 all-inclusive", "10 类客室", "ジップライン"],
+    address="大阪市天王寺区·天王寺駅徒步 3 分",
+    rooms="10 类·40㎡+ 岩盤浴付 3 类·8 类 family·4 类 compact",
+    breakfast="all-inclusive 1 泊 3 食含·夕/夜/朝食 飲み放題",
+    price="一泊 3 食 2 人 ¥40,000-150,000",
+    booking="公式 andanomori.jp·一休·楽天",
+    sources=["https://www.andanomori.jp/tennoji/", "https://www.andanomori.jp/tennoji/room/"],
+)
+
+register(
+    "osk_umeda_kita_rihga_royal_hotel_da_ban",
+    brief="**2025 年 4 月 rebrand 为 Vignette Collection by IHG·1935 年系**·全 1001 室（rebrand 前 1042）·17-109㎡·中之島·**62 室クラブフロア**·**21 间餐厅**·130 億円改装（2025 EXPO 前）·关西最大老铺。",
+    highlights=["设计精品", "Vignette by IHG 系", "1001 室·1935 老铺", "62 室 club floor", "21 间餐厅", "2025 EXPO rebrand"],
+    address="大阪市北区中之島 5-3-68·新福島駅徒步 3 分",
+    rooms="17-109㎡·全 1001 室·クラブフロア 62 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥30,000-80,000·IHG One Rewards",
+    booking="公式 rihga.co.jp·IHG·一休",
+    sources=["https://www.rihga.co.jp/osaka/", "https://www.rihga.co.jp/osaka/about/"],
+)
+
+register(
+    "osk_umeda_kita_zentis_osaka",
+    brief="**Palace Hotel 系新 brand·2020.7.15 开业**·堂島浜 1-4-26·北新地駅徒步 4 分·全 212 室（King 168/Twin 41/Suite 2/Accessible 1）·25-57㎡·**Tara Bernerd 设计**·UPSTAIRZ 米其林餐厅·24h fitness。",
+    highlights=["设计精品", "Palace Hotel 系", "2020.7 新 brand", "212 室", "Tara Bernerd 设计", "UPSTAIRZ 米其林"],
+    address="大阪市北区堂島浜 1-4-26·北新地駅徒步 4 分·梅田駅徒步 9-15 分",
+    rooms="King 168 / Twin 41 / Suite 2·全 212 室·25-57㎡",
+    breakfast="UPSTAIRZ 含选项",
+    price="素泊 2 人 ¥45,000-120,000",
+    booking="公式 zentishotels.com·Palace Hotel·一休",
+    sources=["https://zentishotels.com/ja/osaka/", "https://www.palacehoteltokyo.com/newsroom/latest-news/zentis_osaka/"],
+)
+
+register(
+    "osk_umeda_kita_umeda_hilton_canopy_hotel",
+    brief="**Hilton Canopy 系·2024.9 开业·グラングリーン大阪 ノースタワー内**·大阪市北区大深町 6-38·全 308 室·**Canopy by Hilton 日本初**·**rooftop bar+无料 Canopy 自行车 rental**·grand front 大阪徒步 2 分·ペット OK 套餐。",
+    highlights=["设计精品", "Hilton Canopy 日本初", "2024.9 新开业", "308 室", "グラングリーン内", "rooftop bar+rental cycle"],
+    address="大阪市北区大深町 6-38·グラングリーン大阪 ノースタワー内·大阪駅 800m",
+    rooms="King/Suite/Corner Suite/Panorama Suite·全 308 室",
+    breakfast="CC: CARBON COPY 含选项",
+    price="素泊 2 人 ¥35,000-90,000·Hilton Honors",
+    booking="公式 Hilton·一休·楽天",
+    sources=["https://www.hilton.com/en/hotels/osapypy-canopy-osaka-umeda/"],
+)
+
+register(
+    "osk_umeda_kita_tones_osaka",
+    brief="**TONES OSAKA·2025.2.14 grand open**·**世界建築家アルド・ロッシ意匠継承外装**·大阪市北区堂山町 7-13·东梅田徒步 7 分·全 67 室·**全室バス トイレ別+洗い場**·3F TONES LOUNGE 无料朝食（5 类 bread）+特別「TONES SALON」音響个室·9 阶建。",
+    highlights=["设计精品", "Vamos 系", "2025.2 新开业", "アルド・ロッシ意匠", "67 室·9 阶", "TONES SALON 音響个室"],
+    address="大阪市北区堂山町 7-13·东梅田徒步 7 分",
+    rooms="Standard~SALON·全 67 室·バス トイレ独立",
+    breakfast="3F LOUNGE 无料 6:30-9:30·5 类 bread+drink",
+    price="素泊 2 人 ¥18,000-45,000",
+    booking="公式 tones-hotels.com·一休·楽天",
+    sources=["https://tones-hotels.com/osaka/", "https://prtimes.jp/main/html/rd/p/000000001.000153326.html"],
+)
+
+register(
+    "osk_umeda_kita_dojima_aloft",
+    brief="**Marriott Bonvoy Aloft 系·关西初**·堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分·**全 305 室含 6 室 Loft Suite + 8 室 Corner Loft Queen**·**ロフトイメージデザイン**·堂島地图グラフィック壁纸·55 吋 TV·Simmons ベッド·特注 drybar amenity。",
+    highlights=["设计精品", "Marriott Bonvoy Aloft", "关西初", "305 室", "Loft Suite 6 室", "堂島グラフィック"],
+    address="大阪市北区堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分",
+    rooms="King/Twin/Suite/Universal·全 305 室",
+    breakfast="可选含早",
+    price="素泊 2 人 ¥25,000-65,000·Marriott Bonvoy",
+    booking="公式 Marriott·一休·楽天",
+    sources=["https://www.marriott.com/en-us/hotels/osaal-aloft-osaka-dojima/overview/", "https://www.ikyu.com/en-us/00002895/"],
+)
+
+register(
+    "osk_umeda_kita_a_er_mo_ni_an_bu_la_sai_hotel",
+    brief="**HARMONIE EMBRASSEE OSAKA·安藤忠雄设计**·チャスカ茶屋町 10-22 阶·阪急梅田徒步 3 分·**Small Luxury 40 室·4 类 design concept 各室独立**·**最上 23 阶天空のチャペル**·三角构造特徴 building·法餐 restaurant 併設。",
+    highlights=["设计精品", "安藤忠雄设计", "Small Luxury 40 室", "4 类 design concept", "23F 天空のチャペル"],
+    address="大阪市北区茶屋町 7-20·阪急梅田徒步 3 分",
+    rooms="4 类·共 40 室·三角形构造",
+    breakfast="法餐含选项",
+    price="素泊 2 人 ¥40,000-100,000",
+    booking="公式 tgn.co.jp·一休·Relux",
+    sources=["https://www.tgn.co.jp/hotel/osaka/harmonie/", "https://www.tgn.co.jp/hotel/osaka/harmonie/stay/"],
+)
+
+
 def main() -> None:
     apply = "--apply" in sys.argv
     files = [f for f in ROOT.rglob("*.json") if "_archive" not in f.parts]
@@ -531,6 +874,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
 
 
 

@@ -40,76 +40,6 @@
     "最后核实": "2026-04-26"
   },
   {
-    "id": "osk_honmachi_honmachi_vista_premio_hotel",
-    "city": "大阪",
-    "area": "honmachi",
-    "near_attractions": [
-      {
-        "entity_id": "osk_dotonbori",
-        "walk_min": 10
-      }
-    ],
-    "type": "city",
-    "price_cny_per_night": [
-      600,
-      1400
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "大阪本町维斯塔尊贵酒店（ホテルビスタプレミオ大阪本町）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "现代感",
-        "礼宾服务"
-      ],
-      "地址": "最近站：中津（阪急）（步行 10 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "osk_honmachi_mitsui_garden_hotel_da_ban_dian_wu_qiao",
-    "city": "大阪",
-    "area": "honmachi",
-    "near_attractions": [
-      {
-        "entity_id": "osk_dotonbori",
-        "walk_min": 10
-      }
-    ],
-    "type": "city",
-    "price_cny_per_night": [
-      600,
-      1400
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "三井花园酒店大阪淀屋桥（三井ガーデンホテル大阪淀屋橋）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "现代感",
-        "礼宾服务"
-      ],
-      "地址": "最近站：渡边桥（步行 2 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
     "id": "osk_honmachi_the_boly_osaka",
     "city": "大阪",
     "area": "honmachi",
@@ -126,20 +56,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "THE BOLY OSAKA（THE BOLY OSAKA）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**2019 年开业·北浜古旧 building リノベ**·中之岛 riverside·大阪メトロ淀屋桥徒步 10 分/堺筋本町徒步 5 分·**Riverside 系客室+キタハマアトリエコンパクト**·Bluetooth 音響 shower room·BOLY 原创 amenity。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "2019 北浜旧 building 再生",
+        "中之岛 riverside",
+        "Bluetooth shower room",
+        "BOLY 原创 amenity"
       ],
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "价格": "素泊 2 人 ¥25,000-60,000",
+      "地址": "大阪市中央区北浜 2-1-16·堺筋線 北浜徒步 5 分·御堂筋線 淀屋桥徒步 10 分",
+      "房型": "Riverside / キタハマアトリエ·小規模 boutique",
+      "含早": "可选含早",
+      "预约": "公式 theboly.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://theboly.com/",
+      "https://akogare.jp/hotels/recTiiWYFF4z8H5Zr"
     ],
     "最后核实": "2026-04-26"
   },
@@ -160,22 +97,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪本町莱弗利酒店（ザ・ライブリー大阪本町）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**2019 年 8 月开业·全 174 室·LIVELY HOTELS 系 lifestyle**·堺筋本町徒步 1 分·5 类客室·**シアター機能完備客室 50 室**·Serta マットレス·Global Agents 运营。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "LIVELY 系",
+        "2019 新开业",
+        "174 室",
+        "シアター機能 50 室",
+        "Serta マットレス"
       ],
-      "地址": "最近站：谷町四丁目（步行 12 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区·堺筋本町徒步 1 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "シアター/Standard 5 类·全 174 室",
+      "预约": "公式 livelyhotels.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.livelyhotels.com/ja/thelivelyosaka/",
+      "https://www.livelyhotels.com/ja/posts/lvo211001/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -196,21 +139,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "voco大阪中央（voco大阪セントラル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**IHG voco 系日本一号·2023 年 5 月 30 日开业**·NTT 都市開発·肥後橋/本町站间·**1926 年旧京町ビル跡地再生**·30㎡ 中心全 191 室·再生素材ベッド+木製カードキー·環境配慮 brand。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "IHG voco 日本一号",
+        "2023.5 新开业",
+        "京町ビル跡再生",
+        "191 室·環境配慮"
       ],
-      "地址": "最近站：肥后桥地铁站（步行 4 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市西区·肥後橋/本町站间",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-55,000·IHG One Rewards",
+      "房型": "30㎡ 中心·全 191 室",
+      "预约": "公式 IHG voco·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.ihg.com/voco/hotels/us/en/osaka/osakn/hoteldetail",
+      "https://www.nttud.co.jp/news/detail/id/n26570.html"
     ],
     "最后核实": "2026-04-26"
   }

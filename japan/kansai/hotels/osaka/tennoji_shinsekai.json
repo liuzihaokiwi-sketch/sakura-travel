@@ -60,60 +60,28 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "OMO7大阪 by 星野度假村（OMO7大阪 by 星野リゾート）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**OMO ブランド最上级 OMO7·2022.4 开业**·新今宫駅目前·14 阶建·8 类全 436 室·**「なにわラグジュアリー」+「笑い」+「おせっかい」コンセプト**·OMO Ranger ガイド·夜の散步推荐。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "OMO7 最上级",
+        "2022.4 新开业",
+        "436 室",
+        "なにわラグジュアリー",
+        "OMO Ranger"
       ],
-      "地址": "最近站：JR新今宫站（步行 1 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市浪速区恵美須西 3-16-30·JR 新今宫駅目前",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥25,000-60,000",
+      "房型": "8 类·全 436 室·14 阶建",
+      "预约": "公式 hoshinoresorts.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
-    ],
-    "最后核实": "2026-04-26"
-  },
-  {
-    "id": "osk_tennoji_shinsekai_kyocera_hotel",
-    "city": "大阪",
-    "area": "tennoji_shinsekai",
-    "near_attractions": [
-      {
-        "entity_id": "osk_abeno_harukas",
-        "walk_min": 10
-      },
-      {
-        "entity_id": "osk_shitennoji",
-        "walk_min": 10
-      }
-    ],
-    "type": "city",
-    "price_cny_per_night": [
-      600,
-      1400
-    ],
-    "tier": "b3",
-    "season_months": null,
-    "depth": "skeleton",
-    "note": {
-      "店名": "京瓷酒店（ホテル京セラ）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
-      "亮点": [
-        "现代感",
-        "礼宾服务"
-      ],
-      "地址": "最近站：JR隼人站（步行 12 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
-    },
-    "可信度": "single_source",
-    "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://hoshinoresorts.com/ja/hotels/omo7osaka/",
+      "https://www.jalan.net/yad311704/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -138,21 +106,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪天王寺塔安达之森（アンダの森 大阪天王寺タワー）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**アンダの森 大阪天王寺タワー·2025 年 4 月 10 日 grand open·国内 3 馆目**·天王寺駅徒步 3 分·**1 泊 3 食 all-inclusive ホテル**·10 类全 8 名收容·**部分岩盤浴付**·4F 岩盤浴+ボールプール+漫画+gym+ジップライン·1F 木育广场。",
       "亮点": [
-        "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "温泉度假",
+        "アンダ系",
+        "2025.4 新开业",
+        "1 泊 3 食 all-inclusive",
+        "10 类客室",
+        "ジップライン"
       ],
-      "地址": "最近站：JR天王寺站（步行 4 分钟左右）",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市天王寺区·天王寺駅徒步 3 分",
+      "价格": "一泊 3 食 2 人 ¥40,000-150,000",
+      "房型": "10 类·40㎡+ 岩盤浴付 3 类·8 类 family·4 类 compact",
+      "含早": "all-inclusive 1 泊 3 食含·夕/夜/朝食 飲み放題",
+      "预约": "公式 andanomori.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.andanomori.jp/tennoji/",
+      "https://www.andanomori.jp/tennoji/room/"
     ],
     "最后核实": "2026-04-26"
   }

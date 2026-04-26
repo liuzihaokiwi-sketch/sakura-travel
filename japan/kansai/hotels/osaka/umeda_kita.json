@@ -140,20 +140,28 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "丽嘉皇家大酒店大阪（リーガロイヤルホテル大阪）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**2025 年 4 月 rebrand 为 Vignette Collection by IHG·1935 年系**·全 1001 室（rebrand 前 1042）·17-109㎡·中之島·**62 室クラブフロア**·**21 间餐厅**·130 億円改装（2025 EXPO 前）·关西最大老铺。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Vignette by IHG 系",
+        "1001 室·1935 老铺",
+        "62 室 club floor",
+        "21 间餐厅",
+        "2025 EXPO rebrand"
       ],
-      "地址": "最近站：中之岛（大阪）（步行 1 分钟左右）",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市北区中之島 5-3-68·新福島駅徒步 3 分",
+      "价格": "素泊 2 人 ¥30,000-80,000·IHG One Rewards",
+      "房型": "17-109㎡·全 1001 室·クラブフロア 62 室",
+      "含早": "可选含早",
+      "预约": "公式 rihga.co.jp·IHG·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.rihga.co.jp/osaka/",
+      "https://www.rihga.co.jp/osaka/about/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -218,22 +226,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "Zentis Osaka（Zentis Osaka）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Palace Hotel 系新 brand·2020.7.15 开业**·堂島浜 1-4-26·北新地駅徒步 4 分·全 212 室（King 168/Twin 41/Suite 2/Accessible 1）·25-57㎡·**Tara Bernerd 设计**·UPSTAIRZ 米其林餐厅·24h fitness。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "Palace Hotel 系",
+        "2020.7 新 brand",
+        "212 室",
+        "Tara Bernerd 设计",
+        "UPSTAIRZ 米其林"
       ],
-      "地址": "最近站：渡边桥（步行 5 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市北区堂島浜 1-4-26·北新地駅徒步 4 分·梅田駅徒步 9-15 分",
+      "含早": "UPSTAIRZ 含选项",
+      "价格": "素泊 2 人 ¥45,000-120,000",
+      "房型": "King 168 / Twin 41 / Suite 2·全 212 室·25-57㎡",
+      "预约": "公式 zentishotels.com·Palace Hotel·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://zentishotels.com/ja/osaka/",
+      "https://www.palacehoteltokyo.com/newsroom/latest-news/zentis_osaka/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -379,21 +393,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪梅田希尔顿格芮精选酒店（キャノピーbyヒルトン大阪梅田）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Hilton Canopy 系·2024.9 开业·グラングリーン大阪 ノースタワー内**·大阪市北区大深町 6-38·全 308 室·**Canopy by Hilton 日本初**·**rooftop bar+无料 Canopy 自行车 rental**·grand front 大阪徒步 2 分·ペット OK 套餐。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Hilton Canopy 日本初",
+        "2024.9 新开业",
+        "308 室",
+        "グラングリーン内",
+        "rooftop bar+rental cycle"
       ],
-      "地址": "最近站：西梅田地铁站（步行 0 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市北区大深町 6-38·グラングリーン大阪 ノースタワー内·大阪駅 800m",
+      "含早": "CC: CARBON COPY 含选项",
+      "价格": "素泊 2 人 ¥35,000-90,000·Hilton Honors",
+      "房型": "King/Suite/Corner Suite/Panorama Suite·全 308 室",
+      "预约": "公式 Hilton·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.hilton.com/en/hotels/osapypy-canopy-osaka-umeda/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -458,21 +478,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "TONES OSAKA（TONES OSAKA）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**TONES OSAKA·2025.2.14 grand open**·**世界建築家アルド・ロッシ意匠継承外装**·大阪市北区堂山町 7-13·东梅田徒步 7 分·全 67 室·**全室バス トイレ別+洗い場**·3F TONES LOUNGE 无料朝食（5 类 bread）+特別「TONES SALON」音響个室·9 阶建。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "Vamos 系",
+        "2025.2 新开业",
+        "アルド・ロッシ意匠",
+        "67 室·9 阶",
+        "TONES SALON 音響个室"
       ],
-      "地址": "最近站：中崎町地铁站（步行 6 分钟左右）",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市北区堂山町 7-13·东梅田徒步 7 分",
+      "价格": "素泊 2 人 ¥18,000-45,000",
+      "房型": "Standard~SALON·全 67 室·バス トイレ独立",
+      "含早": "3F LOUNGE 无料 6:30-9:30·5 类 bread+drink",
+      "预约": "公式 tones-hotels.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://tones-hotels.com/osaka/",
+      "https://prtimes.jp/main/html/rd/p/000000001.000153326.html"
     ],
     "最后核实": "2026-04-26"
   },
@@ -537,22 +564,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪堂岛雅乐轩（アロフト大阪堂島）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Marriott Bonvoy Aloft 系·关西初**·堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分·**全 305 室含 6 室 Loft Suite + 8 室 Corner Loft Queen**·**ロフトイメージデザイン**·堂島地图グラフィック壁纸·55 吋 TV·Simmons ベッド·特注 drybar amenity。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "Marriott Bonvoy Aloft",
+        "关西初",
+        "305 室",
+        "Loft Suite 6 室",
+        "堂島グラフィック"
       ],
-      "地址": "最近站：渡边桥（步行 4 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市北区堂島浜 2-1-31·北新地/渡邊橋/肥後橋徒步 5 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥25,000-65,000·Marriott Bonvoy",
+      "房型": "King/Twin/Suite/Universal·全 305 室",
+      "预约": "公式 Marriott·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.marriott.com/en-us/hotels/osaal-aloft-osaka-dojima/overview/",
+      "https://www.ikyu.com/en-us/00002895/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -703,20 +736,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪阿尔莫尼安布拉塞酒店（アルモニーアンブラッセ大阪）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**HARMONIE EMBRASSEE OSAKA·安藤忠雄设计**·チャスカ茶屋町 10-22 阶·阪急梅田徒步 3 分·**Small Luxury 40 室·4 类 design concept 各室独立**·**最上 23 阶天空のチャペル**·三角构造特徴 building·法餐 restaurant 併設。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "安藤忠雄设计",
+        "Small Luxury 40 室",
+        "4 类 design concept",
+        "23F 天空のチャペル"
       ],
-      "价格": "日元区间 ¥30,000-50,000/晚（待 OTA 三时段核实）"
+      "价格": "素泊 2 人 ¥40,000-100,000",
+      "地址": "大阪市北区茶屋町 7-20·阪急梅田徒步 3 分",
+      "房型": "4 类·共 40 室·三角形构造",
+      "含早": "法餐含选项",
+      "预约": "公式 tgn.co.jp·一休·Relux"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.tgn.co.jp/hotel/osaka/harmonie/",
+      "https://www.tgn.co.jp/hotel/osaka/harmonie/stay/"
     ],
     "最后核实": "2026-04-26"
   }

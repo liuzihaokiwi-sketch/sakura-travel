@@ -20,22 +20,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪湾王子大酒店（グランドプリンスホテル大阪ベイ）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Prince Hotels 系·2023 年 7 月 rebrand**·大阪南港·28 阶 urban resort·全 480 室（rebrand 后部分 432 室运营）·JR 大阪站 shuttle 25 分·USJ 圈外低密 resort 选项。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "Prince Hotels 系",
+        "2023 rebrand",
+        "28 阶大型",
+        "南港 urban resort"
       ],
-      "地址": "最近站：贸易中心前（步行 9 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市住之江区南港北 1-13-11·JR 大阪站 shuttle 25 分",
+      "含早": "可选 buffet 含早",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard~Suite·全 480 室",
+      "预约": "公式 princehotels.co.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.princehotels.co.jp/osakabay/",
+      "https://osaka-info.jp/spot/GrandPrinceHotelOsakaBay/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -60,20 +65,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "环球港口酒店（ホテル ユニバーサルポート）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**USJ オフィシャルホテル·ORIX 不動産运营·2005.7 开业**·USJ 徒步 4 分·全 600 室·**Minion Room** 等多 collab room·大恐竜「REX CAFE」+ Lounge R·バリアフリー対応。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "USJ 公式 ホテル",
+        "ORIX 系",
+        "600 室",
+        "Minion Room collab"
       ],
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "价格": "素泊 2 人 ¥18,000-60,000",
+      "地址": "大阪市此花区·JR ユニバーサルシティ駅徒步 3 分·USJ 徒步 4 分",
+      "房型": "18 类·全 600 室·バリアフリー有",
+      "含早": "可选含早",
+      "预约": "公式 ORIX HOTELS·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://universalport.orixhotelsandresorts.com/",
+      "https://www.usj.co.jp/web/ja/jp/tour-hotel/partner-hotel"
     ],
     "最后核实": "2026-04-26"
   },
@@ -98,20 +110,27 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "公园前沿酒店 USJ（ザ パーク フロント ホテル USJ）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**USJ 最近接公式 ホテル·USJ メインゲート徒步 1 分**·全 598 室·客室 4-28 阶·**全室 30㎡+ + バス トイレ別**·10 类客室·Trip to the U.S.A. 主题·EV エレベーター time machine 设计。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "USJ 最近接 1 分",
+        "598 室",
+        "全室 30㎡+",
+        "Trip to USA 主题"
       ],
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "价格": "素泊 2 人 ¥25,000-80,000",
+      "地址": "大阪市此花区·USJ メインゲート徒步 1 分",
+      "房型": "10 类·全 598 室·全 30㎡+·バス トイレ別",
+      "含早": "可选含早",
+      "预约": "公式 parkfront-hotel.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://parkfront-hotel.com/",
+      "https://www.jalan.net/yad345931/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -136,21 +155,28 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "环球影城奇点酒店（ユニバーサルスタジオ シンギュラリホテル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**The Singulari Hotel & SkySpa·USJ 公式·Candeo 系**·ユニバーサルシティ駅徒步 1 分·全 390 室·17 阶·**14 阶屋上展望露天「SkySpa」宿泊客无料**·Simmons ベッド·朝食 buffet 60 品+。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "USJ 公式 ホテル",
+        "Candeo 系",
+        "390 室",
+        "屋上 SkySpa 露天",
+        "シングル 16㎡ 露天付 KING"
       ],
-      "地址": "最近站：JR环球城站（步行 3 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市此花区·ユニバーサルシティ駅徒步 1 分",
+      "含早": "60 品+ 健康 buffet 含选项",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Twin/King/Suite·全 390 室·部分 KING 露天付",
+      "预约": "公式 candeohotels.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.candeohotels.com/en/singulari/",
+      "https://www.candeohotels.com/en/singulari/rooms/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -175,20 +201,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "星野度假村 Risonare 大阪（星野リゾート リゾナーレ大阪）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**星野リゾート リゾナーレ·2022.12 开业**·**Hyatt Regency 大阪内一部改装·全 64 室+28 阶屋顶 470㎡ アトリエ**·**レッジョ・エミリア教育**創造力主题·小孩家族特化·アトリエ 80㎡ delux room 网絡云床。",
       "亮点": [
-        "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "温泉度假",
+        "星野リゾート 系",
+        "2022 新开业",
+        "64 室",
+        "レッジョ・エミリア 教育",
+        "アトリエ 470㎡"
       ],
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "价格": "夕朝食付 2 人 ¥80,000-180,000",
+      "地址": "大阪市住之江区·南港中央·Hyatt Regency 大阪内",
+      "房型": "アトリエ Room 3 类 + Family·全 64 室·部分 80㎡",
+      "含早": "可选含早",
+      "预约": "公式 hoshinoresorts.com·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://hoshinoresorts.com/en/hotels/risonareosaka/",
+      "https://www.ikyu.com/en-us/00003247/"
     ],
     "最后核实": "2026-04-26"
   },

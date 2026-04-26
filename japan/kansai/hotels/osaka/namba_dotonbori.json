@@ -20,21 +20,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪南海瑞士酒店（Swissotel Nankai Osaka）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Accor 系 Swissotel·5 星 premium·南海难波站直上·南海サウスタワービル内 36 阶 147m**·全 546 室·**Swiss Executive Lounge**·6 间餐厅+18 间宴会场·髙島屋大阪 5 阶直结·KIX 直通。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Accor Swissotel 系",
+        "5 星 premium",
+        "南海难波直上",
+        "546 室·36 阶"
       ],
-      "地址": "最近站：南海难波站（步行 2 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区難波 5-1-60·南海难波站直上·髙島屋直结",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥35,000-100,000·Accor Live Limitless",
+      "房型": "Standard~Swiss Executive·全 546 室",
+      "预约": "公式 swissotelnankaiosaka.com·Accor·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://swissotelnankaiosaka.com/",
+      "https://swissotelnankaiosaka.com/rooms-and-suites/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -59,21 +65,28 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪新大谷酒店（Hotel New Otani Osaka）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Forbes 2026 Recommended·Relux 2025 シティ 9 位**·JR 大阪城公园站徒步 3 分·**大阪城正面**·全 540 室·吹抜けアトリウムロビ·13 间餐厅·18 阶 SAKURA 大阪城ライトアップビュー·VIP 多数迎接。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Forbes 2026 Recommended",
+        "大阪城正面",
+        "540 室",
+        "アトリウムロビ",
+        "VIP 接待"
       ],
-      "地址": "最近站：JR大阪城公园站（步行 6 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区·JR 大阪城公园駅徒步 3 分·大阪城正面",
+      "含早": "13 间餐厅·可选含早",
+      "价格": "素泊 2 人 ¥30,000-100,000",
+      "房型": "Junior Suite 60㎡·Deluxe Connecting 60+30㎡·全 540 室",
+      "预约": "公式 newotani.co.jp·Relux·一休"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.newotani.co.jp/osaka/",
+      "https://rlx.jp/21047/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -138,21 +151,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "Cross Hotel Osaka（Cross Hotel Osaka）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**ORIX HOTELS Cross Hotel 系**·OsakaMetro なんば駅 14 出口徒步 3 分·心斎橋筋 2 丁目·道頓堀徒步 1 分·全室バス トイレ別·**3F TERRACE & DINING ZERO 朝食 buffet+meetlounge 无料**·ドンネブリVIEWツイン。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "ORIX Cross 系",
+        "なんば 3 分",
+        "道頓堀 1 分",
+        "meetlounge 无料 軽食"
       ],
-      "地址": "最近站：大阪难波（步行 7 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区心斎橋筋 2-5-15·OsakaMetro なんば徒步 3 分",
+      "含早": "3F ZERO buffet 含选项·大阪名物どて焼き",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard~SUITE Jr. 48㎡·多类型",
+      "预约": "公式 ORIX HOTELS·一休·楽天·**注意：2026.2-7 大規模改修部分休业**"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://cross-osaka.orixhotelsandresorts.com/",
+      "https://www.ikyu.com/en-us/00001355/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -177,21 +196,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪难波Hiyori酒店（大阪なんばHiyoriホテル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**サンフロンティアホテルズ「日和ホテル」関西初**·南海なんば駅徒步 1 分·SAKURA 棟+MOMIJI 棟·全 224 室·琉球畳調床材+**Simmons ベッド+和 Modern**·KIX ラピート 38 分·1F La biyori 朝食。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "日和系关西初",
+        "南海なんば 1 分",
+        "224 室·2 棟构成",
+        "琉球畳調床材+Simmons"
       ],
-      "地址": "最近站：南海难波站（步行 2 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区·南海なんば駅改札徒步 1 分",
+      "含早": "1F La biyori 有料",
+      "价格": "素泊 2 人 ¥18,000-40,000",
+      "房型": "22㎡ 中心·全 224 室·バス トイレ独立",
+      "预约": "公式 namba.hiyori-hotel.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://namba.hiyori-hotel.jp/",
+      "https://www.jalan.net/yad311599/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -216,21 +241,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪蒙特利格拉斯密尔酒店（ホテルモントレ グラスミア大阪）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**ホテルモントレ系·31 阶高层·なんば駅徒步 1 分**·全 348 室·24-31 阶 manor house イメージ·31 阶大阪市街地夜景眺望·**最上阶 59㎡ Grasmere Suite**·英国イングランド主题。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "ホテルモントレ系",
+        "なんば 1 分",
+        "348 室·31 阶高层",
+        "59㎡ Grasmere Suite"
       ],
-      "地址": "最近站：JR难波站（步行 0 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市浪速区湊町 1-2-3·なんば駅徒步 1 分",
+      "含早": "可选含早",
+      "价格": "素泊 2 人 ¥22,000-55,000",
+      "房型": "24-31 阶 manor house·全 348 室",
+      "预约": "公式 hotelmonterey.co.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.hotelmonterey.co.jp/grasmere_osaka/",
+      "https://www.j-hotel.or.jp/hotel/298/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -255,21 +286,28 @@
     ],
     "tier": "b5",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "&Here OSAKA NAMBA（&Here OSAKA NAMBA）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**andHere OSAKA NAMBA·全 89 室「ウラなんば」隐密 boutique**·南海なんば徒步 3 分·9 类客室·**special concept room kitchen+洗濯機·6 人 family OK·NAMbar 大阪 drink/snack·屋上 terrace 大阪夜景+通天閣 view**。",
       "亮点": [
         "设计精品",
-        "浪漫氛围",
-        "礼宾服务"
+        "andHere 系",
+        "ウラ難波 hidden",
+        "89 室·9 类",
+        "Special Concept Room kitchen+洗濯機",
+        "屋上 terrace"
       ],
-      "地址": "最近站：南海难波站（步行 2 分钟左右）",
-      "价格": "日元区间 ¥30,000-80,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区難波千日前 7-9·南海なんば徒步 3 分",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "9 类·全 89 室·部分 family/kitchen·6 人收容",
+      "含早": "可选含早",
+      "预约": "公式 andherehotels.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://andherehotels-osakanamba.com/en/",
+      "https://andherehotels.jp/en/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -294,20 +332,26 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "难波东方酒店（ナンバオリエンタルホテル）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**なんばオリエンタルホテル·なんば駅徒步 1 分（B21 出口直进 30 秒）**·全室 23㎡+·**3F 新设 Residential Floor 9 室 47-52㎡ 含洗濯機+IH+冷凍冷蔵庫+全室 terrace**·family/長期向。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "なんば 1 分（地下街直结）",
+        "Residential Floor 9 室",
+        "全 terrace+洗濯機+IH"
       ],
-      "地址": "最近站：今宫戎（步行 1 分钟左右）",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区千日前 2-8-17·なんば駅徒步 5 分（B21 直进 30 秒）",
+      "价格": "素泊 2 人 ¥18,000-50,000",
+      "房型": "Standard 23㎡+ / Residential 47-52㎡·共多类",
+      "含早": "和洋朝食 buffet 含选项",
+      "预约": "公式 nambaorientalhotel.co.jp·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://nambaorientalhotel.co.jp/",
+      "https://nambaorientalhotel.co.jp/rooms/"
     ],
     "最后核实": "2026-04-26"
   },
@@ -332,21 +376,27 @@
     ],
     "tier": "b3",
     "season_months": null,
-    "depth": "skeleton",
+    "depth": "verified",
     "note": {
       "店名": "大阪城希尔顿逸林酒店（ダブルツリーbyヒルトン大阪城）",
-      "简介": "待充实（skeleton·后续逐家用 trip.com / 一休真数据重写）",
+      "简介": "**Hilton 系 DoubleTree·大阪城正面**·所在大手前 1-1-1·**屋内 pool+fitness center**·大阪城/天满桥/大手门徒步 5 分·阪急/京阪 access·全室禁烟·family room 多。",
       "亮点": [
-        "现代感",
-        "礼宾服务"
+        "设计精品",
+        "Hilton 系",
+        "大阪城正面",
+        "屋内 pool+fitness",
+        "Castle View"
       ],
-      "地址": "最近站：JR大阪城北诘站（步行 9 分钟左右）",
-      "含早": "含",
-      "价格": "日元区间 ¥10,000-30,000/晚（待 OTA 三时段核实）"
+      "地址": "大阪市中央区大手前 1-1-1·大阪城徒步圈",
+      "含早": "可选含早·和洋 buffet",
+      "价格": "素泊 2 人 ¥30,000-80,000·Hilton Honors",
+      "房型": "King/Twin/Castle Executive View/Deluxe Suite·全室禁烟",
+      "预约": "公式 Hilton·一休·楽天"
     },
-    "可信度": "single_source",
+    "可信度": "cross_checked",
     "数据来源": [
-      "https://hotels.ctrip.com/"
+      "https://www.hilton.com/ja/hotels/osaocdi-doubletree-osaka-castle/",
+      "https://doubletree-osaka-castle.hiltonjapan.co.jp/"
     ],
     "最后核实": "2026-04-26"
   },
