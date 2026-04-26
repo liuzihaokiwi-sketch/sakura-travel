@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_sta_kyorinsen",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -59,7 +59,7 @@
   },
   {
     "id": "kyo_sta_issekisancho",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -119,7 +119,7 @@
   },
   {
     "id": "kyo_sta_yamamoto_mambo",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -176,7 +176,7 @@
   },
   {
     "id": "kyo_sta_henkostu",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -226,7 +226,7 @@
   },
   {
     "id": "kyo_sta_daiichi_asahi",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -290,7 +290,7 @@
   },
   {
     "id": "kyo_sta_kobushi_ramen",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -348,7 +348,7 @@
   },
   {
     "id": "kyo_sta_tsukumo_udon",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -403,7 +403,7 @@
   },
   {
     "id": "kyo_sta_inoda_hachijo",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -459,7 +459,7 @@
   },
   {
     "id": "kyo_sta_arata_okonomiyaki",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_railway_museum",
@@ -511,7 +511,7 @@
   },
   {
     "id": "kyo_sta_kataguruma_ramen",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_railway_museum",
@@ -561,7 +561,7 @@
   },
   {
     "id": "kyo_sta_manbo_teppan",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_railway_museum",
@@ -614,7 +614,7 @@
   },
   {
     "id": "kyo_sta_henkotsu_motsu",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_railway_museum",
@@ -667,7 +667,7 @@
   },
   {
     "id": "kyo_sta_masutani",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -721,7 +721,7 @@
   },
   {
     "id": "kyo_sta_kyoramen_koji",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -776,7 +776,7 @@
   },
   {
     "id": "kyo_sta_inoda_main",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -832,7 +832,7 @@
   },
   {
     "id": "kyo_sta_shinpukusaikan",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -888,7 +888,7 @@
   },
   {
     "id": "kyo_sta_kaidashi_kitada",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -944,7 +944,7 @@
   },
   {
     "id": "kyo_sta_tsujiri_isetan",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",
@@ -991,7 +991,7 @@
   },
   {
     "id": "kyo_sta_laparte",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_kyoto_aquarium",

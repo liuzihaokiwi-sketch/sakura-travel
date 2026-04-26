@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_arashiyama_suiran",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -47,7 +47,7 @@
   },
   {
     "id": "kyo_arashiyama_arashiyama_wen_quan_kadensho",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -94,7 +94,7 @@
   },
   {
     "id": "kyo_arashiyama_muni_kyoto_by_onko_chishin",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -139,7 +139,7 @@
   },
   {
     "id": "kyo_arashiyama_rokuoin",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -184,7 +184,7 @@
   },
   {
     "id": "kyo_arashiyama_grand_xi_lan_shan_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -229,7 +229,7 @@
   },
   {
     "id": "kyo_arashiyama_hoshinoya_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "arashiyama",
     "near_attractions": [
       {
@@ -274,7 +274,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_genji_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -319,7 +319,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -364,7 +364,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_nohga_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -409,7 +409,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_liao_li_ryokan_hua_le",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -450,7 +450,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_sowaka",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -495,7 +495,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_doubletree_by_hilton_kyoto_hig",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -539,7 +539,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_granbell_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -584,7 +584,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_omuro_kadensho",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -624,7 +624,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_the_shinmonzen",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -669,7 +669,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_hotel_seiryu_kyoto_kiyomizu",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -714,7 +714,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_celestine_gion",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -758,7 +758,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_gion_xin_qiao_mei_an",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -803,7 +803,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_jin_guang_yuan_ying_an",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -849,7 +849,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_ninnaji_omuro_hui_guan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -894,7 +894,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_chion_in_wajun_hui_guan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -939,7 +939,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_myoshinji_dong_lin_yuan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -984,7 +984,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_you_zi_wu_ryokan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -1030,7 +1030,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_chun_he_feng_liao_li_ryokan_ji_nai_hui",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -1071,7 +1071,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_omo5_kyoto_gion",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -1111,7 +1111,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_aoi_kyoto_stay_higashi",
-    "city": "京都",
+    "city": "kyoto",
     "area": "gion_higashiyama",
     "near_attractions": [
       {
@@ -1151,7 +1151,7 @@
   },
   {
     "id": "kyo_higashiyama_hyatt_regency_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1197,7 +1197,7 @@
   },
   {
     "id": "kyo_higashiyama_westin_miyako_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1237,7 +1237,7 @@
   },
   {
     "id": "kyo_higashiyama_capella_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1277,7 +1277,7 @@
   },
   {
     "id": "kyo_higashiyama_imperial_hotel_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1317,7 +1317,7 @@
   },
   {
     "id": "kyo_gion_higashiyama_fufu_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1363,7 +1363,7 @@
   },
   {
     "id": "kyo_higashiyama_banyan_tree_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1403,7 +1403,7 @@
   },
   {
     "id": "kyo_higashiyama_park_hyatt_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1443,7 +1443,7 @@
   },
   {
     "id": "kyo_higashiyama_six_senses_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1483,7 +1483,7 @@
   },
   {
     "id": "kyo_higashiyama_chishakuin_kaikan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "higashiyama",
     "near_attractions": [
       {
@@ -1530,7 +1530,7 @@
   },
   {
     "id": "kyo_kibune_kibune_teng_wu",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kibune",
     "near_attractions": [
       {
@@ -1577,7 +1577,7 @@
   },
   {
     "id": "kyo_arashiyama_liao_li_ryokan_you_yuan_tai",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kibune",
     "near_attractions": [
       {
@@ -1624,7 +1624,7 @@
   },
   {
     "id": "kyo_kita_takagamine_shou_huo_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kita",
     "near_attractions": [
       {
@@ -1665,7 +1665,7 @@
   },
   {
     "id": "kyo_kita_roku_kyoto_lxr",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kita",
     "near_attractions": [
       {
@@ -1705,7 +1705,7 @@
   },
   {
     "id": "kyo_takagamine_aman_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kita",
     "near_attractions": [
       {
@@ -1747,7 +1747,7 @@
   },
   {
     "id": "kyo_kyoto_station_the_thousand_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -1793,7 +1793,7 @@
   },
   {
     "id": "kyo_kyoto_station_hotel_granvia_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -1838,7 +1838,7 @@
   },
   {
     "id": "kyo_kyoto_station_miyako_hachijo",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -1878,7 +1878,7 @@
   },
   {
     "id": "kyo_kyoto_station_doubletree_by_hilton_kyoto_sta",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -1922,7 +1922,7 @@
   },
   {
     "id": "kyo_kyoto_station_hotel_she_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -1962,7 +1962,7 @@
   },
   {
     "id": "kyo_kyoto_station_tune_stay_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2007,7 +2007,7 @@
   },
   {
     "id": "kyo_kyoto_station_umekoji_kadensho",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2052,7 +2052,7 @@
   },
   {
     "id": "kyo_kyoto_station_sakura_terrace_the_gallery",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2097,7 +2097,7 @@
   },
   {
     "id": "kyo_kyoto_station_keihan_jing_dou_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2142,7 +2142,7 @@
   },
   {
     "id": "kyo_kyoto_station_jing_tang_yuan_jiu_wu_rui_feng_ge",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2186,7 +2186,7 @@
   },
   {
     "id": "kyo_kyoto_station_dusit_thani_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2226,7 +2226,7 @@
   },
   {
     "id": "kyo_kyoto_station_hotel_kanra_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2268,7 +2268,7 @@
   },
   {
     "id": "kyo_kyoto_station_omo3_kyoto_toji",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2308,7 +2308,7 @@
   },
   {
     "id": "kyo_kyoto_station_nazuna_kyoto_higashi_honganji",
-    "city": "京都",
+    "city": "kyoto",
     "area": "kyoto_station",
     "near_attractions": [
       {
@@ -2347,7 +2347,7 @@
   },
   {
     "id": "kyo_nakagyo_omo5_kyoto_sanjo",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2388,7 +2388,7 @@
   },
   {
     "id": "kyo_nakagyo_sumiya",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2430,7 +2430,7 @@
   },
   {
     "id": "kyo_nakagyo_ace_hotel_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2472,7 +2472,7 @@
   },
   {
     "id": "kyo_nakagyo_marufukuro",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2514,7 +2514,7 @@
   },
   {
     "id": "kyo_nakagyo_tawaraya",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2560,7 +2560,7 @@
   },
   {
     "id": "kyo_nakagyo_hiiragiya",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2606,7 +2606,7 @@
   },
   {
     "id": "kyo_nakagyo_nazuna_kyoto_gosho",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2645,7 +2645,7 @@
   },
   {
     "id": "kyo_nakagyo_kyo_no_ondokoro_marutamachi",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nakagyo",
     "near_attractions": [
       {
@@ -2685,7 +2685,7 @@
   },
   {
     "id": "kyo_nijo_central_bu_lai_dun_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nijo_central",
     "near_attractions": [
       {
@@ -2726,7 +2726,7 @@
   },
   {
     "id": "kyo_nijo_central_hotel_the_mitsui_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nijo_central",
     "near_attractions": [
       {
@@ -2768,7 +2768,7 @@
   },
   {
     "id": "kyo_nijo_central_garrya_nijo_castle_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nijo_central",
     "near_attractions": [
       {
@@ -2810,7 +2810,7 @@
   },
   {
     "id": "kyo_nijo_central_nazuna_kyoto_nijojo",
-    "city": "京都",
+    "city": "kyoto",
     "area": "nijo_central",
     "near_attractions": [
       {
@@ -2849,7 +2849,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_ritz_carlton_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -2896,7 +2896,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_hotel_okura_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -2940,7 +2940,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_good_nature_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -2985,7 +2985,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_cross_hotel_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3030,7 +3030,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_mitsui_garden_shijo",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3071,7 +3071,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_mitsui_garden_sanjo_premier",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3111,7 +3111,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_shijo_xin_ting_ying_te_gai_te_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3156,7 +3156,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_hyatt_place_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3196,7 +3196,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_hilton_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3236,7 +3236,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_jing_xiao_su_shi_ting_tang_yin",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3277,7 +3277,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_insomnia_kyoto_oike",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3322,7 +3322,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_kyoto_monterey",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3363,7 +3363,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_xian_dou_ting_espacion_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3408,7 +3408,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_gojo_holiday_inn_hotel",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3453,7 +3453,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_sequence",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3499,7 +3499,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_gate_hotel_jing_dou_gao_lai_chuan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3545,7 +3545,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_cuvee_j2",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3585,7 +3585,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_rojiyu_kyoto",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3630,7 +3630,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_yuraku_etsuen",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3675,7 +3675,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_shijo_kawaramachi_wen_quan_kong_ting_lu_tai_jing_dou",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3721,7 +3721,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_shijo_kawaramachi_wen_quan_kong_ting_lu_tai_jing_dou_bettei",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3768,7 +3768,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_candeohotels",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3813,7 +3813,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_ting_jia_zhu_zhai_jing_dou",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3858,7 +3858,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_kuraya",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3903,7 +3903,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_yao_shi_yuan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3946,7 +3946,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_song_jing_honkan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -3988,7 +3988,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_tian_fu_luo_ji_chuan",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -4028,7 +4028,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_daiwa_roynet_shijo_karasuma",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -4066,7 +4066,7 @@
   },
   {
     "id": "kyo_shijo_kawaramachi_nazuna_kyoto_tsubaki",
-    "city": "京都",
+    "city": "kyoto",
     "area": "shijo_kawaramachi",
     "near_attractions": [
       {
@@ -4106,7 +4106,7 @@
   },
   {
     "id": "kyo_takao_hong_ye_jia_honkan_takao_sanso",
-    "city": "京都",
+    "city": "kyoto",
     "area": "takao",
     "near_attractions": [
       {

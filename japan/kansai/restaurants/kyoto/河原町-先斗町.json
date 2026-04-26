@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_kawaramachi_kikunoi_roan",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -62,7 +62,7 @@
   },
   {
     "id": "kyo_kawaramachi_takayama",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -119,7 +119,7 @@
   },
   {
     "id": "kyo_kawaramachi_mishimatei",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_teramachi",
@@ -181,7 +181,7 @@
   },
   {
     "id": "kyo_kawaramachi_terayama",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -236,7 +236,7 @@
   },
   {
     "id": "kyo_kawaramachi_mensya_inoichi",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -296,7 +296,7 @@
   },
   {
     "id": "kyo_kawaramachi_nishiki_katsuzushi",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -352,7 +352,7 @@
   },
   {
     "id": "kyo_kawaramachi_kyogoku_kaneyo",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_shinkyogoku",
@@ -413,7 +413,7 @@
   },
   {
     "id": "kyo_kawaramachi_smart_coffee",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_teramachi",
@@ -475,7 +475,7 @@
   },
   {
     "id": "kyo_kawaramachi_takatsujikasui",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_kamo_river",
@@ -525,7 +525,7 @@
   },
   {
     "id": "kyo_kawaramachi_francois_kissa",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_kamo_river",
@@ -576,7 +576,7 @@
   },
   {
     "id": "kyo_kawaramachi_inoichi_ramen",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_kamo_river",
@@ -633,7 +633,7 @@
   },
   {
     "id": "kyo_kawaramachi_rokuyosha_coffee",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_kamo_river",
@@ -685,7 +685,7 @@
   },
   {
     "id": "kyo_kawaramachi_bar_k6",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -736,7 +736,7 @@
   },
   {
     "id": "kyo_kawaramachi_lescamoteur",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -786,7 +786,7 @@
   },
   {
     "id": "kyo_kawaramachi_yoshina_kawadoko",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -844,7 +844,7 @@
   },
   {
     "id": "kyo_nishiki_daiyasu",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -899,7 +899,7 @@
   },
   {
     "id": "kyo_nishiki_hamohide",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -953,7 +953,7 @@
   },
   {
     "id": "kyo_nishiki_kuwato",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": "kyo_pontocho_aubec_an",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -1049,7 +1049,7 @@
   },
   {
     "id": "kyo_takashimaya_manyoken",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -1104,7 +1104,7 @@
   },
   {
     "id": "kyo_kawaramachi_ippodo",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -1153,7 +1153,7 @@
   },
   {
     "id": "kyo_kawaramachi_obanzai_kohaku",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",
@@ -1202,7 +1202,7 @@
   },
   {
     "id": "kyo_kawaramachi_kyoto_yamatoya",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",

@@ -1,7 +1,7 @@
 [
   {
     "id": "kob_kitano_kitano_club",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -55,7 +55,7 @@
   },
   {
     "id": "kob_kitano_yuki_setsugetsu",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -109,7 +109,7 @@
   },
   {
     "id": "kob_motomachi_itogrill",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -164,7 +164,7 @@
   },
   {
     "id": "kob_motomachi_rakukanki",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -211,7 +211,7 @@
   },
   {
     "id": "kob_kitano_tempura_tensuke",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -262,7 +262,7 @@
   },
   {
     "id": "kob_kitano_steakland",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -314,7 +314,7 @@
   },
   {
     "id": "kob_kitano_mont_plus",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -359,7 +359,7 @@
   },
   {
     "id": "kob_kitano_caffarel",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -404,7 +404,7 @@
   },
   {
     "id": "kob_kitano_motomachi_santos",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_nankinmachi",
@@ -449,7 +449,7 @@
   },
   {
     "id": "kob_motomachi_modan_yaki",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -503,7 +503,7 @@
   },
   {
     "id": "kob_motomachi_oka_curry",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -557,7 +557,7 @@
   },
   {
     "id": "kob_motomachi_iruka_sushi",
-    "area": "神户北野-元町",
+    "area": "kitano_motomachi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",

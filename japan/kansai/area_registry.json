@@ -1,542 +1,462 @@
 [
   {
-    "area": "东山轴",
+    "area": "higashiyama_axis",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
-    "area": "梅田",
+    "area": "umeda",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "难波",
+    "area": "dotonbori",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "心斋桥",
-    "type": "主场密集",
-    "city": "大阪"
-  },
-  {
-    "area": "道顿堀",
-    "type": "主场密集",
-    "city": "大阪"
-  },
-  {
-    "area": "京都站",
+    "area": "sannomiya_kyukyoryuchi",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kobe"
   },
   {
-    "area": "岚山",
+    "area": "kitano_motomachi",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kobe"
   },
   {
-    "area": "北区",
+    "area": "naramachi",
     "type": "日归动线",
-    "city": "京都"
+    "city": "nara"
   },
   {
-    "area": "伏见",
+    "area": "tenma",
     "type": "日归动线",
-    "city": "京都"
+    "city": "osaka"
   },
   {
-    "area": "神户三宮-旧居留地",
+    "area": "fukushima",
     "type": "日归动线",
-    "city": "神户"
+    "city": "osaka"
   },
   {
-    "area": "神户北野-元町",
-    "type": "日归动线",
-    "city": "神户"
-  },
-  {
-    "area": "奈良公园",
-    "type": "日归动线",
-    "city": "奈良"
-  },
-  {
-    "area": "ならまち",
-    "type": "日归动线",
-    "city": "奈良"
-  },
-  {
-    "area": "姬路城周边",
-    "type": "日归动线",
-    "city": "姬路"
-  },
-  {
-    "area": "天王寺-新世界",
-    "type": "日归动线",
-    "city": "大阪"
-  },
-  {
-    "area": "天满",
-    "type": "日归动线",
-    "city": "大阪"
-  },
-  {
-    "area": "福岛",
-    "type": "日归动线",
-    "city": "大阪"
-  },
-  {
-    "area": "池田",
-    "type": "日归动线",
-    "city": "大阪"
-  },
-  {
-    "area": "有马温泉",
-    "type": "温泉宿坊",
-    "city": "神户"
-  },
-  {
-    "area": "城崎温泉",
-    "type": "温泉宿坊",
-    "city": "城崎"
-  },
-  {
-    "area": "高野山",
-    "type": "温泉宿坊",
-    "city": "高野山"
-  },
-  {
-    "area": "USJ",
+    "area": "usj",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "大阪城",
+    "area": "kitashinchi",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "天保山",
+    "area": "kumano_kodo",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "kumano"
   },
   {
-    "area": "新地",
+    "area": "amanohashidate_ine",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "amanohashidate"
   },
   {
-    "area": "吉野山",
-    "type": "景点单日",
-    "city": "吉野"
-  },
-  {
-    "area": "熊野古道",
-    "type": "景点单日",
-    "city": "熊野"
-  },
-  {
-    "area": "天桥立-伊根",
-    "type": "景点单日",
-    "city": "天桥立"
-  },
-  {
-    "area": "中崎町",
+    "area": "nakazakicho",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "美国村",
+    "area": "amerika_mura",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
-    "area": "堀江",
+    "area": "horie",
     "type": "日归动线",
-    "city": "大阪"
-  },
-  {
-    "area": "日本桥",
-    "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "kobe_suma",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "kobe_nada",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "nipponbashi",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "horyuji",
     "type": "景点单日",
-    "city": "奈良"
+    "city": "nara"
   },
   {
     "area": "nishinokyo",
     "type": "日归动线",
-    "city": "奈良"
+    "city": "nara"
   },
   {
     "area": "ohara",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "higashiyama",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "gion",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "kyoto_center",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "central_kyoto",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "nakagyo",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "okazaki",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "fushimi",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "higashiyama_north",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "kita",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "arashiyama",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "sagano",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "kinkaku_nishiyama",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "sakyo",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "south_kyoto",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "nishikyo",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "uji",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "takao",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "yase",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "kurama",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "kibune",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "daigo",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "nagaokakyo",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "yawata",
     "type": "景点单日",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "osaka_kita",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "namba",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osaka_central",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osaka_ikeda",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "tempozan",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osaka_castle_park",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osakajo",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "abeno_tennoji",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "tennoji",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "shinsekai",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "sumiyoshi",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "suita_expo",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osaka_nagai",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "osaka_bay",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "nara_ikoma",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "kobe_rokko",
     "type": "景点单日",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "kobe_waterfront",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "kobe_central",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "kobe_kita",
     "type": "景点单日",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "kobe_kitano",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "arima",
     "type": "温泉宿坊",
-    "city": "神户"
+    "city": "arima"
   },
   {
     "area": "himeji",
     "type": "景点单日",
-    "city": "姬路"
+    "city": "himeji"
   },
   {
     "area": "nara_park",
     "type": "日归动线",
-    "city": "奈良"
+    "city": "nara"
   },
   {
     "area": "nara_yoshino",
     "type": "景点单日",
-    "city": "吉野"
+    "city": "yoshino"
   },
   {
     "area": "shiga",
     "type": "景点单日",
-    "city": "滋贺"
+    "city": "other"
   },
   {
     "area": "kinosaki",
     "type": "温泉宿坊",
-    "city": "城崎"
+    "city": "kinosaki"
   },
   {
     "area": "arima_onsen",
     "type": "温泉宿坊",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "bay_area",
     "type": "景点单日",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "gion_higashiyama",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "harborland_meriken",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "honmachi",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "kinosaki_onsen",
     "type": "温泉宿坊",
-    "city": "城崎"
+    "city": "kinosaki"
   },
   {
     "area": "kitano_shinkobe",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "koyasan_temple",
     "type": "温泉宿坊",
-    "city": "高野山"
+    "city": "koyasan"
   },
   {
     "area": "kyoto_station",
     "type": "日归动线",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "motomachi_nankinmachi",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "namba_dotonbori",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "nara_park_area",
     "type": "日归动线",
-    "city": "奈良"
+    "city": "nara"
   },
   {
     "area": "nijo_central",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "sannomiya",
     "type": "日归动线",
-    "city": "神户"
+    "city": "kobe"
   },
   {
     "area": "shijo_kawaramachi",
     "type": "主场密集",
-    "city": "京都"
+    "city": "kyoto"
   },
   {
     "area": "shinsaibashi",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "shirahama",
     "type": "温泉宿坊",
-    "city": "白浜"
+    "city": "shirahama"
   },
   {
     "area": "tennoji_shinsekai",
     "type": "日归动线",
-    "city": "大阪"
+    "city": "osaka"
   },
   {
     "area": "umeda_kita",
     "type": "主场密集",
-    "city": "大阪"
+    "city": "osaka"
+  },
+  {
+    "area": "kobe_bay_area",
+    "type": "主场密集",
+    "city": "kobe"
   }
 ]

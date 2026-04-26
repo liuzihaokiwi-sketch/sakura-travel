@@ -1,7 +1,7 @@
 [
   {
     "id": "ama_ine_funaya_restaurant",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "ine_funaya",
@@ -57,7 +57,7 @@
   },
   {
     "id": "ama_chionji_kaisendon",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "amh_chionji",
@@ -106,7 +106,7 @@
   },
   {
     "id": "ama_ine_funaya_seafood",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "ama_ine_funaya",
@@ -154,7 +154,7 @@
   },
   {
     "id": "ama_hashidate_chie_soba",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "ama_amanohashidate",
@@ -201,7 +201,7 @@
   },
   {
     "id": "ama_hashidate_kani_kaiseki",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "ama_amanohashidate",
@@ -254,7 +254,7 @@
   },
   {
     "id": "ama_miyazu_kaisen_don",
-    "area": "天桥立-伊根",
+    "area": "amanohashidate_ine",
     "near_attractions": [
       {
         "entity_id": "ama_amanohashidate",

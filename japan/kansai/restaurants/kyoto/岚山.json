@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_arashiyama_kitcho",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -63,7 +63,7 @@
   },
   {
     "id": "kyo_arashiyama_okina",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -124,7 +124,7 @@
   },
   {
     "id": "kyo_arashiyama_muni_ducasse",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_togetsukyo",
@@ -172,7 +172,7 @@
   },
   {
     "id": "kyo_arashiyama_shigetsu",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -223,7 +223,7 @@
   },
   {
     "id": "kyo_arashiyama_shoraian",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_kameyama_park",
@@ -282,7 +282,7 @@
   },
   {
     "id": "kyo_arashiyama_yudofu_sagano",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -335,7 +335,7 @@
   },
   {
     "id": "kyo_arashiyama_hirokawa_unagi",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -396,7 +396,7 @@
   },
   {
     "id": "kyo_arashiyama_benkei_kawadoko",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_togetsukyo",
@@ -452,7 +452,7 @@
   },
   {
     "id": "kyo_arashiyama_mitate",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -509,7 +509,7 @@
   },
   {
     "id": "kyo_arashiyama_yu_dofu_arashiyama",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -557,7 +557,7 @@
   },
   {
     "id": "kyo_arashiyama_yatsuhashi",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -604,7 +604,7 @@
   },
   {
     "id": "kyo_omuro_sakon",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",

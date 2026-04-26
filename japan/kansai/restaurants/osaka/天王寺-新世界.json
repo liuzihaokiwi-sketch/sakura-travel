@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_dotonbori_yaekats",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_shinsekai",
@@ -61,7 +61,7 @@
   },
   {
     "id": "osk_tenoji_mansei",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -117,7 +117,7 @@
   },
   {
     "id": "osk_tenoji_marumai",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -166,7 +166,7 @@
   },
   {
     "id": "osk_tenoji_udon_ikki",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -221,7 +221,7 @@
   },
   {
     "id": "osk_tenoji_nijinohotokeya",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -276,7 +276,7 @@
   },
   {
     "id": "osk_tenoji_ah_men",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -323,7 +323,7 @@
   },
   {
     "id": "osk_shinsekai_daruma_main",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -378,7 +378,7 @@
   },
   {
     "id": "osk_shinsekai_yaekatsu",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -434,7 +434,7 @@
   },
   {
     "id": "osk_shinsekai_tengu",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",

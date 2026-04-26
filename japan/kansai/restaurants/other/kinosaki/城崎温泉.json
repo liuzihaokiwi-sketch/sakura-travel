@@ -1,7 +1,7 @@
 [
   {
     "id": "kns_kinosaki_matsuba_crab",
-    "area": "城崎温泉",
+    "area": "kinosaki_onsen",
     "near_attractions": [
       {
         "entity_id": "kns_kinosaki",
@@ -55,7 +55,7 @@
   },
   {
     "id": "kns_kinosaki_tajima_gyu",
-    "area": "城崎温泉",
+    "area": "kinosaki_onsen",
     "near_attractions": [
       {
         "entity_id": "kns_kinosaki",
@@ -109,7 +109,7 @@
   },
   {
     "id": "kns_kinosaki_yaki_seafood",
-    "area": "城崎温泉",
+    "area": "kinosaki_onsen",
     "near_attractions": [
       {
         "entity_id": "kns_kinosaki",

@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_karasuma_nakamura",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -62,7 +62,7 @@
   },
   {
     "id": "kyo_karasuma_ogata",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -121,7 +121,7 @@
   },
   {
     "id": "kyo_karasuma_kinobu",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -181,7 +181,7 @@
   },
   {
     "id": "kyo_karasuma_horibe",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -235,7 +235,7 @@
   },
   {
     "id": "kyo_karasuma_yamagishi",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -294,7 +294,7 @@
   },
   {
     "id": "kyo_karasuma_torisaki",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -343,7 +343,7 @@
   },
   {
     "id": "kyo_karasuma_takatsujikasui",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nishiki_market",
@@ -395,7 +395,7 @@
   },
   {
     "id": "kyo_karasuma_suehiro",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_teramachi",
@@ -457,7 +457,7 @@
   },
   {
     "id": "kyo_karasuma_inoda_honten",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_teramachi",
@@ -517,7 +517,7 @@
   },
   {
     "id": "kyo_karasuma_sorakubu",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -577,7 +577,7 @@
   },
   {
     "id": "kyo_karasuma_patisserie_s_salon",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -631,7 +631,7 @@
   },
   {
     "id": "kyo_karasuma_grains_de_vanille",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -684,7 +684,7 @@
   },
   {
     "id": "kyo_karasuma_seabura_ramen",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -741,7 +741,7 @@
   },
   {
     "id": "kyo_karasuma_kissa_ashishima",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -791,7 +791,7 @@
   },
   {
     "id": "kyo_karasuma_lavoiture_tartetatin",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_heian_jingu",
@@ -843,7 +843,7 @@
   },
   {
     "id": "kyo_karasuma_smart_coffee",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -894,7 +894,7 @@
   },
   {
     "id": "kyo_karasuma_suehiro_kyozushi",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -954,7 +954,7 @@
   },
   {
     "id": "kyo_karasuma_roujina_soba",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1014,7 +1014,7 @@
   },
   {
     "id": "kyo_karasuma_hitsuji_donut",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1069,7 +1069,7 @@
   },
   {
     "id": "kyo_karasuma_daikokuden_seien",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1122,7 +1122,7 @@
   },
   {
     "id": "kyo_karasuma_fiveran_bread",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1176,7 +1176,7 @@
   },
   {
     "id": "kyo_karasuma_takakura_nijo_ramen",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1233,7 +1233,7 @@
   },
   {
     "id": "kyo_karasuma_maedacoffee_meirin",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1283,7 +1283,7 @@
   },
   {
     "id": "kyo_karasuma_setsugekka",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1334,7 +1334,7 @@
   },
   {
     "id": "kyo_karasuma_bozubar",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "kyo_karasuma_kyomode",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1435,7 +1435,7 @@
   },
   {
     "id": "kyo_karasuma_daichan_yakiniku",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1486,7 +1486,7 @@
   },
   {
     "id": "kyo_karasuma_ryu_no_hige",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1536,7 +1536,7 @@
   },
   {
     "id": "kyo_karasuma_obanzai_nanohana",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",
@@ -1586,7 +1586,7 @@
   },
   {
     "id": "kyo_karasuma_synager",
-    "area": "烏丸御池",
+    "area": "karasuma_oike",
     "near_attractions": [
       {
         "entity_id": "kyo_nijo_castle",

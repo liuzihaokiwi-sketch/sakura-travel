@@ -1,7 +1,7 @@
 [
   {
     "id": "yos_yoshino_hyotaro",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",
@@ -48,7 +48,7 @@
   },
   {
     "id": "yos_yoshino_nakai_shunpudo",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",
@@ -94,7 +94,7 @@
   },
   {
     "id": "yos_yoshino_yajiyu",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",
@@ -147,7 +147,7 @@
   },
   {
     "id": "yos_yoshino_kakiha_sushi_tanaka",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",
@@ -200,7 +200,7 @@
   },
   {
     "id": "yos_yoshino_kuzumochi_yoshinoya",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",
@@ -247,7 +247,7 @@
   },
   {
     "id": "yos_yoshino_sakura_bento",
-    "area": "吉野山",
+    "area": "nara_yoshino",
     "near_attractions": [
       {
         "entity_id": "nar_yoshino_yama",

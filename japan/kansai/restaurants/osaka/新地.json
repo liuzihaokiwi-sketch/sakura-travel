@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_shinsaibashi_sushitada",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_nakanoshima",
@@ -48,7 +48,7 @@
   },
   {
     "id": "osk_shinsaibashi_fujiya1935",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_nakanoshima",
@@ -103,7 +103,7 @@
   },
   {
     "id": "osk_kitashinchi_minatsuki",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -160,7 +160,7 @@
   },
   {
     "id": "osk_kitashinchi_murakamijiro",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -209,7 +209,7 @@
   },
   {
     "id": "osk_kitashinchi_iwai_tempura",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -258,7 +258,7 @@
   },
   {
     "id": "osk_kitashinchi_yamashiro",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -314,7 +314,7 @@
   },
   {
     "id": "osk_kitashinchi_saeki",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -363,7 +363,7 @@
   },
   {
     "id": "osk_kitashinchi_noguchi",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -412,7 +412,7 @@
   },
   {
     "id": "osk_kitashinchi_uemori",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -460,7 +460,7 @@
   },
   {
     "id": "osk_kitashinchi_yakitori_ichigo",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -509,7 +509,7 @@
   },
   {
     "id": "osk_kitashinchi_kani_genu",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -564,7 +564,7 @@
   },
   {
     "id": "osk_kitashinchi_yugentei",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -619,7 +619,7 @@
   },
   {
     "id": "osk_kitashinchi_sushi_sennarisu",
-    "area": "新地",
+    "area": "kitashinchi",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",

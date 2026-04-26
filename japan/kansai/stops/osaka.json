@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_usj_citywalk_hrc",
-    "area": "USJ",
+    "area": "usj",
     "near_attractions": [
       {
         "entity_id": "osk_usj",
@@ -24,7 +24,7 @@
   },
   {
     "id": "nakazakicho",
-    "area": "中崎町",
+    "area": "nakazakicho",
     "near_attractions": [
       {
         "entity_id": "osk_nakazakicho",
@@ -47,7 +47,7 @@
   },
   {
     "id": "kaya_cafe",
-    "area": "中崎町",
+    "area": "nakazakicho",
     "near_attractions": [
       {
         "entity_id": "osk_nakazakicho",
@@ -70,7 +70,7 @@
   },
   {
     "id": "nakazaki_vintage_cluster",
-    "area": "中崎町",
+    "area": "nakazakicho",
     "near_attractions": [
       {
         "entity_id": "osk_nakazakicho",
@@ -93,7 +93,7 @@
   },
   {
     "id": "ichi_horie",
-    "area": "堀江",
+    "area": "horie",
     "near_attractions": [
       {
         "entity_id": "osk_horie",
@@ -116,7 +116,7 @@
   },
   {
     "id": "osk_osakajo_miraiza",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",
@@ -139,7 +139,7 @@
   },
   {
     "id": "osk_osakajo_joterrace",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_nishinomaru_garden",
@@ -162,7 +162,7 @@
   },
   {
     "id": "osk_tempozan_mothermoon",
-    "area": "天保山",
+    "area": "tempozan",
     "near_attractions": [
       {
         "entity_id": "osk_kaiyukan",
@@ -185,7 +185,7 @@
   },
   {
     "id": "osk_tenma_sennariya_honten",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_mint_bureau",
@@ -208,7 +208,7 @@
   },
   {
     "id": "osk_tenma_honeybee",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_mint_bureau",
@@ -231,7 +231,7 @@
   },
   {
     "id": "osk_tenma_tenjinbashi_shotengai",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_mint_bureau",
@@ -254,7 +254,7 @@
   },
   {
     "id": "osk_shinsekai_sennariya",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -277,7 +277,7 @@
   },
   {
     "id": "osk_shinsekai_newworld_kissa",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_tsutenkaku",
@@ -300,7 +300,7 @@
   },
   {
     "id": "osk_shinsekai_spaworld",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_shinsekai",
@@ -327,7 +327,7 @@
   },
   {
     "id": "osk_tennoji_amato_maeda",
-    "area": "天王寺-新世界",
+    "area": "tennoji_shinsekai",
     "near_attractions": [
       {
         "entity_id": "osk_abeno_harukas",
@@ -350,7 +350,7 @@
   },
   {
     "id": "asoko_minami",
-    "area": "心斋桥",
+    "area": "shinsaibashi",
     "near_attractions": [
       {
         "entity_id": "osk_shinsaibashi_suji",
@@ -373,7 +373,7 @@
   },
   {
     "id": "daimaru_shinsaibashi",
-    "area": "心斋桥",
+    "area": "shinsaibashi",
     "near_attractions": [
       {
         "entity_id": "osk_shinsaibashi_suji",
@@ -396,7 +396,7 @@
   },
   {
     "id": "shinsaibashi_suji",
-    "area": "心斋桥",
+    "area": "shinsaibashi",
     "near_attractions": [
       {
         "entity_id": "osk_shinsaibashi_suji",
@@ -419,7 +419,7 @@
   },
   {
     "id": "daikokuya",
-    "area": "心斋桥",
+    "area": "shinsaibashi",
     "near_attractions": [
       {
         "entity_id": "osk_shinsaibashi_suji",
@@ -442,7 +442,7 @@
   },
   {
     "id": "mandarake_nipponbashi",
-    "area": "日本桥",
+    "area": "nipponbashi",
     "near_attractions": [
       {
         "entity_id": "osk_nipponbashi",
@@ -465,7 +465,7 @@
   },
   {
     "id": "super_potato",
-    "area": "日本桥",
+    "area": "nipponbashi",
     "near_attractions": [
       {
         "entity_id": "osk_nipponbashi",
@@ -488,7 +488,7 @@
   },
   {
     "id": "takimikoji",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -511,7 +511,7 @@
   },
   {
     "id": "hanshin_basement",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -534,7 +534,7 @@
   },
   {
     "id": "grand_front",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -557,7 +557,7 @@
   },
   {
     "id": "pokemon_center_osaka",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -580,7 +580,7 @@
   },
   {
     "id": "mandarake_umeda",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -603,7 +603,7 @@
   },
   {
     "id": "osk_ikeda_cupnoodles",
-    "area": "池田",
+    "area": "osaka_ikeda",
     "near_attractions": [
       {
         "entity_id": "osk_kyuanji",
@@ -626,7 +626,7 @@
   },
   {
     "id": "osk_ikeda_seiyo_sakan",
-    "area": "池田",
+    "area": "osaka_ikeda",
     "near_attractions": [
       {
         "entity_id": "osk_kyuanji",
@@ -641,7 +641,7 @@
   },
   {
     "id": "jam2_americamura",
-    "area": "美国村",
+    "area": "amerika_mura",
     "near_attractions": [
       {
         "entity_id": "osk_americamura",
@@ -664,7 +664,7 @@
   },
   {
     "id": "asagi_americamura",
-    "area": "美国村",
+    "area": "amerika_mura",
     "near_attractions": [
       {
         "entity_id": "osk_americamura",
@@ -687,7 +687,7 @@
   },
   {
     "id": "santonibunnoichi",
-    "area": "美国村",
+    "area": "amerika_mura",
     "near_attractions": [
       {
         "entity_id": "osk_americamura",
@@ -710,7 +710,7 @@
   },
   {
     "id": "donki_dotonbori",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -733,7 +733,7 @@
   },
   {
     "id": "food_model_exp",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -756,7 +756,7 @@
   },
   {
     "id": "doguyasuji",
-    "area": "难波",
+    "area": "namba",
     "near_attractions": [
       {
         "entity_id": "osk_namba",
@@ -779,7 +779,7 @@
   },
   {
     "id": "namba_parks",
-    "area": "难波",
+    "area": "namba",
     "near_attractions": [
       {
         "entity_id": "osk_namba",

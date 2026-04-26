@@ -1,7 +1,7 @@
 [
   {
     "id": "him_castle_manchinrou",
-    "area": "姬路城周边",
+    "area": "himeji",
     "near_attractions": [
       {
         "entity_id": "hyg_himejijo",
@@ -55,7 +55,7 @@
   },
   {
     "id": "him_castle_kokoen_cafe",
-    "area": "姬路城周边",
+    "area": "himeji",
     "near_attractions": [
       {
         "entity_id": "hyg_kokoen",

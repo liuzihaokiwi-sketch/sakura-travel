@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_tempozan_naniwa_yoko",
-    "area": "天保山",
+    "area": "tempozan",
     "near_attractions": [
       {
         "entity_id": "osk_kaiyukan",

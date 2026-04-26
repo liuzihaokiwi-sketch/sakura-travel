@@ -1,7 +1,7 @@
 [
   {
     "id": "kob_sannomiya_ueshima",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -57,7 +57,7 @@
   },
   {
     "id": "kob_sannomiya_sushijosuke",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -110,7 +110,7 @@
   },
   {
     "id": "kob_sannomiya_moriya",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -164,7 +164,7 @@
   },
   {
     "id": "kob_sannomiya_ishidaya_hanare",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -211,7 +211,7 @@
   },
   {
     "id": "kob_sannomiya_mon",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -266,7 +266,7 @@
   },
   {
     "id": "kob_sannomiya_kitano_soba",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -321,7 +321,7 @@
   },
   {
     "id": "kob_sannomiya_grillsuematsu",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -376,7 +376,7 @@
   },
   {
     "id": "kob_sannomiya_enishi",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -430,7 +430,7 @@
   },
   {
     "id": "kob_sannomiya_misono",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -482,7 +482,7 @@
   },
   {
     "id": "kob_sannomiya_mouriya",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -534,7 +534,7 @@
   },
   {
     "id": "kob_sannomiya_yakiniku_zen",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -578,7 +578,7 @@
   },
   {
     "id": "kob_sannomiya_sa_marche",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -623,7 +623,7 @@
   },
   {
     "id": "kob_sannomiya_com_chinois",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -674,7 +674,7 @@
   },
   {
     "id": "kob_sannomiya_tsukemen_handa",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -725,7 +725,7 @@
   },
   {
     "id": "kob_sannomiya_sone_jazz",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_ijinkan",
@@ -775,7 +775,7 @@
   },
   {
     "id": "kob_sannomiya_gyoza_minami",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -831,7 +831,7 @@
   },
   {
     "id": "kob_sannomiya_kobe_beef_a5",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",
@@ -886,7 +886,7 @@
   },
   {
     "id": "kob_sannomiya_modernark_pharm",
-    "area": "神户三宮-旧居留地",
+    "area": "sannomiya_kyukyoryuchi",
     "near_attractions": [
       {
         "entity_id": "kob_kitano_kyoryuchi",

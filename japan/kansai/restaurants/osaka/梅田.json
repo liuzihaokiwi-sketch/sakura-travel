@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_umeda_kamatake",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -46,7 +46,7 @@
   },
   {
     "id": "osk_umeda_mixjuice",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -90,7 +90,7 @@
   },
   {
     "id": "osk_umeda_udonyutaro",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_midosuji",
@@ -145,7 +145,7 @@
   },
   {
     "id": "osk_umeda_irizubashi",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -190,7 +190,7 @@
   },
   {
     "id": "osk_umeda_numata",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -246,7 +246,7 @@
   },
   {
     "id": "osk_umeda_sushi_osaka_organic",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -301,7 +301,7 @@
   },
   {
     "id": "osk_umeda_makino",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -345,7 +345,7 @@
   },
   {
     "id": "osk_umeda_kichizo",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -389,7 +389,7 @@
   },
   {
     "id": "osk_umeda_ramen_jet",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -440,7 +440,7 @@
   },
   {
     "id": "osk_umeda_boul_mich",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -486,7 +486,7 @@
   },
   {
     "id": "osk_kitashinchi_suntory_whisky",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -536,7 +536,7 @@
   },
   {
     "id": "osk_umeda_uoi_unagi",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -592,7 +592,7 @@
   },
   {
     "id": "osk_umeda_chikuyotei",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -646,7 +646,7 @@
   },
   {
     "id": "osk_umeda_kikukawa_unagi",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -701,7 +701,7 @@
   },
   {
     "id": "osk_umeda_tsuruya_unagi",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -749,7 +749,7 @@
   },
   {
     "id": "osk_umeda_kitanozaka",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -797,7 +797,7 @@
   },
   {
     "id": "osk_umeda_aijo_motsunabe",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -844,7 +844,7 @@
   },
   {
     "id": "osk_umeda_lucua_matsuba",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -899,7 +899,7 @@
   },
   {
     "id": "osk_umeda_aiduya_radio",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -953,7 +953,7 @@
   },
   {
     "id": "osk_umeda_eki_marche",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -1008,7 +1008,7 @@
   },
   {
     "id": "osk_umeda_jojoen",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",
@@ -1063,7 +1063,7 @@
   },
   {
     "id": "osk_umeda_motsunabe_yamana",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",

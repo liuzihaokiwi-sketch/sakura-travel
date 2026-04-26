@@ -49,3 +49,8 @@ def load_area_registry(circle_root: Path) -> list[dict]:
 def load_area_set(circle_root: Path) -> set[str]:
     """便捷 set·只取 area 名"""
     return {r["area"] for r in load_area_registry(circle_root)}
+
+
+def load_city_set(circle_root: Path) -> set[str]:
+    """便捷 set·从 registry 推 city 枚举"""
+    return {r["city"] for r in load_area_registry(circle_root) if "city" in r}

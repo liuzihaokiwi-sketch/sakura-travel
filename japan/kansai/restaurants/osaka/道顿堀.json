@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_dotonbori_imai",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -59,7 +59,7 @@
   },
   {
     "id": "osk_dotonbori_mizuno",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -117,7 +117,7 @@
   },
   {
     "id": "osk_dotonbori_kinryu",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -169,7 +169,7 @@
   },
   {
     "id": "osk_dotonbori_chibo",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -222,7 +222,7 @@
   },
   {
     "id": "osk_dotonbori_kushikatsu_daruma",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -279,7 +279,7 @@
   },
   {
     "id": "osk_dotonbori_kukuru",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -327,7 +327,7 @@
   },
   {
     "id": "osk_dotonbori_daruma",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -382,7 +382,7 @@
   },
   {
     "id": "osk_dotonbori_kani_genka",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -436,7 +436,7 @@
   },
   {
     "id": "osk_dotonbori_kanidoraku_main",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",
@@ -491,7 +491,7 @@
   },
   {
     "id": "osk_dotonbori_takoyaki_kukuru",
-    "area": "道顿堀",
+    "area": "dotonbori",
     "near_attractions": [
       {
         "entity_id": "osk_dotonbori",

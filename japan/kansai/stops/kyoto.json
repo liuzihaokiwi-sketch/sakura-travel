@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_higashi_kagizen",
-    "area": "东山轴",
+    "area": "higashiyama_axis",
     "near_attractions": [
       {
         "entity_id": "kyo_gion_hanamikoji",
@@ -24,7 +24,7 @@
   },
   {
     "id": "kyo_sta_nakamura_tokichi",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -47,7 +47,7 @@
   },
   {
     "id": "kyo_sta_housen_shinkansen",
-    "area": "京都站",
+    "area": "kyoto_station",
     "near_attractions": [
       {
         "entity_id": "kyo_sanjusangendo",
@@ -71,7 +71,7 @@
   },
   {
     "id": "kyo_fushimi_yume_hyakushu",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_gekkeikan_okura_museum",
@@ -98,7 +98,7 @@
   },
   {
     "id": "kyo_kita_saryo_housen",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_shimogamo",
@@ -121,7 +121,7 @@
   },
   {
     "id": "kyo_kita_sawaya_awamochi",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kitano_tenmangu",
@@ -144,7 +144,7 @@
   },
   {
     "id": "kyo_arashiyama_arabica",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_togetsukyo",
@@ -167,7 +167,7 @@
   },
   {
     "id": "kyo_arashiyama_excafe",
-    "area": "岚山",
+    "area": "arashiyama",
     "near_attractions": [
       {
         "entity_id": "kyo_tenryuji",
@@ -190,7 +190,7 @@
   },
   {
     "id": "kyo_kawaramachi_francois",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_pontocho",

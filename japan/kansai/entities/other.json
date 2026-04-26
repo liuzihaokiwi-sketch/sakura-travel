@@ -681,7 +681,7 @@
   "nar_kofukuji": {
     "entity_id": "nar_kofukuji",
     "city": "nara",
-    "area": "奈良公园",
+    "area": "nara_park",
     "category": "寺社",
     "depth": "full",
     "note": {
@@ -708,7 +708,7 @@
   "nar_national_museum": {
     "entity_id": "nar_national_museum",
     "city": "nara",
-    "area": "奈良公园",
+    "area": "nara_park",
     "category": "博物馆",
     "depth": "verified",
     "note": {

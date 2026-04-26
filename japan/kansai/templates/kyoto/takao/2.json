@@ -89,6 +89,7 @@
         {
           "type": "meal",
           "meal_type": "dinner",
+          "meal_area": "takao",
           "note": "旅馆内怀石晚餐（含餐·不走餐厅池）——山野料理为特色（山菜/鮎/丹波野菜），穿浴衣慢慢吃 2 小时"
         }
       ]
@@ -109,6 +110,7 @@
         {
           "type": "meal",
           "meal_type": "breakfast",
+          "meal_area": "takao",
           "note": "旅馆和式朝食 90 分钟（含餐·不走餐厅池）——山菜/白米/味噌汁，清淡简朴是正解"
         }
       ]

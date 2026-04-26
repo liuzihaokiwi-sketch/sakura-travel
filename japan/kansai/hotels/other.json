@@ -1,8 +1,8 @@
 [
   {
     "id": "arm_arima_hyoe_koyokaku",
-    "city": "神户",
-    "area": "arima",
+    "city": "kobe",
+    "area": "arima_onsen",
     "near_attractions": [
       {
         "entity_id": "arm_arima_onsen",
@@ -47,7 +47,7 @@
   },
   {
     "id": "arm_arima_onsen_tao_quan_gosho_fang",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -93,7 +93,7 @@
   },
   {
     "id": "arm_arima_onsen_zhu_qu_ting_yuan_shan",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -138,7 +138,7 @@
   },
   {
     "id": "arm_arima_onsen_grand_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -183,7 +183,7 @@
   },
   {
     "id": "arm_arima_onsen_hua_xiao_su_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -228,7 +228,7 @@
   },
   {
     "id": "arm_arima_onsen_tian_di_zhi_su_ao_zhi_xi_dao",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -273,7 +273,7 @@
   },
   {
     "id": "arm_arima_onsen_si_ji_zhi_cai_lv_long",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -318,7 +318,7 @@
   },
   {
     "id": "arm_arima_onsen_wen_quan_yue_guang_yuan_hong_long_guan",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -363,7 +363,7 @@
   },
   {
     "id": "arm_arima_onsen_yin_shui_zhuang_zhao_le",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -408,7 +408,7 @@
   },
   {
     "id": "arm_arima_onsen_shan_cong_gosho_bie_shu",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -453,7 +453,7 @@
   },
   {
     "id": "arm_arima_onsen_you_ma_yu_yuan",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -498,7 +498,7 @@
   },
   {
     "id": "arm_arima_onsen_gao_sanso_hua_ye",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -543,7 +543,7 @@
   },
   {
     "id": "arm_arima_onsen_hua_jie",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -588,7 +588,7 @@
   },
   {
     "id": "arm_arima_onsen_yuan_tang_gu_quan_ge",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -633,7 +633,7 @@
   },
   {
     "id": "arm_arima_onsen_yue_guang_yuan_you_yue_sanso",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -678,7 +678,7 @@
   },
   {
     "id": "arm_arima_onsen_ling_feng_ge",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -724,7 +724,7 @@
   },
   {
     "id": "arm_arima_onsen_yue_zhi_zhou",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -769,7 +769,7 @@
   },
   {
     "id": "arm_arima_onsen_you_ma_guang_cai",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -814,7 +814,7 @@
   },
   {
     "id": "arm_arima_onsen_kai_arima",
-    "city": "神户",
+    "city": "kobe",
     "area": "arima_onsen",
     "near_attractions": [
       {
@@ -854,8 +854,8 @@
   },
   {
     "id": "kbe_bay_area_wan_sheraton_hotel",
-    "city": "神户",
-    "area": "bay_area",
+    "city": "kobe",
+    "area": "kobe_bay_area",
     "near_attractions": [
       {
         "entity_id": "osk_kaiyukan",
@@ -899,7 +899,7 @@
   },
   {
     "id": "kbe_harborland_meriken_la_suite_hai_gang_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "harborland_meriken",
     "near_attractions": [
       {
@@ -944,7 +944,7 @@
   },
   {
     "id": "kbe_harborland_meriken_da_cang_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "harborland_meriken",
     "near_attractions": [
       {
@@ -989,7 +989,7 @@
   },
   {
     "id": "kbe_harborland_meriken_mei_li_jian_gong_yuan_dong_fang_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "harborland_meriken",
     "near_attractions": [
       {
@@ -1035,7 +1035,7 @@
   },
   {
     "id": "kbe_harborland_meriken_gang_wen_quan_lian",
-    "city": "神户",
+    "city": "kobe",
     "area": "harborland_meriken",
     "near_attractions": [
       {
@@ -1081,7 +1081,7 @@
   },
   {
     "id": "kbe_kitano_shinkobe_ana_crowne_plaza_kobe",
-    "city": "神户",
+    "city": "kobe",
     "area": "kitano_shinkobe",
     "near_attractions": [
       {
@@ -1122,7 +1122,7 @@
   },
   {
     "id": "kbe_kitano_shinkobe_kitano_hotel",
-    "city": "神户",
+    "city": "kobe",
     "area": "kitano_shinkobe",
     "near_attractions": [
       {
@@ -1163,7 +1163,7 @@
   },
   {
     "id": "kbe_motomachi_nankinmach_oriental_hotel_kobe",
-    "city": "神户",
+    "city": "kobe",
     "area": "motomachi_nankinmachi",
     "near_attractions": [
       {
@@ -1204,7 +1204,7 @@
   },
   {
     "id": "kbe_sannomiya_kobe_monterey",
-    "city": "神户",
+    "city": "kobe",
     "area": "sannomiya",
     "near_attractions": [
       {
@@ -1244,7 +1244,7 @@
   },
   {
     "id": "kns_kinosaki_nishimuraya_honkan",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki",
     "near_attractions": [
       {
@@ -1292,7 +1292,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_xi_cun_wu_hotel_zhao_yue_ting",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1334,7 +1334,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_wen_quan_xi_le",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1375,7 +1375,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_da_xi_wu_shui_xiang_yuan",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1416,7 +1416,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_xie_su_liu_zhi_wu",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1457,7 +1457,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_shen_shan",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1498,7 +1498,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_quan_cui",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1539,7 +1539,7 @@
   },
   {
     "id": "kns_kinosaki_onsen_kai_kinosaki",
-    "city": "城崎",
+    "city": "kinosaki",
     "area": "kinosaki_onsen",
     "near_attractions": [
       {
@@ -1579,7 +1579,7 @@
   },
   {
     "id": "kya_koyasan_temple_hui_guang_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1624,7 +1624,7 @@
   },
   {
     "id": "kya_koyasan_temple_yi_cheng_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1669,7 +1669,7 @@
   },
   {
     "id": "kya_koyasan_temple_lian_hua_ding_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1714,7 +1714,7 @@
   },
   {
     "id": "kya_koyasan_temple_fu_zhi_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1759,7 +1759,7 @@
   },
   {
     "id": "kya_koyasan_temple_xi_nan_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1804,7 +1804,7 @@
   },
   {
     "id": "kya_koyasan_temple_qing_jing_xin_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1850,7 +1850,7 @@
   },
   {
     "id": "kya_koyasan_temple_chi_song_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1895,7 +1895,7 @@
   },
   {
     "id": "kya_koyasan_temple_bu_dong_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1940,7 +1940,7 @@
   },
   {
     "id": "kya_koyasan_temple_chang_xi_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -1985,7 +1985,7 @@
   },
   {
     "id": "kya_koyasan_temple_long_quan_yuan",
-    "city": "高野山",
+    "city": "koyasan",
     "area": "koyasan_temple",
     "near_attractions": [
       {
@@ -2030,7 +2030,7 @@
   },
   {
     "id": "nra_nara_park_area_zi_cui_she_hua_jing_xuan_hotel_nai_liang",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2076,7 +2076,7 @@
   },
   {
     "id": "nra_nara_park_area_jie_dao_sai_tuo_lei",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2122,7 +2122,7 @@
   },
   {
     "id": "nra_nara_park_area_miroku_nara_by_the_share_hotel",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2168,7 +2168,7 @@
   },
   {
     "id": "nra_nara_park_area_fufu_nara",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2214,7 +2214,7 @@
   },
   {
     "id": "nra_nara_park_area_jw_marriott_hotel_nara",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2259,7 +2259,7 @@
   },
   {
     "id": "nra_nara_park_area_chun_ri_hotel",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2300,7 +2300,7 @@
   },
   {
     "id": "nra_nara_park_area_gu_dou_zhi_su_wu_cang_ye",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2344,7 +2344,7 @@
   },
   {
     "id": "nra_nara_park_area_you_jing_zhi_su_ping_cheng",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2384,7 +2384,7 @@
   },
   {
     "id": "nra_nara_park_area_si_ji_ting",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2426,7 +2426,7 @@
   },
   {
     "id": "nra_nara_park_area_fei_niao_zhuang",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2472,7 +2472,7 @@
   },
   {
     "id": "nra_nara_park_area_nara_hotel",
-    "city": "奈良",
+    "city": "nara",
     "area": "nara_park_area",
     "near_attractions": [
       {
@@ -2513,7 +2513,7 @@
   },
   {
     "id": "shr_shirahama_infinito_hotel_spa_nanki_shira",
-    "city": "白浜",
+    "city": "shirahama",
     "area": "shirahama",
     "near_attractions": [
       {
@@ -2559,7 +2559,7 @@
   },
   {
     "id": "shr_shirahama_shiraraso_grand_hotel",
-    "city": "白浜",
+    "city": "shirahama",
     "area": "shirahama",
     "near_attractions": [
       {
@@ -2605,7 +2605,7 @@
   },
   {
     "id": "shr_shirahama_shirahama_key_terrace_hotel_se",
-    "city": "白浜",
+    "city": "shirahama",
     "area": "shirahama",
     "near_attractions": [
       {

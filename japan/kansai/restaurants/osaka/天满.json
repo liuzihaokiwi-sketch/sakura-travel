@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_tenma_gojoya",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenmangu",
@@ -57,7 +57,7 @@
   },
   {
     "id": "osk_tenma_nishiya",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenmangu",
@@ -106,7 +106,7 @@
   },
   {
     "id": "osk_tenma_sato",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenjinbashi",
@@ -161,7 +161,7 @@
   },
   {
     "id": "osk_tenma_gomennejiro",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenjinbashi",
@@ -216,7 +216,7 @@
   },
   {
     "id": "osk_tenma_takama_soba",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenjinbashi",
@@ -271,7 +271,7 @@
   },
   {
     "id": "osk_tenma_gunjo",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenjinbashi",
@@ -316,7 +316,7 @@
   },
   {
     "id": "osk_tenma_rakunijin",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenjinbashi",
@@ -361,7 +361,7 @@
   },
   {
     "id": "osk_tenma_iwashi_honke",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenmangu",
@@ -410,7 +410,7 @@
   },
   {
     "id": "osk_tenma_haruko",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenmangu",
@@ -465,7 +465,7 @@
   },
   {
     "id": "osk_tenma_iwashi_omakase",
-    "area": "天满",
+    "area": "tenma",
     "near_attractions": [
       {
         "entity_id": "osk_tenmangu",

@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_kita_hyotei_honten",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_nanzenji",
@@ -63,7 +63,7 @@
   },
   {
     "id": "kyo_kita_nakahigashi",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_ginkakuji",
@@ -124,7 +124,7 @@
   },
   {
     "id": "kyo_kita_hyotei_bekkan",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_nanzenji",
@@ -179,7 +179,7 @@
   },
   {
     "id": "kyo_kita_ugenta",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kibune_jinja",
@@ -240,7 +240,7 @@
   },
   {
     "id": "kyo_kita_omen_ginkakuji",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_ginkakuji",
@@ -301,7 +301,7 @@
   },
   {
     "id": "kyo_kita_toriiwaro",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kitano_tenmangu",
@@ -362,7 +362,7 @@
   },
   {
     "id": "kyo_kita_gokkei",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_ginkakuji",
@@ -419,7 +419,7 @@
   },
   {
     "id": "kyo_kita_saryo_housen",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_shimogamo",
@@ -472,7 +472,7 @@
   },
   {
     "id": "kyo_kita_tendresse_patisserie",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_ginkakuji",
@@ -527,7 +527,7 @@
   },
   {
     "id": "kyo_kita_awamochi_sawaya",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kitano_tenmangu",
@@ -580,7 +580,7 @@
   },
   {
     "id": "kyo_kita_artisanhalles_bread",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_shimogamo",
@@ -633,7 +633,7 @@
   },
   {
     "id": "kyo_kita_capital_toyotei",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kitano_tenmangu",
@@ -691,7 +691,7 @@
   },
   {
     "id": "kyo_kita_chouseian_soba",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kinkakuji",
@@ -741,7 +741,7 @@
   },
   {
     "id": "kyo_kita_takenori",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kinkakuji",
@@ -798,7 +798,7 @@
   },
   {
     "id": "kyo_kita_satoyama_obanzai",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kinkakuji",
@@ -848,7 +848,7 @@
   },
   {
     "id": "kyo_kita_kishin_french",
-    "area": "北区",
+    "area": "kita",
     "near_attractions": [
       {
         "entity_id": "kyo_kinkakuji",

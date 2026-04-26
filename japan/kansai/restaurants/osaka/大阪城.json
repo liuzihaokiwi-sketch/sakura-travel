@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_osakajo_circo_doro",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",
@@ -45,7 +45,7 @@
   },
   {
     "id": "osk_osakajo_ubara",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",
@@ -89,7 +89,7 @@
   },
   {
     "id": "osk_osakajo_uemachi",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",
@@ -136,7 +136,7 @@
   },
   {
     "id": "osk_osakajo_guu_bakery",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",
@@ -181,7 +181,7 @@
   },
   {
     "id": "osk_osakajo_nadaman_imperial",
-    "area": "大阪城",
+    "area": "osakajo",
     "near_attractions": [
       {
         "entity_id": "osk_osaka_castle",

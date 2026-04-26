@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_umeda_ikeda_yakiku",
-    "area": "池田",
+    "area": "osaka_ikeda",
     "near_attractions": [
       {
         "entity_id": "osk_kyuanji",
@@ -51,7 +51,7 @@
   },
   {
     "id": "osk_umeda_ikeda_azuma",
-    "area": "池田",
+    "area": "osaka_ikeda",
     "near_attractions": [
       {
         "entity_id": "osk_kyuanji",

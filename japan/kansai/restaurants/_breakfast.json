@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_keage_hyotei_bekkan",
-    "area": "东山轴",
+    "area": "higashiyama_axis",
     "near_attractions": [
       {
         "entity_id": "kyo_nanzenji",
@@ -53,7 +53,7 @@
   },
   {
     "id": "kyo_gion_kishin_breakfast",
-    "area": "东山轴",
+    "area": "higashiyama_axis",
     "near_attractions": [
       {
         "entity_id": "kyo_yasaka_shrine",
@@ -103,7 +103,7 @@
   },
   {
     "id": "kyo_gion_nishiri_breakfast",
-    "area": "东山轴",
+    "area": "higashiyama_axis",
     "near_attractions": [
       {
         "entity_id": "kyo_yasaka_shrine",
@@ -154,7 +154,7 @@
   },
   {
     "id": "kyo_kawaramachi_chitiroru_breakfast",
-    "area": "河原町-先斗町",
+    "area": "kawaramachi_pontocho",
     "near_attractions": [
       {
         "entity_id": "kyo_gion_hanamikoji",
@@ -203,7 +203,7 @@
   },
   {
     "id": "osk_umeda_seven_breakfast",
-    "area": "梅田",
+    "area": "umeda",
     "near_attractions": [
       {
         "entity_id": "osk_umeda_sky",

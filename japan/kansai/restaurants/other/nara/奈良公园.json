@@ -1,7 +1,7 @@
 [
   {
     "id": "nar_park_jikon",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_todaiji",
@@ -59,7 +59,7 @@
   },
   {
     "id": "nar_park_shiraha",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -112,7 +112,7 @@
   },
   {
     "id": "nar_park_yoshimurasoba",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -164,7 +164,7 @@
   },
   {
     "id": "nar_park_housekibako",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_kasuga_taisha",
@@ -221,7 +221,7 @@
   },
   {
     "id": "nar_park_mitsubamilani",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -275,7 +275,7 @@
   },
   {
     "id": "nar_park_dandan_soba",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -333,7 +333,7 @@
   },
   {
     "id": "nar_park_kashiya",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -382,7 +382,7 @@
   },
   {
     "id": "nar_park_gateau_bois",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",
@@ -431,7 +431,7 @@
   },
   {
     "id": "nar_park_kiyosumi_awa",
-    "area": "奈良公园",
+    "area": "nara_park",
     "near_attractions": [
       {
         "entity_id": "nar_nara_park",

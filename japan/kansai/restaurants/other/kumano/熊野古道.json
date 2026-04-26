@@ -1,7 +1,7 @@
 [
   {
     "id": "kum_nachi_katsuura_seafood",
-    "area": "熊野古道",
+    "area": "kumano_kodo",
     "near_attractions": [
       {
         "entity_id": "kum_nachi_taisha",
@@ -56,7 +56,7 @@
   },
   {
     "id": "kum_hongu_chaya_teishoku",
-    "area": "熊野古道",
+    "area": "kumano_kodo",
     "near_attractions": [
       {
         "entity_id": "kum_hongu_taisha",
@@ -103,7 +103,7 @@
   },
   {
     "id": "kum_shingu_izakaya_kumanogawa",
-    "area": "熊野古道",
+    "area": "kumano_kodo",
     "near_attractions": [
       {
         "entity_id": "kum_hayatama_taisha",
@@ -151,7 +151,7 @@
   },
   {
     "id": "kum_nachi_onigiri_chaya",
-    "area": "熊野古道",
+    "area": "kumano_kodo",
     "near_attractions": [
       {
         "entity_id": "kum_nachi_taisha",

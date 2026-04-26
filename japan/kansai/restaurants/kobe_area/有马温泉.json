@@ -1,7 +1,7 @@
 [
   {
     "id": "arm_arima_toriyoshi",
-    "area": "有马温泉",
+    "area": "arima_onsen",
     "near_attractions": [
       {
         "entity_id": "arm_kin_no_yu",
@@ -52,7 +52,7 @@
   },
   {
     "id": "arm_arima_taikoyu_shokudo",
-    "area": "有马温泉",
+    "area": "arima_onsen",
     "near_attractions": [
       {
         "entity_id": "arm_kin_no_yu",
@@ -103,7 +103,7 @@
   },
   {
     "id": "arm_arima_kinnoyu_terrace",
-    "area": "有马温泉",
+    "area": "arima_onsen",
     "near_attractions": [
       {
         "entity_id": "arm_kin_no_yu",

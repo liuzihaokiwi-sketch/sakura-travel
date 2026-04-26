@@ -71,25 +71,10 @@ TIER_NAMES = {
     "b4": "高端", "b5": "奢华", "b6": "顶奢",
 }
 
-# tier × city × price 一致性（平季中位区间·D47）
-# 京都阈值（trip.com 京都 9 档压缩成 6）
-TIER_PRICE_KYOTO = {
-    "b1": (0, 500),
-    "b2": (500, 950),
-    "b3": (950, 1200),
-    "b4": (1200, 2000),
-    "b5": (2000, 3500),
-    "b6": (3500, 99999),
-}
-# 关西其他城市阈值（trip.com 关西 6 档 1:1）
-TIER_PRICE_OTHER = {
-    "b1": (0, 400),
-    "b2": (400, 600),
-    "b3": (600, 850),
-    "b4": (850, 1250),
-    "b5": (1250, 2050),
-    "b6": (2050, 99999),
-}
+# tier × city × price 一致性（D49 配置外置·从区圈 tier_thresholds.json 读）
+# 区圈根目录有 tier_thresholds.json 时按城市查表·缺省走 _default。
+# 没有 tier_thresholds.json 时跳过价格区间校验·只校验 tier 枚举本身。
+_TIER_PRICE_TABLE: dict[str, dict[str, tuple]] = {}  # main() 时填充·{city: {tier: (lo, hi)}}
 
 URL_RE = re.compile(r"^https?://", re.I)
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -163,14 +148,15 @@ def validate_item(it: dict, idx: int, file: Path,
                 errors.append(f"{file.name}::{hid} price_cny_per_night min=max（必须给区间）")
             elif lo > hi:
                 errors.append(f"{file.name}::{hid} price_cny_per_night min > max")
-            elif tier and tier in TIER_ENUM:
-                # 警告·非 FAIL：tier × city × 平季中位区间一致性（D47）
+            elif tier and tier in TIER_ENUM and _TIER_PRICE_TABLE:
+                # 警告·非 FAIL：tier × city × 平季中位区间一致性（D49 配置外置）
                 city = it.get("city", "")
-                table = TIER_PRICE_KYOTO if city == "京都" else TIER_PRICE_OTHER
-                t_lo, t_hi = table[tier]
-                if lo < t_lo * 0.7 or lo > t_hi * 1.3:
-                    name = TIER_NAMES.get(tier, tier)
-                    errors.append(f"{file.name}::{hid} ⚠ tier='{tier}'({name}) city={city} 但平季中位 {lo} 偏离区间 [{t_lo}, {t_hi}]")
+                table = _TIER_PRICE_TABLE.get(city) or _TIER_PRICE_TABLE.get("_default")
+                if table and tier in table:
+                    t_lo, t_hi = table[tier]
+                    if lo < t_lo * 0.7 or lo > t_hi * 1.3:
+                        name = TIER_NAMES.get(tier, tier)
+                        errors.append(f"{file.name}::{hid} ⚠ tier='{tier}'({name}) city={city} 但平季中位 {lo} 偏离区间 [{t_lo}, {t_hi}]")
 
     # --- season_months ---
     if "season_months" in it and it["season_months"] is not None:
@@ -341,6 +327,25 @@ def main(argv: list[str]) -> int:
     if not files:
         print(f"未找到酒店 JSON 文件: {target}")
         return 2
+
+    # tier 价格表从区圈 tier_thresholds.json 读·配置外置
+    global _TIER_PRICE_TABLE
+    try:
+        from _circle_resolver import find_circle_root
+        circle_root = find_circle_root(target)
+        tt_path = circle_root / "tier_thresholds.json"
+        if tt_path.exists():
+            tt_data = json.loads(tt_path.read_text(encoding="utf-8"))
+            raw = tt_data.get("price_table_per_city", {})
+            # tuple-ify
+            for k, v in raw.items():
+                if k.startswith("_"): continue
+                _TIER_PRICE_TABLE[k] = {tier: tuple(rng) for tier, rng in v.items() if not tier.startswith("_")}
+            if "_default" in raw:
+                _TIER_PRICE_TABLE["_default"] = {tier: tuple(rng) for tier, rng in raw["_default"].items() if not tier.startswith("_")}
+            print(f"区圈 tier 价格表：{len(_TIER_PRICE_TABLE)} 城市")
+    except Exception:
+        pass  # 没有 tier_thresholds.json 时跳过价格区间校验·只校验 tier 枚举
 
     total = 0
     total_errors = 0

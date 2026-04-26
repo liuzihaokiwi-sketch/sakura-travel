@@ -1,7 +1,7 @@
 [
   {
     "id": "osk_bay_area_wan_wang_zi_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -46,7 +46,7 @@
   },
   {
     "id": "osk_bay_area_universal_port_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -91,7 +91,7 @@
   },
   {
     "id": "osk_bay_area_usj",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -136,7 +136,7 @@
   },
   {
     "id": "osk_bay_area_universal_qi_dian_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -182,7 +182,7 @@
   },
   {
     "id": "osk_bay_area_risonare",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -228,7 +228,7 @@
   },
   {
     "id": "osk_bay_area_liber",
-    "city": "大阪",
+    "city": "osaka",
     "area": "bay_area",
     "near_attractions": [
       {
@@ -274,7 +274,7 @@
   },
   {
     "id": "osk_honmachi_st_regis_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "honmachi",
     "near_attractions": [
       {
@@ -314,7 +314,7 @@
   },
   {
     "id": "osk_honmachi_the_boly_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "honmachi",
     "near_attractions": [
       {
@@ -355,7 +355,7 @@
   },
   {
     "id": "osk_honmachi_honmachi_lively_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "honmachi",
     "near_attractions": [
       {
@@ -397,7 +397,7 @@
   },
   {
     "id": "osk_honmachi_voco",
-    "city": "大阪",
+    "city": "osaka",
     "area": "honmachi",
     "near_attractions": [
       {
@@ -438,7 +438,7 @@
   },
   {
     "id": "osk_namba_dotonbori_swissotel_nankai_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -483,7 +483,7 @@
   },
   {
     "id": "osk_namba_dotonbori_hotel_new_otani_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -529,7 +529,7 @@
   },
   {
     "id": "osk_namba_centara_grand_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -569,7 +569,7 @@
   },
   {
     "id": "osk_namba_dotonbori_cross_hotel_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -614,7 +614,7 @@
   },
   {
     "id": "osk_namba_dotonbori_hiyori",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -659,7 +659,7 @@
   },
   {
     "id": "osk_namba_dotonbori_monterey_ge_la_si_mi_er_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -704,7 +704,7 @@
   },
   {
     "id": "osk_namba_dotonbori_here_osaka_namba",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -750,7 +750,7 @@
   },
   {
     "id": "osk_namba_dotonbori_namba_dong_fang_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -794,7 +794,7 @@
   },
   {
     "id": "osk_namba_dotonbori_cheng_hilton_doubletree_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -839,7 +839,7 @@
   },
   {
     "id": "osk_namba_patina_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -878,7 +878,7 @@
   },
   {
     "id": "osk_namba_dotonbori_four_seasons_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -920,7 +920,7 @@
   },
   {
     "id": "osk_namba_royal_classic_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -960,7 +960,7 @@
   },
   {
     "id": "osk_namba_dotonbori_caption_by_hyatt_namba",
-    "city": "大阪",
+    "city": "osaka",
     "area": "namba_dotonbori",
     "near_attractions": [
       {
@@ -1006,7 +1006,7 @@
   },
   {
     "id": "osk_shinsaibashi_hotel_nikko_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1051,7 +1051,7 @@
   },
   {
     "id": "osk_shinsaibashi_candeo_hotels_osaka_shinsaibas",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1096,7 +1096,7 @@
   },
   {
     "id": "osk_shinsaibashi_the_bridge_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1141,7 +1141,7 @@
   },
   {
     "id": "osk_shinsaibashi_nikko_bettei_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1181,7 +1181,7 @@
   },
   {
     "id": "osk_shinsaibashi_monterey_lei_fu_lai_er_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1227,7 +1227,7 @@
   },
   {
     "id": "osk_shinsaibashi_w_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "shinsaibashi",
     "near_attractions": [
       {
@@ -1269,7 +1269,7 @@
   },
   {
     "id": "osk_tennoji_marriott_miyako",
-    "city": "大阪",
+    "city": "osaka",
     "area": "tennoji_shinsekai",
     "near_attractions": [
       {
@@ -1309,7 +1309,7 @@
   },
   {
     "id": "osk_tennoji_shinsekai_omo7_by",
-    "city": "大阪",
+    "city": "osaka",
     "area": "tennoji_shinsekai",
     "near_attractions": [
       {
@@ -1355,7 +1355,7 @@
   },
   {
     "id": "osk_tennoji_shinsekai_tennoji_ta_an_da_zhi_sen",
-    "city": "大阪",
+    "city": "osaka",
     "area": "tennoji_shinsekai",
     "near_attractions": [
       {
@@ -1401,7 +1401,7 @@
   },
   {
     "id": "osk_umeda_kita_imperial_hotel_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1441,7 +1441,7 @@
   },
   {
     "id": "osk_umeda_kita_hilton_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1481,7 +1481,7 @@
   },
   {
     "id": "osk_umeda_kita_capella_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1521,7 +1521,7 @@
   },
   {
     "id": "osk_umeda_kita_rihga_royal_hotel_da_ban",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1567,7 +1567,7 @@
   },
   {
     "id": "osk_umeda_kita_hankyu_international",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1607,7 +1607,7 @@
   },
   {
     "id": "osk_umeda_kita_zentis_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1653,7 +1653,7 @@
   },
   {
     "id": "osk_umeda_kita_mitsui_garden_premier",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1694,7 +1694,7 @@
   },
   {
     "id": "osk_umeda_kita_westin_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1734,7 +1734,7 @@
   },
   {
     "id": "osk_umeda_kita_waldorf_astoria_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1774,7 +1774,7 @@
   },
   {
     "id": "osk_umeda_kita_umeda_hilton_canopy_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1819,7 +1819,7 @@
   },
   {
     "id": "osk_umeda_kita_osaka_monterey",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1859,7 +1859,7 @@
   },
   {
     "id": "osk_umeda_kita_tones_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1905,7 +1905,7 @@
   },
   {
     "id": "osk_umeda_kita_osaka_station_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1945,7 +1945,7 @@
   },
   {
     "id": "osk_umeda_kita_dojima_aloft",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -1991,7 +1991,7 @@
   },
   {
     "id": "osk_umeda_kita_conrad_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -2031,7 +2031,7 @@
   },
   {
     "id": "osk_umeda_kita_intercontinental_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -2071,7 +2071,7 @@
   },
   {
     "id": "osk_umeda_kita_ritz_carlton_osaka",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {
@@ -2117,7 +2117,7 @@
   },
   {
     "id": "osk_umeda_kita_a_er_mo_ni_an_bu_la_sai_hotel",
-    "city": "大阪",
+    "city": "osaka",
     "area": "umeda_kita",
     "near_attractions": [
       {

@@ -22,7 +22,7 @@ from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _circle_resolver import find_circle_root, load_area_set
+from _circle_resolver import find_circle_root, load_area_set, load_city_set
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -53,10 +53,8 @@ DEPTH_ENUM = {"full", "verified", "skeleton"}
 
 CONFIDENCE_ENUM = {"verified", "cross_checked", "single_source", "ai_generated"}
 
-CITY_ENUM = {
-    "kyoto", "osaka", "nara", "kobe", "arima", "himeji",
-    "koyasan", "kinosaki", "kumano", "amanohashidate", "other",
-}
+# city 枚举从 registry 推导·main() 时填充·不再硬编码
+_CITY_ENUM: set[str] = set()
 
 
 def validate_entity(eid: str, data: dict, file: Path) -> list[str]:
@@ -91,8 +89,8 @@ def validate_entity(eid: str, data: dict, file: Path) -> list[str]:
         errors.append(f"{file.name}::{eid} depth='{data['depth']}' 不在枚举 {DEPTH_ENUM}")
 
     # 6. city 枚举
-    if "city" in data and data["city"] not in CITY_ENUM:
-        errors.append(f"{file.name}::{eid} city='{data['city']}' 不在枚举 {CITY_ENUM}")
+    if "city" in data and _CITY_ENUM and data["city"] not in _CITY_ENUM:
+        errors.append(f"{file.name}::{eid} city='{data['city']}' 不在枚举 {_CITY_ENUM}")
 
     # 7. 可信度枚举
     if "可信度" in data and data["可信度"] not in CONFIDENCE_ENUM:
@@ -202,7 +200,7 @@ def collect_files(target: Path) -> list[Path]:
 
 
 def main(argv: list[str]) -> int:
-    global _AREA_REGISTRY
+    global _AREA_REGISTRY, _CITY_ENUM
     if len(argv) < 2:
         print("用法: python scripts/validate_entity.py <file_or_dir>")
         return 2
@@ -213,11 +211,12 @@ def main(argv: list[str]) -> int:
         print(f"未找到 JSON 文件: {target}")
         return 2
 
-    # 通用化：从输入路径向上找区圈 area_registry.json
+    # 通用化：从输入路径向上找区圈 area_registry.json·推 area 白名单 + city 枚举
     try:
         circle_root = find_circle_root(target)
         _AREA_REGISTRY = load_area_set(circle_root)
-        print(f"区圈：{circle_root.relative_to(REPO_ROOT)}·area 白名单 {len(_AREA_REGISTRY)} 条")
+        _CITY_ENUM = load_city_set(circle_root)
+        print(f"区圈：{circle_root.relative_to(REPO_ROOT)}·area 白名单 {len(_AREA_REGISTRY)} 条·city 枚举 {len(_CITY_ENUM)} 条")
     except FileNotFoundError as e:
         print(str(e))
         return 2

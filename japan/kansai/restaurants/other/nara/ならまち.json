@@ -1,7 +1,7 @@
 [
   {
     "id": "nar_naramachi_kondo_tofu",
-    "area": "ならまち",
+    "area": "naramachi",
     "near_attractions": [
       {
         "entity_id": "nar_kasuga_taisha",
@@ -49,7 +49,7 @@
   },
   {
     "id": "nar_naramachi_awa_naramachi",
-    "area": "ならまち",
+    "area": "naramachi",
     "near_attractions": [
       {
         "entity_id": "nar_kasuga_taisha",
@@ -96,7 +96,7 @@
   },
   {
     "id": "nar_naramachi_naramachi_beer",
-    "area": "ならまち",
+    "area": "naramachi",
     "near_attractions": [
       {
         "entity_id": "nar_kasuga_taisha",
@@ -144,7 +144,7 @@
   },
   {
     "id": "nar_naramachi_hirasou",
-    "area": "ならまち",
+    "area": "naramachi",
     "near_attractions": [
       {
         "entity_id": "nar_kofukuji",

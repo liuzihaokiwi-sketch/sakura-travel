@@ -1,7 +1,7 @@
 [
   {
     "id": "kyo_fushimi_torisei",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_teradaya",
@@ -63,7 +63,7 @@
   },
   {
     "id": "kyo_fushimi_tsuki_kurabito",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_teradaya",
@@ -123,7 +123,7 @@
   },
   {
     "id": "kyo_fushimi_taiga_udon",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_fujinomori_shrine",
@@ -173,7 +173,7 @@
   },
   {
     "id": "kyo_fushimi_nezameya",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_fushimi_inari",
@@ -224,7 +224,7 @@
   },
   {
     "id": "kyo_fushimi_kendonya_udon",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_fushimi_inari",
@@ -276,7 +276,7 @@
   },
   {
     "id": "kyo_fushimi_tojimaru_jizake",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_fushimi_inari",
@@ -326,7 +326,7 @@
   },
   {
     "id": "kyo_fushimi_kushitail_sama",
-    "area": "伏见",
+    "area": "fushimi",
     "near_attractions": [
       {
         "entity_id": "kyo_fushimi_inari",
