@@ -1544,5 +1544,63 @@
       "预约": "无需预约",
       "到店提醒": "清水寺逛后顺路；冬季+秋红叶最对"
     }
+  },
+  {
+    "id": "kyo_higashi_nanzenji_junsei",
+    "area": "higashiyama_axis",
+    "near_attractions": [
+      {
+        "entity_id": "kyo_nanzenji",
+        "walk_min": 3
+      },
+      {
+        "entity_id": "kyo_murin_an",
+        "walk_min": 5
+      }
+    ],
+    "tier": "high",
+    "cuisine": [
+      "豆腐料理",
+      "京会席"
+    ],
+    "recommended_meals": [
+      {
+        "meal": "lunch",
+        "price_cny": [
+          200,
+          400
+        ]
+      },
+      {
+        "meal": "dinner",
+        "price_cny": [
+          400,
+          800
+        ]
+      }
+    ],
+    "reservation_difficulty": "recommended",
+    "queue_level": "mild",
+    "closed_days": [],
+    "season_months": null,
+    "depth": "full",
+    "note": {
+      "店名": "南禅寺 順正（Nanzenji Junsei）",
+      "简介": "**天保 10 年（1839）·蘭学者新宫凉庭学问所「順正書院」改建·1200 坪庭园·东山借景·名物湯豆腐**·南禅寺一帯优质水源育豆腐·利尻产昆布出汁·木綿豆腐有絹ごし的口感·**石门是国登録有形文化財**·書院江戸時代医学講義+大名诸侯+文人墨客文化沙龙旧址·中庭水流绕 1200 坪。",
+      "亮点": [
+        "老铺名物",
+        "1839 年学问所改建",
+        "1200 坪庭园+东山借景",
+        "名物湯豆腐",
+        "国登録有形文化財石门"
+      ],
+      "招牌菜": [
+        "湯豆腐コース",
+        "京会席（湯葉/鱼料理含）"
+      ],
+      "地址": "京都市左京区南禅寺草川町 60·地铁東西線蹴上駅徒步 5 分",
+      "营业": "11:00-21:30（LO 20:00）·不定休",
+      "预约": "昼推荐预约·夜必约·电话 075-761-2311"
+    }
   }
 ]
