@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel AI Workflow"
+  short_description: "Use the Travel AI project workflow."
+  default_prompt: "Use the Travel AI workflow to identify the task type, read the smallest relevant context, research when needed, and update the correct project artifacts."

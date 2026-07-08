@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel AI Research"
+  short_description: "Research and evidence workflow for Travel AI."
+  default_prompt: "Use this skill for Travel AI research, opencli, evidence capture, and conclusion write-back."

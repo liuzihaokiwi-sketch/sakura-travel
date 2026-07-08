@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handbook Visual Production"
+  short_description: "Complex handbook visual assets."
+  default_prompt: "Use this skill for Travel AI complex visual assets, maps, Kiwi, spread pages, references, and source notes."

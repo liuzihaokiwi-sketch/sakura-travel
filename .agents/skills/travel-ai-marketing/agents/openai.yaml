@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel AI Marketing"
+  short_description: "Marketing content workflow."
+  default_prompt: "Use this skill for Travel AI marketing topics, Xiaohongshu/Douyin content, viral references, and operations copy."

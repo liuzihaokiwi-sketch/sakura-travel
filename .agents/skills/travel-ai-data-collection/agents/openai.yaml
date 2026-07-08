@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel AI Data Collection"
+  short_description: "Travel data collection workflow."
+  default_prompt: "Use this skill for Travel AI entity, restaurant, hotel, stops, and factual data collection."

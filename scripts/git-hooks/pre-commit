@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Travel AI · pre-commit 强制闸(模型绕不过)
+#
+# 启用(一次性,两端 Codex/Claude 都生效):
+#   git config core.hooksPath scripts/git-hooks
+#   chmod +x scripts/git-hooks/pre-commit
+#
+# 作用: 提交前跑真实 validator(数据池 + 模板)。schema 错误 / 破损 JSON -> 挡下提交。
+# 显式绕过(留痕): git commit --no-verify
+#
+# 设计: 只挡 validator 能确定判定的 data/template 错误(快、明确)。
+# 会话级健康检查(check_workflow.ps1)仍由 land-the-plane 收尾仪式跑, 不放这里。
+
+cd "$(git rev-parse --show-toplevel)"
+
+# --- 敏感文件 / 硬编码密钥闸(从旧 .git/hooks/pre-commit 迁入,启用 hooksPath 后不丢) ---
+FORBIDDEN_PATTERNS=".env .env.local .env.production .env.*.local *.pem *.key id_rsa"
+for pattern in $FORBIDDEN_PATTERNS; do
+  files=$(git diff --cached --name-only | grep -E "^${pattern}$" 2>/dev/null || true)
+  if [ -n "$files" ]; then
+    echo "[pre-commit] 禁止提交敏感文件: $files (确需提交: git commit --no-verify)"
+    exit 1
+  fi
+done
+if git diff --cached --diff-filter=ACM | grep -qiE "(sk-[a-zA-Z0-9]{20,}|AKIA[0-9A-Z]{16}|ghp_[a-zA-Z0-9]{36})"; then
+  echo "[pre-commit] 检测到疑似 API Key 硬编码,请检查 (误报: git commit --no-verify)"
+  exit 1
+fi
+
+set -e
+PY=""
+for c in ".venv/Scripts/python.exe" ".venv/bin/python" "python" "python3"; do
+  if command -v "$c" >/dev/null 2>&1 || [ -x "$c" ]; then PY="$c"; break; fi
+done
+if [ -z "$PY" ]; then
+  echo "[pre-commit] 找不到 python, 跳过 validator(建议装 python 后重试)。"
+  exit 0
+fi
+
+export PYTHONIOENCODING=utf-8
+fail=0
+run() {  # run <name> <script> <target>
+  if [ -f "$2" ] && [ -e "$3" ]; then
+    if ! "$PY" "$2" "$3" >/tmp/precommit_$1.log 2>&1; then
+      echo "[pre-commit] FAIL: $1"; tail -5 "/tmp/precommit_$1.log" | sed 's/^/    /'; fail=1
+    else
+      echo "[pre-commit] ok: $1"
+    fi
+  fi
+}
+
+run entity      scripts/validate_entity.py       japan/kansai/entities
+run restaurants scripts/validate_restaurants.py  japan/kansai/restaurants
+run hotels      scripts/validate_hotels.py       japan/kansai/hotels
+
+if [ "$fail" -ne 0 ]; then
+  echo "[pre-commit] 提交被挡: 上面 validator 报错。修复, 或 git commit --no-verify 显式绕过。"
+  exit 1
+fi
+echo "[pre-commit] OK"

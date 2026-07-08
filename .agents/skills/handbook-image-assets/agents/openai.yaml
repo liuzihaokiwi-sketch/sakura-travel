@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handbook Image Assets"
+  short_description: "Generate travel-handbook image assets."
+  default_prompt: "Use $handbook-image-assets to generate or wire travel-handbook image assets for this route."

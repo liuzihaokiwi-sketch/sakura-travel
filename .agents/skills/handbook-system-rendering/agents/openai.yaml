@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handbook System Rendering"
+  short_description: "Frontend rendering workflow for handbook pages."
+  default_prompt: "Use this skill for Travel AI handbook frontend render pages, public assets, layout, and build verification."

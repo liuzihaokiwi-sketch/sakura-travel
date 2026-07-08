@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel AI Content Assembly"
+  short_description: "Plan, template, transport, and resource assembly workflow."
+  default_prompt: "Use this skill for Travel AI plan, template, transport, resources, and content assembly work."
